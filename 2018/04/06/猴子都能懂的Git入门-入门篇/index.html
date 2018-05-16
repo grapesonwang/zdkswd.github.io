@@ -242,7 +242,7 @@
 <blockquote>
 <p>$ git log</p>
 </blockquote>
-<p>commit ac56e474afbbe1eab9ebce5b3ab48ac4c73ad60e<br>Author: eguchi <a href="mailto:&#101;&#103;&#117;&#99;&#x68;&#105;&#x40;&#110;&#x75;&#108;&#97;&#x62;&#46;&#x63;&#x6f;&#x2e;&#106;&#112;" target="_blank" rel="noopener">&#101;&#103;&#117;&#99;&#x68;&#105;&#x40;&#110;&#x75;&#108;&#97;&#x62;&#46;&#x63;&#x6f;&#x2e;&#106;&#112;</a><br>Date:   Thu Jul 12 18:00:21 2012 +0900<br>first commit</p>
+<p>commit ac56e474afbbe1eab9ebce5b3ab48ac4c73ad60e<br>Author: eguchi <a href="mailto:&#x65;&#103;&#117;&#x63;&#104;&#105;&#x40;&#x6e;&#x75;&#x6c;&#x61;&#98;&#x2e;&#x63;&#x6f;&#46;&#x6a;&#x70;" target="_blank" rel="noopener">&#x65;&#103;&#117;&#x63;&#104;&#105;&#x40;&#x6e;&#x75;&#x6c;&#x61;&#98;&#x2e;&#x63;&#x6f;&#46;&#x6a;&#x70;</a><br>Date:   Thu Jul 12 18:00:21 2012 +0900<br>first commit</p>
 <p>安装git的同时会安装名为gitk的工具。使用这个工具，可以在GUI下确认提交记录。</p>
 <blockquote>
 <p>$ gitk </p>
@@ -414,6 +414,30 @@
 
 
 
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz",
+            appKey: "gkBx5soQkBREmER84PWbNJeM",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
 
 
 
