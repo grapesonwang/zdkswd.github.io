@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>[Linux内核设计与实现]进程调度 | ZDK&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Linux">
+    <meta name="description" content="多任务现代Linux系统也许有100个进程在内存，但是只有一个处于可运行状态。Linux是抢占式多任务模式。 Linux的进程调度Linux2.5内核开始采用O（1）调度程序，对大服务器工作负载很理想但对于交互性桌面系统表现不佳。2.6.23内核后使用RSDL增加了交互性，此时被称为CFS（完全公平调度算法） 策略I/O消耗型和处理器消耗型的进程GUI属于I/O消耗型，多数时间都在等待键鼠交互操作">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Linux内核设计与实现]进程调度">
+<meta property="og:url" content="https://github.com/zdkswd/2018/05/15/进程调度/index.html">
+<meta property="og:site_name" content="ZDK&#39;s blog">
+<meta property="og:description" content="多任务现代Linux系统也许有100个进程在内存，但是只有一个处于可运行状态。Linux是抢占式多任务模式。 Linux的进程调度Linux2.5内核开始采用O（1）调度程序，对大服务器工作负载很理想但对于交互性桌面系统表现不佳。2.6.23内核后使用RSDL增加了交互性，此时被称为CFS（完全公平调度算法） 策略I/O消耗型和处理器消耗型的进程GUI属于I/O消耗型，多数时间都在等待键鼠交互操作">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-05-15T13:42:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[Linux内核设计与实现]进程调度">
+<meta name="twitter:description" content="多任务现代Linux系统也许有100个进程在内存，但是只有一个处于可运行状态。Linux是抢占式多任务模式。 Linux的进程调度Linux2.5内核开始采用O（1）调度程序，对大服务器工作负载很理想但对于交互性桌面系统表现不佳。2.6.23内核后使用RSDL增加了交互性，此时被称为CFS（完全公平调度算法） 策略I/O消耗型和处理器消耗型的进程GUI属于I/O消耗型，多数时间都在等待键鼠交互操作">
+    
+        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/tmg.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ZDK</h5>
+          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">[Linux内核设计与实现]进程调度</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">[Linux内核设计与实现]进程调度</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-05-15T13:39:12.000Z" itemprop="datePublished" class="page-time">
+  2018-05-15
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#多任务"><span class="post-toc-number">1.</span> <span class="post-toc-text">多任务</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Linux的进程调度"><span class="post-toc-number">2.</span> <span class="post-toc-text">Linux的进程调度</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#策略"><span class="post-toc-number">3.</span> <span class="post-toc-text">策略</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#I-O消耗型和处理器消耗型的进程"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">I/O消耗型和处理器消耗型的进程</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#进程优先级"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">进程优先级</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#时间片"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">时间片</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#调度策略的活动"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">调度策略的活动</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Linux调度算法"><span class="post-toc-number">4.</span> <span class="post-toc-text">Linux调度算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#调度器类"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">调度器类</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Unix系统的进程调度"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">Unix系统的进程调度</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#公平调度"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">公平调度</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Linux调度的实现"><span class="post-toc-number">5.</span> <span class="post-toc-text">Linux调度的实现</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#时间记账"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">时间记账</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#进程选择"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">进程选择</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#调度器入口"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">调度器入口</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#睡眠和唤醒"><span class="post-toc-number">5.4.</span> <span class="post-toc-text">睡眠和唤醒</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#抢占和上下文切换"><span class="post-toc-number">6.</span> <span class="post-toc-text">抢占和上下文切换</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#用户抢占"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">用户抢占</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#内核抢占"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">内核抢占</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实时调度策略"><span class="post-toc-number">7.</span> <span class="post-toc-text">实时调度策略</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#与调度相关的系统调度"><span class="post-toc-number">8.</span> <span class="post-toc-text">与调度相关的系统调度</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#与调度策略和优先级相关的系统调用"><span class="post-toc-number">8.1.</span> <span class="post-toc-text">与调度策略和优先级相关的系统调用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#与处理器绑定有关的系统调用"><span class="post-toc-number">8.2.</span> <span class="post-toc-text">与处理器绑定有关的系统调用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#放弃处理器时间"><span class="post-toc-number">8.3.</span> <span class="post-toc-text">放弃处理器时间</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-进程调度"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">[Linux内核设计与实现]进程调度</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-05-15 21:39:12" datetime="2018-05-15T13:39:12.000Z"  itemprop="datePublished">2018-05-15</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="多任务"><a href="#多任务" class="headerlink" title="多任务"></a>多任务</h2><p>现代Linux系统也许有100个进程在内存，但是只有一个处于可运行状态。<br>Linux是抢占式多任务模式。</p>
+<h2 id="Linux的进程调度"><a href="#Linux的进程调度" class="headerlink" title="Linux的进程调度"></a>Linux的进程调度</h2><p>Linux2.5内核开始采用O（1）调度程序，对大服务器工作负载很理想但对于交互性桌面系统表现不佳。<br>2.6.23内核后使用RSDL增加了交互性，此时被称为CFS（完全公平调度算法）</p>
+<h2 id="策略"><a href="#策略" class="headerlink" title="策略"></a>策略</h2><h3 id="I-O消耗型和处理器消耗型的进程"><a href="#I-O消耗型和处理器消耗型的进程" class="headerlink" title="I/O消耗型和处理器消耗型的进程"></a>I/O消耗型和处理器消耗型的进程</h3><p>GUI属于I/O消耗型，多数时间都在等待键鼠交互操作。<br>应当降低处理器消耗型的调度频率，以延长其运行时间。<br>Linux更倾向于IO消耗型进程，也并未忽略处理器消耗型进程。</p>
+<h3 id="进程优先级"><a href="#进程优先级" class="headerlink" title="进程优先级"></a>进程优先级</h3><p>Linux采用了两种不同范围的优先级范围。<br>1：使用nice值，范围【-20，19】，默认0，越大优先级越低。Linux nice代表时间片比例，mac os nice代表时间片的绝对值。<br>2：实时优先级，其值可配。范围【0，99】，越高优先级越大。任何实时进程优先级都高于普通进程。</p>
+<h3 id="时间片"><a href="#时间片" class="headerlink" title="时间片"></a>时间片</h3><p>Linux的CFS调度器并没有直接分配时间片到进程，将处理器的使用比划分给了进程。进程所获处理器的时间和负载密切相关。受nice值得影响。<br>Linux的CFS调度器抢占时机取决于进程的处理器使用比，若大于当前进程则抢占。</p>
+<h3 id="调度策略的活动"><a href="#调度策略的活动" class="headerlink" title="调度策略的活动"></a>调度策略的活动</h3><p>对于一个文字编辑程序和一个视频处理程序，一般操作系统会分配文字编辑器更高的优先级和更多的时间片。Linux则是nice值相同，即平分50%时间，但是当文字编辑程序要使用处理器时，CFS发现其时间没到50%，会抢占视频处理程序执行。</p>
+<h2 id="Linux调度算法"><a href="#Linux调度算法" class="headerlink" title="Linux调度算法"></a>Linux调度算法</h2><h3 id="调度器类"><a href="#调度器类" class="headerlink" title="调度器类"></a>调度器类</h3><p>Linux调度器是模块方式，可以针对不同类型的进程选择合适的调度算法。<br>完全公平调度（CFS）是针对普通进程的调度类。</p>
+<h3 id="Unix系统的进程调度"><a href="#Unix系统的进程调度" class="headerlink" title="Unix系统的进程调度"></a>Unix系统的进程调度</h3><p>CFS完全摒弃时间片而是分配进程一个处理器的使用比重，这样CFS确保了进程调度有恒定的公平性，将切换频率置于不断变动中。</p>
+<h3 id="公平调度"><a href="#公平调度" class="headerlink" title="公平调度"></a>公平调度</h3><p>CFS的最小粒度（最小时间片长度）为1ms，时间片分配时间根据目标延迟以及nice值决定的比例计算而得。所以说其实如果进程无限大的话，改法并不公平。但是能保证正常情况下是公平的。</p>
+<h2 id="Linux调度的实现"><a href="#Linux调度的实现" class="headerlink" title="Linux调度的实现"></a>Linux调度的实现</h2><h3 id="时间记账"><a href="#时间记账" class="headerlink" title="时间记账"></a>时间记账</h3><p> 所有的调度器都必须对进程运行时间做记账。</p>
+<ol>
+<li><strong>调度器实体结构</strong>,CFS不再有时间片的概念，但是它也必须维护每个进程运行时间记账，为了确保每个进程只在公平分配给它的处理器时间运行。CFS使用调度器实体结构struct sched_entity作为名为se的成员变量，嵌入进程描述符struct task_struct内。  </li>
+<li><strong>虚拟实时</strong>，struct sched_entity结构中的vruntime变量存放进程的虚拟运行时间，虚拟时间是以ns为单位的，与定时器节拍不再相关。vruntime可以准确地测量给定进程的运行时间，而且可知道谁应该是下一个被运行的进程。</li>
+</ol>
+<h3 id="进程选择"><a href="#进程选择" class="headerlink" title="进程选择"></a>进程选择</h3><p>当CFS需要选择下一个运行进程时，它会挑一个具有最小vruntime的进程。<br>CFS使用红黑树来组织可运行进程队列，并利用其迅速找到最小的vruntime值的进程。红黑树是一种以树节点形式存储的数据，这些数据都对应一个键值，可通过键值快速检索节点上的数据。</p>
+<ol>
+<li><strong>挑选下一个任务</strong>，CFS调度器选取待运行的下一个进程，是所有进程中vruntime最小的那一个，对应的便是树最左侧的叶子节点。   </li>
+<li><strong>向树中加入进程</strong>，CFS如何将进程加入rbtree中，以及如何缓存最左叶子节点。这一切发生在进程变为可运行状态（被唤醒）或是通过fork()调用第一次创建进程时。enqueue_entity()函数实现了这一目的。改函数更新运行时间和其他一些统计数据，然后调用_enqueue_entity()进行繁重的插入操作，把数据项真正插入到红黑树中。</li>
+<li><strong>从树中删除进程</strong>, 删除动作发生在进程堵塞或者终止时。<h3 id="调度器入口"><a href="#调度器入口" class="headerlink" title="调度器入口"></a>调度器入口</h3>进程调度的主要入口点是函数schedule()，它会找到一个最高优先级的调度类，其需要有自己的可运行队列。<h3 id="睡眠和唤醒"><a href="#睡眠和唤醒" class="headerlink" title="睡眠和唤醒"></a>睡眠和唤醒</h3>休眠（被阻塞）进程把自己标记成休眠状态，从可执行红黑树中移出，放入等待队列，然后调用schedule()选择和执行一个其他进程。唤醒的过程刚好相反：进程被设置为可执行状态，然后再从等待队列中移到可执行红黑树中。</li>
+<li><strong>等待队列</strong>， 等待队列是由等待某些事件发生的进程组成的简单链表。</li>
+<li><strong>唤醒</strong>， 唤醒指定等待队列上的所有进程。<h2 id="抢占和上下文切换"><a href="#抢占和上下文切换" class="headerlink" title="抢占和上下文切换"></a>抢占和上下文切换</h2>上下文切换，就是从一个可执行进程切换到另一个可执行的进程。由函数context_switch()负责，每当新的进程被选出来准备投入运行时，schedule()就会调用该函数。内核提供了一个need_resched标志表明是否需要重新执行一次调度，内核也就知道什么时候调用schedule()。当某个进程应该被抢占或优先级高的进程进入可执行状态时或中断返回或系统调用返回用户空间，会设置标志位。<h3 id="用户抢占"><a href="#用户抢占" class="headerlink" title="用户抢占"></a>用户抢占</h3>内核即将返回用户空间的时候，如果need_resched标志被设置，会导致schedule()被调用，此时就会发生用户抢占。即用户抢占发生在</li>
+</ol>
+<ul>
+<li>从系统调用返回用户空间时。     </li>
+<li>从中断处理程序返回用户空间时。  </li>
+</ul>
+<h3 id="内核抢占"><a href="#内核抢占" class="headerlink" title="内核抢占"></a>内核抢占</h3><p>Linux完整地支持内核抢占，只要重新调度是安全的，内核就可以在任何时候抢占正在执行的内核任务。安全即没有持有锁，即preempy_count=0且need_resched被设置，中断返回内核空间时，就可调度。同样若内核阻塞或显式调用schedule()也会显式抢占。</p>
+<h2 id="实时调度策略"><a href="#实时调度策略" class="headerlink" title="实时调度策略"></a>实时调度策略</h2><p>Linux提供了两种实时调度策略：SCHED_FIFO和SCHED_RR，普通的非实时的调度策略是SCHED_NORMAL.这些策略被一个特殊的实时调度器管理。</p>
+<ol>
+<li><strong>SCHED_FIFO</strong>, 不基于时间片，可以一直执行下去，其比任何SCHED_NORMAL级的进程都先得到调度。更高优先级的SCHED_FIFO或SCHED_RR才能抢占。优先级一样的就轮流执行。</li>
+<li><strong>SCHED_RR</strong>,带有时间片的SCHED_FIFO，耗尽时间片时，只能调度同一优先级的进程。<br>【 <strong>总结</strong>】：对于SCHED_FIFO进程，高优先级总是立即抢占低优先级进程，但低优先级决不能抢占SCHED__RR任务，即使它的时间片耗尽。<br>Linux提供的是软实时工作方式，SCHED_RR与SCHED_FIFO优先级范围【0，99】，而SCHED_NORMAL使用nice值。<h2 id="与调度相关的系统调度"><a href="#与调度相关的系统调度" class="headerlink" title="与调度相关的系统调度"></a>与调度相关的系统调度</h2>Linux提供了一个系统调用族，用于管理与调度程序的相关<strong>参数</strong>。这些系统调用可以用来操作和处理进程优先级、调度策略及处理器绑定，同时还提供了显式地将处理器交给其他进程的机制。<h3 id="与调度策略和优先级相关的系统调用"><a href="#与调度策略和优先级相关的系统调用" class="headerlink" title="与调度策略和优先级相关的系统调用"></a>与调度策略和优先级相关的系统调用</h3>sched_setscheduler()和sched_getscheduler()用于设置和获取进程的调度策略和实时优先级。sched_setparam()和sched_getparam()用于设置和获取进程的实时优先级。<h3 id="与处理器绑定有关的系统调用"><a href="#与处理器绑定有关的系统调用" class="headerlink" title="与处理器绑定有关的系统调用"></a>与处理器绑定有关的系统调用</h3>Linux调度程序提供强制的处理器绑定机制。<h3 id="放弃处理器时间"><a href="#放弃处理器时间" class="headerlink" title="放弃处理器时间"></a>放弃处理器时间</h3>Linux通过sched_yield()系统调用，提供了一种让进程显式地将处理器时间让给其他等待执行进程的机制。 </li>
+</ol>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2018-05-15T13:42:02.000Z" itemprop="dateUpdated">2018-05-15 21:42:02</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2018/05/15/进程调度/" target="_blank" rel="external">https://github.com/zdkswd/2018/05/15/进程调度/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/zdkswd">
+            <img src="/img/tmg.jpg" alt="ZDK">
+            ZDK
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/05/15/进程调度/&title=《[Linux内核设计与实现]进程调度》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/05/15/进程调度/&title=《[Linux内核设计与实现]进程调度》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/05/15/进程调度/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《[Linux内核设计与实现]进程调度》 — ZDK's blog&url=https://github.com/zdkswd/2018/05/15/进程调度/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/05/15/进程调度/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/04/29/cmake/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">初识makefile_make_cmake</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ZDK &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/05/15/进程调度/&title=《[Linux内核设计与实现]进程调度》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/05/15/进程调度/&title=《[Linux内核设计与实现]进程调度》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/05/15/进程调度/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《[Linux内核设计与实现]进程调度》 — ZDK's blog&url=https://github.com/zdkswd/2018/05/15/进程调度/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/05/15/进程调度/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2018/05/15/进程调度/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'zdk'blog';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

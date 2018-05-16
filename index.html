@@ -17,6 +17,8 @@
     <title>ZDK&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
+    <meta name="theme-color" content="#3F51B5">
+    
     
     <meta name="keywords" content="">
     <meta property="og:type" content="website">
@@ -29,8 +31,8 @@
     
         <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
     
-    <link rel="shortcut icon" href="/">
-    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
     <script>window.lazyScripts=[]</script>
 
     <!-- custom head -->
@@ -46,19 +48,54 @@
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
     </a>
-    <div class="brand-wrap" style="background-image:url(/)">
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
       <div class="brand">
         <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/">
+          <img src="/img/tmg.jpg">
         </a>
         <hgroup class="introduce">
           <h5 class="nickname">ZDK</h5>
-          <a href="mailto:undefined" class="mail">
+          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
         </hgroup>
       </div>
     </div>
     <div class="scroll-wrap flex-col">
       <ul class="nav">
+        
+            <li class="waves-block waves-effect active">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
         
       </ul>
     </div>
@@ -73,6 +110,20 @@
         </a>
         <div class="flex-col header-title ellipsis">ZDK&#39;s blog</div>
         
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
         
     </div>
 </header>
@@ -125,7 +176,9 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        多任务现代Linux系统也许有100个进程在内存，但是...
+        多任务现代Linux系统也许有100个进程在内存，但是只有一个处于可运行状态。Linux是抢占式多任务模式。
+Linux的进程调度Linux2.5内核开始采用O（1）调度程序，对大服务器工作负载很理想但对于交互性桌面系统表现不佳。2.6.23内核后使用RSDL增加了交互性，此时被称为CFS（完全公平调度算法）
+策略I/O消耗型和处理器消耗型的进程GUI属于I/O消耗型，多数时间都在等待键鼠交...
     
 
         <a href="/2018/05/15/进程调度/" class="post-more waves-effect waves-button">
@@ -172,7 +225,7 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        初识makefile,make,cmake什么是mak...
+        初识makefile,make,cmake什么是makefilemake命令执行时，需要一个 Makefile 文件，以告诉make命令需要怎么样的去编译和链接程序。makefile关系到了整个工程的编译规则。makefile定义了一系列的规则来指定，哪些文件需要先编译，哪些文件需要后编译，哪些文件需要重新编译，甚至于进行更复杂的功能操作，因为makefile就像一个Shell脚本一样，其中...
     
 
         <a href="/2018/04/29/cmake/" class="post-more waves-effect waves-button">
@@ -219,7 +272,17 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        李宏毅2017听课笔记1-Where does the...
+        李宏毅2017听课笔记1-Where does the error come from?
+                
+                    
+                    
+                
+                
+            
+
+                
+                    
+       ...
     
 
         <a href="/2018/04/25/李宏毅error/" class="post-more waves-effect waves-button">
@@ -266,7 +329,15 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        李宏毅2017听课笔记0前言之前听了吴恩达2014大部...
+        李宏毅2017听课笔记0前言之前听了吴恩达2014大部分的课以及吴恩达最近在网易云上的CNN课程。听闻李宏毅的课程不错，主要比较系统全面，来听一哈喽。不错的博客
+0-1Introduction找出function  
+
+准备一个function set  (model)
+机器决定function们的好坏
+找出最好的function
+
+Deep Learning：分类，非线性
+Learning...
     
 
         <a href="/2018/04/25/李宏毅2017听课笔记0/" class="post-more waves-effect waves-button">
@@ -313,7 +384,8 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        进程内核调度的对象是线程，而不是进程。Linux系统的...
+        进程内核调度的对象是线程，而不是进程。Linux系统的线程实现非常特别：它对线程和进程并不特别区分。进程提供两种虚拟机制，虚拟处理器与虚拟内存。一个是进程独享处理器的假象一个是独享内存资源的假象。线程之间共享虚拟内存，各自有虚拟处理器。父进程调用fork()复制现有进程创建一个全新的进程子进程。
+每个线程都有一个独立的程序计数器、进程栈和一组进程寄存器。内核调度的对象是线程，而不是进程。Li...
     
 
         <a href="/2018/04/16/进程管理/" class="post-more waves-effect waves-button">
@@ -363,7 +435,47 @@
         从内核出发内核源码树内核源码树根目录描述    
 
 
-...
+
+目录
+描述
+
+
+
+
+arch
+特定体系结构的源码
+
+
+block
+块设备IO层
+
+
+crypto
+加密API
+
+
+Documentation
+内核源码文档
+
+
+drivers
+设备驱动程序
+
+
+firmware
+使用某些驱动程序而需要的设备固件
+
+
+fs
+VFS和各种文件系统
+
+
+include
+内核头文件
+
+
+init
+内核引导和初始...
     
 
         <a href="/2018/04/13/从内核出发/" class="post-more waves-effect waves-button">
@@ -410,7 +522,7 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        第一章主要是讲Linux的历史，而我的第一篇纸质书笔记...
+        第一章主要是讲Linux的历史，而我的第一篇纸质书笔记主要是讲一下我的计划。纸质书做读书笔记的话，任务量会远远大于电子版的图书，所以我争取做到不引用原文，因为那样做任务量过于庞大，这就要求我必须以自己理解的方式概括，这样才能达到预期的效果。之后还会出的纸质书笔记预告：深入理解计算机系统 中英两版。深入理解安卓系统。所以说可以看出直到暑假的这一段时间，我的重点是放在c/c++以及操作系统上，之...
     
 
         <a href="/2018/04/13/LINUX内核设/" class="post-more waves-effect waves-button">
@@ -457,7 +569,9 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        分支什么是分支分支是为了将修改记录的整体流程分叉保存。...
+        分支什么是分支分支是为了将修改记录的整体流程分叉保存。分叉后的分支不受其他分支的影响，所以在同一个数据库里可以同时进行多个修改。
+master分支在数据库进行最初的提交后, Git会创建一个名为master的分支。因此之后的提交，在切换分支之前都会添加到master分支里。
+分支的运用merge分支Merge分支是为了可以随时发布release而创建的分支，它还能作为Topic分支的源分支使...
     
 
         <a href="/2018/04/08/猴子都能懂的Git入门-高级篇/" class="post-more waves-effect waves-button">
@@ -504,7 +618,8 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        前言不知道这是第几次学习Git了，每次都是学完过一段就...
+        前言不知道这是第几次学习Git了，每次都是学完过一段就忘了，这次决定自己写出点东西，深入的再把Git再过一遍。写一下自己的东西，真真正正的把Git转化为自己的东西。这次选用的资料是猴子都能懂的Git入门。之所以选用该资料是因为语言比较通俗易懂，而我也正好想把知识总结的通俗易懂一些，算是两重学习。那么话不多说，现在开始吧~~~(写到后面发现这书已经足够通俗，很难再。。。啊，失败。)
+Git的基...
     
 
         <a href="/2018/04/06/猴子都能懂的Git入门-入门篇/" class="post-more waves-effect waves-button">
@@ -549,7 +664,11 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        今天算是折腾了一下评论区，不得不佩服评论区作者的脑洞。...
+        今天算是折腾了一下评论区，不得不佩服评论区作者的脑洞。运用github issues的机制来自己创建评论区，运用插件—传送门。
+在此过程中也算踩了一些坑，特别感谢有人能无私分享自己的踩坑经历–踩坑教程
+我自己也顺便试着改了下模板的源码，感觉有、收获。
+分享出去，如果可以帮助到更多的人，那将将是更大的快乐。
+
     
 
         <a href="/2018/04/05/新增评论区功能/" class="post-more waves-effect waves-button">
@@ -582,6 +701,15 @@
         <footer class="footer">
     <div class="top">
         
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
 
         <p>
             
@@ -591,7 +719,7 @@
         </p>
     </div>
     <div class="bottom">
-        <p><span>ZDK &copy; 2018</span>
+        <p><span>ZDK &copy; 2015 - 2018</span>
             <span>
                 
                 Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
@@ -605,21 +733,106 @@
 <a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
 
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/&title=ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/&title=ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=ZDK's blog&url=https://github.com/zdkswd/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/" alt="微信分享二维码">
+</div>
+
+
+
+
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: , REWARD: false };
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 
 
 </script>
 
-<script src="/js/main.min.js?v=1.7.2"></script>
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
 
 
 
 
 
 
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'zdk'blog';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
 
 
 
