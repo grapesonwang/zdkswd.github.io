@@ -84,6 +84,13 @@
             </li>
         
             <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-categories"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
               <a href="https://github.com/" target="_blank" >
                 <i class="icon icon-lg icon-github"></i>
                 Github
@@ -309,10 +316,10 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
     var OriginTitile = document.title, titleTime;
     document.addEventListener('visibilitychange', function() {
         if (document.hidden) {
-            document.title = '死鬼去哪里了！';
+            document.title = '';
             clearTimeout(titleTime);
         } else {
-            document.title = '(つェ⊂)咦!又好了!';
+            document.title = '';
             titleTime = setTimeout(function() {
                 document.title = OriginTitile;
             },2000);
