@@ -29,7 +29,7 @@
 <meta property="og:site_name" content="ZDK&#39;s blog">
 <meta property="og:description" content="Tensorflow计算模型–计算图计算图的使用tensorflow程序可分为两个阶段，第一阶段定义图中所有的计算。第二阶段为执行阶段。tensorflow中，系统会自动维护一个默认的计算图，通过tf.get_default_graph函数可以获取当前默认的计算图。除了使用默认的计算图，Tensorflow支持通过tf.Graph函数来生成新的计算图。不同计算图上的张量和运算都不会共享。计算图可以">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-17T10:12:02.000Z">
+<meta property="og:updated_time" content="2018-05-17T10:22:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tensorflow可视化">
 <meta name="twitter:description" content="Tensorflow计算模型–计算图计算图的使用tensorflow程序可分为两个阶段，第一阶段定义图中所有的计算。第二阶段为执行阶段。tensorflow中，系统会自动维护一个默认的计算图，通过tf.get_default_graph函数可以获取当前默认的计算图。除了使用默认的计算图，Tensorflow支持通过tf.Graph函数来生成新的计算图。不同计算图上的张量和运算都不会共享。计算图可以">
@@ -160,7 +160,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Tensorflow计算模型–计算图"><span class="post-toc-number">1.</span> <span class="post-toc-text">Tensorflow计算模型–计算图</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#计算图的使用"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">计算图的使用</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#TensorBoard可视化"><span class="post-toc-number">2.</span> <span class="post-toc-text">TensorBoard可视化</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#TensorBoard简介"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">TensorBoard简介</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#变量管理"><span class="post-toc-number">3.</span> <span class="post-toc-text">变量管理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#TensorFlow计算图可视化"><span class="post-toc-number">4.</span> <span class="post-toc-text">TensorFlow计算图可视化</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#命名空间与TensorBoard图上节点"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">命名空间与TensorBoard图上节点</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#节点信息"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">节点信息</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#运行时记录运行信息的proto。"><span class="post-toc-number"></span> <span class="post-toc-text">运行时记录运行信息的proto。</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#监控指标可视化"><span class="post-toc-number">1.</span> <span class="post-toc-text">监控指标可视化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#writer"><span class="post-toc-number">2.</span> <span class="post-toc-text">writer</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Tensorflow计算模型–计算图"><span class="post-toc-number">1.</span> <span class="post-toc-text">Tensorflow计算模型–计算图</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#计算图的使用"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">计算图的使用</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#TensorBoard可视化"><span class="post-toc-number">2.</span> <span class="post-toc-text">TensorBoard可视化</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#TensorBoard简介"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">TensorBoard简介</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#变量管理"><span class="post-toc-number">3.</span> <span class="post-toc-text">变量管理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#TensorFlow计算图可视化"><span class="post-toc-number">4.</span> <span class="post-toc-text">TensorFlow计算图可视化</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#命名空间与TensorBoard图上节点"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">命名空间与TensorBoard图上节点</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#节点信息"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">节点信息</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#监控指标可视化"><span class="post-toc-number">5.</span> <span class="post-toc-text">监控指标可视化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#writer"><span class="post-toc-number">6.</span> <span class="post-toc-text">writer</span></a></li></ol>
         </nav>
     </aside>
 
@@ -238,9 +238,8 @@
 <h2 id="TensorFlow计算图可视化"><a href="#TensorFlow计算图可视化" class="headerlink" title="TensorFlow计算图可视化"></a>TensorFlow计算图可视化</h2><h3 id="命名空间与TensorBoard图上节点"><a href="#命名空间与TensorBoard图上节点" class="headerlink" title="命名空间与TensorBoard图上节点"></a>命名空间与TensorBoard图上节点</h3><p>变量的初始化过程也会产生新的计算节点。为了更好的组织可视化效果图中的计算节点，TensorBoard支持通过TensorFlow命名空间来整理可视化效果图上的节点。在Tensorflow默认视图中同一命名空间计算图为一个节点，只有顶层命名空间的节点显示。<br>除了tf.Variable_scope函数，tf.name_scope函数也提供了命名空间管理的功能，两者大部分情况下等价。唯一的区别是tf.get_Variable不受tf.name_scope函数的影响。即在tf.name_scope域里tf.get_Variable生成变量也不是域内的变量。<br>节点之间有两种不同的边，一种是通过实线表示的，刻画了数据传输，箭头表示传输方向。另一种箭头是双向的，表示会修改，会互相影响。<br>TensorBoard边上标注了张量的维度信息。如100*784说明batch为100，输入节点个数为784，粗细代表维度的总大小。若张量数量大于1时。图上将只显示张量的个数。<br>虚线表示计算之间的依赖关系，如tf.control_dependencies函数指定操作同时进行。则存在虚线。<br>TensorBoard会自动将连接比较多的节点放在辅助图中，可以手动移入主图或移出主图。TensorBoard不会保存用户对计算图可视化结果的手工修改，页面刷新之后计算图可视化结果又会回到最初的样子。</p>
 <h3 id="节点信息"><a href="#节点信息" class="headerlink" title="节点信息"></a>节点信息</h3><p>使用TensorBoard可以非常直观地展现所有Tensorflow计算节点在某一次运行时所消耗的时间和内存。</p>
 <blockquote>
-<p>run_options =tf.RunOptions(trace_level=tf.RunOptions.FULL_TRACE)</p>
+<p>run_options =tf.RunOptions(trace_level=tf.RunOptions.FULL_TRACE)<br>// 运行时记录运行信息的proto。<br>run_metadata = tf.RunMetadata()<br>   m, loss_value, step = sess.run(<br>                    [train_op, loss, global_step], feed_dict={x: xs, y_: ys},<br>                    options=run_options, run_metadata=run_metadata)<br>                    //将节点在运行时的信息写入日志文件。          writer.add_run_metadata(run_metadata=run_metadata,tag=(“tag%d” % i),global_step=i)</p>
 </blockquote>
-<h1 id="运行时记录运行信息的proto。"><a href="#运行时记录运行信息的proto。" class="headerlink" title="运行时记录运行信息的proto。"></a>运行时记录运行信息的proto。</h1><p>run_metadata = tf.RunMetadata()<br>   m, loss_value, step = sess.run(<br>                    [train_op, loss, global_step], feed_dict={x: xs, y_: ys},<br>                    options=run_options, run_metadata=run_metadata)                writer.add_run_metadata(run_metadata=run_metadata,tag=(“tag%d” % i), global_step=i)</p>
 <p>使用程序输出的日志启动TensorBoard,就可以了。进入GRAPHS栏，选择Session runs,Color会出现Compute time和Memory这两个选项。颜色越深消耗越大。Structure中如果有两个节点结构相同就会涂上相同的颜色。Device中可显示哪些使用了相同的设备（CPU/GPU）。<br>点击节点时弹出的信息卡片也会显示这个节点的各种信息。</p>
 <h2 id="监控指标可视化"><a href="#监控指标可视化" class="headerlink" title="监控指标可视化"></a>监控指标可视化</h2><table>
 <thead>
@@ -289,7 +288,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-05-17T10:12:02.000Z" itemprop="dateUpdated">2018-05-17 18:12:02</time>
+    最后更新时间：<time datetime="2018-05-17T10:22:07.000Z" itemprop="dateUpdated">2018-05-17 18:22:07</time>
 </span><br>
 
 
@@ -364,7 +363,14 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/05/17/lib,dll,.h,.hpp,预编译/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">lib dll .h .hpp 预编译</h4>
+      </a>
+    </div>
   
 
   

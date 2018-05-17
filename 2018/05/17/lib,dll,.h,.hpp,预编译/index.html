@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>lib dll .h .hpp 预编译 | ZDK&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="c/c++,计算机科学">
+    <meta name="description" content="静态库动态库静态库和动态库是两种共享程序代码的方式，它们的区别是：静态库在程序的链接阶段被复制到了程序中，和程序运行的时候没有关系；动态库在链接阶段没有被复制到程序中，而是程序在运行时由系统动态加载到内存中供程序调用。使用动态库的优点是系统只需载入一次动态库，不同的程序可以得到内存中相同的动态库的副本，因此节省了很多内存。">
+<meta name="keywords" content="c&#x2F;c++,计算机科学">
+<meta property="og:type" content="article">
+<meta property="og:title" content="lib dll .h .hpp 预编译">
+<meta property="og:url" content="https://github.com/zdkswd/2018/05/17/lib,dll,.h,.hpp,预编译/index.html">
+<meta property="og:site_name" content="ZDK&#39;s blog">
+<meta property="og:description" content="静态库动态库静态库和动态库是两种共享程序代码的方式，它们的区别是：静态库在程序的链接阶段被复制到了程序中，和程序运行的时候没有关系；动态库在链接阶段没有被复制到程序中，而是程序在运行时由系统动态加载到内存中供程序调用。使用动态库的优点是系统只需载入一次动态库，不同的程序可以得到内存中相同的动态库的副本，因此节省了很多内存。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/img/media/15265538206394/15265538778964.jpg">
+<meta property="og:image" content="https://github.com/img/media/15265538206394/15265538810589.jpg">
+<meta property="og:updated_time" content="2018-05-17T13:48:13.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="lib dll .h .hpp 预编译">
+<meta name="twitter:description" content="静态库动态库静态库和动态库是两种共享程序代码的方式，它们的区别是：静态库在程序的链接阶段被复制到了程序中，和程序运行的时候没有关系；动态库在链接阶段没有被复制到程序中，而是程序在运行时由系统动态加载到内存中供程序调用。使用动态库的优点是系统只需载入一次动态库，不同的程序可以得到内存中相同的动态库的副本，因此节省了很多内存。">
+<meta name="twitter:image" content="https://github.com/img/media/15265538206394/15265538778964.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/tmg.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ZDK</h5>
+          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/zdkswd" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">lib dll .h .hpp 预编译</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">lib dll .h .hpp 预编译</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-05-17T13:46:56.000Z" itemprop="datePublished" class="page-time">
+  2018-05-17
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#静态库动态库"><span class="post-toc-number">1.</span> <span class="post-toc-text">静态库动态库</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#头文件"><span class="post-toc-number">2.</span> <span class="post-toc-text">头文件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#C-C-中的预编译指令"><span class="post-toc-number">3.</span> <span class="post-toc-text">C/C++中的预编译指令</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-lib,dll,.h,.hpp,预编译"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">lib dll .h .hpp 预编译</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-05-17 21:46:56" datetime="2018-05-17T13:46:56.000Z"  itemprop="datePublished">2018-05-17</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="静态库动态库"><a href="#静态库动态库" class="headerlink" title="静态库动态库"></a>静态库动态库</h2><p>静态库和动态库是两种共享程序代码的方式，它们的区别是：静态库在程序的链接阶段被复制到了程序中，和程序运行的时候没有关系；动态库在链接阶段没有被复制到程序中，而是程序在运行时由系统动态加载到内存中供程序调用。使用动态库的优点是系统只需载入一次动态库，不同的程序可以得到内存中相同的动态库的副本，因此节省了很多内存。<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15265538206394/15265538778964.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>这种链接方式的好处是：方便程序移植，因为可执行程序与库函数再无关系，放在如何环境当中都可以执行。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15265538206394/15265538810589.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>是动态链接有一个缺点就是可移植性太差，如果两台电脑运行环境不同，动态库存放的位置不一样，很可能导致程序运行失败。</p>
+<h2 id="头文件"><a href="#头文件" class="headerlink" title="头文件"></a>头文件</h2><p>编译时，编译器通过头文件.h找到对应的函数库，预编译时将整个.h文件插入目标文件头部，项目中需要有其对应的.c文件进行编译生成中间文件进行连接。<br>.hpp，本质就是将.cpp的实现代码混入.h头文件当中，定义与实现都包含在同一文件，则该类的调用者只需要include该.hpp文件即可，无需再将cpp加入到project中进行编译。而实现代码将直接编译到调用者的obj文件中，不再生成单独的obj，采用hpp将大幅度减少调用project中的cpp文件数与编译次数</p>
+<p>一个头文件被别的源文件重复包含是经常发生的，如何避免某个头文件被重复包含呢？利用条件编译轻松解决。在头文件的开始加入：</p>
+<blockquote>
+<p>#ifndef HEADER_NAME<br>#define HEADER_NAME </p>
+</blockquote>
+<p>在头文件的结尾加上：</p>
+<blockquote>
+<p>#endif</p>
+</blockquote>
+<h2 id="C-C-中的预编译指令"><a href="#C-C-中的预编译指令" class="headerlink" title="C/C++中的预编译指令"></a>C/C++中的预编译指令</h2><p>程序的编译过程可以分为预处理、编译、汇编三部分，其中预处理是首先执行的过程，预处理过程扫描程序源代码，对其进行初步的转换，产生新的源代码提供给编译器。</p>
+<ol>
+<li><strong>#include</strong>指令，#include预处理指令的作用是在指令处展开被包含的文件。<br>#include \&lt;xxx.h&gt;<br>#include “xxx.h”<br>第一种方法将待包含的头文件使用尖括号括起来，预处理程序会在系统默认目录或者括号内的路径查找，通常用于包含系统中自带的公共头文件。<br>第二种方法将待包含的头文件使用双引号引起来，预处理程序会在程序源文件所在目录查找，如果未找到则去系统默认目录查找，通常用于包含程序作者编写的私有头文件。  </li>
+</ol>
+<p>2.<strong>#define、#undef</strong>指令,#define指令定义了一个标识符及一个串，标识符称为宏名，源程序中宏名的每次出现都会用其定义的串进行替换，称为宏替换。<br>#undef指令取消一个已定义的宏。  </p>
+<p>3.<strong>#if、#elif、#else、#endif</strong>指令，这几个指令称为条件编译指令，可对程序源代码的各部分有选择地进行编译。<br>跟一般的if、else if、else语句类似，如果一个条件上的值为真，则编译它对应的代码，否则提过这些代码，测试下一个条件上的值是否为真。注意，作为条件的表达式是在编译时求值的，它必须仅含常量及已定义过的标识符，不可使用变量，也不可以含有操作符sizeof（sizeof也是编译时求值）。<br>感觉这主要是用来设置一个宏选择性的编译一部分的代码。  </p>
+<p>4.<strong>#ifdef、#ifndef、#endif</strong>指令，这几个也是条件编译指令，其检查后面指定的宏是否已经定义，然后根据检查结果选择是否要编译后面语句。其中#ifdef表示”如果有定义“，#ifndef表示”如果没有定义“。这个通常可以用于防止重复包含头文件的问题</p>
+<blockquote>
+<p>#ifndef MYHEAD_H<br>#define MYHEAD_H<br>#include “myHead.h”<br>#endif  </p>
+</blockquote>
+<p>5.<strong>#line</strong>指令,C语言中可以使用<strong>FILE</strong>表示本行语句所在源文件的文件名，使用<strong>LINE</strong>表示本行语句在源文件中的位置信息。#line指令可以重新设定这两个变量的值，其语法格式为<br>#line number[“filename”] </p>
+<p>6.<strong>#error</strong>指令,#error指令在编译时输出编译错误信息，可以方便程序员检查出现的错误。</p>
+<p>7.<strong>#pragma</strong>指令,该指令用来来设定编译器的状态或者是指示编译器完成一些特定的动作，它有许多不同的参数。<br>7.1. #pragma once<br>在头文件的最开始加入这条指令可以保证头文件只被编译一次。它可以实现上述使用#ifndef实现不重复包含头文件同样的功能，但可能会有部分编译系统不支持。</p>
+<p>7.2.#pragma message<br>该指令能够让编译器遇到这条指令时就在编译输出窗口中将消息文本打印出来。</p>
+<p>7.3.#pragma warning<br>…等等其他参数</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-05-17T13:48:13.000Z" itemprop="dateUpdated">2018-05-17 21:48:13</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/zdkswd">
+            <img src="/img/tmg.jpg" alt="ZDK">
+            ZDK
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c-c/">c/c++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/计算机科学/">计算机科学</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/05/17/lib,dll,.h,.hpp,预编译/&title=《lib dll .h .hpp 预编译》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/05/17/lib,dll,.h,.hpp,预编译/&title=《lib dll .h .hpp 预编译》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/05/17/lib,dll,.h,.hpp,预编译/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《lib dll .h .hpp 预编译》 — ZDK's blog&url=https://github.com/zdkswd/2018/05/17/lib,dll,.h,.hpp,预编译/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/05/17/lib,dll,.h,.hpp,预编译/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/05/17/Tensorflow可视化/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Tensorflow可视化</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz",
+            appKey: "gkBx5soQkBREmER84PWbNJeM",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ZDK &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/05/17/lib,dll,.h,.hpp,预编译/&title=《lib dll .h .hpp 预编译》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/05/17/lib,dll,.h,.hpp,预编译/&title=《lib dll .h .hpp 预编译》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/05/17/lib,dll,.h,.hpp,预编译/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《lib dll .h .hpp 预编译》 — ZDK's blog&url=https://github.com/zdkswd/2018/05/17/lib,dll,.h,.hpp,预编译/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/05/17/lib,dll,.h,.hpp,预编译/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2018/05/17/lib,dll,.h,.hpp,预编译/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'zdk'blog';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
