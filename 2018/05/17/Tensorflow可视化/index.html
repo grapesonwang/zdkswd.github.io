@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Tensorflow可视化 | ZDK&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="TensorFlow,机器学习">
+    <meta name="description" content="Tensorflow计算模型–计算图计算图的使用tensorflow程序可分为两个阶段，第一阶段定义图中所有的计算。第二阶段为执行阶段。tensorflow中，系统会自动维护一个默认的计算图，通过tf.get_default_graph函数可以获取当前默认的计算图。除了使用默认的计算图，Tensorflow支持通过tf.Graph函数来生成新的计算图。不同计算图上的张量和运算都不会共享。计算图可以">
+<meta name="keywords" content="TensorFlow,机器学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tensorflow可视化">
+<meta property="og:url" content="https://github.com/zdkswd/2018/05/17/Tensorflow可视化/index.html">
+<meta property="og:site_name" content="ZDK&#39;s blog">
+<meta property="og:description" content="Tensorflow计算模型–计算图计算图的使用tensorflow程序可分为两个阶段，第一阶段定义图中所有的计算。第二阶段为执行阶段。tensorflow中，系统会自动维护一个默认的计算图，通过tf.get_default_graph函数可以获取当前默认的计算图。除了使用默认的计算图，Tensorflow支持通过tf.Graph函数来生成新的计算图。不同计算图上的张量和运算都不会共享。计算图可以">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-05-17T10:12:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Tensorflow可视化">
+<meta name="twitter:description" content="Tensorflow计算模型–计算图计算图的使用tensorflow程序可分为两个阶段，第一阶段定义图中所有的计算。第二阶段为执行阶段。tensorflow中，系统会自动维护一个默认的计算图，通过tf.get_default_graph函数可以获取当前默认的计算图。除了使用默认的计算图，Tensorflow支持通过tf.Graph函数来生成新的计算图。不同计算图上的张量和运算都不会共享。计算图可以">
+    
+        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/tmg.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ZDK</h5>
+          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/zdkswd" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Tensorflow可视化</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Tensorflow可视化</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-05-17T10:11:41.000Z" itemprop="datePublished" class="page-time">
+  2018-05-17
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Tensorflow计算模型–计算图"><span class="post-toc-number">1.</span> <span class="post-toc-text">Tensorflow计算模型–计算图</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#计算图的使用"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">计算图的使用</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#TensorBoard可视化"><span class="post-toc-number">2.</span> <span class="post-toc-text">TensorBoard可视化</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#TensorBoard简介"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">TensorBoard简介</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#变量管理"><span class="post-toc-number">3.</span> <span class="post-toc-text">变量管理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#TensorFlow计算图可视化"><span class="post-toc-number">4.</span> <span class="post-toc-text">TensorFlow计算图可视化</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#命名空间与TensorBoard图上节点"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">命名空间与TensorBoard图上节点</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#节点信息"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">节点信息</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#运行时记录运行信息的proto。"><span class="post-toc-number"></span> <span class="post-toc-text">运行时记录运行信息的proto。</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#监控指标可视化"><span class="post-toc-number">1.</span> <span class="post-toc-text">监控指标可视化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#writer"><span class="post-toc-number">2.</span> <span class="post-toc-text">writer</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Tensorflow可视化"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Tensorflow可视化</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-05-17 18:11:41" datetime="2018-05-17T10:11:41.000Z"  itemprop="datePublished">2018-05-17</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="Tensorflow计算模型–计算图"><a href="#Tensorflow计算模型–计算图" class="headerlink" title="Tensorflow计算模型–计算图"></a>Tensorflow计算模型–计算图</h2><h3 id="计算图的使用"><a href="#计算图的使用" class="headerlink" title="计算图的使用"></a>计算图的使用</h3><p>tensorflow程序可分为两个阶段，第一阶段定义图中所有的计算。第二阶段为执行阶段。<br>tensorflow中，系统会自动维护一个默认的计算图，通过<strong>tf.get_default_graph</strong>函数可以获取当前默认的计算图。<br>除了使用默认的计算图，Tensorflow支持通过<strong>tf.Graph</strong>函数来生成新的计算图。不同计算图上的张量和运算都不会共享。<br>计算图可以通过<strong>tf.Graph.device</strong>函数来指定运行计算的设备。<br>有效地整理TensorFlow程序的资源也是计算图的一个重要功能。在一个集合（collection）来管理不同类型的资源。</p>
+<table>
+<thead>
+<tr>
+<th>集合名称</th>
+<th>集合内容</th>
+<th>使用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tf.GraphKeys.VARIABLES</td>
+<td>所有变量</td>
+<td>持久化Tensorflow模型</td>
+</tr>
+<tr>
+<td>tf.GraphKeys.TRAINABLE_VARIABLES</td>
+<td>可学习的变量（一般指神经网络中的参数）</td>
+<td>模型训练、生成模型可视化内容</td>
+</tr>
+<tr>
+<td>tf.GraphKeys.SUMMARIES</td>
+<td>日志生成的相关的张量</td>
+<td>TensorFlow计算可视化</td>
+</tr>
+<tr>
+<td>tf.GraphKeys.QUEUE_RUNNERS</td>
+<td>处理输入的QueueRunner</td>
+<td>输入处理</td>
+</tr>
+<tr>
+<td>tf.GraphKeys.MOVING_AVERAGE_VARIABLES</td>
+<td>所有计算了滑动平均值的变量</td>
+<td>计算变量的滑动平均值</td>
+</tr>
+</tbody>
+</table>
+<p>如通过<strong>tf.add_to_collection</strong>将资源加入一个或多个集合中。通过<strong>tf.get_collection</strong>获取一个集合里面的所有资源。</p>
+<h2 id="TensorBoard可视化"><a href="#TensorBoard可视化" class="headerlink" title="TensorBoard可视化"></a>TensorBoard可视化</h2><h3 id="TensorBoard简介"><a href="#TensorBoard简介" class="headerlink" title="TensorBoard简介"></a>TensorBoard简介</h3><p>TensorBoard可以通过TensorFlow程序运行过程中输出的日志文件可视化TensorFlow程序的运行状态。两者跑在不同进程中，TensorBoard会自动读取TensorFlow最新的日志文件。</p>
+<blockquote>
+<p>#运行TensorBoard，将地址执行日志输出地址<br>tensorboard –logdir=/path/to/log</p>
+</blockquote>
+<p>命令启动服务默认端口号6006，localhost:6006可以看到界面。使用–port参数可以改变启动服务的端口。</p>
+<h2 id="变量管理"><a href="#变量管理" class="headerlink" title="变量管理"></a>变量管理</h2><p>TensorFLow提供了通过变量名称来创建或者获取一个变量的机制。通过这个机制在不同的函数中可以直接通过变量的名称来使用变量，而不需要将变量通过参数的形式到处传递。TensorFLow中通过变量名称获取变量的机制主要是通过<strong>tf.get_variable</strong>和<strong>tf.variable_scope</strong>函数实现。</p>
+<p>v.get_variable和tf.Variable定义等价。区别在于前者变量名称是个必填项，后者是个选填项。v.get_variable会根据这个名字去创建或者获取变量。首先会试图创建一个变量，如有同名则创建失败。如果需要通v.get_variable获取一个已经创建的变量，<strong>需要tf.variable_scope函数生成一个上下文管理器。将参数reuse设置为True</strong>(获取唯一途径)，v.get_variable将<strong>只能</strong>获取已经创建过的变量。否则将尝试创建变量。</p>
+<blockquote>
+<p>with v.variable_scope(“name”,reuse=”True”):<br>      v=v.get_variable(“var”,[1])</p>
+</blockquote>
+<p><strong>tf.variable_scope会创建一个命名空间。</strong>foo/v:0 “:0”表示这个变量是生成变量这个运算的第一个结果。</p>
+<h2 id="TensorFlow计算图可视化"><a href="#TensorFlow计算图可视化" class="headerlink" title="TensorFlow计算图可视化"></a>TensorFlow计算图可视化</h2><h3 id="命名空间与TensorBoard图上节点"><a href="#命名空间与TensorBoard图上节点" class="headerlink" title="命名空间与TensorBoard图上节点"></a>命名空间与TensorBoard图上节点</h3><p>变量的初始化过程也会产生新的计算节点。为了更好的组织可视化效果图中的计算节点，TensorBoard支持通过TensorFlow命名空间来整理可视化效果图上的节点。在Tensorflow默认视图中同一命名空间计算图为一个节点，只有顶层命名空间的节点显示。<br>除了tf.Variable_scope函数，tf.name_scope函数也提供了命名空间管理的功能，两者大部分情况下等价。唯一的区别是tf.get_Variable不受tf.name_scope函数的影响。即在tf.name_scope域里tf.get_Variable生成变量也不是域内的变量。<br>节点之间有两种不同的边，一种是通过实线表示的，刻画了数据传输，箭头表示传输方向。另一种箭头是双向的，表示会修改，会互相影响。<br>TensorBoard边上标注了张量的维度信息。如100*784说明batch为100，输入节点个数为784，粗细代表维度的总大小。若张量数量大于1时。图上将只显示张量的个数。<br>虚线表示计算之间的依赖关系，如tf.control_dependencies函数指定操作同时进行。则存在虚线。<br>TensorBoard会自动将连接比较多的节点放在辅助图中，可以手动移入主图或移出主图。TensorBoard不会保存用户对计算图可视化结果的手工修改，页面刷新之后计算图可视化结果又会回到最初的样子。</p>
+<h3 id="节点信息"><a href="#节点信息" class="headerlink" title="节点信息"></a>节点信息</h3><p>使用TensorBoard可以非常直观地展现所有Tensorflow计算节点在某一次运行时所消耗的时间和内存。</p>
+<blockquote>
+<p>run_options =tf.RunOptions(trace_level=tf.RunOptions.FULL_TRACE)</p>
+</blockquote>
+<h1 id="运行时记录运行信息的proto。"><a href="#运行时记录运行信息的proto。" class="headerlink" title="运行时记录运行信息的proto。"></a>运行时记录运行信息的proto。</h1><p>run_metadata = tf.RunMetadata()<br>   m, loss_value, step = sess.run(<br>                    [train_op, loss, global_step], feed_dict={x: xs, y_: ys},<br>                    options=run_options, run_metadata=run_metadata)                writer.add_run_metadata(run_metadata=run_metadata,tag=(“tag%d” % i), global_step=i)</p>
+<p>使用程序输出的日志启动TensorBoard,就可以了。进入GRAPHS栏，选择Session runs,Color会出现Compute time和Memory这两个选项。颜色越深消耗越大。Structure中如果有两个节点结构相同就会涂上相同的颜色。Device中可显示哪些使用了相同的设备（CPU/GPU）。<br>点击节点时弹出的信息卡片也会显示这个节点的各种信息。</p>
+<h2 id="监控指标可视化"><a href="#监控指标可视化" class="headerlink" title="监控指标可视化"></a>监控指标可视化</h2><table>
+<thead>
+<tr>
+<th>TensorFlow日志生成函数</th>
+<th>TensorBoard界面栏</th>
+<th>显示内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tf.scalar_summary</td>
+<td>EVENTS</td>
+<td>TensorFlow中标量（scalar）监控数据随着迭代进行的变化趋势。</td>
+</tr>
+<tr>
+<td>tf.image_summary</td>
+<td>IMAGES</td>
+<td>TensorFlow中使用的图片数据，这一栏一般用于可视化当前使用的训练/测试图片。</td>
+</tr>
+<tr>
+<td>tf.audio_summary</td>
+<td>AUDIO</td>
+<td>TensorFlow中使用的音频数据。</td>
+</tr>
+<tr>
+<td>tf.histogram_summary</td>
+<td>HISTOGRAMS</td>
+<td>TensorFlow中张量分布监控数据随着迭代轮次的变化趋势。</td>
+</tr>
+</tbody>
+</table>
+<p>上述生成函数都不会立即执行，需要通过sess.run来明确调用这些函数。tf.merge_all_summaries()可将定义的所有日志文件执行一次。</p>
+<h2 id="writer"><a href="#writer" class="headerlink" title="writer"></a>writer</h2><blockquote>
+<p>writer=tf.train.SummaryWriter(path,tf.get_default_graph())<br>writer.close()　　</p>
+</blockquote>
+<p>或者</p>
+<blockquote>
+<p>with tf.Session() as sess:<br>　　writer=tf.train.SummaryWriter(path,sess.graph)</p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-05-17T10:12:02.000Z" itemprop="dateUpdated">2018-05-17 18:12:02</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/zdkswd">
+            <img src="/img/tmg.jpg" alt="ZDK">
+            ZDK
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TensorFlow/">TensorFlow</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/05/17/Tensorflow可视化/&title=《Tensorflow可视化》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/05/17/Tensorflow可视化/&title=《Tensorflow可视化》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/05/17/Tensorflow可视化/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Tensorflow可视化》 — ZDK's blog&url=https://github.com/zdkswd/2018/05/17/Tensorflow可视化/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/05/17/Tensorflow可视化/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/05/15/进程调度/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[Linux内核设计与实现]进程调度</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz",
+            appKey: "gkBx5soQkBREmER84PWbNJeM",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ZDK &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/05/17/Tensorflow可视化/&title=《Tensorflow可视化》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/05/17/Tensorflow可视化/&title=《Tensorflow可视化》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/05/17/Tensorflow可视化/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Tensorflow可视化》 — ZDK's blog&url=https://github.com/zdkswd/2018/05/17/Tensorflow可视化/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/05/17/Tensorflow可视化/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2018/05/17/Tensorflow可视化/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'zdk'blog';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
