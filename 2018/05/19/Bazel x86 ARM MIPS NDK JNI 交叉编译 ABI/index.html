@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Bazel x86 ARM MIPS NDK JNI 交叉编译 ABI | ZDK&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="c/c++,计算机科学,Android">
+    <meta name="description" content="BazelBazel是一个类似于Make的编译工具，是Google为其内部软件开发的特点量身定制的工具，如今Google使用它来构建内部大多数的软件。Google认为直接用Makefile构建软件速度太慢，结果不可靠，所以构建了一个新的工具叫做Bazel，Bazel的规则层级更高。 X86和ARM,MIPS架构x86架构采用CISC，代表公司Intel。而ARM采用RISC，代表公司ARM。MIP">
+<meta name="keywords" content="c&#x2F;c++,计算机科学,Android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bazel x86 ARM MIPS NDK JNI 交叉编译 ABI">
+<meta property="og:url" content="https://github.com/zdkswd/2018/05/19/Bazel x86 ARM MIPS NDK JNI 交叉编译 ABI/index.html">
+<meta property="og:site_name" content="ZDK&#39;s blog">
+<meta property="og:description" content="BazelBazel是一个类似于Make的编译工具，是Google为其内部软件开发的特点量身定制的工具，如今Google使用它来构建内部大多数的软件。Google认为直接用Makefile构建软件速度太慢，结果不可靠，所以构建了一个新的工具叫做Bazel，Bazel的规则层级更高。 X86和ARM,MIPS架构x86架构采用CISC，代表公司Intel。而ARM采用RISC，代表公司ARM。MIP">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-05-19T13:43:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Bazel x86 ARM MIPS NDK JNI 交叉编译 ABI">
+<meta name="twitter:description" content="BazelBazel是一个类似于Make的编译工具，是Google为其内部软件开发的特点量身定制的工具，如今Google使用它来构建内部大多数的软件。Google认为直接用Makefile构建软件速度太慢，结果不可靠，所以构建了一个新的工具叫做Bazel，Bazel的规则层级更高。 X86和ARM,MIPS架构x86架构采用CISC，代表公司Intel。而ARM采用RISC，代表公司ARM。MIP">
+    
+        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/tmg.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ZDK</h5>
+          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/zdkswd" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Bazel x86 ARM MIPS NDK JNI 交叉编译 ABI</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Bazel x86 ARM MIPS NDK JNI 交叉编译 ABI</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-05-19T13:46:56.000Z" itemprop="datePublished" class="page-time">
+  2018-05-19
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Bazel"><span class="post-toc-number">1.</span> <span class="post-toc-text">Bazel</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#X86和ARM-MIPS架构"><span class="post-toc-number">2.</span> <span class="post-toc-text">X86和ARM,MIPS架构</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#NDK"><span class="post-toc-number">3.</span> <span class="post-toc-text">NDK</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JNI"><span class="post-toc-number">4.</span> <span class="post-toc-text">JNI</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#交叉编译"><span class="post-toc-number">5.</span> <span class="post-toc-text">交叉编译</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Android-设备的CPU类型-通常称为”ABIs”"><span class="post-toc-number">6.</span> <span class="post-toc-text">Android 设备的CPU类型(通常称为”ABIs”)</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Bazel x86 ARM MIPS NDK JNI 交叉编译 ABI"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Bazel x86 ARM MIPS NDK JNI 交叉编译 ABI</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-05-19 21:46:56" datetime="2018-05-19T13:46:56.000Z"  itemprop="datePublished">2018-05-19</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="Bazel"><a href="#Bazel" class="headerlink" title="Bazel"></a>Bazel</h2><p>Bazel是一个类似于Make的编译工具，是Google为其内部软件开发的特点量身定制的工具，如今Google使用它来构建内部大多数的软件。Google认为直接用Makefile构建软件速度太慢，结果不可靠，所以构建了一个新的工具叫做Bazel，Bazel的规则层级更高。</p>
+<h2 id="X86和ARM-MIPS架构"><a href="#X86和ARM-MIPS架构" class="headerlink" title="X86和ARM,MIPS架构"></a>X86和ARM,MIPS架构</h2><p>x86架构采用CISC，代表公司Intel。而ARM采用RISC，代表公司ARM。MIPS架构多用在网关、猫、机顶盒等设备。</p>
+<p><strong>X86</strong>以增加处理器本身复杂度作为代价，去换取更高的性能，但集成的指令集数量越来越多，给硬件带来的负荷也就越来越大，无形中增加了功耗和设计难度。x86为此还必须有复杂的分支预测机构，确保流水线的效率。再加上多级cache，支持超线程、虚拟化等等，x86的复杂度其实相当高<br><strong>ARM</strong>（Advanced RISC Machines）一个32位元精简指令集(RISC)处理器架构<br>可以说在性能和生产工艺方面ARM根本不是X86结构系统的对手。<br>但ARM的优势不在于性能强大而在于效率，ARM采用RISC流水线指令集，在完成综合性工作方面根本就处于劣势，而在一些任务相对固定的应用场合其优势就能发挥得淋漓尽致。 </p>
+<p><strong>扩展性</strong><br>X86结构的电脑采用“桥”的方式与扩展设备（如：硬盘、内存等）进行连接，<br>x86结构的电脑能很容易进行性能扩展，如增加内存、硬盘等。<br>ARM结构的电脑是通过专用的数据接口使CPU与数据存储设备进行连接，所以ARM的存储、内存等性能扩展难以进行</p>
+<p><strong>功耗</strong><br>X86电脑因考虑要适应各种应用的需求，其发展思路是：性能+速度，考虑其完成复杂操作的能力，功耗很大。<br>ARM则功耗很低。<br>ARM阵营努力增加其性能和系统（特别是操作系统）的通用性，蚕食x86系统的部分终端应用市场，<strong>ARM目前是移动处理器的老大</strong>；X86阵营努力降低功耗保住其市场，同时侵入手持移动终端市场。 <strong>x86是PC端老大</strong>。</p>
+<h2 id="NDK"><a href="#NDK" class="headerlink" title="NDK"></a>NDK</h2><p>Native Development Kit（NDK）是一系列工具的集合。它提供了一系列的工具，帮助开发者快速开发C/C++的动态库，并能自动将so和java一起打包成apk。<strong>NDK就是帮助我们可以在Android应用中使用C/C++来完成特定功能的一套工具.</strong>NDK的作用有很多，我们简单的列举两个:<br>1.首先NDK可以帮助开发者“快速”开发C(或C++)的动态库。<br>2.其次，NDK集成了“<strong>交叉编译器</strong>”。使用NDK，我们可以将要求高性能的应用逻辑使用C开发，从而提高应用程序的执行效率。</p>
+<h2 id="JNI"><a href="#JNI" class="headerlink" title="JNI"></a>JNI</h2><p>Java Native Interface（JNI）标准是java平台的一部分，JNI是Java语言提供的Java和C/C++相互沟通的机制，其实JNI它就是一种<strong>协议</strong>,Java可以通过JNI调用C/C++代码，C/C++的代码也可以调用java代码。</p>
+<h2 id="交叉编译"><a href="#交叉编译" class="headerlink" title="交叉编译"></a>交叉编译</h2><p>编译器在将中间代码连接成当前计算机可执行的二进制程序时，连接程序会根据当前计算机的CPU、操作系统的类型来转换。<br><strong>交叉编译</strong>就是在一个平台下（比如：CPU架构为X86，操作系统为Windows）编译出在另一个平台上（比如：CPU架构为arm,操作系统为Linux）可以执行的二进制代码。Google提供的NDK就可以完成交叉编译的工作。【Android：基于Linux 内核arm架构的操作系统，装在arm上的linux是需要重新编译内核的 所以和x86上的linux内核是不一样的】</p>
+<h2 id="Android-设备的CPU类型-通常称为”ABIs”"><a href="#Android-设备的CPU类型-通常称为”ABIs”" class="headerlink" title="Android 设备的CPU类型(通常称为”ABIs”)"></a>Android 设备的CPU类型(通常称为”ABIs”)</h2><ol>
+<li>armeabiv-v7a: 第7代及以上的 ARM 处理器。2011年15月以后的生产的部分Android设备都使用它.</li>
+<li>arm64-v8a: 第8代、64位ARM处理器，很少设备，三星 Galaxy S6是其中之一。</li>
+<li>armeabi: 第5代、第6代的ARM处理器，早期的手机用的比较多。</li>
+<li>x86: 平板、模拟器用得比较多。</li>
+<li>x86_64: 64位的平板。  </li>
+</ol>
+<p>arm64-v8a是可以向下兼容的，但前提是你的项目里面没有arm64-v8a的文件夹，如果你有两个文件夹armeabi和arm64-v8a，两个文件夹，armeabi里面有a.so 和 b.so,arm64-v8a里面只有a.so，那么arm64-v8a的手机在用到b的时候发现有arm64-v8a的文件夹，发现里面没有b.so，就报错了，所以这个时候删掉arm64-v8a文件夹，这个时候手机发现没有适配arm64-v8a，就会直接去找armeabi的so库，所以要么你别加arm64-v8a,要么armeabi里面有的so库，arm64-v8a里面也必须有。</p>
+<p><strong>对策</strong>：</p>
+<ul>
+<li>为了减小 apk 体积，只保留 armeabi 和 armeabi-v7a 两个文件夹，并保证这两个文件夹中.so数量一致   </li>
+<li>对只提供 armeabi 版本的第三方 .so，原样复制一份到 armeabi-v7a 文件夹   </li>
+</ul>
+<p>应用程序二进制接口（<strong>A</strong>pplication <strong>B</strong>inary <strong>I</strong>nterface）定义了二进制文件（尤其是.so文件）如何运行在相应的系统平台上，从使用的指令集，内存对齐到可用的系统函数库。在Android系统上，每一个CPU架构对应一个ABI：armeabi，armeabi-v7a，x86，mips，arm64-v8a，mips64，x86_64。 </p>
+<p>当一个应用安装在设备上，只有该设备支持的CPU架构对应的.so文件会被安装。在x86设备上，libs/x86目录中如果存在.so文件的话，会被安装，如果不存在，则会选择armeabi-v7a中的.so文件，如果也不存在，则选择armeabi目录中的.so文件（因为x86设备也支持armeabi-v7a和armeabi）。<br>我们往往很容易对.so文件<strong>应该放在或者生成到哪里</strong>感到困惑，下面是一个总结：Android Studio工程放在jniLibs/ABI目录中（当然也可以通过在build.gradle文件中的设置jniLibs.srcDir属性自己指定）  </p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-05-19T13:43:46.000Z" itemprop="dateUpdated">2018-05-19 21:43:46</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/zdkswd">
+            <img src="/img/tmg.jpg" alt="ZDK">
+            ZDK
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c-c/">c/c++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/计算机科学/">计算机科学</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/05/19/Bazel x86 ARM MIPS NDK JNI 交叉编译 ABI/&title=《Bazel x86 ARM MIPS NDK JNI 交叉编译 ABI》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/05/19/Bazel x86 ARM MIPS NDK JNI 交叉编译 ABI/&title=《Bazel x86 ARM MIPS NDK JNI 交叉编译 ABI》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/05/19/Bazel x86 ARM MIPS NDK JNI 交叉编译 ABI/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Bazel x86 ARM MIPS NDK JNI 交叉编译 ABI》 — ZDK's blog&url=https://github.com/zdkswd/2018/05/19/Bazel x86 ARM MIPS NDK JNI 交叉编译 ABI/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/05/19/Bazel x86 ARM MIPS NDK JNI 交叉编译 ABI/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/05/17/lib,dll,.h,.hpp,预编译/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">lib dll .h .hpp 预编译</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz",
+            appKey: "gkBx5soQkBREmER84PWbNJeM",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ZDK &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/05/19/Bazel x86 ARM MIPS NDK JNI 交叉编译 ABI/&title=《Bazel x86 ARM MIPS NDK JNI 交叉编译 ABI》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/05/19/Bazel x86 ARM MIPS NDK JNI 交叉编译 ABI/&title=《Bazel x86 ARM MIPS NDK JNI 交叉编译 ABI》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/05/19/Bazel x86 ARM MIPS NDK JNI 交叉编译 ABI/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Bazel x86 ARM MIPS NDK JNI 交叉编译 ABI》 — ZDK's blog&url=https://github.com/zdkswd/2018/05/19/Bazel x86 ARM MIPS NDK JNI 交叉编译 ABI/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/05/19/Bazel x86 ARM MIPS NDK JNI 交叉编译 ABI/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2018/05/19/Bazel x86 ARM MIPS NDK JNI 交叉编译 ABI/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'zdk'blog';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
