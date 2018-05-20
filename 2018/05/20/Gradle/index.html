@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Gradle | ZDK&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Android,软件构筑">
+    <meta name="description" content="差异管理说到多渠道问题,不同的渠道一般会对应不同的渠道号,你当然可以通过修改一次打一个包这种纯手工的方式来生成你的多渠道包,但据听说国内某团购网站的Android App有100多个渠道.这里出现了什么?重复,反复的去打包而且这些包之前的差异很小(只是渠道号不同),和写代码一样我们应该复用,通过Gradle可以实现一个命令打出所有的渠道包,一个命令打出指定的渠道包.再复杂一点,你可能需要不同的渠道">
+<meta name="keywords" content="Android,软件构筑">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gradle">
+<meta property="og:url" content="https://github.com/zdkswd/2018/05/20/Gradle/index.html">
+<meta property="og:site_name" content="ZDK&#39;s blog">
+<meta property="og:description" content="差异管理说到多渠道问题,不同的渠道一般会对应不同的渠道号,你当然可以通过修改一次打一个包这种纯手工的方式来生成你的多渠道包,但据听说国内某团购网站的Android App有100多个渠道.这里出现了什么?重复,反复的去打包而且这些包之前的差异很小(只是渠道号不同),和写代码一样我们应该复用,通过Gradle可以实现一个命令打出所有的渠道包,一个命令打出指定的渠道包.再复杂一点,你可能需要不同的渠道">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-05-20T09:29:51.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gradle">
+<meta name="twitter:description" content="差异管理说到多渠道问题,不同的渠道一般会对应不同的渠道号,你当然可以通过修改一次打一个包这种纯手工的方式来生成你的多渠道包,但据听说国内某团购网站的Android App有100多个渠道.这里出现了什么?重复,反复的去打包而且这些包之前的差异很小(只是渠道号不同),和写代码一样我们应该复用,通过Gradle可以实现一个命令打出所有的渠道包,一个命令打出指定的渠道包.再复杂一点,你可能需要不同的渠道">
+    
+        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/tmg.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ZDK</h5>
+          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/zdkswd" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Gradle</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Gradle</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-05-20T09:28:56.000Z" itemprop="datePublished" class="page-time">
+  2018-05-20
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#差异管理"><span class="post-toc-number">1.</span> <span class="post-toc-text">差异管理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#依赖管理"><span class="post-toc-number">2.</span> <span class="post-toc-text">依赖管理:</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#项目部署"><span class="post-toc-number">3.</span> <span class="post-toc-text">项目部署</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Gradle概念"><span class="post-toc-number">4.</span> <span class="post-toc-text">Gradle概念</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#The-Gradle-wrapper"><span class="post-toc-number">5.</span> <span class="post-toc-text">The Gradle wrapper</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Gradle构建基础"><span class="post-toc-number">6.</span> <span class="post-toc-text">Gradle构建基础</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#build-gradle"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">build.gradle</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#project与task"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">project与task</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Gradle脚本的执行时序"><span class="post-toc-number">7.</span> <span class="post-toc-text">Gradle脚本的执行时序</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Groovy基础-原创：任玉刚"><span class="post-toc-number">8.</span> <span class="post-toc-text">Groovy基础[原创：任玉刚]</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Groovy和Java的关系"><span class="post-toc-number">8.1.</span> <span class="post-toc-text">Groovy和Java的关系</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Groovy的变量和方法声明"><span class="post-toc-number">8.2.</span> <span class="post-toc-text">Groovy的变量和方法声明</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Groovy的数据类型"><span class="post-toc-number">8.3.</span> <span class="post-toc-text">Groovy的数据类型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#其他特性"><span class="post-toc-number">8.4.</span> <span class="post-toc-text">其他特性</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#定义Task"><span class="post-toc-number">9.</span> <span class="post-toc-text">定义Task</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Gradle"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Gradle</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-05-20 17:28:56" datetime="2018-05-20T09:28:56.000Z"  itemprop="datePublished">2018-05-20</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="差异管理"><a href="#差异管理" class="headerlink" title="差异管理"></a>差异管理</h2><p>说到多渠道问题,不同的渠道一般会对应不同的渠道号,你当然可以通过修改一次打一个包这种纯手工的方式来生成你的多渠道包,但据听说国内某团购网站的Android App有100多个渠道.这里出现了什么?重复,反复的去打包而且这些包之前的差异很小(只是渠道号不同),和写代码一样我们应该复用,通过Gradle可以实现一个命令打出所有的渠道包,一个命令打出指定的渠道包.再复杂一点,你可能需要不同的渠道对应不同的签名文件,不同的icon,不同的服务器地址…这些都可以通过Gradle来方便的实现.</p>
+<h2 id="依赖管理"><a href="#依赖管理" class="headerlink" title="依赖管理:"></a>依赖管理:</h2><p>做软件开发你可能需要依赖各种不同的jar,library.你当然可以通过将.jar/library工程下载到本地再copy到你的工程中,但不知你是否听说过国外有个叫中央仓库的东西,在这个仓库里你可以找到所有你能想到以及你从来没听说过的jar,aar…The Central Repository Search Engine 这里可以找到所有你需要的依赖,而你需要的只是指定一个坐标,如下:<br>compile’com.squareup.picasso:picasso:2.3.3<br>剩下的依赖的寻找,下载,添加到classpath等你都不需要去关心,通过这种方式来维护依赖的好处有以下几点:<br>剩下的依赖的寻找,下载,添加到classpath等你都不需要去关心,通过这种方式来维护依赖的好处有以下几点:</p>
+<ol>
+<li>依赖不会进入到你的版本控制仓库中(默认会缓存到~/.gradle/下)</li>
+<li>方便卸载装载依赖(只是一条坐标依赖,不需要删除即可)</li>
+<li>方便的版本管理,如上图中的2.3.3既是picasso的版本号,若改为+就表示从中央仓库中下载最新的版本</li>
+<li>不同工程的相同依赖不会存在重复副本(只在~/.gradle下存在一份)<h2 id="项目部署"><a href="#项目部署" class="headerlink" title="项目部署"></a>项目部署</h2>这方面我没怎么接触过,但据我所知通过一些插件,可以实现自动将你的输出(.jar,.apk,.war…)上传到指定仓库,自动部署…</li>
+</ol>
+<h2 id="Gradle概念"><a href="#Gradle概念" class="headerlink" title="Gradle概念"></a>Gradle概念</h2><p>Gradle，这是一个基于 JVM 的富有突破性<strong>构建工具</strong>。<br>Gradle不单单是一个配置脚本，它的背后是三门语言。<br>    ◦    Groovy Language<br>    ◦    Gradle DSL<br>    ◦    Android DSL<br><strong>DSL</strong>的全称是Domain Specific Language，即领域特定语言。</p>
+<h2 id="The-Gradle-wrapper"><a href="#The-Gradle-wrapper" class="headerlink" title="The Gradle wrapper"></a>The Gradle wrapper</h2><p>Gradle Wrapper 允许你在没有安装 Gradle 的机器上执行 Gradle 构建。</p>
+<h2 id="Gradle构建基础"><a href="#Gradle构建基础" class="headerlink" title="Gradle构建基础"></a>Gradle构建基础</h2><h3 id="build-gradle"><a href="#build-gradle" class="headerlink" title="build.gradle"></a>build.gradle</h3><p>你可以通过在命令行运行 gradle 命令来执行构建，gradle 命令会从当前目录下寻找 build.gradle 文件来执行构建。我们称 build.gradle 文件为构建脚本。严格来说这其实是一个构建配置脚本。</p>
+<h3 id="project与task"><a href="#project与task" class="headerlink" title="project与task"></a>project与task</h3><p>Gradle中，每一个待编译的工程都叫一个Project。每一个Project在构建的时候都包含一系列的Task。比如一个Android APK的编译可能包含：Java源码编译Task、资源编译Task、JNI编译Task、lint检查Task、打包生成APK的Task、签名Task等。插件本身就是包含了若干Task的。</p>
+<h2 id="Gradle脚本的执行时序"><a href="#Gradle脚本的执行时序" class="headerlink" title="Gradle脚本的执行时序"></a>Gradle脚本的执行时序</h2><ol>
+<li><p><strong>初始化</strong>，分析有哪些module将要被构建，为每个module创建对应的 project实例。这个时候settings.gradle文件会被解析。</p>
+</li>
+<li><p><strong>配置</strong>,处理所有的模块的 build 脚本，处理依赖，属性等。这个时候每个模块的build.gradle文件会被解析并配置，这个时候会构建整个task的链表（这里的链表仅仅指存在依赖关系的task的集合，不是数据结构的链表）。<strong>配置完了以后，有一个重要的回调project.afterEvaluate，它表示所有的模块都已经配置完了，可以准备执行task了。</strong></p>
+</li>
+<li><p><strong>执行</strong>，根据task链表来执行某一个特定的task，这个task所依赖的其他task都将会被提前执行。</p>
+</li>
+</ol>
+<h2 id="Groovy基础-原创：任玉刚"><a href="#Groovy基础-原创：任玉刚" class="headerlink" title="Groovy基础[原创：任玉刚]"></a>Groovy基础[原创：任玉刚]</h2><h3 id="Groovy和Java的关系"><a href="#Groovy和Java的关系" class="headerlink" title="Groovy和Java的关系"></a>Groovy和Java的关系</h3><p>Groovy是一门jvm语言，它最终是要编译成class文件然后在jvm上执行，所以Java语言的特性Groovy都支持，我们完全可以混写Java和Groovy。</p>
+<h3 id="Groovy的变量和方法声明"><a href="#Groovy的变量和方法声明" class="headerlink" title="Groovy的变量和方法声明"></a>Groovy的变量和方法声明</h3><p>在Groovy中，通过 def 关键字来声明变量和方法。</p>
+<blockquote>
+<p>def a = 1<br>def b = “hello world”<br>def int c = 1</p>
+</blockquote>
+<blockquote>
+<p>def hello() {<br>    println “hello world” // 方法调用省略括号<br>    1;                    // 方法返回值省略return<br>}<br>def hello(String msg) {<br>    println (msg)<br>}</p>
+</blockquote>
+<blockquote>
+<p>// 方法省略参数类型<br>int hello(msg) {<br>    println (msg)<br>    return 1<br>}</p>
+</blockquote>
+<blockquote>
+<p>// 方法省略参数类型<br>int hello(msg) {<br>    println msg<br>    return 1 // 这个return不能省略<br>    println “done”<br>}</p>
+</blockquote>
+<h3 id="Groovy的数据类型"><a href="#Groovy的数据类型" class="headerlink" title="Groovy的数据类型"></a>Groovy的数据类型</h3><ol>
+<li><p><strong>String</strong>,用于字符串拼接。</p>
+</li>
+<li><p><strong>闭包</strong>，Groovy中有一种特殊的<strong>类型</strong>，叫做<strong>Closure</strong>，翻译过来就是闭包，这是一种类似于C语言中函数指针的东西。闭包用起来非常方便，在Groovy中，闭包作为一种特殊的数据类型而存在，闭包可以作为方法的参数和返回值，也可以作为一个变量而存在。</p>
+</li>
+</ol>
+<p>声明闭包</p>
+<blockquote>
+<p>{ parameters -&gt;<br>    code<br>}</p>
+</blockquote>
+<ol start="3">
+<li><p><strong>List和Map</strong>,Groovy加强了Java中的集合类，比如List、Map、Set等.List还有一种看起来很奇怪的操作符&lt;&lt;，表示向List中添加新元素的意思.</p>
+</li>
+<li><p><strong>加强的IO</strong>.</p>
+</li>
+</ol>
+<h3 id="其他特性"><a href="#其他特性" class="headerlink" title="其他特性"></a>其他特性</h3><ul>
+<li>所有的Class类型，都可以省略.class</li>
+<li>只要有属性就有Getter/Setter，反之亦然。</li>
+<li>with操作符<blockquote>
+<p>Book bk = new Book()<br>bk.id = 1<br>bk.name = “android art”<br>bk.press = “china press”</p>
+</blockquote>
+</li>
+</ul>
+<p>可以简写为：</p>
+<blockquote>
+<p>Book bk = new Book()<br>bk.with {<br>    id = 1<br>    name = “android art”<br>    press = “china press”<br>}</p>
+</blockquote>
+<p>等等<a href="http://www.jianshu.com/p/ba55dc163dfd" target="_blank" rel="noopener">http://www.jianshu.com/p/ba55dc163dfd</a></p>
+<h2 id="定义Task"><a href="#定义Task" class="headerlink" title="定义Task"></a>定义Task</h2><blockquote>
+<p>task myTask {<br>    println “config myTask”<br>}</p>
+</blockquote>
+<p>通过上述方式定义的task,括号内部的代码会在配置阶段执行。</p>
+<p>要括号内的代码仅仅在执行我们的task的时候才执行，这个时候可以通过doFirst或者doLast来完成。<br>    •    doFirst：task执行时，最开始的操作<br>    •    doLast：task执行时，最后的操作</p>
+<blockquote>
+<p>myTask.doLast {<br>    println “after execute myTask”<br>}<br>myTask.doFirst {<br>    println “before execute myTask”<br>}</p>
+</blockquote>
+<p>doLast还有一个等价的操作leftShift，leftShift还可以缩写为&lt;&lt;</p>
+<blockquote>
+<p>myTask &lt;&lt; {<br>    println “after execute myTask”<br>}</p>
+</blockquote>
+<p>剩下的细节还是需要大家查看Gradle文档，其实学习Gradle就是一个查文档的过程。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-05-20T09:29:51.000Z" itemprop="dateUpdated">2018-05-20 17:29:51</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/zdkswd">
+            <img src="/img/tmg.jpg" alt="ZDK">
+            ZDK
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/软件构筑/">软件构筑</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/05/20/Gradle/&title=《Gradle》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/05/20/Gradle/&title=《Gradle》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/05/20/Gradle/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Gradle》 — ZDK's blog&url=https://github.com/zdkswd/2018/05/20/Gradle/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/05/20/Gradle/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/05/19/Bazel x86 ARM MIPS NDK JNI 交叉编译 ABI/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Bazel x86 ARM MIPS NDK JNI 交叉编译 ABI</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz",
+            appKey: "gkBx5soQkBREmER84PWbNJeM",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ZDK &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/05/20/Gradle/&title=《Gradle》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/05/20/Gradle/&title=《Gradle》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/05/20/Gradle/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Gradle》 — ZDK's blog&url=https://github.com/zdkswd/2018/05/20/Gradle/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/05/20/Gradle/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2018/05/20/Gradle/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'zdk'blog';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
