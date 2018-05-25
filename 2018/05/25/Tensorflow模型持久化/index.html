@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Tensorflow模型持久化 | ZDK&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="TensorFlow,机器学习">
+    <meta name="description" content="持久化代码实现通过tf.train.Saver类来保存和还原一个神经网络，模型文件目录下会出现三个文件。这是因为Tensorflow会将计算图的结构和图上参数取值分开保存。  model.ckpt.meta,保存了计算图的结构。 model.ckpt,保存程序中每一个变量的取值。 checkpoint,保存了一个目录下所有的模型文件列表。  加载已经保存的Tensorflow模型方法。1.使用和保">
+<meta name="keywords" content="TensorFlow,机器学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tensorflow模型持久化">
+<meta property="og:url" content="https://github.com/zdkswd/2018/05/25/Tensorflow模型持久化/index.html">
+<meta property="og:site_name" content="ZDK&#39;s blog">
+<meta property="og:description" content="持久化代码实现通过tf.train.Saver类来保存和还原一个神经网络，模型文件目录下会出现三个文件。这是因为Tensorflow会将计算图的结构和图上参数取值分开保存。  model.ckpt.meta,保存了计算图的结构。 model.ckpt,保存程序中每一个变量的取值。 checkpoint,保存了一个目录下所有的模型文件列表。  加载已经保存的Tensorflow模型方法。1.使用和保">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-05-25T11:02:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Tensorflow模型持久化">
+<meta name="twitter:description" content="持久化代码实现通过tf.train.Saver类来保存和还原一个神经网络，模型文件目录下会出现三个文件。这是因为Tensorflow会将计算图的结构和图上参数取值分开保存。  model.ckpt.meta,保存了计算图的结构。 model.ckpt,保存程序中每一个变量的取值。 checkpoint,保存了一个目录下所有的模型文件列表。  加载已经保存的Tensorflow模型方法。1.使用和保">
+    
+        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/tmg.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ZDK</h5>
+          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/zdkswd" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Tensorflow模型持久化</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Tensorflow模型持久化</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-05-25T11:00:56.000Z" itemprop="datePublished" class="page-time">
+  2018-05-25
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#持久化代码实现"><span class="post-toc-number">1.</span> <span class="post-toc-text">持久化代码实现</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Saver持久化原理及数据格式"><span class="post-toc-number">2.</span> <span class="post-toc-text">Saver持久化原理及数据格式</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Tensorflow模型持久化"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Tensorflow模型持久化</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-05-25 19:00:56" datetime="2018-05-25T11:00:56.000Z"  itemprop="datePublished">2018-05-25</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="持久化代码实现"><a href="#持久化代码实现" class="headerlink" title="持久化代码实现"></a>持久化代码实现</h2><p>通过<strong>tf.train.Saver类</strong>来保存和还原一个神经网络，模型文件目录下会出现三个文件。这是因为Tensorflow会将计算图的结构和图上参数取值分开保存。</p>
+<ol>
+<li><strong>model.ckpt.meta</strong>,保存了计算图的结构。</li>
+<li><strong>model.ckpt</strong>,保存程序中每一个变量的取值。</li>
+<li><strong>checkpoint</strong>,保存了一个目录下所有的模型文件列表。</li>
+</ol>
+<p>加载已经保存的Tensorflow模型方法。1.使用和保存模型代码中一样的方法来声明变量。2.加载已经保存的模型。sever.restore(sess,”.ckpt”)</p>
+<p>加载模型的程序也是定义了Tensorflow计算图上的所有运算，并声明了一个tf.train.Saver类。区别在于加载模型的代码中没有运行变量的初始化过程而是将变量的值通过已经保存的模型加载了进来。也可以直接加载已经持久化的图<br><strong>tf.train.import_meta_graph(…..meta)</strong></p>
+<p>函数<strong>tf.get_default_graph().get_tensor_by_name(“add:0”)</strong>可以通过张量的名称获取张量。</p>
+<p>也可以声明tf.train.Saver类时提供一个列表指定需要保存或者加载的变量。同样可以在保存和加载时使用字典给变量重命名。</p>
+<p>使用Saver会保存运行程序所需的全部信息，然而有时不需要某些信息。在测试或者离线预测时，不需要某些辅助节点的信息。且多个文件存储时也并不方便。<strong>convert_variables_to_constants</strong>将计算图中的变量及其取值通过常亮保存。<br>导出当前计算图的GraphDef部分只需要这一部分就可以完成从输入层到输出层的计算过程。</p>
+<blockquote>
+<p>graph_def=tf.get_default_graph().as_graph_def()</p>
+</blockquote>
+<p>将图中的变量及其取值转化为常量，同时将图中不必要的节点去掉。一些如变量初始化操作的系统运算也会被转化为计算图的节点。可以通过【】指定需要保存的操作。</p>
+<blockquote>
+<p>output_graph_def=graph_util.convert_variables_to_constants(sess,graph_def,[‘add’])//add为节点名</p>
+</blockquote>
+<p>将导出模型存入文件：</p>
+<blockquote>
+<p>with tf.gfile.GFile(“…pb”,”wb”) as f:<br>　　f.write(output_graph_def.SerialzeToString())</p>
+</blockquote>
+<p>加载模型：</p>
+<blockquote>
+<p>with gflie.FastGFile(model_filename//.pb,’rb’) as f:<br>　　graph_def=tf.GraphDef()<br>　　graph_def.ParseFromString(f.read())<br>result=tf.import_graph_def(graph_def,return_elements=[“add:0”])//add:0为一个张量<br>sess.run(result)</p>
+</blockquote>
+<h2 id="Saver持久化原理及数据格式"><a href="#Saver持久化原理及数据格式" class="headerlink" title="Saver持久化原理及数据格式"></a>Saver持久化原理及数据格式</h2><p>Tensorflow通过元图（<strong>MetaGraph</strong>）来记录计算图中节点信息以及运行计算图中节点所需要的元数据。<br>由Protocol Buffer定义，记录了五类信息：</p>
+<ol>
+<li><strong>meta_info_def</strong>属性,记录计算图中的元数据以及所有使用到运算方法的信息。</li>
+<li><strong>graph_def</strong>属性，记录计算图的节点信息。</li>
+<li><strong>saver_def</strong>属性，记录了持久化模型时需要用到的一些参数。</li>
+<li><strong>collection_def</strong>属性维护集合的底层实现是通过collection_def这个属性。<br>5 <strong>signature_def</strong>属性。</li>
+</ol>
+<p><strong>model.ckpt</strong>保存所有变量的取值，通过SSTable格式存储，大致为一个（key，value）列表。<br><strong>checkpoint</strong>是Saver类自动生成自动维护的。当某个保存的TensorFlow模型文件被删除时，这个模型对应的文件名也会从checkpoint文件中删除。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-05-25T11:02:02.000Z" itemprop="dateUpdated">2018-05-25 19:02:02</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/zdkswd">
+            <img src="/img/tmg.jpg" alt="ZDK">
+            ZDK
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TensorFlow/">TensorFlow</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/05/25/Tensorflow模型持久化/&title=《Tensorflow模型持久化》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/05/25/Tensorflow模型持久化/&title=《Tensorflow模型持久化》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/05/25/Tensorflow模型持久化/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Tensorflow模型持久化》 — ZDK's blog&url=https://github.com/zdkswd/2018/05/25/Tensorflow模型持久化/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/05/25/Tensorflow模型持久化/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/05/25/Bazel 和Protocol Buffer/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Bazel 和Protocol Buffer</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/05/25/implementation 与 compile 的区别/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">implementation 与 compile 的区别</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz",
+            appKey: "gkBx5soQkBREmER84PWbNJeM",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ZDK &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/05/25/Tensorflow模型持久化/&title=《Tensorflow模型持久化》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/05/25/Tensorflow模型持久化/&title=《Tensorflow模型持久化》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/05/25/Tensorflow模型持久化/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Tensorflow模型持久化》 — ZDK's blog&url=https://github.com/zdkswd/2018/05/25/Tensorflow模型持久化/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/05/25/Tensorflow模型持久化/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2018/05/25/Tensorflow模型持久化/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'zdk'blog';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
