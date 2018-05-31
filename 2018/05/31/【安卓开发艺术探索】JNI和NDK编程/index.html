@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>【安卓开发艺术探索】JNI和NDK编程 | ZDK&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Android,电子书笔记">
+    <meta name="description" content="NDK还提供了交叉编译器，开发人员只需要简单地修改mk文件就可以生成特定CPU平台的动态库。 JNI开发流程 在java中声明native方法声明native方法，且在类头部有加载动态库的过程，库的真实名字为加载所用名字加前缀lib，这是加载so库的规范。   编译java源文件得到class文件，然后通过javah命令导出JNI的头文件   javac com/ddd/example.javaj">
+<meta name="keywords" content="Android,电子书笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【安卓开发艺术探索】JNI和NDK编程">
+<meta property="og:url" content="https://github.com/zdkswd/2018/05/31/【安卓开发艺术探索】JNI和NDK编程/index.html">
+<meta property="og:site_name" content="ZDK&#39;s blog">
+<meta property="og:description" content="NDK还提供了交叉编译器，开发人员只需要简单地修改mk文件就可以生成特定CPU平台的动态库。 JNI开发流程 在java中声明native方法声明native方法，且在类头部有加载动态库的过程，库的真实名字为加载所用名字加前缀lib，这是加载so库的规范。   编译java源文件得到class文件，然后通过javah命令导出JNI的头文件   javac com/ddd/example.javaj">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-05-31T10:12:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【安卓开发艺术探索】JNI和NDK编程">
+<meta name="twitter:description" content="NDK还提供了交叉编译器，开发人员只需要简单地修改mk文件就可以生成特定CPU平台的动态库。 JNI开发流程 在java中声明native方法声明native方法，且在类头部有加载动态库的过程，库的真实名字为加载所用名字加前缀lib，这是加载so库的规范。   编译java源文件得到class文件，然后通过javah命令导出JNI的头文件   javac com/ddd/example.javaj">
+    
+        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/tmg.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ZDK</h5>
+          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/zdkswd" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">【安卓开发艺术探索】JNI和NDK编程</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">【安卓开发艺术探索】JNI和NDK编程</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-05-31T09:49:56.000Z" itemprop="datePublished" class="page-time">
+  2018-05-31
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JNI开发流程"><span class="post-toc-number">1.</span> <span class="post-toc-text">JNI开发流程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#NDK开发流程"><span class="post-toc-number">2.</span> <span class="post-toc-text">NDK开发流程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JNI的数据类型和类型签名"><span class="post-toc-number">3.</span> <span class="post-toc-text">JNI的数据类型和类型签名</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JNI调用Java方法"><span class="post-toc-number">4.</span> <span class="post-toc-text">JNI调用Java方法</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-【安卓开发艺术探索】JNI和NDK编程"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">【安卓开发艺术探索】JNI和NDK编程</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-05-31 17:49:56" datetime="2018-05-31T09:49:56.000Z"  itemprop="datePublished">2018-05-31</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>NDK还提供了交叉编译器，开发人员只需要简单地修改mk文件就可以生成特定CPU平台的动态库。</p>
+<h2 id="JNI开发流程"><a href="#JNI开发流程" class="headerlink" title="JNI开发流程"></a>JNI开发流程</h2><ol>
+<li><strong>在java中声明native方法</strong><br>声明native方法，且在类头部有加载动态库的过程，库的真实名字为加载所用名字加前缀lib，这是加载so库的规范。  </li>
+<li><strong>编译java源文件得到class文件，然后通过javah命令导出JNI的头文件</strong></li>
+</ol>
+<blockquote>
+<p>javac com/ddd/example.java<br>javah com.ddd.example</p>
+</blockquote>
+<p>在当前目录会产生一个com_ddd_example.h的头文件，它是javah命令自动生成的。函数名的格式遵循java_包名_类名_方法名</p>
+<ol start="3">
+<li><strong>实现JNI方法</strong>，JNI方法是指java中声明的native方法，在工程的主目录下创建一个子目录，名称随意，将上一步生成的头文件复制其中，接着创建.cpp文件，include它。实现其中的方法。</li>
+<li><strong>编译so库并在java中调用</strong>so库这里采用gcc编译，切换到刚刚生成的子目录中，对于cpp编译指令如下：<blockquote>
+<p>gcc -shared-I /本地jdk的安装路径/include -fPIC .cpp -o libexample.so</p>
+</blockquote>
+</li>
+</ol>
+<p>so库编译完成后，就可以在Java程序中调用so库了，切换至主目录，执行指令</p>
+<blockquote>
+<p>java -Djava.library.path=子目录名 com.ddd.example </p>
+</blockquote>
+<p>其中-Djava.library.path指明了so库的路径。</p>
+<h2 id="NDK开发流程"><a href="#NDK开发流程" class="headerlink" title="NDK开发流程"></a>NDK开发流程</h2><ol>
+<li><strong>下载并配置NDK</strong></li>
+<li><strong>创建一个安卓项目，并声明所需的native方法</strong></li>
+<li><strong>实现安卓项目中声明的native方法</strong>,在外部创建一个名为jni的目录，然后在jni目录下创建3个文件，.cpp,Android.mk和Application.mk<br><strong>Android.mk</strong>中，<strong>LOCAL_MODULE</strong>表示模块的名称，<strong>LOCAL_SRC_FILES</strong>表示需要参与编译的源文件。<br><strong>Application.mk</strong>中常用的配置项是<strong>APP_ABI</strong>,它表示CPU架构平台的类型，默认NDK编译全平台的so库，但可以指定编译特定平台的so库。</li>
+<li><strong>切换到jni目录的父目录，然后通过ndk-build命令编译产生so库</strong><br>这时NDK会创建一个和jni平级的目录libs，存放so库的目录。需要注意ndk-build命令默认指定jni目录为本地源码目录。若不是则无法成功编译。<br>然后在app/src/main中创建一个名为jniLibs目录，将生成so库复制过去，通过AndroidStudio编译运行即可。<br>jniLibs目录是AndroidStudio默认目录，也可修改App build.gradle文件，jniLibs.srcDir选项指定了新的存放so库的目录。</li>
+</ol>
+<p>也可以通过AndroidStudio来<strong>自动编译</strong>来产生so库。首先需要在App的build.gradle的defaultConfig区域内添加NDK选项，其中moduleName制定了模块的名称，这个名称指定看打包后的so库文件名。<br>ndk{<br>    moduleName”example”<br>}<br>接着需要将JNI代码放在app/src/main/jni目录中，注意存JNI必须为jni，也可以通过如下方式指定JNI代码路径，其中jni.srcDirs指定JNI代码路径：<br>jni.srcDirs ‘src/main/lib_src’<br>经过上面的步骤，AndroidStudio就可以自动编译JNI代码了。</p>
+<h2 id="JNI的数据类型和类型签名"><a href="#JNI的数据类型和类型签名" class="headerlink" title="JNI的数据类型和类型签名"></a>JNI的数据类型和类型签名</h2><h2 id="JNI调用Java方法"><a href="#JNI调用Java方法" class="headerlink" title="JNI调用Java方法"></a>JNI调用Java方法</h2><p>1 找到类名<br>2 找到方法id<br>3 调用方法<br>对于非静态方法要先生成类才行</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-05-31T10:12:48.000Z" itemprop="dateUpdated">2018-05-31 18:12:48</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/zdkswd">
+            <img src="/img/tmg.jpg" alt="ZDK">
+            ZDK
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/电子书笔记/">电子书笔记</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/05/31/【安卓开发艺术探索】JNI和NDK编程/&title=《【安卓开发艺术探索】JNI和NDK编程》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/05/31/【安卓开发艺术探索】JNI和NDK编程/&title=《【安卓开发艺术探索】JNI和NDK编程》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/05/31/【安卓开发艺术探索】JNI和NDK编程/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【安卓开发艺术探索】JNI和NDK编程》 — ZDK's blog&url=https://github.com/zdkswd/2018/05/31/【安卓开发艺术探索】JNI和NDK编程/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/05/31/【安卓开发艺术探索】JNI和NDK编程/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/05/31/Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/05/31/implementation 与 compile 的区别 .iml build文件夹 安卓视图/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">implementation 与 compile 的区别 .iml build文件夹 安卓视图</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz",
+            appKey: "gkBx5soQkBREmER84PWbNJeM",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ZDK &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/05/31/【安卓开发艺术探索】JNI和NDK编程/&title=《【安卓开发艺术探索】JNI和NDK编程》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/05/31/【安卓开发艺术探索】JNI和NDK编程/&title=《【安卓开发艺术探索】JNI和NDK编程》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/05/31/【安卓开发艺术探索】JNI和NDK编程/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【安卓开发艺术探索】JNI和NDK编程》 — ZDK's blog&url=https://github.com/zdkswd/2018/05/31/【安卓开发艺术探索】JNI和NDK编程/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/05/31/【安卓开发艺术探索】JNI和NDK编程/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2018/05/31/【安卓开发艺术探索】JNI和NDK编程/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'zdk'blog';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
