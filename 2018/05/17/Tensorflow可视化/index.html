@@ -29,7 +29,7 @@
 <meta property="og:site_name" content="ZDK&#39;s blog">
 <meta property="og:description" content="Tensorflow计算模型–计算图计算图的使用tensorflow程序可分为两个阶段，第一阶段定义图中所有的计算。第二阶段为执行阶段。tensorflow中，系统会自动维护一个默认的计算图，通过tf.get_default_graph函数可以获取当前默认的计算图。除了使用默认的计算图，Tensorflow支持通过tf.Graph函数来生成新的计算图。不同计算图上的张量和运算都不会共享。计算图可以">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-17T10:22:07.000Z">
+<meta property="og:updated_time" content="2018-05-25T11:54:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tensorflow可视化">
 <meta name="twitter:description" content="Tensorflow计算模型–计算图计算图的使用tensorflow程序可分为两个阶段，第一阶段定义图中所有的计算。第二阶段为执行阶段。tensorflow中，系统会自动维护一个默认的计算图，通过tf.get_default_graph函数可以获取当前默认的计算图。除了使用默认的计算图，Tensorflow支持通过tf.Graph函数来生成新的计算图。不同计算图上的张量和运算都不会共享。计算图可以">
@@ -280,6 +280,7 @@
 <blockquote>
 <p>with tf.Session() as sess:<br>　　writer=tf.train.SummaryWriter(path,sess.graph)</p>
 </blockquote>
+<p><strong>上述比较过时，若报错则改为writer = tf.summary.FileWriter(“output”, sess.graph)</strong> </p>
 
         </div>
 
@@ -288,7 +289,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-05-17T10:22:07.000Z" itemprop="dateUpdated">2018-05-17 18:22:07</time>
+    最后更新时间：<time datetime="2018-05-25T11:54:26.000Z" itemprop="dateUpdated">2018-05-25 19:54:26</time>
 </span><br>
 
 
