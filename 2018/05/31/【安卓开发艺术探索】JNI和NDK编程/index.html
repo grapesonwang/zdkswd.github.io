@@ -29,7 +29,7 @@
 <meta property="og:site_name" content="ZDK&#39;s blog">
 <meta property="og:description" content="NDK还提供了交叉编译器，开发人员只需要简单地修改mk文件就可以生成特定CPU平台的动态库。 JNI开发流程 在java中声明native方法声明native方法，且在类头部有加载动态库的过程，库的真实名字为加载所用名字加前缀lib，这是加载so库的规范。   编译java源文件得到class文件，然后通过javah命令导出JNI的头文件   javac com/ddd/example.javaj">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-31T10:12:48.000Z">
+<meta property="og:updated_time" content="2018-05-31T12:53:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【安卓开发艺术探索】JNI和NDK编程">
 <meta name="twitter:description" content="NDK还提供了交叉编译器，开发人员只需要简单地修改mk文件就可以生成特定CPU平台的动态库。 JNI开发流程 在java中声明native方法声明native方法，且在类头部有加载动态库的过程，库的真实名字为加载所用名字加前缀lib，这是加载so库的规范。   编译java源文件得到class文件，然后通过javah命令导出JNI的头文件   javac com/ddd/example.javaj">
@@ -209,8 +209,17 @@
 <p>其中-Djava.library.path指明了so库的路径。</p>
 <h2 id="NDK开发流程"><a href="#NDK开发流程" class="headerlink" title="NDK开发流程"></a>NDK开发流程</h2><ol>
 <li><strong>下载并配置NDK</strong></li>
-<li><strong>创建一个安卓项目，并声明所需的native方法</strong></li>
-<li><strong>实现安卓项目中声明的native方法</strong>,在外部创建一个名为jni的目录，然后在jni目录下创建3个文件，.cpp,Android.mk和Application.mk<br><strong>Android.mk</strong>中，<strong>LOCAL_MODULE</strong>表示模块的名称，<strong>LOCAL_SRC_FILES</strong>表示需要参与编译的源文件。<br><strong>Application.mk</strong>中常用的配置项是<strong>APP_ABI</strong>,它表示CPU架构平台的类型，默认NDK编译全平台的so库，但可以指定编译特定平台的so库。</li>
+<li><strong>创建一个安卓项目，并声明所需的native方法</strong>如：</li>
+</ol>
+<blockquote>
+<p>public static native String hello();</p>
+</blockquote>
+<p>3.<strong>实现安卓项目中声明的native方法</strong>,在外部创建一个名为jni的目录，然后在jni目录下创建3个文件，.cpp,Android.mk和Application.mk .h中：</p>
+<blockquote>
+<p>JNIEXPORT jstring JNICALL Java_com_aiseminar_EasyPR_PlateRecognizer_hello(JNIEnv *, jclass);</p>
+</blockquote>
+<p>.cpp中实现其.h中的函数。<br><strong>Android.mk</strong>中，<strong>LOCAL_MODULE</strong>表示模块的名称，<strong>LOCAL_SRC_FILES</strong>表示需要参与编译的源文件。<br><strong>Application.mk</strong>中常用的配置项是<strong>APP_ABI</strong>,它表示CPU架构平台的类型，默认NDK编译全平台的so库，但可以指定编译特定平台的so库。</p>
+<ol start="4">
 <li><strong>切换到jni目录的父目录，然后通过ndk-build命令编译产生so库</strong><br>这时NDK会创建一个和jni平级的目录libs，存放so库的目录。需要注意ndk-build命令默认指定jni目录为本地源码目录。若不是则无法成功编译。<br>然后在app/src/main中创建一个名为jniLibs目录，将生成so库复制过去，通过AndroidStudio编译运行即可。<br>jniLibs目录是AndroidStudio默认目录，也可修改App build.gradle文件，jniLibs.srcDir选项指定了新的存放so库的目录。</li>
 </ol>
 <p>也可以通过AndroidStudio来<strong>自动编译</strong>来产生so库。首先需要在App的build.gradle的defaultConfig区域内添加NDK选项，其中moduleName制定了模块的名称，这个名称指定看打包后的so库文件名。<br>ndk{<br>    moduleName”example”<br>}<br>接着需要将JNI代码放在app/src/main/jni目录中，注意存JNI必须为jni，也可以通过如下方式指定JNI代码路径，其中jni.srcDirs指定JNI代码路径：<br>jni.srcDirs ‘src/main/lib_src’<br>经过上面的步骤，AndroidStudio就可以自动编译JNI代码了。</p>
@@ -223,7 +232,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-05-31T10:12:48.000Z" itemprop="dateUpdated">2018-05-31 18:12:48</time>
+    最后更新时间：<time datetime="2018-05-31T12:53:11.000Z" itemprop="dateUpdated">2018-05-31 20:53:11</time>
 </span><br>
 
 
@@ -301,18 +310,18 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2018/05/31/Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback/" id="post-prev" class="post-nav-link">
+      <a href="/2018/06/15/[Linux内核设计与实现]系统调用/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback</h4>
+        <h4 class="title">[Linux内核设计与实现]系统调用</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2018/05/31/implementation 与 compile 的区别 .iml build文件夹 安卓视图/" id="post-next" class="post-nav-link">
+      <a href="/2018/05/31/Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">implementation 与 compile 的区别 .iml build文件夹 安卓视图</h4>
+        <h4 class="title">Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback</h4>
       </a>
     </div>
   

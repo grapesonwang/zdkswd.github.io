@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>引入module后的问题 ; AsyncTask ;Make Clean Project;abiFilters | ZDK&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Android,AndroidStudio">
+    <meta name="description" content="引入module后的问题 ; AsyncTask ;Make Clean Project;abiFiltersimport module在import module时，如果图标没有变化，不要忘了改setting.gradle AsyncTaskAsyncTask,即异步任务,是Android给我们提供的一个处理异步任务的类.通过此类,可以实现UI线程和后台线程进行通讯,后台线程执行异步任务,并把结">
+<meta name="keywords" content="Android,AndroidStudio">
+<meta property="og:type" content="article">
+<meta property="og:title" content="引入module后的问题 ; AsyncTask ;Make Clean Project;abiFilters">
+<meta property="og:url" content="https://github.com/zdkswd/2018/06/15/引入module后的问题 ; AsyncTask ;Make Clean Project;abiFilters/index.html">
+<meta property="og:site_name" content="ZDK&#39;s blog">
+<meta property="og:description" content="引入module后的问题 ; AsyncTask ;Make Clean Project;abiFiltersimport module在import module时，如果图标没有变化，不要忘了改setting.gradle AsyncTaskAsyncTask,即异步任务,是Android给我们提供的一个处理异步任务的类.通过此类,可以实现UI线程和后台线程进行通讯,后台线程执行异步任务,并把结">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-06-15T03:55:47.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="引入module后的问题 ; AsyncTask ;Make Clean Project;abiFilters">
+<meta name="twitter:description" content="引入module后的问题 ; AsyncTask ;Make Clean Project;abiFiltersimport module在import module时，如果图标没有变化，不要忘了改setting.gradle AsyncTaskAsyncTask,即异步任务,是Android给我们提供的一个处理异步任务的类.通过此类,可以实现UI线程和后台线程进行通讯,后台线程执行异步任务,并把结">
+    
+        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/tmg.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ZDK</h5>
+          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/zdkswd" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">引入module后的问题 ; AsyncTask ;Make Clean Project;abiFilters</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">引入module后的问题 ; AsyncTask ;Make Clean Project;abiFilters</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-06-15T09:49:56.000Z" itemprop="datePublished" class="page-time">
+  2018-06-15
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#引入module后的问题-AsyncTask-Make-Clean-Project-abiFilters"><span class="post-toc-number">1.</span> <span class="post-toc-text">引入module后的问题 ; AsyncTask ;Make Clean Project;abiFilters</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#import-module"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">import module</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#AsyncTask"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">AsyncTask</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Make-Project-Clean-Project"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">Make Project Clean Project</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#关于abiFilters的使用"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">关于abiFilters的使用</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-引入module后的问题 ; AsyncTask ;Make Clean Project;abiFilters"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">引入module后的问题 ; AsyncTask ;Make Clean Project;abiFilters</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-06-15 17:49:56" datetime="2018-06-15T09:49:56.000Z"  itemprop="datePublished">2018-06-15</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="引入module后的问题-AsyncTask-Make-Clean-Project-abiFilters"><a href="#引入module后的问题-AsyncTask-Make-Clean-Project-abiFilters" class="headerlink" title="引入module后的问题 ; AsyncTask ;Make Clean Project;abiFilters"></a>引入module后的问题 ; AsyncTask ;Make Clean Project;abiFilters</h1><h2 id="import-module"><a href="#import-module" class="headerlink" title="import module"></a>import module</h2><p>在import module时，如果图标没有变化，不要忘了改setting.gradle</p>
+<h2 id="AsyncTask"><a href="#AsyncTask" class="headerlink" title="AsyncTask"></a>AsyncTask</h2><p>AsyncTask,即异步任务,是Android给我们提供的一个处理异步任务的类.通过此类,可以实现UI线程和后台线程进行通讯,后台线程执行异步任务,并把结果返回给UI线程.</p>
+<p><strong>AsyncTask</strong>&lt;Params,Progress,Result&gt;是一个抽象类,通常用于被继承.继承AsyncTask需要指定如下三个<strong>泛型参数</strong>:<br><strong>Params</strong>:启动任务时输入的参数类型.<br><strong>Progress</strong>:后台任务执行中返回进度值的类型.<br><strong>Result</strong>:后台任务执行完成后返回结果的类型.</p>
+<p><strong>AsyncTask</strong>主要有如下几个<strong>方法</strong>:<br><strong>doInBackground</strong>:<strong>必须重写</strong>,异步执行后台线程要完成的任务,<strong>耗时操作将在此方法中完成</strong>.<br><strong>onPreExecute</strong>:执行后台耗时操作前被调用,通常用于进行初始化操作.<br><strong>onPostExecute</strong>:当doInBackground方法完成后,系统将自动调用此方法,并将doInBackground方法返回的值传入此方法.通过此方法进行UI的更新.<br><strong>onProgressUpdate</strong>:当在doInBackground方法中调用publishProgress方法更新任务执行进度后,将调用此方法.通过此方法我们可以知晓任务的完成进度.</p>
+<h2 id="Make-Project-Clean-Project"><a href="#Make-Project-Clean-Project" class="headerlink" title="Make Project Clean Project"></a>Make Project Clean Project</h2><ol>
+<li>Make Project：编译Project下所有Module，一般是自上次编译后Project下有更新的文件，不生成apk。</li>
+<li>Make Selected Modules：编译指定的Module，一般是自上次编译后Module下有更新的文件，不生成apk。</li>
+<li>Clean Project：删除之前编译后的编译文件，并重新编译整个Project，比较花费时间，不生成apk。</li>
+<li>Rebuild Project：先执行Clean操作，删除之前编译的编译文件和可执行文件，然后重新编译新的编译文件，不生成apk，这里效果其实跟Clean Project是一致的，这个不知道Google搞什么鬼～～</li>
+<li>Build APK：前面4个选项都是编译，没有生成apk文件，如果想生成apk，需要点击Build APK。</li>
+<li>Generate Signed APK：生成有签名的apk。</li>
+</ol>
+<p>平时小的改动直接用Make Project就可以，可以看到只有它有快捷方式，表明这个功能要经常用。对于一些大的改动比如更新lib，大功能修改等，用Clean或Rebuild，毕竟这两个编译起来要费时间。<br>如果有的时候死活编译不过，多试试Clean吧，会有意想不到的效果！</p>
+<h2 id="关于abiFilters的使用"><a href="#关于abiFilters的使用" class="headerlink" title="关于abiFilters的使用"></a>关于abiFilters的使用</h2><p>最近项目中遇到了要使用opencv的情况，涉及到了abi兼容的选择。因为如果全部都适配的话，包很大，这样兼容那些用户数极少的cpu就很不划算，所以我只适配了armeabi-v7a这一个。但是今天在x64-v8a的模拟器上看的时候，提示我的library.so文件找不到，我记得这个应该是向下兼容的，但是出现这种情况很奇怪，于是我就在网上找了找答案。<br>解决方法：abiFilters<br>在app的gradle的defaultConfig里面加上这么一句<br>ndk {<br>    abiFilters  “armeabi-v7a”  // 指定要ndk需要兼容的架构(这样其他依赖包里mips,x86,armeabi,arm-v8之类的so会被过滤掉)<br>}</p>
+<p>这句话的意思就是指定ndk需要兼容的架构，把除了v7a以外的兼容包都过滤掉，只剩下一个v7a的文件夹。用了这个方法之后，确实解决了问题。这就是解决方法。<br>具体分析<br>其实这个方法我开始是很奇怪的，我明明没有指定其他的兼容框架，为什么会需要一个过滤。我打来了apk的包，找到了里面的lib目录，发现里面有很多的兼容目录，然后看到里面目录里面的是一个fresco的.so文件。也就是说，fresco做了各个平台的兼容，所以它创建了各个兼容平台的目录。因为只要出现了这个目录，系统就只会在这个目录里找.so文件而不会遍历其他的目录，所以就出现了之前找不到.so文件的情况（因为其他目录没有我的.so文件）。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-06-15T03:55:47.000Z" itemprop="dateUpdated">2018-06-15 11:55:47</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/zdkswd">
+            <img src="/img/tmg.jpg" alt="ZDK">
+            ZDK
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AndroidStudio/">AndroidStudio</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/06/15/引入module后的问题 ; AsyncTask ;Make Clean Project;abiFilters/&title=《引入module后的问题 ; AsyncTask ;Make Clean Project;abiFilters》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/06/15/引入module后的问题 ; AsyncTask ;Make Clean Project;abiFilters/&title=《引入module后的问题 ; AsyncTask ;Make Clean Project;abiFilters》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/06/15/引入module后的问题 ; AsyncTask ;Make Clean Project;abiFilters/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《引入module后的问题 ; AsyncTask ;Make Clean Project;abiFilters》 — ZDK's blog&url=https://github.com/zdkswd/2018/06/15/引入module后的问题 ; AsyncTask ;Make Clean Project;abiFilters/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/06/15/引入module后的问题 ; AsyncTask ;Make Clean Project;abiFilters/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/06/15/[Linux内核设计与实现]系统调用/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[Linux内核设计与实现]系统调用</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz",
+            appKey: "gkBx5soQkBREmER84PWbNJeM",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ZDK &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/06/15/引入module后的问题 ; AsyncTask ;Make Clean Project;abiFilters/&title=《引入module后的问题 ; AsyncTask ;Make Clean Project;abiFilters》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/06/15/引入module后的问题 ; AsyncTask ;Make Clean Project;abiFilters/&title=《引入module后的问题 ; AsyncTask ;Make Clean Project;abiFilters》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/06/15/引入module后的问题 ; AsyncTask ;Make Clean Project;abiFilters/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《引入module后的问题 ; AsyncTask ;Make Clean Project;abiFilters》 — ZDK's blog&url=https://github.com/zdkswd/2018/06/15/引入module后的问题 ; AsyncTask ;Make Clean Project;abiFilters/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/06/15/引入module后的问题 ; AsyncTask ;Make Clean Project;abiFilters/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2018/06/15/引入module后的问题 ; AsyncTask ;Make Clean Project;abiFilters/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'zdk'blog';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
