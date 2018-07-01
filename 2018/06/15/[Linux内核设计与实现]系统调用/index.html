@@ -21,18 +21,18 @@
     
     
     <meta name="keywords" content="纸质书笔记,Linux">
-    <meta name="description" content="[Linux内核设计与实现]系统调用内核提供接口让应用程序调用实现特定功能，避免应用程序肆意妄为。 与内核通信系统调用在用户空间进程和硬件设备间添加了一个中间层。  提供硬件的抽象接口，即无需管磁盘类型，介质等问题。 保证系统的安全。 告知内核自己在使用硬件以实现多任务和虚拟内存。内核知道了才能更好的管理分配。系统调用是用户空间访问内核的唯一手段。API、POSIX、和C库用户程序在用户空间使用A">
+    <meta name="description" content="[Linux内核设计与实现]系统调用内核提供接口让应用程序调用实现特定功能，避免应用程序肆意妄为。 与内核通信系统调用在用户空间进程和硬件设备间添加了一个中间层。  提供硬件的抽象接口，即无需管磁盘类型，介质等问题。 保证系统的安全。 告知内核自己在使用硬件以实现多任务和虚拟内存。内核知道了才能更好的管理分配。系统调用是用户空间访问内核的唯一手段。  API、POSIX、和C库用户程序在用户空间使">
 <meta name="keywords" content="纸质书笔记,Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[Linux内核设计与实现]系统调用">
 <meta property="og:url" content="https://github.com/zdkswd/2018/06/15/[Linux内核设计与实现]系统调用/index.html">
 <meta property="og:site_name" content="ZDK&#39;s blog">
-<meta property="og:description" content="[Linux内核设计与实现]系统调用内核提供接口让应用程序调用实现特定功能，避免应用程序肆意妄为。 与内核通信系统调用在用户空间进程和硬件设备间添加了一个中间层。  提供硬件的抽象接口，即无需管磁盘类型，介质等问题。 保证系统的安全。 告知内核自己在使用硬件以实现多任务和虚拟内存。内核知道了才能更好的管理分配。系统调用是用户空间访问内核的唯一手段。API、POSIX、和C库用户程序在用户空间使用A">
+<meta property="og:description" content="[Linux内核设计与实现]系统调用内核提供接口让应用程序调用实现特定功能，避免应用程序肆意妄为。 与内核通信系统调用在用户空间进程和硬件设备间添加了一个中间层。  提供硬件的抽象接口，即无需管磁盘类型，介质等问题。 保证系统的安全。 告知内核自己在使用硬件以实现多任务和虚拟内存。内核知道了才能更好的管理分配。系统调用是用户空间访问内核的唯一手段。  API、POSIX、和C库用户程序在用户空间使">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-15T03:53:31.000Z">
+<meta property="og:updated_time" content="2018-06-18T02:49:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[Linux内核设计与实现]系统调用">
-<meta name="twitter:description" content="[Linux内核设计与实现]系统调用内核提供接口让应用程序调用实现特定功能，避免应用程序肆意妄为。 与内核通信系统调用在用户空间进程和硬件设备间添加了一个中间层。  提供硬件的抽象接口，即无需管磁盘类型，介质等问题。 保证系统的安全。 告知内核自己在使用硬件以实现多任务和虚拟内存。内核知道了才能更好的管理分配。系统调用是用户空间访问内核的唯一手段。API、POSIX、和C库用户程序在用户空间使用A">
+<meta name="twitter:description" content="[Linux内核设计与实现]系统调用内核提供接口让应用程序调用实现特定功能，避免应用程序肆意妄为。 与内核通信系统调用在用户空间进程和硬件设备间添加了一个中间层。  提供硬件的抽象接口，即无需管磁盘类型，介质等问题。 保证系统的安全。 告知内核自己在使用硬件以实现多任务和虚拟内存。内核知道了才能更好的管理分配。系统调用是用户空间访问内核的唯一手段。  API、POSIX、和C库用户程序在用户空间使">
     
         <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
     
@@ -191,9 +191,19 @@
 <ol>
 <li>提供硬件的抽象接口，即无需管磁盘类型，介质等问题。</li>
 <li>保证系统的安全。</li>
-<li>告知内核自己在使用硬件以实现多任务和虚拟内存。内核知道了才能更好的管理分配。<br><strong>系统调用是用户空间访问内核的唯一手段。</strong><h2 id="API、POSIX、和C库"><a href="#API、POSIX、和C库" class="headerlink" title="API、POSIX、和C库"></a>API、POSIX、和C库</h2>用户程序在用户空间使用API进行编程。API可以实现零个，一个或多个系统调用。<br>UNIX世界中，最流行的应用程序接口是基于POSIX标准的。在大多数Unix上，根据POSIX定义的API函数和系统调用之间有着直接的关系。这个协议是对操作系统服务接口的标准化，从而保证了应用程序在源码层次的可移植性。<br>具体来说是应用程序调用API，API中包含有系统调用，调用内核。<br>程序员与API打交道，内核与系统调用打交道。<h2 id="系统调用"><a href="#系统调用" class="headerlink" title="系统调用"></a>系统调用</h2>要访问系统调用（在Linux中常称为syscall）,通常通过C库中定义的函数调用来进行。<h3 id="系统调用号"><a href="#系统调用号" class="headerlink" title="系统调用号"></a>系统调用号</h3>在Linux中，每个系统调用被赋予一个系统调用号。通过这个独一无二的号可以关联系统调用。<strong>系统调用号非常重要，</strong>一旦分配就不能变更，否则编译好的应用就会崩溃。Linux中的<strong>sys_ni_syscall()</strong>系统调用几乎不做任何操作，相当于白板儿，用来替代那些被删除的或不可用的系统调用。<br>内核用<strong>sys_call_table</strong>记录注册过的系统调用。<h3 id="系统调用的性能"><a href="#系统调用的性能" class="headerlink" title="系统调用的性能"></a>系统调用的性能</h3>Linux系统调用比其他操作系统执行的快。一是因为Linux有很短的上下文切换时间。二是系统调用处理程序和每个系统调用都很简洁。<h2 id="系统调用的处理程序"><a href="#系统调用的处理程序" class="headerlink" title="系统调用的处理程序"></a>系统调用的处理程序</h2>应用程序实际在API中调用的系统调用也并不是直接执行内核代码。应用程序以<strong>软中断</strong>的方式来通知系统执行一个系统的调用。通过引发异常来促使系统切换到内核态去执行异常处理程序。正是系统调用的处理程序。通过<strong>int$0x80</strong>指令触发中断。<h3 id="指定恰当的系统调用"><a href="#指定恰当的系统调用" class="headerlink" title="指定恰当的系统调用"></a>指定恰当的系统调用</h3><strong>系统调用号</strong>通过<strong>eax寄存器</strong>传递给内核。<h3 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递"></a>参数传递</h3>也可以通过寄存器进行参数的传递。<h2 id="系统调用的实现"><a href="#系统调用的实现" class="headerlink" title="系统调用的实现"></a>系统调用的实现</h2><h3 id="实现系统调用"><a href="#实现系统调用" class="headerlink" title="实现系统调用"></a>实现系统调用</h3>Unix格言<strong>提供机制而不是策略</strong>，当写一个系统调用时，要时刻注意可移植性和健壮性，还要为以后做打算。<h3 id="参数验证"><a href="#参数验证" class="headerlink" title="参数验证"></a>参数验证</h3>系统调用必须仔细检查参数是否合法有效最重要的检查是用户提供的指针知否有效。内核无论何时都不能轻率接受来自用户空间的指针。<h2 id="系统调用上下文"><a href="#系统调用上下文" class="headerlink" title="系统调用上下文"></a>系统调用上下文</h2>在Context中，内核可以休眠可以被抢占。<h3 id="绑定一个系统调用的最后步骤"><a href="#绑定一个系统调用的最后步骤" class="headerlink" title="绑定一个系统调用的最后步骤"></a>绑定一个系统调用的最后步骤</h3><h3 id="从用户空间访问系统调用"><a href="#从用户空间访问系统调用" class="headerlink" title="从用户空间访问系统调用"></a>从用户空间访问系统调用</h3></li>
+<li>告知内核自己在使用硬件以实现多任务和虚拟内存。内核知道了才能更好的管理分配。<br><strong>系统调用是用户空间访问内核的唯一手段。</strong></li>
 </ol>
-
+<h2 id="API、POSIX、和C库"><a href="#API、POSIX、和C库" class="headerlink" title="API、POSIX、和C库"></a>API、POSIX、和C库</h2><p>用户程序在用户空间使用API进行编程。API可以实现零个，一个或多个系统调用。<br>UNIX世界中，最流行的应用程序接口是基于POSIX标准的。在大多数Unix上，根据POSIX定义的API函数和系统调用之间有着直接的关系。这个协议是对操作系统服务接口的标准化，从而保证了应用程序在源码层次的可移植性。<br>具体来说是应用程序调用API，API中包含有系统调用，调用内核。<br>程序员与API打交道，内核与系统调用打交道。</p>
+<h2 id="系统调用"><a href="#系统调用" class="headerlink" title="系统调用"></a>系统调用</h2><p>要访问系统调用（在Linux中常称为syscall）,通常通过C库中定义的函数调用来进行。</p>
+<h3 id="系统调用号"><a href="#系统调用号" class="headerlink" title="系统调用号"></a>系统调用号</h3><p>在Linux中，每个系统调用被赋予一个系统调用号。通过这个独一无二的号可以关联系统调用。<strong>系统调用号非常重要，</strong>一旦分配就不能变更，否则编译好的应用就会崩溃。Linux中的<strong>sys_ni_syscall()</strong>系统调用几乎不做任何操作，相当于白板儿，用来替代那些被删除的或不可用的系统调用。<br>内核用<strong>sys_call_table</strong>记录注册过的系统调用。</p>
+<h3 id="系统调用的性能"><a href="#系统调用的性能" class="headerlink" title="系统调用的性能"></a>系统调用的性能</h3><p>Linux系统调用比其他操作系统执行的快。一是因为Linux有很短的上下文切换时间。二是系统调用处理程序和每个系统调用都很简洁。</p>
+<h2 id="系统调用的处理程序"><a href="#系统调用的处理程序" class="headerlink" title="系统调用的处理程序"></a>系统调用的处理程序</h2><p>应用程序实际在API中调用的系统调用也并不是直接执行内核代码。应用程序以<strong>软中断</strong>的方式来通知系统执行一个系统的调用。通过引发异常来促使系统切换到内核态去执行异常处理程序。正是系统调用的处理程序。通过<strong>int$0x80</strong>指令触发中断。</p>
+<h3 id="指定恰当的系统调用"><a href="#指定恰当的系统调用" class="headerlink" title="指定恰当的系统调用"></a>指定恰当的系统调用</h3><p><strong>系统调用号</strong>通过<strong>eax寄存器</strong>传递给内核。</p>
+<h3 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递"></a>参数传递</h3><p>也可以通过寄存器进行参数的传递。</p>
+<h2 id="系统调用的实现"><a href="#系统调用的实现" class="headerlink" title="系统调用的实现"></a>系统调用的实现</h2><h3 id="实现系统调用"><a href="#实现系统调用" class="headerlink" title="实现系统调用"></a>实现系统调用</h3><p>Unix格言<strong>提供机制而不是策略</strong>，当写一个系统调用时，要时刻注意可移植性和健壮性，还要为以后做打算。</p>
+<h3 id="参数验证"><a href="#参数验证" class="headerlink" title="参数验证"></a>参数验证</h3><p>系统调用必须仔细检查参数是否合法有效最重要的检查是用户提供的指针知否有效。内核无论何时都不能轻率接受来自用户空间的指针。</p>
+<h2 id="系统调用上下文"><a href="#系统调用上下文" class="headerlink" title="系统调用上下文"></a>系统调用上下文</h2><p>在Context中，内核可以休眠可以被抢占。</p>
+<h3 id="绑定一个系统调用的最后步骤"><a href="#绑定一个系统调用的最后步骤" class="headerlink" title="绑定一个系统调用的最后步骤"></a>绑定一个系统调用的最后步骤</h3><h3 id="从用户空间访问系统调用"><a href="#从用户空间访问系统调用" class="headerlink" title="从用户空间访问系统调用"></a>从用户空间访问系统调用</h3>
         </div>
 
         <blockquote class="post-copyright">
@@ -201,7 +211,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-06-15T03:53:31.000Z" itemprop="dateUpdated">2018-06-15 11:53:31</time>
+    最后更新时间：<time datetime="2018-06-18T02:49:58.000Z" itemprop="dateUpdated">2018-06-18 10:49:58</time>
 </span><br>
 
 
@@ -288,9 +298,9 @@
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2018/05/31/Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback/" id="post-next" class="post-nav-link">
+      <a href="/2018/05/31/【安卓开发艺术探索】JNI和NDK编程/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback</h4>
+        <h4 class="title">【安卓开发艺术探索】JNI和NDK编程</h4>
       </a>
     </div>
   
