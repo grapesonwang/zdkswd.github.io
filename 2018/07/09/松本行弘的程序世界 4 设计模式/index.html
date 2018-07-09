@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>松本行弘的程序世界 4 设计模式 | ZDK&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="电子书笔记,程序语言">
+    <meta name="description" content="松本行弘的程序世界 4 设计模式设计模式（1）设计模式的价值和意义Gamma他们并没有发现新的模式，总结出来的23种设计模式也是软件开发中早就存在并反复使用的模式，因此并不能说是Gamma他们的首创。但即使是这样，设计模式有了名字，人们就可以认识到它的存在，并对之进行讨论。这种不能用语言表达的知识称为内隐知识。给这些在软件中经常反复出现的模式命名，使得这些本来只有经验丰富的程序员才能认识到的软件设">
+<meta name="keywords" content="电子书笔记,程序语言">
+<meta property="og:type" content="article">
+<meta property="og:title" content="松本行弘的程序世界 4 设计模式">
+<meta property="og:url" content="https://github.com/zdkswd/2018/07/09/松本行弘的程序世界 4 设计模式/index.html">
+<meta property="og:site_name" content="ZDK&#39;s blog">
+<meta property="og:description" content="松本行弘的程序世界 4 设计模式设计模式（1）设计模式的价值和意义Gamma他们并没有发现新的模式，总结出来的23种设计模式也是软件开发中早就存在并反复使用的模式，因此并不能说是Gamma他们的首创。但即使是这样，设计模式有了名字，人们就可以认识到它的存在，并对之进行讨论。这种不能用语言表达的知识称为内隐知识。给这些在软件中经常反复出现的模式命名，使得这些本来只有经验丰富的程序员才能认识到的软件设">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-07-09T10:18:55.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="松本行弘的程序世界 4 设计模式">
+<meta name="twitter:description" content="松本行弘的程序世界 4 设计模式设计模式（1）设计模式的价值和意义Gamma他们并没有发现新的模式，总结出来的23种设计模式也是软件开发中早就存在并反复使用的模式，因此并不能说是Gamma他们的首创。但即使是这样，设计模式有了名字，人们就可以认识到它的存在，并对之进行讨论。这种不能用语言表达的知识称为内隐知识。给这些在软件中经常反复出现的模式命名，使得这些本来只有经验丰富的程序员才能认识到的软件设">
+    
+        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/tmg.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ZDK</h5>
+          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/zdkswd" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">松本行弘的程序世界 4 设计模式</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">松本行弘的程序世界 4 设计模式</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-07-09T10:21:32.000Z" itemprop="datePublished" class="page-time">
+  2018-07-09
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#松本行弘的程序世界-4-设计模式"><span class="post-toc-number">1.</span> <span class="post-toc-text">松本行弘的程序世界 4 设计模式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#设计模式（1）"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">设计模式（1）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#设计模式的价值和意义"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">设计模式的价值和意义</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#设计模式是程序抽象化的延伸"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">设计模式是程序抽象化的延伸</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Ruby中的设计模式"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">Ruby中的设计模式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Singleton模式"><span class="post-toc-number">1.1.4.</span> <span class="post-toc-text">Singleton模式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Proxy模式"><span class="post-toc-number">1.1.5.</span> <span class="post-toc-text">Proxy模式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Iterator模式"><span class="post-toc-number">1.1.6.</span> <span class="post-toc-text">Iterator模式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#外部与内部，哪一个更好"><span class="post-toc-number">1.1.7.</span> <span class="post-toc-text">外部与内部，哪一个更好</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#内部迭代器的缺陷"><span class="post-toc-number">1.1.8.</span> <span class="post-toc-text">内部迭代器的缺陷</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#外部迭代器的缺陷"><span class="post-toc-number">1.1.9.</span> <span class="post-toc-text">外部迭代器的缺陷</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#设计模式（2）"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">设计模式（2）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#模式与动态语言的关系"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">模式与动态语言的关系</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#重复使用既存对象的Protoype模式"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">重复使用既存对象的Protoype模式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#亲身体验IO语言"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">亲身体验IO语言</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Ruby中的原型"><span class="post-toc-number">1.2.4.</span> <span class="post-toc-text">Ruby中的原型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#编写抽象算法的Template-Method模式"><span class="post-toc-number">1.2.5.</span> <span class="post-toc-text">编写抽象算法的Template Method模式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#用Ruby来尝试Template-Method"><span class="post-toc-number">1.2.6.</span> <span class="post-toc-text">用Ruby来尝试Template Method</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#动态语言与Template-Method模式"><span class="post-toc-number">1.2.7.</span> <span class="post-toc-text">动态语言与Template Method模式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#避免高度依赖性的Observer模式"><span class="post-toc-number">1.2.8.</span> <span class="post-toc-text">避免高度依赖性的Observer模式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Observable模块"><span class="post-toc-number">1.2.9.</span> <span class="post-toc-text">Observable模块</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Observer模式与动态语言"><span class="post-toc-number">1.2.10.</span> <span class="post-toc-text">Observer模式与动态语言</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#设计模式（3）"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">设计模式（3）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#软件开发的悲剧"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">软件开发的悲剧</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#开放-封闭原则"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">开放-封闭原则</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#面向对象的情况"><span class="post-toc-number">1.3.3.</span> <span class="post-toc-text">面向对象的情况</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#非面向对象的情况"><span class="post-toc-number">1.3.4.</span> <span class="post-toc-text">非面向对象的情况</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#OCP与Template-Method模式"><span class="post-toc-number">1.3.5.</span> <span class="post-toc-text">OCP与Template Method模式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Observer模式"><span class="post-toc-number">1.3.6.</span> <span class="post-toc-text">Observer模式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用Strategy模式"><span class="post-toc-number">1.3.7.</span> <span class="post-toc-text">使用Strategy模式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Strategy模式与OCP"><span class="post-toc-number">1.3.8.</span> <span class="post-toc-text">Strategy模式与OCP</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-松本行弘的程序世界 4 设计模式"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">松本行弘的程序世界 4 设计模式</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-07-09 18:21:32" datetime="2018-07-09T10:21:32.000Z"  itemprop="datePublished">2018-07-09</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="松本行弘的程序世界-4-设计模式"><a href="#松本行弘的程序世界-4-设计模式" class="headerlink" title="松本行弘的程序世界 4 设计模式"></a>松本行弘的程序世界 4 设计模式</h1><h2 id="设计模式（1）"><a href="#设计模式（1）" class="headerlink" title="设计模式（1）"></a>设计模式（1）</h2><h3 id="设计模式的价值和意义"><a href="#设计模式的价值和意义" class="headerlink" title="设计模式的价值和意义"></a>设计模式的价值和意义</h3><p>Gamma他们并没有发现新的模式，总结出来的23种设计模式也是软件开发中早就存在并反复使用的模式，因此并不能说是Gamma他们的首创。但即使是这样，设计模式有了名字，人们就可以认识到它的存在，并对之进行讨论。这种不能用语言表达的知识称为内隐知识。给这些在软件中经常反复出现的模式命名，使得这些本来只有经验丰富的程序员才能认识到的软件设计模式能被广泛认识和讨论。</p>
+<h3 id="设计模式是程序抽象化的延伸"><a href="#设计模式是程序抽象化的延伸" class="headerlink" title="设计模式是程序抽象化的延伸"></a>设计模式是程序抽象化的延伸</h3><p>一旦有了设计模式，只要把过去优秀的人们考虑出来的模式拿来应用一下。</p>
+<h3 id="Ruby中的设计模式"><a href="#Ruby中的设计模式" class="headerlink" title="Ruby中的设计模式"></a>Ruby中的设计模式</h3><h3 id="Singleton模式"><a href="#Singleton模式" class="headerlink" title="Singleton模式"></a>Singleton模式</h3><p>单件模式。用来保证某个类的实例只有一个。<br>Ruby实现Singleton模式的方法有几个</p>
+<ol>
+<li>使用singleton库的方法<br>Ruby以库的形式实现了Singleton模式。使用Singleton库，在任意类中include Singleton模块，那个类就变成Singleton模式的对象。</li>
+<li>使用类或模块<br>C++和java是不能把类作为对象使用的，与之不同的是，smalltalk或Ruby能把类也作为对象来处理。因此，在类或模块中定义一个方法就可以实现Singleton模式。</li>
+<li>把一般的对象作为Singleton来使用<br>为了把一个类的对象限制为只有一个，并不一定要对对象的一般生产方法进行限制。可以生成一个一般的对象，然后不要在生产更多个对象了。</li>
+<li>使用对象和特异方法<br>Ruby可以在对象生成以后再增加新的方法。<h3 id="Proxy模式"><a href="#Proxy模式" class="headerlink" title="Proxy模式"></a>Proxy模式</h3>Proxy（代理）模式是为某个对象提供代理对象的模式。<br>在不知道是否真正需要一个生成代价很大的对象时可能造成很大浪费，但不生成又什么都做不了。<h3 id="Iterator模式"><a href="#Iterator模式" class="headerlink" title="Iterator模式"></a>Iterator模式</h3>Iterator（迭代器）模式提供按顺序访问集合对象中各元素的方法。即使不知道对象的内部构造，也可以按顺序访问其中的每个元素。<br>Iterator模式是为集合对象另外准备用来控制循环处理的对象，就像C++或java一样，我们称这个循环控制对象为Iyerator，也称为游标。<h3 id="外部与内部，哪一个更好"><a href="#外部与内部，哪一个更好" class="headerlink" title="外部与内部，哪一个更好"></a>外部与内部，哪一个更好</h3>它们都有方便的一面，也都有不方便的另一面。<h3 id="内部迭代器的缺陷"><a href="#内部迭代器的缺陷" class="headerlink" title="内部迭代器的缺陷"></a>内部迭代器的缺陷</h3>内部迭代器不能同时进行多个循环，也就无法实现按顺序比较两个集合元素的处理。<h3 id="外部迭代器的缺陷"><a href="#外部迭代器的缺陷" class="headerlink" title="外部迭代器的缺陷"></a>外部迭代器的缺陷</h3>外部迭代器的缺陷在于迭代器对象需要引用集合对象的内部信息，为了按顺序访问集合对象的各个元素，迭代器需要访问集合的内部构造，破坏了隐藏集合内部构造的封装性原则。<h2 id="设计模式（2）"><a href="#设计模式（2）" class="headerlink" title="设计模式（2）"></a>设计模式（2）</h2><h3 id="模式与动态语言的关系"><a href="#模式与动态语言的关系" class="headerlink" title="模式与动态语言的关系"></a>模式与动态语言的关系</h3>《设计模式》一书中介绍了23个设计模式。这些设计模式可分为3大类：（1）有关生成的模式（5个），有关构造的模式（7个）以及有关行为的模式（11个）。Singleton为（1），Proxy为（2），Iterayor为（3）。<h3 id="重复使用既存对象的Protoype模式"><a href="#重复使用既存对象的Protoype模式" class="headerlink" title="重复使用既存对象的Protoype模式"></a>重复使用既存对象的Protoype模式</h3>Protoype（原型）模式明确一个实例作为要生成对象的种类原型，通过复制该实例来生成新的对象。<br>在需要新种类对象时，首先复制一个既存的对象，给复制的对象直接增加方法或实例变量等功能，生成最初的第一个新种类对象。最初一个也并不特别，只是偶尔被用来复制而已。<br>相对于类模式编程，原型模式的编程构成元素比较少，具有简单实现面向对象功能设计的倾向，JavaScript的面向对象就是原型模式。io语言也是。<h3 id="亲身体验IO语言"><a href="#亲身体验IO语言" class="headerlink" title="亲身体验IO语言"></a>亲身体验IO语言</h3><h3 id="Ruby中的原型"><a href="#Ruby中的原型" class="headerlink" title="Ruby中的原型"></a>Ruby中的原型</h3>基本上讲Ruby是类模式的语言，但也拥有支持原型模式编程功能。</li>
+<li>复制对象的clone方法</li>
+<li>给个别对象增加方法的特意方法功能</li>
+<li>给个别对象增加一组功能的extend方法<br>静态语言中没有原型编程，因为不可能给复制的对象增加新方法。<h3 id="编写抽象算法的Template-Method模式"><a href="#编写抽象算法的Template-Method模式" class="headerlink" title="编写抽象算法的Template Method模式"></a>编写抽象算法的Template Method模式</h3><h3 id="用Ruby来尝试Template-Method"><a href="#用Ruby来尝试Template-Method" class="headerlink" title="用Ruby来尝试Template Method"></a>用Ruby来尝试Template Method</h3>Ruby的类库中最大限度灵活运用Template Method模式的部分，应该是Enumerable模块和Comparable模块了。<h3 id="动态语言与Template-Method模式"><a href="#动态语言与Template-Method模式" class="headerlink" title="动态语言与Template Method模式"></a>动态语言与Template Method模式</h3>Template Method模式的这种优秀性质与语言是不是静态没有关系。<h3 id="避免高度依赖性的Observer模式"><a href="#避免高度依赖性的Observer模式" class="headerlink" title="避免高度依赖性的Observer模式"></a>避免高度依赖性的Observer模式</h3>Observer（观察者）模式是当某个对象的状态发生变化时，依存于该状态的全部对象都自动得到通知，而且为了让它们都得到通知，定义了对象间一对多的依存关系。<br>这是控制类与类之间依存关系的一种模式。<br>高度依赖性会导致组成程序的零件过大，避免高度依赖性的Observer模式，构成观察者模式的有两个对象，一个称谓Observer（观察者）接受变更通知；另一个称为Subject（对象）或Observable（被观察者），发出变更通知。<br>被观察者让人得到被动的印象，在实际处理中，被观察者会发出通知“我已经变化了哦”。<h3 id="Observable模块"><a href="#Observable模块" class="headerlink" title="Observable模块"></a>Observable模块</h3>Ruby中为实现Observer模式提供了名为observer的库。observer库提供observer模块。<h3 id="Observer模式与动态语言"><a href="#Observer模式与动态语言" class="headerlink" title="Observer模式与动态语言"></a>Observer模式与动态语言</h3>由于Ruby的动态性质，Observer库具有以下几方面的灵活性。</li>
+<li>观察者类不必是特定类的子类。</li>
+<li>观察者类不必实现特定的接口（本来在Ruby中也没有接口）</li>
+<li>观察者类的更新方法名可以自由决定</li>
+<li>观察者类更新方法的参数可以自由决定</li>
+<li>被观察者类不必是特定类的子类</li>
+<li>对被观察者类的要求，只是将Observable模块包括进来。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">说到事件监听模式,很容易将它和观察者模式联系在一起。</span><br><span class="line">实质上这两者完成同类型的工作。依个人理解，事件监听模式更像是观察者模式的进阶。</span><br><span class="line">事件监听机制就是对观察者模式进行了进一步抽象，节省了代码量。</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="设计模式（3）"><a href="#设计模式（3）" class="headerlink" title="设计模式（3）"></a>设计模式（3）</h2><h3 id="软件开发的悲剧"><a href="#软件开发的悲剧" class="headerlink" title="软件开发的悲剧"></a>软件开发的悲剧</h3><ol>
+<li>复杂性</li>
+<li>变化性<br>软件的规模越大，各个部分之间的牵连越复杂，更改也就越难。<br>在软件开发过程中，需求变更几乎是不可避免的。<h3 id="开放-封闭原则"><a href="#开放-封闭原则" class="headerlink" title="开放-封闭原则"></a>开放-封闭原则</h3><strong>对模块扩展必须开放，对修改必须封闭。</strong><br>为了应对将来的需要，扩展必须是开放的，但是即使某一模块的内部结构改变了，对外接口也应当是不变的。简称OCP。</li>
+</ol>
+<h3 id="面向对象的情况"><a href="#面向对象的情况" class="headerlink" title="面向对象的情况"></a>面向对象的情况</h3><p>既要开放，又要封闭，看似互相矛盾，但是<strong>面向对象编程语言能够很彻底地消除这个矛盾。</strong></p>
+<h3 id="非面向对象的情况"><a href="#非面向对象的情况" class="headerlink" title="非面向对象的情况"></a>非面向对象的情况</h3><p>非面向对象则很难处理好。<br><strong>面向对象的精髓在于对OCP的实践。至于把对象看做物体理解起来比较容易，能够建立现实世界的模型等，不过是锦上添花。</strong></p>
+<h3 id="OCP与Template-Method模式"><a href="#OCP与Template-Method模式" class="headerlink" title="OCP与Template Method模式"></a>OCP与Template Method模式</h3><p>虽说使用面向对象语言的功能，可以实现OCP，但是只是说有这种可能性，并不是说什么时候都能实现。当然，虽然使用了面向对象语言，却做成了一个糟糕的设计，这种情况也是屡见不鲜。<br>分类中很多设计模式之所以优秀是因为经得起OCP所要求的变化。<br>Template Method模式，是满足OCP的基本手段。其他的设计模式都是利用多个类的关联来实现的，而Template Method模式则仅仅使用了继承，基本上无非是实现了一个抽象类。</p>
+<h3 id="Observer模式"><a href="#Observer模式" class="headerlink" title="Observer模式"></a>Observer模式</h3><p>Observer模式是满足OCP的。<br>DRY也好，OCP也好，都不过是原则，根据具体情况，要做适当的选择，如果代码没有再利用的打算，也没有扩展功能的打算，也就没有必要生搬硬套设计模式。使用前有必要先做判断。</p>
+<h3 id="使用Strategy模式"><a href="#使用Strategy模式" class="headerlink" title="使用Strategy模式"></a>使用Strategy模式</h3><p>Strategy（策略）模式是定义算法的集合，将各算法封装，使它们能够交换。利用Strategy模式，算法和利用这些算法的客户程序可以分别独立进行修改而不互相影响。<br>Strategy模式就是将容易变化的处理归纳为独立的对象，然后使它们能够互相交换，使用方法与将容易变化的处理交给子类的Template Method模式相类似。两个模式最大的区别在于，Strategy模式是独立的对象，能够动态交换处理逻辑。</p>
+<h3 id="Strategy模式与OCP"><a href="#Strategy模式与OCP" class="headerlink" title="Strategy模式与OCP"></a>Strategy模式与OCP</h3><p>Strategy模式完全满足OCP。<br>世上很多设计模式，为了能应对将来可能的修改，都是按照OCP的要求来设计的。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-07-09T10:18:55.000Z" itemprop="dateUpdated">2018-07-09 18:18:55</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/zdkswd">
+            <img src="/img/tmg.jpg" alt="ZDK">
+            ZDK
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/电子书笔记/">电子书笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/程序语言/">程序语言</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/07/09/松本行弘的程序世界 4 设计模式/&title=《松本行弘的程序世界 4 设计模式》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/07/09/松本行弘的程序世界 4 设计模式/&title=《松本行弘的程序世界 4 设计模式》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/07/09/松本行弘的程序世界 4 设计模式/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《松本行弘的程序世界 4 设计模式》 — ZDK's blog&url=https://github.com/zdkswd/2018/07/09/松本行弘的程序世界 4 设计模式/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/07/09/松本行弘的程序世界 4 设计模式/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/07/09/松本行弘的程序世界 3 程序块/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">松本行弘的程序世界 3 程序块</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz",
+            appKey: "gkBx5soQkBREmER84PWbNJeM",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ZDK &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/07/09/松本行弘的程序世界 4 设计模式/&title=《松本行弘的程序世界 4 设计模式》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/07/09/松本行弘的程序世界 4 设计模式/&title=《松本行弘的程序世界 4 设计模式》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/07/09/松本行弘的程序世界 4 设计模式/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《松本行弘的程序世界 4 设计模式》 — ZDK's blog&url=https://github.com/zdkswd/2018/07/09/松本行弘的程序世界 4 设计模式/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/07/09/松本行弘的程序世界 4 设计模式/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2018/07/09/松本行弘的程序世界 4 设计模式/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'zdk'blog';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
