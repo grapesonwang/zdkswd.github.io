@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/zdkswd/"/>
-  <updated>2018-07-09T10:18:55.000Z</updated>
+  <updated>2018-07-10T09:26:45.000Z</updated>
   <id>https://github.com/zdkswd/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>松本行弘的程序世界 5 Ajax</title>
+    <link href="https://github.com/zdkswd/2018/07/10/%E6%9D%BE%E6%9C%AC%E8%A1%8C%E5%BC%98%E7%9A%84%E7%A8%8B%E5%BA%8F%E4%B8%96%E7%95%8C%205%20Ajax/"/>
+    <id>https://github.com/zdkswd/2018/07/10/松本行弘的程序世界 5 Ajax/</id>
+    <published>2018-07-10T09:25:32.000Z</published>
+    <updated>2018-07-10T09:26:45.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="松本行弘的程序世界-5-Ajax"><a href="#松本行弘的程序世界-5-Ajax" class="headerlink" title="松本行弘的程序世界 5 Ajax"></a>松本行弘的程序世界 5 Ajax</h1><h2 id="Ajax和JavaScript（前篇）"><a href="#Ajax和JavaScript（前篇）" class="headerlink" title="Ajax和JavaScript（前篇）"></a>Ajax和JavaScript（前篇）</h2><p>Ajax（Asynchronous JavaScript and XML）,含义是异步JavaScript及XML。<br>Ajax不算是一个新技术，只是既有技术的组合。</p><h3 id="通信及异步页面更新"><a href="#通信及异步页面更新" class="headerlink" title="通信及异步页面更新"></a>通信及异步页面更新</h3><p>Ajax的最大特点是进行异步操作，异步意味着Web浏览器的通信和页面更新是互相独立的。<br>以前的Web应用程序，每按下一个按钮就开始显示下一个页面，在页面完整呈现之前，用户只能等待，无法进行其他操作，使用Ajax技术的页面是在后台和HTTP服务器进行通信，设计优良的Web应用程序，在客户和服务器通信的过程中也可以让用户进行操作，而不需要等待。Ajax的最大优点是改善了应用程序的操控性。<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/15311832913375/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-10%20%E4%B8%8A%E5%8D%888.52.52.png" alt="屏幕快照 2018-07-10 上午8.52.52" title="">                </div>                <div class="image-caption">屏幕快照 2018-07-10 上午8.52.52</div>            </figure><br>Ajax技术中，对于用户进行的操作，基本是由JavaScript在Web浏览器中进行响应。尽在数据必须从服务器获取的情况下，才在后台进行异步通信。在通信过程中，用户也可以继续对Web浏览器进行操作。和服务器通信得到的结果由DHTML对当前的页面进行部分更新而现实出来。</p><h3 id="技术要素之一：JavaScript"><a href="#技术要素之一：JavaScript" class="headerlink" title="技术要素之一：JavaScript"></a>技术要素之一：JavaScript</h3><p>支撑Ajax的三个主要技术：JavaScript、XML及DHTML。<br>JavaScript是几乎所有Web浏览器处理系统都支撑的一种编程语言。因此，它被称为世界上最普及的编程语言。<br>JavaScript可以简单的嵌入到表示网页的HTML中去，利用JavaScript可以做出<strong>完全不用和服务器进行通信</strong>的网页。</p><h3 id="技术要素之二：XML"><a href="#技术要素之二：XML" class="headerlink" title="技术要素之二：XML"></a>技术要素之二：XML</h3><p>XML（eXtensible Markup Language）,和SGML、HTML类似，使用标签（tag）对数据进行标识说明的一种语言。<br>XML已经成为了数据表示、配置各种文件及其他多种场合下广泛使用的一种格式。<br>Ajax的名字中部分包括了XML，是因为当初大部分使用Ajax技术的应用程序都使用了XML数据，以及用JavaScript进行异步通信的对象的名字是XMLHTTPRequest。当然不用XML的XMLHTTPRequest的通信也是存在的，使用Ajax技术的Web应用进行通信的数据格式也是多种多样的，比如有普通文本格式以及YAML，JSON。</p><h3 id="XML以外的数据表示形式"><a href="#XML以外的数据表示形式" class="headerlink" title="XML以外的数据表示形式"></a>XML以外的数据表示形式</h3><p>YAML（YAML Ain’t Markup Language）看出它不是标记语言。YAML只是表示数据的语言，目的仅仅是表示数据。特点有：</p><ol><li>记述简洁</li><li>容易理解</li><li>专注于表示数据，不用费心考虑给标签起名字。<figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/15311832913375/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-10%20%E4%B8%8A%E5%8D%889.30.23.png" alt="屏幕快照 2018-07-10 上午9.30.23" title="">                </div>                <div class="image-caption">屏幕快照 2018-07-10 上午9.30.23</div>            </figure></li></ol><p>和YMAL相提并论的是JSON（JavaScript Object Notation）意思是JavaScript对象表示法。是直接把JavaScript表示对象的程序拿来记述数据。JSON是合法的JavaScript程序，作为JavaScript实现可以生成对象。<br>JSON可以表现下面6种数据类型：数值（整数及浮点小数）、字符串、布尔值（真、假）、数组、对象（键和值的表）和null。<br>YAML通过扩展可以表示各种形式的数据。相比较，JSON就简单太多了，但也够用了。</p><h3 id="技术要素之三：DHTML"><a href="#技术要素之三：DHTML" class="headerlink" title="技术要素之三：DHTML"></a>技术要素之三：DHTML</h3><p>DHTML，动态HTML，顾名思义，可以动态地对HTML进行引用、修改和更新。更具体的说，是利用装载在网页中的JavaScript，使用DOM（文档对象模型）对网页数据进行操作。使用DOM可以进行下述处理：</p><ol><li>取得页面中特定标签中的数据；</li><li>修改标签的数据（文字、属性等）</li><li>在页面中添加标签；</li><li>设定事件处理程序<h3 id="JavaScript技术基础"><a href="#JavaScript技术基础" class="headerlink" title="JavaScript技术基础"></a>JavaScript技术基础</h3>JavaScript是以对象为基础的语言，所有的数据都可以作为“对象”进行统一处理。不过，它不具备“类”这样的所谓普通面向对象语言所提供的功能，即使去除JavaScript面向对象的编程功能，它也可以作为普通的结构化编程语言来使用。<h4 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h4>JavaScript的基本语法和C、Java类似。最大的不同是，JavaScript不指定变量类型。<h4 id="函数定义"><a href="#函数定义" class="headerlink" title="函数定义"></a>函数定义</h4>JavaScript的特点之一是把函数作为对象进行处理。C也是将函数作为对象处理，但JavaScript的不同之处在于函数对象有闭包（closure），可以使用函数外面的局部变量。<strong>闭包功能称为了JavaScript面向对象功能的基础。</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">闭包是Ruby中块变为对象后的结果。它的优点是，只要闭包还存在，就能访问闭包内的变量。</span><br></pre></td></tr></table></figure></li></ol><h3 id="原型模式的面向对象编程语言"><a href="#原型模式的面向对象编程语言" class="headerlink" title="原型模式的面向对象编程语言"></a>原型模式的面向对象编程语言</h3><p>如果具有原型模式的面向对象功能的话，就可以最大限度地消减语言本身的固有功能。这非常适合于JavaScript这样的语言。<br>以类为中心的传统面向对象编程，是以类为基础生成新对象。类和对象的关系可以类比成铸模和铸件的关系。而原型模式的面向对象编程语言没有类这样一个概念。<br>需要生成新的对象时，只要给对象追加属性。设置函数对象作为属性的话，就成为方法。当访问对象中不存在的属性时，JavaScript会去搜索该对象prototype属性所指向的对象。<br>JavaScript利用这个功能，使用“委派”而非“继承”来实现面向对象编程。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">委派是指，把对于某个对象的调用传送到另一个对象上。</span><br></pre></td></tr></table></figure></p><p>JavaScript的方式过于简单反而使记述太过复杂。</p><h3 id="使用prototype-js库"><a href="#使用prototype-js库" class="headerlink" title="使用prototype.js库"></a>使用prototype.js库</h3><p>为了克服JavaScript记述过于繁杂的缺点，JavaScript提供了进行功能扩展的一些库。如prototype.js库<br>prototype.js受到了Ruby的影响，实际上Ruby on Rails中标准地附加了prototype.js库，使用得很广泛。</p><h3 id="prototype-js的功能"><a href="#prototype-js的功能" class="headerlink" title="prototype.js的功能"></a>prototype.js的功能</h3><h4 id="Ajax功能"><a href="#Ajax功能" class="headerlink" title="Ajax功能"></a>Ajax功能</h4><p>prototype.js支持XMLHttpRequest对象，可以对HTML进行异步更新。<br>实际上不同Web浏览器获取XMLHttpRequest对象的方法也是不同的。Ajax.Request帮我们屏蔽了与代码移植相关的问题。</p><h4 id="Enumerable"><a href="#Enumerable" class="headerlink" title="Enumerable"></a>Enumerable</h4><p>它是Ruby的Enumerable模块在JavaScript中的实现。</p><h4 id="其他扩展功能"><a href="#其他扩展功能" class="headerlink" title="其他扩展功能"></a>其他扩展功能</h4><p>如使用Object.extend()给对象追加功能。</p><h2 id="Ajax和JavaScript-后篇"><a href="#Ajax和JavaScript-后篇" class="headerlink" title="Ajax和JavaScript(后篇)"></a>Ajax和JavaScript(后篇)</h2><p>像Ajax有3个特点：</p><ol><li>没有Web页面跳转</li><li>通过异步通信实现快速反应</li><li>实现了动画和拖拽等单独使用HTML格式无法表现的用户界面<br>构成DHTML基础的JavaScript是一个速度不怎么快的语言。某种技术在开发出来之后经过相当长一段时间才得到普及，此类例子并不少见。<h3 id="巧妙使用DHTML"><a href="#巧妙使用DHTML" class="headerlink" title="巧妙使用DHTML"></a>巧妙使用DHTML</h3>DHTML被称为Ajax的本质技术。顾名思义，可以动态访问、更新HTML。具体就是利用嵌入网页的JavaScript，使用DOM操作页面数据。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DOM是操作HTML和XML的规范。特点是把HTML和XML作为树结构进行处理。</span><br></pre></td></tr></table></figure></li></ol><p>HTML被读取后，生成树结构。<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/15311832913375/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-10%20%E4%B8%8B%E5%8D%884.39.14.png" alt="屏幕快照 2018-07-10 下午4.39.14" title="">                </div>                <div class="image-caption">屏幕快照 2018-07-10 下午4.39.14</div>            </figure><br>使用JavaScript对树结构进行操作就是DHTML的本质。因此JavaScript提供的W3C DOM API有如下功能：</p><ol><li>获取documnent节点</li><li>获取和更新标签数据（包括文字、类型以及属性等）</li><li>追加documnent节点</li><li>设定时间处理程序（event handler）</li></ol><h3 id="获取documnent节点"><a href="#获取documnent节点" class="headerlink" title="获取documnent节点"></a>获取documnent节点</h3><blockquote><p>getElementById(name)<br>getElementsByTagName(name)</p></blockquote><h3 id="获取和更新标签数据"><a href="#获取和更新标签数据" class="headerlink" title="获取和更新标签数据"></a>获取和更新标签数据</h3><p>获取节点对象后，通过调用对象的方法，读写对象的属性等就能够获取和更新标签数据。</p><h3 id="设定事件处理程序"><a href="#设定事件处理程序" class="headerlink" title="设定事件处理程序"></a>设定事件处理程序</h3><p>两种办法：</p><ol><li>指定标签属性。如设置为a标签的onclick属性值来指定事件处理程序。</li><li>把方法设为JavaScript对象的属性。如<figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/15311832913375/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-10%20%E4%B8%8B%E5%8D%884.49.48.png" alt="屏幕快照 2018-07-10 下午4.49.48" title="">                </div>                <div class="image-caption">屏幕快照 2018-07-10 下午4.49.48</div>            </figure></li></ol><h3 id="追加标签节点"><a href="#追加标签节点" class="headerlink" title="追加标签节点"></a>追加标签节点</h3><p>用appendChild方法可以为节点对象追加节点，消除节点用removeChild方法。</p><h3 id="本地HTML应用"><a href="#本地HTML应用" class="headerlink" title="本地HTML应用"></a>本地HTML应用</h3><h3 id="和服务器间的通信"><a href="#和服务器间的通信" class="headerlink" title="和服务器间的通信"></a>和服务器间的通信</h3><p>使用DHTML之后，对于较简单的应用，在客户端就能够实现。但是，客户端无法保存数据，所以保存和获取数据时需要和服务器进行通信。<br>Ajax是利用XMLHTTPRequest对象来进行异步通信，不需要网页跳转，在后台就可以进行通信。</p><h3 id="使用Prototype-js的优点"><a href="#使用Prototype-js的优点" class="headerlink" title="使用Prototype.js的优点"></a>使用Prototype.js的优点</h3><p>不需要麻烦的记述。</p><h3 id="在服务器上保存数据"><a href="#在服务器上保存数据" class="headerlink" title="在服务器上保存数据"></a>在服务器上保存数据</h3><h3 id="Web应用的脆弱性"><a href="#Web应用的脆弱性" class="headerlink" title="Web应用的脆弱性"></a>Web应用的脆弱性</h3><p>如XSS（跨站点脚本问题）</p><h3 id="使用JavaScript的感觉"><a href="#使用JavaScript的感觉" class="headerlink" title="使用JavaScript的感觉"></a>使用JavaScript的感觉</h3><h4 id="作为动态语言名副其实"><a href="#作为动态语言名副其实" class="headerlink" title="作为动态语言名副其实"></a>作为动态语言名副其实</h4><h4 id="DHTML比想象的更有趣"><a href="#DHTML比想象的更有趣" class="headerlink" title="DHTML比想象的更有趣"></a>DHTML比想象的更有趣</h4><h4 id="Prototype-js也不错"><a href="#Prototype-js也不错" class="headerlink" title="Prototype.js也不错"></a>Prototype.js也不错</h4><h4 id="调试比较麻烦"><a href="#调试比较麻烦" class="headerlink" title="调试比较麻烦"></a>调试比较麻烦</h4><p>JavaScript理就算有程序错误，Web浏览器也不会显示任何信息。想要确认程序的状态，只能多次使用alert()。<br>Firefox提供了Firebug的扩展功能，对于JavaScript的调试非常有用。</p><h4 id="兼容性问题"><a href="#兼容性问题" class="headerlink" title="兼容性问题"></a>兼容性问题</h4><p>Ajax开发最难的一点就是Web浏览器间JavaScript的兼容性问题。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">名字的重要性</span><br><span class="line">起了一个合适的名字本身意味着功能设计的正确。反过来，起了不好的名字说明设计者自己也没有完全理解应完成什么样的功能。</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;松本行弘的程序世界-5-Ajax&quot;&gt;&lt;a href=&quot;#松本行弘的程序世界-5-Ajax&quot; class=&quot;headerlink&quot; title=&quot;松本行弘的程序世界 5 Ajax&quot;&gt;&lt;/a&gt;松本行弘的程序世界 5 Ajax&lt;/h1&gt;&lt;h2 id=&quot;Ajax和Java
+      
+    
+    </summary>
+    
+      <category term="读书笔记" scheme="https://github.com/zdkswd/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="电子书笔记" scheme="https://github.com/zdkswd/tags/%E7%94%B5%E5%AD%90%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="程序语言" scheme="https://github.com/zdkswd/tags/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
   
   <entry>
     <title>松本行弘的程序世界 4 设计模式</title>
@@ -337,31 +364,6 @@
   </entry>
   
   <entry>
-    <title>Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback</title>
-    <link href="https://github.com/zdkswd/2018/05/31/Surface%E3%80%81SurfaceView%E3%80%81SurfaceHolder%E5%8F%8ASurfaceHolder.Callback/"/>
-    <id>https://github.com/zdkswd/2018/05/31/Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback/</id>
-    <published>2018-05-31T09:49:56.000Z</published>
-    <updated>2018-05-31T09:51:27.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Surface"><a href="#Surface" class="headerlink" title="Surface"></a>Surface</h2><p>Surface本身的作用类似一个句柄，得到了这个句柄就可以得到其中的Canvas、原生缓冲器以及其它方面的内容。<br>原生缓冲器（rawbuffer）是用于保存当前窗口的像素数据的。<br>通常画图是在一个Canvas对象上面进行的。</p><h2 id="SurfaceView"><a href="#SurfaceView" class="headerlink" title="SurfaceView"></a>SurfaceView</h2><p>SurfaceView，顾名思义就是Surface的View，通过SurfaceView就可以看到Surface的部分或者全部的内容.<br>也就是说，Surface是用通过SurfaceView才能展示其中的内容。<br>SurfaceView是Android中View的子类。事实上，在Android中所有用于界面展示的类皆为View的子类，包括那些不可见的、各种各样的Layout。</p><p>在Android中Surface是从Object派生而来，且实现了Parcelable接口。看到Parcelable就让人能很自然地想到数据容器，SurfaceView就是用来展示Surface中的数据的。在这个层面上而言，Surface就是管理数据的地方，SurfaceView就是展示数据的地方。</p><p>这个类的目的之一，就是提供一个可以用另外一个线程（第二个线程）进行屏幕渲染的surface（译注：即UI线程和绘制线程可以分离）。如果你打算这样使用，那么应当注意一些线程方面的语义：</p><ul><li>所有SurfaceView和SurfaceHolder.Callback中声明的方法，必须在运行SurfaceView窗口中的线程中调用（典型地，就是应用的主线程。译注：即UI线程），因为它们需要正确地将同时被绘制线程访问的各种状态进行同步。</li><li>必须保证，只有在背后的Surface有效的时候 – 在SurfaceHolder.Callback.surfaceCreated()和 SurfaceHolder.Callback.surfaceDestroyed()这两个方法调用之间，访问它。</li></ul><p>Android中实现<strong>序列化</strong>有两个选择：一是实现<strong>Serializable</strong>接口（是JavaSE本身就支持的），一是实现<strong>Parcelable</strong>接口（是Android特有功能，效率比实现Serializable接口高效，可用于Intent数据传递，也可以用于进程间通信（IPC））。实现Serializable接口非常简单，声明一下就可以了，而实现Parcelable接口稍微复杂一些，但效率更高，推荐用这种方法提高性能。</p><h2 id="SurfaceHolder"><a href="#SurfaceHolder" class="headerlink" title="SurfaceHolder"></a>SurfaceHolder</h2><p>SurfaceHolder是一个接口，其作用就像一个关于Surface的监听器。提供访问和控制SurfaceView背后的Surface 相关的方法.它通过三个回调方法，让我们可以感知到Surface的创建、销毁或者改变。在SurfaceView中有一个方法getHolder，可以很方便地获得SurfaceView所对应的Surface所对应的SurfaceHolder.<br>从设计模式的高度来看，Surface、SurfaceView和SurfaceHolder实质上就是广为人知的MVC，即Model-View-Controller。</p><h2 id="SurfaceHolder-Callback"><a href="#SurfaceHolder-Callback" class="headerlink" title="SurfaceHolder.Callback"></a>SurfaceHolder.Callback</h2><p>前面已经讲到SurfaceHolder是一个接口，它通过回到方法的方式，让我们可以感知到Surface的创建、销毁或者改变。其实这一点是通过其内部的静态子接口SurfaceHolder.Callback来实现的。SurfaceHolder.Callback中定义了三个接口方法：</p><ol><li>abstract void surfaceChanged(SurfaceHolderholder, int format, int width, int height)<br>当surface发生任何结构性的变化时（格式或者大小），该方法就会被立即调用。</li><li>abstract void surfaceCreated(SurfaceHolderholder)<br>当surface对象创建后，该方法就会被立即调用。</li><li>abstract void surfaceDestroyed(SurfaceHolderholder)<br>当surface对象在将要销毁前，该方法会被立即调用。</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;Surface&quot;&gt;&lt;a href=&quot;#Surface&quot; class=&quot;headerlink&quot; title=&quot;Surface&quot;&gt;&lt;/a&gt;Surface&lt;/h2&gt;&lt;p&gt;Surface本身的作用类似一个句柄，得到了这个句柄就可以得到其中的Canvas、原生缓冲器以及其它
-      
-    
-    </summary>
-    
-      <category term="知识总结" scheme="https://github.com/zdkswd/categories/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"/>
-    
-    
-      <category term="Android" scheme="https://github.com/zdkswd/tags/Android/"/>
-    
-  </entry>
-  
-  <entry>
     <title>【安卓开发艺术探索】JNI和NDK编程</title>
     <link href="https://github.com/zdkswd/2018/05/31/%E3%80%90%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91%E8%89%BA%E6%9C%AF%E6%8E%A2%E7%B4%A2%E3%80%91JNI%E5%92%8CNDK%E7%BC%96%E7%A8%8B/"/>
     <id>https://github.com/zdkswd/2018/05/31/【安卓开发艺术探索】JNI和NDK编程/</id>
@@ -386,6 +388,31 @@
       <category term="Android" scheme="https://github.com/zdkswd/tags/Android/"/>
     
       <category term="电子书笔记" scheme="https://github.com/zdkswd/tags/%E7%94%B5%E5%AD%90%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback</title>
+    <link href="https://github.com/zdkswd/2018/05/31/Surface%E3%80%81SurfaceView%E3%80%81SurfaceHolder%E5%8F%8ASurfaceHolder.Callback/"/>
+    <id>https://github.com/zdkswd/2018/05/31/Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback/</id>
+    <published>2018-05-31T09:49:56.000Z</published>
+    <updated>2018-05-31T09:51:27.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Surface"><a href="#Surface" class="headerlink" title="Surface"></a>Surface</h2><p>Surface本身的作用类似一个句柄，得到了这个句柄就可以得到其中的Canvas、原生缓冲器以及其它方面的内容。<br>原生缓冲器（rawbuffer）是用于保存当前窗口的像素数据的。<br>通常画图是在一个Canvas对象上面进行的。</p><h2 id="SurfaceView"><a href="#SurfaceView" class="headerlink" title="SurfaceView"></a>SurfaceView</h2><p>SurfaceView，顾名思义就是Surface的View，通过SurfaceView就可以看到Surface的部分或者全部的内容.<br>也就是说，Surface是用通过SurfaceView才能展示其中的内容。<br>SurfaceView是Android中View的子类。事实上，在Android中所有用于界面展示的类皆为View的子类，包括那些不可见的、各种各样的Layout。</p><p>在Android中Surface是从Object派生而来，且实现了Parcelable接口。看到Parcelable就让人能很自然地想到数据容器，SurfaceView就是用来展示Surface中的数据的。在这个层面上而言，Surface就是管理数据的地方，SurfaceView就是展示数据的地方。</p><p>这个类的目的之一，就是提供一个可以用另外一个线程（第二个线程）进行屏幕渲染的surface（译注：即UI线程和绘制线程可以分离）。如果你打算这样使用，那么应当注意一些线程方面的语义：</p><ul><li>所有SurfaceView和SurfaceHolder.Callback中声明的方法，必须在运行SurfaceView窗口中的线程中调用（典型地，就是应用的主线程。译注：即UI线程），因为它们需要正确地将同时被绘制线程访问的各种状态进行同步。</li><li>必须保证，只有在背后的Surface有效的时候 – 在SurfaceHolder.Callback.surfaceCreated()和 SurfaceHolder.Callback.surfaceDestroyed()这两个方法调用之间，访问它。</li></ul><p>Android中实现<strong>序列化</strong>有两个选择：一是实现<strong>Serializable</strong>接口（是JavaSE本身就支持的），一是实现<strong>Parcelable</strong>接口（是Android特有功能，效率比实现Serializable接口高效，可用于Intent数据传递，也可以用于进程间通信（IPC））。实现Serializable接口非常简单，声明一下就可以了，而实现Parcelable接口稍微复杂一些，但效率更高，推荐用这种方法提高性能。</p><h2 id="SurfaceHolder"><a href="#SurfaceHolder" class="headerlink" title="SurfaceHolder"></a>SurfaceHolder</h2><p>SurfaceHolder是一个接口，其作用就像一个关于Surface的监听器。提供访问和控制SurfaceView背后的Surface 相关的方法.它通过三个回调方法，让我们可以感知到Surface的创建、销毁或者改变。在SurfaceView中有一个方法getHolder，可以很方便地获得SurfaceView所对应的Surface所对应的SurfaceHolder.<br>从设计模式的高度来看，Surface、SurfaceView和SurfaceHolder实质上就是广为人知的MVC，即Model-View-Controller。</p><h2 id="SurfaceHolder-Callback"><a href="#SurfaceHolder-Callback" class="headerlink" title="SurfaceHolder.Callback"></a>SurfaceHolder.Callback</h2><p>前面已经讲到SurfaceHolder是一个接口，它通过回到方法的方式，让我们可以感知到Surface的创建、销毁或者改变。其实这一点是通过其内部的静态子接口SurfaceHolder.Callback来实现的。SurfaceHolder.Callback中定义了三个接口方法：</p><ol><li>abstract void surfaceChanged(SurfaceHolderholder, int format, int width, int height)<br>当surface发生任何结构性的变化时（格式或者大小），该方法就会被立即调用。</li><li>abstract void surfaceCreated(SurfaceHolderholder)<br>当surface对象创建后，该方法就会被立即调用。</li><li>abstract void surfaceDestroyed(SurfaceHolderholder)<br>当surface对象在将要销毁前，该方法会被立即调用。</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Surface&quot;&gt;&lt;a href=&quot;#Surface&quot; class=&quot;headerlink&quot; title=&quot;Surface&quot;&gt;&lt;/a&gt;Surface&lt;/h2&gt;&lt;p&gt;Surface本身的作用类似一个句柄，得到了这个句柄就可以得到其中的Canvas、原生缓冲器以及其它
+      
+    
+    </summary>
+    
+      <category term="知识总结" scheme="https://github.com/zdkswd/categories/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"/>
+    
+    
+      <category term="Android" scheme="https://github.com/zdkswd/tags/Android/"/>
     
   </entry>
   
@@ -523,33 +550,6 @@
       <category term="计算机科学" scheme="https://github.com/zdkswd/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
     
       <category term="c/c++" scheme="https://github.com/zdkswd/tags/c-c/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Tensorflow可视化</title>
-    <link href="https://github.com/zdkswd/2018/05/17/Tensorflow%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
-    <id>https://github.com/zdkswd/2018/05/17/Tensorflow可视化/</id>
-    <published>2018-05-17T10:11:41.000Z</published>
-    <updated>2018-05-25T11:54:26.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Tensorflow计算模型–计算图"><a href="#Tensorflow计算模型–计算图" class="headerlink" title="Tensorflow计算模型–计算图"></a>Tensorflow计算模型–计算图</h2><h3 id="计算图的使用"><a href="#计算图的使用" class="headerlink" title="计算图的使用"></a>计算图的使用</h3><p>tensorflow程序可分为两个阶段，第一阶段定义图中所有的计算。第二阶段为执行阶段。<br>tensorflow中，系统会自动维护一个默认的计算图，通过<strong>tf.get_default_graph</strong>函数可以获取当前默认的计算图。<br>除了使用默认的计算图，Tensorflow支持通过<strong>tf.Graph</strong>函数来生成新的计算图。不同计算图上的张量和运算都不会共享。<br>计算图可以通过<strong>tf.Graph.device</strong>函数来指定运行计算的设备。<br>有效地整理TensorFlow程序的资源也是计算图的一个重要功能。在一个集合（collection）来管理不同类型的资源。</p><table><thead><tr><th>集合名称</th><th>集合内容</th><th>使用场景</th></tr></thead><tbody><tr><td>tf.GraphKeys.VARIABLES</td><td>所有变量</td><td>持久化Tensorflow模型</td></tr><tr><td>tf.GraphKeys.TRAINABLE_VARIABLES</td><td>可学习的变量（一般指神经网络中的参数）</td><td>模型训练、生成模型可视化内容</td></tr><tr><td>tf.GraphKeys.SUMMARIES</td><td>日志生成的相关的张量</td><td>TensorFlow计算可视化</td></tr><tr><td>tf.GraphKeys.QUEUE_RUNNERS</td><td>处理输入的QueueRunner</td><td>输入处理</td></tr><tr><td>tf.GraphKeys.MOVING_AVERAGE_VARIABLES</td><td>所有计算了滑动平均值的变量</td><td>计算变量的滑动平均值</td></tr></tbody></table><p>如通过<strong>tf.add_to_collection</strong>将资源加入一个或多个集合中。通过<strong>tf.get_collection</strong>获取一个集合里面的所有资源。</p><h2 id="TensorBoard可视化"><a href="#TensorBoard可视化" class="headerlink" title="TensorBoard可视化"></a>TensorBoard可视化</h2><h3 id="TensorBoard简介"><a href="#TensorBoard简介" class="headerlink" title="TensorBoard简介"></a>TensorBoard简介</h3><p>TensorBoard可以通过TensorFlow程序运行过程中输出的日志文件可视化TensorFlow程序的运行状态。两者跑在不同进程中，TensorBoard会自动读取TensorFlow最新的日志文件。</p><blockquote><p>#运行TensorBoard，将地址执行日志输出地址<br>tensorboard –logdir=/path/to/log</p></blockquote><p>命令启动服务默认端口号6006，localhost:6006可以看到界面。使用–port参数可以改变启动服务的端口。</p><h2 id="变量管理"><a href="#变量管理" class="headerlink" title="变量管理"></a>变量管理</h2><p>TensorFLow提供了通过变量名称来创建或者获取一个变量的机制。通过这个机制在不同的函数中可以直接通过变量的名称来使用变量，而不需要将变量通过参数的形式到处传递。TensorFLow中通过变量名称获取变量的机制主要是通过<strong>tf.get_variable</strong>和<strong>tf.variable_scope</strong>函数实现。</p><p>v.get_variable和tf.Variable定义等价。区别在于前者变量名称是个必填项，后者是个选填项。v.get_variable会根据这个名字去创建或者获取变量。首先会试图创建一个变量，如有同名则创建失败。如果需要通v.get_variable获取一个已经创建的变量，<strong>需要tf.variable_scope函数生成一个上下文管理器。将参数reuse设置为True</strong>(获取唯一途径)，v.get_variable将<strong>只能</strong>获取已经创建过的变量。否则将尝试创建变量。</p><blockquote><p>with v.variable_scope(“name”,reuse=”True”):<br>      v=v.get_variable(“var”,[1])</p></blockquote><p><strong>tf.variable_scope会创建一个命名空间。</strong>foo/v:0 “:0”表示这个变量是生成变量这个运算的第一个结果。</p><h2 id="TensorFlow计算图可视化"><a href="#TensorFlow计算图可视化" class="headerlink" title="TensorFlow计算图可视化"></a>TensorFlow计算图可视化</h2><h3 id="命名空间与TensorBoard图上节点"><a href="#命名空间与TensorBoard图上节点" class="headerlink" title="命名空间与TensorBoard图上节点"></a>命名空间与TensorBoard图上节点</h3><p>变量的初始化过程也会产生新的计算节点。为了更好的组织可视化效果图中的计算节点，TensorBoard支持通过TensorFlow命名空间来整理可视化效果图上的节点。在Tensorflow默认视图中同一命名空间计算图为一个节点，只有顶层命名空间的节点显示。<br>除了tf.Variable_scope函数，tf.name_scope函数也提供了命名空间管理的功能，两者大部分情况下等价。唯一的区别是tf.get_Variable不受tf.name_scope函数的影响。即在tf.name_scope域里tf.get_Variable生成变量也不是域内的变量。<br>节点之间有两种不同的边，一种是通过实线表示的，刻画了数据传输，箭头表示传输方向。另一种箭头是双向的，表示会修改，会互相影响。<br>TensorBoard边上标注了张量的维度信息。如100*784说明batch为100，输入节点个数为784，粗细代表维度的总大小。若张量数量大于1时。图上将只显示张量的个数。<br>虚线表示计算之间的依赖关系，如tf.control_dependencies函数指定操作同时进行。则存在虚线。<br>TensorBoard会自动将连接比较多的节点放在辅助图中，可以手动移入主图或移出主图。TensorBoard不会保存用户对计算图可视化结果的手工修改，页面刷新之后计算图可视化结果又会回到最初的样子。</p><h3 id="节点信息"><a href="#节点信息" class="headerlink" title="节点信息"></a>节点信息</h3><p>使用TensorBoard可以非常直观地展现所有Tensorflow计算节点在某一次运行时所消耗的时间和内存。</p><blockquote><p>run_options =tf.RunOptions(trace_level=tf.RunOptions.FULL_TRACE)<br>// 运行时记录运行信息的proto。<br>run_metadata = tf.RunMetadata()<br>   m, loss_value, step = sess.run(<br>                    [train_op, loss, global_step], feed_dict={x: xs, y_: ys},<br>                    options=run_options, run_metadata=run_metadata)<br>                    //将节点在运行时的信息写入日志文件。          writer.add_run_metadata(run_metadata=run_metadata,tag=(“tag%d” % i),global_step=i)</p></blockquote><p>使用程序输出的日志启动TensorBoard,就可以了。进入GRAPHS栏，选择Session runs,Color会出现Compute time和Memory这两个选项。颜色越深消耗越大。Structure中如果有两个节点结构相同就会涂上相同的颜色。Device中可显示哪些使用了相同的设备（CPU/GPU）。<br>点击节点时弹出的信息卡片也会显示这个节点的各种信息。</p><h2 id="监控指标可视化"><a href="#监控指标可视化" class="headerlink" title="监控指标可视化"></a>监控指标可视化</h2><table><thead><tr><th>TensorFlow日志生成函数</th><th>TensorBoard界面栏</th><th>显示内容</th></tr></thead><tbody><tr><td>tf.scalar_summary</td><td>EVENTS</td><td>TensorFlow中标量（scalar）监控数据随着迭代进行的变化趋势。</td></tr><tr><td>tf.image_summary</td><td>IMAGES</td><td>TensorFlow中使用的图片数据，这一栏一般用于可视化当前使用的训练/测试图片。</td></tr><tr><td>tf.audio_summary</td><td>AUDIO</td><td>TensorFlow中使用的音频数据。</td></tr><tr><td>tf.histogram_summary</td><td>HISTOGRAMS</td><td>TensorFlow中张量分布监控数据随着迭代轮次的变化趋势。</td></tr></tbody></table><p>上述生成函数都不会立即执行，需要通过sess.run来明确调用这些函数。tf.merge_all_summaries()可将定义的所有日志文件执行一次。</p><h2 id="writer"><a href="#writer" class="headerlink" title="writer"></a>writer</h2><blockquote><p>writer=tf.train.SummaryWriter(path,tf.get_default_graph())<br>writer.close()　　</p></blockquote><p>或者</p><blockquote><p>with tf.Session() as sess:<br>　　writer=tf.train.SummaryWriter(path,sess.graph)</p></blockquote><p><strong>上述比较过时，若报错则改为writer = tf.summary.FileWriter(“output”, sess.graph)</strong> </p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;Tensorflow计算模型–计算图&quot;&gt;&lt;a href=&quot;#Tensorflow计算模型–计算图&quot; class=&quot;headerlink&quot; title=&quot;Tensorflow计算模型–计算图&quot;&gt;&lt;/a&gt;Tensorflow计算模型–计算图&lt;/h2&gt;&lt;h3 id=&quot;计
-      
-    
-    </summary>
-    
-      <category term="知识总结" scheme="https://github.com/zdkswd/categories/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"/>
-    
-    
-      <category term="TensorFlow" scheme="https://github.com/zdkswd/tags/TensorFlow/"/>
-    
-      <category term="机器学习" scheme="https://github.com/zdkswd/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
