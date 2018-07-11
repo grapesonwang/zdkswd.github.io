@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>松本行弘的程序世界 6 Ruby On Rails | ZDK&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="电子书笔记,程序语言">
+    <meta name="description" content="松本行弘的程序世界 6 Ruby On RailsMVC和Ruby On RailsMVC是设计GUI程序的设计模式之一。大部分设计模式仅决定程序某一部分的构成，而MVC决定了应用程序的整体部分，有时候也被成为架构模式。 模型、视图和控制的作用模型：是表现窗口中表示内容（信息）的对象。模型代表的只是信息（名字、数值等抽象的信息），它不能包含如何来显示这些信息的信息。视图：代表将模型中包含的信息在窗">
+<meta name="keywords" content="电子书笔记,程序语言">
+<meta property="og:type" content="article">
+<meta property="og:title" content="松本行弘的程序世界 6 Ruby On Rails">
+<meta property="og:url" content="https://github.com/zdkswd/2018/07/11/松本行弘的程序世界 6 Ruby On Rails/index.html">
+<meta property="og:site_name" content="ZDK&#39;s blog">
+<meta property="og:description" content="松本行弘的程序世界 6 Ruby On RailsMVC和Ruby On RailsMVC是设计GUI程序的设计模式之一。大部分设计模式仅决定程序某一部分的构成，而MVC决定了应用程序的整体部分，有时候也被成为架构模式。 模型、视图和控制的作用模型：是表现窗口中表示内容（信息）的对象。模型代表的只是信息（名字、数值等抽象的信息），它不能包含如何来显示这些信息的信息。视图：代表将模型中包含的信息在窗">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/img/media/15312716241699/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-11%20%E4%B8%8A%E5%8D%889.26.46.png">
+<meta property="og:image" content="https://github.com/img/media/15312716241699/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-11%20%E4%B8%8A%E5%8D%889.54.09.png">
+<meta property="og:image" content="https://github.com/img/media/15312716241699/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-11%20%E4%B8%8A%E5%8D%889.56.48.png">
+<meta property="og:image" content="https://github.com/img/media/15312716241699/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-11%20%E4%B8%8A%E5%8D%8810.58.20.png">
+<meta property="og:updated_time" content="2018-07-11T03:59:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="松本行弘的程序世界 6 Ruby On Rails">
+<meta name="twitter:description" content="松本行弘的程序世界 6 Ruby On RailsMVC和Ruby On RailsMVC是设计GUI程序的设计模式之一。大部分设计模式仅决定程序某一部分的构成，而MVC决定了应用程序的整体部分，有时候也被成为架构模式。 模型、视图和控制的作用模型：是表现窗口中表示内容（信息）的对象。模型代表的只是信息（名字、数值等抽象的信息），它不能包含如何来显示这些信息的信息。视图：代表将模型中包含的信息在窗">
+<meta name="twitter:image" content="https://github.com/img/media/15312716241699/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-11%20%E4%B8%8A%E5%8D%889.26.46.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/tmg.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ZDK</h5>
+          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/zdkswd" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">松本行弘的程序世界 6 Ruby On Rails</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">松本行弘的程序世界 6 Ruby On Rails</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-07-11T04:00:32.000Z" itemprop="datePublished" class="page-time">
+  2018-07-11
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#松本行弘的程序世界-6-Ruby-On-Rails"><span class="post-toc-number">1.</span> <span class="post-toc-text">松本行弘的程序世界 6 Ruby On Rails</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#MVC和Ruby-On-Rails"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">MVC和Ruby On Rails</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#模型、视图和控制的作用"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">模型、视图和控制的作用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#用秒表的例子来学习MVC模式"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">用秒表的例子来学习MVC模式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#生成视图和控制部分"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">生成视图和控制部分</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#GUI工具箱与MVC"><span class="post-toc-number">1.1.4.</span> <span class="post-toc-text">GUI工具箱与MVC</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#同时使用工具箱和MVC"><span class="post-toc-number">1.1.5.</span> <span class="post-toc-text">同时使用工具箱和MVC</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#MVC的优缺点"><span class="post-toc-number">1.1.6.</span> <span class="post-toc-text">MVC的优缺点</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#可以更换界面"><span class="post-toc-number">1.1.6.1.</span> <span class="post-toc-text">可以更换界面</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#一个模型对应多个视图"><span class="post-toc-number">1.1.6.2.</span> <span class="post-toc-text">一个模型对应多个视图</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#多个视图可以同时响应"><span class="post-toc-number">1.1.6.3.</span> <span class="post-toc-text">多个视图可以同时响应</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#容易测试"><span class="post-toc-number">1.1.6.4.</span> <span class="post-toc-text">容易测试</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#复杂性"><span class="post-toc-number">1.1.6.5.</span> <span class="post-toc-text">复杂性</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#强关联性"><span class="post-toc-number">1.1.6.6.</span> <span class="post-toc-text">强关联性</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Web应用中的MVC"><span class="post-toc-number">1.1.7.</span> <span class="post-toc-text">Web应用中的MVC</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#开放类和猴子补丁"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">开放类和猴子补丁</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#开放类"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">开放类</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#猴子补丁的目的"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">猴子补丁的目的</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#功能追加"><span class="post-toc-number">1.2.2.1.</span> <span class="post-toc-text">功能追加</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#功能变更"><span class="post-toc-number">1.2.2.2.</span> <span class="post-toc-text">功能变更</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#修改程序错误"><span class="post-toc-number">1.2.2.3.</span> <span class="post-toc-text">修改程序错误</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#钩子"><span class="post-toc-number">1.2.2.4.</span> <span class="post-toc-text">钩子</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#缓存（cache）"><span class="post-toc-number">1.2.2.5.</span> <span class="post-toc-text">缓存（cache）</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#猴子补丁的技巧"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">猴子补丁的技巧</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#undef"><span class="post-toc-number">1.2.3.1.</span> <span class="post-toc-text">undef</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#alias"><span class="post-toc-number">1.2.3.2.</span> <span class="post-toc-text">alias</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#include"><span class="post-toc-number">1.2.3.3.</span> <span class="post-toc-text">include</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#灵活使用开放类的库"><span class="post-toc-number">1.2.4.</span> <span class="post-toc-text">灵活使用开放类的库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#猴子补丁的几点问题"><span class="post-toc-number">1.2.5.</span> <span class="post-toc-text">猴子补丁的几点问题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#其他方法"><span class="post-toc-number">1.2.6.</span> <span class="post-toc-text">其他方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Ruby-on-Rails和开放类"><span class="post-toc-number">1.2.7.</span> <span class="post-toc-text">Ruby on Rails和开放类</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ActiveSupport带来的扩展"><span class="post-toc-number">1.2.8.</span> <span class="post-toc-text">ActiveSupport带来的扩展</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#大规模开发和Ruby"><span class="post-toc-number">1.2.9.</span> <span class="post-toc-text">大规模开发和Ruby</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#编译时不作类型检查"><span class="post-toc-number">1.2.9.1.</span> <span class="post-toc-text">编译时不作类型检查</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#没有包"><span class="post-toc-number">1.2.9.2.</span> <span class="post-toc-text">没有包</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#存在开放类"><span class="post-toc-number">1.2.9.3.</span> <span class="post-toc-text">存在开放类</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#信赖性模型"><span class="post-toc-number">1.2.10.</span> <span class="post-toc-text">信赖性模型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#猴子补丁的未来"><span class="post-toc-number">1.2.11.</span> <span class="post-toc-text">猴子补丁的未来</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-松本行弘的程序世界 6 Ruby On Rails"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">松本行弘的程序世界 6 Ruby On Rails</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-07-11 12:00:32" datetime="2018-07-11T04:00:32.000Z"  itemprop="datePublished">2018-07-11</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="松本行弘的程序世界-6-Ruby-On-Rails"><a href="#松本行弘的程序世界-6-Ruby-On-Rails" class="headerlink" title="松本行弘的程序世界 6 Ruby On Rails"></a>松本行弘的程序世界 6 Ruby On Rails</h1><h2 id="MVC和Ruby-On-Rails"><a href="#MVC和Ruby-On-Rails" class="headerlink" title="MVC和Ruby On Rails"></a>MVC和Ruby On Rails</h2><p>MVC是设计GUI程序的设计模式之一。大部分设计模式仅决定程序某一部分的构成，而MVC决定了应用程序的整体部分，有时候也被成为架构模式。</p>
+<h3 id="模型、视图和控制的作用"><a href="#模型、视图和控制的作用" class="headerlink" title="模型、视图和控制的作用"></a>模型、视图和控制的作用</h3><p>模型：是表现窗口中表示内容（信息）的对象。模型代表的只是信息（名字、数值等抽象的信息），它不能包含如何来显示这些信息的信息。<br>视图：代表将模型中包含的信息在窗口中进行表示的对象。视图知道要表现的模型的信息，而模型一般不知道要表示自己的视图信息。<br>控制：是从用户端接受输入，对视图和模型进行操作的对象。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15312716241699/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-11%20%E4%B8%8A%E5%8D%889.26.46.png" alt="屏幕快照 2018-07-11 上午9.26.46" title="">
+                </div>
+                <div class="image-caption">屏幕快照 2018-07-11 上午9.26.46</div>
+            </figure></p>
+<h3 id="用秒表的例子来学习MVC模式"><a href="#用秒表的例子来学习MVC模式" class="headerlink" title="用秒表的例子来学习MVC模式"></a>用秒表的例子来学习MVC模式</h3><h3 id="生成视图和控制部分"><a href="#生成视图和控制部分" class="headerlink" title="生成视图和控制部分"></a>生成视图和控制部分</h3><h3 id="GUI工具箱与MVC"><a href="#GUI工具箱与MVC" class="headerlink" title="GUI工具箱与MVC"></a>GUI工具箱与MVC</h3><h3 id="同时使用工具箱和MVC"><a href="#同时使用工具箱和MVC" class="headerlink" title="同时使用工具箱和MVC"></a>同时使用工具箱和MVC</h3><h3 id="MVC的优缺点"><a href="#MVC的优缺点" class="headerlink" title="MVC的优缺点"></a>MVC的优缺点</h3><p>优点：</p>
+<h4 id="可以更换界面"><a href="#可以更换界面" class="headerlink" title="可以更换界面"></a>可以更换界面</h4><h4 id="一个模型对应多个视图"><a href="#一个模型对应多个视图" class="headerlink" title="一个模型对应多个视图"></a>一个模型对应多个视图</h4><h4 id="多个视图可以同时响应"><a href="#多个视图可以同时响应" class="headerlink" title="多个视图可以同时响应"></a>多个视图可以同时响应</h4><h4 id="容易测试"><a href="#容易测试" class="headerlink" title="容易测试"></a>容易测试</h4><p>缺点：</p>
+<h4 id="复杂性"><a href="#复杂性" class="headerlink" title="复杂性"></a>复杂性</h4><h4 id="强关联性"><a href="#强关联性" class="headerlink" title="强关联性"></a>强关联性</h4><p>对模型对象进行了功能追加这样的变更后，相应地也必须对视图和控制进行变更。</p>
+<h3 id="Web应用中的MVC"><a href="#Web应用中的MVC" class="headerlink" title="Web应用中的MVC"></a>Web应用中的MVC</h3><p>Web应用基本是HTTP。HTTP的一次处理经过了一下过程：<br>（1）Web浏览器对应于用户的操作，向Web服务器发出HTTP请求。<br>（2）Web服务器根据请求，准备好发送到Web浏览器的数据。<br>（3）Web服务器把数据以HTTP响应的形式送还Web浏览器。</p>
+<p>利用MVC来描述：<br>（1）Web浏览器发送过来的HTTP请求通过Web服务器传给控制部分。Web应用框架的分配器把请求传递给合适的控制部分。<br>（2）控制部分操作的模型和请求的信息相对应，同时制定显示使用的视图。视图从模型启动，一边引用模型一边准备发送给Web浏览器的数据。<br>（3）Web服务器把数据以HTTP响应的形式送还Web浏览器。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15312716241699/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-11%20%E4%B8%8A%E5%8D%889.54.09.png" alt="屏幕快照 2018-07-11 上午9.54.09" title="">
+                </div>
+                <div class="image-caption">屏幕快照 2018-07-11 上午9.54.09</div>
+            </figure>
+<p>Ruby on Rails上的MVC各部分功能稍有不同。Rails中的模型相当于数据库层，视图指显示用的模板，控制器指控制用的类（包含了应用逻辑）。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15312716241699/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-11%20%E4%B8%8A%E5%8D%889.56.48.png" alt="屏幕快照 2018-07-11 上午9.56.48" title="">
+                </div>
+                <div class="image-caption">屏幕快照 2018-07-11 上午9.56.48</div>
+            </figure></p>
+<h2 id="开放类和猴子补丁"><a href="#开放类和猴子补丁" class="headerlink" title="开放类和猴子补丁"></a>开放类和猴子补丁</h2><p>猴子补丁，即在动态语言中，不改变源代码而对功能进行追加和变更。<br>现在灵活使用开放类，变更和追加方法全部称为猴子补丁。</p>
+<h3 id="开放类"><a href="#开放类" class="headerlink" title="开放类"></a>开放类</h3><p>Ruby的类的特征是所谓的开放类，相对于其他语言，特别容易打猴子补丁。<br>Ruby中，可以把String类、Array类等基本的数据类型及所有的类都作为开放类处理，可以自由地追加功能。</p>
+<h3 id="猴子补丁的目的"><a href="#猴子补丁的目的" class="headerlink" title="猴子补丁的目的"></a>猴子补丁的目的</h3><h4 id="功能追加"><a href="#功能追加" class="headerlink" title="功能追加"></a>功能追加</h4><p>利用开放类可以给已有的类追加功能。</p>
+<h4 id="功能变更"><a href="#功能变更" class="headerlink" title="功能变更"></a>功能变更</h4><h4 id="修改程序错误"><a href="#修改程序错误" class="headerlink" title="修改程序错误"></a>修改程序错误</h4><p>因为重新定义了有程序错误或有副作用的方法，不用修改原来那部分的代码就可以解决问题。这也是本来的猴子补丁的目的。</p>
+<h4 id="钩子"><a href="#钩子" class="headerlink" title="钩子"></a>钩子</h4><p>有时间想在每个方法调用的同时增加一些其他处理。这种伴随方法调用而进行的处理称为“钩子”（hook），钩子的追加也可以用猴子补丁来实现。</p>
+<h4 id="缓存（cache）"><a href="#缓存（cache）" class="headerlink" title="缓存（cache）"></a>缓存（cache）</h4><h3 id="猴子补丁的技巧"><a href="#猴子补丁的技巧" class="headerlink" title="猴子补丁的技巧"></a>猴子补丁的技巧</h3><p>可以吧Ruby提供的对方法、类和模块进行操作的功能运用到打猴子补丁上。最基本的功能就是给已有的方法改名或取消。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15312716241699/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-11%20%E4%B8%8A%E5%8D%8810.58.20.png" alt="屏幕快照 2018-07-11 上午10.58.20" title="">
+                </div>
+                <div class="image-caption">屏幕快照 2018-07-11 上午10.58.20</div>
+            </figure></p>
+<h4 id="undef"><a href="#undef" class="headerlink" title="undef"></a>undef</h4><p>undef有把方法取消定义的功能。用undef不仅可以取消本类中的方法，也可以取消父类中定义的方法。</p>
+<h4 id="alias"><a href="#alias" class="headerlink" title="alias"></a>alias</h4><h4 id="include"><a href="#include" class="headerlink" title="include"></a>include</h4><h3 id="灵活使用开放类的库"><a href="#灵活使用开放类的库" class="headerlink" title="灵活使用开放类的库"></a>灵活使用开放类的库</h3><p>jcode库可以不使用正则表达式，利用开放类的功能，使得字符串的方法可以处理多字节文字。</p>
+<h3 id="猴子补丁的几点问题"><a href="#猴子补丁的几点问题" class="headerlink" title="猴子补丁的几点问题"></a>猴子补丁的几点问题</h3><p>若要正确使用开放类，安全地打猴子补丁，需遵守：</p>
+<ol>
+<li>基本上只是追加功能<br>对类追加新方法不会让已有的程序无法执行。使用开放类时，主要做不容易导致问题的功能追加会更保险。做功能追加时，如果发生名称重复会造成麻烦，在选择追加的方法名时需要慎重。</li>
+<li>进行功能变更时要慎重，尽可能小规模</li>
+<li>小心相互作用</li>
+</ol>
+<h3 id="其他方法"><a href="#其他方法" class="headerlink" title="其他方法"></a>其他方法</h3><p>猴子补丁能够不改变源代码进行动态修改，这种灵活性是显示动态语言柔软性和扩展性的好例子。实现猴子补丁的Ruby开放类有时功能过强，可能会引起问题。<br>其他语言中用更易控制的形式也能实现猴子补丁。</p>
+<h3 id="Ruby-on-Rails和开放类"><a href="#Ruby-on-Rails和开放类" class="headerlink" title="Ruby on Rails和开放类"></a>Ruby on Rails和开放类</h3><p>Rails构成部分之一ActiveSupport库。ActiveSupport利用Ruby的开放类功能，对Ruby标准提供的类大胆地追加了功能。</p>
+<h3 id="ActiveSupport带来的扩展"><a href="#ActiveSupport带来的扩展" class="headerlink" title="ActiveSupport带来的扩展"></a>ActiveSupport带来的扩展</h3><ol>
+<li>时间</li>
+<li>字节单位系列</li>
+<li>复数形和序数</li>
+</ol>
+<h3 id="大规模开发和Ruby"><a href="#大规模开发和Ruby" class="headerlink" title="大规模开发和Ruby"></a>大规模开发和Ruby</h3><h4 id="编译时不作类型检查"><a href="#编译时不作类型检查" class="headerlink" title="编译时不作类型检查"></a>编译时不作类型检查</h4><p>Ruby在执行时作类型检查，大规模程序为了保证可靠性一定会有严格的测试程序，如果作了严格的测试，在编译时作类型检查的优点就不像所说的那么重要了。</p>
+<h4 id="没有包"><a href="#没有包" class="headerlink" title="没有包"></a>没有包</h4><p>Java对于构成库的类和文件有独立的包，要想具备某种功能，必须明确地进行import操作。而Ruby是不具备这种功能的。所以，库定义的类和模块名是全局的，从任何地方都可以引用。因此，可以说名称重复的危险性很大。</p>
+<h4 id="存在开放类"><a href="#存在开放类" class="headerlink" title="存在开放类"></a>存在开放类</h4><p>各自独立的库发生互相矛盾的变更时，问题不能简单解决。这也可能在大规模开发时引发问题。</p>
+<h3 id="信赖性模型"><a href="#信赖性模型" class="headerlink" title="信赖性模型"></a>信赖性模型</h3><p>在某种类型的大规模开发中，Ruby的性质会造成问题，或者说造成问题时解决起来不像其他语言那么容易，这种现象是现实中可能存在的。如果认为这些是问题的话，可能不使用Ruby会更好。但是，到现在为止我们看到的情况表明，会发生那种问题的大规模开发本来就绝不是好的开发状况。首先要做的，是把项目的信赖关系改善到可以使用Ruby的程度。就算是最后也没有使用Ruby，这也是应该先做到的事情。</p>
+<h3 id="猴子补丁的未来"><a href="#猴子补丁的未来" class="headerlink" title="猴子补丁的未来"></a>猴子补丁的未来</h3><p>猴子补丁虽然有一定的危险性，但有利有弊，它也提供了方便性、扩展性和灵活性。开放类和利用它的猴子补丁，将来也可能会被更安全的、由1特定目的而特制的功能群而替代。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-07-11T03:59:46.000Z" itemprop="dateUpdated">2018-07-11 11:59:46</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/zdkswd">
+            <img src="/img/tmg.jpg" alt="ZDK">
+            ZDK
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/电子书笔记/">电子书笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/程序语言/">程序语言</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/07/11/松本行弘的程序世界 6 Ruby On Rails/&title=《松本行弘的程序世界 6 Ruby On Rails》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/07/11/松本行弘的程序世界 6 Ruby On Rails/&title=《松本行弘的程序世界 6 Ruby On Rails》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/07/11/松本行弘的程序世界 6 Ruby On Rails/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《松本行弘的程序世界 6 Ruby On Rails》 — ZDK's blog&url=https://github.com/zdkswd/2018/07/11/松本行弘的程序世界 6 Ruby On Rails/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/07/11/松本行弘的程序世界 6 Ruby On Rails/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/07/10/松本行弘的程序世界 5 Ajax/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">松本行弘的程序世界 5 Ajax</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz",
+            appKey: "gkBx5soQkBREmER84PWbNJeM",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ZDK &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/07/11/松本行弘的程序世界 6 Ruby On Rails/&title=《松本行弘的程序世界 6 Ruby On Rails》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/07/11/松本行弘的程序世界 6 Ruby On Rails/&title=《松本行弘的程序世界 6 Ruby On Rails》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/07/11/松本行弘的程序世界 6 Ruby On Rails/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《松本行弘的程序世界 6 Ruby On Rails》 — ZDK's blog&url=https://github.com/zdkswd/2018/07/11/松本行弘的程序世界 6 Ruby On Rails/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/07/11/松本行弘的程序世界 6 Ruby On Rails/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2018/07/11/松本行弘的程序世界 6 Ruby On Rails/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'zdk'blog';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
