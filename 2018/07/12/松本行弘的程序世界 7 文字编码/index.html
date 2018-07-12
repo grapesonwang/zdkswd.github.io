@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>松本行弘的程序世界 7 文字编码 | ZDK&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="电子书笔记,程序语言">
+    <meta name="description" content="松本行弘的程序世界 7 文字编码文字编码的种类早期的文字编码纸带与文字的表现文字是什么走向英语以外的语言（欧洲篇）英语以外得到语言（亚洲篇）Unicode的问世统一编码成16位的汉字统合Unicode的两个问题选择16位文字的Unicode有两大副作用。一是字节顺序的问题，一是NUL文字问题。字节顺序就是低八位先放还是高八位先放的问题。传统C语言处理的字符串，一般有一个终端文字NUL（‘\0’）。">
+<meta name="keywords" content="电子书笔记,程序语言">
+<meta property="og:type" content="article">
+<meta property="og:title" content="松本行弘的程序世界 7 文字编码">
+<meta property="og:url" content="https://github.com/zdkswd/2018/07/12/松本行弘的程序世界 7 文字编码/index.html">
+<meta property="og:site_name" content="ZDK&#39;s blog">
+<meta property="og:description" content="松本行弘的程序世界 7 文字编码文字编码的种类早期的文字编码纸带与文字的表现文字是什么走向英语以外的语言（欧洲篇）英语以外得到语言（亚洲篇）Unicode的问世统一编码成16位的汉字统合Unicode的两个问题选择16位文字的Unicode有两大副作用。一是字节顺序的问题，一是NUL文字问题。字节顺序就是低八位先放还是高八位先放的问题。传统C语言处理的字符串，一般有一个终端文字NUL（‘\0’）。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-07-12T02:01:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="松本行弘的程序世界 7 文字编码">
+<meta name="twitter:description" content="松本行弘的程序世界 7 文字编码文字编码的种类早期的文字编码纸带与文字的表现文字是什么走向英语以外的语言（欧洲篇）英语以外得到语言（亚洲篇）Unicode的问世统一编码成16位的汉字统合Unicode的两个问题选择16位文字的Unicode有两大副作用。一是字节顺序的问题，一是NUL文字问题。字节顺序就是低八位先放还是高八位先放的问题。传统C语言处理的字符串，一般有一个终端文字NUL（‘\0’）。">
+    
+        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/tmg.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ZDK</h5>
+          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/zdkswd" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">松本行弘的程序世界 7 文字编码</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">松本行弘的程序世界 7 文字编码</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-07-12T02:00:32.000Z" itemprop="datePublished" class="page-time">
+  2018-07-12
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#松本行弘的程序世界-7-文字编码"><span class="post-toc-number">1.</span> <span class="post-toc-text">松本行弘的程序世界 7 文字编码</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#文字编码的种类"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">文字编码的种类</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#早期的文字编码"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">早期的文字编码</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#纸带与文字的表现"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">纸带与文字的表现</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#文字是什么"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">文字是什么</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#走向英语以外的语言（欧洲篇）"><span class="post-toc-number">1.1.4.</span> <span class="post-toc-text">走向英语以外的语言（欧洲篇）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#英语以外得到语言（亚洲篇）"><span class="post-toc-number">1.1.5.</span> <span class="post-toc-text">英语以外得到语言（亚洲篇）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Unicode的问世"><span class="post-toc-number">1.1.6.</span> <span class="post-toc-text">Unicode的问世</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#统一编码成16位的汉字统合"><span class="post-toc-number">1.1.7.</span> <span class="post-toc-text">统一编码成16位的汉字统合</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Unicode的两个问题"><span class="post-toc-number">1.1.8.</span> <span class="post-toc-text">Unicode的两个问题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Unicode的文字集"><span class="post-toc-number">1.1.9.</span> <span class="post-toc-text">Unicode的文字集</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#文字表示的不确定性"><span class="post-toc-number">1.1.10.</span> <span class="post-toc-text">文字表示的不确定性</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Unicode的字符编码方式"><span class="post-toc-number">1.1.11.</span> <span class="post-toc-text">Unicode的字符编码方式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#UTF-8"><span class="post-toc-number">1.1.11.1.</span> <span class="post-toc-text">UTF-8</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#UTF-16"><span class="post-toc-number">1.1.11.2.</span> <span class="post-toc-text">UTF-16</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#UTF-32"><span class="post-toc-number">1.1.11.3.</span> <span class="post-toc-text">UTF-32</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#程序中的文字处理"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">程序中的文字处理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#文字编码有多个意思"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">文字编码有多个意思</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#只能处理文字集中包含的文字"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">只能处理文字集中包含的文字</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#纷繁复杂的文字编码方式"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">纷繁复杂的文字编码方式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#影响力渐微的Shift-JIS与EUC-JP"><span class="post-toc-number">1.2.4.</span> <span class="post-toc-text">影响力渐微的Shift_JIS与EUC-JP</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Unicode有多种字符编码方式"><span class="post-toc-number">1.2.5.</span> <span class="post-toc-text">Unicode有多种字符编码方式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#为什么会发生乱码"><span class="post-toc-number">1.2.6.</span> <span class="post-toc-text">为什么会发生乱码</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#字符编码方式错误"><span class="post-toc-number">1.2.7.</span> <span class="post-toc-text">字符编码方式错误</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#没有字体"><span class="post-toc-number">1.2.8.</span> <span class="post-toc-text">没有字体</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#变换为内部码时出错"><span class="post-toc-number">1.2.9.</span> <span class="post-toc-text">变换为内部码时出错</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#发生不完全变换"><span class="post-toc-number">1.2.10.</span> <span class="post-toc-text">发生不完全变换</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#文字集的不同"><span class="post-toc-number">1.2.11.</span> <span class="post-toc-text">文字集的不同</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#字节顺序错误"><span class="post-toc-number">1.2.12.</span> <span class="post-toc-text">字节顺序错误</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#从编程语言的角度处理文字"><span class="post-toc-number">1.2.13.</span> <span class="post-toc-text">从编程语言的角度处理文字</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#以变换为前提的UCS方式"><span class="post-toc-number">1.2.14.</span> <span class="post-toc-text">以变换为前提的UCS方式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#原封不动处理的CSI方式"><span class="post-toc-number">1.2.15.</span> <span class="post-toc-text">原封不动处理的CSI方式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用UTF-16的Java"><span class="post-toc-number">1.2.16.</span> <span class="post-toc-text">使用UTF-16的Java</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用UTF-8的Perl"><span class="post-toc-number">1.2.17.</span> <span class="post-toc-text">使用UTF-8的Perl</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#用UTF-16的Python"><span class="post-toc-number">1.2.18.</span> <span class="post-toc-text">用UTF-16的Python</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#采用CSI方式的Ruby1-8"><span class="post-toc-number">1.2.19.</span> <span class="post-toc-text">采用CSI方式的Ruby1.8</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#强化了功能的Ruby1-9"><span class="post-toc-number">1.2.20.</span> <span class="post-toc-text">强化了功能的Ruby1.9</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#是UCS还是CSI"><span class="post-toc-number">1.2.21.</span> <span class="post-toc-text">是UCS还是CSI</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-松本行弘的程序世界 7 文字编码"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">松本行弘的程序世界 7 文字编码</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-07-12 10:00:32" datetime="2018-07-12T02:00:32.000Z"  itemprop="datePublished">2018-07-12</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="松本行弘的程序世界-7-文字编码"><a href="#松本行弘的程序世界-7-文字编码" class="headerlink" title="松本行弘的程序世界 7 文字编码"></a>松本行弘的程序世界 7 文字编码</h1><h2 id="文字编码的种类"><a href="#文字编码的种类" class="headerlink" title="文字编码的种类"></a>文字编码的种类</h2><h3 id="早期的文字编码"><a href="#早期的文字编码" class="headerlink" title="早期的文字编码"></a>早期的文字编码</h3><h3 id="纸带与文字的表现"><a href="#纸带与文字的表现" class="headerlink" title="纸带与文字的表现"></a>纸带与文字的表现</h3><h3 id="文字是什么"><a href="#文字是什么" class="headerlink" title="文字是什么"></a>文字是什么</h3><h3 id="走向英语以外的语言（欧洲篇）"><a href="#走向英语以外的语言（欧洲篇）" class="headerlink" title="走向英语以外的语言（欧洲篇）"></a>走向英语以外的语言（欧洲篇）</h3><h3 id="英语以外得到语言（亚洲篇）"><a href="#英语以外得到语言（亚洲篇）" class="headerlink" title="英语以外得到语言（亚洲篇）"></a>英语以外得到语言（亚洲篇）</h3><h3 id="Unicode的问世"><a href="#Unicode的问世" class="headerlink" title="Unicode的问世"></a>Unicode的问世</h3><h3 id="统一编码成16位的汉字统合"><a href="#统一编码成16位的汉字统合" class="headerlink" title="统一编码成16位的汉字统合"></a>统一编码成16位的汉字统合</h3><h3 id="Unicode的两个问题"><a href="#Unicode的两个问题" class="headerlink" title="Unicode的两个问题"></a>Unicode的两个问题</h3><p>选择16位文字的Unicode有两大副作用。一是字节顺序的问题，一是NUL文字问题。<br>字节顺序就是低八位先放还是高八位先放的问题。<br>传统C语言处理的字符串，一般有一个终端文字NUL（‘\0’）。但是作为16位文字的字符串，中途会出现NUL文字。所以，C语言中处理字符串的传统函数不能用于16位文字的字符串。<br>像java那样的语言，一开始就是以16位文字为前提而设计的，所以没什么问题。但以C语言处理16位文字的时候，需要全新的api。</p>
+<h3 id="Unicode的文字集"><a href="#Unicode的文字集" class="headerlink" title="Unicode的文字集"></a>Unicode的文字集</h3><p>现在，Unicode放弃了16位方式，而用21位来表示一个文字，现在Unicode能够表示4111个文字，肯定够用了。</p>
+<h3 id="文字表示的不确定性"><a href="#文字表示的不确定性" class="headerlink" title="文字表示的不确定性"></a>文字表示的不确定性</h3><h3 id="Unicode的字符编码方式"><a href="#Unicode的字符编码方式" class="headerlink" title="Unicode的字符编码方式"></a>Unicode的字符编码方式</h3><h4 id="UTF-8"><a href="#UTF-8" class="headerlink" title="UTF-8"></a>UTF-8</h4><p>UTF-8以一定式样的字节组合来表示Unicode中的21位文字。对于内部程序处理字符串非常方便，另外没有字节顺序问题，在外部处理时也很有用。<br>缺点：消费过多内存，几乎所有的汉字都要占用3个字节。<br>构成文字的字节数是可变的，随机访问任意文字，代价与字符串长度成正比。<br>但是随着计算机内存的容量和性能提高，这些缺点也无所谓了。</p>
+<h4 id="UTF-16"><a href="#UTF-16" class="headerlink" title="UTF-16"></a>UTF-16</h4><p>Unicode中能以16位表示的空间就以16位表示，超过16位就以两个16位码组合来表示。到现在缺点已经很突出了，从今以后没必要采用这种字符编码方式了。</p>
+<h4 id="UTF-32"><a href="#UTF-32" class="headerlink" title="UTF-32"></a>UTF-32</h4><p>固定长，可以随机访问，但存在字节顺序的问题。<br>因为4字节，没什么人气。</p>
+<h2 id="程序中的文字处理"><a href="#程序中的文字处理" class="headerlink" title="程序中的文字处理"></a>程序中的文字处理</h2><h3 id="文字编码有多个意思"><a href="#文字编码有多个意思" class="headerlink" title="文字编码有多个意思"></a>文字编码有多个意思</h3><h3 id="只能处理文字集中包含的文字"><a href="#只能处理文字集中包含的文字" class="headerlink" title="只能处理文字集中包含的文字"></a>只能处理文字集中包含的文字</h3><h3 id="纷繁复杂的文字编码方式"><a href="#纷繁复杂的文字编码方式" class="headerlink" title="纷繁复杂的文字编码方式"></a>纷繁复杂的文字编码方式</h3><h3 id="影响力渐微的Shift-JIS与EUC-JP"><a href="#影响力渐微的Shift-JIS与EUC-JP" class="headerlink" title="影响力渐微的Shift_JIS与EUC-JP"></a>影响力渐微的Shift_JIS与EUC-JP</h3><h3 id="Unicode有多种字符编码方式"><a href="#Unicode有多种字符编码方式" class="headerlink" title="Unicode有多种字符编码方式"></a>Unicode有多种字符编码方式</h3><h3 id="为什么会发生乱码"><a href="#为什么会发生乱码" class="headerlink" title="为什么会发生乱码"></a>为什么会发生乱码</h3><h3 id="字符编码方式错误"><a href="#字符编码方式错误" class="headerlink" title="字符编码方式错误"></a>字符编码方式错误</h3><h3 id="没有字体"><a href="#没有字体" class="headerlink" title="没有字体"></a>没有字体</h3><h3 id="变换为内部码时出错"><a href="#变换为内部码时出错" class="headerlink" title="变换为内部码时出错"></a>变换为内部码时出错</h3><h3 id="发生不完全变换"><a href="#发生不完全变换" class="headerlink" title="发生不完全变换"></a>发生不完全变换</h3><h3 id="文字集的不同"><a href="#文字集的不同" class="headerlink" title="文字集的不同"></a>文字集的不同</h3><h3 id="字节顺序错误"><a href="#字节顺序错误" class="headerlink" title="字节顺序错误"></a>字节顺序错误</h3><p>像UTF-16，UTF-32这种基本数据单位大于一个字节的编码方式，存放数据时字节该以什么顺序摆放，有两大流派，一个是big endian,一个是little endian。所以同样是UTF-16格式（UTF-32也一样）根据字节顺序不同就会有两种。<br>UTF-8就不会。</p>
+<h3 id="从编程语言的角度处理文字"><a href="#从编程语言的角度处理文字" class="headerlink" title="从编程语言的角度处理文字"></a>从编程语言的角度处理文字</h3><p>编程语言处理文本数据的方法，有UCS方式和CSI方式两种。</p>
+<h3 id="以变换为前提的UCS方式"><a href="#以变换为前提的UCS方式" class="headerlink" title="以变换为前提的UCS方式"></a>以变换为前提的UCS方式</h3><p>UCS（泛用字符集），是指程序中所处理的共同文字集（及字符编码方式）。输入输出时，编程语言将文本数据变成UCS，内部对文本数据进行统一处理。优点：</p>
+<ol>
+<li>原理简单，容易实现</li>
+<li>除变换外，处理成本低</li>
+<li>实际成果多</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li>发生不必要的变换</li>
+<li>变换存在模糊部分</li>
+<li>有外字及机种依存文字的问题</li>
+<li>UCS中不包含的文字绝对不能处理</li>
+</ol>
+<h3 id="原封不动处理的CSI方式"><a href="#原封不动处理的CSI方式" class="headerlink" title="原封不动处理的CSI方式"></a>原封不动处理的CSI方式</h3><p>CSI（Character Set Independent，字符集独立），是指不对各种文字集（及编码方式）进行任何变换，原封不动地进行处理。相对于UCS的内部只有一种编码方式的处理方式，CSI中对各种编码方式原封不动地处理。<br>CSI是优点多，自由度高的方式。</p>
+<ol>
+<li>不发生不必要的变换</li>
+<li>不发生变换所带来的问题</li>
+<li>不易发生外字的问题。</li>
+<li>理论上不存在不能处理的文字</li>
+<li>根据需要，可以处理应用程序独立的文字集</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li>字符串的处理容易变得复杂化</li>
+<li>预计处理性能会变低</li>
+<li>实际成果少</li>
+</ol>
+<p>实际上，现在存在的多种编程语言中，采用CSI方式的几乎没有。</p>
+<h3 id="使用UTF-16的Java"><a href="#使用UTF-16的Java" class="headerlink" title="使用UTF-16的Java"></a>使用UTF-16的Java</h3><p>Java采用UCS方式，内部字符编码选用UTF-16<br>制作Java时，Unicode仅限于16位。java没选择可变长的UTF-8，而选择UTF-16，因而产生了这样的悲剧。说是时机的恶作剧也罢，真是太可惜了。</p>
+<h3 id="使用UTF-8的Perl"><a href="#使用UTF-8的Perl" class="headerlink" title="使用UTF-8的Perl"></a>使用UTF-8的Perl</h3><p>Perl也使用UCS方式，内部编码方式采用UTF-8。</p>
+<h3 id="用UTF-16的Python"><a href="#用UTF-16的Python" class="headerlink" title="用UTF-16的Python"></a>用UTF-16的Python</h3><p>UCS，UTF-16</p>
+<h3 id="采用CSI方式的Ruby1-8"><a href="#采用CSI方式的Ruby1-8" class="headerlink" title="采用CSI方式的Ruby1.8"></a>采用CSI方式的Ruby1.8</h3><h3 id="强化了功能的Ruby1-9"><a href="#强化了功能的Ruby1-9" class="headerlink" title="强化了功能的Ruby1.9"></a>强化了功能的Ruby1.9</h3><h3 id="是UCS还是CSI"><a href="#是UCS还是CSI" class="headerlink" title="是UCS还是CSI"></a>是UCS还是CSI</h3>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-07-12T02:01:00.000Z" itemprop="dateUpdated">2018-07-12 10:01:00</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/zdkswd">
+            <img src="/img/tmg.jpg" alt="ZDK">
+            ZDK
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/电子书笔记/">电子书笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/程序语言/">程序语言</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/07/12/松本行弘的程序世界 7 文字编码/&title=《松本行弘的程序世界 7 文字编码》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/07/12/松本行弘的程序世界 7 文字编码/&title=《松本行弘的程序世界 7 文字编码》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/07/12/松本行弘的程序世界 7 文字编码/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《松本行弘的程序世界 7 文字编码》 — ZDK's blog&url=https://github.com/zdkswd/2018/07/12/松本行弘的程序世界 7 文字编码/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/07/12/松本行弘的程序世界 7 文字编码/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/07/11/松本行弘的程序世界 6 Ruby On Rails/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">松本行弘的程序世界 6 Ruby On Rails</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz",
+            appKey: "gkBx5soQkBREmER84PWbNJeM",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ZDK &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/07/12/松本行弘的程序世界 7 文字编码/&title=《松本行弘的程序世界 7 文字编码》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/07/12/松本行弘的程序世界 7 文字编码/&title=《松本行弘的程序世界 7 文字编码》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/07/12/松本行弘的程序世界 7 文字编码/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《松本行弘的程序世界 7 文字编码》 — ZDK's blog&url=https://github.com/zdkswd/2018/07/12/松本行弘的程序世界 7 文字编码/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/07/12/松本行弘的程序世界 7 文字编码/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2018/07/12/松本行弘的程序世界 7 文字编码/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'zdk'blog';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
