@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/zdkswd/"/>
-  <updated>2018-07-12T02:01:00.000Z</updated>
+  <updated>2018-07-12T04:43:36.000Z</updated>
   <id>https://github.com/zdkswd/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>松本行弘的程序世界 8 正则表达式</title>
+    <link href="https://github.com/zdkswd/2018/07/12/%E6%9D%BE%E6%9C%AC%E8%A1%8C%E5%BC%98%E7%9A%84%E7%A8%8B%E5%BA%8F%E4%B8%96%E7%95%8C%208%20%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    <id>https://github.com/zdkswd/2018/07/12/松本行弘的程序世界 8 正则表达式/</id>
+    <published>2018-07-12T04:41:32.000Z</published>
+    <updated>2018-07-12T04:43:36.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="松本行弘的程序世界-8-正则表达式"><a href="#松本行弘的程序世界-8-正则表达式" class="headerlink" title="松本行弘的程序世界 8 正则表达式"></a>松本行弘的程序世界 8 正则表达式</h1><h2 id="正则表达式基础"><a href="#正则表达式基础" class="headerlink" title="正则表达式基础"></a>正则表达式基础</h2><h3 id="检索“像那样的东西”"><a href="#检索“像那样的东西”" class="headerlink" title="检索“像那样的东西”"></a>检索“像那样的东西”</h3><h3 id="正则表达式的语法"><a href="#正则表达式的语法" class="headerlink" title="正则表达式的语法"></a>正则表达式的语法</h3><h4 id="普通字符"><a href="#普通字符" class="headerlink" title="普通字符"></a>普通字符</h4><p>除了表中所示的元字符以外的普通字符，都与该字符自身相匹配。<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/15313622372722/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-12%20%E4%B8%8A%E5%8D%8810.28.08.png" alt="屏幕快照 2018-07-12 上午10.28.08" title="">                </div>                <div class="image-caption">屏幕快照 2018-07-12 上午10.28.08</div>            </figure></p><h4 id="字符集合"><a href="#字符集合" class="headerlink" title="字符集合"></a>字符集合</h4><p>用括号（【】）括起来的部分为字符集合。与括号内所含的每一个字符都匹配。比如，【abcde】能与小写字母abcde中的任何一个相匹配。<br>字符集合中，用中划线（-）来指定范围。所以，【abcde】可以用【a-e】来代替。<br>字符集合中，第一个字符是【\^】时，表示取反。就是说，不与括号（【】）中的字符相匹配。</p><h4 id="任意一个字符"><a href="#任意一个字符" class="headerlink" title="任意一个字符"></a>任意一个字符</h4><p>表示任意一个字符读得模式是“.”。除了匹配换行符。</p><h4 id="重复"><a href="#重复" class="headerlink" title="重复"></a>重复</h4><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/15313622372722/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-12%20%E4%B8%8A%E5%8D%8810.42.59.png" alt="屏幕快照 2018-07-12 上午10.42.59" title="">                </div>                <div class="image-caption">屏幕快照 2018-07-12 上午10.42.59</div>            </figure><h4 id="贪婪与懒惰"><a href="#贪婪与懒惰" class="headerlink" title="贪婪与懒惰"></a>贪婪与懒惰</h4><p>贪婪：寻找符合的最长的，遍历完再回溯，<br>懒惰：寻找第一个符合的。</p><h4 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h4><p>将模式绑定起来的功能称为分组。（ma）+</p><h4 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h4><p>|</p><h4 id="锚点"><a href="#锚点" class="headerlink" title="锚点"></a>锚点</h4><p>指定位置而不是字符来进行匹配。称为锚点（anchor）。<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/15313622372722/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-12%20%E4%B8%8A%E5%8D%8810.53.24.png" alt="屏幕快照 2018-07-12 上午10.53.24" title="">                </div>                <div class="image-caption">屏幕快照 2018-07-12 上午10.53.24</div>            </figure></p><h3 id="三个陷阱"><a href="#三个陷阱" class="headerlink" title="三个陷阱"></a>三个陷阱</h3><h4 id="记号多、密度高的表达式"><a href="#记号多、密度高的表达式" class="headerlink" title="记号多、密度高的表达式"></a>记号多、密度高的表达式</h4><p>为应对这一问题，出现了扩展正则表达式。</p><h4 id="0次以上的重复"><a href="#0次以上的重复" class="headerlink" title="0次以上的重复"></a>0次以上的重复</h4><h4 id="贪婪型匹配"><a href="#贪婪型匹配" class="headerlink" title="贪婪型匹配"></a>贪婪型匹配</h4><h3 id="正则表达式对象"><a href="#正则表达式对象" class="headerlink" title="正则表达式对象"></a>正则表达式对象</h3><p>面向对象语言Ruby中，所有数据都是对象。正则表达式也是对象。<br><strong>Ruby程序中正则表达式对象写成/.*/的样子。</strong><br>正则表达式对象可以用正则表达式类方法生成。程序中由组合字符串生成正则表达式时，使用类方法更自然。</p><h3 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h3><p>Ruby正则表达式末尾斜杠的后面，可以为这个正则表达式添加选项。<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/15313622372722/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-12%20%E4%B8%8A%E5%8D%8811.34.28.png" alt="屏幕快照 2018-07-12 上午11.34.28" title="">                </div>                <div class="image-caption">屏幕快照 2018-07-12 上午11.34.28</div>            </figure><br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/15313622372722/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-12%20%E4%B8%8A%E5%8D%8811.35.23.png" alt="屏幕快照 2018-07-12 上午11.35.23" title="">                </div>                <div class="image-caption">屏幕快照 2018-07-12 上午11.35.23</div>            </figure></p><h3 id="正则表达式匹配的方法"><a href="#正则表达式匹配的方法" class="headerlink" title="正则表达式匹配的方法"></a>正则表达式匹配的方法</h3><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/15313622372722/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-12%20%E4%B8%8A%E5%8D%8811.37.23.png" alt="屏幕快照 2018-07-12 上午11.37.23" title="">                </div>                <div class="image-caption">屏幕快照 2018-07-12 上午11.37.23</div>            </figure><h3 id="特殊变量"><a href="#特殊变量" class="headerlink" title="特殊变量"></a>特殊变量</h3><p>Ruby中有源于Perl的特殊变量。以$开头的变量。<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/15313622372722/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-12%20%E4%B8%8A%E5%8D%8811.41.33.png" alt="屏幕快照 2018-07-12 上午11.41.33" title="">                </div>                <div class="image-caption">屏幕快照 2018-07-12 上午11.41.33</div>            </figure></p><h3 id="字符串与正则表达式"><a href="#字符串与正则表达式" class="headerlink" title="字符串与正则表达式"></a>字符串与正则表达式</h3><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/15313622372722/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-12%20%E4%B8%8A%E5%8D%8811.43.29.png" alt="屏幕快照 2018-07-12 上午11.43.29" title="">                </div>                <div class="image-caption">屏幕快照 2018-07-12 上午11.43.29</div>            </figure><h3 id="split的本质"><a href="#split的本质" class="headerlink" title="split的本质"></a>split的本质</h3><p>分割字符串的方法split,与正则表达式组合起来能实现很多功能。</p><h3 id="字符串的扫描"><a href="#字符串的扫描" class="headerlink" title="字符串的扫描"></a>字符串的扫描</h3><h3 id="置换"><a href="#置换" class="headerlink" title="置换"></a>置换</h3><p>想要置换与字符串模式匹配的部分，可以用置换方法。</p><h2 id="正则表达式的应用实例与“鬼车”"><a href="#正则表达式的应用实例与“鬼车”" class="headerlink" title="正则表达式的应用实例与“鬼车”"></a>正则表达式的应用实例与“鬼车”</h2><p>正则表达式是表达字符串模式的一种微型语言。正则表达式由字符本身、字符模式、锚点以及重复等组合而成。</p><h3 id="解析日志文件的方法"><a href="#解析日志文件的方法" class="headerlink" title="解析日志文件的方法"></a>解析日志文件的方法</h3><h3 id="避免使用-的方法"><a href="#避免使用-的方法" class="headerlink" title="避免使用$的方法"></a>避免使用$的方法</h3><p>记号$不美观。Ruby中，以match方法替代=~运算符，就可以在程序中不使用这些记号了。</p><h3 id="从邮件中取出日期的方法"><a href="#从邮件中取出日期的方法" class="headerlink" title="从邮件中取出日期的方法"></a>从邮件中取出日期的方法</h3><h3 id="典型拼写错误的检索方法"><a href="#典型拼写错误的检索方法" class="headerlink" title="典型拼写错误的检索方法"></a>典型拼写错误的检索方法</h3><h3 id="Ruby1-9的新功能“鬼车”"><a href="#Ruby1-9的新功能“鬼车”" class="headerlink" title="Ruby1.9的新功能“鬼车”"></a>Ruby1.9的新功能“鬼车”</h3><p>“鬼车”新正则表达式库。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">DSL</span><br><span class="line">Domain Specific Language,意为面向特定领域的编程语言。</span><br><span class="line">DSL分内部DSL和外部DSL。</span><br><span class="line">内部DSL，就是往既有的语言中加入特定领域的词汇，使之DSL化。如软件编译工具Rake中表达依存关系的内部DSL。</span><br><span class="line">make是一个同样目的的工具，它使用Makefile来表达依存关系。Rake可以利用Ruby的编程功能、方法定义、条件分歧和循环等，不管关系有多复杂，都可以编程对应。</span><br><span class="line">外部DSL，不是扩展现有的语言，而是面向特定目的，如SQL就是DSL的代表性例子。正则表达式也可以称作是以实现模式匹配为目的的外部DSL。</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;松本行弘的程序世界-8-正则表达式&quot;&gt;&lt;a href=&quot;#松本行弘的程序世界-8-正则表达式&quot; class=&quot;headerlink&quot; title=&quot;松本行弘的程序世界 8 正则表达式&quot;&gt;&lt;/a&gt;松本行弘的程序世界 8 正则表达式&lt;/h1&gt;&lt;h2 id=&quot;正则表达式
+      
+    
+    </summary>
+    
+      <category term="读书笔记" scheme="https://github.com/zdkswd/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="电子书笔记" scheme="https://github.com/zdkswd/tags/%E7%94%B5%E5%AD%90%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="程序语言" scheme="https://github.com/zdkswd/tags/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
   
   <entry>
     <title>松本行弘的程序世界 7 文字编码</title>
@@ -391,6 +418,33 @@
   </entry>
   
   <entry>
+    <title>implementation 与 compile 的区别 .iml build文件夹 安卓视图</title>
+    <link href="https://github.com/zdkswd/2018/05/31/implementation%20%E4%B8%8E%20compile%20%E7%9A%84%E5%8C%BA%E5%88%AB%20.iml%20build%E6%96%87%E4%BB%B6%E5%A4%B9%20%E5%AE%89%E5%8D%93%E8%A7%86%E5%9B%BE/"/>
+    <id>https://github.com/zdkswd/2018/05/31/implementation 与 compile 的区别 .iml build文件夹 安卓视图/</id>
+    <published>2018-05-31T09:49:56.000Z</published>
+    <updated>2018-05-31T09:51:21.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>##implement<br>概念 : 将该依赖隐藏在内部，而不对外部公开。<br>理解 : 在 app mudule 中使用 implement 依赖的第三方库, 在其他 mudule 是无法调用的.<br>举例 : 此时项目中有一个 mudule 是 ImageLoader ,其内部用 implement 指令依赖了 glide 这个库, 那么此时我们在 app mudule 中无法调用 glide 库中的方法.</p><p>##compile<br>概念: android studio 3.0 版本后废弃该指令 改用 api 代替, api 完全等同于之前的 compile 指令, 也就是普通的依赖, 第三方库在 mudule 中依赖后其他 mudule 都可以使用该库.<br>官方推荐在不影响的前提下优先使用 implement 指令依赖.</p><h2 id="iml文件"><a href="#iml文件" class="headerlink" title=".iml文件"></a>.iml文件</h2><p>iml是 intellij idea的工程配置文件，里面是当前project的一些配置信息<br>可以配置不输出文件夹。</p><h2 id="build文件夹中的generated-intermediates"><a href="#build文件夹中的generated-intermediates" class="headerlink" title="build文件夹中的generated intermediates"></a>build文件夹中的generated intermediates</h2><p>成功build后会产生以下文件夹：<br><strong>generated</strong>：<br>The “<strong>generated</strong>“ folder contains java code generated by Android Studio for the module. The primary file here is “<strong>R.java</strong>“ which assigns symbolic names to each of the items in the “res” directory so they can be referenced in java source code.<br><strong>intermediates</strong>：<br>The “<strong>intermediates</strong>“ folder contains individual files that are created during the build process and which are eventually combined to produce the “apk” file.</p><h2 id="Android视图与Project视图"><a href="#Android视图与Project视图" class="headerlink" title="Android视图与Project视图"></a>Android视图与Project视图</h2><p><strong>Project视图</strong>：<br>Project视图是真实的文件结构，真实文件就是这么存放的。<br><strong>Android视图</strong>:<br>可以说是<strong>build成功</strong>后根据配置信息，生成的结构。结构与配置信息有关，与build文件夹有关。不是真实文件的存放方式。其项目树的名字也不一定是真实名字，与配置信息有关。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;##implement&lt;br&gt;概念 : 将该依赖隐藏在内部，而不对外部公开。&lt;br&gt;理解 : 在 app mudule 中使用 implement 依赖的第三方库, 在其他 mudule 是无法调用的.&lt;br&gt;举例 : 此时项目中有一个 mudule 是 ImageLoad
+      
+    
+    </summary>
+    
+      <category term="知识总结" scheme="https://github.com/zdkswd/categories/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"/>
+    
+    
+      <category term="Android" scheme="https://github.com/zdkswd/tags/Android/"/>
+    
+      <category term="AndroidStudio" scheme="https://github.com/zdkswd/tags/AndroidStudio/"/>
+    
+  </entry>
+  
+  <entry>
     <title>【安卓开发艺术探索】JNI和NDK编程</title>
     <link href="https://github.com/zdkswd/2018/05/31/%E3%80%90%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91%E8%89%BA%E6%9C%AF%E6%8E%A2%E7%B4%A2%E3%80%91JNI%E5%92%8CNDK%E7%BC%96%E7%A8%8B/"/>
     <id>https://github.com/zdkswd/2018/05/31/【安卓开发艺术探索】JNI和NDK编程/</id>
@@ -415,33 +469,6 @@
       <category term="Android" scheme="https://github.com/zdkswd/tags/Android/"/>
     
       <category term="电子书笔记" scheme="https://github.com/zdkswd/tags/%E7%94%B5%E5%AD%90%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>implementation 与 compile 的区别 .iml build文件夹 安卓视图</title>
-    <link href="https://github.com/zdkswd/2018/05/31/implementation%20%E4%B8%8E%20compile%20%E7%9A%84%E5%8C%BA%E5%88%AB%20.iml%20build%E6%96%87%E4%BB%B6%E5%A4%B9%20%E5%AE%89%E5%8D%93%E8%A7%86%E5%9B%BE/"/>
-    <id>https://github.com/zdkswd/2018/05/31/implementation 与 compile 的区别 .iml build文件夹 安卓视图/</id>
-    <published>2018-05-31T09:49:56.000Z</published>
-    <updated>2018-05-31T09:51:21.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>##implement<br>概念 : 将该依赖隐藏在内部，而不对外部公开。<br>理解 : 在 app mudule 中使用 implement 依赖的第三方库, 在其他 mudule 是无法调用的.<br>举例 : 此时项目中有一个 mudule 是 ImageLoader ,其内部用 implement 指令依赖了 glide 这个库, 那么此时我们在 app mudule 中无法调用 glide 库中的方法.</p><p>##compile<br>概念: android studio 3.0 版本后废弃该指令 改用 api 代替, api 完全等同于之前的 compile 指令, 也就是普通的依赖, 第三方库在 mudule 中依赖后其他 mudule 都可以使用该库.<br>官方推荐在不影响的前提下优先使用 implement 指令依赖.</p><h2 id="iml文件"><a href="#iml文件" class="headerlink" title=".iml文件"></a>.iml文件</h2><p>iml是 intellij idea的工程配置文件，里面是当前project的一些配置信息<br>可以配置不输出文件夹。</p><h2 id="build文件夹中的generated-intermediates"><a href="#build文件夹中的generated-intermediates" class="headerlink" title="build文件夹中的generated intermediates"></a>build文件夹中的generated intermediates</h2><p>成功build后会产生以下文件夹：<br><strong>generated</strong>：<br>The “<strong>generated</strong>“ folder contains java code generated by Android Studio for the module. The primary file here is “<strong>R.java</strong>“ which assigns symbolic names to each of the items in the “res” directory so they can be referenced in java source code.<br><strong>intermediates</strong>：<br>The “<strong>intermediates</strong>“ folder contains individual files that are created during the build process and which are eventually combined to produce the “apk” file.</p><h2 id="Android视图与Project视图"><a href="#Android视图与Project视图" class="headerlink" title="Android视图与Project视图"></a>Android视图与Project视图</h2><p><strong>Project视图</strong>：<br>Project视图是真实的文件结构，真实文件就是这么存放的。<br><strong>Android视图</strong>:<br>可以说是<strong>build成功</strong>后根据配置信息，生成的结构。结构与配置信息有关，与build文件夹有关。不是真实文件的存放方式。其项目树的名字也不一定是真实名字，与配置信息有关。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;##implement&lt;br&gt;概念 : 将该依赖隐藏在内部，而不对外部公开。&lt;br&gt;理解 : 在 app mudule 中使用 implement 依赖的第三方库, 在其他 mudule 是无法调用的.&lt;br&gt;举例 : 此时项目中有一个 mudule 是 ImageLoad
-      
-    
-    </summary>
-    
-      <category term="知识总结" scheme="https://github.com/zdkswd/categories/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"/>
-    
-    
-      <category term="Android" scheme="https://github.com/zdkswd/tags/Android/"/>
-    
-      <category term="AndroidStudio" scheme="https://github.com/zdkswd/tags/AndroidStudio/"/>
     
   </entry>
   
@@ -521,33 +548,6 @@
       <category term="TensorFlow" scheme="https://github.com/zdkswd/tags/TensorFlow/"/>
     
       <category term="机器学习" scheme="https://github.com/zdkswd/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Gradle</title>
-    <link href="https://github.com/zdkswd/2018/05/20/Gradle/"/>
-    <id>https://github.com/zdkswd/2018/05/20/Gradle/</id>
-    <published>2018-05-20T09:28:56.000Z</published>
-    <updated>2018-05-20T09:42:19.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="差异管理"><a href="#差异管理" class="headerlink" title="差异管理"></a>差异管理</h2><p>说到多渠道问题,不同的渠道一般会对应不同的渠道号,你当然可以通过修改一次打一个包这种纯手工的方式来生成你的多渠道包,但据听说国内某团购网站的Android App有100多个渠道.这里出现了什么?重复,反复的去打包而且这些包之前的差异很小(只是渠道号不同),和写代码一样我们应该复用,通过Gradle可以实现一个命令打出所有的渠道包,一个命令打出指定的渠道包.再复杂一点,你可能需要不同的渠道对应不同的签名文件,不同的icon,不同的服务器地址…这些都可以通过Gradle来方便的实现.</p><h2 id="依赖管理"><a href="#依赖管理" class="headerlink" title="依赖管理:"></a>依赖管理:</h2><p>做软件开发你可能需要依赖各种不同的jar,library.你当然可以通过将.jar/library工程下载到本地再copy到你的工程中,但不知你是否听说过国外有个叫中央仓库的东西,在这个仓库里你可以找到所有你能想到以及你从来没听说过的jar,aar…The Central Repository Search Engine 这里可以找到所有你需要的依赖,而你需要的只是指定一个坐标,如下:<br>compile’com.squareup.picasso:picasso:2.3.3<br>剩下的依赖的寻找,下载,添加到classpath等你都不需要去关心,通过这种方式来维护依赖的好处有以下几点:<br>剩下的依赖的寻找,下载,添加到classpath等你都不需要去关心,通过这种方式来维护依赖的好处有以下几点:</p><ol><li>依赖不会进入到你的版本控制仓库中(默认会缓存到~/.gradle/下)</li><li>方便卸载装载依赖(只是一条坐标依赖,不需要删除即可)</li><li>方便的版本管理,如上图中的2.3.3既是picasso的版本号,若改为+就表示从中央仓库中下载最新的版本</li><li>不同工程的相同依赖不会存在重复副本(只在~/.gradle下存在一份)<h2 id="项目部署"><a href="#项目部署" class="headerlink" title="项目部署"></a>项目部署</h2>这方面我没怎么接触过,但据我所知通过一些插件,可以实现自动将你的输出(.jar,.apk,.war…)上传到指定仓库,自动部署…</li></ol><h2 id="Gradle概念"><a href="#Gradle概念" class="headerlink" title="Gradle概念"></a>Gradle概念</h2><p>Gradle，这是一个基于 JVM 的富有突破性<strong>构建工具</strong>。<br>Gradle不单单是一个配置脚本，它的背后是三门语言。<br>    ◦    Groovy Language<br>    ◦    Gradle DSL<br>    ◦    Android DSL<br><strong>DSL</strong>的全称是Domain Specific Language，即领域特定语言。</p><h2 id="The-Gradle-wrapper"><a href="#The-Gradle-wrapper" class="headerlink" title="The Gradle wrapper"></a>The Gradle wrapper</h2><p>Gradle Wrapper 允许你在没有安装 Gradle 的机器上执行 Gradle 构建。</p><h2 id="Gradle构建基础"><a href="#Gradle构建基础" class="headerlink" title="Gradle构建基础"></a>Gradle构建基础</h2><h3 id="build-gradle"><a href="#build-gradle" class="headerlink" title="build.gradle"></a>build.gradle</h3><p>一个项目中会有一个project build.gradle。与若干个module build.gradle.<br>你可以通过在命令行运行 gradle 命令来执行构建，gradle 命令会从当前目录下寻找 build.gradle 文件来执行构建。我们称 build.gradle 文件为构建脚本。严格来说这其实是一个构建配置脚本。</p><h3 id="project与task"><a href="#project与task" class="headerlink" title="project与task"></a>project与task</h3><p>Gradle中，每一个待编译的工程都叫一个Project。每一个Project在构建的时候都包含一系列的Task。比如一个Android APK的编译可能包含：Java源码编译Task、资源编译Task、JNI编译Task、lint检查Task、打包生成APK的Task、签名Task等。插件本身就是包含了若干Task的。</p><h2 id="Gradle脚本的执行时序"><a href="#Gradle脚本的执行时序" class="headerlink" title="Gradle脚本的执行时序"></a>Gradle脚本的执行时序</h2><ol><li><p><strong>初始化</strong>，分析有哪些module将要被构建，为每个module创建对应的 project实例。这个时候settings.gradle文件会被解析。</p></li><li><p><strong>配置</strong>,处理所有的模块的 build 脚本，处理依赖，属性等。这个时候每个模块的build.gradle文件会被解析并配置，这个时候会构建整个task的链表（这里的链表仅仅指存在依赖关系的task的集合，不是数据结构的链表）。先是project build.gradle后是module build.gradle,且从依赖树的叶节点执行。<strong>配置完了以后，有一个重要的回调project.afterEvaluate，它表示所有的模块都已经配置完了，可以准备执行task了。</strong></p></li><li><p><strong>执行</strong>，根据task链表来执行某一个特定的task，这个task所依赖的其他task都将会被提前执行。</p></li></ol><h2 id="Groovy基础-原创：任玉刚"><a href="#Groovy基础-原创：任玉刚" class="headerlink" title="Groovy基础[原创：任玉刚]"></a>Groovy基础[原创：任玉刚]</h2><h3 id="Groovy和Java的关系"><a href="#Groovy和Java的关系" class="headerlink" title="Groovy和Java的关系"></a>Groovy和Java的关系</h3><p>Groovy是一门jvm语言，它最终是要编译成class文件然后在jvm上执行，所以Java语言的特性Groovy都支持，我们完全可以混写Java和Groovy。</p><h3 id="Groovy的变量和方法声明"><a href="#Groovy的变量和方法声明" class="headerlink" title="Groovy的变量和方法声明"></a>Groovy的变量和方法声明</h3><p>在Groovy中，通过 def 关键字来声明变量和方法。</p><blockquote><p>def a = 1<br>def b = “hello world”<br>def int c = 1</p></blockquote><blockquote><p>def hello() {<br>    println “hello world” // 方法调用省略括号<br>    1;                    // 方法返回值省略return<br>}<br>def hello(String msg) {<br>    println (msg)<br>}</p></blockquote><blockquote><p>// 方法省略参数类型<br>int hello(msg) {<br>    println (msg)<br>    return 1<br>}</p></blockquote><blockquote><p>// 方法省略参数类型<br>int hello(msg) {<br>    println msg<br>    return 1 // 这个return不能省略<br>    println “done”<br>}</p></blockquote><h3 id="Groovy的数据类型"><a href="#Groovy的数据类型" class="headerlink" title="Groovy的数据类型"></a>Groovy的数据类型</h3><ol><li><p><strong>String</strong>,用于字符串拼接。</p></li><li><p><strong>闭包</strong>，Groovy中有一种特殊的<strong>类型</strong>，叫做<strong>Closure</strong>，翻译过来就是闭包，这是一种类似于C语言中函数指针的东西。闭包用起来非常方便，在Groovy中，闭包作为一种特殊的数据类型而存在，闭包可以作为方法的参数和返回值，也可以作为一个变量而存在。</p></li></ol><p>声明闭包</p><blockquote><p>{ parameters -&gt;<br>    code<br>}</p></blockquote><ol start="3"><li><p><strong>List和Map</strong>,Groovy加强了Java中的集合类，比如List、Map、Set等.List还有一种看起来很奇怪的操作符&lt;&lt;，表示向List中添加新元素的意思.</p></li><li><p><strong>加强的IO</strong>.</p></li></ol><h3 id="其他特性"><a href="#其他特性" class="headerlink" title="其他特性"></a>其他特性</h3><ul><li>所有的Class类型，都可以省略.class</li><li>只要有属性就有Getter/Setter，反之亦然。</li><li>with操作符<blockquote><p>Book bk = new Book()<br>bk.id = 1<br>bk.name = “android art”<br>bk.press = “china press”</p></blockquote></li></ul><p>可以简写为：</p><blockquote><p>Book bk = new Book()<br>bk.with {<br>    id = 1<br>    name = “android art”<br>    press = “china press”<br>}</p></blockquote><p>等等<a href="http://www.jianshu.com/p/ba55dc163dfd" target="_blank" rel="noopener">http://www.jianshu.com/p/ba55dc163dfd</a></p><h2 id="定义Task"><a href="#定义Task" class="headerlink" title="定义Task"></a>定义Task</h2><blockquote><p>task myTask {<br>    println “config myTask”<br>}</p></blockquote><p>通过上述方式定义的task,括号内部的代码会在配置阶段执行。</p><p>要括号内的代码仅仅在执行我们的task的时候才执行，这个时候可以通过doFirst或者doLast来完成。<br>    •    doFirst：task执行时，最开始的操作<br>    •    doLast：task执行时，最后的操作</p><blockquote><p>myTask.doLast {<br>    println “after execute myTask”<br>}<br>myTask.doFirst {<br>    println “before execute myTask”<br>}</p></blockquote><p>doLast还有一个等价的操作leftShift，leftShift还可以缩写为&lt;&lt;</p><blockquote><p>myTask &lt;&lt; {<br>    println “after execute myTask”<br>}</p></blockquote><p>剩下的细节还是需要大家查看Gradle文档，其实学习Gradle就是一个查文档的过程。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;差异管理&quot;&gt;&lt;a href=&quot;#差异管理&quot; class=&quot;headerlink&quot; title=&quot;差异管理&quot;&gt;&lt;/a&gt;差异管理&lt;/h2&gt;&lt;p&gt;说到多渠道问题,不同的渠道一般会对应不同的渠道号,你当然可以通过修改一次打一个包这种纯手工的方式来生成你的多渠道包,但据听说
-      
-    
-    </summary>
-    
-      <category term="知识总结" scheme="https://github.com/zdkswd/categories/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"/>
-    
-    
-      <category term="软件构筑" scheme="https://github.com/zdkswd/tags/%E8%BD%AF%E4%BB%B6%E6%9E%84%E7%AD%91/"/>
-    
-      <category term="Android" scheme="https://github.com/zdkswd/tags/Android/"/>
     
   </entry>
   
