@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/zdkswd/"/>
-  <updated>2018-07-12T04:43:36.000Z</updated>
+  <updated>2018-07-12T09:39:19.000Z</updated>
   <id>https://github.com/zdkswd/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>松本行弘的程序世界 9 整数和浮点小数</title>
+    <link href="https://github.com/zdkswd/2018/07/12/%E6%9D%BE%E6%9C%AC%E8%A1%8C%E5%BC%98%E7%9A%84%E7%A8%8B%E5%BA%8F%E4%B8%96%E7%95%8C%209%20%E6%95%B4%E6%95%B0%E5%92%8C%E6%B5%AE%E7%82%B9%E5%B0%8F%E6%95%B0/"/>
+    <id>https://github.com/zdkswd/2018/07/12/松本行弘的程序世界 9 整数和浮点小数/</id>
+    <published>2018-07-12T09:41:32.000Z</published>
+    <updated>2018-07-12T09:39:19.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="松本行弘的程序世界-9-整数和浮点小数"><a href="#松本行弘的程序世界-9-整数和浮点小数" class="headerlink" title="松本行弘的程序世界 9 整数和浮点小数"></a>松本行弘的程序世界 9 整数和浮点小数</h1><h2 id="深奥的整数世界"><a href="#深奥的整数世界" class="headerlink" title="深奥的整数世界"></a>深奥的整数世界</h2><h3 id="整数是有范围的"><a href="#整数是有范围的" class="headerlink" title="整数是有范围的"></a>整数是有范围的</h3><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/15313834829764/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-12%20%E4%B8%8B%E5%8D%884.23.38.png" alt="屏幕快照 2018-07-12 下午4.23.38" title="">                </div>                <div class="image-caption">屏幕快照 2018-07-12 下午4.23.38</div>            </figure><h3 id="尝试位运算"><a href="#尝试位运算" class="headerlink" title="尝试位运算"></a>尝试位运算</h3><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/15313834829764/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-12%20%E4%B8%8B%E5%8D%884.24.58.png" alt="屏幕快照 2018-07-12 下午4.24.58" title="">                </div>                <div class="image-caption">屏幕快照 2018-07-12 下午4.24.58</div>            </figure><h3 id="操作特定的位"><a href="#操作特定的位" class="headerlink" title="操作特定的位"></a>操作特定的位</h3><p>位运算组合起来，可以对存储在计算机中的各位进行自由操作。<br>操作二进制位就等于操作计算机的数据。<br>基本的位处理操作有4种。</p><ol><li>取出特定位的状态</li><li>特定位置位（设为1）</li><li>特定位清零（设为0）</li><li>特定位反转</li></ol><p>将操作限制在特定位的数为掩码。</p><h3 id="表示负数的办法"><a href="#表示负数的办法" class="headerlink" title="表示负数的办法"></a>表示负数的办法</h3><ol><li>开头一位做符号位</li><li>将整数的各位反转（1的补数）</li></ol><h3 id="Ruby的整数"><a href="#Ruby的整数" class="headerlink" title="Ruby的整数"></a>Ruby的整数</h3><p>Ruby的整数有两种，一种是范围有限制的整数Fixnum（32位CPU是31位，64位CPU是63位），另一种是范围没有限制（超过内存容量除外）的整数Bignum，根据计算结果自动变换。</p><h3 id="挑战公开密钥方式"><a href="#挑战公开密钥方式" class="headerlink" title="挑战公开密钥方式"></a>挑战公开密钥方式</h3><p>RSA加密的强度（解读的困难程度），就归因于素因数分解的难度。</p><h2 id="扑朔迷离的浮点小数世界"><a href="#扑朔迷离的浮点小数世界" class="headerlink" title="扑朔迷离的浮点小数世界"></a>扑朔迷离的浮点小数世界</h2><h3 id="计算机对小数的处理"><a href="#计算机对小数的处理" class="headerlink" title="计算机对小数的处理"></a>计算机对小数的处理</h3><h3 id="固定小数点数不易使用"><a href="#固定小数点数不易使用" class="headerlink" title="固定小数点数不易使用"></a>固定小数点数不易使用</h3><p>浮点数，就是小数点的位置可以移动。</p><h3 id="科学计数法也有问题"><a href="#科学计数法也有问题" class="headerlink" title="科学计数法也有问题"></a>科学计数法也有问题</h3><p>计算机中广泛使用的小数表示方法是科学计数法。科学计数法是指将有效数字和指数组合起来表示小数（实数）。</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/15313834829764/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-12%20%E4%B8%8B%E5%8D%885.01.23.png" alt="屏幕快照 2018-07-12 下午5.01.23" title="">                </div>                <div class="image-caption">屏幕快照 2018-07-12 下午5.01.23</div>            </figure><p><strong>IEEE754规定，尾数部分的首位始终归一化为1，所以首位始终省略，实质有效数字为53位。</strong></p><h3 id="小数不能完全表示"><a href="#小数不能完全表示" class="headerlink" title="小数不能完全表示"></a>小数不能完全表示</h3><ol><li>计算机中的数的表示有长度（位数）限制。</li><li>计算机中数的表示是二进制。</li></ol><h4 id="浮点数是有限的"><a href="#浮点数是有限的" class="headerlink" title="浮点数是有限的"></a>浮点数是有限的</h4><h4 id="浮点数有误差"><a href="#浮点数有误差" class="headerlink" title="浮点数有误差"></a>浮点数有误差</h4><h4 id="对于浮点小数，结合法不成立"><a href="#对于浮点小数，结合法不成立" class="headerlink" title="对于浮点小数，结合法不成立"></a>对于浮点小数，结合法不成立</h4><h3 id="有不能比较的时候"><a href="#有不能比较的时候" class="headerlink" title="有不能比较的时候"></a>有不能比较的时候</h3><p>对于浮点数进行比较运算，只有两个数在内部表示是完全相同的情况下才判定为相等。作为铁则，两个浮点数不能用==进行比较运算。如果有进行比较的必要，判断条件中的两个数的差要足够小。根据操作系统的不同，对于浮点数，足够小的值e有不同的定义。</p><h3 id="误差积累"><a href="#误差积累" class="headerlink" title="误差积累"></a>误差积累</h3><p>减少运算次数。</p><h3 id="不是数的特别“数”"><a href="#不是数的特别“数”" class="headerlink" title="不是数的特别“数”"></a>不是数的特别“数”</h3><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/15313834829764/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-12%20%E4%B8%8B%E5%8D%885.13.14.png" alt="屏幕快照 2018-07-12 下午5.13.14" title="">                </div>                <div class="image-caption">屏幕快照 2018-07-12 下午5.13.14</div>            </figure><p>无限大Inf，零0，非数NaN</p><h3 id="计算误差有多种"><a href="#计算误差有多种" class="headerlink" title="计算误差有多种"></a>计算误差有多种</h3><h4 id="舍入误差"><a href="#舍入误差" class="headerlink" title="舍入误差"></a>舍入误差</h4><h4 id="最大值溢出与最小值溢出"><a href="#最大值溢出与最小值溢出" class="headerlink" title="最大值溢出与最小值溢出"></a>最大值溢出与最小值溢出</h4><h4 id="信息丢失"><a href="#信息丢失" class="headerlink" title="信息丢失"></a>信息丢失</h4><h4 id="位数脱落"><a href="#位数脱落" class="headerlink" title="位数脱落"></a>位数脱落</h4><h4 id="截止误差"><a href="#截止误差" class="headerlink" title="截止误差"></a>截止误差</h4><h3 id="误差导致的严重问题"><a href="#误差导致的严重问题" class="headerlink" title="误差导致的严重问题"></a>误差导致的严重问题</h3><h3 id="BigDecimal是什么"><a href="#BigDecimal是什么" class="headerlink" title="BigDecimal是什么"></a>BigDecimal是什么</h3><p>浮点数运算的陷阱可以归结为：1. 能够表示的精度有限</p><ol start="2"><li>以二进制来表示</li></ol><p>Ruby提供了BigDecimal类，有以下3个特点：</p><ol><li>与Bignum一样，有效数字自动扩展</li><li>以十进制计算</li><li>以C语言记述，比内嵌的浮点数类（Float）要慢</li></ol><h3 id="能够表示分数的Rational类"><a href="#能够表示分数的Rational类" class="headerlink" title="能够表示分数的Rational类"></a>能够表示分数的Rational类</h3>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;松本行弘的程序世界-9-整数和浮点小数&quot;&gt;&lt;a href=&quot;#松本行弘的程序世界-9-整数和浮点小数&quot; class=&quot;headerlink&quot; title=&quot;松本行弘的程序世界 9 整数和浮点小数&quot;&gt;&lt;/a&gt;松本行弘的程序世界 9 整数和浮点小数&lt;/h1&gt;&lt;h2 i
+      
+    
+    </summary>
+    
+      <category term="读书笔记" scheme="https://github.com/zdkswd/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="电子书笔记" scheme="https://github.com/zdkswd/tags/%E7%94%B5%E5%AD%90%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="程序语言" scheme="https://github.com/zdkswd/tags/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
   
   <entry>
     <title>松本行弘的程序世界 8 正则表达式</title>
@@ -445,6 +472,31 @@
   </entry>
   
   <entry>
+    <title>Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback</title>
+    <link href="https://github.com/zdkswd/2018/05/31/Surface%E3%80%81SurfaceView%E3%80%81SurfaceHolder%E5%8F%8ASurfaceHolder.Callback/"/>
+    <id>https://github.com/zdkswd/2018/05/31/Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback/</id>
+    <published>2018-05-31T09:49:56.000Z</published>
+    <updated>2018-05-31T09:51:27.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Surface"><a href="#Surface" class="headerlink" title="Surface"></a>Surface</h2><p>Surface本身的作用类似一个句柄，得到了这个句柄就可以得到其中的Canvas、原生缓冲器以及其它方面的内容。<br>原生缓冲器（rawbuffer）是用于保存当前窗口的像素数据的。<br>通常画图是在一个Canvas对象上面进行的。</p><h2 id="SurfaceView"><a href="#SurfaceView" class="headerlink" title="SurfaceView"></a>SurfaceView</h2><p>SurfaceView，顾名思义就是Surface的View，通过SurfaceView就可以看到Surface的部分或者全部的内容.<br>也就是说，Surface是用通过SurfaceView才能展示其中的内容。<br>SurfaceView是Android中View的子类。事实上，在Android中所有用于界面展示的类皆为View的子类，包括那些不可见的、各种各样的Layout。</p><p>在Android中Surface是从Object派生而来，且实现了Parcelable接口。看到Parcelable就让人能很自然地想到数据容器，SurfaceView就是用来展示Surface中的数据的。在这个层面上而言，Surface就是管理数据的地方，SurfaceView就是展示数据的地方。</p><p>这个类的目的之一，就是提供一个可以用另外一个线程（第二个线程）进行屏幕渲染的surface（译注：即UI线程和绘制线程可以分离）。如果你打算这样使用，那么应当注意一些线程方面的语义：</p><ul><li>所有SurfaceView和SurfaceHolder.Callback中声明的方法，必须在运行SurfaceView窗口中的线程中调用（典型地，就是应用的主线程。译注：即UI线程），因为它们需要正确地将同时被绘制线程访问的各种状态进行同步。</li><li>必须保证，只有在背后的Surface有效的时候 – 在SurfaceHolder.Callback.surfaceCreated()和 SurfaceHolder.Callback.surfaceDestroyed()这两个方法调用之间，访问它。</li></ul><p>Android中实现<strong>序列化</strong>有两个选择：一是实现<strong>Serializable</strong>接口（是JavaSE本身就支持的），一是实现<strong>Parcelable</strong>接口（是Android特有功能，效率比实现Serializable接口高效，可用于Intent数据传递，也可以用于进程间通信（IPC））。实现Serializable接口非常简单，声明一下就可以了，而实现Parcelable接口稍微复杂一些，但效率更高，推荐用这种方法提高性能。</p><h2 id="SurfaceHolder"><a href="#SurfaceHolder" class="headerlink" title="SurfaceHolder"></a>SurfaceHolder</h2><p>SurfaceHolder是一个接口，其作用就像一个关于Surface的监听器。提供访问和控制SurfaceView背后的Surface 相关的方法.它通过三个回调方法，让我们可以感知到Surface的创建、销毁或者改变。在SurfaceView中有一个方法getHolder，可以很方便地获得SurfaceView所对应的Surface所对应的SurfaceHolder.<br>从设计模式的高度来看，Surface、SurfaceView和SurfaceHolder实质上就是广为人知的MVC，即Model-View-Controller。</p><h2 id="SurfaceHolder-Callback"><a href="#SurfaceHolder-Callback" class="headerlink" title="SurfaceHolder.Callback"></a>SurfaceHolder.Callback</h2><p>前面已经讲到SurfaceHolder是一个接口，它通过回到方法的方式，让我们可以感知到Surface的创建、销毁或者改变。其实这一点是通过其内部的静态子接口SurfaceHolder.Callback来实现的。SurfaceHolder.Callback中定义了三个接口方法：</p><ol><li>abstract void surfaceChanged(SurfaceHolderholder, int format, int width, int height)<br>当surface发生任何结构性的变化时（格式或者大小），该方法就会被立即调用。</li><li>abstract void surfaceCreated(SurfaceHolderholder)<br>当surface对象创建后，该方法就会被立即调用。</li><li>abstract void surfaceDestroyed(SurfaceHolderholder)<br>当surface对象在将要销毁前，该方法会被立即调用。</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Surface&quot;&gt;&lt;a href=&quot;#Surface&quot; class=&quot;headerlink&quot; title=&quot;Surface&quot;&gt;&lt;/a&gt;Surface&lt;/h2&gt;&lt;p&gt;Surface本身的作用类似一个句柄，得到了这个句柄就可以得到其中的Canvas、原生缓冲器以及其它
+      
+    
+    </summary>
+    
+      <category term="知识总结" scheme="https://github.com/zdkswd/categories/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"/>
+    
+    
+      <category term="Android" scheme="https://github.com/zdkswd/tags/Android/"/>
+    
+  </entry>
+  
+  <entry>
     <title>【安卓开发艺术探索】JNI和NDK编程</title>
     <link href="https://github.com/zdkswd/2018/05/31/%E3%80%90%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91%E8%89%BA%E6%9C%AF%E6%8E%A2%E7%B4%A2%E3%80%91JNI%E5%92%8CNDK%E7%BC%96%E7%A8%8B/"/>
     <id>https://github.com/zdkswd/2018/05/31/【安卓开发艺术探索】JNI和NDK编程/</id>
@@ -473,31 +525,6 @@
   </entry>
   
   <entry>
-    <title>Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback</title>
-    <link href="https://github.com/zdkswd/2018/05/31/Surface%E3%80%81SurfaceView%E3%80%81SurfaceHolder%E5%8F%8ASurfaceHolder.Callback/"/>
-    <id>https://github.com/zdkswd/2018/05/31/Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback/</id>
-    <published>2018-05-31T09:49:56.000Z</published>
-    <updated>2018-05-31T09:51:27.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Surface"><a href="#Surface" class="headerlink" title="Surface"></a>Surface</h2><p>Surface本身的作用类似一个句柄，得到了这个句柄就可以得到其中的Canvas、原生缓冲器以及其它方面的内容。<br>原生缓冲器（rawbuffer）是用于保存当前窗口的像素数据的。<br>通常画图是在一个Canvas对象上面进行的。</p><h2 id="SurfaceView"><a href="#SurfaceView" class="headerlink" title="SurfaceView"></a>SurfaceView</h2><p>SurfaceView，顾名思义就是Surface的View，通过SurfaceView就可以看到Surface的部分或者全部的内容.<br>也就是说，Surface是用通过SurfaceView才能展示其中的内容。<br>SurfaceView是Android中View的子类。事实上，在Android中所有用于界面展示的类皆为View的子类，包括那些不可见的、各种各样的Layout。</p><p>在Android中Surface是从Object派生而来，且实现了Parcelable接口。看到Parcelable就让人能很自然地想到数据容器，SurfaceView就是用来展示Surface中的数据的。在这个层面上而言，Surface就是管理数据的地方，SurfaceView就是展示数据的地方。</p><p>这个类的目的之一，就是提供一个可以用另外一个线程（第二个线程）进行屏幕渲染的surface（译注：即UI线程和绘制线程可以分离）。如果你打算这样使用，那么应当注意一些线程方面的语义：</p><ul><li>所有SurfaceView和SurfaceHolder.Callback中声明的方法，必须在运行SurfaceView窗口中的线程中调用（典型地，就是应用的主线程。译注：即UI线程），因为它们需要正确地将同时被绘制线程访问的各种状态进行同步。</li><li>必须保证，只有在背后的Surface有效的时候 – 在SurfaceHolder.Callback.surfaceCreated()和 SurfaceHolder.Callback.surfaceDestroyed()这两个方法调用之间，访问它。</li></ul><p>Android中实现<strong>序列化</strong>有两个选择：一是实现<strong>Serializable</strong>接口（是JavaSE本身就支持的），一是实现<strong>Parcelable</strong>接口（是Android特有功能，效率比实现Serializable接口高效，可用于Intent数据传递，也可以用于进程间通信（IPC））。实现Serializable接口非常简单，声明一下就可以了，而实现Parcelable接口稍微复杂一些，但效率更高，推荐用这种方法提高性能。</p><h2 id="SurfaceHolder"><a href="#SurfaceHolder" class="headerlink" title="SurfaceHolder"></a>SurfaceHolder</h2><p>SurfaceHolder是一个接口，其作用就像一个关于Surface的监听器。提供访问和控制SurfaceView背后的Surface 相关的方法.它通过三个回调方法，让我们可以感知到Surface的创建、销毁或者改变。在SurfaceView中有一个方法getHolder，可以很方便地获得SurfaceView所对应的Surface所对应的SurfaceHolder.<br>从设计模式的高度来看，Surface、SurfaceView和SurfaceHolder实质上就是广为人知的MVC，即Model-View-Controller。</p><h2 id="SurfaceHolder-Callback"><a href="#SurfaceHolder-Callback" class="headerlink" title="SurfaceHolder.Callback"></a>SurfaceHolder.Callback</h2><p>前面已经讲到SurfaceHolder是一个接口，它通过回到方法的方式，让我们可以感知到Surface的创建、销毁或者改变。其实这一点是通过其内部的静态子接口SurfaceHolder.Callback来实现的。SurfaceHolder.Callback中定义了三个接口方法：</p><ol><li>abstract void surfaceChanged(SurfaceHolderholder, int format, int width, int height)<br>当surface发生任何结构性的变化时（格式或者大小），该方法就会被立即调用。</li><li>abstract void surfaceCreated(SurfaceHolderholder)<br>当surface对象创建后，该方法就会被立即调用。</li><li>abstract void surfaceDestroyed(SurfaceHolderholder)<br>当surface对象在将要销毁前，该方法会被立即调用。</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;Surface&quot;&gt;&lt;a href=&quot;#Surface&quot; class=&quot;headerlink&quot; title=&quot;Surface&quot;&gt;&lt;/a&gt;Surface&lt;/h2&gt;&lt;p&gt;Surface本身的作用类似一个句柄，得到了这个句柄就可以得到其中的Canvas、原生缓冲器以及其它
-      
-    
-    </summary>
-    
-      <category term="知识总结" scheme="https://github.com/zdkswd/categories/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"/>
-    
-    
-      <category term="Android" scheme="https://github.com/zdkswd/tags/Android/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Tensorflow模型持久化</title>
     <link href="https://github.com/zdkswd/2018/05/25/Tensorflow%E6%A8%A1%E5%9E%8B%E6%8C%81%E4%B9%85%E5%8C%96/"/>
     <id>https://github.com/zdkswd/2018/05/25/Tensorflow模型持久化/</id>
@@ -511,33 +538,6 @@
       
       
         &lt;h2 id=&quot;持久化代码实现&quot;&gt;&lt;a href=&quot;#持久化代码实现&quot; class=&quot;headerlink&quot; title=&quot;持久化代码实现&quot;&gt;&lt;/a&gt;持久化代码实现&lt;/h2&gt;&lt;p&gt;通过&lt;strong&gt;tf.train.Saver类&lt;/strong&gt;来保存和还原一个神经网络，模型文
-      
-    
-    </summary>
-    
-      <category term="知识总结" scheme="https://github.com/zdkswd/categories/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"/>
-    
-    
-      <category term="TensorFlow" scheme="https://github.com/zdkswd/tags/TensorFlow/"/>
-    
-      <category term="机器学习" scheme="https://github.com/zdkswd/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Bazel 和Protocol Buffer</title>
-    <link href="https://github.com/zdkswd/2018/05/25/Bazel%20%E5%92%8CProtocol%20Buffer/"/>
-    <id>https://github.com/zdkswd/2018/05/25/Bazel 和Protocol Buffer/</id>
-    <published>2018-05-25T11:00:56.000Z</published>
-    <updated>2018-05-25T11:01:05.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Bazel"><a href="#Bazel" class="headerlink" title="Bazel"></a>Bazel</h2><p>Bazel是一个类似于Make的编译工具，是Google为其内部软件开发的特点量身定制的工具，如今Google使用它来构建内部大多数的软件。Google认为直接用Makefile构建软件速度太慢，结果不可靠，所以构建了一个新的工具叫做Bazel，Bazel的规则层级更高。</p><h2 id="Protocol-Buffer"><a href="#Protocol-Buffer" class="headerlink" title="Protocol Buffer"></a>Protocol Buffer</h2><p>Protocol Buffer是谷歌开发的处理结构化数据的工具。解决结构数据在信息持久化或网络传输时需要进行序列化以及还原数据的问题。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;Bazel&quot;&gt;&lt;a href=&quot;#Bazel&quot; class=&quot;headerlink&quot; title=&quot;Bazel&quot;&gt;&lt;/a&gt;Bazel&lt;/h2&gt;&lt;p&gt;Bazel是一个类似于Make的编译工具，是Google为其内部软件开发的特点量身定制的工具，如今Google使用它
       
     
     </summary>
