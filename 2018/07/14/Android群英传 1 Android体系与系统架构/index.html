@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Android群英传 1 Android体系与系统架构 | ZDK&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Android,电子书笔记">
+    <meta name="description" content="Android群英传 1 Android体系与系统架构Google生态系统Android系统架构                                                                                             2fdda3cc7cd98d10ac7dfab52b3fb80e7aec908d              这些层次结">
+<meta name="keywords" content="Android,电子书笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android群英传 1 Android体系与系统架构">
+<meta property="og:url" content="https://github.com/zdkswd/2018/07/14/Android群英传 1 Android体系与系统架构/index.html">
+<meta property="og:site_name" content="ZDK&#39;s blog">
+<meta property="og:description" content="Android群英传 1 Android体系与系统架构Google生态系统Android系统架构                                                                                             2fdda3cc7cd98d10ac7dfab52b3fb80e7aec908d              这些层次结">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/img/media/15315306518029/2fdda3cc7cd98d10ac7dfab52b3fb80e7aec908d.jpg">
+<meta property="og:image" content="https://github.com/img/media/15315306518029/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-14%20%E4%B8%8A%E5%8D%8810.18.18.png">
+<meta property="og:updated_time" content="2018-07-14T03:02:20.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android群英传 1 Android体系与系统架构">
+<meta name="twitter:description" content="Android群英传 1 Android体系与系统架构Google生态系统Android系统架构                                                                                             2fdda3cc7cd98d10ac7dfab52b3fb80e7aec908d              这些层次结">
+<meta name="twitter:image" content="https://github.com/img/media/15315306518029/2fdda3cc7cd98d10ac7dfab52b3fb80e7aec908d.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/tmg.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ZDK</h5>
+          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/zdkswd" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Android群英传 1 Android体系与系统架构</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Android群英传 1 Android体系与系统架构</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-07-14T03:01:32.000Z" itemprop="datePublished" class="page-time">
+  2018-07-14
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Android群英传-1-Android体系与系统架构"><span class="post-toc-number">1.</span> <span class="post-toc-text">Android群英传 1 Android体系与系统架构</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Google生态系统"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Google生态系统</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Android系统架构"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Android系统架构</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Linux"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">Linux</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Dalvik与ART"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">Dalvik与ART</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Framework"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">Framework</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Standard-libraries"><span class="post-toc-number">1.2.4.</span> <span class="post-toc-text">Standard libraries</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Application"><span class="post-toc-number">1.2.5.</span> <span class="post-toc-text">Application</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Android-App组件架构"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">Android App组件架构</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Android四大组件如何协同工作"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">Android四大组件如何协同工作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#应用运行上下文对象"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">应用运行上下文对象</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Android系统源代码目录与系统目录"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">Android系统源代码目录与系统目录</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Android系统源代码目录"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">Android系统源代码目录</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Android系统目录"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">Android系统目录</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#system-app"><span class="post-toc-number">1.4.2.1.</span> <span class="post-toc-text">/system/app/</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#system-bin"><span class="post-toc-number">1.4.2.2.</span> <span class="post-toc-text">/system/bin/</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#system-build-prop"><span class="post-toc-number">1.4.2.3.</span> <span class="post-toc-text">/system/build.prop</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#system-fonts"><span class="post-toc-number">1.4.2.4.</span> <span class="post-toc-text">/system/fonts/</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#system-framework"><span class="post-toc-number">1.4.2.5.</span> <span class="post-toc-text">/system/framework/</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#system-lib"><span class="post-toc-number">1.4.2.6.</span> <span class="post-toc-text">/system/lib/</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#system-media"><span class="post-toc-number">1.4.2.7.</span> <span class="post-toc-text">/system/media/</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#system-usr"><span class="post-toc-number">1.4.2.8.</span> <span class="post-toc-text">/system/usr/</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#data-app"><span class="post-toc-number">1.4.2.9.</span> <span class="post-toc-text">/data/app/</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#data-data"><span class="post-toc-number">1.4.2.10.</span> <span class="post-toc-text">/data/data/</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#data-system"><span class="post-toc-number">1.4.2.11.</span> <span class="post-toc-text">/data/system/</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#data-misc"><span class="post-toc-number">1.4.2.12.</span> <span class="post-toc-text">/data/misc/</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Android-App文件目录"><span class="post-toc-number">1.4.3.</span> <span class="post-toc-text">Android App文件目录</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Android群英传 1 Android体系与系统架构"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Android群英传 1 Android体系与系统架构</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-07-14 11:01:32" datetime="2018-07-14T03:01:32.000Z"  itemprop="datePublished">2018-07-14</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="Android群英传-1-Android体系与系统架构"><a href="#Android群英传-1-Android体系与系统架构" class="headerlink" title="Android群英传 1 Android体系与系统架构"></a>Android群英传 1 Android体系与系统架构</h1><h2 id="Google生态系统"><a href="#Google生态系统" class="headerlink" title="Google生态系统"></a>Google生态系统</h2><h2 id="Android系统架构"><a href="#Android系统架构" class="headerlink" title="Android系统架构"></a>Android系统架构</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15315306518029/2fdda3cc7cd98d10ac7dfab52b3fb80e7aec908d.jpg" alt="2fdda3cc7cd98d10ac7dfab52b3fb80e7aec908d" title="">
+                </div>
+                <div class="image-caption">2fdda3cc7cd98d10ac7dfab52b3fb80e7aec908d</div>
+            </figure>
+<p>这些层次结构即是相互独立的，又是相互关联的。</p>
+<h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><p>Linux层(仅为Linux内核)，Android最底层最核心的部分。显示内核版本，就是显示所用的Linux<strong>内核</strong>的版本。Linux层包含了Android系统的核心服务，包括硬件驱动，进程管理，安全系统等等。</p>
+<h3 id="Dalvik与ART"><a href="#Dalvik与ART" class="headerlink" title="Dalvik与ART"></a>Dalvik与ART</h3><p>Dalvik包含了一整套Android运行环境虚拟机，每个App都会分配Dalvik虚拟机来保证互相之间不受干扰，并保持独立，特点是在运行时编译。<br>在Android 5.x开始，ART模式已经取代了Dalvik，ART是安装时进行编译，在运行时就不用编译了。</p>
+<h3 id="Framework"><a href="#Framework" class="headerlink" title="Framework"></a>Framework</h3><p>见上图</p>
+<h3 id="Standard-libraries"><a href="#Standard-libraries" class="headerlink" title="Standard libraries"></a>Standard libraries</h3><p>见上图</p>
+<h3 id="Application"><a href="#Application" class="headerlink" title="Application"></a>Application</h3><p>不管是使用NDK开发还是Java开发的App，都有Android Manifest文件、Dalvik Classes、Resource Bundle这些东西。</p>
+<h2 id="Android-App组件架构"><a href="#Android-App组件架构" class="headerlink" title="Android App组件架构"></a>Android App组件架构</h2><p>即四大组件：Activity、BroadCastReciever、ContentProvider和Service。它们是组成一个Android App的最基本元素。</p>
+<h3 id="Android四大组件如何协同工作"><a href="#Android四大组件如何协同工作" class="headerlink" title="Android四大组件如何协同工作"></a>Android四大组件如何协同工作</h3><p>Activity作为人机交互的第一界面，负责向用户展示和处理结果，信息的来源可以是通过资源获取，也可以是通过Content Provider来获取其他应用的信息，或是Service从后台计算，下载，处理后的结果，也可以是通过BroadCast Reciever获取到广播信息。同时，Android系统还提供了一个信使Intent，作为信息传递的载体。组件与组件之间通过Intent来通信、传递信息、交换数据，正是通过这样一种方式，四大组件形成了各自独立而又紧密联系的关系。</p>
+<h3 id="应用运行上下文对象"><a href="#应用运行上下文对象" class="headerlink" title="应用运行上下文对象"></a>应用运行上下文对象</h3><p>Android系统上下文对象即Context，Activity、Service、Application都是继承自Context。<br>Android应用程序会在几个时间点创建应用上下文Context。</p>
+<ol>
+<li>创建Application</li>
+<li>创建Activity</li>
+<li>创建Service</li>
+</ol>
+<p>创建Context的时机就是在创建Context的实现类时。</p>
+<h2 id="Android系统源代码目录与系统目录"><a href="#Android系统源代码目录与系统目录" class="headerlink" title="Android系统源代码目录与系统目录"></a>Android系统源代码目录与系统目录</h2><p>Android系统源代码目录包含了Android系统所有的源代码，从底层驱动到上层应用，Android系统对所有文件都进行了详细管理。在手机中，Android系统的目录和源代码目录不是一一对应的，与源代码编译后，与打包生成的Image文件的结构相同。</p>
+<h3 id="Android系统源代码目录"><a href="#Android系统源代码目录" class="headerlink" title="Android系统源代码目录"></a>Android系统源代码目录</h3><p>看完Android源代码，要懂C、懂脚本、懂Java。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15315306518029/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-14%20%E4%B8%8A%E5%8D%8810.18.18.png" alt="屏幕快照 2018-07-14 上午10.18.18" title="">
+                </div>
+                <div class="image-caption">屏幕快照 2018-07-14 上午10.18.18</div>
+            </figure><br>应注意，不是所有的源代码结构都是这样。只有AOSP的Android项目才是这样的结构，有些芯片厂家如MTK目录结构就不同。<br>Android源码采用Makefile编译。<br>像Android这样的大型项目，它的源代码不计其数，不同的功能，模块，按类型分别放置在不同的目录中，这些模块通常会有Makefile文件进行管理。它定义了一系列的规则来指定模块，哪些文件需要编译，以及这些文件该按照怎演的顺序去编译。甚至可以配置更复杂的功能操作，比如定义编译规则，打包规则，Makefile就像一个shell脚本，不仅可以使用自己的语法，也能调用操作系统的命令。<br>Android系统源代码目录每个目录中还会包含更多的目录，而它的每一个最小的功能单位的目录下，都会有一个Makefile文件，这样每一级向上，通过一个个Makefile文件，就把整个源代码有条不紊的联系在一起了。</p>
+<h3 id="Android系统目录"><a href="#Android系统目录" class="headerlink" title="Android系统目录"></a>Android系统目录</h3><p>通过ADB连上手机，通过Linux的ls命令查看Android系统的根目录。其中/system和/data是开发者非常关心的两个目录。</p>
+<h4 id="system-app"><a href="#system-app" class="headerlink" title="/system/app/"></a>/system/app/</h4><p>这里面放的是一些系统的App</p>
+<h4 id="system-bin"><a href="#system-bin" class="headerlink" title="/system/bin/"></a>/system/bin/</h4><p>这里面主要放的是Linux自带的组件</p>
+<h4 id="system-build-prop"><a href="#system-build-prop" class="headerlink" title="/system/build.prop"></a>/system/build.prop</h4><p>这里记录的是系统的属性信息。</p>
+<h4 id="system-fonts"><a href="#system-fonts" class="headerlink" title="/system/fonts/"></a>/system/fonts/</h4><p>系统字体存放的目录root后可下载TTF格式字体替代原字体。</p>
+<h4 id="system-framework"><a href="#system-framework" class="headerlink" title="/system/framework/"></a>/system/framework/</h4><p>系统的核心文件，架构层。</p>
+<h4 id="system-lib"><a href="#system-lib" class="headerlink" title="/system/lib/"></a>/system/lib/</h4><p>存放几乎所有的共享库（.so）文件。</p>
+<h4 id="system-media"><a href="#system-media" class="headerlink" title="/system/media/"></a>/system/media/</h4><p>该目录用来保存系统提示音、系统铃声。</p>
+<h4 id="system-usr"><a href="#system-usr" class="headerlink" title="/system/usr/"></a>/system/usr/</h4><p>该目录用来保存用户的配置文件，如键盘布局、共享、时区文件等。</p>
+<h4 id="data-app"><a href="#data-app" class="headerlink" title="/data/app/"></a>/data/app/</h4><p>data目录包含了用户大部分数据信息。app目录下包含了用户安装的App或者升级的App。</p>
+<h4 id="data-data"><a href="#data-data" class="headerlink" title="/data/data/"></a>/data/data/</h4><p>这个目录应该是开发者访问最多的目录了，这里包含了App的数据信息，文件信息、数据库信息等，以包名的方式来区分各个应用。</p>
+<h4 id="data-system"><a href="#data-system" class="headerlink" title="/data/system/"></a>/data/system/</h4><p>这个目录包含了手机的各项系统信息。</p>
+<h4 id="data-misc"><a href="#data-misc" class="headerlink" title="/data/misc/"></a>/data/misc/</h4><p>这个目录保存了大部分的WiFi、VPN信息。</p>
+<h3 id="Android-App文件目录"><a href="#Android-App文件目录" class="headerlink" title="Android App文件目录"></a>Android App文件目录</h3>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-07-14T03:02:20.000Z" itemprop="dateUpdated">2018-07-14 11:02:20</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/zdkswd">
+            <img src="/img/tmg.jpg" alt="ZDK">
+            ZDK
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/电子书笔记/">电子书笔记</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/07/14/Android群英传 1 Android体系与系统架构/&title=《Android群英传 1 Android体系与系统架构》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/07/14/Android群英传 1 Android体系与系统架构/&title=《Android群英传 1 Android体系与系统架构》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/07/14/Android群英传 1 Android体系与系统架构/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android群英传 1 Android体系与系统架构》 — ZDK's blog&url=https://github.com/zdkswd/2018/07/14/Android群英传 1 Android体系与系统架构/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/07/14/Android群英传 1 Android体系与系统架构/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/07/12/松本行弘的程序世界 9 整数和浮点小数/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">松本行弘的程序世界 9 整数和浮点小数</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz",
+            appKey: "gkBx5soQkBREmER84PWbNJeM",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ZDK &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/07/14/Android群英传 1 Android体系与系统架构/&title=《Android群英传 1 Android体系与系统架构》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/07/14/Android群英传 1 Android体系与系统架构/&title=《Android群英传 1 Android体系与系统架构》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/07/14/Android群英传 1 Android体系与系统架构/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android群英传 1 Android体系与系统架构》 — ZDK's blog&url=https://github.com/zdkswd/2018/07/14/Android群英传 1 Android体系与系统架构/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/07/14/Android群英传 1 Android体系与系统架构/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2018/07/14/Android群英传 1 Android体系与系统架构/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'zdk'blog';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

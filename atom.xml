@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/zdkswd/"/>
-  <updated>2018-07-12T09:39:19.000Z</updated>
+  <updated>2018-07-14T03:02:20.000Z</updated>
   <id>https://github.com/zdkswd/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Android群英传 1 Android体系与系统架构</title>
+    <link href="https://github.com/zdkswd/2018/07/14/Android%E7%BE%A4%E8%8B%B1%E4%BC%A0%201%20Android%E4%BD%93%E7%B3%BB%E4%B8%8E%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84/"/>
+    <id>https://github.com/zdkswd/2018/07/14/Android群英传 1 Android体系与系统架构/</id>
+    <published>2018-07-14T03:01:32.000Z</published>
+    <updated>2018-07-14T03:02:20.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Android群英传-1-Android体系与系统架构"><a href="#Android群英传-1-Android体系与系统架构" class="headerlink" title="Android群英传 1 Android体系与系统架构"></a>Android群英传 1 Android体系与系统架构</h1><h2 id="Google生态系统"><a href="#Google生态系统" class="headerlink" title="Google生态系统"></a>Google生态系统</h2><h2 id="Android系统架构"><a href="#Android系统架构" class="headerlink" title="Android系统架构"></a>Android系统架构</h2><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/15315306518029/2fdda3cc7cd98d10ac7dfab52b3fb80e7aec908d.jpg" alt="2fdda3cc7cd98d10ac7dfab52b3fb80e7aec908d" title="">                </div>                <div class="image-caption">2fdda3cc7cd98d10ac7dfab52b3fb80e7aec908d</div>            </figure><p>这些层次结构即是相互独立的，又是相互关联的。</p><h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><p>Linux层(仅为Linux内核)，Android最底层最核心的部分。显示内核版本，就是显示所用的Linux<strong>内核</strong>的版本。Linux层包含了Android系统的核心服务，包括硬件驱动，进程管理，安全系统等等。</p><h3 id="Dalvik与ART"><a href="#Dalvik与ART" class="headerlink" title="Dalvik与ART"></a>Dalvik与ART</h3><p>Dalvik包含了一整套Android运行环境虚拟机，每个App都会分配Dalvik虚拟机来保证互相之间不受干扰，并保持独立，特点是在运行时编译。<br>在Android 5.x开始，ART模式已经取代了Dalvik，ART是安装时进行编译，在运行时就不用编译了。</p><h3 id="Framework"><a href="#Framework" class="headerlink" title="Framework"></a>Framework</h3><p>见上图</p><h3 id="Standard-libraries"><a href="#Standard-libraries" class="headerlink" title="Standard libraries"></a>Standard libraries</h3><p>见上图</p><h3 id="Application"><a href="#Application" class="headerlink" title="Application"></a>Application</h3><p>不管是使用NDK开发还是Java开发的App，都有Android Manifest文件、Dalvik Classes、Resource Bundle这些东西。</p><h2 id="Android-App组件架构"><a href="#Android-App组件架构" class="headerlink" title="Android App组件架构"></a>Android App组件架构</h2><p>即四大组件：Activity、BroadCastReciever、ContentProvider和Service。它们是组成一个Android App的最基本元素。</p><h3 id="Android四大组件如何协同工作"><a href="#Android四大组件如何协同工作" class="headerlink" title="Android四大组件如何协同工作"></a>Android四大组件如何协同工作</h3><p>Activity作为人机交互的第一界面，负责向用户展示和处理结果，信息的来源可以是通过资源获取，也可以是通过Content Provider来获取其他应用的信息，或是Service从后台计算，下载，处理后的结果，也可以是通过BroadCast Reciever获取到广播信息。同时，Android系统还提供了一个信使Intent，作为信息传递的载体。组件与组件之间通过Intent来通信、传递信息、交换数据，正是通过这样一种方式，四大组件形成了各自独立而又紧密联系的关系。</p><h3 id="应用运行上下文对象"><a href="#应用运行上下文对象" class="headerlink" title="应用运行上下文对象"></a>应用运行上下文对象</h3><p>Android系统上下文对象即Context，Activity、Service、Application都是继承自Context。<br>Android应用程序会在几个时间点创建应用上下文Context。</p><ol><li>创建Application</li><li>创建Activity</li><li>创建Service</li></ol><p>创建Context的时机就是在创建Context的实现类时。</p><h2 id="Android系统源代码目录与系统目录"><a href="#Android系统源代码目录与系统目录" class="headerlink" title="Android系统源代码目录与系统目录"></a>Android系统源代码目录与系统目录</h2><p>Android系统源代码目录包含了Android系统所有的源代码，从底层驱动到上层应用，Android系统对所有文件都进行了详细管理。在手机中，Android系统的目录和源代码目录不是一一对应的，与源代码编译后，与打包生成的Image文件的结构相同。</p><h3 id="Android系统源代码目录"><a href="#Android系统源代码目录" class="headerlink" title="Android系统源代码目录"></a>Android系统源代码目录</h3><p>看完Android源代码，要懂C、懂脚本、懂Java。<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/15315306518029/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-14%20%E4%B8%8A%E5%8D%8810.18.18.png" alt="屏幕快照 2018-07-14 上午10.18.18" title="">                </div>                <div class="image-caption">屏幕快照 2018-07-14 上午10.18.18</div>            </figure><br>应注意，不是所有的源代码结构都是这样。只有AOSP的Android项目才是这样的结构，有些芯片厂家如MTK目录结构就不同。<br>Android源码采用Makefile编译。<br>像Android这样的大型项目，它的源代码不计其数，不同的功能，模块，按类型分别放置在不同的目录中，这些模块通常会有Makefile文件进行管理。它定义了一系列的规则来指定模块，哪些文件需要编译，以及这些文件该按照怎演的顺序去编译。甚至可以配置更复杂的功能操作，比如定义编译规则，打包规则，Makefile就像一个shell脚本，不仅可以使用自己的语法，也能调用操作系统的命令。<br>Android系统源代码目录每个目录中还会包含更多的目录，而它的每一个最小的功能单位的目录下，都会有一个Makefile文件，这样每一级向上，通过一个个Makefile文件，就把整个源代码有条不紊的联系在一起了。</p><h3 id="Android系统目录"><a href="#Android系统目录" class="headerlink" title="Android系统目录"></a>Android系统目录</h3><p>通过ADB连上手机，通过Linux的ls命令查看Android系统的根目录。其中/system和/data是开发者非常关心的两个目录。</p><h4 id="system-app"><a href="#system-app" class="headerlink" title="/system/app/"></a>/system/app/</h4><p>这里面放的是一些系统的App</p><h4 id="system-bin"><a href="#system-bin" class="headerlink" title="/system/bin/"></a>/system/bin/</h4><p>这里面主要放的是Linux自带的组件</p><h4 id="system-build-prop"><a href="#system-build-prop" class="headerlink" title="/system/build.prop"></a>/system/build.prop</h4><p>这里记录的是系统的属性信息。</p><h4 id="system-fonts"><a href="#system-fonts" class="headerlink" title="/system/fonts/"></a>/system/fonts/</h4><p>系统字体存放的目录root后可下载TTF格式字体替代原字体。</p><h4 id="system-framework"><a href="#system-framework" class="headerlink" title="/system/framework/"></a>/system/framework/</h4><p>系统的核心文件，架构层。</p><h4 id="system-lib"><a href="#system-lib" class="headerlink" title="/system/lib/"></a>/system/lib/</h4><p>存放几乎所有的共享库（.so）文件。</p><h4 id="system-media"><a href="#system-media" class="headerlink" title="/system/media/"></a>/system/media/</h4><p>该目录用来保存系统提示音、系统铃声。</p><h4 id="system-usr"><a href="#system-usr" class="headerlink" title="/system/usr/"></a>/system/usr/</h4><p>该目录用来保存用户的配置文件，如键盘布局、共享、时区文件等。</p><h4 id="data-app"><a href="#data-app" class="headerlink" title="/data/app/"></a>/data/app/</h4><p>data目录包含了用户大部分数据信息。app目录下包含了用户安装的App或者升级的App。</p><h4 id="data-data"><a href="#data-data" class="headerlink" title="/data/data/"></a>/data/data/</h4><p>这个目录应该是开发者访问最多的目录了，这里包含了App的数据信息，文件信息、数据库信息等，以包名的方式来区分各个应用。</p><h4 id="data-system"><a href="#data-system" class="headerlink" title="/data/system/"></a>/data/system/</h4><p>这个目录包含了手机的各项系统信息。</p><h4 id="data-misc"><a href="#data-misc" class="headerlink" title="/data/misc/"></a>/data/misc/</h4><p>这个目录保存了大部分的WiFi、VPN信息。</p><h3 id="Android-App文件目录"><a href="#Android-App文件目录" class="headerlink" title="Android App文件目录"></a>Android App文件目录</h3>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Android群英传-1-Android体系与系统架构&quot;&gt;&lt;a href=&quot;#Android群英传-1-Android体系与系统架构&quot; class=&quot;headerlink&quot; title=&quot;Android群英传 1 Android体系与系统架构&quot;&gt;&lt;/a&gt;Andro
+      
+    
+    </summary>
+    
+      <category term="读书笔记" scheme="https://github.com/zdkswd/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="Android" scheme="https://github.com/zdkswd/tags/Android/"/>
+    
+      <category term="电子书笔记" scheme="https://github.com/zdkswd/tags/%E7%94%B5%E5%AD%90%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>松本行弘的程序世界 9 整数和浮点小数</title>
@@ -357,9 +384,9 @@
       <category term="读书笔记" scheme="https://github.com/zdkswd/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="全栈" scheme="https://github.com/zdkswd/tags/%E5%85%A8%E6%A0%88/"/>
-    
       <category term="电子书笔记" scheme="https://github.com/zdkswd/tags/%E7%94%B5%E5%AD%90%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="全栈" scheme="https://github.com/zdkswd/tags/%E5%85%A8%E6%A0%88/"/>
     
   </entry>
   
@@ -445,6 +472,31 @@
   </entry>
   
   <entry>
+    <title>Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback</title>
+    <link href="https://github.com/zdkswd/2018/05/31/Surface%E3%80%81SurfaceView%E3%80%81SurfaceHolder%E5%8F%8ASurfaceHolder.Callback/"/>
+    <id>https://github.com/zdkswd/2018/05/31/Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback/</id>
+    <published>2018-05-31T09:49:56.000Z</published>
+    <updated>2018-05-31T09:51:27.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Surface"><a href="#Surface" class="headerlink" title="Surface"></a>Surface</h2><p>Surface本身的作用类似一个句柄，得到了这个句柄就可以得到其中的Canvas、原生缓冲器以及其它方面的内容。<br>原生缓冲器（rawbuffer）是用于保存当前窗口的像素数据的。<br>通常画图是在一个Canvas对象上面进行的。</p><h2 id="SurfaceView"><a href="#SurfaceView" class="headerlink" title="SurfaceView"></a>SurfaceView</h2><p>SurfaceView，顾名思义就是Surface的View，通过SurfaceView就可以看到Surface的部分或者全部的内容.<br>也就是说，Surface是用通过SurfaceView才能展示其中的内容。<br>SurfaceView是Android中View的子类。事实上，在Android中所有用于界面展示的类皆为View的子类，包括那些不可见的、各种各样的Layout。</p><p>在Android中Surface是从Object派生而来，且实现了Parcelable接口。看到Parcelable就让人能很自然地想到数据容器，SurfaceView就是用来展示Surface中的数据的。在这个层面上而言，Surface就是管理数据的地方，SurfaceView就是展示数据的地方。</p><p>这个类的目的之一，就是提供一个可以用另外一个线程（第二个线程）进行屏幕渲染的surface（译注：即UI线程和绘制线程可以分离）。如果你打算这样使用，那么应当注意一些线程方面的语义：</p><ul><li>所有SurfaceView和SurfaceHolder.Callback中声明的方法，必须在运行SurfaceView窗口中的线程中调用（典型地，就是应用的主线程。译注：即UI线程），因为它们需要正确地将同时被绘制线程访问的各种状态进行同步。</li><li>必须保证，只有在背后的Surface有效的时候 – 在SurfaceHolder.Callback.surfaceCreated()和 SurfaceHolder.Callback.surfaceDestroyed()这两个方法调用之间，访问它。</li></ul><p>Android中实现<strong>序列化</strong>有两个选择：一是实现<strong>Serializable</strong>接口（是JavaSE本身就支持的），一是实现<strong>Parcelable</strong>接口（是Android特有功能，效率比实现Serializable接口高效，可用于Intent数据传递，也可以用于进程间通信（IPC））。实现Serializable接口非常简单，声明一下就可以了，而实现Parcelable接口稍微复杂一些，但效率更高，推荐用这种方法提高性能。</p><h2 id="SurfaceHolder"><a href="#SurfaceHolder" class="headerlink" title="SurfaceHolder"></a>SurfaceHolder</h2><p>SurfaceHolder是一个接口，其作用就像一个关于Surface的监听器。提供访问和控制SurfaceView背后的Surface 相关的方法.它通过三个回调方法，让我们可以感知到Surface的创建、销毁或者改变。在SurfaceView中有一个方法getHolder，可以很方便地获得SurfaceView所对应的Surface所对应的SurfaceHolder.<br>从设计模式的高度来看，Surface、SurfaceView和SurfaceHolder实质上就是广为人知的MVC，即Model-View-Controller。</p><h2 id="SurfaceHolder-Callback"><a href="#SurfaceHolder-Callback" class="headerlink" title="SurfaceHolder.Callback"></a>SurfaceHolder.Callback</h2><p>前面已经讲到SurfaceHolder是一个接口，它通过回到方法的方式，让我们可以感知到Surface的创建、销毁或者改变。其实这一点是通过其内部的静态子接口SurfaceHolder.Callback来实现的。SurfaceHolder.Callback中定义了三个接口方法：</p><ol><li>abstract void surfaceChanged(SurfaceHolderholder, int format, int width, int height)<br>当surface发生任何结构性的变化时（格式或者大小），该方法就会被立即调用。</li><li>abstract void surfaceCreated(SurfaceHolderholder)<br>当surface对象创建后，该方法就会被立即调用。</li><li>abstract void surfaceDestroyed(SurfaceHolderholder)<br>当surface对象在将要销毁前，该方法会被立即调用。</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Surface&quot;&gt;&lt;a href=&quot;#Surface&quot; class=&quot;headerlink&quot; title=&quot;Surface&quot;&gt;&lt;/a&gt;Surface&lt;/h2&gt;&lt;p&gt;Surface本身的作用类似一个句柄，得到了这个句柄就可以得到其中的Canvas、原生缓冲器以及其它
+      
+    
+    </summary>
+    
+      <category term="知识总结" scheme="https://github.com/zdkswd/categories/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"/>
+    
+    
+      <category term="Android" scheme="https://github.com/zdkswd/tags/Android/"/>
+    
+  </entry>
+  
+  <entry>
     <title>implementation 与 compile 的区别 .iml build文件夹 安卓视图</title>
     <link href="https://github.com/zdkswd/2018/05/31/implementation%20%E4%B8%8E%20compile%20%E7%9A%84%E5%8C%BA%E5%88%AB%20.iml%20build%E6%96%87%E4%BB%B6%E5%A4%B9%20%E5%AE%89%E5%8D%93%E8%A7%86%E5%9B%BE/"/>
     <id>https://github.com/zdkswd/2018/05/31/implementation 与 compile 的区别 .iml build文件夹 安卓视图/</id>
@@ -468,31 +520,6 @@
       <category term="Android" scheme="https://github.com/zdkswd/tags/Android/"/>
     
       <category term="AndroidStudio" scheme="https://github.com/zdkswd/tags/AndroidStudio/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback</title>
-    <link href="https://github.com/zdkswd/2018/05/31/Surface%E3%80%81SurfaceView%E3%80%81SurfaceHolder%E5%8F%8ASurfaceHolder.Callback/"/>
-    <id>https://github.com/zdkswd/2018/05/31/Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback/</id>
-    <published>2018-05-31T09:49:56.000Z</published>
-    <updated>2018-05-31T09:51:27.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Surface"><a href="#Surface" class="headerlink" title="Surface"></a>Surface</h2><p>Surface本身的作用类似一个句柄，得到了这个句柄就可以得到其中的Canvas、原生缓冲器以及其它方面的内容。<br>原生缓冲器（rawbuffer）是用于保存当前窗口的像素数据的。<br>通常画图是在一个Canvas对象上面进行的。</p><h2 id="SurfaceView"><a href="#SurfaceView" class="headerlink" title="SurfaceView"></a>SurfaceView</h2><p>SurfaceView，顾名思义就是Surface的View，通过SurfaceView就可以看到Surface的部分或者全部的内容.<br>也就是说，Surface是用通过SurfaceView才能展示其中的内容。<br>SurfaceView是Android中View的子类。事实上，在Android中所有用于界面展示的类皆为View的子类，包括那些不可见的、各种各样的Layout。</p><p>在Android中Surface是从Object派生而来，且实现了Parcelable接口。看到Parcelable就让人能很自然地想到数据容器，SurfaceView就是用来展示Surface中的数据的。在这个层面上而言，Surface就是管理数据的地方，SurfaceView就是展示数据的地方。</p><p>这个类的目的之一，就是提供一个可以用另外一个线程（第二个线程）进行屏幕渲染的surface（译注：即UI线程和绘制线程可以分离）。如果你打算这样使用，那么应当注意一些线程方面的语义：</p><ul><li>所有SurfaceView和SurfaceHolder.Callback中声明的方法，必须在运行SurfaceView窗口中的线程中调用（典型地，就是应用的主线程。译注：即UI线程），因为它们需要正确地将同时被绘制线程访问的各种状态进行同步。</li><li>必须保证，只有在背后的Surface有效的时候 – 在SurfaceHolder.Callback.surfaceCreated()和 SurfaceHolder.Callback.surfaceDestroyed()这两个方法调用之间，访问它。</li></ul><p>Android中实现<strong>序列化</strong>有两个选择：一是实现<strong>Serializable</strong>接口（是JavaSE本身就支持的），一是实现<strong>Parcelable</strong>接口（是Android特有功能，效率比实现Serializable接口高效，可用于Intent数据传递，也可以用于进程间通信（IPC））。实现Serializable接口非常简单，声明一下就可以了，而实现Parcelable接口稍微复杂一些，但效率更高，推荐用这种方法提高性能。</p><h2 id="SurfaceHolder"><a href="#SurfaceHolder" class="headerlink" title="SurfaceHolder"></a>SurfaceHolder</h2><p>SurfaceHolder是一个接口，其作用就像一个关于Surface的监听器。提供访问和控制SurfaceView背后的Surface 相关的方法.它通过三个回调方法，让我们可以感知到Surface的创建、销毁或者改变。在SurfaceView中有一个方法getHolder，可以很方便地获得SurfaceView所对应的Surface所对应的SurfaceHolder.<br>从设计模式的高度来看，Surface、SurfaceView和SurfaceHolder实质上就是广为人知的MVC，即Model-View-Controller。</p><h2 id="SurfaceHolder-Callback"><a href="#SurfaceHolder-Callback" class="headerlink" title="SurfaceHolder.Callback"></a>SurfaceHolder.Callback</h2><p>前面已经讲到SurfaceHolder是一个接口，它通过回到方法的方式，让我们可以感知到Surface的创建、销毁或者改变。其实这一点是通过其内部的静态子接口SurfaceHolder.Callback来实现的。SurfaceHolder.Callback中定义了三个接口方法：</p><ol><li>abstract void surfaceChanged(SurfaceHolderholder, int format, int width, int height)<br>当surface发生任何结构性的变化时（格式或者大小），该方法就会被立即调用。</li><li>abstract void surfaceCreated(SurfaceHolderholder)<br>当surface对象创建后，该方法就会被立即调用。</li><li>abstract void surfaceDestroyed(SurfaceHolderholder)<br>当surface对象在将要销毁前，该方法会被立即调用。</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;Surface&quot;&gt;&lt;a href=&quot;#Surface&quot; class=&quot;headerlink&quot; title=&quot;Surface&quot;&gt;&lt;/a&gt;Surface&lt;/h2&gt;&lt;p&gt;Surface本身的作用类似一个句柄，得到了这个句柄就可以得到其中的Canvas、原生缓冲器以及其它
-      
-    
-    </summary>
-    
-      <category term="知识总结" scheme="https://github.com/zdkswd/categories/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"/>
-    
-    
-      <category term="Android" scheme="https://github.com/zdkswd/tags/Android/"/>
     
   </entry>
   
@@ -521,33 +548,6 @@
       <category term="Android" scheme="https://github.com/zdkswd/tags/Android/"/>
     
       <category term="电子书笔记" scheme="https://github.com/zdkswd/tags/%E7%94%B5%E5%AD%90%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Tensorflow模型持久化</title>
-    <link href="https://github.com/zdkswd/2018/05/25/Tensorflow%E6%A8%A1%E5%9E%8B%E6%8C%81%E4%B9%85%E5%8C%96/"/>
-    <id>https://github.com/zdkswd/2018/05/25/Tensorflow模型持久化/</id>
-    <published>2018-05-25T11:00:56.000Z</published>
-    <updated>2018-05-25T11:10:23.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="持久化代码实现"><a href="#持久化代码实现" class="headerlink" title="持久化代码实现"></a>持久化代码实现</h2><p>通过<strong>tf.train.Saver类</strong>来保存和还原一个神经网络，模型文件目录下会出现三个文件。这是因为Tensorflow会将计算图的结构和图上参数取值分开保存。</p><ol><li><strong>model.ckpt.meta</strong>,保存了计算图的结构。</li><li><strong>model.ckpt</strong>,保存程序中每一个变量的取值。</li><li><strong>checkpoint</strong>,保存了一个目录下所有的模型文件列表。</li></ol><p>加载已经保存的Tensorflow模型方法。1.使用和保存模型代码中一样的方法来声明变量。2.加载已经保存的模型。<strong>sever.restore(sess,”.ckpt”)</strong></p><p>加载模型的程序也是定义了Tensorflow计算图上的所有运算，并声明了一个tf.train.Saver类。区别在于加载模型的代码中没有运行变量的初始化过程而是将变量的值通过已经保存的模型加载了进来。也可以直接加载已经持久化的图<br><strong>saver=tf.train.import_meta_graph(…..meta)</strong></p><p>函数<strong>tf.get_default_graph().get_tensor_by_name(“add:0”)</strong>可以通过张量的名称获取张量。</p><p>也可以声明tf.train.Saver类时提供一个列表指定需要保存或者加载的变量。同样可以在保存和加载时使用字典给变量重命名。</p><p>使用Saver会保存运行程序所需的全部信息，然而有时不需要某些信息。在测试或者离线预测时，不需要某些辅助节点的信息。且多个文件存储时也并不方便。<strong>convert_variables_to_constants</strong>将计算图中的变量及其取值通过常亮保存。<br>导出当前计算图的GraphDef部分只需要这一部分就可以完成从输入层到输出层的计算过程。</p><blockquote><p>graph_def=tf.get_default_graph().as_graph_def()</p></blockquote><p>将图中的变量及其取值转化为常量，同时将图中不必要的节点去掉。一些如变量初始化操作的系统运算也会被转化为计算图的节点。可以通过【】指定需要保存的操作。</p><blockquote><p>output_graph_def=graph_util.convert_variables_to_constants(sess,graph_def,[‘add’])//add为节点名</p></blockquote><p>将导出模型存入文件：</p><blockquote><p>with tf.gfile.GFile(“…pb”,”wb”) as f:<br>　　f.write(output_graph_def.SerialzeToString())</p></blockquote><p>加载模型：</p><blockquote><p>with gflie.FastGFile(model_filename//.pb,’rb’) as f:<br>　　graph_def=tf.GraphDef()<br>　　graph_def.ParseFromString(f.read())<br>result=tf.import_graph_def(graph_def,return_elements=[“add:0”])//add:0为一个张量<br>sess.run(result)</p></blockquote><h2 id="Saver持久化原理及数据格式"><a href="#Saver持久化原理及数据格式" class="headerlink" title="Saver持久化原理及数据格式"></a>Saver持久化原理及数据格式</h2><p>Tensorflow通过元图（<strong>MetaGraph</strong>）来记录计算图中节点信息以及运行计算图中节点所需要的元数据。<br>由Protocol Buffer定义，记录了五类信息：</p><ol><li><strong>meta_info_def</strong>属性,记录计算图中的元数据以及所有使用到运算方法的信息。</li><li><strong>graph_def</strong>属性，记录计算图的节点信息。</li><li><strong>saver_def</strong>属性，记录了持久化模型时需要用到的一些参数。</li><li><strong>collection_def</strong>属性维护集合的底层实现是通过collection_def这个属性。<br>5 <strong>signature_def</strong>属性。</li></ol><p><strong>model.ckpt</strong>保存所有变量的取值，通过SSTable格式存储，大致为一个（key，value）列表。<br><strong>checkpoint</strong>是Saver类自动生成自动维护的。当某个保存的TensorFlow模型文件被删除时，这个模型对应的文件名也会从checkpoint文件中删除。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;持久化代码实现&quot;&gt;&lt;a href=&quot;#持久化代码实现&quot; class=&quot;headerlink&quot; title=&quot;持久化代码实现&quot;&gt;&lt;/a&gt;持久化代码实现&lt;/h2&gt;&lt;p&gt;通过&lt;strong&gt;tf.train.Saver类&lt;/strong&gt;来保存和还原一个神经网络，模型文
-      
-    
-    </summary>
-    
-      <category term="知识总结" scheme="https://github.com/zdkswd/categories/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"/>
-    
-    
-      <category term="TensorFlow" scheme="https://github.com/zdkswd/tags/TensorFlow/"/>
-    
-      <category term="机器学习" scheme="https://github.com/zdkswd/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
