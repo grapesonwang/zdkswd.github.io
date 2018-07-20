@@ -34,7 +34,7 @@
 <meta property="og:image" content="https://github.com/img/media/15319061395029/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-20%20%E4%B8%8B%E5%8D%882.17.40.png">
 <meta property="og:image" content="https://github.com/img/media/15319061395029/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-20%20%E4%B8%8B%E5%8D%883.05.36.png">
 <meta property="og:image" content="https://github.com/img/media/15319061395029/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-20%20%E4%B8%8B%E5%8D%883.08.13.png">
-<meta property="og:updated_time" content="2018-07-20T10:17:28.000Z">
+<meta property="og:updated_time" content="2018-07-20T10:18:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="松本行弘的程序世界 10 高速执行和并行处理">
 <meta name="twitter:description" content="松本行弘的程序世界 10 高速执行和并行处理让程序高速执行（前篇）是不是越快越好并不是视速度最优先就一定好。预算、开发效率和开发周期等制约因素也在性能权衡范围之内。 高速执行的乐趣与效率在进行性能优化之前，必须确认是否真有必要提高速度。速度提高到什么程度也要事先估算。 以数据为基础做出判断改善系统调用排序处理任务重时，典型的对策是使用施瓦茨变换。 数据可靠吗误差 只需改善瓶颈性能优化中，“因为是排">
@@ -283,7 +283,8 @@
 <h3 id="锁模型与队列模型的比较"><a href="#锁模型与队列模型的比较" class="headerlink" title="锁模型与队列模型的比较"></a>锁模型与队列模型的比较</h3><h4 id="锁模型"><a href="#锁模型" class="headerlink" title="锁模型"></a>锁模型</h4><p>如果竞争足够少，多数情况下能保持较高性能，对于资源的竞争，不能忘记加锁，要做到完美无缺较难。</p>
 <h4 id="队列模型"><a href="#队列模型" class="headerlink" title="队列模型"></a>队列模型</h4><p>在竞争少的时候，其性能比不上锁模型，比锁模型更容易贯彻，会因线程增多而带来性能低下的恶果。</p>
 <h2 id="前景可期的并行编程技术，Actor"><a href="#前景可期的并行编程技术，Actor" class="headerlink" title="前景可期的并行编程技术，Actor"></a>前景可期的并行编程技术，Actor</h2><p>并行编程，要求有更高的抽象度和对人类而言更简单的编程模型。Actor（参与者模式）或许就是答案。</p>
-<h3 id="何谓Actor"><a href="#何谓Actor" class="headerlink" title="何谓Actor"></a>何谓Actor</h3><p>所谓Actor，是（仅）通过消息（message）进行通信的实体。<br>与面向对象语言中对象的区别。向对象发送消息（方法调用），调用开始后，会一直等到返回结果，是一种同步方式。面向Actor发送消息，仅仅是发送消息而不返回结果，是一种异步方式。<br>Actor由于仅仅通过消息进行信息交换，所以不能直接共享同一个值，信息传达要多花些代价。<br>Actor由于没有消息以外的信息传递手段，所以不用担心Actor之间的资源竞争。发送给Actor的消息都配送到各个Actor所拥有的邮箱里。多个消息同时到达时竞争由内嵌到系统中的排除机制来处理。<br>Actor的一大优点是安全，更大的优点是易懂。Actor根据消息进行处理，必要的化会向其他Actor传递消息，或向Actor返回消息。<br>这与现实世界中人与人之间相处没有多大的差别。现实世界中，别人在想什么你不知道，想要求什么时，需要通过某种手段传递“消息”。<br>理论上要到达最高性能，一般认为线程更优秀。但如果不注意使用线程的话，会出现与时机相关的很麻烦的问题。在计算机性能日益提高的今天，与理论上最高性能的可能性相比，Actor的安全性和易懂性更引人注目。</p>
+<h3 id="何谓Actor"><a href="#何谓Actor" class="headerlink" title="何谓Actor"></a>何谓Actor</h3><p>所谓Actor，是（仅）通过消息（message）进行通信的实体。<br>与面向对象语言中对象的区别。向对象发送消息（方法调用），调用开始后，会一直等到返回结果，是一种同步方式。面向Actor发送消息，仅仅是发送消息而不返回结果，是一种异步方式。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">同步(Synchronous)和异步(Asynchronous)</span><br><span class="line">1.同步方法调用一旦开始，调用者必须等到方法调用返回后，才能继续后续的行为。</span><br><span class="line">2.异步方法调用更像一个消息传递，一旦开始，方法调用就会立即返回，调用者就可以继续后续的操作。而，异步方法通常会在另外一个线程中，“真实”地执行着。整个过程，不会阻碍调用者的工作。</span><br></pre></td></tr></table></figure></p>
+<p>Actor由于仅仅通过消息进行信息交换，所以不能直接共享同一个值，信息传达要多花些代价。<br>Actor由于没有消息以外的信息传递手段，所以不用担心Actor之间的资源竞争。发送给Actor的消息都配送到各个Actor所拥有的邮箱里。多个消息同时到达时竞争由内嵌到系统中的排除机制来处理。<br>Actor的一大优点是安全，更大的优点是易懂。Actor根据消息进行处理，必要的化会向其他Actor传递消息，或向Actor返回消息。<br>这与现实世界中人与人之间相处没有多大的差别。现实世界中，别人在想什么你不知道，想要求什么时，需要通过某种手段传递“消息”。<br>理论上要到达最高性能，一般认为线程更优秀。但如果不注意使用线程的话，会出现与时机相关的很麻烦的问题。在计算机性能日益提高的今天，与理论上最高性能的可能性相比，Actor的安全性和易懂性更引人注目。</p>
 <h3 id="操作Actor的三种处理系统"><a href="#操作Actor的三种处理系统" class="headerlink" title="操作Actor的三种处理系统"></a>操作Actor的三种处理系统</h3><p>Actor Model的函数型语言Erlang。<br>Erlang是只允许单一赋值的函数型语言，即一旦赋值，变量的值就不再改变。</p>
 <h3 id="Erlang的程序"><a href="#Erlang的程序" class="headerlink" title="Erlang的程序"></a>Erlang的程序</h3><h3 id="pingpong处理的开始"><a href="#pingpong处理的开始" class="headerlink" title="pingpong处理的开始"></a>pingpong处理的开始</h3><h3 id="启动pingpong程序"><a href="#启动pingpong程序" class="headerlink" title="启动pingpong程序"></a>启动pingpong程序</h3><h3 id="Erlang的错误处理"><a href="#Erlang的错误处理" class="headerlink" title="Erlang的错误处理"></a>Erlang的错误处理</h3><p>Erlang中通过发送消息来通知异常终止。收到消息的process（actor）料理死去的process后事。<br>有了这种机制，使得Erlang适合构造抗障碍性强的系统。</p>
 <h3 id="Erlang的使用场所"><a href="#Erlang的使用场所" class="headerlink" title="Erlang的使用场所"></a>Erlang的使用场所</h3><p>Erlang在通常的文本处理汇总并不怎么快。Erlang的好处在于其扩展性。对于多个处理并列执行的情况，分割成合适的Erlang process，能够发挥多CPU的威力。<br>同样的多任务分割虽然用操作系统的进程或线程也能实现，但Erlang的process与操作系统的进程或线程相比，能够轻量实现（1个process最小只耗费300字节），即使有大量process也不必顾虑、更进一步说，Erlang设计思想不用process连基本处理都不能实现，process分割在某种意义上可以说是强制的。</p>
@@ -298,7 +299,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-07-20T10:17:28.000Z" itemprop="dateUpdated">2018-07-20 18:17:28</time>
+    最后更新时间：<time datetime="2018-07-20T10:18:31.000Z" itemprop="dateUpdated">2018-07-20 18:18:31</time>
 </span><br>
 
 
