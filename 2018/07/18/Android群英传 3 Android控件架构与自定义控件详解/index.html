@@ -40,7 +40,7 @@
 <meta property="og:image" content="https://github.com/img/media/15318086345666/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-17%20%E4%B8%8B%E5%8D%885.21.03.png">
 <meta property="og:image" content="https://github.com/img/media/15318086345666/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-17%20%E4%B8%8B%E5%8D%885.25.21.png">
 <meta property="og:image" content="https://github.com/img/media/15318086345666/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-17%20%E4%B8%8B%E5%8D%885.25.46.png">
-<meta property="og:image" content="https://github.com/zdkswd/2018/07/18/Android群英传%203%20Android控件架构与自定义控件详解/media/15318086345666/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-17%20%E4%B8%8B%E5%8D%885.28.58.png">
+<meta property="og:image" content="https://github.com/img/media/15318086345666/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-17%20%E4%B8%8B%E5%8D%885.28.58.png">
 <meta property="og:image" content="https://github.com/img/media/15318086345666/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-17%20%E4%B8%8B%E5%8D%885.31.54.png">
 <meta property="og:image" content="https://github.com/img/media/15318086345666/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-17%20%E4%B8%8B%E5%8D%885.33.56.png">
 <meta property="og:image" content="https://github.com/img/media/15318086345666/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-17%20%E4%B8%8B%E5%8D%885.39.45.png">
@@ -49,7 +49,7 @@
 <meta property="og:image" content="https://github.com/img/media/15318086345666/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-18%20%E4%B8%8B%E5%8D%883.12.38.png">
 <meta property="og:image" content="https://github.com/img/media/15318086345666/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-18%20%E4%B8%8B%E5%8D%883.12.47.png">
 <meta property="og:image" content="https://github.com/img/media/15318086345666/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-18%20%E4%B8%8B%E5%8D%883.20.48.png">
-<meta property="og:updated_time" content="2018-07-18T07:27:21.000Z">
+<meta property="og:updated_time" content="2018-07-18T09:58:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android群英传 3 Android控件架构与自定义控件详解">
 <meta name="twitter:description" content="Android群英传 3 Android控件架构与自定义控件详解Android控件架构控件大致被分为两类，即ViewGroup控件与View控件。通过ViewGroup，整个界面的控件形成了一个树形结构控件树。上层控件负责下层子控件的测量与绘制，并传递交互事件。findViewById（）方法，就是在控件树以数深度优先来遍历查找对应的元素。每颗控件树的顶部，都有一个ViewParent对象，为整棵">
@@ -281,8 +281,13 @@
                 <div class="image-caption">屏幕快照 2018-07-17 下午5.13.03</div>
             </figure>
 <p>当获取完所有的属性值后，需要调用TypedArray的recyle方法来完成资源的回收。</p>
-<h4 id="组合控件"><a href="#组合控件" class="headerlink" title="组合控件"></a>组合控件</h4><p>通过动态添加控件的方式，使用addView（）方法将控件加入到模板中，并给它们设置前面所获取到的具体的属性值，如文字颜色、大小等。</p>
-<p><img src="/img/media/15318086345666/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-17%20%E4%B8%8B%E5%8D%885.16.29.png" alt="屏幕快照 2018-07-17 下午5.16.29"></p>
+<h4 id="组合控件"><a href="#组合控件" class="headerlink" title="组合控件"></a>组合控件</h4><p>通过动态添加控件的方式，使用addView（）方法将控件加入到模板中，并给它们设置前面所获取到的具体的属性值，如文字颜色、大小等。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15318086345666/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-17%20%E4%B8%8B%E5%8D%885.16.29.png" alt="屏幕快照 2018-07-17 下午5.16.29" title="">
+                </div>
+                <div class="image-caption">屏幕快照 2018-07-17 下午5.16.29</div>
+            </figure></p>
 <p>定义接口<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
@@ -307,7 +312,7 @@
 <p>实现接口回调<br>在调用者的代码中，调用者需要实现这样一个接口，并完成接口中的方法。<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="media/15318086345666/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-17%20%E4%B8%8B%E5%8D%885.28.58.png" alt="屏幕快照 2018-07-17 下午5.28.58" title="">
+                    <img src="/img/media/15318086345666/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-17%20%E4%B8%8B%E5%8D%885.28.58.png" alt="屏幕快照 2018-07-17 下午5.28.58" title="">
                 </div>
                 <div class="image-caption">屏幕快照 2018-07-17 下午5.28.58</div>
             </figure></p>
@@ -372,7 +377,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-07-18T07:27:21.000Z" itemprop="dateUpdated">2018-07-18 15:27:21</time>
+    最后更新时间：<time datetime="2018-07-18T09:58:53.000Z" itemprop="dateUpdated">2018-07-18 17:58:53</time>
 </span><br>
 
 
@@ -447,7 +452,14 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/07/20/松本行弘的程序世界 10 高速执行和并行处理/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">松本行弘的程序世界 10 高速执行和并行处理</h4>
+      </a>
+    </div>
   
 
   
