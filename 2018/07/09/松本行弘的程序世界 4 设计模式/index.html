@@ -29,7 +29,7 @@
 <meta property="og:site_name" content="ZDK&#39;s blog">
 <meta property="og:description" content="松本行弘的程序世界 4 设计模式设计模式（1）设计模式的价值和意义Gamma他们并没有发现新的模式，总结出来的23种设计模式也是软件开发中早就存在并反复使用的模式，因此并不能说是Gamma他们的首创。但即使是这样，设计模式有了名字，人们就可以认识到它的存在，并对之进行讨论。这种不能用语言表达的知识称为内隐知识。给这些在软件中经常反复出现的模式命名，使得这些本来只有经验丰富的程序员才能认识到的软件设">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-09T10:18:55.000Z">
+<meta property="og:updated_time" content="2018-07-20T11:02:15.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="松本行弘的程序世界 4 设计模式">
 <meta name="twitter:description" content="松本行弘的程序世界 4 设计模式设计模式（1）设计模式的价值和意义Gamma他们并没有发现新的模式，总结出来的23种设计模式也是软件开发中早就存在并反复使用的模式，因此并不能说是Gamma他们的首创。但即使是这样，设计模式有了名字，人们就可以认识到它的存在，并对之进行讨论。这种不能用语言表达的知识称为内隐知识。给这些在软件中经常反复出现的模式命名，使得这些本来只有经验丰富的程序员才能认识到的软件设">
@@ -193,22 +193,42 @@
 <li>使用singleton库的方法<br>Ruby以库的形式实现了Singleton模式。使用Singleton库，在任意类中include Singleton模块，那个类就变成Singleton模式的对象。</li>
 <li>使用类或模块<br>C++和java是不能把类作为对象使用的，与之不同的是，smalltalk或Ruby能把类也作为对象来处理。因此，在类或模块中定义一个方法就可以实现Singleton模式。</li>
 <li>把一般的对象作为Singleton来使用<br>为了把一个类的对象限制为只有一个，并不一定要对对象的一般生产方法进行限制。可以生成一个一般的对象，然后不要在生产更多个对象了。</li>
-<li>使用对象和特异方法<br>Ruby可以在对象生成以后再增加新的方法。<h3 id="Proxy模式"><a href="#Proxy模式" class="headerlink" title="Proxy模式"></a>Proxy模式</h3>Proxy（代理）模式是为某个对象提供代理对象的模式。<br>在不知道是否真正需要一个生成代价很大的对象时可能造成很大浪费，但不生成又什么都做不了。<h3 id="Iterator模式"><a href="#Iterator模式" class="headerlink" title="Iterator模式"></a>Iterator模式</h3>Iterator（迭代器）模式提供按顺序访问集合对象中各元素的方法。即使不知道对象的内部构造，也可以按顺序访问其中的每个元素。<br>Iterator模式是为集合对象另外准备用来控制循环处理的对象，就像C++或java一样，我们称这个循环控制对象为Iyerator，也称为游标。<h3 id="外部与内部，哪一个更好"><a href="#外部与内部，哪一个更好" class="headerlink" title="外部与内部，哪一个更好"></a>外部与内部，哪一个更好</h3>它们都有方便的一面，也都有不方便的另一面。<h3 id="内部迭代器的缺陷"><a href="#内部迭代器的缺陷" class="headerlink" title="内部迭代器的缺陷"></a>内部迭代器的缺陷</h3>内部迭代器不能同时进行多个循环，也就无法实现按顺序比较两个集合元素的处理。<h3 id="外部迭代器的缺陷"><a href="#外部迭代器的缺陷" class="headerlink" title="外部迭代器的缺陷"></a>外部迭代器的缺陷</h3>外部迭代器的缺陷在于迭代器对象需要引用集合对象的内部信息，为了按顺序访问集合对象的各个元素，迭代器需要访问集合的内部构造，破坏了隐藏集合内部构造的封装性原则。<h2 id="设计模式（2）"><a href="#设计模式（2）" class="headerlink" title="设计模式（2）"></a>设计模式（2）</h2><h3 id="模式与动态语言的关系"><a href="#模式与动态语言的关系" class="headerlink" title="模式与动态语言的关系"></a>模式与动态语言的关系</h3>《设计模式》一书中介绍了23个设计模式。这些设计模式可分为3大类：（1）有关生成的模式（5个），有关构造的模式（7个）以及有关行为的模式（11个）。Singleton为（1），Proxy为（2），Iterayor为（3）。<h3 id="重复使用既存对象的Protoype模式"><a href="#重复使用既存对象的Protoype模式" class="headerlink" title="重复使用既存对象的Protoype模式"></a>重复使用既存对象的Protoype模式</h3>Protoype（原型）模式明确一个实例作为要生成对象的种类原型，通过复制该实例来生成新的对象。<br>在需要新种类对象时，首先复制一个既存的对象，给复制的对象直接增加方法或实例变量等功能，生成最初的第一个新种类对象。最初一个也并不特别，只是偶尔被用来复制而已。<br>相对于类模式编程，原型模式的编程构成元素比较少，具有简单实现面向对象功能设计的倾向，JavaScript的面向对象就是原型模式。io语言也是。<h3 id="亲身体验IO语言"><a href="#亲身体验IO语言" class="headerlink" title="亲身体验IO语言"></a>亲身体验IO语言</h3><h3 id="Ruby中的原型"><a href="#Ruby中的原型" class="headerlink" title="Ruby中的原型"></a>Ruby中的原型</h3>基本上讲Ruby是类模式的语言，但也拥有支持原型模式编程功能。</li>
+<li>使用对象和特异方法<br>Ruby可以在对象生成以后再增加新的方法。</li>
+</ol>
+<h3 id="Proxy模式"><a href="#Proxy模式" class="headerlink" title="Proxy模式"></a>Proxy模式</h3><p>Proxy（代理）模式是为某个对象提供代理对象的模式。<br>在不知道是否真正需要一个生成代价很大的对象时可能造成很大浪费，但不生成又什么都做不了。</p>
+<h3 id="Iterator模式"><a href="#Iterator模式" class="headerlink" title="Iterator模式"></a>Iterator模式</h3><p>Iterator（迭代器）模式提供按顺序访问集合对象中各元素的方法。即使不知道对象的内部构造，也可以按顺序访问其中的每个元素。<br>Iterator模式是为集合对象另外准备用来控制循环处理的对象，就像C++或java一样，我们称这个循环控制对象为Iyerator，也称为游标。</p>
+<h3 id="外部与内部，哪一个更好"><a href="#外部与内部，哪一个更好" class="headerlink" title="外部与内部，哪一个更好"></a>外部与内部，哪一个更好</h3><p>它们都有方便的一面，也都有不方便的另一面。</p>
+<h3 id="内部迭代器的缺陷"><a href="#内部迭代器的缺陷" class="headerlink" title="内部迭代器的缺陷"></a>内部迭代器的缺陷</h3><p>内部迭代器不能同时进行多个循环，也就无法实现按顺序比较两个集合元素的处理。</p>
+<h3 id="外部迭代器的缺陷"><a href="#外部迭代器的缺陷" class="headerlink" title="外部迭代器的缺陷"></a>外部迭代器的缺陷</h3><p>外部迭代器的缺陷在于迭代器对象需要引用集合对象的内部信息，为了按顺序访问集合对象的各个元素，迭代器需要访问集合的内部构造，破坏了隐藏集合内部构造的封装性原则。</p>
+<h2 id="设计模式（2）"><a href="#设计模式（2）" class="headerlink" title="设计模式（2）"></a>设计模式（2）</h2><h3 id="模式与动态语言的关系"><a href="#模式与动态语言的关系" class="headerlink" title="模式与动态语言的关系"></a>模式与动态语言的关系</h3><p>《设计模式》一书中介绍了23个设计模式。这些设计模式可分为3大类：（1）有关生成的模式（5个），有关构造的模式（7个）以及有关行为的模式（11个）。Singleton为（1），Proxy为（2），Iterayor为（3）。</p>
+<h3 id="重复使用既存对象的Protoype模式"><a href="#重复使用既存对象的Protoype模式" class="headerlink" title="重复使用既存对象的Protoype模式"></a>重复使用既存对象的Protoype模式</h3><p>Protoype（原型）模式明确一个实例作为要生成对象的种类原型，通过复制该实例来生成新的对象。<br>在需要新种类对象时，首先复制一个既存的对象，给复制的对象直接增加方法或实例变量等功能，生成最初的第一个新种类对象。最初一个也并不特别，只是偶尔被用来复制而已。<br>相对于类模式编程，原型模式的编程构成元素比较少，具有简单实现面向对象功能设计的倾向，JavaScript的面向对象就是原型模式。io语言也是。</p>
+<h3 id="亲身体验IO语言"><a href="#亲身体验IO语言" class="headerlink" title="亲身体验IO语言"></a>亲身体验IO语言</h3><h3 id="Ruby中的原型"><a href="#Ruby中的原型" class="headerlink" title="Ruby中的原型"></a>Ruby中的原型</h3><p>基本上讲Ruby是类模式的语言，但也拥有支持原型模式编程功能。</p>
+<ol>
 <li>复制对象的clone方法</li>
 <li>给个别对象增加方法的特意方法功能</li>
-<li>给个别对象增加一组功能的extend方法<br>静态语言中没有原型编程，因为不可能给复制的对象增加新方法。<h3 id="编写抽象算法的Template-Method模式"><a href="#编写抽象算法的Template-Method模式" class="headerlink" title="编写抽象算法的Template Method模式"></a>编写抽象算法的Template Method模式</h3><h3 id="用Ruby来尝试Template-Method"><a href="#用Ruby来尝试Template-Method" class="headerlink" title="用Ruby来尝试Template Method"></a>用Ruby来尝试Template Method</h3>Ruby的类库中最大限度灵活运用Template Method模式的部分，应该是Enumerable模块和Comparable模块了。<h3 id="动态语言与Template-Method模式"><a href="#动态语言与Template-Method模式" class="headerlink" title="动态语言与Template Method模式"></a>动态语言与Template Method模式</h3>Template Method模式的这种优秀性质与语言是不是静态没有关系。<h3 id="避免高度依赖性的Observer模式"><a href="#避免高度依赖性的Observer模式" class="headerlink" title="避免高度依赖性的Observer模式"></a>避免高度依赖性的Observer模式</h3>Observer（观察者）模式是当某个对象的状态发生变化时，依存于该状态的全部对象都自动得到通知，而且为了让它们都得到通知，定义了对象间一对多的依存关系。<br>这是控制类与类之间依存关系的一种模式。<br>高度依赖性会导致组成程序的零件过大，避免高度依赖性的Observer模式，构成观察者模式的有两个对象，一个称谓Observer（观察者）接受变更通知；另一个称为Subject（对象）或Observable（被观察者），发出变更通知。<br>被观察者让人得到被动的印象，在实际处理中，被观察者会发出通知“我已经变化了哦”。<h3 id="Observable模块"><a href="#Observable模块" class="headerlink" title="Observable模块"></a>Observable模块</h3>Ruby中为实现Observer模式提供了名为observer的库。observer库提供observer模块。<h3 id="Observer模式与动态语言"><a href="#Observer模式与动态语言" class="headerlink" title="Observer模式与动态语言"></a>Observer模式与动态语言</h3>由于Ruby的动态性质，Observer库具有以下几方面的灵活性。</li>
+<li>给个别对象增加一组功能的extend方法</li>
+</ol>
+<p>静态语言中没有原型编程，因为不可能给复制的对象增加新方法。</p>
+<h3 id="编写抽象算法的Template-Method模式"><a href="#编写抽象算法的Template-Method模式" class="headerlink" title="编写抽象算法的Template Method模式"></a>编写抽象算法的Template Method模式</h3><h3 id="用Ruby来尝试Template-Method"><a href="#用Ruby来尝试Template-Method" class="headerlink" title="用Ruby来尝试Template Method"></a>用Ruby来尝试Template Method</h3><p>Ruby的类库中最大限度灵活运用Template Method模式的部分，应该是Enumerable模块和Comparable模块了。</p>
+<h3 id="动态语言与Template-Method模式"><a href="#动态语言与Template-Method模式" class="headerlink" title="动态语言与Template Method模式"></a>动态语言与Template Method模式</h3><p>Template Method模式的这种优秀性质与语言是不是静态没有关系。</p>
+<h3 id="避免高度依赖性的Observer模式"><a href="#避免高度依赖性的Observer模式" class="headerlink" title="避免高度依赖性的Observer模式"></a>避免高度依赖性的Observer模式</h3><p>Observer（观察者）模式是当某个对象的状态发生变化时，依存于该状态的全部对象都自动得到通知，而且为了让它们都得到通知，定义了对象间一对多的依存关系。<br>这是控制类与类之间依存关系的一种模式。<br>高度依赖性会导致组成程序的零件过大，避免高度依赖性的Observer模式，构成观察者模式的有两个对象，一个称谓Observer（观察者）接受变更通知；另一个称为Subject（对象）或Observable（被观察者），发出变更通知。<br>被观察者让人得到被动的印象，在实际处理中，被观察者会发出通知“我已经变化了哦”。</p>
+<h3 id="Observable模块"><a href="#Observable模块" class="headerlink" title="Observable模块"></a>Observable模块</h3><p>Ruby中为实现Observer模式提供了名为observer的库。observer库提供observer模块。</p>
+<h3 id="Observer模式与动态语言"><a href="#Observer模式与动态语言" class="headerlink" title="Observer模式与动态语言"></a>Observer模式与动态语言</h3><p>由于Ruby的动态性质，Observer库具有以下几方面的灵活性。</p>
+<ol>
 <li>观察者类不必是特定类的子类。</li>
 <li>观察者类不必实现特定的接口（本来在Ruby中也没有接口）</li>
 <li>观察者类的更新方法名可以自由决定</li>
 <li>观察者类更新方法的参数可以自由决定</li>
 <li>被观察者类不必是特定类的子类</li>
-<li>对被观察者类的要求，只是将Observable模块包括进来。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">说到事件监听模式,很容易将它和观察者模式联系在一起。</span><br><span class="line">实质上这两者完成同类型的工作。依个人理解，事件监听模式更像是观察者模式的进阶。</span><br><span class="line">事件监听机制就是对观察者模式进行了进一步抽象，节省了代码量。</span><br></pre></td></tr></table></figure>
-</li>
+<li>对被观察者类的要求，只是将Observable模块包括进来。</li>
 </ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">说到事件监听模式,很容易将它和观察者模式联系在一起。</span><br><span class="line">实质上这两者完成同类型的工作。依个人理解，事件监听模式更像是观察者模式的进阶。</span><br><span class="line">事件监听机制就是对观察者模式进行了进一步抽象，节省了代码量。</span><br></pre></td></tr></table></figure>
 <h2 id="设计模式（3）"><a href="#设计模式（3）" class="headerlink" title="设计模式（3）"></a>设计模式（3）</h2><h3 id="软件开发的悲剧"><a href="#软件开发的悲剧" class="headerlink" title="软件开发的悲剧"></a>软件开发的悲剧</h3><ol>
 <li>复杂性</li>
-<li>变化性<br>软件的规模越大，各个部分之间的牵连越复杂，更改也就越难。<br>在软件开发过程中，需求变更几乎是不可避免的。<h3 id="开放-封闭原则"><a href="#开放-封闭原则" class="headerlink" title="开放-封闭原则"></a>开放-封闭原则</h3><strong>对模块扩展必须开放，对修改必须封闭。</strong><br>为了应对将来的需要，扩展必须是开放的，但是即使某一模块的内部结构改变了，对外接口也应当是不变的。简称OCP。</li>
+<li>变化性</li>
 </ol>
+<p>软件的规模越大，各个部分之间的牵连越复杂，更改也就越难。<br>在软件开发过程中，需求变更几乎是不可避免的。</p>
+<h3 id="开放-封闭原则"><a href="#开放-封闭原则" class="headerlink" title="开放-封闭原则"></a>开放-封闭原则</h3><p><strong>对模块扩展必须开放，对修改必须封闭。</strong><br>为了应对将来的需要，扩展必须是开放的，但是即使某一模块的内部结构改变了，对外接口也应当是不变的。简称OCP。</p>
 <h3 id="面向对象的情况"><a href="#面向对象的情况" class="headerlink" title="面向对象的情况"></a>面向对象的情况</h3><p>既要开放，又要封闭，看似互相矛盾，但是<strong>面向对象编程语言能够很彻底地消除这个矛盾。</strong></p>
 <h3 id="非面向对象的情况"><a href="#非面向对象的情况" class="headerlink" title="非面向对象的情况"></a>非面向对象的情况</h3><p>非面向对象则很难处理好。<br><strong>面向对象的精髓在于对OCP的实践。至于把对象看做物体理解起来比较容易，能够建立现实世界的模型等，不过是锦上添花。</strong></p>
 <h3 id="OCP与Template-Method模式"><a href="#OCP与Template-Method模式" class="headerlink" title="OCP与Template Method模式"></a>OCP与Template Method模式</h3><p>虽说使用面向对象语言的功能，可以实现OCP，但是只是说有这种可能性，并不是说什么时候都能实现。当然，虽然使用了面向对象语言，却做成了一个糟糕的设计，这种情况也是屡见不鲜。<br>分类中很多设计模式之所以优秀是因为经得起OCP所要求的变化。<br>Template Method模式，是满足OCP的基本手段。其他的设计模式都是利用多个类的关联来实现的，而Template Method模式则仅仅使用了继承，基本上无非是实现了一个抽象类。</p>
@@ -223,7 +243,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-07-09T10:18:55.000Z" itemprop="dateUpdated">2018-07-09 18:18:55</time>
+    最后更新时间：<time datetime="2018-07-20T11:02:15.000Z" itemprop="dateUpdated">2018-07-20 19:02:15</time>
 </span><br>
 
 

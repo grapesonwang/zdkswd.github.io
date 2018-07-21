@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>松本行弘的程序世界 11 程序安全性 | ZDK&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="电子书笔记,程序语言">
+    <meta name="description" content="松本行弘的程序世界 11 程序安全性程序的漏洞与攻击方法四种软件漏洞 dos攻击 信息泄露 权限夺取 权限升格  DOS攻击，即拒绝服务攻击，指妨碍软件正常运行（服务的执行）的网络攻击手段。能够引起软件异常终止的程序错误，全部都是引发DOS攻击的安全性程序错误。分为软件漏洞与外部DOS攻击。信息泄露指不愿公开的信息被公开了。 因权限被窃取而成为重大问题安全问题的根源在于运行软件的人（权限所有者）和">
+<meta name="keywords" content="电子书笔记,程序语言">
+<meta property="og:type" content="article">
+<meta property="og:title" content="松本行弘的程序世界 11 程序安全性">
+<meta property="og:url" content="https://github.com/zdkswd/2018/07/21/松本行弘的程序世界 11 程序安全性/index.html">
+<meta property="og:site_name" content="ZDK&#39;s blog">
+<meta property="og:description" content="松本行弘的程序世界 11 程序安全性程序的漏洞与攻击方法四种软件漏洞 dos攻击 信息泄露 权限夺取 权限升格  DOS攻击，即拒绝服务攻击，指妨碍软件正常运行（服务的执行）的网络攻击手段。能够引起软件异常终止的程序错误，全部都是引发DOS攻击的安全性程序错误。分为软件漏洞与外部DOS攻击。信息泄露指不愿公开的信息被公开了。 因权限被窃取而成为重大问题安全问题的根源在于运行软件的人（权限所有者）和">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/img/media/15320811324762/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-21%20%E4%B8%8B%E5%8D%887.11.22.png">
+<meta property="og:image" content="https://github.com/img/media/15320811324762/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-21%20%E4%B8%8B%E5%8D%887.30.12.png">
+<meta property="og:image" content="https://github.com/img/media/15320811324762/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-21%20%E4%B8%8B%E5%8D%887.33.32.png">
+<meta property="og:updated_time" content="2018-07-21T13:29:05.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="松本行弘的程序世界 11 程序安全性">
+<meta name="twitter:description" content="松本行弘的程序世界 11 程序安全性程序的漏洞与攻击方法四种软件漏洞 dos攻击 信息泄露 权限夺取 权限升格  DOS攻击，即拒绝服务攻击，指妨碍软件正常运行（服务的执行）的网络攻击手段。能够引起软件异常终止的程序错误，全部都是引发DOS攻击的安全性程序错误。分为软件漏洞与外部DOS攻击。信息泄露指不愿公开的信息被公开了。 因权限被窃取而成为重大问题安全问题的根源在于运行软件的人（权限所有者）和">
+<meta name="twitter:image" content="https://github.com/img/media/15320811324762/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-21%20%E4%B8%8B%E5%8D%887.11.22.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/tmg.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ZDK</h5>
+          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/zdkswd" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">松本行弘的程序世界 11 程序安全性</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">松本行弘的程序世界 11 程序安全性</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-07-21T13:28:32.000Z" itemprop="datePublished" class="page-time">
+  2018-07-21
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#松本行弘的程序世界-11-程序安全性"><span class="post-toc-number">1.</span> <span class="post-toc-text">松本行弘的程序世界 11 程序安全性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#程序的漏洞与攻击方法"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">程序的漏洞与攻击方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#四种软件漏洞"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">四种软件漏洞</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#因权限被窃取而成为重大问题"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">因权限被窃取而成为重大问题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安全问题的根源"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">安全问题的根源</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#“守护神”引起的问题"><span class="post-toc-number">1.1.4.</span> <span class="post-toc-text">“守护神”引起的问题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#多样化的攻击手段"><span class="post-toc-number">1.1.5.</span> <span class="post-toc-text">多样化的攻击手段</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#缓冲区溢出"><span class="post-toc-number">1.1.6.</span> <span class="post-toc-text">缓冲区溢出</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#整数溢出"><span class="post-toc-number">1.1.7.</span> <span class="post-toc-text">整数溢出</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#SQL注入"><span class="post-toc-number">1.1.8.</span> <span class="post-toc-text">SQL注入</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Shell注入"><span class="post-toc-number">1.1.9.</span> <span class="post-toc-text">Shell注入</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#跨站点脚本攻击"><span class="post-toc-number">1.1.10.</span> <span class="post-toc-text">跨站点脚本攻击</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#跨站点伪造请求"><span class="post-toc-number">1.1.11.</span> <span class="post-toc-text">跨站点伪造请求</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#社会工程"><span class="post-toc-number">1.1.12.</span> <span class="post-toc-text">社会工程</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#用异常进行错误处理"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">用异常进行错误处理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#异常的历史"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">异常的历史</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Java的受控异常"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">Java的受控异常</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Icon的面向目标判断"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">Icon的面向目标判断</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Ruby的异常"><span class="post-toc-number">1.2.4.</span> <span class="post-toc-text">Ruby的异常</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#异常发生"><span class="post-toc-number">1.2.5.</span> <span class="post-toc-text">异常发生</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#异常处理的设计方针"><span class="post-toc-number">1.2.6.</span> <span class="post-toc-text">异常处理的设计方针</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#异常发生的设计原则"><span class="post-toc-number">1.2.7.</span> <span class="post-toc-text">异常发生的设计原则</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-松本行弘的程序世界 11 程序安全性"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">松本行弘的程序世界 11 程序安全性</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-07-21 21:28:32" datetime="2018-07-21T13:28:32.000Z"  itemprop="datePublished">2018-07-21</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="松本行弘的程序世界-11-程序安全性"><a href="#松本行弘的程序世界-11-程序安全性" class="headerlink" title="松本行弘的程序世界 11 程序安全性"></a>松本行弘的程序世界 11 程序安全性</h1><h2 id="程序的漏洞与攻击方法"><a href="#程序的漏洞与攻击方法" class="headerlink" title="程序的漏洞与攻击方法"></a>程序的漏洞与攻击方法</h2><h3 id="四种软件漏洞"><a href="#四种软件漏洞" class="headerlink" title="四种软件漏洞"></a>四种软件漏洞</h3><ol>
+<li>dos攻击</li>
+<li>信息泄露</li>
+<li>权限夺取</li>
+<li>权限升格</li>
+</ol>
+<p>DOS攻击，即拒绝服务攻击，指妨碍软件正常运行（服务的执行）的网络攻击手段。能够引起软件异常终止的程序错误，全部都是引发DOS攻击的安全性程序错误。<br>分为软件漏洞与外部DOS攻击。<br>信息泄露指不愿公开的信息被公开了。</p>
+<h3 id="因权限被窃取而成为重大问题"><a href="#因权限被窃取而成为重大问题" class="headerlink" title="因权限被窃取而成为重大问题"></a>因权限被窃取而成为重大问题</h3><h3 id="安全问题的根源"><a href="#安全问题的根源" class="headerlink" title="安全问题的根源"></a>安全问题的根源</h3><p>在于运行软件的人（权限所有者）和利用软件的人是不同的。<br>安全问题有三种</p>
+<ol>
+<li>恶意软件<br>指在程序本身植入了恶意代码。</li>
+<li>setuid/setgid<br>指执行的程序以所有者权限进行动作。setuid的缺点已经变得比优点更突出，现在几乎不用了。</li>
+<li>服务器</li>
+</ol>
+<h3 id="“守护神”引起的问题"><a href="#“守护神”引起的问题" class="headerlink" title="“守护神”引起的问题"></a>“守护神”引起的问题</h3><p>服务这里指的是为了提供服务而常驻型的软件，又为后台服务(daemon),即守护神的意思。<br>后台服务基本上都是受理经由socket而来的请求。执行它所提供的服务，将结果经socket返回。几乎所有的情况，发出请求者和执行权限者都是不同的。这种软件若有了漏洞，会引起DOS问题和权限夺取问题。</p>
+<h3 id="多样化的攻击手段"><a href="#多样化的攻击手段" class="headerlink" title="多样化的攻击手段"></a>多样化的攻击手段</h3><p>代表性的有：</p>
+<ol>
+<li>缓冲区溢出</li>
+<li>整数溢出</li>
+<li>跨站点脚本攻击（XSS）</li>
+<li>SQL注入</li>
+<li>跨站点伪造请求（CSRF）</li>
+</ol>
+<h3 id="缓冲区溢出"><a href="#缓冲区溢出" class="headerlink" title="缓冲区溢出"></a>缓冲区溢出</h3><p>指向固定的缓冲区输入了比假定长度要长很多的数据，使程序异常终止。或者是更改堆栈的跳转地址劫持程序。<br>使用C那种连数组长度都不检查的语言，可以说肯定会产生问题。幸亏，像Ruby这样的高级语言，语言处理系统自动分配内存，可以不使用固定长的缓冲区。使用更高级的语言，可以从缓冲区溢出问题中解放出来。但由于速度上的考虑，还会开发C语言的CGI及Daemon程序，应多加注意。</p>
+<h3 id="整数溢出"><a href="#整数溢出" class="headerlink" title="整数溢出"></a>整数溢出</h3><p>整数溢出与缓冲区溢出相似，但它是更难被发现的问题。<br>c等很多语言，整数只能表示一定范围的数，超过范围，就会发生溢出，也不发出警告就将数值舍入。这个问题通过使用Ruby这样的高级语言可以解决，内存分配不是由用户直接进行，内部分配都要经过严格检查。所以，只要使用Ruby，与整数溢出就不沾边。</p>
+<h3 id="SQL注入"><a href="#SQL注入" class="headerlink" title="SQL注入"></a>SQL注入</h3><p>SQL注入是对外部的输入检查不充分时所产生的典型问题。<br>从外部的输入不能原封不动填到SQL语句中去，因为填入的文字可能含有对SQL语句有某种意义的文字。</p>
+<h3 id="Shell注入"><a href="#Shell注入" class="headerlink" title="Shell注入"></a>Shell注入</h3><p>Shell注入与SQL注入原理相同。<br>从外部的输入，如果不进行检查就不能传递给system等危险的函数。<br>为了从一定程度上检查出这类问题，Ruby和Perl中有“污染检查”功能。给外部输入的数据加上“污染记号”，禁止对字符串进行危险操作。</p>
+<h3 id="跨站点脚本攻击"><a href="#跨站点脚本攻击" class="headerlink" title="跨站点脚本攻击"></a>跨站点脚本攻击</h3><p>跨站点脚本攻击与SQL注入和Shell注入一样，也是因为将输入值原封不动地放在输出值内而引起的问题。<br>如用户输入中含有HTML标签。而且HTML可能夹杂JavaScript。</p>
+<h3 id="跨站点伪造请求"><a href="#跨站点伪造请求" class="headerlink" title="跨站点伪造请求"></a>跨站点伪造请求</h3><p>跨站点伪造请求（CSRF）是Web应用程序固有的攻击手段。<br>构成Web应用程序的每一页由两部分构成，一个来自网路浏览器的HTTP请求，一个是HTTP服务器的响应。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15320811324762/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-21%20%E4%B8%8B%E5%8D%887.11.22.png" alt="屏幕快照 2018-07-21 下午7.11.22" title="">
+                </div>
+                <div class="image-caption">屏幕快照 2018-07-21 下午7.11.22</div>
+            </figure></p>
+<h3 id="社会工程"><a href="#社会工程" class="headerlink" title="社会工程"></a>社会工程</h3><h2 id="用异常进行错误处理"><a href="#用异常进行错误处理" class="headerlink" title="用异常进行错误处理"></a>用异常进行错误处理</h2><h3 id="异常的历史"><a href="#异常的历史" class="headerlink" title="异常的历史"></a>异常的历史</h3><h3 id="Java的受控异常"><a href="#Java的受控异常" class="headerlink" title="Java的受控异常"></a>Java的受控异常</h3><p>采用受控异常的，Java是第一个。</p>
+<h3 id="Icon的面向目标判断"><a href="#Icon的面向目标判断" class="headerlink" title="Icon的面向目标判断"></a>Icon的面向目标判断</h3><p>Ruby在设计之初，也曾认真考虑过采用像Icon式的真伪值判断，结果还是采用了nil和false以外的值全是真值的这种正统方式。</p>
+<h3 id="Ruby的异常"><a href="#Ruby的异常" class="headerlink" title="Ruby的异常"></a>Ruby的异常</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15320811324762/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-21%20%E4%B8%8B%E5%8D%887.30.12.png" alt="屏幕快照 2018-07-21 下午7.30.12" title="">
+                </div>
+                <div class="image-caption">屏幕快照 2018-07-21 下午7.30.12</div>
+            </figure>
+<h3 id="异常发生"><a href="#异常发生" class="headerlink" title="异常发生"></a>异常发生</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15320811324762/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-21%20%E4%B8%8B%E5%8D%887.33.32.png" alt="屏幕快照 2018-07-21 下午7.33.32" title="">
+                </div>
+                <div class="image-caption">屏幕快照 2018-07-21 下午7.33.32</div>
+            </figure>
+<h3 id="异常处理的设计方针"><a href="#异常处理的设计方针" class="headerlink" title="异常处理的设计方针"></a>异常处理的设计方针</h3><p>方法的执行应当“异常安全”，即执行时及时发生了异常也不会发生异常情况：</p>
+<ul>
+<li>因为发生了异常，留下了不完全的数据结构</li>
+<li>因为发生了异常，数据库里进了垃圾</li>
+<li>因为发生了异常，程序异常终止</li>
+</ul>
+<h3 id="异常发生的设计原则"><a href="#异常发生的设计原则" class="headerlink" title="异常发生的设计原则"></a>异常发生的设计原则</h3><p>假设发生的情况与既有的异常类明显不同，需要制作一个新的异常。此时考虑：</p>
+<ul>
+<li>名称：应该给新的类起一个什么样的名字</li>
+<li>父类：新的类应该属于哪一个异常类的子类</li>
+<li>生成方法：应该如何初始化新的类实例</li>
+</ul>
+<p>产生异常的两个原则：1异步异常，基本原则是不要使用异步异常。2.文档化，有必要清楚详细的写成文档。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-07-21T13:29:05.000Z" itemprop="dateUpdated">2018-07-21 21:29:05</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/zdkswd">
+            <img src="/img/tmg.jpg" alt="ZDK">
+            ZDK
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/电子书笔记/">电子书笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/程序语言/">程序语言</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/07/21/松本行弘的程序世界 11 程序安全性/&title=《松本行弘的程序世界 11 程序安全性》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/07/21/松本行弘的程序世界 11 程序安全性/&title=《松本行弘的程序世界 11 程序安全性》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/07/21/松本行弘的程序世界 11 程序安全性/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《松本行弘的程序世界 11 程序安全性》 — ZDK's blog&url=https://github.com/zdkswd/2018/07/21/松本行弘的程序世界 11 程序安全性/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/07/21/松本行弘的程序世界 11 程序安全性/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/07/20/松本行弘的程序世界 10 高速执行和并行处理/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">松本行弘的程序世界 10 高速执行和并行处理</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz",
+            appKey: "gkBx5soQkBREmER84PWbNJeM",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ZDK &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/07/21/松本行弘的程序世界 11 程序安全性/&title=《松本行弘的程序世界 11 程序安全性》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/07/21/松本行弘的程序世界 11 程序安全性/&title=《松本行弘的程序世界 11 程序安全性》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/07/21/松本行弘的程序世界 11 程序安全性/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《松本行弘的程序世界 11 程序安全性》 — ZDK's blog&url=https://github.com/zdkswd/2018/07/21/松本行弘的程序世界 11 程序安全性/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/07/21/松本行弘的程序世界 11 程序安全性/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2018/07/21/松本行弘的程序世界 11 程序安全性/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'zdk'blog';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
