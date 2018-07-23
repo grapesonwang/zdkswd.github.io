@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>松本行弘的程序世界 12 关于时间的处理 | ZDK&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="电子书笔记,程序语言">
+    <meta name="description" content="松本行弘的程序世界 12 关于时间的处理用程序处理时刻与时间时差与时区世界协调时间夏令时一定时期内时钟拨快一小时。 改历日期与时间的类Time类表示日常所用时间的类。 Date类表示不含时刻的日期的类。 DateTime类Date类附加上时间信息的类。能表示时间，而且没有范围限制，功能上最强。 2038年问题不仅限UNIX，很多操作系统都是以过去某个时点开始所经过的时间来表示时刻的。在UNIX中，">
+<meta name="keywords" content="电子书笔记,程序语言">
+<meta property="og:type" content="article">
+<meta property="og:title" content="松本行弘的程序世界 12 关于时间的处理">
+<meta property="og:url" content="https://github.com/zdkswd/2018/07/23/松本行弘的程序世界 12 关于时间的处理/index.html">
+<meta property="og:site_name" content="ZDK&#39;s blog">
+<meta property="og:description" content="松本行弘的程序世界 12 关于时间的处理用程序处理时刻与时间时差与时区世界协调时间夏令时一定时期内时钟拨快一小时。 改历日期与时间的类Time类表示日常所用时间的类。 Date类表示不含时刻的日期的类。 DateTime类Date类附加上时间信息的类。能表示时间，而且没有范围限制，功能上最强。 2038年问题不仅限UNIX，很多操作系统都是以过去某个时点开始所经过的时间来表示时刻的。在UNIX中，">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-07-23T13:53:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="松本行弘的程序世界 12 关于时间的处理">
+<meta name="twitter:description" content="松本行弘的程序世界 12 关于时间的处理用程序处理时刻与时间时差与时区世界协调时间夏令时一定时期内时钟拨快一小时。 改历日期与时间的类Time类表示日常所用时间的类。 Date类表示不含时刻的日期的类。 DateTime类Date类附加上时间信息的类。能表示时间，而且没有范围限制，功能上最强。 2038年问题不仅限UNIX，很多操作系统都是以过去某个时点开始所经过的时间来表示时刻的。在UNIX中，">
+    
+        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/tmg.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ZDK</h5>
+          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/zdkswd" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">松本行弘的程序世界 12 关于时间的处理</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">松本行弘的程序世界 12 关于时间的处理</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-07-23T13:53:32.000Z" itemprop="datePublished" class="page-time">
+  2018-07-23
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#松本行弘的程序世界-12-关于时间的处理"><span class="post-toc-number">1.</span> <span class="post-toc-text">松本行弘的程序世界 12 关于时间的处理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#用程序处理时刻与时间"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">用程序处理时刻与时间</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#时差与时区"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">时差与时区</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#世界协调时间"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">世界协调时间</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#夏令时"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">夏令时</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#改历"><span class="post-toc-number">1.1.4.</span> <span class="post-toc-text">改历</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#日期与时间的类"><span class="post-toc-number">1.1.5.</span> <span class="post-toc-text">日期与时间的类</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Time类"><span class="post-toc-number">1.1.5.1.</span> <span class="post-toc-text">Time类</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Date类"><span class="post-toc-number">1.1.5.2.</span> <span class="post-toc-text">Date类</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#DateTime类"><span class="post-toc-number">1.1.5.3.</span> <span class="post-toc-text">DateTime类</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2038年问题"><span class="post-toc-number">1.1.6.</span> <span class="post-toc-text">2038年问题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#DateTime类-1"><span class="post-toc-number">1.1.7.</span> <span class="post-toc-text">DateTime类</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Time与DateTime的相互变换"><span class="post-toc-number">1.1.8.</span> <span class="post-toc-text">Time与DateTime的相互变换</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-松本行弘的程序世界 12 关于时间的处理"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">松本行弘的程序世界 12 关于时间的处理</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-07-23 21:53:32" datetime="2018-07-23T13:53:32.000Z"  itemprop="datePublished">2018-07-23</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="松本行弘的程序世界-12-关于时间的处理"><a href="#松本行弘的程序世界-12-关于时间的处理" class="headerlink" title="松本行弘的程序世界 12 关于时间的处理"></a>松本行弘的程序世界 12 关于时间的处理</h1><h2 id="用程序处理时刻与时间"><a href="#用程序处理时刻与时间" class="headerlink" title="用程序处理时刻与时间"></a>用程序处理时刻与时间</h2><h3 id="时差与时区"><a href="#时差与时区" class="headerlink" title="时差与时区"></a>时差与时区</h3><h3 id="世界协调时间"><a href="#世界协调时间" class="headerlink" title="世界协调时间"></a>世界协调时间</h3><h3 id="夏令时"><a href="#夏令时" class="headerlink" title="夏令时"></a>夏令时</h3><p>一定时期内时钟拨快一小时。</p>
+<h3 id="改历"><a href="#改历" class="headerlink" title="改历"></a>改历</h3><h3 id="日期与时间的类"><a href="#日期与时间的类" class="headerlink" title="日期与时间的类"></a>日期与时间的类</h3><h4 id="Time类"><a href="#Time类" class="headerlink" title="Time类"></a>Time类</h4><p>表示日常所用时间的类。</p>
+<h4 id="Date类"><a href="#Date类" class="headerlink" title="Date类"></a>Date类</h4><p>表示不含时刻的日期的类。</p>
+<h4 id="DateTime类"><a href="#DateTime类" class="headerlink" title="DateTime类"></a>DateTime类</h4><p>Date类附加上时间信息的类。能表示时间，而且没有范围限制，功能上最强。</p>
+<h3 id="2038年问题"><a href="#2038年问题" class="headerlink" title="2038年问题"></a>2038年问题</h3><p>不仅限UNIX，很多操作系统都是以过去某个时点开始所经过的时间来表示时刻的。在UNIX中，过去某个时点指1970年1月1日零点。<br>问题是计算机能够处理的整数大小有限，界限是2038年1月19日3时14分7秒。</p>
+<h3 id="DateTime类-1"><a href="#DateTime类-1" class="headerlink" title="DateTime类"></a>DateTime类</h3><p>相对于epoch（某个时点）开始的秒数来管理Time类，DateTime类是以日期为基础计算的Date类，附加上时刻信息而生成的。</p>
+<h3 id="Time与DateTime的相互变换"><a href="#Time与DateTime的相互变换" class="headerlink" title="Time与DateTime的相互变换"></a>Time与DateTime的相互变换</h3>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-07-23T13:53:46.000Z" itemprop="dateUpdated">2018-07-23 21:53:46</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/zdkswd">
+            <img src="/img/tmg.jpg" alt="ZDK">
+            ZDK
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/电子书笔记/">电子书笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/程序语言/">程序语言</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/07/23/松本行弘的程序世界 12 关于时间的处理/&title=《松本行弘的程序世界 12 关于时间的处理》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/07/23/松本行弘的程序世界 12 关于时间的处理/&title=《松本行弘的程序世界 12 关于时间的处理》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/07/23/松本行弘的程序世界 12 关于时间的处理/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《松本行弘的程序世界 12 关于时间的处理》 — ZDK's blog&url=https://github.com/zdkswd/2018/07/23/松本行弘的程序世界 12 关于时间的处理/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/07/23/松本行弘的程序世界 12 关于时间的处理/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/07/21/松本行弘的程序世界 11 程序安全性/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">松本行弘的程序世界 11 程序安全性</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz",
+            appKey: "gkBx5soQkBREmER84PWbNJeM",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ZDK &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/07/23/松本行弘的程序世界 12 关于时间的处理/&title=《松本行弘的程序世界 12 关于时间的处理》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/07/23/松本行弘的程序世界 12 关于时间的处理/&title=《松本行弘的程序世界 12 关于时间的处理》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/07/23/松本行弘的程序世界 12 关于时间的处理/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《松本行弘的程序世界 12 关于时间的处理》 — ZDK's blog&url=https://github.com/zdkswd/2018/07/23/松本行弘的程序世界 12 关于时间的处理/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/07/23/松本行弘的程序世界 12 关于时间的处理/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2018/07/23/松本行弘的程序世界 12 关于时间的处理/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'zdk'blog';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
