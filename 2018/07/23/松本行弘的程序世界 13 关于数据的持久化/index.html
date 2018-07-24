@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | ZDK&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="松本行弘的程序世界 13 关于数据的持久化持久化数据的方法保存文本变换成文本的Marshal将对象按一定的方式变换成文本，就可以保存到文件中去。这样的对象文本化就称为serialize(序列化)，或是marshal(封送处理)。 使用Marshal模块标准Ruby中，嵌入了marshal功能，这就是Marshal模块。Marshal模块中提供了几乎能将全部Ruby对象变为字节串的方法dump，以及">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="https://github.com/zdkswd/2018/07/23/松本行弘的程序世界 13 关于数据的持久化/index.html">
+<meta property="og:site_name" content="ZDK&#39;s blog">
+<meta property="og:description" content="松本行弘的程序世界 13 关于数据的持久化持久化数据的方法保存文本变换成文本的Marshal将对象按一定的方式变换成文本，就可以保存到文件中去。这样的对象文本化就称为serialize(序列化)，或是marshal(封送处理)。 使用Marshal模块标准Ruby中，嵌入了marshal功能，这就是Marshal模块。Marshal模块中提供了几乎能将全部Ruby对象变为字节串的方法dump，以及">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/img/media/15323139335047/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-23%20%E4%B8%8A%E5%8D%8811.07.00.png">
+<meta property="og:image" content="https://github.com/img/media/15323139335047/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-23%20%E4%B8%8A%E5%8D%8811.09.40.png">
+<meta property="og:updated_time" content="2018-07-24T11:34:20.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="松本行弘的程序世界 13 关于数据的持久化持久化数据的方法保存文本变换成文本的Marshal将对象按一定的方式变换成文本，就可以保存到文件中去。这样的对象文本化就称为serialize(序列化)，或是marshal(封送处理)。 使用Marshal模块标准Ruby中，嵌入了marshal功能，这就是Marshal模块。Marshal模块中提供了几乎能将全部Ruby对象变为字节串的方法dump，以及">
+<meta name="twitter:image" content="https://github.com/img/media/15323139335047/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-23%20%E4%B8%8A%E5%8D%8811.07.00.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/tmg.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ZDK</h5>
+          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/zdkswd" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-07-23T02:45:33.000Z" itemprop="datePublished" class="page-time">
+  2018-07-23
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#松本行弘的程序世界-13-关于数据的持久化"><span class="post-toc-number">1.</span> <span class="post-toc-text">松本行弘的程序世界 13 关于数据的持久化</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#持久化数据的方法"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">持久化数据的方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#保存文本"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">保存文本</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#变换成文本的Marshal"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">变换成文本的Marshal</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用Marshal模块"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">使用Marshal模块</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#复制有两种方式"><span class="post-toc-number">1.1.4.</span> <span class="post-toc-text">复制有两种方式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#仔细看Marshal的格式"><span class="post-toc-number">1.1.5.</span> <span class="post-toc-text">仔细看Marshal的格式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#不能保存的3类对象"><span class="post-toc-number">1.1.6.</span> <span class="post-toc-text">不能保存的3类对象</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#制作面向对象数据库"><span class="post-toc-number">1.1.7.</span> <span class="post-toc-text">制作面向对象数据库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#试用PStore"><span class="post-toc-number">1.1.8.</span> <span class="post-toc-text">试用PStore</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#打开数据库"><span class="post-toc-number">1.1.8.1.</span> <span class="post-toc-text">打开数据库</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#开始事务处理"><span class="post-toc-number">1.1.8.2.</span> <span class="post-toc-text">开始事务处理</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#对象的登录和取得"><span class="post-toc-number">1.1.8.3.</span> <span class="post-toc-text">对象的登录和取得</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#事务处理的终止"><span class="post-toc-number">1.1.8.4.</span> <span class="post-toc-text">事务处理的终止</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#变换为文本的YAML"><span class="post-toc-number">1.1.9.</span> <span class="post-toc-text">变换为文本的YAML</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#用YAML制作数据库"><span class="post-toc-number">1.1.10.</span> <span class="post-toc-text">用YAML制作数据库</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#数据格式"><span class="post-toc-number">1.1.10.1.</span> <span class="post-toc-text">数据格式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#数据量"><span class="post-toc-number">1.1.10.2.</span> <span class="post-toc-text">数据量</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#执行速度"><span class="post-toc-number">1.1.10.3.</span> <span class="post-toc-text">执行速度</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#对象的保存"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">对象的保存</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#高速的Object-Prevalence"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">高速的Object Prevalence</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Object-Prevalence的问题点"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">Object Prevalence的问题点</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用Madeleine"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">使用Madeleine</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#访问时刻信息"><span class="post-toc-number">1.2.4.</span> <span class="post-toc-text">访问时刻信息</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#让Madeleine更容易使用"><span class="post-toc-number">1.2.5.</span> <span class="post-toc-text">让Madeleine更容易使用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Madeleine的实用例Instiki"><span class="post-toc-number">1.2.6.</span> <span class="post-toc-text">Madeleine的实用例Instiki</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#关于XML的考察"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">关于XML的考察</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#XML的祖先是SGML"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">XML的祖先是SGML</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#XML是树结构的数据表现"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">XML是树结构的数据表现</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#优点在于纯文本"><span class="post-toc-number">1.3.3.</span> <span class="post-toc-text">优点在于纯文本</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#缺点在于冗长"><span class="post-toc-number">1.3.4.</span> <span class="post-toc-text">缺点在于冗长</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#不适合重视效率的处理"><span class="post-toc-number">1.3.5.</span> <span class="post-toc-text">不适合重视效率的处理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#适合于信息交换的格式"><span class="post-toc-number">1.3.6.</span> <span class="post-toc-text">适合于信息交换的格式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#XML的解析"><span class="post-toc-number">1.3.7.</span> <span class="post-toc-text">XML的解析</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#DOM"><span class="post-toc-number">1.3.7.1.</span> <span class="post-toc-text">DOM</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#SAX"><span class="post-toc-number">1.3.7.2.</span> <span class="post-toc-text">SAX</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#XPath"><span class="post-toc-number">1.3.7.3.</span> <span class="post-toc-text">XPath</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#XML处理库REXML"><span class="post-toc-number">1.3.8.</span> <span class="post-toc-text">XML处理库REXML</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#XML的代替"><span class="post-toc-number">1.3.9.</span> <span class="post-toc-text">XML的代替</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#JSON（JavaScript-Object-Notation）"><span class="post-toc-number">1.3.9.1.</span> <span class="post-toc-text">JSON（JavaScript Object Notation）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#YMAL（YMAL-ain’t-Markup-Language）"><span class="post-toc-number">1.3.9.2.</span> <span class="post-toc-text">YMAL（YMAL ain’t Markup Language）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Binary-XML"><span class="post-toc-number">1.3.9.3.</span> <span class="post-toc-text">Binary XML</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Protocol-Buffer"><span class="post-toc-number">1.3.9.4.</span> <span class="post-toc-text">Protocol Buffer</span></a></li></ol></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-松本行弘的程序世界 13 关于数据的持久化"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-07-23 10:45:33" datetime="2018-07-23T02:45:33.000Z"  itemprop="datePublished">2018-07-23</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="松本行弘的程序世界-13-关于数据的持久化"><a href="#松本行弘的程序世界-13-关于数据的持久化" class="headerlink" title="松本行弘的程序世界 13 关于数据的持久化"></a>松本行弘的程序世界 13 关于数据的持久化</h1><h2 id="持久化数据的方法"><a href="#持久化数据的方法" class="headerlink" title="持久化数据的方法"></a>持久化数据的方法</h2><h3 id="保存文本"><a href="#保存文本" class="headerlink" title="保存文本"></a>保存文本</h3><h3 id="变换成文本的Marshal"><a href="#变换成文本的Marshal" class="headerlink" title="变换成文本的Marshal"></a>变换成文本的Marshal</h3><p>将对象按一定的方式变换成文本，就可以保存到文件中去。这样的对象文本化就称为serialize(序列化)，或是marshal(封送处理)。</p>
+<h3 id="使用Marshal模块"><a href="#使用Marshal模块" class="headerlink" title="使用Marshal模块"></a>使用Marshal模块</h3><p>标准Ruby中，嵌入了marshal功能，这就是Marshal模块。<br>Marshal模块中提供了几乎能将全部Ruby对象变为字节串的方法dump，以及将字节串恢复成原对象（的复制）的load方法。<br>对象可以简单地保存到文件里。</p>
+<h3 id="复制有两种方式"><a href="#复制有两种方式" class="headerlink" title="复制有两种方式"></a>复制有两种方式</h3><p>使用Marshal可以完成对象的深复制。<br>复制对象的时候，通常使用clone方法。这种情况下，只复制直接对象，引用的对象不复制。称为浅复制。<br>深复制连同引用对象也一起进行递归复制。</p>
+<h3 id="仔细看Marshal的格式"><a href="#仔细看Marshal的格式" class="headerlink" title="仔细看Marshal的格式"></a>仔细看Marshal的格式</h3><p>Marshal用二进制形式将对象文本化。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15323139335047/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-23%20%E4%B8%8A%E5%8D%8811.07.00.png" alt="屏幕快照 2018-07-23 上午11.07.00" title="">
+                </div>
+                <div class="image-caption">屏幕快照 2018-07-23 上午11.07.00</div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15323139335047/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-23%20%E4%B8%8A%E5%8D%8811.09.40.png" alt="屏幕快照 2018-07-23 上午11.09.40" title="">
+                </div>
+                <div class="image-caption">屏幕快照 2018-07-23 上午11.09.40</div>
+            </figure></p>
+<h3 id="不能保存的3类对象"><a href="#不能保存的3类对象" class="headerlink" title="不能保存的3类对象"></a>不能保存的3类对象</h3><p>Marshal在实现上有限制。以下3类对象不能保存：</p>
+<ol>
+<li>定义了特异方法的对象。</li>
+<li>输入、输出或是套接字等不能超越进程保存的对象。</li>
+<li>在扩充库中定义，Ruby不知道保存方法的对象。 </li>
+</ol>
+<p>但是即使不能封送处理，若不是像输入输出那种从原理上不可能的情况，单纯是不知道封送处理方法的话，重新教一遍也就行了。</p>
+<h3 id="制作面向对象数据库"><a href="#制作面向对象数据库" class="headerlink" title="制作面向对象数据库"></a>制作面向对象数据库</h3><p>使用Marshal保存对象，使对象具有了持久性。所以，Marshal也可应用于面向对象数据库。<br>PStore库是Marshal的一个用例。Marshal虽然只是将数据变换成字符串，PStore却利用了这一点，简单地实现了面向对象数据库。<br>PStore有三个特征：使用Marshal，可以原封不动地保存任意的Ruby对象；具有容易使用的接口；有事务处理（transaction）。<br>PStore也有缺点，它不适合一下子将数据全部读入内存的大规模数据库。但几百字节的小规模数据库，应该没问题。</p>
+<h3 id="试用PStore"><a href="#试用PStore" class="headerlink" title="试用PStore"></a>试用PStore</h3><h4 id="打开数据库"><a href="#打开数据库" class="headerlink" title="打开数据库"></a>打开数据库</h4><h4 id="开始事务处理"><a href="#开始事务处理" class="headerlink" title="开始事务处理"></a>开始事务处理</h4><h4 id="对象的登录和取得"><a href="#对象的登录和取得" class="headerlink" title="对象的登录和取得"></a>对象的登录和取得</h4><h4 id="事务处理的终止"><a href="#事务处理的终止" class="headerlink" title="事务处理的终止"></a>事务处理的终止</h4><p>简单说明一下事务处理的步骤：</p>
+<ol>
+<li>用flock将数据文件加锁。</li>
+<li>用Marshal从数据文件中读取数据</li>
+<li>执行（事务处理）块</li>
+<li>块的执行成功，Marshal将数据写入数据文件</li>
+<li>块的执行失败，什么也不做。</li>
+</ol>
+<h3 id="变换为文本的YAML"><a href="#变换为文本的YAML" class="headerlink" title="变换为文本的YAML"></a>变换为文本的YAML</h3><p>Marshal的变换结果是二进制文件，内容不容易看懂。有些场合及时效率低一些，也需要能够以更容易看懂的形式输出。能够满足要求的是YAML。使用文本形式，不依赖平台的体系结构，是一种对人而言易读易编辑的序列化格式。</p>
+<p>有以下几个特征：记述简洁；结果容易读懂；使用缩进的层次表现；数据表现是专用的，不必烦恼标签的名称问题。</p>
+<p>YMAL可以活用在Ruby on Rails的配置文件等各种各样的领域。YMAL是在Perl中开发的，但正式的支持，Ruby是第一个。</p>
+<h3 id="用YAML制作数据库"><a href="#用YAML制作数据库" class="headerlink" title="用YAML制作数据库"></a>用YAML制作数据库</h3><p>类似于PStore的东西，YAML：：Store，其与PStore的互换性非常高，只要把名字换一换，面向PStore的程序在YAML：：Store也能运行。</p>
+<p>他俩的区别：</p>
+<h4 id="数据格式"><a href="#数据格式" class="headerlink" title="数据格式"></a>数据格式</h4><p>很显然，一个YAML，一个Marshal。</p>
+<h4 id="数据量"><a href="#数据量" class="headerlink" title="数据量"></a>数据量</h4><p>Marshal比YAML紧凑的多，Marshal牺牲了易读性而实现了良好性能。</p>
+<h4 id="执行速度"><a href="#执行速度" class="headerlink" title="执行速度"></a>执行速度</h4><p>性能优良不光是容量的问题。使用Marshal的PStore比YAML：：Store速度高，在这一点上，也是数据量越大，两者的差异就越显著。</p>
+<h2 id="对象的保存"><a href="#对象的保存" class="headerlink" title="对象的保存"></a>对象的保存</h2><p>对象持久化库Madeleine，利用直接持久化对象的设计模式Object Prevalence。</p>
+<p>Madeleine是Object Prevalence在Ruby中的实现，应称为PStore的发展形式。</p>
+<p>PStore只是对象单纯由Marshal输出而来，Madeleine则与应用程序相协调，实现了高可靠性和高性能的持久化。</p>
+<h3 id="高速的Object-Prevalence"><a href="#高速的Object-Prevalence" class="headerlink" title="高速的Object Prevalence"></a>高速的Object Prevalence</h3><p>所谓Prevalence，是一种实现应用程序持久化和进程间共享数据的设计模式。高性能的秘密在于直接访问内存中的数据。Object Prevalence将处理的数据保存在正在执行的应用程序的内存中，检索等操作不通过SQL而是直接进行，节省了与数据库副武器的通信成本，引用当然就会很高速。</p>
+<p>但是，只有是同一进程，才能引用内存中的数据，进程一结束，数据马上消失。从持久化角度有必要解决这一问题。</p>
+<p>Object Prevalence用日志记录（journaling）和快照（snapshot）来解决这一问题。Object Prevalence中，数据更新时不是直接更新对象，而是创建称为command的对象，采用的是一种非常间接的方法，在用command更新对象时，内存中的对象更新的同时，所有的更新内容也会写到称为日志（journal log）的外部文件中。</p>
+<p>长此下去日志越来越大，所以要将现在数据状态写到称为快照的文件中。有了快照，老日志就不需要了，可在适当的时机删除。</p>
+<p>有了最新的快照和最新的日志，可以完全恢复现在对象的状态。程序启动，按三步骤恢复内存的数据。及时有多个进程，只要写入日志的信息是完整的，就可以共享对象的状态。</p>
+<ol>
+<li>如果不存在快照，就初始化应用程序数据。</li>
+<li>如果存在快照，就读入其中最新的一个。</li>
+<li>如果还存在日志，也将其读入，并用其中最新的一个更新应用程序数据。</li>
+</ol>
+<h3 id="Object-Prevalence的问题点"><a href="#Object-Prevalence的问题点" class="headerlink" title="Object Prevalence的问题点"></a>Object Prevalence的问题点</h3><p><strong>Object Prevalence通过使用日志记录和快照实现了对象的持久化和进程间共享。</strong>Object Prevalence将所有数据都保存到内存中，随着数据量的增大，内存的消耗也在增大。</p>
+<p>关系数据库中，不引用的数据放在文件中，必要的内存量就不用那么多了。</p>
+<p>Object Prevalence有为了数据更新而具有的特殊结构，更新持久化数据时需要经由command对象。</p>
+<h3 id="使用Madeleine"><a href="#使用Madeleine" class="headerlink" title="使用Madeleine"></a>使用Madeleine</h3><h3 id="访问时刻信息"><a href="#访问时刻信息" class="headerlink" title="访问时刻信息"></a>访问时刻信息</h3><h3 id="让Madeleine更容易使用"><a href="#让Madeleine更容易使用" class="headerlink" title="让Madeleine更容易使用"></a>让Madeleine更容易使用</h3><p>Madeleine既保持简洁性，又能让对象持久化，但是最大的缺点是在每次更新应用程序时必须生成command对象。</p>
+<h3 id="Madeleine的实用例Instiki"><a href="#Madeleine的实用例Instiki" class="headerlink" title="Madeleine的实用例Instiki"></a>Madeleine的实用例Instiki</h3><p>Madeleine没有得到广泛应用，除了知道的人少，还因为数据全保存在内存中，就必须十分留意数据的大小。</p>
+<p>Madeleine有一个很大的缺点，就是没有考虑多个进程同时更新数据的情况。</p>
+<h2 id="关于XML的考察"><a href="#关于XML的考察" class="headerlink" title="关于XML的考察"></a>关于XML的考察</h2><h3 id="XML的祖先是SGML"><a href="#XML的祖先是SGML" class="headerlink" title="XML的祖先是SGML"></a>XML的祖先是SGML</h3><p>SGML是将文档电子化的一种格式。由三部分组成：表示数据本身的Instance，表示数据结构的DTD，以及SGML声明。</p>
+<p>由于SGML太复杂，处理成本太高，为了表现网页，将SGML特化为HTML，随之诞生的是XML。</p>
+<p>XML不像HTML那样是为了特定目的的标记语言，它一开始就是为了通用目的而设计的。为了让XML在没有DTD来定义语法或提供schema信息的情况下，也能够解析，人们对其语法进行了简化。</p>
+<h3 id="XML是树结构的数据表现"><a href="#XML是树结构的数据表现" class="headerlink" title="XML是树结构的数据表现"></a>XML是树结构的数据表现</h3><p>XML基本上是纯文本，以类似于HTML的标签嵌套方式实现树结构。XML是继承了SGML的通用标记语言，其与SGML最大的区别是其基本语法固定，不依赖于DTD那样的外部信息也能解析。</p>
+<p>即使没有标签的概要信息也能解析的语法称为良构的（well-formed）,这是XML的一大特征。</p>
+<h3 id="优点在于纯文本"><a href="#优点在于纯文本" class="headerlink" title="优点在于纯文本"></a>优点在于纯文本</h3><p>最大的优点在于XML基本上是纯文本的，表示结构的信息附加在标签里。</p>
+<p>第二个优点是不易发生字符编码的问题。XML规定，在没有明确指定的情况下，字符编码均使用Unicode。</p>
+<p>第三个优点是得益于良构的性质，在没有数据结构的情况下也能解析XML数据。这样就可以不考虑目的，而用共同的工具来处理XML数据。</p>
+<p>第四个优点在于，XML与其解析工具不依赖于特定的语言，比如Java生成的XML数据在Ruby中的解析也很简单。解析XML的API，像DOM和SAX都超越语言提供了几乎共通的性质，所以不同语言也可以进行同样的操作。</p>
+<p>最后一个有点是，人们也很容易理解。</p>
+<p>总之，XML作为各种数据交换格式的框架，具有优良的性质。作为格式的格式，也就是元格式，是很优秀的。</p>
+<h3 id="缺点在于冗长"><a href="#缺点在于冗长" class="headerlink" title="缺点在于冗长"></a>缺点在于冗长</h3><p>最大的缺点是效率低下。XML是以纯文本出现的，标签信息反复出现，显得冗长。与表示相同信息的二进制数据相比，XML数据的容量要大得多，与其他文本表现方式相比（YAML，JSON）也显得冗长。</p>
+<p>效率低下不光体现在数据大小上，解析XML的效率也不怎么高。与二进制文件相比，XML文件的解析因为含有大量字符串处理，而容易变得很慢。</p>
+<p>作为文本的标记语言而诞生的XML，用其表现有一定结构的数据到底好不好还是个疑问。如果只是用于表现构造数据，比XML更有效率的格式还有很多。而且XML原则上只能表现树结构的数据。</p>
+<p>总结，XML作为出于通用目的的数据格式，效率很低，所谓很多优点，如果场合不对，也没多大意义。适才适用，XML也要分情况适当使用。</p>
+<h3 id="不适合重视效率的处理"><a href="#不适合重视效率的处理" class="headerlink" title="不适合重视效率的处理"></a>不适合重视效率的处理</h3><p>对于重视通信量和速度的情况都不适合，此时应使用专用的协议或是效率更高的格式。</p>
+<p>像配置文件那样靠人直接编辑的数据也不推荐XML。配置文件中，需要用到XML的树结构数据地方很少，随着要素数增加，就会很难读，用YMAL和JSON才更合适。</p>
+<p>XML适合的场合：</p>
+<ol>
+<li>人一般不直接接触</li>
+<li>复杂性不成问题</li>
+<li>效率不成为问题</li>
+<li>跨平台</li>
+</ol>
+<h3 id="适合于信息交换的格式"><a href="#适合于信息交换的格式" class="headerlink" title="适合于信息交换的格式"></a>适合于信息交换的格式</h3><p>利用XML的元格式性质，以XML为基础的格式的例子。</p>
+<ol>
+<li>RSS。Web网站更新信息。</li>
+<li>Atom。RSS的代替。</li>
+<li>ebXML。电子商务数据交换。</li>
+<li>SVG。向量-图像表示。</li>
+<li>SMIL。 多媒体及内容控制。</li>
+</ol>
+<p>以上这些都具有XML的性质，可以用XML处理工具简单地解析。制作数据格式时，最麻烦的就是制作处理这种格式的软件。所以，XML与XML处理库的存在是很可贵的。</p>
+<p>另外，XML数据库中，问题不在于数据是不是实际以纯文本XML来表现，而在于XML能够表现的树结构能够自由自在地操作。即，不是带标签的纯文本，而是由带属性、带内容的节点所构成的树结构本身才是最重要的。关系数据库的表只能表示间接数据，如果是树结构，可以直接操作直接表现的数据。</p>
+<h3 id="XML的解析"><a href="#XML的解析" class="headerlink" title="XML的解析"></a>XML的解析</h3><p>XML的解析方法有好几种。</p>
+<h4 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h4><p>DOM是文档对象模型的缩写，是对读取了XML数据的树结构进行操作的库。</p>
+<h4 id="SAX"><a href="#SAX" class="headerlink" title="SAX"></a>SAX</h4><p>Simple API for XML,与将数据全部读入内存的DOM不同，通常，SAX以数据流的形式读入XML，以事件驱动进行处理。SAX中，没必要将数据全部读入，这样往往处理效率更高，所以适合于将XML变换为其他形式的处理，反过来说，不适合于对树结构进行随机访问等用途。</p>
+<h4 id="XPath"><a href="#XPath" class="headerlink" title="XPath"></a>XPath</h4><p>XPath是用于指定XML树的一部分的书写格式。使用XPath，可以用节点名、属性名或是属性值等来选择特定的节点（群）。</p>
+<h3 id="XML处理库REXML"><a href="#XML处理库REXML" class="headerlink" title="XML处理库REXML"></a>XML处理库REXML</h3><p>REXML是Ruby标准附属的XML处理库。REXML是具有DOM、SAX、SAX2以及XML Pull Parser等多照片那个功能的库。全部用Ruby实现，所以速度表现不怎么优秀。在特别重视效率的情况下，有必要用libxml等别的XML处理库。</p>
+<h3 id="XML的代替"><a href="#XML的代替" class="headerlink" title="XML的代替"></a>XML的代替</h3><h4 id="JSON（JavaScript-Object-Notation）"><a href="#JSON（JavaScript-Object-Notation）" class="headerlink" title="JSON（JavaScript Object Notation）"></a>JSON（JavaScript Object Notation）</h4><p>JSON是把JavaScript的对象记法作为表现格式来使用。</p>
+<p>将JSON数据原封不动地作为JavaScript去执行，就可以得到数据表现所对应的对象。但是JSON数据从外部读取的情况较多，实际上作为JavaScript直接执行容易引起安全上的问题，即使效率稍稍低一些，也应当使用解析JSON的库。</p>
+<p>Ruby支持JSON。</p>
+<h4 id="YMAL（YMAL-ain’t-Markup-Language）"><a href="#YMAL（YMAL-ain’t-Markup-Language）" class="headerlink" title="YMAL（YMAL ain’t Markup Language）"></a>YMAL（YMAL ain’t Markup Language）</h4><p>YMAL是作为XML的对立面而诞生的，具有以下特征。完全放弃标记性记述，专注于数据表现；以缩进为基础表现数据结构；不要标签；可以对应各种语言。</p>
+<p>在用作数据表现及配置文件时，具有易读和不易变复杂等优点。实际上，YAML在Ruby on Rails中广泛用于配置文件。</p>
+<p>另一方面，YAML到底是数据表现语言，没有相当于schema的东西，不适合于带结构的文本表现及元数据格式。</p>
+<p>活用记号和缩进的YMAL比JSON更简洁，正如其名，YMAL不是标记语言，需要使用标记语言时还是XML合适。</p>
+<h4 id="Binary-XML"><a href="#Binary-XML" class="headerlink" title="Binary XML"></a>Binary XML</h4><p>与通常的XML有等价意义，但效率更高，采用二进制表现的是Binary XML。但现在还没有Binary XML的标准规格。</p>
+<h4 id="Protocol-Buffer"><a href="#Protocol-Buffer" class="headerlink" title="Protocol Buffer"></a>Protocol Buffer</h4><p>Protocol Buffer使用一种“数据描述语言”来定义数据结构，然后从这个定义生成一个库，将原始数据变为二进制表现（序列化）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">持久数据的重要性</span><br><span class="line">如果不是有了像纸和刻了文字的石头等经久不烂而且可以读出的媒介，将来人类文明说不定会遇到失去重要信息的危险。</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-07-24T11:34:20.000Z" itemprop="dateUpdated">2018-07-24 19:34:20</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/zdkswd">
+            <img src="/img/tmg.jpg" alt="ZDK">
+            ZDK
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/07/23/松本行弘的程序世界 13 关于数据的持久化/&title=ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/07/23/松本行弘的程序世界 13 关于数据的持久化/&title=ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/07/23/松本行弘的程序世界 13 关于数据的持久化/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=ZDK's blog&url=https://github.com/zdkswd/2018/07/23/松本行弘的程序世界 13 关于数据的持久化/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/07/23/松本行弘的程序世界 13 关于数据的持久化/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/07/23/松本行弘的程序世界 12 关于时间的处理/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">松本行弘的程序世界 12 关于时间的处理</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/07/21/松本行弘的程序世界 11 程序安全性/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">松本行弘的程序世界 11 程序安全性</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz",
+            appKey: "gkBx5soQkBREmER84PWbNJeM",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ZDK &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/07/23/松本行弘的程序世界 13 关于数据的持久化/&title=《No title》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/07/23/松本行弘的程序世界 13 关于数据的持久化/&title=《No title》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/07/23/松本行弘的程序世界 13 关于数据的持久化/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — ZDK's blog&url=https://github.com/zdkswd/2018/07/23/松本行弘的程序世界 13 关于数据的持久化/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/07/23/松本行弘的程序世界 13 关于数据的持久化/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2018/07/23/松本行弘的程序世界 13 关于数据的持久化/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'zdk'blog';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
