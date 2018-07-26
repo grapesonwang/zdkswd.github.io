@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | ZDK&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="松本行弘的程序世界 14 函数式编程新范型–函数式编程函数式编程是全部使用函数来编写程序代码的编程方法。这是可以与一般的结构化编程及面向对象编程相提并论的编程方法。 以函数为中心的函数式编程具有特征：  函数本身也作为数据来处理（第一级函数） 以函数为参数的高阶函数 参数相同即可保证结果相同的引用透明性。 为实现引用透明性，禁止产生副作用的处理。  函数式编程的最大优点在于，程序可以按照数学的形式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="https://github.com/zdkswd/2018/07/25/松本行弘的程序世界 14 函数式编程/index.html">
+<meta property="og:site_name" content="ZDK&#39;s blog">
+<meta property="og:description" content="松本行弘的程序世界 14 函数式编程新范型–函数式编程函数式编程是全部使用函数来编写程序代码的编程方法。这是可以与一般的结构化编程及面向对象编程相提并论的编程方法。 以函数为中心的函数式编程具有特征：  函数本身也作为数据来处理（第一级函数） 以函数为参数的高阶函数 参数相同即可保证结果相同的引用透明性。 为实现引用透明性，禁止产生副作用的处理。  函数式编程的最大优点在于，程序可以按照数学的形式">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/img/media/15324825297704/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-25%20%E4%B8%8A%E5%8D%8810.02.29.png">
+<meta property="og:image" content="https://github.com/img/media/15324825297704/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-25%20%E4%B8%8B%E5%8D%885.25.46.png">
+<meta property="og:image" content="https://github.com/img/media/15324825297704/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-25%20%E4%B8%8B%E5%8D%885.28.21.png">
+<meta property="og:image" content="https://github.com/img/media/15324825297704/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-25%20%E4%B8%8B%E5%8D%885.50.20.png">
+<meta property="og:image" content="https://github.com/img/media/15324825297704/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-26%20%E4%B8%8B%E5%8D%8812.01.29.png">
+<meta property="og:image" content="https://github.com/img/media/15324825297704/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-26%20%E4%B8%8B%E5%8D%8812.11.58.png">
+<meta property="og:image" content="https://github.com/img/media/15324825297704/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-26%20%E4%B8%8B%E5%8D%8812.33.58.png">
+<meta property="og:image" content="https://github.com/img/media/15324825297704/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-26%20%E4%B8%8B%E5%8D%885.36.05.png">
+<meta property="og:image" content="https://github.com/img/media/15324825297704/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-26%20%E4%B8%8B%E5%8D%887.09.31.png">
+<meta property="og:image" content="https://github.com/img/media/15324825297704/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-26%20%E4%B8%8B%E5%8D%887.13.48.png">
+<meta property="og:image" content="https://github.com/img/media/15324825297704/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-26%20%E4%B8%8B%E5%8D%888.52.32.png">
+<meta property="og:updated_time" content="2018-07-26T13:09:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="松本行弘的程序世界 14 函数式编程新范型–函数式编程函数式编程是全部使用函数来编写程序代码的编程方法。这是可以与一般的结构化编程及面向对象编程相提并论的编程方法。 以函数为中心的函数式编程具有特征：  函数本身也作为数据来处理（第一级函数） 以函数为参数的高阶函数 参数相同即可保证结果相同的引用透明性。 为实现引用透明性，禁止产生副作用的处理。  函数式编程的最大优点在于，程序可以按照数学的形式">
+<meta name="twitter:image" content="https://github.com/img/media/15324825297704/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-25%20%E4%B8%8A%E5%8D%8810.02.29.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/tmg.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ZDK</h5>
+          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/zdkswd" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-07-25T01:35:29.000Z" itemprop="datePublished" class="page-time">
+  2018-07-25
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#松本行弘的程序世界-14-函数式编程"><span class="post-toc-number">1.</span> <span class="post-toc-text">松本行弘的程序世界 14 函数式编程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#新范型–函数式编程"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">新范型–函数式编程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#具有多种函数式性质的Lisp"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">具有多种函数式性质的Lisp</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#彻底的函数式编程语言Haskell"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">彻底的函数式编程语言Haskell</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#没有副作用"><span class="post-toc-number">1.1.2.1.</span> <span class="post-toc-text">没有副作用</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#高阶函数"><span class="post-toc-number">1.1.2.2.</span> <span class="post-toc-text">高阶函数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#延迟计算：不必要的处理就不做"><span class="post-toc-number">1.1.2.3.</span> <span class="post-toc-text">延迟计算：不必要的处理就不做</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#灵活的“静态多态性”类型系统"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">灵活的“静态多态性”类型系统</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#近代函数式语言之父OCaml"><span class="post-toc-number">1.1.4.</span> <span class="post-toc-text">近代函数式语言之父OCaml</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#强于并行计算的Erlang"><span class="post-toc-number">1.1.5.</span> <span class="post-toc-text">强于并行计算的Erlang</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#用Ruby进行函数式编程"><span class="post-toc-number">1.1.6.</span> <span class="post-toc-text">用Ruby进行函数式编程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Proc对象（lambda）"><span class="post-toc-number">1.1.6.1.</span> <span class="post-toc-text">Proc对象（lambda）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#程序块"><span class="post-toc-number">1.1.6.2.</span> <span class="post-toc-text">程序块</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#枚举器"><span class="post-toc-number">1.1.6.3.</span> <span class="post-toc-text">枚举器</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#避免副作用"><span class="post-toc-number">1.1.6.4.</span> <span class="post-toc-text">避免副作用</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#用枚举器来实现延迟计算"><span class="post-toc-number">1.1.7.</span> <span class="post-toc-text">用枚举器来实现延迟计算</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#自动生成代码"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">自动生成代码</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#在商业中利用Ruby"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">在商业中利用Ruby</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用Ruby自动生成代码"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">使用Ruby自动生成代码</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#消除重复代码"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">消除重复代码</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码生成的应用"><span class="post-toc-number">1.2.4.</span> <span class="post-toc-text">代码生成的应用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#数据库访问"><span class="post-toc-number">1.2.4.1.</span> <span class="post-toc-text">数据库访问</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#用户接口"><span class="post-toc-number">1.2.4.2.</span> <span class="post-toc-text">用户接口</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#单元测试"><span class="post-toc-number">1.2.4.3.</span> <span class="post-toc-text">单元测试</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#客户界面"><span class="post-toc-number">1.2.4.4.</span> <span class="post-toc-text">客户界面</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#文档化"><span class="post-toc-number">1.2.4.5.</span> <span class="post-toc-text">文档化</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码生成的效果"><span class="post-toc-number">1.2.5.</span> <span class="post-toc-text">代码生成的效果</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#编写代码生成器"><span class="post-toc-number">1.2.6.</span> <span class="post-toc-text">编写代码生成器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#也可以使用XML"><span class="post-toc-number">1.2.7.</span> <span class="post-toc-text">也可以使用XML</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#在EJB中使用代码生成"><span class="post-toc-number">1.2.8.</span> <span class="post-toc-text">在EJB中使用代码生成</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#内存管理与垃圾收集"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">内存管理与垃圾收集</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#内存管理的困难"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">内存管理的困难</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#悬挂指针"><span class="post-toc-number">1.3.1.1.</span> <span class="post-toc-text">悬挂指针</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#内存泄漏"><span class="post-toc-number">1.3.1.2.</span> <span class="post-toc-text">内存泄漏</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#二重释放"><span class="post-toc-number">1.3.1.3.</span> <span class="post-toc-text">二重释放</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#垃圾收集亮相之前"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">垃圾收集亮相之前</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#垃圾收集慢"><span class="post-toc-number">1.3.2.1.</span> <span class="post-toc-text">垃圾收集慢</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#垃圾收集可靠性低"><span class="post-toc-number">1.3.2.2.</span> <span class="post-toc-text">垃圾收集可靠性低</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#评价垃圾收集的两个指标"><span class="post-toc-number">1.3.3.</span> <span class="post-toc-text">评价垃圾收集的两个指标</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#吞吐量"><span class="post-toc-number">1.3.3.1.</span> <span class="post-toc-text">吞吐量</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#暂停时间"><span class="post-toc-number">1.3.3.2.</span> <span class="post-toc-text">暂停时间</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#垃圾收集算法"><span class="post-toc-number">1.3.4.</span> <span class="post-toc-text">垃圾收集算法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#引用计数方式"><span class="post-toc-number">1.3.5.</span> <span class="post-toc-text">引用计数方式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#标记和扫除方式"><span class="post-toc-number">1.3.6.</span> <span class="post-toc-text">标记和扫除方式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#标记和紧缩方式"><span class="post-toc-number">1.3.7.</span> <span class="post-toc-text">标记和紧缩方式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#复制方式"><span class="post-toc-number">1.3.8.</span> <span class="post-toc-text">复制方式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#多种多样的垃圾收集算法"><span class="post-toc-number">1.3.9.</span> <span class="post-toc-text">多种多样的垃圾收集算法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#分代垃圾收集"><span class="post-toc-number">1.3.10.</span> <span class="post-toc-text">分代垃圾收集</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#保守垃圾收集"><span class="post-toc-number">1.3.11.</span> <span class="post-toc-text">保守垃圾收集</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#增量垃圾收集"><span class="post-toc-number">1.3.12.</span> <span class="post-toc-text">增量垃圾收集</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#并行垃圾收集"><span class="post-toc-number">1.3.13.</span> <span class="post-toc-text">并行垃圾收集</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#位图标记"><span class="post-toc-number">1.3.14.</span> <span class="post-toc-text">位图标记</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#用C语言来扩展Ruby"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">用C语言来扩展Ruby</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#开发与执行速度的取舍"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">开发与执行速度的取舍</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#扩展库"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">扩展库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#扩展库的编译"><span class="post-toc-number">1.4.3.</span> <span class="post-toc-text">扩展库的编译</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#扩展库之外的工具"><span class="post-toc-number">1.4.4.</span> <span class="post-toc-text">扩展库之外的工具</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#RubyInline"><span class="post-toc-number">1.4.4.1.</span> <span class="post-toc-text">RubyInline</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#dl"><span class="post-toc-number">1.4.4.2.</span> <span class="post-toc-text">dl</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#ffi"><span class="post-toc-number">1.4.4.3.</span> <span class="post-toc-text">ffi</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#为什么要开源"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">为什么要开源</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#自由软件的思想"><span class="post-toc-number">1.5.1.</span> <span class="post-toc-text">自由软件的思想</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#自由软件的历史"><span class="post-toc-number">1.5.2.</span> <span class="post-toc-text">自由软件的历史</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Emacs事件的发生"><span class="post-toc-number">1.5.3.</span> <span class="post-toc-text">Emacs事件的发生</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#开源的诞生"><span class="post-toc-number">1.5.4.</span> <span class="post-toc-text">开源的诞生</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#OSS许可证"><span class="post-toc-number">1.5.5.</span> <span class="post-toc-text">OSS许可证</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#GPL"><span class="post-toc-number">1.5.5.1.</span> <span class="post-toc-text">GPL</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#LGPL"><span class="post-toc-number">1.5.5.2.</span> <span class="post-toc-text">LGPL</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#BSD许可证"><span class="post-toc-number">1.5.5.3.</span> <span class="post-toc-text">BSD许可证</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#APL和CPL"><span class="post-toc-number">1.5.5.4.</span> <span class="post-toc-text">APL和CPL</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#开源的背景"><span class="post-toc-number">1.5.6.</span> <span class="post-toc-text">开源的背景</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#企业关注开源的理由"><span class="post-toc-number">1.5.7.</span> <span class="post-toc-text">企业关注开源的理由</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Ruby与开源"><span class="post-toc-number">1.5.8.</span> <span class="post-toc-text">Ruby与开源</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#选择许可证的方法"><span class="post-toc-number">1.5.9.</span> <span class="post-toc-text">选择许可证的方法</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-松本行弘的程序世界 14 函数式编程"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-07-25 09:35:29" datetime="2018-07-25T01:35:29.000Z"  itemprop="datePublished">2018-07-25</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="松本行弘的程序世界-14-函数式编程"><a href="#松本行弘的程序世界-14-函数式编程" class="headerlink" title="松本行弘的程序世界 14 函数式编程"></a>松本行弘的程序世界 14 函数式编程</h1><h2 id="新范型–函数式编程"><a href="#新范型–函数式编程" class="headerlink" title="新范型–函数式编程"></a>新范型–函数式编程</h2><p>函数式编程是全部使用函数来编写程序代码的编程方法。这是可以与一般的结构化编程及面向对象编程相提并论的编程方法。</p>
+<p>以函数为中心的函数式编程具有特征：</p>
+<ol>
+<li>函数本身也作为数据来处理（第一级函数）</li>
+<li>以函数为参数的高阶函数</li>
+<li>参数相同即可保证结果相同的引用透明性。</li>
+<li>为实现引用透明性，禁止产生副作用的处理。</li>
+</ol>
+<p>函数式编程的最大优点在于，程序可以按照数学的形式以及声明的形式来编写。</p>
+<p>结构式编程是在改变变量值的同时进行计算，所以一直注意着，这个变量的值是什么，并据此来预想计算过程。</p>
+<p>采用函数式编程方式并不改变变量的值。并不包含状态或者动作等信息，仅仅是对想要做什么加以描述，这样不容易出错。</p>
+<p>这种不是描述动作而是描述性质的编程方式称为<strong>声明式编程</strong>。声明式描述是函数式编程的一大优点。</p>
+<h3 id="具有多种函数式性质的Lisp"><a href="#具有多种函数式性质的Lisp" class="headerlink" title="具有多种函数式性质的Lisp"></a>具有多种函数式性质的Lisp</h3><p>之前，Lisp被认为是函数式编程的代表。Lisp具备函数式语言的很多性质。</p>
+<p>Lisp最大的特征是S式记法。S式是括号很多的Lisp的记法。S式无与伦比的优点是它彻底的统一性。对Lisp而言，不管什么都可以同一成单一形式。</p>
+<p>第二个重要之处在于链这种数据结构。Lisp语言本名是List Processor（链表处理器），从侧面说明了链的重要性。链是一种构成树结构数据的通用数据结构，构成数据结构的节点分别包含两个引用。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15324825297704/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-25%20%E4%B8%8A%E5%8D%8810.02.29.png" alt="屏幕快照 2018-07-25 上午10.02.29" title="">
+                </div>
+                <div class="image-caption">屏幕快照 2018-07-25 上午10.02.29</div>
+            </figure></p>
+<p>总之，Lisp具备了函数编程语言的基本特征。但是Lisp不直接支持多数纯粹的函数式编程语言所拥有的副作用如回避以及延迟计算等功能。对变量的赋值没有任何限制。且编程风格为很多很多括号。比较难适应。</p>
+<p>近年来，由于像Haskell这样的彻底的函数式编程语言的兴起，Lisp作为函数式编程语言在人们心中的印象越来越淡薄。</p>
+<h3 id="彻底的函数式编程语言Haskell"><a href="#彻底的函数式编程语言Haskell" class="headerlink" title="彻底的函数式编程语言Haskell"></a>彻底的函数式编程语言Haskell</h3><p>Haskell可以说是纯粹的函数式编程语言。<br>Haskell语言特征：</p>
+<ol>
+<li>没有副作用</li>
+<li>高阶函数</li>
+<li>函数部分应用</li>
+<li>延迟计算(非正式)</li>
+<li>静态多态类型系统</li>
+<li>型推论</li>
+<li>链内包表达式</li>
+<li>用对齐来表示块</li>
+</ol>
+<h4 id="没有副作用"><a href="#没有副作用" class="headerlink" title="没有副作用"></a>没有副作用</h4><p>Haskell程序基本没有副作用，不但不能改变变量的值，就连链的元素也是不能改变的。因此，只要参数不变，函数的返回值也就总是一样的。相同输入总能返回相同结果，这种可重复性对测试程序非常有利。这种重复性也称为引用透明性。</p>
+<h4 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h4><p>Haskell高阶函数把函数本身作为数据来处理。比如，Haskell中没有循环控制结构，循环都是用递归调用或者高阶函数来实现的。</p>
+<h4 id="延迟计算：不必要的处理就不做"><a href="#延迟计算：不必要的处理就不做" class="headerlink" title="延迟计算：不必要的处理就不做"></a>延迟计算：不必要的处理就不做</h4><p>必要时才进行处理。</p>
+<h3 id="灵活的“静态多态性”类型系统"><a href="#灵活的“静态多态性”类型系统" class="headerlink" title="灵活的“静态多态性”类型系统"></a>灵活的“静态多态性”类型系统</h3><p>与没有类型的Ruby不同，Haskell是在编译时确定所有变量类型的静态类型语言。但实际上Haskell程序基本上没有必要给出变量的类型。这是因为聪明的Haskell语言处理系统会推测变量的类型。</p>
+<p>Haskell利用多态性的类型系统和系统推测，在维持着接近于duck typing灵活性的同时，也使编译时的完全类型检查成为可能。</p>
+<h3 id="近代函数式语言之父OCaml"><a href="#近代函数式语言之父OCaml" class="headerlink" title="近代函数式语言之父OCaml"></a>近代函数式语言之父OCaml</h3><p>OCaml也是具有代表性的函数式编程语言之一。它比Haskell还古老，说它是近代函数式语言之父也毫不为过。</p>
+<p>与Haskell相比，OCaml具有如下不同：</p>
+<ol>
+<li>没有副作用</li>
+<li>没有延迟计算</li>
+<li>具有强力的模块系统</li>
+</ol>
+<p>虽然不像Haskell那样自然地做到延迟计算，但换来的好处是，程序内容与实际处理关系接近，使人容易理解程序的执行过程。</p>
+<h3 id="强于并行计算的Erlang"><a href="#强于并行计算的Erlang" class="headerlink" title="强于并行计算的Erlang"></a>强于并行计算的Erlang</h3><p>作为函数式编程语言，二郎的特点</p>
+<ol>
+<li>受Prolog影响</li>
+<li>专用于并行计算</li>
+</ol>
+<h3 id="用Ruby进行函数式编程"><a href="#用Ruby进行函数式编程" class="headerlink" title="用Ruby进行函数式编程"></a>用Ruby进行函数式编程</h3><p>Ruby中有几个能进行函数式编程的工具</p>
+<h4 id="Proc对象（lambda）"><a href="#Proc对象（lambda）" class="headerlink" title="Proc对象（lambda）"></a>Proc对象（lambda）</h4><p>Ruby中唯一与函数直接对应的是Proc对象。</p>
+<h4 id="程序块"><a href="#程序块" class="headerlink" title="程序块"></a>程序块</h4><p>以程序块为参数的方法等价于函数型语言的高阶函数。灵活运用以程序块为参数的方法，就可以实现函数式编程的高阶函数的技巧。</p>
+<h4 id="枚举器"><a href="#枚举器" class="headerlink" title="枚举器"></a>枚举器</h4><p>Ruby中没有延迟计算，但用枚举器对数组和列表进行循环，可以实现类似于延迟计算的处理。</p>
+<h4 id="避免副作用"><a href="#避免副作用" class="headerlink" title="避免副作用"></a>避免副作用</h4><p>所谓避免副作用，就是对生成的对象，尽量少去改变其状态。</p>
+<h3 id="用枚举器来实现延迟计算"><a href="#用枚举器来实现延迟计算" class="headerlink" title="用枚举器来实现延迟计算"></a>用枚举器来实现延迟计算</h3><p>从Ruby1.8.7开始，很多以块为参数的方法在参数不是块的时候，就会返回枚举器。</p>
+<p>枚举器就是把循环用对象来表达的一种方法。</p>
+<p>使用这样的枚举器可以实现与Haskell类似的延迟计算。</p>
+<h2 id="自动生成代码"><a href="#自动生成代码" class="headerlink" title="自动生成代码"></a>自动生成代码</h2><h3 id="在商业中利用Ruby"><a href="#在商业中利用Ruby" class="headerlink" title="在商业中利用Ruby"></a>在商业中利用Ruby</h3><h3 id="使用Ruby自动生成代码"><a href="#使用Ruby自动生成代码" class="headerlink" title="使用Ruby自动生成代码"></a>使用Ruby自动生成代码</h3><p>编程中的代码重复是非常恶劣的。发现了代码重复，就应该考虑在合理的代价范围内避免代码重复的方法。</p>
+<h3 id="消除重复代码"><a href="#消除重复代码" class="headerlink" title="消除重复代码"></a>消除重复代码</h3><p>为了在构建程序的时候，自动生成省略部分，我们只需要定义make的规则、在构建程序的过程中调用代码生成工具。</p>
+<h3 id="代码生成的应用"><a href="#代码生成的应用" class="headerlink" title="代码生成的应用"></a>代码生成的应用</h3><h4 id="数据库访问"><a href="#数据库访问" class="headerlink" title="数据库访问"></a>数据库访问</h4><p>从数据结构定义自动生成数据库的访问例程（包括SQL）。</p>
+<h4 id="用户接口"><a href="#用户接口" class="headerlink" title="用户接口"></a>用户接口</h4><p>大多数依赖于数据库的Web应用程序，常常需要对表的各项目进行增删改查操作。</p>
+<h4 id="单元测试"><a href="#单元测试" class="headerlink" title="单元测试"></a>单元测试</h4><p>代码生成对单元测试也很有效果。只要有数据和测试条件，就可以开始单元测试。</p>
+<h4 id="客户界面"><a href="#客户界面" class="headerlink" title="客户界面"></a>客户界面</h4><h4 id="文档化"><a href="#文档化" class="headerlink" title="文档化"></a>文档化</h4><p>代码生成也适合与文档化。对于自动生成的类，由人工记入档案是纯粹的浪费。按照JavaDoc的形式，在生成代码的程序里写好相应的文档，应该是个聪明的办法。</p>
+<h3 id="代码生成的效果"><a href="#代码生成的效果" class="headerlink" title="代码生成的效果"></a>代码生成的效果</h3><p>代码生成有如下好处：</p>
+<ol>
+<li>改进质量。</li>
+<li>确保一致性</li>
+<li>集中知识。</li>
+<li>增加用于设计的时间。</li>
+<li>独立于程序实现的设计判断</li>
+</ol>
+<h3 id="编写代码生成器"><a href="#编写代码生成器" class="headerlink" title="编写代码生成器"></a>编写代码生成器</h3><p>对代码生成最有帮助的工具要数eRuby。Ruby本身也拥有优越的文本处理功能。使用eRuby以比较自然地形式编写模板的同时，还可以灵活运用Ruby的处理能力。</p>
+<h3 id="也可以使用XML"><a href="#也可以使用XML" class="headerlink" title="也可以使用XML"></a>也可以使用XML</h3><p>幸运的是，Ruby拥有解释XML的标准库REXML。REXML提供操作XML的功能。</p>
+<h3 id="在EJB中使用代码生成"><a href="#在EJB中使用代码生成" class="headerlink" title="在EJB中使用代码生成"></a>在EJB中使用代码生成</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EJB (Enterprise JavaBean)是J2EE(javaEE)的一部分</span><br></pre></td></tr></table></figure>
+<h2 id="内存管理与垃圾收集"><a href="#内存管理与垃圾收集" class="headerlink" title="内存管理与垃圾收集"></a>内存管理与垃圾收集</h2><p>垃圾收集（GC）是一种管理程序使用的内存区域的方法。使用具有垃圾收集功能的编程语言或处理程序的话，程序中不需要编写内存管理的代码，即不用编写代码来释放使用过的内存区域。</p>
+<h3 id="内存管理的困难"><a href="#内存管理的困难" class="headerlink" title="内存管理的困难"></a>内存管理的困难</h3><p>在垃圾收集普及之前，内存区域的取得和释放完全是程序员的责任。随着程序的执行，会使用一些内存区域作为作业区。为记忆对象、字符串和数组等个别信息，都需要使用内存区域。没有垃圾收集的语言一般都提供有API，利用这些API，可以再需要时向操作系统申请并取得内存，使用过之后再把内存区域返回给操作系统。</p>
+<h4 id="悬挂指针"><a href="#悬挂指针" class="headerlink" title="悬挂指针"></a>悬挂指针</h4><p>如果把还在使用中的内存区域错误调用free予以释放的话，就会发生悬挂指针的现象。程序再去访问该区域时就可能会出错。在引用该区域内容时，多数场合会读取到被破坏的数据，或是在更新该领域数据的时候，会置换成预想之外的数据。</p>
+<h4 id="内存泄漏"><a href="#内存泄漏" class="headerlink" title="内存泄漏"></a>内存泄漏</h4><p>另一方面，如果忘记了把申请的内存区域返还给操作系统的话，就会发生内存泄漏。这时候因为使用过的内存区域越来越多，程序占有的内存就会逐渐增加。特别是长时间启动，连续提供服务的常驻内存型程序，容易发生内存泄漏，导致系统停止等重大问题。</p>
+<h4 id="二重释放"><a href="#二重释放" class="headerlink" title="二重释放"></a>二重释放</h4><p>对已经释放过的内存区域再次调用free的情况也时有发生。这称为二重释放。这会带来malloc和free内部使用的数据区域不一致的问题。</p>
+<p>内存泄漏问题只有在内存占用量超过预想的时候才会显露，而悬挂指针问题不会发生在释放使用内存的时刻，而是要到访问释放过的内存区域才会出现。程序员往往会在看起来完全没有问题的地方突然遭遇意想不到的错误。</p>
+<h3 id="垃圾收集亮相之前"><a href="#垃圾收集亮相之前" class="headerlink" title="垃圾收集亮相之前"></a>垃圾收集亮相之前</h3><p>应该管理的内存区域越来越多，内存释放时刻的管理也就越来越难，这是产生内存问题的原因。</p>
+<p>关于垃圾收集，有以下这些先入为主的观念。</p>
+<h4 id="垃圾收集慢"><a href="#垃圾收集慢" class="headerlink" title="垃圾收集慢"></a>垃圾收集慢</h4><p>有研究表明，在某些条件下，垃圾收集比手工管理内存还更快。</p>
+<h4 id="垃圾收集可靠性低"><a href="#垃圾收集可靠性低" class="headerlink" title="垃圾收集可靠性低"></a>垃圾收集可靠性低</h4><p>在Java之后诞生的编程语言，不管是否受到Lisp的影响，几乎都毫无例外的拥有垃圾收集的功能。垃圾收集从诞生之日起，经历了40多年的发展，终于成为大家认可的一项特性了。</p>
+<h3 id="评价垃圾收集的两个指标"><a href="#评价垃圾收集的两个指标" class="headerlink" title="评价垃圾收集的两个指标"></a>评价垃圾收集的两个指标</h3><p>假如存在无线内存的计算机的话，就没有必要进行垃圾收集。</p>
+<p>垃圾收集的性能可以由两个指标来测定：</p>
+<h4 id="吞吐量"><a href="#吞吐量" class="headerlink" title="吞吐量"></a>吞吐量</h4><p>吞吐量是垃圾收集处理在程序全部执行时间中所占的比例。比例越小越好，比例大的话，程序整体的性能就会低下。</p>
+<h4 id="暂停时间"><a href="#暂停时间" class="headerlink" title="暂停时间"></a>暂停时间</h4><p>暂停时间是一次垃圾收集处理所中断的时间。暂停时间过长的话，处理的中断时间就会变得很显眼，程序反应就会变慢。</p>
+<p>垃圾收集每次所花的时间会因垃圾收集执行时对象的总数而变化，暂停时间有两种，一是把垃圾收集时间求平均值得到平均暂停时间，二是程序执行中最长的垃圾收集时间所代表的最大暂停时间。</p>
+<p>那些实时性要求高的程序，就很重视最大暂停时间。像批处理这样非对话的处理强调吞吐量要高，而重视反应速度的嵌入式或者GUI程序就强调暂停时间要短。</p>
+<p>Java运行环境中实现由多种垃圾收集算法，可以根据程序的性质来切换合适的垃圾收集算法。</p>
+<h3 id="垃圾收集算法"><a href="#垃圾收集算法" class="headerlink" title="垃圾收集算法"></a>垃圾收集算法</h3><p>基本上是以下4类，还有几种变形：</p>
+<ol>
+<li>引用计数方式</li>
+<li>标记和扫除方式</li>
+<li>标记和紧缩方式</li>
+<li>复制方式</li>
+</ol>
+<h3 id="引用计数方式"><a href="#引用计数方式" class="headerlink" title="引用计数方式"></a>引用计数方式</h3><p>引用计数方式在垃圾收集算法中具有最简单最容易实现的特征。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15324825297704/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-25%20%E4%B8%8B%E5%8D%885.25.46.png" alt="屏幕快照 2018-07-25 下午5.25.46" title="">
+                </div>
+                <div class="image-caption">屏幕快照 2018-07-25 下午5.25.46</div>
+            </figure><br>引用计数器最大的优点就是容易实现。这种方式得到广泛的使用。暂停时间短也是它的优点。</p>
+<p>最大的缺点是不能释放有循环引用关系的对象群。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15324825297704/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-25%20%E4%B8%8B%E5%8D%885.28.21.png" alt="屏幕快照 2018-07-25 下午5.28.21" title="">
+                </div>
+                <div class="image-caption">屏幕快照 2018-07-25 下午5.28.21</div>
+            </figure><br>与生俱来的缺点，因为在引用增减的时候有必要同时正确维护引用计数器的增减，忘了这一点就会带来悬挂指针或内存泄露问题。</p>
+<p>最后一个缺点是，引用计数器的管理与并行处理不相容。如果多个进程同时增减一个引用计数器的话，就会发生引用计数器的值不一致的现象。为避免这一个问题，需要在操作引用计数器的时候进行排他处理，但在频繁发生引用操作的同时进行排他处理的话，会带来巨大的时间开销。</p>
+<p>总之，这种原理简单实现也简单的引用计数器方式，缺点很多，最近已经不怎么用了。</p>
+<p>采用引用计数器方式的主要语言处理系统有Perl和Python。为了回避循环引用的问题，它们都组合了其他垃圾收集方式。这些语言基本上以引用计数器方式来进行垃圾收集，只有在极个别的情况下，才通过别的垃圾收集算法来处理引用计数器不能回收的对象。</p>
+<h3 id="标记和扫除方式"><a href="#标记和扫除方式" class="headerlink" title="标记和扫除方式"></a>标记和扫除方式</h3><p>标记和扫除方式也是古老的垃圾收集算法。<br>标记和扫除方式从有可能成为对象引用元的变数（根）开始，给被引用的对象加上标记，表明其“活着”。然后再给标记对象所引用的对象还有其再引用的对象，也都递归地加上引用标记。</p>
+<p>这样从根开始不管是直接还是间接，只要把所有引用的对象都加上标记的话，那么没有标记的对象就是没有被引用的，也就是“已经死了”。然后在所有的对象中找出没有标记的对象，把它们作为垃圾扫除出去。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15324825297704/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-25%20%E4%B8%8B%E5%8D%885.50.20.png" alt="屏幕快照 2018-07-25 下午5.50.20" title="">
+                </div>
+                <div class="image-caption">屏幕快照 2018-07-25 下午5.50.20</div>
+            </figure><br>此法虽然古老，但是非常优秀，现在也还被多种处理系统所采用。</p>
+<p>但是当对象数目较多时，性能容易恶化。在标记的时候要访问生存的所有对象，在回收时按顺序访问所有的对象，找出”已经死了“的对象。在寻找垃圾和扫除过程中，基本不能进行其他处理，垃圾收集时间长的话，会影响到本来的处理工作。</p>
+<h3 id="标记和紧缩方式"><a href="#标记和紧缩方式" class="headerlink" title="标记和紧缩方式"></a>标记和紧缩方式</h3><p>标记和紧缩方式是标记和扫除的变形。标记处理是一样的，后阶段有所不同。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15324825297704/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-26%20%E4%B8%8B%E5%8D%8812.01.29.png" alt="屏幕快照 2018-07-26 下午12.01.29" title="">
+                </div>
+                <div class="image-caption">屏幕快照 2018-07-26 下午12.01.29</div>
+            </figure><br>标记和紧缩方式最大的特征也是他的优越之处，是把空间集中起来（紧缩）。紧缩的结果是把没有释放而活下来的对象都集中到一个地方。这样，内存访问就集中到一个局部区域，这可以提高缓存功能的效率。对象的分配也只是把指针移动一下就完成了，降低了对象分配的开销。</p>
+<p>缺点是，把生存着的对象全部复制的紧缩开销，容易比标记和扫除方式中执行的开销还要大。因为对象被移动位置了。</p>
+<p>一部分Lisp处理系统采用的是标记和紧缩方式，Java处理系统（作为多个垃圾收集算法中的一个）也有标记和紧缩方式。</p>
+<h3 id="复制方式"><a href="#复制方式" class="headerlink" title="复制方式"></a>复制方式</h3><p>像标记和扫除方式、标记和紧缩方式这样“标记之后释放死了的对象”的算法，标记时间与活着的对象数成比例，扫除时间与总对象数成比例。所以在分配有很多的对象，其中几乎所有对象都要被释放的场合，扫除的开销会变高，在性能方面很不利。</p>
+<p>复制方式与标记和扫除方式一样，从根开始扫描所有的对象，但他不仅仅是加标记，还执行复制。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15324825297704/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-26%20%E4%B8%8B%E5%8D%8812.11.58.png" alt="屏幕快照 2018-07-26 下午12.11.58" title="">
+                </div>
+                <div class="image-caption">屏幕快照 2018-07-26 下午12.11.58</div>
+            </figure><br>复制方式把内存空间分成旧空间和新空间两大块，总是在旧空间中分配对象。旧空间爆满时，从根开始扫描对象，把对象复制到新空间。这时，复制后的引用也要随之更新。</p>
+<p>递归的执行从旧空间到新空间的复制，结束时就会把所有活着的对象都移动到新空间。不再被引用的对象都遗留到旧空间，旧空间就可以整个弃之不用，就避免了扫除的开销，从此再把新空间作为旧空间再进行同样的处理。</p>
+<p>最大的优点是，垃圾回收的开销只和活着的对象数成比例。对象分配的开销也低。还有“局部性”的优点。复制方式按顺序把引用的对象复制到新空间，关系近的对象会被分配到相近的内存空间，称为局部性。关系近的对象被访问的可能性也高。计算机因为有缓存，内存空间相接近的访问可能具有较好的性能，局部性高的程序具有提高性能的优势。</p>
+<p>缺点：复制方式要复制所有活着的对象，几乎具有和标记和紧缩方式一样的缺点。</p>
+<h3 id="多种多样的垃圾收集算法"><a href="#多种多样的垃圾收集算法" class="headerlink" title="多种多样的垃圾收集算法"></a>多种多样的垃圾收集算法</h3><p>把基本算法组合起来的技术，几个具有代表性的：</p>
+<ol>
+<li>分代垃圾收集</li>
+<li>保守垃圾收集</li>
+<li>增量垃圾收集</li>
+<li>并行垃圾收集</li>
+<li>位图标志</li>
+</ol>
+<p>这些技术的组合也是有可能的。</p>
+<h3 id="分代垃圾收集"><a href="#分代垃圾收集" class="headerlink" title="分代垃圾收集"></a>分代垃圾收集</h3><p>分代垃圾收集的基本思想是利用程序和对象的性质。一般程序都有这样一个性质，几乎所有的对象都在比较短的时间里变成垃圾，存活时间超过一定程度的对象总是拥有更长的寿命。</p>
+<p>因为这一性质，就可以重点对分配之后的年轻对象进行扫描，这样就不用扫描全部对象就可能高效率地回收垃圾。</p>
+<p>分代垃圾收集把对象的内存空间分成两个，新代和旧代，也有分成3个的。</p>
+<p>只扫描新代区域的回收称为轻垃圾收集，但没有检查旧代区域对新代的引用，被引用的对象可能误判死亡，就会带来内存问题。</p>
+<p>解决这一问题的方法是，监视对象的更新。在旧代区域引用新代区域的同时，就把这一引用的记录例程以及对象的更新场所全都记录下来，这个检查例程叫做<strong>写屏障</strong>，记录旧代区域对新代区域的引用叫<strong>记录集</strong>。</p>
+<p>以所有区域对象的垃圾收集称为全垃圾收集或重垃圾收集。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15324825297704/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-26%20%E4%B8%8B%E5%8D%8812.33.58.png" alt="屏幕快照 2018-07-26 下午12.33.58" title="">
+                </div>
+                <div class="image-caption">屏幕快照 2018-07-26 下午12.33.58</div>
+            </figure><br>分代垃圾收集减少了扫描对象的个数，有缩短平均暂停时间的效果。但是，因为要执行全垃圾收集，最大暂停时间不会得到明显的改善。</p>
+<p>最近几乎所有的Java都实现有分代垃圾收集。另外，函数型语言OCaml也采用了分代垃圾收集。</p>
+<h3 id="保守垃圾收集"><a href="#保守垃圾收集" class="headerlink" title="保守垃圾收集"></a>保守垃圾收集</h3><p>像C这种本来没有垃圾收集的语言，编译之后没有保留区别整数和指针的信息，因为CPU对两者不加区分，所以也就没这个必要。通常，垃圾收集的实现需要明确区分引用（指针），而C和C++没有这样的功能，在这样的环境下实现垃圾收集的技巧之一称为保守垃圾收集。</p>
+<p>其基本思想就是如果碰巧有整数的值与引用相同的话，该对象就有可能被引用，就当它是活着的。保守就是倾向于安全的意思。与此相对，能够明确区别所用的环境下的垃圾收集称为精确垃圾收集。</p>
+<p>因为倾向于安全一面，保守垃圾收集在C或者C++这样没有垃圾收集功能的语言中也可以得到实现，这是它的优点。但是，本来应该回收的对象却在意料之外保留下来不能回收，这是它的缺点。以及，它不能喝复制垃圾收集这样需要移动的垃圾收集算法组合使用。</p>
+<p><strong>Ruby采用的是保守垃圾收集。</strong>局部变量可以按照通常语言的访问路径来处理，系统堆栈部分是当做指针数组来扫描的。Ruby大部分是用C编写的，因为有了保守垃圾收集，C库的实现变得非常简单。实际上，Python和Perl因为采用的是引用计数器，C例程内部的引用数管理非常复杂，偶然忘记增减就会发生内存问题。但是，用C编写Ruby扩展库时，基本上不用操心内存管理，好处十分明显。</p>
+<p>Boehm GC为C和C++增加了垃圾收集功能。Boehm GC也同时实现了分代垃圾收集。Boehm GC不仅用于C和C++，在Scheme处理系统Gauche等多种语言处理系统中，也作为垃圾收集功能得到广泛的应用。</p>
+<h3 id="增量垃圾收集"><a href="#增量垃圾收集" class="headerlink" title="增量垃圾收集"></a>增量垃圾收集</h3><p>在实时性要求高的程序中，垃圾收集带来的中断时间必须是可预测的。为保证实时性，不需要等垃圾收集完全执行结束，而是要把垃圾收集细分正许多细小的片段，每次执行一点，这叫增量垃圾收集。</p>
+<p>增量垃圾收集在垃圾收集处理过程中程序也在同时执行，引用有可能会改变。结果是垃圾收集的一致性不能得到保证。增量垃圾收集为避免这样的问题，采用了与保守垃圾收集相同的写屏蔽操作。</p>
+<p>嵌入式处理系统采用的是增量垃圾收集。有名的Io和Lua都实现了增量垃圾收集。</p>
+<h3 id="并行垃圾收集"><a href="#并行垃圾收集" class="headerlink" title="并行垃圾收集"></a>并行垃圾收集</h3><p>在多核环境下，灵活运用线程可以最大限度地发挥多个CPU的能力。并行垃圾收集就是要最大限度利用多个CPU的能力。</p>
+<p>并行垃圾收集基本原理与增量垃圾收集大致是一样的，都是利用写屏蔽来维护当前状态的信息。有的并行垃圾收集的实现生成垃圾收集专用线程，把垃圾收集设计成总是与普通处理并行执行。</p>
+<h3 id="位图标记"><a href="#位图标记" class="headerlink" title="位图标记"></a>位图标记</h3><p>以Linux为首的UNIX系列操作系统在使用fork系统调用复制过程时，内存空间并不进行复制而是直接共享。通过写时复制来提高性能。</p>
+<p>垃圾收集与这一功能兼容性不好，给引用对象那个设置标记的方式会因设置标记而复制包含该对象的内存页。复制方式也同样会产生大量写内存操作。</p>
+<p>位图标记是在利用标记的垃圾收集中消减操作系统内存页复制的方法。它不在对象里设置被引用的标记，而是利用外部位图区域（管理用内存区域）来保存引用标记。</p>
+<p>只有标记用的位图部分会发生内存页复制，从而避免了复制没有实际更新的对象所在的内存页。</p>
+<p>Ruby的垃圾收集也有了实现位图标记的补丁。</p>
+<h2 id="用C语言来扩展Ruby"><a href="#用C语言来扩展Ruby" class="headerlink" title="用C语言来扩展Ruby"></a>用C语言来扩展Ruby</h2><p><strong>Ruby是解释型语言，即Ruby程序是由Ruby解释器的程序来解释执行的。</strong></p>
+<p>提起解释器，大家会觉得它是逐行读取程序并执行，实际上Ruby解释器是把要执行的程序全部读进来，首先变换成更有效率的内部表现形式。解释器对其内部表现加以分析来执行程序。</p>
+<p>解释型语言的特点，马上可以执行，开发周期非常快。至于C、C++、Java这样的编译语言，首先要把程序变换成计算机可以直接执行的形式再从头执行。</p>
+<p>在执行程序过程中，编译型语言不再需要对原来程序进行解释和变换，速度很快。但是开发周期较长。</p>
+<h3 id="开发与执行速度的取舍"><a href="#开发与执行速度的取舍" class="headerlink" title="开发与执行速度的取舍"></a>开发与执行速度的取舍</h3><p>这两种类型的语言要做取舍。Ruby的设计方针是开发效率优于执行效率，选择解释型的实现也是必然。</p>
+<p>Ruby解释器是由C语言开发的，采用C语言开发理由：</p>
+<ol>
+<li>C语言作者拿手</li>
+<li>C语言运行系统调用，速度高</li>
+<li>用面向对象语言来实现别的面向对象语言的话，容易混淆对象的概念。</li>
+</ol>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15324825297704/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-26%20%E4%B8%8B%E5%8D%885.36.05.png" alt="屏幕快照 2018-07-26 下午5.36.05" title="">
+                </div>
+                <div class="image-caption">屏幕快照 2018-07-26 下午5.36.05</div>
+            </figure>
+<p><strong>引擎</strong>是解释内部表现，并实际上执行程序的部分。1.9版本的引擎解释的字节码，可以说是近似于虚拟计算机的机器语言。所以1.9版本的引擎也可以成为VM。</p>
+<p><strong>引擎</strong>在解释内部表现是，需要其他组件的帮助。内存和对象的管理，变量访问和方法调用的实现等，都要依靠底层称为<strong>运行库</strong>的组件来完成。<strong>运行库</strong>提供底层强有力的支持，是程序执行时不可或缺的部分。</p>
+<p>Ruby利用的各种类是<strong>类库</strong>提供的。Ruby的这一部分也是用C编写的。像Ruby这样的解释型语言，因为是经过C编写的引擎来间接执行程序，与一般的编译语言相比，执行速度明显慢得多（100 倍或者 1000 倍）。但是，实际上程序的执行时间大部分都花在 C 編写的类库方法内部，因此在执行速度上很少会产生那么巨大的差距。</p>
+<h3 id="扩展库"><a href="#扩展库" class="headerlink" title="扩展库"></a>扩展库</h3><p>扩展库是指利用Ruby运行库的API,用C定义的类库。Ruby的API使用C几乎可以实现Ruby所有的功能。使用这些API可以很简单地实现如下的功能：</p>
+<ol>
+<li>定义类</li>
+<li>定义方法</li>
+<li>访问实例变量</li>
+<li>调用方法</li>
+<li>调用块</li>
+</ol>
+<p>特意花时间用C来实现扩展库的理由主要有以下两点。</p>
+<ol>
+<li>想要比Ruby执行速度快</li>
+<li>想使用C可以利用的库。</li>
+</ol>
+<p>前面已经说过,Ruby是解释型语言,它的执行速度不如像C这样的编译型语言。如果是绝对需要改善速度的程序,用C扩展库来实现其中成为瓶颈的部分的话,有可能显著改善程序的<br>执行速度。</p>
+<p>UNX系列操作系统的大多数功能都是通过C可以访问的库来提供的。Ruby要想利用这些功能的话,就需要有一种从Ruby调用C的API的方法,这最简单的方法就是利用扩展库。</p>
+<h3 id="扩展库的编译"><a href="#扩展库的编译" class="headerlink" title="扩展库的编译"></a>扩展库的编译</h3><p>首先按照以上的顺序编写源代码。若C程序的文件名后<br>约定为c的话,后续步骤会自动识别出来C程序文件。</p>
+<p>为生成编译所需要的文件,需要准备必要的<br>Ruby文件。这个文件通常命名为 extconf.rb<br>minitab的 extconf.rb的内容如图所示<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15324825297704/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-26%20%E4%B8%8B%E5%8D%887.09.31.png" alt="屏幕快照 2018-07-26 下午7.09.31" title="">
+                </div>
+                <div class="image-caption">屏幕快照 2018-07-26 下午7.09.31</div>
+            </figure></p>
+<p>extons,xb是由以下几个部分构成的:</p>
+<ol>
+<li>调用 require’mkmf’;   </li>
+<li>用have_1 ibrary和 hava header检<br>查必要的库和头文件是否存在；  </li>
+<li>用 create makefile来生成必要的<br>Makefile. create makefile的参数<br>是库的名字。</li>
+</ol>
+<p>照图14-34执行 extconfrb,就可以生成<br>Makefi1e。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15324825297704/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-26%20%E4%B8%8B%E5%8D%887.13.48.png" alt="屏幕快照 2018-07-26 下午7.13.48" title="">
+                </div>
+                <div class="image-caption">屏幕快照 2018-07-26 下午7.13.48</div>
+            </figure></p>
+<p>用make命令来编译,尔后可以用 make insta11命令来安装编译后的库。</p>
+<h3 id="扩展库之外的工具"><a href="#扩展库之外的工具" class="headerlink" title="扩展库之外的工具"></a>扩展库之外的工具</h3><h4 id="RubyInline"><a href="#RubyInline" class="headerlink" title="RubyInline"></a>RubyInline</h4><p>Rubylnline可以在Ruby的源代码中直接嵌入C的程序。不用每次准备 exton,rb文件,也不需要明确的编译步骤,非常便利,但它也有不少约束,比如在执行环境中需要有编译器,与外部库的链接也有些麻烦等。</p>
+<h4 id="dl"><a href="#dl" class="headerlink" title="dl"></a>dl</h4><p>有了d1,仅用Ruby也能实现与 minitab同样动作的库。把图1435的程序保存成 inial,rb文件,没有扩展库也可以使用 minitab。al的优点是在没有安装编译器和头文件的环境下也可以运行。</p>
+<h4 id="ffi"><a href="#ffi" class="headerlink" title="ffi"></a>ffi</h4><p>关于Ruby的扩展,ffi库受到关注。ffi是 foreign function interface的缩写,它也提供在Ruby水平上的与外部函数的直接接口,这个目的与d1几乎是一样的。ffi可以从 Ruby Gems得到。ffi的特征是使用lb更有效率地调用外部函数,Ruby、 Rubinius和 GRubby都可以使用<br>同样的API。</p>
+<h2 id="为什么要开源"><a href="#为什么要开源" class="headerlink" title="为什么要开源"></a>为什么要开源</h2><h3 id="自由软件的思想"><a href="#自由软件的思想" class="headerlink" title="自由软件的思想"></a>自由软件的思想</h3><p>为保证执行的自由,必须能够将软件免费拿到手。出于学习和研究的目的,也必须能够自由地得到源代码。还有,为了修改程序错误,或者为适合自己的目的而进行改造,那就不单单<br>是阅读源代码,还要允许改变源代码。把自己认为好的软件推荐给别人,或者把自己进行的修改或改善与他人共享的话,就需要有再发布的自由。</p>
+<h3 id="自由软件的历史"><a href="#自由软件的历史" class="headerlink" title="自由软件的历史"></a>自由软件的历史</h3><p>曾几何时,在计算机的黎明期,软件完全是硬件的附属物。买了计算机,附带操作系统等源代码,根本就不是什么稀罕的事。那时,或者在更早一些的时候,甚至有这样的情况,从生<br>产厂家买来的计算机连操作系统也没有,需要用户自己来开发各种软件。买了同样计算机的用户互相交换自己开发的软件,互助合作。虽然不够精致,但与如今开源软件的情况很有些相似之处。</p>
+<h3 id="Emacs事件的发生"><a href="#Emacs事件的发生" class="headerlink" title="Emacs事件的发生"></a>Emacs事件的发生</h3><p>但是,戈斯林把 Gosmacs的专利卖给了 Unipress公司,斯托曼就不能够在 Gosmacs的基础上开发新的 Emacs了。结果,斯托曼从零开始开发了自己的UNIX版的Emacs。</p>
+<p>他们的最终目标是，创造一个从上到下完全自由的操作系统环境。</p>
+<h3 id="开源的诞生"><a href="#开源的诞生" class="headerlink" title="开源的诞生"></a>开源的诞生</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15324825297704/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-26%20%E4%B8%8B%E5%8D%888.52.32.png" alt="屏幕快照 2018-07-26 下午8.52.32" title="">
+                </div>
+                <div class="image-caption">屏幕快照 2018-07-26 下午8.52.32</div>
+            </figure>
+<h3 id="OSS许可证"><a href="#OSS许可证" class="headerlink" title="OSS许可证"></a>OSS许可证</h3><h4 id="GPL"><a href="#GPL" class="headerlink" title="GPL"></a>GPL</h4><p>GPL( GNU General Public license)应该可以说是自由软件许可证的鼻祖,它具有如下特征:</p>
+<ol>
+<li>没有保证;</li>
+<li>表示版权;</li>
+<li>保持同样的许可证</li>
+</ol>
+<p>GPL特征中最重要的是保持同样的许可证,也就是说,在对GPL许可证的软件进行修改或复制的情况下,必须保持其原来的GPL许可证。<br>这意味着再利用GPL软件的源代码而开发的软件的许可证也必须是GPL。批判GPL的人把这称为感染性。赞同GPL的人们称之为版权保留,因为这一性质意味着版权的保留。</p>
+<h4 id="LGPL"><a href="#LGPL" class="headerlink" title="LGPL"></a>LGPL</h4><h4 id="BSD许可证"><a href="#BSD许可证" class="headerlink" title="BSD许可证"></a>BSD许可证</h4><h4 id="APL和CPL"><a href="#APL和CPL" class="headerlink" title="APL和CPL"></a>APL和CPL</h4><h3 id="开源的背景"><a href="#开源的背景" class="headerlink" title="开源的背景"></a>开源的背景</h3><p>在科学领域,共享知识和信息本来是非常普通的事情。即使不用看站在巨人的肩膀上的牛顿的例子,把知识作为论文(免费)公开,利用前人的成绩进行新的研究是再理所当然不过的。</p>
+<p>软件,特别是商业软件,一旦作为商品来经营的话,就容易忘记这样一点,与论文的内容一样,软件也不过是信息的一种,也应该适用同样的原则。科学家致力于研究,大学或研究机构对科学家给予支持,这种体制对软件也有可能成立。实际上,大学或研究机构支援软件开发的例子相当多。</p>
+<p>但是,谈到近年来开源的普及和发展,计算机的普及和因特网的发展则功不可没。过去如果要想开发髙质量软件的话,需要购买价格髙昂的计算机,召集大量的技术人员。现在一般家庭里的计算机都完全能够开发软件,通过网络进行合作开发的事情也屡见不鲜。个人出于兴趣而编程也已经能够达到相当高的水平了。</p>
+<p>软件的复杂化和商品化也是开源的背景之一,不容忽视。软件所覆盖的领域越来越广,软件也越来越复杂。过去1万行左右的程序就实现了的操作系统,如今变成了超过600万行的巨大软件。</p>
+<h3 id="企业关注开源的理由"><a href="#企业关注开源的理由" class="headerlink" title="企业关注开源的理由"></a>企业关注开源的理由</h3><p>从1998年以来,开始出现了盈利企业为自己的利益而开发开<br>源软件的事例。一旦认识到无法自己来开发所有软件之后,企业只自己开发最具竞争力的小部分核心软件,而让大家共同来开发其他软件,结果对大家都有好处,企业关注开源正是这种冷静的分析考量的结果。</p>
+<p>参与开源的人们也各有各的想法。有因经营考虑而参加的企业,有为软件自由而参加的程序员,有因上级命令而参加的公司职员,各种各样,千差万别。但是,开源有可能为个人和全人类带来幸福,如果能继续下去形成良性循环的话,那真是再好不过了。</p>
+<h3 id="Ruby与开源"><a href="#Ruby与开源" class="headerlink" title="Ruby与开源"></a>Ruby与开源</h3><p>Ruby从一开始就是开源软件。Ruby在1995年初次公开的时候,开源这个单词还没有诞生,也许应该称为自由软件。</p>
+<h3 id="选择许可证的方法"><a href="#选择许可证的方法" class="headerlink" title="选择许可证的方法"></a>选择许可证的方法</h3><p>许可证与技术无关,而是有关法律和合同的工作,这不是技术人员的工作,而是属于律师的工作范围。对于软件开发人员来说,这决不是一件令人感兴趣的工作,有人甚至会想:“哪用得着这些东西呢?”</p>
+<p>如果使用你的许可证的软件的所有代码都完全是由你自己写出来的话,这几乎不成为什么问题。只要发布新的许可证版本,问题就解决了但是,如果其中包含了其他人写的补丁的话,软件就不再是你一个人的了,在法律上写补丁的人是共同拥有版权的。</p>
+<p>FSF作为软件自由的拥护者,强烈推行版权保留。另一方面,不怎么在乎版权保留的开发人员好像更多一些。如果你希望版权保留的话,几乎就只能选择GPL。</p>
+<p>如果你的软件是作为库来使用的话,那么LGPL则是个不错的选择。如果对库适用GPL许可证的话,那事实上就只能为GPL软件所用,采用限制较为宽松的LGPL的话,有可能使你的软件得到更为广泛的使用。但是,LGPL有不方便、难于理解以及没有得到充分考察等缺点,在不太强烈希望版权保留的时候,最好不要选择它。</p>
+<p>对于不太在乎版权保留的人来说,可以选择GPL以外的许可证。这里的要点是,该软件是否需要与其他软件进行链接。如果预想到将来可能以某种方式与GPL许可证的软件链接在一起的话,那么与GPL的互换性就变得很重要。拥有插件功能的软件或库特别要注意这一点。作为与GPL不相矛盾的许可证,有修正BSD许可证和MIT许可证等。</p>
+<p>另一个应该考虑的要点是,与相关软件和许可证是否一致。比如 Eclipse插件就应该选择Eclipse许可证(即使不与GPL互换)。另外,PHP关联软件选择与PHP一致的许可证也是安全的。用Ruby编写的软件与Ruby本身的许可证本来是相互独立的,但好像也大都选择Rby许可证。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-07-26T13:09:06.000Z" itemprop="dateUpdated">2018-07-26 21:09:06</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/zdkswd">
+            <img src="/img/tmg.jpg" alt="ZDK">
+            ZDK
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/07/25/松本行弘的程序世界 14 函数式编程/&title=ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/07/25/松本行弘的程序世界 14 函数式编程/&title=ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/07/25/松本行弘的程序世界 14 函数式编程/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=ZDK's blog&url=https://github.com/zdkswd/2018/07/25/松本行弘的程序世界 14 函数式编程/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/07/25/松本行弘的程序世界 14 函数式编程/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/07/24/松本行弘的程序世界 13 关于数据的持久化/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">松本行弘的程序世界 13 关于数据的持久化</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz",
+            appKey: "gkBx5soQkBREmER84PWbNJeM",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ZDK &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/07/25/松本行弘的程序世界 14 函数式编程/&title=《No title》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/07/25/松本行弘的程序世界 14 函数式编程/&title=《No title》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/07/25/松本行弘的程序世界 14 函数式编程/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — ZDK's blog&url=https://github.com/zdkswd/2018/07/25/松本行弘的程序世界 14 函数式编程/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/07/25/松本行弘的程序世界 14 函数式编程/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2018/07/25/松本行弘的程序世界 14 函数式编程/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'zdk'blog';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

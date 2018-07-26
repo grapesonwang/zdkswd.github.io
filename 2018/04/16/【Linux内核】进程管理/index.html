@@ -25,11 +25,11 @@
 <meta name="keywords" content="纸质书笔记,Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[Linux内核设计与实现]进程管理">
-<meta property="og:url" content="https://github.com/zdkswd/2018/04/16/进程管理/index.html">
+<meta property="og:url" content="https://github.com/zdkswd/2018/04/16/【Linux内核】进程管理/index.html">
 <meta property="og:site_name" content="ZDK&#39;s blog">
 <meta property="og:description" content="进程内核调度的对象是线程，而不是进程。Linux系统的线程实现非常特别：它对线程和进程并不特别区分。进程提供两种虚拟机制，虚拟处理器与虚拟内存。一个是进程独享处理器的假象一个是独享内存资源的假象。线程之间共享虚拟内存，各自有虚拟处理器。父进程调用fork()复制现有进程创建一个全新的进程子进程。 每个线程都有一个独立的程序计数器、进程栈和一组进程寄存器。内核调度的对象是线程，而不是进程。Linux">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-16T11:00:19.000Z">
+<meta property="og:updated_time" content="2018-07-26T09:22:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[Linux内核设计与实现]进程管理">
 <meta name="twitter:description" content="进程内核调度的对象是线程，而不是进程。Linux系统的线程实现非常特别：它对线程和进程并不特别区分。进程提供两种虚拟机制，虚拟处理器与虚拟内存。一个是进程独享处理器的假象一个是独享内存资源的假象。线程之间共享虚拟内存，各自有虚拟处理器。父进程调用fork()复制现有进程创建一个全新的进程子进程。 每个线程都有一个独立的程序计数器、进程栈和一组进程寄存器。内核调度的对象是线程，而不是进程。Linux">
@@ -165,7 +165,7 @@
     </aside>
 
 
-<article id="post-进程管理"
+<article id="post-【Linux内核】进程管理"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
@@ -206,7 +206,7 @@
 </blockquote>
 <h3 id="进程上下文"><a href="#进程上下文" class="headerlink" title="进程上下文"></a>进程上下文</h3><p>可执行代码是进程的重要组成部分。这些代码从一个可执行文件载入到进程的地址空间执行，一般在用户空间执行，执行系统调用或触发异常陷入内核空间。对内核的访问必须经过明确定义的接口。</p>
 <h3 id="进程家族树"><a href="#进程家族树" class="headerlink" title="进程家族树"></a>进程家族树</h3><p>Linux和Unix一样所有的进程都是PID为1的init进程的后代。内核在系统启动的最后阶段启动init进程读取系统初始化脚本（initscript）并执行其他相关程序最终完成系统启动整个过程。init进程的进程描述符是作为init_task静态分配的。<br>对于当前task_struct，可以通过task_struct类型parent指针访问其父进程（必有一个），还包含一个children的子进程链表。 </p>
-<h2 id="进程创建"><a href="#进程创建" class="headerlink" title="进程创建"></a>进程创建</h2><p>许多其他操作系统：首先在新的地址空间创建进程，读入可执行文件，最后开始执行。<br>Unix：首先通过fork（）拷贝当前进程创建一个子进程，父子进程区别仅限于PID，PPID（子进程将其设为父进程PID值）和某些资源统计量。exec（）负责读取可执行文件并将其载入地址空间运行。</p>
+<h2 id="进程创建"><a href="#进程创建" class="headerlink" title="进程创建"></a>进程创建</h2><p>许多其他操作系统：首先在新的地址空间创建进程，读入可执行文件，最后开始执行。<br>Unix：首先通过fork（）拷贝当前进程创建一个子进程，父子进程区别仅限于PID，PPID（子进程将其设为父进程PID值）和某些资源统计量。<strong>exec（）</strong>负责读取可执行文件并将其载入地址空间运行。如果 exec 调用成功,调用进程将被覆盖,然后从新程序的入口开始执行。这样就产生了一个新的进程,但是它的进程标识符与调用进程相同。这就是说,exec 没有建立一个与调用进程并发的新进程,而是用新进程取代了原来的进程。</p>
 <h3 id="写时拷贝"><a href="#写时拷贝" class="headerlink" title="写时拷贝"></a>写时拷贝</h3><p>Linux的fork（）采用写时拷贝，只有子进程在父进程进行写入时再进行拷贝，其他的时候是只读共享。所以fork（）的实际开销就是复制父进程页表以及创建PID。</p>
 <h3 id="fork（）"><a href="#fork（）" class="headerlink" title="fork（）"></a>fork（）</h3><p>Linux通过clone（）系统调用实现fork（）<br>fork（）-调用-&gt;clone()-调用-&gt;do_fork()（完成创建的大部分工作）-调用-&gt;copy_process()<br>copy_process工作:</p>
 <ol>
@@ -219,7 +219,7 @@
 <li>根据传递给clone()的参数标志，copy_process()拷贝或共享打开的文件、文件系统信息、信息处理函数、进程地址空间和命名空间等。一般，这些资源会所有线程共享，否则资源对每个进程是不同的，因此拷贝到这里。</li>
 <li>最后，copy_process做扫尾工作并返回一个指向子进程的指针。 </li>
 </ol>
-<p>如果copy_process()成功返回do_fork()，新创进程被唤醒且内核有意让其首先执行。因为一般子进程都会马上调用exec()函数，可以避免父进程首先执行可能的写入造成的额外开销。</p>
+<p>如果copy_process()成功返回do_fork()，新创进程被唤醒且内核有意让其首先执行。因为一般子进程都会马上调用<strong>exec()函数</strong>，可以避免父进程首先执行可能的写入造成的额外开销。</p>
 <h3 id="vfork（）"><a href="#vfork（）" class="headerlink" title="vfork（）"></a>vfork（）</h3><p>除了不拷贝父进程的页表项以外，vfork()和fork()功能相同。基本没啥用。</p>
 <h2 id="线程在Linux中的实现"><a href="#线程在Linux中的实现" class="headerlink" title="线程在Linux中的实现"></a>线程在Linux中的实现</h2><p>Linux中，线程具有task_struct,它看起来就是普通进程，只是和其他一些进程共享某些资源，如地址空间。对Linux来说，线程只是进程间共享资源的手段。</p>
 <h3 id="创建线程"><a href="#创建线程" class="headerlink" title="创建线程"></a>创建线程</h3><p>线程创建于进程类似，只是在调用clone时需要传递一些参数标明需要共享的资源。创建Linux进程所花时间和其他操作系统创建线程要少。</p>
@@ -247,7 +247,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-05-16T11:00:19.000Z" itemprop="dateUpdated">2018-05-16 19:00:19</time>
+    最后更新时间：<time datetime="2018-07-26T09:22:24.000Z" itemprop="dateUpdated">2018-07-26 17:22:24</time>
 </span><br>
 
 
@@ -277,7 +277,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/04/16/进程管理/&title=《[Linux内核设计与实现]进程管理》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/04/16/【Linux内核】进程管理/&title=《[Linux内核设计与实现]进程管理》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -287,22 +287,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/04/16/进程管理/&title=《[Linux内核设计与实现]进程管理》 — ZDK's blog&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/04/16/【Linux内核】进程管理/&title=《[Linux内核设计与实现]进程管理》 — ZDK's blog&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/04/16/进程管理/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/04/16/【Linux内核】进程管理/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《[Linux内核设计与实现]进程管理》 — ZDK's blog&url=https://github.com/zdkswd/2018/04/16/进程管理/&via=https://github.com/zdkswd" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《[Linux内核设计与实现]进程管理》 — ZDK's blog&url=https://github.com/zdkswd/2018/04/16/【Linux内核】进程管理/&via=https://github.com/zdkswd" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/04/16/进程管理/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/04/16/【Linux内核】进程管理/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -431,7 +431,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/04/16/进程管理/&title=《[Linux内核设计与实现]进程管理》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/04/16/【Linux内核】进程管理/&title=《[Linux内核设计与实现]进程管理》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -441,22 +441,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/04/16/进程管理/&title=《[Linux内核设计与实现]进程管理》 — ZDK's blog&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/04/16/【Linux内核】进程管理/&title=《[Linux内核设计与实现]进程管理》 — ZDK's blog&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/04/16/进程管理/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/04/16/【Linux内核】进程管理/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《[Linux内核设计与实现]进程管理》 — ZDK's blog&url=https://github.com/zdkswd/2018/04/16/进程管理/&via=https://github.com/zdkswd" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《[Linux内核设计与实现]进程管理》 — ZDK's blog&url=https://github.com/zdkswd/2018/04/16/【Linux内核】进程管理/&via=https://github.com/zdkswd" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/04/16/进程管理/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/04/16/【Linux内核】进程管理/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -467,7 +467,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2018/04/16/进程管理/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2018/04/16/【Linux内核】进程管理/" alt="微信分享二维码">
 </div>
 
 
