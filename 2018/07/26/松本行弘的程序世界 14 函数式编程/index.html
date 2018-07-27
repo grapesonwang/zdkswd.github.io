@@ -14,17 +14,18 @@
     
     
     
-    <title>No title | ZDK&#39;s blog</title>
+    <title>松本行弘的程序世界 14 函数式编程 | ZDK&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="">
+    <meta name="keywords" content="电子书笔记,程序语言">
     <meta name="description" content="松本行弘的程序世界 14 函数式编程新范型–函数式编程函数式编程是全部使用函数来编写程序代码的编程方法。这是可以与一般的结构化编程及面向对象编程相提并论的编程方法。 以函数为中心的函数式编程具有特征：  函数本身也作为数据来处理（第一级函数） 以函数为参数的高阶函数 参数相同即可保证结果相同的引用透明性。 为实现引用透明性，禁止产生副作用的处理。  函数式编程的最大优点在于，程序可以按照数学的形式">
+<meta name="keywords" content="电子书笔记,程序语言">
 <meta property="og:type" content="article">
-<meta property="og:title" content="No title">
-<meta property="og:url" content="https://github.com/zdkswd/2018/07/25/松本行弘的程序世界 14 函数式编程/index.html">
+<meta property="og:title" content="松本行弘的程序世界 14 函数式编程">
+<meta property="og:url" content="https://github.com/zdkswd/2018/07/26/松本行弘的程序世界 14 函数式编程/index.html">
 <meta property="og:site_name" content="ZDK&#39;s blog">
 <meta property="og:description" content="松本行弘的程序世界 14 函数式编程新范型–函数式编程函数式编程是全部使用函数来编写程序代码的编程方法。这是可以与一般的结构化编程及面向对象编程相提并论的编程方法。 以函数为中心的函数式编程具有特征：  函数本身也作为数据来处理（第一级函数） 以函数为参数的高阶函数 参数相同即可保证结果相同的引用透明性。 为实现引用透明性，禁止产生副作用的处理。  函数式编程的最大优点在于，程序可以按照数学的形式">
 <meta property="og:locale" content="zh-CN">
@@ -39,9 +40,9 @@
 <meta property="og:image" content="https://github.com/img/media/15324825297704/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-26%20%E4%B8%8B%E5%8D%887.09.31.png">
 <meta property="og:image" content="https://github.com/img/media/15324825297704/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-26%20%E4%B8%8B%E5%8D%887.13.48.png">
 <meta property="og:image" content="https://github.com/img/media/15324825297704/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-26%20%E4%B8%8B%E5%8D%888.52.32.png">
-<meta property="og:updated_time" content="2018-07-26T13:09:06.000Z">
+<meta property="og:updated_time" content="2018-07-27T03:20:34.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="No title">
+<meta name="twitter:title" content="松本行弘的程序世界 14 函数式编程">
 <meta name="twitter:description" content="松本行弘的程序世界 14 函数式编程新范型–函数式编程函数式编程是全部使用函数来编写程序代码的编程方法。这是可以与一般的结构化编程及面向对象编程相提并论的编程方法。 以函数为中心的函数式编程具有特征：  函数本身也作为数据来处理（第一级函数） 以函数为参数的高阶函数 参数相同即可保证结果相同的引用透明性。 为实现引用透明性，禁止产生副作用的处理。  函数式编程的最大优点在于，程序可以按照数学的形式">
 <meta name="twitter:image" content="https://github.com/img/media/15324825297704/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-25%20%E4%B8%8A%E5%8D%8810.02.29.png">
     
@@ -124,7 +125,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis"></div>
+        <div class="flex-col header-title ellipsis">松本行弘的程序世界 14 函数式编程</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -146,13 +147,15 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title"></h1>
+        <h1 class="title">松本行弘的程序世界 14 函数式编程</h1>
         <h5 class="subtitle">
             
-                <time datetime="2018-07-25T01:35:29.000Z" itemprop="datePublished" class="page-time">
-  2018-07-25
+                <time datetime="2018-07-26T13:00:32.000Z" itemprop="datePublished" class="page-time">
+  2018-07-26
 </time>
 
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
 
             
         </h5>
@@ -178,11 +181,13 @@
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title"></h1>
+        <h1 class="post-card-title">松本行弘的程序世界 14 函数式编程</h1>
         <div class="post-meta">
-            <time class="post-time" title="2018-07-25 09:35:29" datetime="2018-07-25T01:35:29.000Z"  itemprop="datePublished">2018-07-25</time>
+            <time class="post-time" title="2018-07-26 21:00:32" datetime="2018-07-26T13:00:32.000Z"  itemprop="datePublished">2018-07-26</time>
 
             
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
+
 
 
             
@@ -477,7 +482,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-07-26T13:09:06.000Z" itemprop="dateUpdated">2018-07-26 21:09:06</time>
+    最后更新时间：<time datetime="2018-07-27T03:20:34.000Z" itemprop="dateUpdated">2018-07-27 11:20:34</time>
 </span><br>
 
 
@@ -497,6 +502,8 @@
 
         <div class="post-footer">
             
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/电子书笔记/">电子书笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/程序语言/">程序语言</a></li></ul>
+
 
             
 <div class="page-share-wrap">
@@ -505,7 +512,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/07/25/松本行弘的程序世界 14 函数式编程/&title=ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/07/26/松本行弘的程序世界 14 函数式编程/&title=《松本行弘的程序世界 14 函数式编程》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -515,22 +522,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/07/25/松本行弘的程序世界 14 函数式编程/&title=ZDK's blog&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/07/26/松本行弘的程序世界 14 函数式编程/&title=《松本行弘的程序世界 14 函数式编程》 — ZDK's blog&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/07/25/松本行弘的程序世界 14 函数式编程/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/07/26/松本行弘的程序世界 14 函数式编程/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=ZDK's blog&url=https://github.com/zdkswd/2018/07/25/松本行弘的程序世界 14 函数式编程/&via=https://github.com/zdkswd" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《松本行弘的程序世界 14 函数式编程》 — ZDK's blog&url=https://github.com/zdkswd/2018/07/26/松本行弘的程序世界 14 函数式编程/&via=https://github.com/zdkswd" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/07/25/松本行弘的程序世界 14 函数式编程/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/07/26/松本行弘的程序世界 14 函数式编程/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -652,7 +659,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/07/25/松本行弘的程序世界 14 函数式编程/&title=《No title》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/07/26/松本行弘的程序世界 14 函数式编程/&title=《松本行弘的程序世界 14 函数式编程》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -662,22 +669,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/07/25/松本行弘的程序世界 14 函数式编程/&title=《No title》 — ZDK's blog&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/07/26/松本行弘的程序世界 14 函数式编程/&title=《松本行弘的程序世界 14 函数式编程》 — ZDK's blog&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/07/25/松本行弘的程序世界 14 函数式编程/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/07/26/松本行弘的程序世界 14 函数式编程/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — ZDK's blog&url=https://github.com/zdkswd/2018/07/25/松本行弘的程序世界 14 函数式编程/&via=https://github.com/zdkswd" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《松本行弘的程序世界 14 函数式编程》 — ZDK's blog&url=https://github.com/zdkswd/2018/07/26/松本行弘的程序世界 14 函数式编程/&via=https://github.com/zdkswd" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/07/25/松本行弘的程序世界 14 函数式编程/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/07/26/松本行弘的程序世界 14 函数式编程/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -688,7 +695,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2018/07/25/松本行弘的程序世界 14 函数式编程/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2018/07/26/松本行弘的程序世界 14 函数式编程/" alt="微信分享二维码">
 </div>
 
 
