@@ -36,6 +36,7 @@
 <meta property="og:image" content="https://github.com/img/media/15329168471815/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-30%20%E4%B8%8A%E5%8D%8810.44.40.png">
 <meta property="og:image" content="https://github.com/img/media/15329168471815/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-30%20%E4%B8%8A%E5%8D%8810.52.22.png">
 <meta property="og:image" content="https://github.com/img/media/15329168471815/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-30%20%E4%B8%8A%E5%8D%8810.55.30.png">
+<meta property="og:image" content="https://github.com/img/media/15329168471815/1.png">
 <meta property="og:image" content="https://github.com/img/media/15329168471815/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-30%20%E4%B8%8A%E5%8D%8811.10.22.png">
 <meta property="og:image" content="https://github.com/img/media/15329168471815/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-30%20%E4%B8%8A%E5%8D%8811.13.59.png">
 <meta property="og:image" content="https://github.com/img/media/15329168471815/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-30%20%E4%B8%8A%E5%8D%8811.18.03.png">
@@ -75,7 +76,7 @@
 <meta property="og:image" content="https://github.com/img/media/15329168471815/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-31%20%E4%B8%8B%E5%8D%885.19.48.png">
 <meta property="og:image" content="https://github.com/img/media/15329168471815/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-31%20%E4%B8%8B%E5%8D%885.21.38.png">
 <meta property="og:image" content="https://github.com/img/media/15329168471815/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-31%20%E4%B8%8B%E5%8D%885.26.03.png">
-<meta property="og:updated_time" content="2018-07-31T10:29:57.000Z">
+<meta property="og:updated_time" content="2018-08-03T07:53:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《深度学习》2 线性代数">
 <meta name="twitter:description" content="标量、向量、矩阵和张量 标量( scalar)一个标量就是一个单独的数,它不同于线性代数中研究的其他大部分对象(通常是多个数的数组)。我们用斜体表示标量。标量通常被赋予小写的变量名称。当我们介绍标量时,会明确它们是哪种类型的数。比如,在定义实数标量时,我们可能会说“令s∈R表示一条线的斜率”;在定义自然数标量时,我们可能会说“令n∈N表示元素的数目”。 向量( vector):一个向量是一列数。这">
@@ -275,33 +276,36 @@
             </figure>
 表示函数f作用在A上输出的矩阵的第i行第j列元素。</li>
 <li><strong>张量</strong>( tensor):在某些情况下,我们会讨论坐标超过两维的数组。一般地个数组中的元素分布在若干维坐标的规则网格中,我们称之为张量。我们使用字体<strong>A（不是斜体）</strong>来表示张量“A”。张量A中坐标为(i,j,k)的元素记作Ai,j,k。</li>
-<li><p><strong>转置</strong>( transpose)是矩阵的重要操作之一。矩阵的转置是以对角线为轴的镜像这条从左上角到右下角的对角线被称为主对角线( main diagonal)。我们将矩阵A的转置表示为AT,定义如下<figure class="image-bubble">
+<li><strong>转置</strong>( transpose)是矩阵的重要操作之一。矩阵的转置是以对角线为轴的镜像这条从左上角到右下角的对角线被称为主对角线( main diagonal)。我们将矩阵A的转置表示为AT,定义如下<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/img/media/15329168471815/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-30%20%E4%B8%8A%E5%8D%8810.52.22.png" alt="" title="">
                 </div>
                 <div class="image-caption"></div>
-            </figure>向量可以看作只有一列的矩阵。对应地,向量的转置可以看作是只有一行的矩阵。</p>
-<figure class="image-bubble">
+            </figure>向量可以看作只有一列的矩阵。对应地,向量的转置可以看作是只有一行的矩阵。<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/img/media/15329168471815/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-30%20%E4%B8%8A%E5%8D%8810.55.30.png" alt="" title="">
                 </div>
                 <div class="image-caption"></div>
             </figure>
-<p>。标量可以看作是只有一个元素的矩阵。因此,标量的转置等于它本身,a=aT。</p>
+。标量可以看作是只有一个元素的矩阵。因此,标量的转置等于它本身,a=aT。<br>转置的运算性质<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15329168471815/1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+</li>
+</ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">【】只是记法</span><br></pre></td></tr></table></figure>
-<p><img src="/img/media/15329168471815/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-30%20%E4%B8%8A%E5%8D%8811.10.22.png" alt=""><br>在深度学习中,我们也使用一些不那么常规的符号。我们允许矩阵和向量相加,产生另一个矩阵:<strong>C</strong>=<strong>A</strong>+<strong>b</strong>,其中</p>
-<figure class="image-bubble">
+<p> <img src="/img/media/15329168471815/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-30%20%E4%B8%8A%E5%8D%8811.10.22.png" alt=""><br>在深度学习中,我们也使用一些不那么常规的符号。我们允许矩阵和向量相加,产生另一个矩阵:<strong>C</strong>=<strong>A</strong>+<strong>b</strong>,其中<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/img/media/15329168471815/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-30%20%E4%B8%8A%E5%8D%8811.13.59.png" alt="" title="">
                 </div>
                 <div class="image-caption"></div>
-            </figure>
-<p>。换言之,向量b和矩阵A的每一行相加。这个简写方法使我们无需在加法操作前定义一个将向量b复制到每一行而生成的矩阵。这种隐式地复制向量b到很多位置的方式,被称为<strong>广播</strong>( broadcasting )。</p>
-</li>
-</ul>
+            </figure><br>。换言之,向量b和矩阵A的每一行相加。这个简写方法使我们无需在加法操作前定义一个将向量b复制到每一行而生成的矩阵。这种隐式地复制向量b到很多位置的方式,被称为<strong>广播</strong>( broadcasting )。</p>
 <h2 id="矩阵和向量相乘"><a href="#矩阵和向量相乘" class="headerlink" title="矩阵和向量相乘"></a>矩阵和向量相乘</h2><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
@@ -561,7 +565,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-07-31T10:29:57.000Z" itemprop="dateUpdated">2018-07-31 18:29:57</time>
+    最后更新时间：<time datetime="2018-08-03T07:53:57.000Z" itemprop="dateUpdated">2018-08-03 15:53:57</time>
 </span><br>
 
 
