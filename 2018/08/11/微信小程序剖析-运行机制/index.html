@@ -28,7 +28,7 @@
 <meta property="og:site_name" content="ZDK&#39;s blog">
 <meta property="og:description" content="解压应用简单的说明一下：  app 目录下放置了app的代码 modified_modules 即一些修改后的模块 node_modules 地球人都知道 package.json 配置了NW相关的内容  在modified_modules目录下有两个子模块：  anyproxy，从名字就可以看起来这是一个代理模块 weinre，远程调试工具  IDE这是一个NodeWebkit封装的Web应用。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-11T02:14:51.000Z">
+<meta property="og:updated_time" content="2018-08-11T02:16:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微信小程序剖析 运行机制">
 <meta name="twitter:description" content="解压应用简单的说明一下：  app 目录下放置了app的代码 modified_modules 即一些修改后的模块 node_modules 地球人都知道 package.json 配置了NW相关的内容  在modified_modules目录下有两个子模块：  anyproxy，从名字就可以看起来这是一个代理模块 weinre，远程调试工具  IDE这是一个NodeWebkit封装的Web应用。">
@@ -157,7 +157,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#解压应用"><span class="post-toc-number">1.</span> <span class="post-toc-text">解压应用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#IDE"><span class="post-toc-number">2.</span> <span class="post-toc-text">IDE</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#解压应用"><span class="post-toc-number">1.</span> <span class="post-toc-text">解压应用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#IDE"><span class="post-toc-number">2.</span> <span class="post-toc-text">IDE</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#WeAPP运行机制"><span class="post-toc-number">3.</span> <span class="post-toc-text">WeAPP运行机制</span></a></li></ol>
         </nav>
     </aside>
 
@@ -199,6 +199,14 @@
 <p>这是一个React应用。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">React 起源于 Facebook 的内部项目，因为该公司对市场上所有 JavaScript MVC 框架，都不满意，就决定自己写一套。</span><br></pre></td></tr></table></figure>
 <p>其中的编辑环境是基于Monaco。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">monaco editor是微软开源的一款web版代码编辑器。它支持智能提示，代码高亮，代码格式化。</span><br></pre></td></tr></table></figure></p>
+<h2 id="WeAPP运行机制"><a href="#WeAPP运行机制" class="headerlink" title="WeAPP运行机制"></a>WeAPP运行机制</h2><p>wxml： html，wxss ： css。对应的有几个不同的transform:</p>
+<ol>
+<li>transWxmlToJs</li>
+<li>transWxssToCss</li>
+<li>transConfigToPf</li>
+<li>transWxmlToHtml</li>
+<li>transManager</li>
+</ol>
 
         </div>
 
@@ -207,7 +215,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-08-11T02:14:51.000Z" itemprop="dateUpdated">2018-08-11 10:14:51</time>
+    最后更新时间：<time datetime="2018-08-11T02:16:07.000Z" itemprop="dateUpdated">2018-08-11 10:16:07</time>
 </span><br>
 
 
