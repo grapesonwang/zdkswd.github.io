@@ -21,17 +21,14 @@
     
     
     <meta name="keywords" content="">
-    <meta name="description" content="JS标准参考教程 导论什么是JSJavaScript 是一种嵌入式（embedded）语言。它本身提供的核心语法不算很多，只能用来做一些数学和逻辑运算。JavaScript 本身不提供任何与 I/O（输入/输出）相关的 API，都要靠宿主环境（host）提供，所以 JavaScript 只合适嵌入更大型的应用程序环境，去调用宿主环境提供的底层 API。 目前，已经嵌入 JavaScript 的宿主">
-<meta property="og:type" content="article">
+    <meta property="og:type" content="article">
 <meta property="og:title" content="No title">
-<meta property="og:url" content="https://github.com/zdkswd/2018/06/15/JS标准参考教程 导论/index.html">
+<meta property="og:url" content="https://github.com/zdkswd/2018/08/10/微信小程序剖析 运行机制/index.html">
 <meta property="og:site_name" content="ZDK&#39;s blog">
-<meta property="og:description" content="JS标准参考教程 导论什么是JSJavaScript 是一种嵌入式（embedded）语言。它本身提供的核心语法不算很多，只能用来做一些数学和逻辑运算。JavaScript 本身不提供任何与 I/O（输入/输出）相关的 API，都要靠宿主环境（host）提供，所以 JavaScript 只合适嵌入更大型的应用程序环境，去调用宿主环境提供的底层 API。 目前，已经嵌入 JavaScript 的宿主">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-15T06:43:31.000Z">
+<meta property="og:updated_time" content="2018-08-11T01:39:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="No title">
-<meta name="twitter:description" content="JS标准参考教程 导论什么是JSJavaScript 是一种嵌入式（embedded）语言。它本身提供的核心语法不算很多，只能用来做一些数学和逻辑运算。JavaScript 本身不提供任何与 I/O（输入/输出）相关的 API，都要靠宿主环境（host）提供，所以 JavaScript 只合适嵌入更大型的应用程序环境，去调用宿主环境提供的底层 API。 目前，已经嵌入 JavaScript 的宿主">
     
         <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
     
@@ -137,8 +134,8 @@
         <h1 class="title"></h1>
         <h5 class="subtitle">
             
-                <time datetime="2018-06-15T06:14:12.000Z" itemprop="datePublished" class="page-time">
-  2018-06-15
+                <time datetime="2018-08-10T15:19:44.000Z" itemprop="datePublished" class="page-time">
+  2018-08-10
 </time>
 
 
@@ -154,21 +151,14 @@
 
 <div class="container body-wrap">
     
-    <aside class="post-widget">
-        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
-            <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#JS标准参考教程-导论"><span class="post-toc-number">1.</span> <span class="post-toc-text">JS标准参考教程 导论</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#什么是JS"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">什么是JS</span></a></li></ol></li></ol>
-        </nav>
-    </aside>
 
-
-<article id="post-JS标准参考教程 导论"
+<article id="post-微信小程序剖析 运行机制"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
         <h1 class="post-card-title"></h1>
         <div class="post-meta">
-            <time class="post-time" title="2018-06-15 14:14:12" datetime="2018-06-15T06:14:12.000Z"  itemprop="datePublished">2018-06-15</time>
+            <time class="post-time" title="2018-08-10 23:19:44" datetime="2018-08-10T15:19:44.000Z"  itemprop="datePublished">2018-08-10</time>
 
             
 
@@ -181,12 +171,7 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="JS标准参考教程-导论"><a href="#JS标准参考教程-导论" class="headerlink" title="JS标准参考教程 导论"></a>JS标准参考教程 导论</h1><h2 id="什么是JS"><a href="#什么是JS" class="headerlink" title="什么是JS"></a>什么是JS</h2><p>JavaScript 是一种嵌入式（embedded）语言。它本身提供的核心语法不算很多，只能用来做一些数学和逻辑运算。JavaScript 本身不提供任何与 I/O（输入/输出）相关的 API，都要靠宿主环境（host）提供，所以 JavaScript 只合适嵌入更大型的应用程序环境，去调用宿主环境提供的底层 API。</p>
-<p>目前，已经嵌入 JavaScript 的宿主环境有多种，最常见的环境就是浏览器，另外还有服务器环境，也就是 Node 项目。</p>
-<p>JavaScript 的核心语法部分相当精简，只包括两个部分：基本的语法构造（比如操作符、控制结构、语句）和标准库（就是一系列具有各种功能的对象比如Array、Date、Math等）。除此之外，各种宿主环境提供额外的 API（即只能在该环境使用的接口），以便 JavaScript 调用。以浏览器为例，它提供的额外 API 可以分成三大类。<br>    •    浏览器控制类：操作浏览器<br>    •    DOM 类：操作网页的各种元素<br>    •    Web 类：实现互联网的各种功能</p>
-<p>JavaScript 语言本身，虽然是一种解释型语言，但是在现代浏览器中，JavaScript 都是编译后运行。程序会被高度优化，运行效率接近二进制程序。而且，JavaScript 引擎正在快速发展，性能将越来越好。</p>
-<p>此书是针对<strong>浏览器</strong>的js</p>
-
+            
         </div>
 
         <blockquote class="post-copyright">
@@ -194,7 +179,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-06-15T06:43:31.000Z" itemprop="dateUpdated">2018-06-15 14:43:31</time>
+    最后更新时间：<time datetime="2018-08-11T01:39:21.000Z" itemprop="dateUpdated">2018-08-11 09:39:21</time>
 </span><br>
 
 
@@ -222,7 +207,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/06/15/JS标准参考教程 导论/&title=ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/08/10/微信小程序剖析 运行机制/&title=ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -232,22 +217,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/06/15/JS标准参考教程 导论/&title=ZDK's blog&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/08/10/微信小程序剖析 运行机制/&title=ZDK's blog&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/06/15/JS标准参考教程 导论/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/08/10/微信小程序剖析 运行机制/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=ZDK's blog&url=https://github.com/zdkswd/2018/06/15/JS标准参考教程 导论/&via=https://github.com/zdkswd" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=ZDK's blog&url=https://github.com/zdkswd/2018/08/10/微信小程序剖析 运行机制/&via=https://github.com/zdkswd" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/06/15/JS标准参考教程 导论/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/08/10/微信小程序剖析 运行机制/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -267,21 +252,14 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2018/06/15/JavaScript标准参考教程 语法/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">[no title]</h4>
-      </a>
-    </div>
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2018/06/15/[Linux内核设计与实现]系统调用/" id="post-next" class="post-nav-link">
+      <a href="/2018/08/10/微信应用号开发基础教程/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">[Linux内核设计与实现]系统调用</h4>
+        <h4 class="title">微信应用号开发基础教程</h4>
       </a>
     </div>
   
@@ -376,7 +354,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/06/15/JS标准参考教程 导论/&title=《No title》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/08/10/微信小程序剖析 运行机制/&title=《No title》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -386,22 +364,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/06/15/JS标准参考教程 导论/&title=《No title》 — ZDK's blog&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/08/10/微信小程序剖析 运行机制/&title=《No title》 — ZDK's blog&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/06/15/JS标准参考教程 导论/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/08/10/微信小程序剖析 运行机制/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — ZDK's blog&url=https://github.com/zdkswd/2018/06/15/JS标准参考教程 导论/&via=https://github.com/zdkswd" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — ZDK's blog&url=https://github.com/zdkswd/2018/08/10/微信小程序剖析 运行机制/&via=https://github.com/zdkswd" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/06/15/JS标准参考教程 导论/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/08/10/微信小程序剖析 运行机制/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -412,7 +390,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2018/06/15/JS标准参考教程 导论/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2018/08/10/微信小程序剖析 运行机制/" alt="微信分享二维码">
 </div>
 
 
