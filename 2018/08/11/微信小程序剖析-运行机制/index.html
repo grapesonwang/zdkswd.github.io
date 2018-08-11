@@ -28,7 +28,7 @@
 <meta property="og:site_name" content="ZDK&#39;s blog">
 <meta property="og:description" content="解压应用简单的说明一下：  app 目录下放置了app的代码 modified_modules 即一些修改后的模块 node_modules 地球人都知道 package.json 配置了NW相关的内容  在modified_modules目录下有两个子模块：  anyproxy，从名字就可以看起来这是一个代理模块 weinre，远程调试工具  IDE这是一个NodeWebkit封装的Web应用。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-11T02:16:07.000Z">
+<meta property="og:updated_time" content="2018-08-11T03:33:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微信小程序剖析 运行机制">
 <meta name="twitter:description" content="解压应用简单的说明一下：  app 目录下放置了app的代码 modified_modules 即一些修改后的模块 node_modules 地球人都知道 package.json 配置了NW相关的内容  在modified_modules目录下有两个子模块：  anyproxy，从名字就可以看起来这是一个代理模块 weinre，远程调试工具  IDE这是一个NodeWebkit封装的Web应用。">
@@ -207,6 +207,18 @@
 <li>transWxmlToHtml</li>
 <li>transManager</li>
 </ol>
+<p>PF指代的是PageFrame的意思，pageFrame有一个对应的模板文件。</p>
+<p>名为wcc以及一个名为wcsc的工具。wcc用于转换wxml中的自定义tag为virtual_dom。wcsc转换wxss为css</p>
+<p>可以理解为微信小应用有点类似于 Virtual Dom + WebView，毕竟上面有个WAWebView文件 ，还有一个webviewSDK文件 。</p>
+<p>当然无论是React + WebView，或者Vue + WebView都不重要，现在有了 WA + WebView</p>
+<p>在本地写的WeApp都会被提交到微信服务器，然后打包，上传到服务器，交给CDN。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CDN系统能够实时地根据网络流量和各节点的连接、负载状况以及到用户的距离和响应时间等综合信息将用户的请求重新导向离用户最近的服务节点上。</span><br></pre></td></tr></table></figure>
+<p>上传的过程大致如下：</p>
+<ol>
+<li>APP会被打包成以日期命名 + .wx文件。</li>
+<li>IDE会检测包的大小，并提示：代码包大小为 xx kb，超过限制 xx kb，请删除文件后重试。这个xx好像是1024，所以APP的大小是1M。</li>
+<li>APP将会上传。</li>
+</ol>
 
         </div>
 
@@ -215,7 +227,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-08-11T02:16:07.000Z" itemprop="dateUpdated">2018-08-11 10:16:07</time>
+    最后更新时间：<time datetime="2018-08-11T03:33:02.000Z" itemprop="dateUpdated">2018-08-11 11:33:02</time>
 </span><br>
 
 
