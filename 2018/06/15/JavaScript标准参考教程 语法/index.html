@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | ZDK&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="JavaScript标准参考教程 语法基本语法1 语句 var a=1+3;  分号语句结束。 2 变量JavaScript 是一种动态类型语言，也就是说，变量的类型没有限制，变量可以随时更改类型。  var a = 1;a = ‘hello’;  变量提升JavaScript 引擎的工作方式是，先解析代码，获取所有被声明的变量，然后再一行一行地运行。这造成的结果，就是所有的变量的声明语句，都会被">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="https://github.com/zdkswd/2018/06/15/JavaScript标准参考教程 语法/index.html">
+<meta property="og:site_name" content="ZDK&#39;s blog">
+<meta property="og:description" content="JavaScript标准参考教程 语法基本语法1 语句 var a=1+3;  分号语句结束。 2 变量JavaScript 是一种动态类型语言，也就是说，变量的类型没有限制，变量可以随时更改类型。  var a = 1;a = ‘hello’;  变量提升JavaScript 引擎的工作方式是，先解析代码，获取所有被声明的变量，然后再一行一行地运行。这造成的结果，就是所有的变量的声明语句，都会被">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-06-15T07:22:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="JavaScript标准参考教程 语法基本语法1 语句 var a=1+3;  分号语句结束。 2 变量JavaScript 是一种动态类型语言，也就是说，变量的类型没有限制，变量可以随时更改类型。  var a = 1;a = ‘hello’;  变量提升JavaScript 引擎的工作方式是，先解析代码，获取所有被声明的变量，然后再一行一行地运行。这造成的结果，就是所有的变量的声明语句，都会被">
+    
+        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/tmg.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ZDK</h5>
+          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/zdkswd" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-06-15T06:43:31.000Z" itemprop="datePublished" class="page-time">
+  2018-06-15
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#JavaScript标准参考教程-语法"><span class="post-toc-number">1.</span> <span class="post-toc-text">JavaScript标准参考教程 语法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#基本语法"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">基本语法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-语句"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">1 语句</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-变量"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">2 变量</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-标识符"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">3 标识符</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-注释"><span class="post-toc-number">1.1.4.</span> <span class="post-toc-text">4 注释</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-区块"><span class="post-toc-number">1.1.5.</span> <span class="post-toc-text">5 区块</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-条件语句"><span class="post-toc-number">1.1.6.</span> <span class="post-toc-text">6 条件语句</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7-循环语句"><span class="post-toc-number">1.1.7.</span> <span class="post-toc-text">7 循环语句</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数组"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">数组</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-定义"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">1 定义</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-数组本质"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">2 数组本质</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-length属性"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">3 length属性</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-in运算符"><span class="post-toc-number">1.2.4.</span> <span class="post-toc-text">4 in运算符</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-for…in-循环和数组的遍历"><span class="post-toc-number">1.2.5.</span> <span class="post-toc-text">5 for…in 循环和数组的遍历</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-数组的空位"><span class="post-toc-number">1.2.6.</span> <span class="post-toc-text">6 数组的空位</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7-类似数组的对象"><span class="post-toc-number">1.2.7.</span> <span class="post-toc-text">7 类似数组的对象</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-JavaScript标准参考教程 语法"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-06-15 14:43:31" datetime="2018-06-15T06:43:31.000Z"  itemprop="datePublished">2018-06-15</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="JavaScript标准参考教程-语法"><a href="#JavaScript标准参考教程-语法" class="headerlink" title="JavaScript标准参考教程 语法"></a>JavaScript标准参考教程 语法</h1><h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><h3 id="1-语句"><a href="#1-语句" class="headerlink" title="1 语句"></a>1 语句</h3><blockquote>
+<p>var a=1+3;</p>
+</blockquote>
+<p>分号语句结束。</p>
+<h3 id="2-变量"><a href="#2-变量" class="headerlink" title="2 变量"></a>2 变量</h3><p>JavaScript 是一种动态类型语言，也就是说，变量的类型没有限制，变量可以随时更改类型。</p>
+<blockquote>
+<p>var a = 1;<br>a = ‘hello’;</p>
+</blockquote>
+<p><strong>变量提升</strong><br>JavaScript 引擎的工作方式是，先解析代码，获取所有被声明的<strong>变量</strong>，然后再一行一行地运行。这造成的结果，就是所有的变量的声明语句，都会被提升到代码的头部，这就叫做变量提升（hoisting）。</p>
+<h3 id="3-标识符"><a href="#3-标识符" class="headerlink" title="3 标识符"></a>3 标识符</h3><p>中文是合法的标识符，可以用作变量名。<br>第一个字符，可以是任意 Unicode 字母（包括英文字母和其他语言的字母），以及美元符号（$）和下划线（_）。</p>
+<h3 id="4-注释"><a href="#4-注释" class="headerlink" title="4 注释"></a>4 注释</h3><p>//单行<br>/*多行*/<br>由于历史上 JavaScript 可以兼容 HTML 代码的注释，所以<!--和-->也被视为合法的单行注释。</p>
+<h3 id="5-区块"><a href="#5-区块" class="headerlink" title="5 区块"></a>5 区块</h3><p>JavaScript 使用大括号，将多个相关的语句组合在一起，称为“<strong>区块</strong>”（block）。<br>对于var命令来说，JavaScript 的区块不构成单独的<strong>作用域</strong>（scope）。</p>
+<h3 id="6-条件语句"><a href="#6-条件语句" class="headerlink" title="6 条件语句"></a>6 条件语句</h3><p>if和switch 还有三元运算符</p>
+<h3 id="7-循环语句"><a href="#7-循环语句" class="headerlink" title="7 循环语句"></a>7 循环语句</h3><p>while \for\ do..while<br>break退出循环，continue退出本轮循环。<br><strong>标签</strong>:标签通常与break语句和continue语句配合使用，跳出特定的循环.</p>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><h3 id="1-定义"><a href="#1-定义" class="headerlink" title="1 定义"></a>1 定义</h3><p>数组用方括号表示。任何类型的数据，都可以放入数组。</p>
+<h3 id="2-数组本质"><a href="#2-数组本质" class="headerlink" title="2 数组本质"></a>2 数组本质</h3><p>本质上，数组属于一种特殊的对象。数组的特殊性体现在，它的键名是按次序排列的一组整数（0，1，2…）。<br>JavaScript 语言规定，对象的键名一律为字符串，所以，数组的键名其实也是字符串。之所以可以用数值读取，是因为非字符串的键名会被转为字符串。</p>
+<h3 id="3-length属性"><a href="#3-length属性" class="headerlink" title="3 length属性"></a>3 length属性</h3><p>清空数组的一个有效方法，就是将length属性设为0。<br>如果人为设置length大于当前元素个数，则数组的成员数量会增加到这个值，新增的位置都是空位。</p>
+<h3 id="4-in运算符"><a href="#4-in运算符" class="headerlink" title="4 in运算符"></a>4 in运算符</h3><p>检查某个键名是否存在的运算符in，适用于对象，也适用于数组。</p>
+<h3 id="5-for…in-循环和数组的遍历"><a href="#5-for…in-循环和数组的遍历" class="headerlink" title="5 for…in 循环和数组的遍历"></a>5 for…in 循环和数组的遍历</h3><p>for…in循环不仅可以遍历对象，也可以遍历数组，毕竟数组只是一种特殊对象。<br>但是，for…in不仅会遍历数组所有的数字键，还会遍历非数字键。所以，不推荐使用for…in遍历数组。<br>数组的遍历可以考虑使用for循环或while循环。</p>
+<h3 id="6-数组的空位"><a href="#6-数组的空位" class="headerlink" title="6 数组的空位"></a>6 数组的空位</h3><p>当数组的某个位置是空元素，即两个逗号之间没有任何值，我们称该数组存在空位（hole）。<br>数组的空位不影响length属性。数组最后一个成员后面有一个逗号，这不影响length属性的值。<br>数组的空位是可以读取的，返回undefined。<br>使用delete命令删除一个数组成员，会形成空位，并且<strong>不会影响length属性</strong>。</p>
+<h3 id="7-类似数组的对象"><a href="#7-类似数组的对象" class="headerlink" title="7 类似数组的对象"></a>7 类似数组的对象</h3><p>典型的“类似数组的对象”是函数的arguments对象，以及大多数 DOM 元素集，还有字符串。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-06-15T07:22:48.000Z" itemprop="dateUpdated">2018-06-15 15:22:48</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/zdkswd">
+            <img src="/img/tmg.jpg" alt="ZDK">
+            ZDK
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/06/15/JavaScript标准参考教程 语法/&title=ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/06/15/JavaScript标准参考教程 语法/&title=ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/06/15/JavaScript标准参考教程 语法/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=ZDK's blog&url=https://github.com/zdkswd/2018/06/15/JavaScript标准参考教程 语法/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/06/15/JavaScript标准参考教程 语法/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/06/15/引入module后的问题 ; AsyncTask ;Make Clean Project;abiFilters/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">引入module后的问题 ; AsyncTask ;Make Clean Project;abiFilters</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/06/15/JS标准参考教程 导论/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz",
+            appKey: "gkBx5soQkBREmER84PWbNJeM",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ZDK &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/06/15/JavaScript标准参考教程 语法/&title=《No title》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/06/15/JavaScript标准参考教程 语法/&title=《No title》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/06/15/JavaScript标准参考教程 语法/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — ZDK's blog&url=https://github.com/zdkswd/2018/06/15/JavaScript标准参考教程 语法/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/06/15/JavaScript标准参考教程 语法/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2018/06/15/JavaScript标准参考教程 语法/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'zdk'blog';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
