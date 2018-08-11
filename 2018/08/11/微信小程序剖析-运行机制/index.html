@@ -21,17 +21,17 @@
     
     
     <meta name="keywords" content="">
-    <meta name="description" content="解压应用简单的说明一下：  app 目录下放置了app的代码 modified_modules 即一些修改后的模块 node_modules 地球人都知道 package.json 配置了NW相关的内容  在modified_modules目录下有两个子模块：  anyproxy，从名字就可以看起来这是一个代理模块 weinre，远程调试工具">
+    <meta name="description" content="解压应用简单的说明一下：  app 目录下放置了app的代码 modified_modules 即一些修改后的模块 node_modules 地球人都知道 package.json 配置了NW相关的内容  在modified_modules目录下有两个子模块：  anyproxy，从名字就可以看起来这是一个代理模块 weinre，远程调试工具  IDE这是一个NodeWebkit封装的Web应用。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="微信小程序剖析 运行机制">
 <meta property="og:url" content="https://github.com/zdkswd/2018/08/11/微信小程序剖析-运行机制/index.html">
 <meta property="og:site_name" content="ZDK&#39;s blog">
-<meta property="og:description" content="解压应用简单的说明一下：  app 目录下放置了app的代码 modified_modules 即一些修改后的模块 node_modules 地球人都知道 package.json 配置了NW相关的内容  在modified_modules目录下有两个子模块：  anyproxy，从名字就可以看起来这是一个代理模块 weinre，远程调试工具">
+<meta property="og:description" content="解压应用简单的说明一下：  app 目录下放置了app的代码 modified_modules 即一些修改后的模块 node_modules 地球人都知道 package.json 配置了NW相关的内容  在modified_modules目录下有两个子模块：  anyproxy，从名字就可以看起来这是一个代理模块 weinre，远程调试工具  IDE这是一个NodeWebkit封装的Web应用。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-11T02:10:22.000Z">
+<meta property="og:updated_time" content="2018-08-11T02:14:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微信小程序剖析 运行机制">
-<meta name="twitter:description" content="解压应用简单的说明一下：  app 目录下放置了app的代码 modified_modules 即一些修改后的模块 node_modules 地球人都知道 package.json 配置了NW相关的内容  在modified_modules目录下有两个子模块：  anyproxy，从名字就可以看起来这是一个代理模块 weinre，远程调试工具">
+<meta name="twitter:description" content="解压应用简单的说明一下：  app 目录下放置了app的代码 modified_modules 即一些修改后的模块 node_modules 地球人都知道 package.json 配置了NW相关的内容  在modified_modules目录下有两个子模块：  anyproxy，从名字就可以看起来这是一个代理模块 weinre，远程调试工具  IDE这是一个NodeWebkit封装的Web应用。">
     
         <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
     
@@ -157,7 +157,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#解压应用"><span class="post-toc-number">1.</span> <span class="post-toc-text">解压应用</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#解压应用"><span class="post-toc-number">1.</span> <span class="post-toc-text">解压应用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#IDE"><span class="post-toc-number">2.</span> <span class="post-toc-text">IDE</span></a></li></ol>
         </nav>
     </aside>
 
@@ -193,6 +193,12 @@
 <li>anyproxy，从名字就可以看起来这是一个代理模块</li>
 <li>weinre，远程调试工具</li>
 </ol>
+<h2 id="IDE"><a href="#IDE" class="headerlink" title="IDE"></a>IDE</h2><p>这是一个NodeWebkit封装的Web应用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">node-webkit能做什么？</span><br><span class="line">用Web技术（Node.JS，JavaScript，HTML5）开发桌面应用程序。Node.js是一个Javascript运行环境(runtime environment)。实质是对Chrome V8引擎进行了封装。</span><br><span class="line"></span><br><span class="line">Node.js使用Module模块去划分不同的功能，以简化应用的开发。Modules模块有点像C++语言中的类库。每一个Node.js的类库都包含了十分丰富的各类函数，比如http模块就包含了和http功能相关的很多函数，可以帮助开发者很容易地对比如http,tcp/udp等进行操作，还可以很容易的创建http和tcp/udp的服务器。</span><br></pre></td></tr></table></figure>
+<p>在package.json中的”main”: “app/html/index.html”,即定义了这个APP的入口是这个index.html，而不是别的文件。</p>
+<p>这是一个React应用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">React 起源于 Facebook 的内部项目，因为该公司对市场上所有 JavaScript MVC 框架，都不满意，就决定自己写一套。</span><br></pre></td></tr></table></figure>
+<p>其中的编辑环境是基于Monaco。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">monaco editor是微软开源的一款web版代码编辑器。它支持智能提示，代码高亮，代码格式化。</span><br></pre></td></tr></table></figure></p>
 
         </div>
 
@@ -201,7 +207,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-08-11T02:10:22.000Z" itemprop="dateUpdated">2018-08-11 10:10:22</time>
+    最后更新时间：<time datetime="2018-08-11T02:14:51.000Z" itemprop="dateUpdated">2018-08-11 10:14:51</time>
 </span><br>
 
 
