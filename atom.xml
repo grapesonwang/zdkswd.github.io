@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/zdkswd/"/>
-  <updated>2018-08-11T01:14:49.000Z</updated>
+  <updated>2018-08-10T03:19:22.000Z</updated>
   <id>https://github.com/zdkswd/</id>
   
   <author>
@@ -15,24 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>微信小程序剖析 运行机制</title>
-    <link href="https://github.com/zdkswd/2018/08/10/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%89%96%E6%9E%90%20%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6/"/>
-    <id>https://github.com/zdkswd/2018/08/10/微信小程序剖析 运行机制/</id>
-    <published>2018-08-10T15:10:13.000Z</published>
-    <updated>2018-08-11T01:14:49.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-      <category term="知识总结" scheme="https://github.com/zdkswd/categories/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"/>
-    
-    
-      <category term="微信小程序" scheme="https://github.com/zdkswd/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
-    
-  </entry>
   
   <entry>
     <title>微信应用号开发基础教程</title>
@@ -541,6 +523,33 @@
       
       
         &lt;h1 id=&quot;松本行弘的程序世界-4-设计模式&quot;&gt;&lt;a href=&quot;#松本行弘的程序世界-4-设计模式&quot; class=&quot;headerlink&quot; title=&quot;松本行弘的程序世界 4 设计模式&quot;&gt;&lt;/a&gt;松本行弘的程序世界 4 设计模式&lt;/h1&gt;&lt;h2 id=&quot;设计模式（1）&quot;&gt;
+      
+    
+    </summary>
+    
+      <category term="读书笔记" scheme="https://github.com/zdkswd/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="电子书笔记" scheme="https://github.com/zdkswd/tags/%E7%94%B5%E5%AD%90%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="程序语言" scheme="https://github.com/zdkswd/tags/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>松本行弘的程序世界 3 程序块</title>
+    <link href="https://github.com/zdkswd/2018/07/09/%E6%9D%BE%E6%9C%AC%E8%A1%8C%E5%BC%98%E7%9A%84%E7%A8%8B%E5%BA%8F%E4%B8%96%E7%95%8C%203%20%E7%A8%8B%E5%BA%8F%E5%9D%97/"/>
+    <id>https://github.com/zdkswd/2018/07/09/松本行弘的程序世界 3 程序块/</id>
+    <published>2018-07-09T02:21:32.000Z</published>
+    <updated>2018-07-11T02:11:19.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="松本行弘的程序世界-3-程序块"><a href="#松本行弘的程序世界-3-程序块" class="headerlink" title="松本行弘的程序世界 3 程序块"></a>松本行弘的程序世界 3 程序块</h1><h2 id="程序块的威力"><a href="#程序块的威力" class="headerlink" title="程序块的威力"></a>程序块的威力</h2><p>Ruby的特色功能之一——程序块。Ruby的程序块是指在方法调用时可以追加的代码块。</p><h3 id="把函数作为参数的高阶函数"><a href="#把函数作为参数的高阶函数" class="headerlink" title="把函数作为参数的高阶函数"></a>把函数作为参数的高阶函数</h3><p>高阶函数是指以函数作为参数的函数。<br>为了实现高阶函数，编程语言中必须把函数和方法作为数据来处理。</p><h3 id="C语言高阶函数的局限"><a href="#C语言高阶函数的局限" class="headerlink" title="C语言高阶函数的局限"></a>C语言高阶函数的局限</h3><p>在C语言中，实现函数间的信息传递只有两种方法：要么明确地传递参数，要么使用全局变量，没有其他方法。<br>如果使用全局变量来传递信息，就搞不清楚什么时候、谁在引用或者更新这一变量。除了全局变量之外，没有别的办法在函数间共享信息，这是C语言的局限。</p><h3 id="可以保存外部环境的闭包"><a href="#可以保存外部环境的闭包" class="headerlink" title="可以保存外部环境的闭包"></a>可以保存外部环境的闭包</h3><p>Ruby中，增加了引用函数外部变量的功能。<br>与C语言指针的例子比较，Ruby具有以下两个易于使用的优点：</p><ol><li>可以再使用时定义；</li><li>可以引用外部的局部变量。</li></ol><p>java的匿名类和C语言的函数指针也能实现同样的功能，但是没有那么简洁。<br>在块中可以引用外部局部变量的方法，这说明不只是简单的程序代码，而且把外部“环境”也包括进来，像这样的块叫做闭包。通常的局部变量在方法执行结束时就不存在了，但如果被包括进了闭包，闭包存在期间，局部变量也会一直存在。</p><h3 id="块的两种使用方法"><a href="#块的两种使用方法" class="headerlink" title="块的两种使用方法"></a>块的两种使用方法</h3><p>Ruby的块是可以追加给调用方法的代码块，块自身不是对象（对象化后的块是闭包）。参数传递的方法和普通函数不同。<br>在被调用的方法中有两种方式来使用传递过来的块。一种是用“块参数”的方式明确声明接受块作为参数，另一种是使用<strong>yield</strong>这个Ruby的保留词。<br>块作为参数具有三个优点：</p><ol><li>明确表示了块处理</li><li>块和对象一样被统一处理</li><li>检查参数是否为nil就可以判断出是否传递了块参数。</li></ol><p>另外，yield具有下面两个优点：</p><ol><li>没有用到闭包，执行速度少快</li><li>错误提示信息比较容易理解</li></ol><h3 id="最终来看，块到底是什么"><a href="#最终来看，块到底是什么" class="headerlink" title="最终来看，块到底是什么"></a>最终来看，块到底是什么</h3><p>Ruby的块具有以下三个特点：</p><ol><li>代码块可以作为参数传递给方法</li><li>在被调用的方法中可以执行传递过来的代码块，执行后程序的控制权返还给方法。</li><li>块中最后执行的算式的值是块的值，这个值可以返回给方法。</li></ol><p>块也可以被看做只是高阶函数的一种特殊形式的语法。虽然只是稍作改进，但Ruby中块的各种灵活应用的方法还是让人赞叹不已。</p><h3 id="块在循环处理中的应用"><a href="#块在循环处理中的应用" class="headerlink" title="块在循环处理中的应用"></a>块在循环处理中的应用</h3><p>最典型的用法是，在逐个处理集合对象的元素的方法中使用块。<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/15308432341402/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-06%20%E4%B8%8A%E5%8D%8811.19.23.png" alt="屏幕快照 2018-07-06 上午11.19.23" title="">                </div>                <div class="image-caption">屏幕快照 2018-07-06 上午11.19.23</div>            </figure></p><p>Ruby中几乎所有的容器类都有each这个方法。使用这个方法可以循环处理容器类中的所有元素。<br>也可以用for语句来实现each方法。<br>本来，Ruby就是为了要实现循环功能才导入了块。所以，在以前的文档中把具有块的方法称为迭代器（iterator）。iterate就是循环、迭代的意思。但是，如今块的应用范围比当初所能想到的要广泛的多，和循环没有关系的处理中也大量的用到块。所以现在仍把块称为迭代器就很不恰当了。</p><h3 id="内部迭代器和外部迭代器"><a href="#内部迭代器和外部迭代器" class="headerlink" title="内部迭代器和外部迭代器"></a>内部迭代器和外部迭代器</h3><p>像Ruby块这样，把对各个元素的处理逻辑传送给容器类的方法，然后在方法中对容器类中每个元素调用指定的处理逻辑，这种迭代方式称为内部迭代器的方式。<br>与之对应，C++和java中所谓的迭代器，是用别的类对象来循环处理容器中的元素，这种循环处理的方式称为外部迭代器方式。在外部迭代器方式中，把顺序取出容器中元素对象称为迭代器，也称为游标。<br>内部迭代器不用额外生成类，使用和实现都很简单，但是，对于不支持闭包的编程语言，想要拥有循环外部的信息就要费些功夫。外部迭代器可以简单地处理从多个容器中逐个取出数据进行并行处理。<br>从设计模式来看，内部迭代器是访问者模式，外部迭代器是迭代器模式。</p><h3 id="在排序和比较大小中的应用"><a href="#在排序和比较大小中的应用" class="headerlink" title="在排序和比较大小中的应用"></a>在排序和比较大小中的应用</h3><h3 id="用块保证程序的后处理"><a href="#用块保证程序的后处理" class="headerlink" title="用块保证程序的后处理"></a>用块保证程序的后处理</h3><h3 id="用块实现新的控制结构"><a href="#用块实现新的控制结构" class="headerlink" title="用块实现新的控制结构"></a>用块实现新的控制结构</h3><p>用块的话，不需要改变文法，就可以控制结构的定义。</p><h3 id="在回调中使用块"><a href="#在回调中使用块" class="headerlink" title="在回调中使用块"></a>在回调中使用块</h3><h3 id="块处理的特别理由"><a href="#块处理的特别理由" class="headerlink" title="块处理的特别理由"></a>块处理的特别理由</h3><p>ruby的块具有以下特点：</p><ol><li>在普通参数以外，另外被传送；</li><li>块不是对象（lambda方法可以作闭包对象化）。</li></ol><p>其他具有闭包功能的编程语言，比如Lisp和Smalltalk，它们没有这样的区别，总是把闭包作为对象来处理。Ruby作了改进，因为：</p><ol><li>减少对象的生成数。初期Ruby生成闭包对象的代价很高，所以尽量避免了闭包对象的生成。即使是真正必要的对象，也尽量延迟到必要的时候才生成。</li><li>外观上的理由。</li></ol><p>调用方法时只能用一个块，是Ruby中的一个限制，但实际情况中也几乎没有必要使用多个块。</p><h2 id="用块做循环"><a href="#用块做循环" class="headerlink" title="用块做循环"></a>用块做循环</h2><p>Ruby的块本来就是在循环的抽象化过程中诞生的。现在除了循环以外，在其他一些场合也得到广泛应用，但这并未有改变其实现循环的初衷。</p><h3 id="块是处理的集合"><a href="#块是处理的集合" class="headerlink" title="块是处理的集合"></a>块是处理的集合</h3><p>循环是程序的基本元素。从结构化编程的原理来说，所有算法都是有顺序、分支和循环的组合来实现的。可以说处理好了循环，也就处理好了程序。<br>Ruby也用while循环，但是循环还有其他更为深奥的表现形式。<br>Ruby中有until语句。<br>块是处理的集合。Ruby中，在方法调用的最后，可以附加上块。<br>Ruby的简洁性不只体现在程序简短，更重要的是体现在对本质问题的处理，使程序更为灵活。<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/15308432341402/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-09%20%E4%B8%8A%E5%8D%889.00.34.png" alt="屏幕快照 2018-07-09 上午9.00.34" title="">                </div>                <div class="image-caption">屏幕快照 2018-07-09 上午9.00.34</div>            </figure><br>第二行大括号中的部分是块，这行程序是作为参数来调用数组的each方法。<br>用Ruby实现这种循环非常简单，知识在块调用的地方用yield来指定。<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/15308432341402/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-09%20%E4%B8%8A%E5%8D%889.08.46.png" alt="屏幕快照 2018-07-09 上午9.08.46" title="">                </div>                <div class="image-caption">屏幕快照 2018-07-09 上午9.08.46</div>            </figure><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">一个方法的定义，在方法内部有yield的出现；在方法的调用处会有程序块的出现。</span><br></pre></td></tr></table></figure></p><p>也可以用do-end来定义块。大括号和do-end基本是一样的。但是，在块是多行时。用do-end结构统一性更好一些。</p><ol><li>块是一行的时候用大括号，是多行的时候用do-end;</li><li>块作为表达式的一部分，给方法返回值时用大括号，块作为处理语句或程序流程控制时用do-end。<br>大括号的优先级更高。</li></ol><p><strong>在省略括号调用方法时，一定要注意块的结合优先顺序。</strong></p><h3 id="块应用范围的扩展"><a href="#块应用范围的扩展" class="headerlink" title="块应用范围的扩展"></a>块应用范围的扩展</h3><p>当时块主要使用在循环里。<br>在Ruby中不必特别的结构，在任意的方法中都可以使用块，所以不仅仅在循环中，块在各种各样的领域中都得到了应用。</p><h3 id="高阶函数和块本质一样"><a href="#高阶函数和块本质一样" class="headerlink" title="高阶函数和块本质一样"></a>高阶函数和块本质一样</h3><p>编程语言要实现高阶函数，就必须把函数或者方法作为数据来处理。反之，具有这样功能的编程语言就可以利用高阶函数。<br>可以把块看做高阶函数调用，只能有一个函数参数。<br>事实上，在高阶函数中94%都只有一个函数参数，有两个以上函数参数是极少的。Ruby以更易于使用的形式，把只有一个函数参数的情形在语法上加以特殊处理，导入了块功能。</p><h3 id="用Enumerable来利用块"><a href="#用Enumerable来利用块" class="headerlink" title="用Enumerable来利用块"></a>用Enumerable来利用块</h3><p>把块应用于循环抽象化的，最典型的应该是Enumerable模块。Enumerable模块以each方法为基础，定义了each方法的类提供了多种功能。如果继承（Mix-in）了这个模块，就可以很方便地利用它的各种功能。<br>Enumberable的意思是可数的。它是对数组等各种集合元素做循环处理的方法的集成。可大致分为：</p><ol><li>循环</li><li>指定条件</li><li>排序、比较大小</li></ol><h3 id="Enumerable的局限"><a href="#Enumerable的局限" class="headerlink" title="Enumerable的局限"></a>Enumerable的局限</h3><ol><li>循环都依赖each方法，而且不能并行执行。</li><li>Enumerable可以用each方法简单的实现循环，反过来也是一个局限。</li></ol><h2 id="精通集合的使用"><a href="#精通集合的使用" class="headerlink" title="精通集合的使用"></a>精通集合的使用</h2><h3 id="使用Ruby的数组"><a href="#使用Ruby的数组" class="headerlink" title="使用Ruby的数组"></a>使用Ruby的数组</h3><p>在动态语言ruby中，集合可以混合存在各种类型的对象，所以可以定义复杂得数组。</p><h3 id="修改指定范围的元素的内容"><a href="#修改指定范围的元素的内容" class="headerlink" title="修改指定范围的元素的内容"></a>修改指定范围的元素的内容</h3><p>和C语言、java语言相比，ruby的数组具有以下特点。</p><ol><li>Ruby的数组是对象，可以调用各种方法。</li><li>用【】访问数组实际上是方法调用。【】是方法名，里面的值是参数。</li><li>变更数组元素实际上也是方法调用。【】=是方法名，里面和右边的值是参数。</li></ol><h3 id="Ruby中的哈希处理"><a href="#Ruby中的哈希处理" class="headerlink" title="Ruby中的哈希处理"></a>Ruby中的哈希处理</h3><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/15308432341402/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-09%20%E4%B8%8A%E5%8D%889.55.21.png" alt="屏幕快照 2018-07-09 上午9.55.21" title="">                </div>                <div class="image-caption">屏幕快照 2018-07-09 上午9.55.21</div>            </figure><h3 id="支持循环的Enumerable"><a href="#支持循环的Enumerable" class="headerlink" title="支持循环的Enumerable"></a>支持循环的Enumerable</h3><p>Ruby中提供的方法可以更好地发挥集合的作用。<br>Ruby中，集合的功能都定义在Enumerable这个Mix-in中了。从另一个角度来说，只要把Enumerable模块通过Mix-in继承进来，就可以使用集合对象的大量方法了。</p><h3 id="用于循环的each方法"><a href="#用于循环的each方法" class="headerlink" title="用于循环的each方法"></a>用于循环的each方法</h3><p>在Enumerable中没有定义each方法，反之，Enumerable中所有方法都是在内部调用each方法实现的。</p><h3 id="使用inject、zip和grep"><a href="#使用inject、zip和grep" class="headerlink" title="使用inject、zip和grep"></a>使用inject、zip和grep</h3><p>inject是用块吧各个元素结合起来。<br>zip是从多个集合并行取得元素的方法。<br>grep方法可以对集合中的元素进行模式匹配。</p><h3 id="用来指定条件的select方法"><a href="#用来指定条件的select方法" class="headerlink" title="用来指定条件的select方法"></a>用来指定条件的select方法</h3><p>对集合的各个元素进行块处理的是循环类型的方法。和它相对的，对各个元素进行块处理，用快处理的结果作为下个处理的判定条件的是条件指定型方法。<br>条件指定型方法中最常用的是select方法。select方法把快处理结果为真的元素存放在数组中返回。</p><h3 id="排序与比较大小"><a href="#排序与比较大小" class="headerlink" title="排序与比较大小"></a>排序与比较大小</h3><h3 id="在类中包括（include）Enumerable模块"><a href="#在类中包括（include）Enumerable模块" class="headerlink" title="在类中包括（include）Enumerable模块"></a>在类中包括（include）Enumerable模块</h3><h3 id="列表内包表达式和块的区别"><a href="#列表内包表达式和块的区别" class="headerlink" title="列表内包表达式和块的区别"></a>列表内包表达式和块的区别</h3>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;松本行弘的程序世界-3-程序块&quot;&gt;&lt;a href=&quot;#松本行弘的程序世界-3-程序块&quot; class=&quot;headerlink&quot; title=&quot;松本行弘的程序世界 3 程序块&quot;&gt;&lt;/a&gt;松本行弘的程序世界 3 程序块&lt;/h1&gt;&lt;h2 id=&quot;程序块的威力&quot;&gt;&lt;a hr
       
     
     </summary>
