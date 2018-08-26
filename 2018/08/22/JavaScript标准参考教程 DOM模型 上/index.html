@@ -65,7 +65,7 @@
 <meta property="og:image" content="https://github.com/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%882.54.24.png">
 <meta property="og:image" content="https://github.com/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%882.54.51.png">
 <meta property="og:image" content="https://github.com/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%883.53.56.png">
-<meta property="og:updated_time" content="2018-08-22T10:33:44.000Z">
+<meta property="og:updated_time" content="2018-08-26T02:00:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript标准参考教程 DOM模型 上">
 <meta name="twitter:description" content="DOM模型概述基本概念DOMDOM 是 JavaScript 操作网页的接口，全称为“文档对象模型”（Document Object Model）。它的作用是将网页转为一个 JavaScript 对象，从而可以用脚本进行各种操作（比如增删内容）。 浏览器会根据 DOM 模型，将结构化文档（比如 HTML 和 XML）解析成一系列的节点，再由这些节点组成一个树状结构（DOM Tree）。所有的节点和">
@@ -652,7 +652,7 @@
 <h3 id="document-getSelection"><a href="#document-getSelection" class="headerlink" title="document.getSelection()"></a>document.getSelection()</h3><p>这个方法指向window.getSelection()。</p>
 <h1 id="Element对象"><a href="#Element对象" class="headerlink" title="Element对象"></a>Element对象</h1><p>Element对象对应网页的 HTML 元素。每一个 HTML 元素，在 DOM 树上都会转化成一个Element节点对象（以下简称元素节点）。</p>
 <p>元素节点的nodeType属性都是1。</p>
-<p>Element对象继承了Node接口，因此Node的属性和方法在Element对象都存在。此外，不同的 HTML 元素对应的元素节点是不一样的，浏览器使用不同的构造函数，生成不同的元素节点，比如<a>元素的节点对象由HTMLAnchorElement构造函数生成，<button>元素的节点对象由HTMLButtonElement构造函数生成。因此，元素节点不是一种对象，而是一组对象，这些对象除了继承Element的属性和方法，还有各自构造函数的属性和方法。</button></a></p>
+<p>Element对象继承了Node接口，因此Node的属性和方法在Element对象都存在。此外，不同的 HTML 元素对应的元素节点是不一样的，浏览器使用不同的构造函数，生成不同的元素节点，比如&lt; a&gt;元素的节点对象由HTMLAnchorElement构造函数生成，&lt; button&gt;元素的节点对象由HTMLButtonElement构造函数生成。因此，元素节点不是一种对象，而是一组对象，这些对象除了继承Element的属性和方法，还有各自构造函数的属性和方法。</p>
 <h2 id="实例属性"><a href="#实例属性" class="headerlink" title="实例属性"></a>实例属性</h2><h3 id="元素特性的相关属性"><a href="#元素特性的相关属性" class="headerlink" title="元素特性的相关属性"></a>元素特性的相关属性</h3><h4 id="Element-id"><a href="#Element-id" class="headerlink" title="Element.id"></a>Element.id</h4><p>Element.id属性返回指定元素的id属性，该属性可读写。</p>
 <p>id属性的值是大小写敏感。</p>
 <h4 id="Element-tagName"><a href="#Element-tagName" class="headerlink" title="Element.tagName"></a>Element.tagName</h4><p>Element.tagName属性返回指定元素的大写标签名，与nodeName属性的值相等。</p>
@@ -720,7 +720,7 @@
             </figure></p>
 <p>因此，data-abc-def对应dataset.abcDef，data-abc-1对应dataset[“abc-1”]。</p>
 <p>除了使用dataset读写data-属性，也可以使用Element.getAttribute()和Element.setAttribute()，通过完整的属性名读写这些属性。</p>
-<h3 id="Element-innerHTML"><a href="#Element-innerHTML" class="headerlink" title="Element.innerHTML"></a>Element.innerHTML</h3><p>Element.innerHTML属性返回一个字符串，等同于该元素包含的所有 HTML 代码。该属性可读写，常用来设置某个节点的内容。它能改写所有元素节点的内容，包括<html>和<body>元素。</body></html></p>
+<h3 id="Element-innerHTML"><a href="#Element-innerHTML" class="headerlink" title="Element.innerHTML"></a>Element.innerHTML</h3><p>Element.innerHTML属性返回一个字符串，等同于该元素包含的所有 HTML 代码。该属性可读写，常用来设置某个节点的内容。它能改写所有元素节点的内容，包括&lt; HTML&gt;和&lt; body&gt;元素。</p>
 <p>如果将innerHTML属性设为空，等于删除所有它包含的所有节点。</p>
 <p>注意，读取属性值的时候，如果文本节点包含&amp;、小于号（&lt;）和大于号（&gt;），innerHTML属性会将它们转为实体形式&amp;、&lt;、&gt;。如果想得到原文，建议使用element.textContent属性。<br><figure class="image-bubble">
                 <div class="img-lightbox">
@@ -845,7 +845,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-08-22T10:33:44.000Z" itemprop="dateUpdated">2018-08-22 18:33:44</time>
+    最后更新时间：<time datetime="2018-08-26T02:00:16.000Z" itemprop="dateUpdated">2018-08-26 10:00:16</time>
 </span><br>
 
 
