@@ -21,14 +21,19 @@
     
     
     <meta name="keywords" content="Python">
-    <meta name="description" content="使用list和tuplelistlist是一种有序的集合，可以随时添加和删除其中的元素。                                                                                                           len()函数可以获得list元素的个数。 用索引来访问list中每一个位置的元素，记得索引是从0">
+    <meta name="description" content="字符串和编码字符编码计算机只能处理数字，如果要处理文本，就必须先把文本转换为数字才能处理。 Unicode把所有语言都统一到一套编码里，这样就不会再有乱码问题了。 ASCII编码和Unicode编码的区别：ASCII编码是1个字节，而Unicode编码通常是2个字节。 本着节约的精神，又出现了把Unicode编码转化为“可变长编码”的UTF-8编码。UTF-8编码把一个Unicode字符根据不同的">
 <meta name="keywords" content="Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python廖雪峰 语法 一">
 <meta property="og:url" content="https://github.com/zdkswd/2018/08/27/Python廖雪峰 语法 一/index.html">
 <meta property="og:site_name" content="ZDK&#39;s blog">
-<meta property="og:description" content="使用list和tuplelistlist是一种有序的集合，可以随时添加和删除其中的元素。                                                                                                           len()函数可以获得list元素的个数。 用索引来访问list中每一个位置的元素，记得索引是从0">
+<meta property="og:description" content="字符串和编码字符编码计算机只能处理数字，如果要处理文本，就必须先把文本转换为数字才能处理。 Unicode把所有语言都统一到一套编码里，这样就不会再有乱码问题了。 ASCII编码和Unicode编码的区别：ASCII编码是1个字节，而Unicode编码通常是2个字节。 本着节约的精神，又出现了把Unicode编码转化为“可变长编码”的UTF-8编码。UTF-8编码把一个Unicode字符根据不同的">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/img/media/15352502018689/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-26%20%E4%B8%8B%E5%8D%883.00.36.png">
+<meta property="og:image" content="https://github.com/img/media/15352502018689/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-26%20%E4%B8%8B%E5%8D%883.00.47.png">
+<meta property="og:image" content="https://github.com/img/media/15352502018689/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-26%20%E4%B8%8B%E5%8D%883.07.01.png">
+<meta property="og:image" content="https://github.com/img/media/15352502018689/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-26%20%E4%B8%8B%E5%8D%883.04.12.png">
+<meta property="og:image" content="https://github.com/img/media/15352502018689/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-26%20%E4%B8%8B%E5%8D%883.07.43.png">
 <meta property="og:image" content="https://github.com/img/media/15352502018689/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-26%20%E4%B8%8B%E5%8D%883.10.00.png">
 <meta property="og:image" content="https://github.com/img/media/15352502018689/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-26%20%E4%B8%8B%E5%8D%883.12.51.png">
 <meta property="og:image" content="https://github.com/img/media/15352502018689/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-26%20%E4%B8%8B%E5%8D%883.14.00.png">
@@ -57,11 +62,11 @@
 <meta property="og:image" content="https://github.com/img/media/15352502018689/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-27%20%E4%B8%8B%E5%8D%885.09.44.png">
 <meta property="og:image" content="https://github.com/img/media/15352502018689/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-27%20%E4%B8%8B%E5%8D%885.10.07.png">
 <meta property="og:image" content="https://github.com/img/media/15352502018689/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-27%20%E4%B8%8B%E5%8D%885.10.49.png">
-<meta property="og:updated_time" content="2018-08-27T13:14:43.000Z">
+<meta property="og:updated_time" content="2018-08-27T13:15:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python廖雪峰 语法 一">
-<meta name="twitter:description" content="使用list和tuplelistlist是一种有序的集合，可以随时添加和删除其中的元素。                                                                                                           len()函数可以获得list元素的个数。 用索引来访问list中每一个位置的元素，记得索引是从0">
-<meta name="twitter:image" content="https://github.com/img/media/15352502018689/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-26%20%E4%B8%8B%E5%8D%883.10.00.png">
+<meta name="twitter:description" content="字符串和编码字符编码计算机只能处理数字，如果要处理文本，就必须先把文本转换为数字才能处理。 Unicode把所有语言都统一到一套编码里，这样就不会再有乱码问题了。 ASCII编码和Unicode编码的区别：ASCII编码是1个字节，而Unicode编码通常是2个字节。 本着节约的精神，又出现了把Unicode编码转化为“可变长编码”的UTF-8编码。UTF-8编码把一个Unicode字符根据不同的">
+<meta name="twitter:image" content="https://github.com/img/media/15352502018689/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-26%20%E4%B8%8B%E5%8D%883.00.36.png">
     
         <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
     
@@ -189,7 +194,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用list和tuple"><span class="post-toc-number">1.</span> <span class="post-toc-text">使用list和tuple</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#list"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">list</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#tuple"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">tuple</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#条件判断"><span class="post-toc-number">2.</span> <span class="post-toc-text">条件判断</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#input"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">input</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#循环"><span class="post-toc-number">3.</span> <span class="post-toc-text">循环</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#for…in循环"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">for…in循环</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#while循环"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">while循环</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#break"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">break</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#continue"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">continue</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用dict和set"><span class="post-toc-number">4.</span> <span class="post-toc-text">使用dict和set</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#dict"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">dict</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#set"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">set</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#不可变对象"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">不可变对象</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#函数"><span class="post-toc-number"></span> <span class="post-toc-text">函数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#调用函数"><span class="post-toc-number">1.</span> <span class="post-toc-text">调用函数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数据类型转换"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">数据类型转换</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#定义函数"><span class="post-toc-number">2.</span> <span class="post-toc-text">定义函数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#空函数"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">空函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参数检查"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">参数检查</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#返回多个值"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">返回多个值</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#小结"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">小结</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#函数的参数"><span class="post-toc-number">3.</span> <span class="post-toc-text">函数的参数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#位置参数"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">位置参数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#默认参数"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">默认参数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#可变参数"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">可变参数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#关键字参数"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">关键字参数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#命名关键字参数"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">命名关键字参数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参数组合"><span class="post-toc-number">3.6.</span> <span class="post-toc-text">参数组合</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#递归函数"><span class="post-toc-number">4.</span> <span class="post-toc-text">递归函数</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#字符串和编码"><span class="post-toc-number">1.</span> <span class="post-toc-text">字符串和编码</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#字符编码"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">字符编码</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Python的字符串"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Python的字符串</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#格式化"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">格式化</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#format"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">format()</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用list和tuple"><span class="post-toc-number">2.</span> <span class="post-toc-text">使用list和tuple</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#list"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">list</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#tuple"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">tuple</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#条件判断"><span class="post-toc-number">3.</span> <span class="post-toc-text">条件判断</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#input"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">input</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#循环"><span class="post-toc-number">4.</span> <span class="post-toc-text">循环</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#for…in循环"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">for…in循环</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#while循环"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">while循环</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#break"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">break</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#continue"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">continue</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用dict和set"><span class="post-toc-number">5.</span> <span class="post-toc-text">使用dict和set</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#dict"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">dict</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#set"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">set</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#不可变对象"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">不可变对象</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#函数"><span class="post-toc-number"></span> <span class="post-toc-text">函数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#调用函数"><span class="post-toc-number">1.</span> <span class="post-toc-text">调用函数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数据类型转换"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">数据类型转换</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#定义函数"><span class="post-toc-number">2.</span> <span class="post-toc-text">定义函数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#空函数"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">空函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参数检查"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">参数检查</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#返回多个值"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">返回多个值</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#小结"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">小结</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#函数的参数"><span class="post-toc-number">3.</span> <span class="post-toc-text">函数的参数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#位置参数"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">位置参数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#默认参数"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">默认参数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#可变参数"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">可变参数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#关键字参数"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">关键字参数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#命名关键字参数"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">命名关键字参数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参数组合"><span class="post-toc-number">3.6.</span> <span class="post-toc-text">参数组合</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#递归函数"><span class="post-toc-number">4.</span> <span class="post-toc-text">递归函数</span></a></li></ol>
         </nav>
     </aside>
 
@@ -215,7 +220,59 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h2 id="使用list和tuple"><a href="#使用list和tuple" class="headerlink" title="使用list和tuple"></a>使用list和tuple</h2><h3 id="list"><a href="#list" class="headerlink" title="list"></a>list</h3><p>list是一种有序的集合，可以随时添加和删除其中的元素。<br><figure class="image-bubble">
+            <h2 id="字符串和编码"><a href="#字符串和编码" class="headerlink" title="字符串和编码"></a>字符串和编码</h2><h3 id="字符编码"><a href="#字符编码" class="headerlink" title="字符编码"></a>字符编码</h3><p>计算机只能处理数字，如果要处理文本，就必须先把文本转换为数字才能处理。</p>
+<p>Unicode把所有语言都统一到一套编码里，这样就不会再有乱码问题了。</p>
+<p>ASCII编码和Unicode编码的区别：ASCII编码是1个字节，而Unicode编码通常是2个字节。</p>
+<p>本着节约的精神，又出现了把Unicode编码转化为“可变长编码”的UTF-8编码。UTF-8编码把一个Unicode字符根据不同的数字大小编码成1-6个字节，常用的英文字母被编码成1个字节，汉字通常是3个字节，只有很生僻的字符才会被编码成4-6个字节。如果你要传输的文本包含大量英文字符，用UTF-8编码就能节省空间。</p>
+<p>在计算机内存中，统一使用Unicode编码，当需要保存到硬盘或者需要传输的时候，就转换为UTF-8编码。</p>
+<h3 id="Python的字符串"><a href="#Python的字符串" class="headerlink" title="Python的字符串"></a>Python的字符串</h3><p>在最新的Python 3版本中，字符串是以Unicode编码的，也就是说，Python的字符串支持多语言。</p>
+<p>由于Python的字符串类型是str，在内存中以Unicode表示，一个字符对应若干个字节。如果要在网络上传输，或者保存到磁盘上，就需要把str变为以字节为单位的bytes。</p>
+<p>要注意区分’ABC’和b’ABC’，前者是str，后者虽然内容显示得和前者一样，但bytes的每个字符都只占用一个字节。</p>
+<p>以Unicode表示的str通过encode()方法可以编码为指定的bytes。</p>
+<p>纯英文的str可以用ASCII编码为bytes，内容是一样的，含有中文的str可以用UTF-8编码为bytes。含有中文的str无法用ASCII编码，因为中文编码的范围超过了ASCII编码的范围，Python会报错。</p>
+<p>反过来，如果我们从网络或磁盘上读取了字节流，那么读到的数据就是bytes。要把bytes变为str，就需要用decode()方法。</p>
+<p>len()函数计算的是str的字符数，如果换成bytes，len()函数就计算字节数。</p>
+<p>1个中文字符经过UTF-8编码后通常会占用3个字节，而1个英文字符只占用1个字节。</p>
+<p>在操作字符串时，我们经常遇到str和bytes的互相转换。为了避免乱码问题，应当始终坚持使用UTF-8编码对str和bytes进行转换。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15352502018689/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-26%20%E4%B8%8B%E5%8D%883.00.36.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15352502018689/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-26%20%E4%B8%8B%E5%8D%883.00.47.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>由于Python源代码也是一个文本文件，所以，当你的源代码中包含中文的时候，在保存源代码时，就需要务必指定保存为UTF-8编码。Python当然也支持其他编码方式，比如把Unicode编码成GB2312。但这种方式纯属自找麻烦，如果没有特殊业务要求，请牢记仅使用UTF-8编码。</p>
+<p>申明了UTF-8编码并不意味着你的.py文件就是UTF-8编码的，必须并且要确保文本编辑器正在使用UTF-8 without BOM编码。</p>
+<h3 id="格式化"><a href="#格式化" class="headerlink" title="格式化"></a>格式化</h3><p>在Python中，采用的格式化方式和C语言是一致的，用%实现。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15352502018689/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-26%20%E4%B8%8B%E5%8D%883.07.01.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>常见的占位符有：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15352502018689/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-26%20%E4%B8%8B%E5%8D%883.04.12.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>如果你不太确定应该用什么，%s永远起作用，它会把任何数据类型转换为字符串。</p>
+<p>转义，用%%来表示一个%。</p>
+<h4 id="format"><a href="#format" class="headerlink" title="format()"></a>format()</h4><p>另一种格式化字符串的方法是使用字符串的format()方法，它会用传入的参数依次替换字符串内的占位符{0}、{1}……，不过这种方式写起来比%要麻烦得多。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15352502018689/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-26%20%E4%B8%8B%E5%8D%883.07.43.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h2 id="使用list和tuple"><a href="#使用list和tuple" class="headerlink" title="使用list和tuple"></a>使用list和tuple</h2><h3 id="list"><a href="#list" class="headerlink" title="list"></a>list</h3><p>list是一种有序的集合，可以随时添加和删除其中的元素。<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/img/media/15352502018689/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-26%20%E4%B8%8B%E5%8D%883.10.00.png" alt="" title="">
@@ -486,7 +543,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-08-27T13:14:43.000Z" itemprop="dateUpdated">2018-08-27 21:14:43</time>
+    最后更新时间：<time datetime="2018-08-27T13:15:47.000Z" itemprop="dateUpdated">2018-08-27 21:15:47</time>
 </span><br>
 
 
