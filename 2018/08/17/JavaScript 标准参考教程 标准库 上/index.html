@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>JavaScript 标准参考教程 标准库 上 | ZDK&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="JavaScript">
+    <meta name="description" content="Object对象概述JavaScript 原生提供Object对象（注意起首的O是大写）。 JavaScript 的所有其他对象都继承自Object对象，即那些对象都是Object的实例。 Object对象的原生方法分成两类：Object本身的方法与Object的实例方法。 Object对象本身的方法Object的实例方法Object（）Object本身是一个函数，可以当作工具方法使用，将任意值转">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript 标准参考教程 标准库 上">
+<meta property="og:url" content="https://github.com/zdkswd/2018/08/17/JavaScript 标准参考教程 标准库 上/index.html">
+<meta property="og:site_name" content="ZDK&#39;s blog">
+<meta property="og:description" content="Object对象概述JavaScript 原生提供Object对象（注意起首的O是大写）。 JavaScript 的所有其他对象都继承自Object对象，即那些对象都是Object的实例。 Object对象的原生方法分成两类：Object本身的方法与Object的实例方法。 Object对象本身的方法Object的实例方法Object（）Object本身是一个函数，可以当作工具方法使用，将任意值转">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-14%20%E4%B8%8B%E5%8D%886.50.22.png">
+<meta property="og:image" content="https://github.com/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-14%20%E4%B8%8B%E5%8D%886.54.48.png">
+<meta property="og:image" content="https://github.com/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-14%20%E4%B8%8B%E5%8D%886.56.08.png">
+<meta property="og:image" content="https://github.com/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-14%20%E4%B8%8B%E5%8D%886.56.32.png">
+<meta property="og:image" content="https://github.com/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-14%20%E4%B8%8B%E5%8D%887.02.57.png">
+<meta property="og:image" content="https://github.com/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-14%20%E4%B8%8B%E5%8D%887.05.39.png">
+<meta property="og:image" content="https://github.com/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-14%20%E4%B8%8B%E5%8D%887.12.14.png">
+<meta property="og:image" content="https://github.com/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-14%20%E4%B8%8B%E5%8D%887.13.02.png">
+<meta property="og:image" content="https://github.com/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-14%20%E4%B8%8B%E5%8D%887.21.55.png">
+<meta property="og:image" content="https://github.com/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-14%20%E4%B8%8B%E5%8D%8810.41.47.png">
+<meta property="og:image" content="https://github.com/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-14%20%E4%B8%8B%E5%8D%8810.42.52.png">
+<meta property="og:image" content="https://github.com/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-14%20%E4%B8%8B%E5%8D%8810.44.05.png">
+<meta property="og:image" content="https://github.com/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-15%20%E4%B8%8B%E5%8D%882.32.01.png">
+<meta property="og:image" content="https://github.com/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-15%20%E4%B8%8B%E5%8D%882.36.15.png">
+<meta property="og:image" content="https://github.com/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-15%20%E4%B8%8B%E5%8D%882.38.00.png">
+<meta property="og:image" content="https://github.com/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-15%20%E4%B8%8B%E5%8D%883.03.29.png">
+<meta property="og:image" content="https://github.com/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-15%20%E4%B8%8B%E5%8D%883.25.43.png">
+<meta property="og:image" content="https://github.com/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-15%20%E4%B8%8B%E5%8D%883.44.49.png">
+<meta property="og:image" content="https://github.com/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-15%20%E4%B8%8B%E5%8D%883.46.17.png">
+<meta property="og:image" content="https://github.com/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-15%20%E4%B8%8B%E5%8D%884.26.56.png">
+<meta property="og:image" content="https://github.com/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-15%20%E4%B8%8B%E5%8D%887.10.47.png">
+<meta property="og:image" content="https://github.com/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-15%20%E4%B8%8B%E5%8D%887.11.52.png">
+<meta property="og:image" content="https://github.com/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-15%20%E4%B8%8B%E5%8D%887.16.25.png">
+<meta property="og:image" content="https://github.com/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-15%20%E4%B8%8B%E5%8D%887.48.06.png">
+<meta property="og:image" content="https://github.com/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-15%20%E4%B8%8B%E5%8D%887.49.30.png">
+<meta property="og:image" content="https://github.com/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-15%20%E4%B8%8B%E5%8D%887.55.02.png">
+<meta property="og:image" content="https://github.com/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-15%20%E4%B8%8B%E5%8D%8810.12.48.png">
+<meta property="og:image" content="https://github.com/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8A%E5%8D%889.32.55.png">
+<meta property="og:image" content="https://github.com/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8A%E5%8D%889.39.42.png">
+<meta property="og:image" content="https://github.com/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8A%E5%8D%889.40.09.png">
+<meta property="og:image" content="https://github.com/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8A%E5%8D%889.42.53.png">
+<meta property="og:image" content="https://github.com/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8A%E5%8D%889.44.09.png">
+<meta property="og:image" content="https://github.com/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8A%E5%8D%889.49.45.png">
+<meta property="og:updated_time" content="2018-09-01T03:55:47.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript 标准参考教程 标准库 上">
+<meta name="twitter:description" content="Object对象概述JavaScript 原生提供Object对象（注意起首的O是大写）。 JavaScript 的所有其他对象都继承自Object对象，即那些对象都是Object的实例。 Object对象的原生方法分成两类：Object本身的方法与Object的实例方法。 Object对象本身的方法Object的实例方法Object（）Object本身是一个函数，可以当作工具方法使用，将任意值转">
+<meta name="twitter:image" content="https://github.com/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-14%20%E4%B8%8B%E5%8D%886.50.22.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/tmg.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ZDK</h5>
+          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/zdkswd" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">JavaScript 标准参考教程 标准库 上</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">JavaScript 标准参考教程 标准库 上</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-08-17T04:02:56.000Z" itemprop="datePublished" class="page-time">
+  2018-08-17
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/教程/">教程</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Object对象"><span class="post-toc-number">1.</span> <span class="post-toc-text">Object对象</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#概述"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">概述</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Object对象本身的方法"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">Object对象本身的方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Object的实例方法"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">Object的实例方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Object（）"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Object（）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Object构造函数"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">Object构造函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Object的静态方法"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">Object的静态方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Object-keys-，Object-getOwnPropertyNames"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">Object.keys()，Object.getOwnPropertyNames()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#其他方法"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">其他方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#对象属性模型的相关方法"><span class="post-toc-number">1.4.2.1.</span> <span class="post-toc-text">对象属性模型的相关方法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#控制对象状态的方法"><span class="post-toc-number">1.4.2.2.</span> <span class="post-toc-text">控制对象状态的方法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#原型链相关方法"><span class="post-toc-number">1.4.2.3.</span> <span class="post-toc-text">原型链相关方法</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Object的实例方法-1"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">Object的实例方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Object-prototype-valueOf"><span class="post-toc-number">1.5.1.</span> <span class="post-toc-text">Object.prototype.valueOf()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Object-prototype-toString"><span class="post-toc-number">1.5.2.</span> <span class="post-toc-text">Object.prototype.toString()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#toString-的应用：判断数据类型"><span class="post-toc-number">1.5.3.</span> <span class="post-toc-text">toString() 的应用：判断数据类型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Object-prototype-toLocaleString"><span class="post-toc-number">1.5.4.</span> <span class="post-toc-text">Object.prototype.toLocaleString()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Object-prototype-hasOwnProperty"><span class="post-toc-number">1.5.5.</span> <span class="post-toc-text">Object.prototype.hasOwnProperty()</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Array对象"><span class="post-toc-number">2.</span> <span class="post-toc-text">Array对象</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#构造函数"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">构造函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#静态方法"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">静态方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Array-isArray"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">Array.isArray()</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实例方法"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">实例方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#valueOf-，toString"><span class="post-toc-number">2.3.1.</span> <span class="post-toc-text">valueOf()，toString()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#push-，pop"><span class="post-toc-number">2.3.2.</span> <span class="post-toc-text">push()，pop()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#shift-，unshift"><span class="post-toc-number">2.3.3.</span> <span class="post-toc-text">shift()，unshift()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#join（）"><span class="post-toc-number">2.3.4.</span> <span class="post-toc-text">join（）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#concat"><span class="post-toc-number">2.3.5.</span> <span class="post-toc-text">concat()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#reverse"><span class="post-toc-number">2.3.6.</span> <span class="post-toc-text">reverse()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#slice"><span class="post-toc-number">2.3.7.</span> <span class="post-toc-text">slice()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#splice"><span class="post-toc-number">2.3.8.</span> <span class="post-toc-text">splice()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#sort"><span class="post-toc-number">2.3.9.</span> <span class="post-toc-text">sort()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#map"><span class="post-toc-number">2.3.10.</span> <span class="post-toc-text">map()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#forEach"><span class="post-toc-number">2.3.11.</span> <span class="post-toc-text">forEach()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#filter"><span class="post-toc-number">2.3.12.</span> <span class="post-toc-text">filter()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#some-，every"><span class="post-toc-number">2.3.13.</span> <span class="post-toc-text">some()，every()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#reduce-，reduceRight"><span class="post-toc-number">2.3.14.</span> <span class="post-toc-text">reduce()，reduceRight()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#indexOf-，lastIndexOf"><span class="post-toc-number">2.3.15.</span> <span class="post-toc-text">indexOf()，lastIndexOf()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#链式使用"><span class="post-toc-number">2.3.16.</span> <span class="post-toc-text">链式使用</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#包装对象"><span class="post-toc-number">3.</span> <span class="post-toc-text">包装对象</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#定义"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">定义</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实例方法-1"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">实例方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#valueOf-NaN"><span class="post-toc-number">3.2.1.</span> <span class="post-toc-text">valueOf()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#toString-NaN"><span class="post-toc-number">3.2.2.</span> <span class="post-toc-text">toString()</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#原始类型与实例对象的自动转换"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">原始类型与实例对象的自动转换</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#自定义方法"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">自定义方法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Boolean-对象"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">Boolean 对象</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#概述-1"><span class="post-toc-number">3.5.1.</span> <span class="post-toc-text">概述</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Boolean-函数的类型转换作用"><span class="post-toc-number">3.5.2.</span> <span class="post-toc-text">Boolean 函数的类型转换作用</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Number对象"><span class="post-toc-number">4.</span> <span class="post-toc-text">Number对象</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#概述-2"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">概述</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#属性"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">属性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实例方法-2"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">实例方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Number-prototype-toString"><span class="post-toc-number">4.3.1.</span> <span class="post-toc-text">Number.prototype.toString()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Number-prototype-toFixed"><span class="post-toc-number">4.3.2.</span> <span class="post-toc-text">Number.prototype.toFixed()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Number-prototype-toExponential"><span class="post-toc-number">4.3.3.</span> <span class="post-toc-text">Number.prototype.toExponential()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Number-prototype-toPrecision"><span class="post-toc-number">4.3.4.</span> <span class="post-toc-text">Number.prototype.toPrecision()</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#自定义方法-1"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">自定义方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#String对象"><span class="post-toc-number">5.</span> <span class="post-toc-text">String对象</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#概述-3"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">概述</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#静态方法-1"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">静态方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#String-fromCharCode"><span class="post-toc-number">5.2.1.</span> <span class="post-toc-text">String.fromCharCode()</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实例属性"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">实例属性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#String-prototype-length"><span class="post-toc-number">5.3.1.</span> <span class="post-toc-text">String.prototype.length</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实例方法-3"><span class="post-toc-number">5.4.</span> <span class="post-toc-text">实例方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#String-prototype-charAt"><span class="post-toc-number">5.4.1.</span> <span class="post-toc-text">String.prototype.charAt()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#String-prototype-charCodeAt"><span class="post-toc-number">5.4.2.</span> <span class="post-toc-text">String.prototype.charCodeAt()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#String-prototype-concat"><span class="post-toc-number">5.4.3.</span> <span class="post-toc-text">String.prototype.concat()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#String-prototype-slice"><span class="post-toc-number">5.4.4.</span> <span class="post-toc-text">String.prototype.slice()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#String-prototype-substring"><span class="post-toc-number">5.4.5.</span> <span class="post-toc-text">String.prototype.substring()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#String-prototype-substr"><span class="post-toc-number">5.4.6.</span> <span class="post-toc-text">String.prototype.substr()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#String-prototype-indexOf-，String-prototype-lastIndexOf"><span class="post-toc-number">5.4.7.</span> <span class="post-toc-text">String.prototype.indexOf()，String.prototype.lastIndexOf()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#String-prototype-trim"><span class="post-toc-number">5.4.8.</span> <span class="post-toc-text">String.prototype.trim()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#String-prototype-toLowerCase-，String-prototype-toUpperCase"><span class="post-toc-number">5.4.9.</span> <span class="post-toc-text">String.prototype.toLowerCase()，String.prototype.toUpperCase()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#String-prototype-match"><span class="post-toc-number">5.4.10.</span> <span class="post-toc-text">String.prototype.match()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#String-prototype-search-，String-prototype-replace"><span class="post-toc-number">5.4.11.</span> <span class="post-toc-text">String.prototype.search()，String.prototype.replace()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#String-prototype-split"><span class="post-toc-number">5.4.12.</span> <span class="post-toc-text">String.prototype.split()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#String-prototype-localeCompare"><span class="post-toc-number">5.4.13.</span> <span class="post-toc-text">String.prototype.localeCompare()</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Math对象"><span class="post-toc-number">6.</span> <span class="post-toc-text">Math对象</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#静态属性"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">静态属性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#静态方法-2"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">静态方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三角函数方法"><span class="post-toc-number">6.2.1.</span> <span class="post-toc-text">三角函数方法</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Date对象"><span class="post-toc-number">7.</span> <span class="post-toc-text">Date对象</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#普通函数的用法"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">普通函数的用法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#构造函数的用法"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">构造函数的用法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#日期的运算"><span class="post-toc-number">7.3.</span> <span class="post-toc-text">日期的运算</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#静态方法-3"><span class="post-toc-number">7.4.</span> <span class="post-toc-text">静态方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Date-now"><span class="post-toc-number">7.4.1.</span> <span class="post-toc-text">Date.now()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Date-parse"><span class="post-toc-number">7.4.2.</span> <span class="post-toc-text">Date.parse()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Date-UTC"><span class="post-toc-number">7.4.3.</span> <span class="post-toc-text">Date.UTC()</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实例方法-4"><span class="post-toc-number">7.5.</span> <span class="post-toc-text">实例方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Date-prototype-valueOf"><span class="post-toc-number">7.5.1.</span> <span class="post-toc-text">Date.prototype.valueOf()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#to-类方法"><span class="post-toc-number">7.5.2.</span> <span class="post-toc-text">to 类方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Date-prototype-toString"><span class="post-toc-number">7.5.2.1.</span> <span class="post-toc-text">Date.prototype.toString()</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Date-prototype-toUTCString"><span class="post-toc-number">7.5.2.2.</span> <span class="post-toc-text">Date.prototype.toUTCString()</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Date-prototype-toISOString"><span class="post-toc-number">7.5.2.3.</span> <span class="post-toc-text">Date.prototype.toISOString()</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Date-prototype-toJSON"><span class="post-toc-number">7.5.2.4.</span> <span class="post-toc-text">Date.prototype.toJSON()</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Date-prototype-toDateString"><span class="post-toc-number">7.5.2.5.</span> <span class="post-toc-text">Date.prototype.toDateString()</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Date-prototype-toTimeString"><span class="post-toc-number">7.5.2.6.</span> <span class="post-toc-text">Date.prototype.toTimeString()</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Date-prototype-toLocaleDateString"><span class="post-toc-number">7.5.2.7.</span> <span class="post-toc-text">Date.prototype.toLocaleDateString()</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#get类方法"><span class="post-toc-number">7.5.3.</span> <span class="post-toc-text">get类方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#set-类方法"><span class="post-toc-number">7.5.4.</span> <span class="post-toc-text">set 类方法</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-JavaScript 标准参考教程 标准库 上"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">JavaScript 标准参考教程 标准库 上</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-08-17 12:02:56" datetime="2018-08-17T04:02:56.000Z"  itemprop="datePublished">2018-08-17</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/教程/">教程</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="Object对象"><a href="#Object对象" class="headerlink" title="Object对象"></a>Object对象</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>JavaScript 原生提供Object对象（注意起首的O是大写）。</p>
+<p>JavaScript 的所有其他对象都继承自Object对象，即那些对象都是Object的实例。</p>
+<p>Object对象的原生方法分成两类：Object本身的方法与Object的实例方法。</p>
+<h3 id="Object对象本身的方法"><a href="#Object对象本身的方法" class="headerlink" title="Object对象本身的方法"></a>Object对象本身的方法</h3><h3 id="Object的实例方法"><a href="#Object的实例方法" class="headerlink" title="Object的实例方法"></a>Object的实例方法</h3><h2 id="Object（）"><a href="#Object（）" class="headerlink" title="Object（）"></a>Object（）</h2><p>Object本身是一个函数，可以当作工具方法使用，将任意值转为对象。这个方法常用于保证某个值一定是对象。</p>
+<p>如果参数为空（或者为undefined和null），Object()返回一个空对象。</p>
+<p>instanceof运算符用来验证，一个对象是否为指定的构造函数的实例。obj instanceof Object返回true，就表示obj对象是Object的实例。</p>
+<p>如果参数是原始类型的值，Object方法将其转为对应的包装对象的实例。</p>
+<p>如果Object方法的参数是一个对象，它总是返回该对象，即不用转换。</p>
+<p>利用这一点，可以写一个判断变量是否为对象的函数。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-14%20%E4%B8%8B%E5%8D%886.50.22.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h2 id="Object构造函数"><a href="#Object构造函数" class="headerlink" title="Object构造函数"></a>Object构造函数</h2><p>Object不仅可以当作工具函数使用，还可以当作构造函数使用，即前面可以使用new命令。</p>
+<p>Object构造函数的首要用途，是直接通过它来生成新对象。</p>
+<p>注意，通过var obj = new Object()的写法生成新对象，与字面量的写法var obj = {}是等价的。或者说，后者只是前者的一种简便写法。</p>
+<h2 id="Object的静态方法"><a href="#Object的静态方法" class="headerlink" title="Object的静态方法"></a>Object的静态方法</h2><p>所谓“静态方法”，是指部署在Object对象自身的方法。</p>
+<h3 id="Object-keys-，Object-getOwnPropertyNames"><a href="#Object-keys-，Object-getOwnPropertyNames" class="headerlink" title="Object.keys()，Object.getOwnPropertyNames()"></a>Object.keys()，Object.getOwnPropertyNames()</h3><p>Object.keys方法和Object.getOwnPropertyNames方法都用来遍历对象的属性。</p>
+<p>Object.keys方法的参数是一个对象，返回一个数组。该数组的成员都是该对象自身的（而不是继承的）所有属性名。</p>
+<p>对于一般的对象来说，Object.keys()和Object.getOwnPropertyNames()返回的结果是一样的。只有涉及不可枚举属性时，才会有不一样的结果。Object.keys方法只返回可枚举的属性，Object.getOwnPropertyNames方法还返回不可枚举的属性名。</p>
+<p>由于 JavaScript 没有提供计算对象属性个数的方法，所以可以用这两个方法代替。</p>
+<h3 id="其他方法"><a href="#其他方法" class="headerlink" title="其他方法"></a>其他方法</h3><h4 id="对象属性模型的相关方法"><a href="#对象属性模型的相关方法" class="headerlink" title="对象属性模型的相关方法"></a>对象属性模型的相关方法</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-14%20%E4%B8%8B%E5%8D%886.54.48.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="控制对象状态的方法"><a href="#控制对象状态的方法" class="headerlink" title="控制对象状态的方法"></a>控制对象状态的方法</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-14%20%E4%B8%8B%E5%8D%886.56.08.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="原型链相关方法"><a href="#原型链相关方法" class="headerlink" title="原型链相关方法"></a>原型链相关方法</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-14%20%E4%B8%8B%E5%8D%886.56.32.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="Object的实例方法-1"><a href="#Object的实例方法-1" class="headerlink" title="Object的实例方法"></a>Object的实例方法</h2><p>除了静态方法，还有不少方法定义在Object.prototype对象。它们称为实例方法，所有Object的实例对象都继承了这些方法。</p>
+<p>Object实例对象的方法，主要有以下六个。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-14%20%E4%B8%8B%E5%8D%887.02.57.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="Object-prototype-valueOf"><a href="#Object-prototype-valueOf" class="headerlink" title="Object.prototype.valueOf()"></a>Object.prototype.valueOf()</h3><p>valueOf方法的作用是返回一个对象的“值”，默认情况下返回对象本身。</p>
+<p>valueOf方法的主要用途是，JavaScript 自动类型转换时会默认调用这个方法。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-14%20%E4%B8%8B%E5%8D%887.05.39.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="Object-prototype-toString"><a href="#Object-prototype-toString" class="headerlink" title="Object.prototype.toString()"></a>Object.prototype.toString()</h3><p>toString方法的作用是返回一个对象的字符串形式，默认情况下返回类型字符串。</p>
+<p>通过自定义toString方法，可以让对象在自动类型转换时，得到想要的字符串形式。</p>
+<p>数组、字符串、函数、Date 对象都分别部署了自定义的toString方法，覆盖了Object.prototype.toString方法。覆盖原始方法。</p>
+<h3 id="toString-的应用：判断数据类型"><a href="#toString-的应用：判断数据类型" class="headerlink" title="toString() 的应用：判断数据类型"></a>toString() 的应用：判断数据类型</h3><p>Object.prototype.toString方法返回对象的类型字符串，因此可以用来判断一个值的类型。</p>
+<p>由于实例对象可能会自定义toString方法，覆盖掉Object.prototype.toString方法，所以为了得到类型字符串，最好直接使用Object.prototype.toString方法。通过函数的call方法，可以在任意值上调用这个方法，帮助我们判断这个值的类型。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-14%20%E4%B8%8B%E5%8D%887.12.14.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>不同数据类型的Object.prototype.toString方法返回值如下。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-14%20%E4%B8%8B%E5%8D%887.13.02.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>利用这个特性，可以写出一个比typeof运算符更准确的类型判断函数。</p>
+<h3 id="Object-prototype-toLocaleString"><a href="#Object-prototype-toLocaleString" class="headerlink" title="Object.prototype.toLocaleString()"></a>Object.prototype.toLocaleString()</h3><p>Object.prototype.toLocaleString方法与toString的返回结果相同，也是返回一个值的字符串形式。</p>
+<p>这个方法的主要作用是留出一个接口，让各种不同的对象实现自己版本的toLocaleString，用来返回针对某些地域的特定的值。目前，主要有三个对象自定义了toLocaleString方法。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-14%20%E4%B8%8B%E5%8D%887.21.55.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>举例来说，日期的实例对象的toString和toLocaleString返回值就不一样，而且toLocaleString的返回值跟用户设定的所在地域相关。</p>
+<h3 id="Object-prototype-hasOwnProperty"><a href="#Object-prototype-hasOwnProperty" class="headerlink" title="Object.prototype.hasOwnProperty()"></a>Object.prototype.hasOwnProperty()</h3><p>Object.prototype.hasOwnProperty方法接受一个字符串作为参数，返回一个布尔值，表示该实例对象自身是否具有该属性。而不显示继承而来的属性。</p>
+<h1 id="Array对象"><a href="#Array对象" class="headerlink" title="Array对象"></a>Array对象</h1><h2 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h2><p>Array是 JavaScript 的原生对象，同时也是一个构造函数，可以用它生成新的数组。</p>
+<p>Array构造函数的参数2，表示生成一个两个成员的数组，每个位置都是空值。</p>
+<p>如果没有使用new，运行结果也是一样的。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-14%20%E4%B8%8B%E5%8D%8810.41.47.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>Array构造函数有一个很大的缺陷，就是不同的参数，会导致它的行为不一致。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-14%20%E4%B8%8B%E5%8D%8810.42.52.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>Array作为构造函数，行为很不一致。因此，不建议使用它生成新数组，直接使用数组字面量是更好的做法。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-14%20%E4%B8%8B%E5%8D%8810.44.05.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>注意，如果参数是一个正整数，返回数组的成员都是空位。虽然读取的时候返回undefined，但实际上该位置没有任何值。虽然可以取到length属性，但是取不到键名。</p>
+<h2 id="静态方法"><a href="#静态方法" class="headerlink" title="静态方法"></a>静态方法</h2><h3 id="Array-isArray"><a href="#Array-isArray" class="headerlink" title="Array.isArray()"></a>Array.isArray()</h3><p>Array.isArray方法返回一个布尔值，表示参数是否为数组。它可以弥补typeof运算符的不足。</p>
+<p>typeof运算符只能显示数组的类型是Object，而Array.isArray方法可以识别数组。</p>
+<h2 id="实例方法"><a href="#实例方法" class="headerlink" title="实例方法"></a>实例方法</h2><h3 id="valueOf-，toString"><a href="#valueOf-，toString" class="headerlink" title="valueOf()，toString()"></a>valueOf()，toString()</h3><p>valueOf方法是一个所有对象都拥有的方法，表示对该对象求值。不同对象的valueOf方法不尽一致，数组的valueOf方法返回数组本身。</p>
+<p>toString方法也是对象的通用方法，数组的toString方法返回数组的字符串形式。</p>
+<h3 id="push-，pop"><a href="#push-，pop" class="headerlink" title="push()，pop()"></a>push()，pop()</h3><p>push方法用于在数组的末端添加一个或多个元素，并返回添加新元素后的数组长度。注意，该方法会改变原数组。</p>
+<p>pop方法用于删除数组的最后一个元素，并返回该元素。注意，该方法会改变原数组。</p>
+<p>对空数组使用pop方法，不会报错，而是返回undefined。</p>
+<h3 id="shift-，unshift"><a href="#shift-，unshift" class="headerlink" title="shift()，unshift()"></a>shift()，unshift()</h3><p>shift方法用于删除数组的第一个元素，并返回该元素。注意，该方法会改变原数组。</p>
+<p>shift方法可以遍历并清空一个数组。</p>
+<p>push和shift结合使用，就构成了“先进先出”的队列结构（queue）。</p>
+<p>unshift方法用于在数组的第一个位置添加元素，并返回添加新元素后的数组长度。注意，该方法会改变原数组。</p>
+<p>unshift方法可以接受多个参数，这些参数都会添加到目标数组头部。</p>
+<h3 id="join（）"><a href="#join（）" class="headerlink" title="join（）"></a>join（）</h3><p>join方法以指定参数作为分隔符，将所有数组成员连接为一个字符串返回。如果不提供参数，默认用逗号分隔。</p>
+<p>如果数组成员是undefined或null或空位，会被转成空字符串。</p>
+<p>通过call方法，这个方法也可以用于字符串或类似数组的对象。</p>
+<h3 id="concat"><a href="#concat" class="headerlink" title="concat()"></a>concat()</h3><p>concat方法用于多个数组的合并。它将新数组的成员，添加到原数组成员的后部，然后返回一个新数组，原数组不变。</p>
+<p>除了数组作为参数，concat也接受其他类型的值作为参数，添加到目标数组尾部。</p>
+<p>如果数组成员包括对象，concat方法返回当前数组的一个浅拷贝。所谓“浅拷贝”，指的是新数组拷贝的是对象的引用。</p>
+<h3 id="reverse"><a href="#reverse" class="headerlink" title="reverse()"></a>reverse()</h3><p>reverse方法用于颠倒排列数组元素，返回改变后的数组。注意，该方法将改变原数组。</p>
+<h3 id="slice"><a href="#slice" class="headerlink" title="slice()"></a>slice()</h3><p>slice方法用于提取目标数组的一部分，返回一个新数组，原数组不变。</p>
+<p>它的第一个参数为起始位置（从0开始），第二个参数为终止位置（但该位置的元素本身不包括在内）。如果省略第二个参数，则一直返回到原数组的最后一个成员。</p>
+<p>如果slice方法的参数是负数，则表示倒数计算的位置。</p>
+<p>slice没有参数，实际上等于返回一个原数组的拷贝。</p>
+<p>如果第一个参数大于等于数组长度，或者第二个参数小于第一个参数，则返回空数组。</p>
+<p>slice方法的一个重要应用，是将类似数组的对象转为真正的数组。</p>
+<h3 id="splice"><a href="#splice" class="headerlink" title="splice()"></a>splice()</h3><p>splice方法用于删除原数组的一部分成员，并可以在删除的位置添加新的数组成员，返回值是被删除的元素。注意，该方法会改变原数组。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-15%20%E4%B8%8B%E5%8D%882.32.01.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>起始位置如果是负数，就表示从倒数位置开始删除。</p>
+<p>如果只是单纯地插入元素，splice方法的第二个参数可以设为0。</p>
+<h3 id="sort"><a href="#sort" class="headerlink" title="sort()"></a>sort()</h3><p>sort方法对数组成员进行排序，默认是按照字典顺序排序。排序后，原数组将被改变。</p>
+<p>sort方法不是按照大小排序，而是按照字典顺序。也就是说，数值会被先转成字符串，再按照字典顺序进行比较，所以101排在11的前面。</p>
+<p>如果想让sort方法按照自定义方式排序，可以传入一个函数作为参数。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-15%20%E4%B8%8B%E5%8D%882.36.15.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>sort的参数函数本身接受两个参数，表示进行比较的两个数组成员。如果该函数的返回值大于0，表示第一个成员排在第二个成员后面；其他情况下，都是第一个元素排在第二个元素前面。</p>
+<h3 id="map"><a href="#map" class="headerlink" title="map()"></a>map()</h3><p>map方法将数组的所有成员依次传入参数函数，然后把每一次的执行结果组成一个<strong>新数组</strong>返回。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-15%20%E4%B8%8B%E5%8D%882.38.00.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>map方法接受一个函数作为参数。该函数调用时，map方法向它传入三个参数：当前成员、当前位置和数组本身。</p>
+<p>map方法还可以接受第二个参数，用来绑定回调函数内部的this变量。</p>
+<p>如果数组有空位，map方法的回调函数在这个位置不会执行，会跳过数组的空位。</p>
+<p>map方法不会跳过undefined和null，但是会跳过空位。</p>
+<h3 id="forEach"><a href="#forEach" class="headerlink" title="forEach()"></a>forEach()</h3><p>forEach方法与map方法很相似，也是对数组的所有成员依次执行参数函数。但是，forEach方法<strong>不返回值，只用来操作数据</strong>。这就是说，如果数组遍历的目的是为了得到返回值，那么使用map方法，否则使用forEach方法。</p>
+<p>forEach的用法与map方法一致，参数是一个函数，该函数同样接受三个参数：当前值、当前位置、整个数组。</p>
+<p>forEach方法也可以接受第二个参数，绑定参数函数的this变量。</p>
+<p>forEach方法无法中断执行，总是会将所有成员遍历完。如果希望符合某种条件时，就中断遍历，要使用for循环。</p>
+<p>forEach方法也会跳过数组的空位。</p>
+<h3 id="filter"><a href="#filter" class="headerlink" title="filter()"></a>filter()</h3><p>filter方法用于过滤数组成员，满足条件的成员组成一个新数组返回。</p>
+<p>它的参数是一个函数，所有数组成员依次执行该函数，返回结果为true的成员组成一个新数组返回。该方法<strong>不会改变原数组</strong>。</p>
+<p>filter方法的参数函数可以接受三个参数：当前成员，当前位置和整个数组。</p>
+<p>filter方法还可以接受第二个参数，用来绑定参数函数内部的this变量。</p>
+<h3 id="some-，every"><a href="#some-，every" class="headerlink" title="some()，every()"></a>some()，every()</h3><p>这两个方法类似“断言”（assert），返回一个布尔值，表示判断数组成员是否符合某种条件。</p>
+<p>它们接受一个函数作为参数，所有数组成员依次执行该函数。该函数接受三个参数：当前成员、当前位置和整个数组，然后返回一个布尔值。</p>
+<p>some方法是只要一个成员的返回值是true，则整个some方法的返回值就是true，否则返回false。</p>
+<p>every方法是所有成员的返回值都是true，整个every方法才返回true，否则返回false。</p>
+<p>注意，对于空数组，some方法返回false，every方法返回true，回调函数都不会执行。</p>
+<p>some和every方法还可以接受第二个参数，用来绑定参数函数内部的this变量。</p>
+<h3 id="reduce-，reduceRight"><a href="#reduce-，reduceRight" class="headerlink" title="reduce()，reduceRight()"></a>reduce()，reduceRight()</h3><p>reduce方法和reduceRight方法依次处理数组的每个成员，最终累计为一个值。它们的差别是，reduce是从左到右处理（从第一个成员到最后一个成员），reduceRight则是从右到左（从最后一个成员到第一个成员），其他完全一样。</p>
+<p>reduce方法和reduceRight方法的第一个参数都是一个函数。该函数接受以下四个参数。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-15%20%E4%B8%8B%E5%8D%883.03.29.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>这四个参数之中，只有前两个是必须的，后两个则是可选的。</p>
+<p>如果要对累积变量指定初值，可以把它放在reduce方法和reduceRight方法的第二个参数。</p>
+<p>由于这两个方法会遍历数组，所以实际上还可以用来做一些遍历相关的操作。</p>
+<h3 id="indexOf-，lastIndexOf"><a href="#indexOf-，lastIndexOf" class="headerlink" title="indexOf()，lastIndexOf()"></a>indexOf()，lastIndexOf()</h3><p>indexOf方法返回给定元素在数组中第一次出现的位置，如果没有出现则返回-1。</p>
+<p>indexOf方法还可以接受第二个参数，表示搜索的开始位置。</p>
+<p>lastIndexOf方法返回给定元素在数组中最后一次出现的位置，如果没有出现则返回-1。</p>
+<p><strong>注意</strong>，这两个方法不能用来搜索NaN的位置，即它们无法确定数组成员是否包含NaN。</p>
+<p>这是因为这两个方法内部，使用严格相等运算符（===）进行比较，而NaN是唯一一个不等于自身的值。</p>
+<h3 id="链式使用"><a href="#链式使用" class="headerlink" title="链式使用"></a>链式使用</h3><h1 id="包装对象"><a href="#包装对象" class="headerlink" title="包装对象"></a>包装对象</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>对象是 JavaScript 语言最主要的数据类型，三种原始类型的值——数值、字符串、布尔值——在一定条件下，也会自动转为对象，也就是原始类型的“包装对象”。</p>
+<p>所谓“包装对象”，就是分别与数值、字符串、布尔值相对应的Number、String、Boolean三个原生对象。这三个原生对象可以把原始类型的值变成（包装成）对象。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-15%20%E4%B8%8B%E5%8D%883.25.43.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>包装对象的最大目的，首先是使得 JavaScript 的对象涵盖所有的值，其次使得原始类型的值可以方便地调用某些方法。</p>
+<p><strong>Number、String和Boolean如果不作为构造函数调用（即调用时不加new），常常用于将任意类型的值转为数值、字符串和布尔值。</strong></p>
+<p>即，这三个对象作为构造函数使用（带有new）时，可以将原始类型的值转为对象；作为普通函数使用时（不带有new），可以将任意类型的值，转为原始类型的值。</p>
+<h2 id="实例方法-1"><a href="#实例方法-1" class="headerlink" title="实例方法"></a>实例方法</h2><p>包装对象的实例可以使用Object对象提供的原生方法，主要是valueOf方法和toString方法。</p>
+<h3 id="valueOf-NaN"><a href="#valueOf-NaN" class="headerlink" title="valueOf()"></a>valueOf()</h3><p>valueOf方法返回包装对象实例对应的原始类型的值。</p>
+<h3 id="toString-NaN"><a href="#toString-NaN" class="headerlink" title="toString()"></a>toString()</h3><p>toString方法返回对应的字符串形式。</p>
+<h2 id="原始类型与实例对象的自动转换"><a href="#原始类型与实例对象的自动转换" class="headerlink" title="原始类型与实例对象的自动转换"></a>原始类型与实例对象的自动转换</h2><p>原始类型的值，可以自动当作包装对象调用，即调用各种包装对象的属性和方法。这时，JavaScript 引擎会自动将原始类型的值转为包装对象实例，在使用后立刻销毁实例。</p>
+<p>比如，字符串可以调用length属性，返回字符串的长度。</p>
+<p>abc是一个字符串，本身不是对象，不能调用length属性。JavaScript 引擎自动将其转为包装对象，在这个对象上调用length属性。调用结束后，这个临时对象就会被销毁。这就叫原始类型与实例对象的自动转换。</p>
+<p>自动转换生成的包装对象是<strong>只读</strong>的，无法修改。所以，字符串无法添加新属性。</p>
+<p>调用结束后，包装对象实例会自动销毁。这意味着，下一次调用字符串的属性时，实际是调用一个新生成的对象，而不是上一次调用时生成的那个对象，所以取不到赋值在上一个对象的属性。如果要为字符串添加属性，只有在它的原型对象String.prototype上定义。</p>
+<h2 id="自定义方法"><a href="#自定义方法" class="headerlink" title="自定义方法"></a>自定义方法</h2><p>三种包装对象除了提供很多原生的实例方法，还可以在原型上添加自定义方法和属性，供原始类型的值直接调用。</p>
+<p>这种自定义方法和属性的机制，只能定义在包装对象的原型上，如果直接对原始类型的变量添加属性，则无效。</p>
+<h2 id="Boolean-对象"><a href="#Boolean-对象" class="headerlink" title="Boolean 对象"></a>Boolean 对象</h2><h3 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h3><p>Boolean对象是 JavaScript 的三个包装对象之一。作为构造函数，它主要用于生成布尔值的包装对象实例。</p>
+<h3 id="Boolean-函数的类型转换作用"><a href="#Boolean-函数的类型转换作用" class="headerlink" title="Boolean 函数的类型转换作用"></a>Boolean 函数的类型转换作用</h3><p>Boolean对象除了可以作为构造函数，还可以单独使用，将任意值转为布尔值。这时Boolean就是一个单纯的工具方法。</p>
+<h1 id="Number对象"><a href="#Number对象" class="headerlink" title="Number对象"></a>Number对象</h1><h2 id="概述-2"><a href="#概述-2" class="headerlink" title="概述"></a>概述</h2><p>Number对象是数值对应的包装对象，可以作为构造函数使用，也可以作为工具函数使用。</p>
+<p>作为构造函数时，它用于生成值为数值的对象。</p>
+<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-15%20%E4%B8%8B%E5%8D%883.44.49.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="实例方法-2"><a href="#实例方法-2" class="headerlink" title="实例方法"></a>实例方法</h2><p>Number对象有4个实例方法，都跟将数值转换成指定格式有关。</p>
+<h3 id="Number-prototype-toString"><a href="#Number-prototype-toString" class="headerlink" title="Number.prototype.toString()"></a>Number.prototype.toString()</h3><p>Number对象部署了自己的toString方法，用来将一个数值转为字符串形式。</p>
+<p>toString方法可以接受一个参数，表示输出的进制。如果省略这个参数，默认将数值先转为十进制，再输出字符串；否则，就根据参数指定的进制，将一个数字转化成某个进制的字符串。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-15%20%E4%B8%8B%E5%8D%883.46.17.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>10一定要放在括号里，这样表明后面的点表示调用对象属性。如果不加括号，这个点会被 JavaScript 引擎解释成小数点，从而报错。</p>
+<p>除了为10加上括号，还可以在10后面加两个点，JavaScript 会把第一个点理解成小数点（即10.0），把第二个点理解成调用对象属性，从而得到正确结果。</p>
+<p>意味着，可以直接对一个小数使用toString方法。</p>
+<p>通过方括号运算符也可以调用toString方法。</p>
+<p>toString方法只能将十进制的数，转为其他进制的字符串。如果要将其他进制的数，转回十进制，需要使用parseInt方法。</p>
+<h3 id="Number-prototype-toFixed"><a href="#Number-prototype-toFixed" class="headerlink" title="Number.prototype.toFixed()"></a>Number.prototype.toFixed()</h3><p>toFixed方法先将一个数转为指定位数的小数，然后返回这个小数对应的字符串。</p>
+<h3 id="Number-prototype-toExponential"><a href="#Number-prototype-toExponential" class="headerlink" title="Number.prototype.toExponential()"></a>Number.prototype.toExponential()</h3><p>toExponential方法用于将一个数转为科学计数法形式。</p>
+<p>toExponential方法的参数是小数点后有效数字的位数，范围为0到20，超出这个范围，会抛出一个 RangeError 错误。</p>
+<h3 id="Number-prototype-toPrecision"><a href="#Number-prototype-toPrecision" class="headerlink" title="Number.prototype.toPrecision()"></a>Number.prototype.toPrecision()</h3><p>toPrecision方法用于将一个数转为指定位数的有效数字。</p>
+<p>toPrecision方法的参数为有效数字的位数，范围是1到21，超出这个范围会抛出 RangeError 错误。</p>
+<p>toPrecision方法用于四舍五入时不太可靠，跟浮点数不是精确储存有关。</p>
+<h2 id="自定义方法-1"><a href="#自定义方法-1" class="headerlink" title="自定义方法"></a>自定义方法</h2><p>与其他对象一样，Number.prototype对象上面可以自定义方法，被Number的实例继承。 </p>
+<p>注意，数值的自定义方法，只能定义在它的原型对象Number.prototype上面，数值本身是无法自定义属性的。</p>
+<h1 id="String对象"><a href="#String对象" class="headerlink" title="String对象"></a>String对象</h1><h2 id="概述-3"><a href="#概述-3" class="headerlink" title="概述"></a>概述</h2><p>String对象是 JavaScript 原生提供的三个包装对象之一，用来生成字符串对象。</p>
+<p>字符串对象是一个类似数组的对象（很像数组，但不是数组）。</p>
+<p>String对象还可以当作工具方法使用，将任意类型的值转为字符串。</p>
+<h2 id="静态方法-1"><a href="#静态方法-1" class="headerlink" title="静态方法"></a>静态方法</h2><h3 id="String-fromCharCode"><a href="#String-fromCharCode" class="headerlink" title="String.fromCharCode()"></a>String.fromCharCode()</h3><p>该方法的参数是一个或多个数值，代表 Unicode 码点，返回值是这些码点组成的字符串。</p>
+<p>String.fromCharCode方法的参数为空，就返回空字符串；否则，返回参数对应的 Unicode 字符串。</p>
+<p><strong>注意</strong>，该方法不支持 Unicode 码点大于0xFFFF的字符，即传入的参数不能大于0xFFFF（即十进制的 65535）。</p>
+<p>String.fromCharCode发现参数值大于0xFFFF，就会忽略多出的位（即忽略0x20BB7里面的2）。</p>
+<p>码点大于0xFFFF的字符占用四个字节，而 JavaScript 默认支持两个字节的字符。这种情况下，必须把0x20BB7拆成两个字符表示。</p>
+<p>码点大于0xFFFF的字符的四字节表示法，由 UTF-16 编码方法决定。</p>
+<h2 id="实例属性"><a href="#实例属性" class="headerlink" title="实例属性"></a>实例属性</h2><h3 id="String-prototype-length"><a href="#String-prototype-length" class="headerlink" title="String.prototype.length"></a>String.prototype.length</h3><p>字符串实例的length属性返回字符串的长度。</p>
+<h2 id="实例方法-3"><a href="#实例方法-3" class="headerlink" title="实例方法"></a>实例方法</h2><h3 id="String-prototype-charAt"><a href="#String-prototype-charAt" class="headerlink" title="String.prototype.charAt()"></a>String.prototype.charAt()</h3><p>charAt方法返回指定位置的字符，参数是从0开始编号的位置。</p>
+<p>如果参数为负数，或大于等于字符串的长度，charAt返回空字符串。</p>
+<h3 id="String-prototype-charCodeAt"><a href="#String-prototype-charCodeAt" class="headerlink" title="String.prototype.charCodeAt()"></a>String.prototype.charCodeAt()</h3><p>charCodeAt方法返回字符串指定位置的 Unicode 码点（十进制表示），相当于String.fromCharCode()的逆操作。</p>
+<p>如果没有任何参数，charCodeAt返回首字符的 Unicode 码点。</p>
+<p>如果参数为负数，或大于等于字符串的长度，charCodeAt返回NaN。</p>
+<p>charCodeAt方法返回的 Unicode 码点不会大于65536（0xFFFF），也就是说，只返回两个字节的字符的码点。如果遇到码点大于 65536 的字符（四个字节的字符），必需连续使用两次charCodeAt，不仅读入charCodeAt(i)，还要读入charCodeAt(i+1)，将两个值放在一起，才能得到准确的字符。</p>
+<h3 id="String-prototype-concat"><a href="#String-prototype-concat" class="headerlink" title="String.prototype.concat()"></a>String.prototype.concat()</h3><p>concat方法用于连接两个字符串，返回一个新字符串，不改变原字符串。</p>
+<p>如果参数不是字符串，concat方法会将其先转为字符串，然后再连接。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-15%20%E4%B8%8B%E5%8D%884.26.56.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="String-prototype-slice"><a href="#String-prototype-slice" class="headerlink" title="String.prototype.slice()"></a>String.prototype.slice()</h3><p>slice方法用于从原字符串取出子字符串并返回，不改变原字符串。它的第一个参数是子字符串的开始位置，第二个参数是子字符串的结束位置（不含该位置）。</p>
+<p>如果省略第二个参数，则表示子字符串一直到原字符串结束。</p>
+<p>如果参数是负值，表示从结尾开始倒数计算的位置。</p>
+<p>如果第一个参数大于第二个参数，slice方法返回一个空字符串。</p>
+<h3 id="String-prototype-substring"><a href="#String-prototype-substring" class="headerlink" title="String.prototype.substring()"></a>String.prototype.substring()</h3><p>substring方法用于从原字符串取出子字符串并返回，不改变原字符串，跟slice方法很相像。它的第一个参数表示子字符串的开始位置，第二个位置表示结束位置（返回结果不含该位置）。</p>
+<p>如果省略第二个参数，则表示子字符串一直到原字符串的结束。</p>
+<p>如果第一个参数大于第二个参数，substring方法会自动更换两个参数的位置。</p>
+<p>如果参数是负数，substring方法会自动将负数转为0。</p>
+<p>由于这些规则违反直觉，因此不建议使用substring方法，应该优先使用slice。</p>
+<h3 id="String-prototype-substr"><a href="#String-prototype-substr" class="headerlink" title="String.prototype.substr()"></a>String.prototype.substr()</h3><p>substr方法用于从原字符串取出子字符串并返回，不改变原字符串，跟slice和substring方法的作用相同。</p>
+<p>substr方法的第一个参数是子字符串的开始位置（从0开始计算），第二个参数是子字符串的长度。</p>
+<p>如果省略第二个参数，则表示子字符串一直到原字符串的结束。</p>
+<p>如果第一个参数是负数，表示倒数计算的字符位置。如果第二个参数是负数，将被自动转为0，因此会返回空字符串。</p>
+<h3 id="String-prototype-indexOf-，String-prototype-lastIndexOf"><a href="#String-prototype-indexOf-，String-prototype-lastIndexOf" class="headerlink" title="String.prototype.indexOf()，String.prototype.lastIndexOf()"></a>String.prototype.indexOf()，String.prototype.lastIndexOf()</h3><p>indexOf方法用于确定一个字符串在另一个字符串中第一次出现的位置，返回结果是匹配开始的位置。如果返回-1，就表示不匹配。</p>
+<p>indexOf方法还可以接受第二个参数，表示从该位置开始向后匹配。</p>
+<p>lastIndexOf方法的用法跟indexOf方法一致，主要的区别是lastIndexOf从尾部开始匹配，indexOf则是从头部开始匹配。</p>
+<p>lastIndexOf的第二个参数表示从该位置起向前匹配。</p>
+<h3 id="String-prototype-trim"><a href="#String-prototype-trim" class="headerlink" title="String.prototype.trim()"></a>String.prototype.trim()</h3><p>trim方法用于去除字符串两端的空格，返回一个新字符串，不改变原字符串。</p>
+<p>该方法去除的不仅是空格，还包括制表符（\t、\v）、换行符（\n）和回车符（\r）。</p>
+<h3 id="String-prototype-toLowerCase-，String-prototype-toUpperCase"><a href="#String-prototype-toLowerCase-，String-prototype-toUpperCase" class="headerlink" title="String.prototype.toLowerCase()，String.prototype.toUpperCase()"></a>String.prototype.toLowerCase()，String.prototype.toUpperCase()</h3><p>toLowerCase方法用于将一个字符串全部转为小写，toUpperCase则是全部转为大写。它们都返回一个新字符串，不改变原字符串。</p>
+<h3 id="String-prototype-match"><a href="#String-prototype-match" class="headerlink" title="String.prototype.match()"></a>String.prototype.match()</h3><p>match方法用于确定原字符串是否匹配某个子字符串，返回一个数组，成员为匹配的第一个字符串。如果没有找到匹配，则返回null。</p>
+<p>match方法还可以使用正则表达式作为参数。</p>
+<h3 id="String-prototype-search-，String-prototype-replace"><a href="#String-prototype-search-，String-prototype-replace" class="headerlink" title="String.prototype.search()，String.prototype.replace()"></a>String.prototype.search()，String.prototype.replace()</h3><p>search方法的用法基本等同于match，但是返回值为匹配的第一个位置。如果没有找到匹配，则返回-1。</p>
+<p>search方法还可以使用正则表达式作为参数。</p>
+<p>replace方法用于替换匹配的子字符串，一般情况下只替换第一个匹配。</p>
+<p>replace方法还可以使用正则表达式作为参数。</p>
+<h3 id="String-prototype-split"><a href="#String-prototype-split" class="headerlink" title="String.prototype.split()"></a>String.prototype.split()</h3><p>split方法按照给定规则分割字符串，返回一个由分割出来的子字符串组成的数组。</p>
+<p>如果分割规则为空字符串，则返回数组的成员是原字符串的每一个字符。</p>
+<p>如果省略参数，则返回数组的唯一成员就是原字符串。</p>
+<p>如果满足分割规则的两个部分紧邻着（即两个分割符中间没有其他字符），则返回数组之中会有一个空字符串。</p>
+<p>如果满足分割规则的部分处于字符串的开头或结尾（即它的前面或后面没有其他字符），则返回数组的第一个或最后一个成员是一个空字符串。</p>
+<p>split方法还可以接受第二个参数，限定返回数组的最大成员数。</p>
+<p>split方法还可以使用正则表达式作为参数。</p>
+<h3 id="String-prototype-localeCompare"><a href="#String-prototype-localeCompare" class="headerlink" title="String.prototype.localeCompare()"></a>String.prototype.localeCompare()</h3><p>localeCompare方法用于比较两个字符串。它返回一个整数，如果小于0，表示第一个字符串小于第二个字符串；如果等于0，表示两者相等；如果大于0，表示第一个字符串大于第二个字符串。</p>
+<p>该方法的最大特点，就是会<strong>考虑自然语言的顺序</strong>。举例来说，正常情况下，大写的英文字母小于小写字母。</p>
+<p>JavaScript 采用的是 Unicode 码点比较但是，localeCompare方法会考虑自然语言的排序情况，大写字母比小写字母大。</p>
+<p>localeCompare还可以有第二个参数，指定所使用的语言（默认是英语），然后根据该语言的规则进行比较。</p>
+<h1 id="Math对象"><a href="#Math对象" class="headerlink" title="Math对象"></a>Math对象</h1><p>Math是 JavaScript 的原生对象，提供各种数学功能。该对象不是构造函数，<strong>不能生成实例</strong>，所有的属性和方法都必须在Math对象上调用。</p>
+<h2 id="静态属性"><a href="#静态属性" class="headerlink" title="静态属性"></a>静态属性</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-15%20%E4%B8%8B%E5%8D%887.10.47.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>这些属性都是只读的，不能修改。</p>
+<h2 id="静态方法-2"><a href="#静态方法-2" class="headerlink" title="静态方法"></a>静态方法</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-15%20%E4%B8%8B%E5%8D%887.11.52.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>Math.max方法返回参数之中最大的那个值，Math.min返回最小的那个值。如果参数为空, Math.min返回Infinity, Math.max返回-Infinity。</p>
+<p>Math.floor方法返回小于参数值的最大整数（地板值）。</p>
+<p>Math.ceil方法返回大于参数值的最小整数（天花板值）。</p>
+<p>Math.pow方法返回以第一个参数为底数、第二个参数为幂的指数值。</p>
+<p>Math.sqrt方法返回参数值的平方根。如果参数是一个负值，则返回NaN。</p>
+<p>如果要计算以10为底的对数，可以先用Math.log求出自然对数，然后除以Math.LN10；求以2为底的对数，可以除以Math.LN2。</p>
+<p>Math.random()返回0到1之间的一个伪随机数，可能等于0，但是一定小于1。</p>
+<h3 id="三角函数方法"><a href="#三角函数方法" class="headerlink" title="三角函数方法"></a>三角函数方法</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-15%20%E4%B8%8B%E5%8D%887.16.25.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h1 id="Date对象"><a href="#Date对象" class="headerlink" title="Date对象"></a>Date对象</h1><p>Date对象是 JavaScript 原生的时间库。它以1970年1月1日00:00:00作为时间的零点，可以表示的时间范围是前后各1亿天（单位为毫秒）。</p>
+<h2 id="普通函数的用法"><a href="#普通函数的用法" class="headerlink" title="普通函数的用法"></a>普通函数的用法</h2><p>Date对象可以作为普通函数直接调用，返回一个代表当前时间的字符串。</p>
+<p>即使带有参数，Date作为普通函数使用时，返回的还是当前时间。</p>
+<p>无论有没有参数，直接调用Date总是返回当前时间。</p>
+<h2 id="构造函数的用法"><a href="#构造函数的用法" class="headerlink" title="构造函数的用法"></a>构造函数的用法</h2><p>Date还可以当作构造函数使用。对它使用new命令，会返回一个Date对象的实例。如果不加参数，实例代表的就是当前时间。</p>
+<p>Date实例有一个独特的地方。其他对象求值的时候，都是默认调用.valueOf()方法，但是Date实例求值的时候，默认调用的是toString()方法。这导致对Date实例求值，返回的是一个字符串，代表该实例对应的时间。</p>
+<p>作为构造函数时，Date对象可以接受多种格式的参数，返回一个该参数对应的时间实例。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-15%20%E4%B8%8B%E5%8D%887.48.06.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>关于Date构造函数的参数，</p>
+<p>第一点，参数可以是负整数，代表1970年元旦之前的时间。</p>
+<p>第二点，只要是能被Date.parse()方法解析的字符串，都可以当作参数。</p>
+<p>第三，参数为年、月、日等多个整数时，年和月是不能省略的，其他参数都可以省略的。也就是说，这时至少需要两个参数，因为如果只使用“年”这一个参数，Date会将其解释为毫秒数。</p>
+<p>各个参数的取值范围如下。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-15%20%E4%B8%8B%E5%8D%887.49.30.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>注意，月份从0开始计算，但是，天数从1开始计算。另外，除了日期的默认值为1，小时、分钟、秒钟和毫秒的默认值都是0。</p>
+<p>这些参数如果超出了正常范围，会被自动折算。比如，如果月设为15，就折算为下一年的4月。</p>
+<p>日期设为0，就代表上个月的最后一天。</p>
+<p>参数还可以使用负数，表示扣去的时间。</p>
+<h2 id="日期的运算"><a href="#日期的运算" class="headerlink" title="日期的运算"></a>日期的运算</h2><p>类型自动转换时，Date实例如果转为数值，则等于对应的毫秒数；如果转为字符串，则等于对应的日期字符串。所以，两个日期实例对象进行减法运算时，返回的是它们间隔的毫秒数；进行加法运算时，返回的是两个字符串连接而成的新字符串。</p>
+<h2 id="静态方法-3"><a href="#静态方法-3" class="headerlink" title="静态方法"></a>静态方法</h2><h3 id="Date-now"><a href="#Date-now" class="headerlink" title="Date.now()"></a>Date.now()</h3><p>Date.now方法返回当前时间距离时间零点（1970年1月1日 00:00:00 UTC）的毫秒数，相当于 Unix 时间戳乘以1000。</p>
+<h3 id="Date-parse"><a href="#Date-parse" class="headerlink" title="Date.parse()"></a>Date.parse()</h3><p>Date.parse方法用来解析日期字符串，返回该时间距离时间零点（1970年1月1日 00:00:00）的毫秒数。</p>
+<p>日期字符串应该符合 RFC 2822 和 ISO 8061 这两个标准，即YYYY-MM-DDTHH:mm:ss.sssZ格式，其中最后的Z表示时区<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-15%20%E4%B8%8B%E5%8D%887.55.02.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>如果解析失败，返回NaN。</p>
+<h3 id="Date-UTC"><a href="#Date-UTC" class="headerlink" title="Date.UTC()"></a>Date.UTC()</h3><p>Date.UTC方法接受年、月、日等变量作为参数，返回该时间距离时间零点（1970年1月1日 00:00:00 UTC）的毫秒数。</p>
+<p>该方法的参数用法与Date构造函数完全一致，比如月从0开始计算，日期从1开始计算。区别在于Date.UTC方法的参数，会被解释为 UTC 时间（世界标准时间），Date构造函数的参数会被解释为当前时区的时间。</p>
+<h2 id="实例方法-4"><a href="#实例方法-4" class="headerlink" title="实例方法"></a>实例方法</h2><p>Date的实例对象，有几十个自己的方法，除了valueOf和toString，可以分为以下三类。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-15%20%E4%B8%8B%E5%8D%8810.12.48.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="Date-prototype-valueOf"><a href="#Date-prototype-valueOf" class="headerlink" title="Date.prototype.valueOf()"></a>Date.prototype.valueOf()</h3><p>valueOf方法返回实例对象距离时间零点（1970年1月1日00:00:00 UTC）对应的毫秒数，该方法等同于getTime方法。</p>
+<h3 id="to-类方法"><a href="#to-类方法" class="headerlink" title="to 类方法"></a>to 类方法</h3><h4 id="Date-prototype-toString"><a href="#Date-prototype-toString" class="headerlink" title="Date.prototype.toString()"></a>Date.prototype.toString()</h4><p>toString方法返回一个完整的日期字符串。</p>
+<h4 id="Date-prototype-toUTCString"><a href="#Date-prototype-toUTCString" class="headerlink" title="Date.prototype.toUTCString()"></a>Date.prototype.toUTCString()</h4><p>toUTCString方法返回对应的 UTC 时间，也就是比北京时间晚8个小时。</p>
+<h4 id="Date-prototype-toISOString"><a href="#Date-prototype-toISOString" class="headerlink" title="Date.prototype.toISOString()"></a>Date.prototype.toISOString()</h4><p>toISOString方法返回对应时间的 ISO8601 写法。</p>
+<p>toISOString方法返回的总是 UTC 时区的时间。</p>
+<h4 id="Date-prototype-toJSON"><a href="#Date-prototype-toJSON" class="headerlink" title="Date.prototype.toJSON()"></a>Date.prototype.toJSON()</h4><p>toJSON方法返回一个符合 JSON 格式的 ISO 日期字符串，与toISOString方法的返回结果完全相同。</p>
+<h4 id="Date-prototype-toDateString"><a href="#Date-prototype-toDateString" class="headerlink" title="Date.prototype.toDateString()"></a>Date.prototype.toDateString()</h4><p>toDateString方法返回日期字符串（不含小时、分和秒）。</p>
+<h4 id="Date-prototype-toTimeString"><a href="#Date-prototype-toTimeString" class="headerlink" title="Date.prototype.toTimeString()"></a>Date.prototype.toTimeString()</h4><p>toTimeString方法返回时间字符串（不含年月日）。</p>
+<h4 id="Date-prototype-toLocaleDateString"><a href="#Date-prototype-toLocaleDateString" class="headerlink" title="Date.prototype.toLocaleDateString()"></a>Date.prototype.toLocaleDateString()</h4><p>toLocaleDateString方法返回一个字符串，代表日期的当地写法（不含小时、分和秒）。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8A%E5%8D%889.32.55.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="get类方法"><a href="#get类方法" class="headerlink" title="get类方法"></a>get类方法</h3><p>Date对象提供了一系列get*方法，用来获取实例对象某个方面的值。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8A%E5%8D%889.39.42.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>所有这些get*方法返回的都是整数，不同方法返回值的范围不一样。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8A%E5%8D%889.40.09.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>上面这些get*方法返回的都是当前时区的时间，Date对象还提供了这些方法对应的 UTC 版本，用来返回 UTC 时间。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8A%E5%8D%889.42.53.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="set-类方法"><a href="#set-类方法" class="headerlink" title="set 类方法"></a>set 类方法</h3><p>Date对象提供了一系列set*方法，用来设置实例对象的各个方面。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8A%E5%8D%889.44.09.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>set*方法的参数都会自动折算。以setDate为例，如果参数超过当月的最大天数，则向下一个月顺延，如果参数是负数，表示从上个月的最后一天开始减去的天数。</p>
+<p>set*系列方法除了setTime()和setYear()，都有对应的 UTC 版本，即设置 UTC 时区的时间。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8A%E5%8D%889.49.45.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-09-01T03:55:47.000Z" itemprop="dateUpdated">2018-09-01 11:55:47</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/zdkswd">
+            <img src="/img/tmg.jpg" alt="ZDK">
+            ZDK
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/08/17/JavaScript 标准参考教程 标准库 上/&title=《JavaScript 标准参考教程 标准库 上》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/08/17/JavaScript 标准参考教程 标准库 上/&title=《JavaScript 标准参考教程 标准库 上》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/08/17/JavaScript 标准参考教程 标准库 上/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JavaScript 标准参考教程 标准库 上》 — ZDK's blog&url=https://github.com/zdkswd/2018/08/17/JavaScript 标准参考教程 标准库 上/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/08/17/JavaScript 标准参考教程 标准库 上/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/08/17/JavaScript 标准参考教程 标准库 下/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">JavaScript 标准参考教程 标准库</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/08/14/JavaScript标准参考教程 语法/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">JavaScript标准参考教程 语法</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz",
+            appKey: "gkBx5soQkBREmER84PWbNJeM",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ZDK &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/08/17/JavaScript 标准参考教程 标准库 上/&title=《JavaScript 标准参考教程 标准库 上》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/08/17/JavaScript 标准参考教程 标准库 上/&title=《JavaScript 标准参考教程 标准库 上》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/08/17/JavaScript 标准参考教程 标准库 上/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JavaScript 标准参考教程 标准库 上》 — ZDK's blog&url=https://github.com/zdkswd/2018/08/17/JavaScript 标准参考教程 标准库 上/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/08/17/JavaScript 标准参考教程 标准库 上/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2018/08/17/JavaScript 标准参考教程 标准库 上/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'zdk'blog';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
