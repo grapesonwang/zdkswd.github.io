@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/zdkswd/"/>
-  <updated>2018-09-18T01:07:41.000Z</updated>
+  <updated>2018-09-18T12:27:59.000Z</updated>
   <id>https://github.com/zdkswd/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数学之美第三章 统计语言模型</title>
+    <link href="https://github.com/zdkswd/2018/09/18/%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E%20%E7%AC%AC%E4%B8%89%E7%AB%A0%20%E7%BB%9F%E8%AE%A1%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/"/>
+    <id>https://github.com/zdkswd/2018/09/18/数学之美 第三章 统计语言模型/</id>
+    <published>2018-09-18T12:25:32.000Z</published>
+    <updated>2018-09-18T12:27:59.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>自然语言从它产生开始,逐渐演变成一种上下文相关的信息表达和传递的方式,因此让计算机处理自然语言,一个基本的问题就是为自然语言这种上下文相关的特性建立数学模型。这个数学模型就是在自然语言处理中常说的统计语言模型( Statistical Language Model),它是今天所有自然语言处理的基础,并且广泛应用于机器翻译、语音识别、印刷体或手写体识别、拼写纠错、汉字输入和文献查询。</p><h1 id="用数学的方法描述语言规律"><a href="#用数学的方法描述语言规律" class="headerlink" title="用数学的方法描述语言规律"></a>用数学的方法描述语言规律</h1><p>统计语言模型产生的初衷是为了解决语音识别问题。</p><p>相比较于传统的基于语法语义的分析。贾里尼克的出发点很简单:一个句子是否合理,就看看它的可能性大小如何。至于可能性就用概率来衡量。第一个句子出现的概率大致是十的负二十次方，第二个句子出现的概率是十的负二十五次方,第三个句子出现的概率是十的负七十次方。因此,第一个最有可能,它的可能是第二个句子的10万倍,是第三个句子的一百亿亿亿亿亿亿倍。这个方法更普通而严格的描述是:</p><p>假定S表示某一个有意义的句子，由一连串特定顺序排列的词w1,w2,…,wn组成，这里n是句子的长度。若是想知道S在文本中出现的可能性，即数学上所说的S的概率P（S）。当然可以把世界上所有出现过的话统计一下，便知道这句话出现的概率了。当然这是不可能做到的。因此，需要有个模型来估算它。S=w1,w2,…,wn,那么P(S)=P(w1,w2,…,wn)<br>利用条件概率公式<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/15372330494504/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-18%20%E4%B8%8B%E5%8D%882.36.28.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure></p><p>到了词wn，它的出现概率取决于它前面的所有词，到了最后一个词wn，条件概率P的可能性太多，无法估算。</p><p>俄罗斯数学家提出了一个偷懒且颇为有效的方法，即<strong>马尔科夫假设</strong>。假设任意一个词wi出现的概率只同它前面的词wi-1有关。</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/15372330494504/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-18%20%E4%B8%8B%E5%8D%882.46.26.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><p>公式对应的统计语言模型是二元模型。假设一个词由前面N-1个词决定，对应的模型稍微复杂些，被称为N元模型。</p><p><img src="/img/media/15372330494504/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-18%20%E4%B8%8B%E5%8D%882.55.16.png" alt=""></p><p>估计联合概率P(wi-1，wi)和边缘概率P(wi-1),现在变得很简单。因为有了大量机读文本,也就是专业人土讲的语料库,只要数一数wi-1,wi这对词在统计的文本中前后相邻出现了多少次#（w-1,w),以及W-1本身在同样的文本中出现了多少次#(wi-1),然后用两个数分别除以语料库的大小#,即可得到这些词或者二元组的相对频度:</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/15372330494504/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-18%20%E4%B8%8B%E5%8D%882.53.02.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><p>根据大数定理，只要统计量足够，相对频度就等于概率。</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/15372330494504/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-18%20%E4%B8%8B%E5%8D%882.59.15.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><h1 id="统计语言模型的工程诀窍"><a href="#统计语言模型的工程诀窍" class="headerlink" title="统计语言模型的工程诀窍"></a>统计语言模型的工程诀窍</h1><h2 id="高阶语言模型"><a href="#高阶语言模型" class="headerlink" title="高阶语言模型"></a>高阶语言模型</h2><p>显然一个词只跟前面一个词有关，似乎太简化，因此，更普遍的假设是某个词和前面若干个词有关。</p><p>假定文本中的每个词wi和前面N-1个词有关，而与更前面的词无关，这样当前词wi的概率只取决于前面N-1个词P。</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/15372330494504/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-18%20%E4%B8%8B%E5%8D%883.06.33.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><p>这就是N-1阶马尔可夫假设，对应的语言模型称为N元模型。而实际应用中使用最多的是N=3的三元模型，更高阶的模型就很少使用了。</p><p>主要是因为N元模型的空间复杂度几乎是N的指数函数，即O（|V|^N），这里|V|是一种语言词典的词汇量，一般在几万到几十万个。同样时间复杂度也几乎是一个指数函数O（|V|^（N-1）），因此N不能很大。当N从1到2，再从2到3时，模型的效果上升显著。当模型从3到3时，效果的提升就不是很显著了，而资源的耗费增加却非常快，所以，除非是不惜资源为了做到极致，很少有人使用四元以上<br>的模型。Google的罗塞塔翻译系统和语言搜索系统,使用的是四元模型,该模型存储于500台以上的 Google服务器中。</p><h2 id="模型的训练、零概率问题和平滑方法"><a href="#模型的训练、零概率问题和平滑方法" class="headerlink" title="模型的训练、零概率问题和平滑方法"></a>模型的训练、零概率问题和平滑方法</h2><p>使用语言模型需要知道模型中所有的条件概率,我们称之为模型的参数。通过对语料的统计,得到这些参数的过程称作模型的训练。</p><p>在数理统计中,我们之所以敢于用对采样数据的观察结果来预测概率,是因为有大数定理( Law of Large Numbers)在背后做支持,它的要求是有足够的观测值。</p><p>一个直接的办法就是增加数据量,但是即使如此,依然会遇到零概率或者统计量不足的问题。假定要训练一个汉语的语言模型,汉语的词汇量大致是20万这个量级,训练一个三元模型就有8*10的15次方个不同的参数。假如从互联网上刨去垃圾数据,有100亿个有意义的中文网页,这已经是相当高估的数据,每个网页平均1000词。那么,即使将互联网上全部的中文内容都用作训练,依然只有10的13次方,因此,如果用<br>直接的比值计算概率,大部分条件概率依然是零,这种模型我们称之为不平滑。在实际应用中,统计语言模型的零概率问题是无法回避的。</p><p>古德-图灵估计可以解决这个问题。当一个词出现的频次过小时，统计可能不可靠，计算它们的概率时要使用一个更小一点的次数,是dr(而不直接使用r),古德-图灵估计按照下面的公式计算dr：<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/15372330494504/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-18%20%E4%B8%8B%E5%8D%884.16.08.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure></p><p>在语料库中出现r次的词有Nr个，语料库的大小为N。<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/15372330494504/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-18%20%E4%B8%8B%E5%8D%884.22.17.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure></p><p>一般来说,出现一次的词的数量比出现两次的多,出现两次的比出现三次的多。这种规律称为zipf定律(zipf’s Law)。</p><p>r越大词的数量Nr越小。因此一般情况下dr&lt;r,而d0&gt;0。这样就给未出现的词赋予了一个很小的非零值，从而解决了零概率的问题。同时下调了出现频率很低的词的概率。当然,在实际的自然语言处理中,一般对出现次数超过某个阈值的词,频率不下调,只对出现次数低于这个阈值的词,频率才下调,下调得到的频率总和给未出现的词。</p><p>这样出现r次的词的概率估计为dr/N。于是,对于频率超过一定阈值的词,它们的概率估计就是它们在语料库中的相对频度,对于频率小于这个阈值的词,它们的概率估计就小于它们的相对频度,出现次数越少的,折扣越多。对于未看见的词,也给予了一个比较小的概率。这样所有词的概率估计都很平滑了。</p><p>例如对于三元模型。<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/15372330494504/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-18%20%E4%B8%8B%E5%8D%888.15.55.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure></p><p>函数fgt()表示经过古德-图灵估计后的相对频度。<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/15372330494504/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-18%20%E4%B8%8B%E5%8D%888.16.49.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure></p><h1 id="语料的选取问题"><a href="#语料的选取问题" class="headerlink" title="语料的选取问题"></a>语料的选取问题</h1><p>训练数据应当相关，训练数据通常是越多越好。虽然介绍了相关的方法去解决缺数据的问题，但是在数据量最多的时候概率模型的参数可以估计得比较准确，高阶的模型因为参数多,需要的训练数据也相应会多很多。遗憾的是,并非所有的应用都能得到足够的训练数据,比如说机器翻译的双语语料就非常少,在这种情况下片面追求高阶的大模型就变得一点意义也没有了。</p><p>在训练数据和应用数据一致并且训练量足够大的情况下,训练语料的噪音高低也会对模型的效果产生一定的影响,因此,在训练以前有时需要对训练数据进行预处理。一般情况下,少量的(没有模式的)随机噪音清除起来成本非常髙,通常就不做处理了。但是对于能找到模式( Pattern)的、量比较大的噪音还是需要进行过滤的,而且它们也比较容易处理,比如网页文本中大量的制表符。因此,在成本不高的情况<br>下,过滤训练数据还是需要做的。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;自然语言从它产生开始,逐渐演变成一种上下文相关的信息表达和传递的方式,因此让计算机处理自然语言,一个基本的问题就是为自然语言这种上下文相关的特性建立数学模型。这个数学模型就是在自然语言处理中常说的统计语言模型( Statistical Language Model),它是今
+      
+    
+    </summary>
+    
+      <category term="读书笔记" scheme="https://github.com/zdkswd/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="数学" scheme="https://github.com/zdkswd/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
   
   <entry>
     <title>数学之美 第二章 自然语言处理--从规则到统计</title>
@@ -247,8 +272,8 @@
   
   <entry>
     <title></title>
-    <link href="https://github.com/zdkswd/2018/08/23/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E6%95%99%E7%A8%8B90%E8%AF%BE%20/"/>
-    <id>https://github.com/zdkswd/2018/08/23/微信小程序开发教程90课 /</id>
+    <link href="https://github.com/zdkswd/2018/08/23/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E6%95%99%E7%A8%8B90%E8%AF%BE%20-1/"/>
+    <id>https://github.com/zdkswd/2018/08/23/微信小程序开发教程90课 -1/</id>
     <published>2018-08-23T07:47:38.000Z</published>
     <updated>2018-08-25T08:01:40.000Z</updated>
     
@@ -268,8 +293,8 @@
   
   <entry>
     <title></title>
-    <link href="https://github.com/zdkswd/2018/08/23/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E6%95%99%E7%A8%8B90%E8%AF%BE%20-1/"/>
-    <id>https://github.com/zdkswd/2018/08/23/微信小程序开发教程90课 -1/</id>
+    <link href="https://github.com/zdkswd/2018/08/23/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E6%95%99%E7%A8%8B90%E8%AF%BE%20/"/>
+    <id>https://github.com/zdkswd/2018/08/23/微信小程序开发教程90课 /</id>
     <published>2018-08-23T07:47:38.000Z</published>
     <updated>2018-08-25T08:01:40.000Z</updated>
     
@@ -478,31 +503,6 @@
       
       
         &lt;h1 id=&quot;基本语法&quot;&gt;&lt;a href=&quot;#基本语法&quot; class=&quot;headerlink&quot; title=&quot;基本语法&quot;&gt;&lt;/a&gt;基本语法&lt;/h1&gt;&lt;h2 id=&quot;语句&quot;&gt;&lt;a href=&quot;#语句&quot; class=&quot;headerlink&quot; title=&quot;语句&quot;&gt;&lt;/a&gt;语句&lt;/h
-      
-    
-    </summary>
-    
-      <category term="教程" scheme="https://github.com/zdkswd/categories/%E6%95%99%E7%A8%8B/"/>
-    
-    
-      <category term="JavaScript" scheme="https://github.com/zdkswd/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JS标准参考教程 1 导论</title>
-    <link href="https://github.com/zdkswd/2018/08/11/JS%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20%E5%AF%BC%E8%AE%BA/"/>
-    <id>https://github.com/zdkswd/2018/08/11/JS标准参考教程 导论/</id>
-    <published>2018-08-11T08:58:56.000Z</published>
-    <updated>2018-08-11T08:59:18.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="JS标准参考教程-1-导论"><a href="#JS标准参考教程-1-导论" class="headerlink" title="JS标准参考教程 1 导论"></a>JS标准参考教程 1 导论</h1><h2 id="什么是JS"><a href="#什么是JS" class="headerlink" title="什么是JS"></a>什么是JS</h2><p>JavaScript 是一种嵌入式（embedded）语言。它本身提供的核心语法不算很多，只能用来做一些数学和逻辑运算。JavaScript 本身不提供任何与 I/O（输入/输出）相关的 API，都要靠宿主环境（host）提供，所以 JavaScript 只合适嵌入更大型的应用程序环境，去调用宿主环境提供的底层 API。</p><p>目前，已经嵌入 JavaScript 的宿主环境有多种，最常见的环境就是浏览器，另外还有服务器环境，也就是 Node 项目。</p><p>JavaScript 的核心语法部分相当精简，只包括两个部分：基本的语法构造（比如操作符、控制结构、语句）和标准库（就是一系列具有各种功能的对象比如Array、Date、Math等）。除此之外，各种宿主环境提供额外的 API（即只能在该环境使用的接口），以便 JavaScript 调用。以浏览器为例，它提供的额外 API 可以分成三大类。<br>    •    浏览器控制类：操作浏览器<br>    •    DOM 类：操作网页的各种元素<br>    •    Web 类：实现互联网的各种功能</p><p>JavaScript 语言本身，虽然是一种解释型语言，但是在现代浏览器中，JavaScript 都是编译后运行。程序会被高度优化，运行效率接近二进制程序。而且，JavaScript 引擎正在快速发展，性能将越来越好。</p><p>此书是针对<strong>浏览器</strong>的js</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;JS标准参考教程-1-导论&quot;&gt;&lt;a href=&quot;#JS标准参考教程-1-导论&quot; class=&quot;headerlink&quot; title=&quot;JS标准参考教程 1 导论&quot;&gt;&lt;/a&gt;JS标准参考教程 1 导论&lt;/h1&gt;&lt;h2 id=&quot;什么是JS&quot;&gt;&lt;a href=&quot;#什么是J
       
     
     </summary>
