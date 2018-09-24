@@ -76,7 +76,7 @@
 <meta property="og:image" content="https://github.com/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-02%20%E4%B8%8A%E5%8D%889.50.35.png">
 <meta property="og:image" content="https://github.com/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-02%20%E4%B8%8A%E5%8D%889.53.05.png">
 <meta property="og:image" content="https://github.com/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-02%20%E4%B8%8A%E5%8D%889.56.19.png">
-<meta property="og:updated_time" content="2018-09-02T02:47:35.000Z">
+<meta property="og:updated_time" content="2018-09-24T06:16:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python廖雪峰 面向对象 异常处理">
 <meta name="twitter:description" content="面向对象编程类和实例在Python中，定义类是通过class关键字。                                                                                                           通常，如果没有合适的继承类，就使用object类，这是所有类最终都会继承的类。 创建实例是通过类名+()实现的。">
@@ -277,11 +277,11 @@
 <p>封装的另一个好处是可以给Student类增加新的方法。</p>
 <h2 id="访问限制"><a href="#访问限制" class="headerlink" title="访问限制"></a>访问限制</h2><p>在Class内部，可以有属性和方法，而外部代码可以通过直接调用实例变量的方法来操作数据，这样，就隐藏了内部的复杂逻辑。</p>
 <p>从前面Student类的定义来看，外部代码还是可以自由地修改一个实例的name、score属性。</p>
-<p>如果要让内部属性不被外部访问，可以把属性的名称前加上两个下划线<strong>，在Python中，实例的变量名如果以</strong>开头，就变成了一个私有变量（private），只有内部可以访问，外部不能访问。</p>
-<p>已经无法从外部访问实例变量.<strong>name和实例变量.</strong>score了</p>
-<p>需要注意的是，在Python中，变量名类似<strong>xxx</strong>的，也就是以双下划线开头，并且以双下划线结尾的，是特殊变量，特殊变量是可以直接访问的，不是private变量，所以，不能用<strong>name</strong>、<strong>score</strong>这样的变量名。</p>
+<p>如果要让内部属性不被外部访问，可以把属性的名称前加上两个下划线__，在Python中，实例的变量名如果以__开头，就变成了一个私有变量（private），只有内部可以访问，外部不能访问。</p>
+<p>已经无法从外部访问实例变量.__name和实例变量.__score了</p>
+<p>需要注意的是，在Python中，变量名类似__xxx__的，也就是以双下划线开头，并且以双下划线结尾的，是特殊变量，特殊变量是可以直接访问的，不是private变量，所以，不能用__name__、__score__这样的变量名。</p>
 <p>有些时候，你会看到以一个下划线开头的实例变量名，比如_name，这样的实例变量外部是可以访问的，但是，按照约定俗成的规定，当你看到这样的变量时，意思就是，“虽然我可以被访问，但是，请把我视为私有变量，不要随意访问”。</p>
-<p>双下划线开头的实例变量是不是一定不能从外部访问呢？其实也不是。不能直接访问<strong>name是因为Python解释器对外把</strong>name变量改成了_Student__name，所以，仍然可以通过_Student__name来访问__name变量。</p>
+<p>双下划线开头的实例变量是不是一定不能从外部访问呢？其实也不是。不能直接访问__name是因为Python解释器对外把__name变量改成了_Student__name，所以，仍然可以通过_Student__name来访问__name变量。</p>
 <p>总的来说就是，Python本身没有任何机制阻止你干坏事，一切全靠自觉。<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
@@ -662,7 +662,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-09-02T02:47:35.000Z" itemprop="dateUpdated">2018-09-02 10:47:35</time>
+    最后更新时间：<time datetime="2018-09-24T06:16:52.000Z" itemprop="dateUpdated">2018-09-24 14:16:52</time>
 </span><br>
 
 
