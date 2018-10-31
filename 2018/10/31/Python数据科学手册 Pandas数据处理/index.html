@@ -1,0 +1,1773 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Python数据科学手册 Pandas数据处理 | ZDK&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Python">
+    <meta name="description" content="Pandas是在NumPy基础上建立的新程序库,提供了一种高效的 DataFrame数据结构。 DataFrame本质上是一种带行标签和列标签、支持相同类型数据和缺失值的多维数组。 Pandas不仅为带各种标签的数据提供了便利的存储界面,还实现了许多强大的操作,这些操作对数据库框架和电子表格程序的用户来说非常熟悉。 建立在NumPy数组结构上的 Pandas,尤其是它的 Series和 DataF">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python数据科学手册 Pandas数据处理">
+<meta property="og:url" content="https://github.com/zdkswd/2018/10/31/Python数据科学手册 Pandas数据处理/index.html">
+<meta property="og:site_name" content="ZDK&#39;s blog">
+<meta property="og:description" content="Pandas是在NumPy基础上建立的新程序库,提供了一种高效的 DataFrame数据结构。 DataFrame本质上是一种带行标签和列标签、支持相同类型数据和缺失值的多维数组。 Pandas不仅为带各种标签的数据提供了便利的存储界面,还实现了许多强大的操作,这些操作对数据库框架和电子表格程序的用户来说非常熟悉。 建立在NumPy数组结构上的 Pandas,尤其是它的 Series和 DataF">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8A%E5%8D%888.45.14.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8A%E5%8D%8810.33.26.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8A%E5%8D%8810.34.21.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8A%E5%8D%8810.35.28.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8A%E5%8D%8810.39.55.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8A%E5%8D%8810.40.17.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8A%E5%8D%8810.45.03.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8A%E5%8D%8811.06.09.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8A%E5%8D%8811.08.22.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8A%E5%8D%8811.36.12.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8A%E5%8D%8811.36.27.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8A%E5%8D%8811.37.16.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%885.05.57.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%885.15.53.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%885.18.24.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%885.24.29.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%885.28.58.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%885.36.52.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%885.38.38.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%885.46.43.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%885.49.42.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%885.50.21.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%886.00.45.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%886.01.34.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%886.20.43.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%886.23.43.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%886.29.56.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%886.38.00.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%886.39.09.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%886.44.11.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%886.46.05.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%886.51.38.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%887.01.55.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%887.02.51.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%888.12.42.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%888.25.15.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%888.25.28.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%888.29.24.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%888.31.04.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%888.42.52.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%888.45.20.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%889.11.44.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%889.11.54.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%889.13.54.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%889.16.17.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8A%E5%8D%8810.42.48.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8A%E5%8D%8810.47.07.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8A%E5%8D%8810.48.02.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8A%E5%8D%8810.49.22.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8A%E5%8D%8811.36.57.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8A%E5%8D%8811.40.01.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8A%E5%8D%8811.42.21.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8A%E5%8D%8811.43.52.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8A%E5%8D%8811.49.09.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8A%E5%8D%8811.53.14.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8A%E5%8D%8811.54.09.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8A%E5%8D%8811.56.55.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%8812.20.08.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%8812.24.46.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%8812.35.20.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%8812.46.31.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%8812.47.08.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%881.35.13.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%881.40.24.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%881.42.30.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%881.42.40.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%881.44.34.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%881.48.13.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%881.56.48.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%881.58.25.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%882.00.20.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%882.09.03.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%882.14.45.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%882.18.58.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%882.20.24.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%882.21.41.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%882.23.43.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%882.25.26.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%882.25.34.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%882.26.54.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%882.32.13.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%882.35.03.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%882.35.14.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%882.36.03.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%882.38.34.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%882.42.45.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%882.55.56.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%883.01.03.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%883.27.08.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%883.28.12.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%883.29.23.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%883.38.32.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%883.39.11.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%883.39.20.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%884.02.58.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%884.03.50.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%884.06.51.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%884.12.25.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%887.37.12.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%887.40.10.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%887.48.42.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%887.48.53.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%887.56.32.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%888.02.11.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%888.02.17.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%888.08.06.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%888.11.39.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%888.17.58.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%888.43.14.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%888.44.16.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%888.47.51.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%888.48.04.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%888.50.19.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%888.50.32.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%888.53.00.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%888.57.21.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%889.02.03.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%889.17.29.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%889.17.54.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%889.27.10.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%889.27.19.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%889.28.23.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%889.59.30.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%889.59.39.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%8810.00.56.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%885.25.46.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%885.27.15.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%885.29.42.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%885.32.51.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%885.34.17.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%885.36.55.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%885.53.42.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%886.00.30.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%886.11.45.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%886.12.49.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%886.14.15.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%886.24.53.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%886.25.01.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%886.25.14.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%886.26.51.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%886.42.06.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%886.43.07.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%886.43.52.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%886.46.01.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%886.46.39.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%886.48.09.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%886.48.19.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%886.49.29.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%886.52.28.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%886.53.22.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%887.38.38.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%888.06.04.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%888.06.31.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%888.06.45.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%888.07.28.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%888.13.49.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%888.14.00.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%888.15.50.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%888.18.05.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%888.18.27.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%888.20.00.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%888.44.58.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%888.46.20.png">
+<meta property="og:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%888.50.41.png">
+<meta property="og:updated_time" content="2018-10-31T13:07:25.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python数据科学手册 Pandas数据处理">
+<meta name="twitter:description" content="Pandas是在NumPy基础上建立的新程序库,提供了一种高效的 DataFrame数据结构。 DataFrame本质上是一种带行标签和列标签、支持相同类型数据和缺失值的多维数组。 Pandas不仅为带各种标签的数据提供了便利的存储界面,还实现了许多强大的操作,这些操作对数据库框架和电子表格程序的用户来说非常熟悉。 建立在NumPy数组结构上的 Pandas,尤其是它的 Series和 DataF">
+<meta name="twitter:image" content="https://github.com/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8A%E5%8D%888.45.14.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/tmg.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ZDK</h5>
+          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/zdkswd" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Python数据科学手册 Pandas数据处理</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Python数据科学手册 Pandas数据处理</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-10-31T13:00:56.000Z" itemprop="datePublished" class="page-time">
+  2018-10-31
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/教程/">教程</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#安装并使用Pandas"><span class="post-toc-number">1.</span> <span class="post-toc-text">安装并使用Pandas</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Pandas对象简介"><span class="post-toc-number">2.</span> <span class="post-toc-text">Pandas对象简介</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Pandas的Series对象"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">Pandas的Series对象</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Serise是通用的-NumPy数组"><span class="post-toc-number">2.1.1.</span> <span class="post-toc-text">Serise是通用的 NumPy数组</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Series是特殊的字典"><span class="post-toc-number">2.1.2.</span> <span class="post-toc-text">Series是特殊的字典</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#创建Series对象"><span class="post-toc-number">2.1.3.</span> <span class="post-toc-text">创建Series对象</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Pandas的-DataFrame对象"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">Pandas的 DataFrame对象</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Dataframe是通用的-NumPy数组"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">Dataframe是通用的 NumPy数组</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#DataFrame是特殊的字典"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">DataFrame是特殊的字典</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#创建DataFrame对象"><span class="post-toc-number">2.2.3.</span> <span class="post-toc-text">创建DataFrame对象</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#通过单个Series对象创建"><span class="post-toc-number">2.2.3.1.</span> <span class="post-toc-text">通过单个Series对象创建</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#通过字典列表创建"><span class="post-toc-number">2.2.3.2.</span> <span class="post-toc-text">通过字典列表创建</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#通过Series对象字典创建"><span class="post-toc-number">2.2.3.3.</span> <span class="post-toc-text">通过Series对象字典创建</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#通过NumPy二维数组创建"><span class="post-toc-number">2.2.3.4.</span> <span class="post-toc-text">通过NumPy二维数组创建</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#通过NumPy结构化数组创建"><span class="post-toc-number">2.2.3.5.</span> <span class="post-toc-text">通过NumPy结构化数组创建</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Pandas的Index对象"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">Pandas的Index对象</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#将Index看作不可变数组"><span class="post-toc-number">2.3.1.</span> <span class="post-toc-text">将Index看作不可变数组</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#将Index看作有序集合"><span class="post-toc-number">2.3.2.</span> <span class="post-toc-text">将Index看作有序集合</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#数据取值与选择"><span class="post-toc-number">3.</span> <span class="post-toc-text">数据取值与选择</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Series数据选择方法"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">Series数据选择方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#将-Series看作字典"><span class="post-toc-number">3.1.1.</span> <span class="post-toc-text">将 Series看作字典</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#将-Series看作一维数组"><span class="post-toc-number">3.1.2.</span> <span class="post-toc-text">将 Series看作一维数组</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#索引器：loc、iloc和ix"><span class="post-toc-number">3.1.3.</span> <span class="post-toc-text">索引器：loc、iloc和ix</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#DataFrame数据选择方法"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">DataFrame数据选择方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#将-Dataframe看作字典"><span class="post-toc-number">3.2.1.</span> <span class="post-toc-text">将 Dataframe看作字典</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#将DataFrame看作二维数组"><span class="post-toc-number">3.2.2.</span> <span class="post-toc-text">将DataFrame看作二维数组</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#其他取值方法"><span class="post-toc-number">3.2.3.</span> <span class="post-toc-text">其他取值方法</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Pandas数值运算方法"><span class="post-toc-number">4.</span> <span class="post-toc-text">Pandas数值运算方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#通用函数：保留索引"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">通用函数：保留索引</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#通用函数：索引对齐"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">通用函数：索引对齐</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Series索引对齐"><span class="post-toc-number">4.2.1.</span> <span class="post-toc-text">Series索引对齐</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#DataFrame索引对齐"><span class="post-toc-number">4.2.2.</span> <span class="post-toc-text">DataFrame索引对齐</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#通用函数-DataFrame与-Series的运算"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">通用函数: DataFrame与 Series的运算</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#处理缺失值"><span class="post-toc-number">5.</span> <span class="post-toc-text">处理缺失值</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#选择处理缺失值的方法"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">选择处理缺失值的方法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Pandas的缺失值"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">Pandas的缺失值</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#None：Python对象类型的缺失值"><span class="post-toc-number">5.2.1.</span> <span class="post-toc-text">None：Python对象类型的缺失值</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#NaN-数值类型的缺失值"><span class="post-toc-number">5.2.2.</span> <span class="post-toc-text">NaN:数值类型的缺失值</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Pandas中NaN与None的差异"><span class="post-toc-number">5.2.3.</span> <span class="post-toc-text">Pandas中NaN与None的差异</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#处理缺失值-1"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">处理缺失值</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#发现缺失值"><span class="post-toc-number">5.3.1.</span> <span class="post-toc-text">发现缺失值</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#剔除缺失值"><span class="post-toc-number">5.3.2.</span> <span class="post-toc-text">剔除缺失值</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#填充缺失值"><span class="post-toc-number">5.3.3.</span> <span class="post-toc-text">填充缺失值</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#层级索引"><span class="post-toc-number">6.</span> <span class="post-toc-text">层级索引</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#所及索引Series"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">所及索引Series</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#笨方法"><span class="post-toc-number">6.1.1.</span> <span class="post-toc-text">笨方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#好方法：Pandas多级索引"><span class="post-toc-number">6.1.2.</span> <span class="post-toc-text">好方法：Pandas多级索引</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#高维数据的多级索引"><span class="post-toc-number">6.1.3.</span> <span class="post-toc-text">高维数据的多级索引</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#多级索引的创建方法"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">多级索引的创建方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#显式地创建多级索引"><span class="post-toc-number">6.2.1.</span> <span class="post-toc-text">显式地创建多级索引</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#多级索引的等级名称"><span class="post-toc-number">6.2.2.</span> <span class="post-toc-text">多级索引的等级名称</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#多级列索引"><span class="post-toc-number">6.2.3.</span> <span class="post-toc-text">多级列索引</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#多级索引的取值与切片"><span class="post-toc-number">6.3.</span> <span class="post-toc-text">多级索引的取值与切片</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Series多级索引"><span class="post-toc-number">6.3.1.</span> <span class="post-toc-text">Series多级索引</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#DataFrame多级索引"><span class="post-toc-number">6.3.2.</span> <span class="post-toc-text">DataFrame多级索引</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#多级索引行列转换"><span class="post-toc-number">6.4.</span> <span class="post-toc-text">多级索引行列转换</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#有序的索引和无序的索引"><span class="post-toc-number">6.4.1.</span> <span class="post-toc-text">有序的索引和无序的索引</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#索引stack与unstack"><span class="post-toc-number">6.4.2.</span> <span class="post-toc-text">索引stack与unstack</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#索引的设置与重置"><span class="post-toc-number">6.4.3.</span> <span class="post-toc-text">索引的设置与重置</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#多级索引的数据累计方法"><span class="post-toc-number">6.5.</span> <span class="post-toc-text">多级索引的数据累计方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#合并数据集：Concat与Append操作"><span class="post-toc-number">7.</span> <span class="post-toc-text">合并数据集：Concat与Append操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用pd-concat实现简易合并"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">使用pd.concat实现简易合并</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#索引重复"><span class="post-toc-number">7.1.1.</span> <span class="post-toc-text">索引重复</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#捕捉索引重复的错误"><span class="post-toc-number">7.1.1.1.</span> <span class="post-toc-text">捕捉索引重复的错误</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#忽略索引"><span class="post-toc-number">7.1.1.2.</span> <span class="post-toc-text">忽略索引</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#增加多级索引"><span class="post-toc-number">7.1.1.3.</span> <span class="post-toc-text">增加多级索引</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#类似join的合并"><span class="post-toc-number">7.1.2.</span> <span class="post-toc-text">类似join的合并</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#append-方法"><span class="post-toc-number">7.1.3.</span> <span class="post-toc-text">append()方法</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#合并数据集：合并与连接"><span class="post-toc-number">8.</span> <span class="post-toc-text">合并数据集：合并与连接</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#关系代数"><span class="post-toc-number">8.1.</span> <span class="post-toc-text">关系代数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数据连接的类型"><span class="post-toc-number">8.2.</span> <span class="post-toc-text">数据连接的类型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一对一连接"><span class="post-toc-number">8.2.1.</span> <span class="post-toc-text">一对一连接</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#多对一连接"><span class="post-toc-number">8.2.2.</span> <span class="post-toc-text">多对一连接</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#多对多连接"><span class="post-toc-number">8.2.3.</span> <span class="post-toc-text">多对多连接</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#设置数据合并的键"><span class="post-toc-number">8.3.</span> <span class="post-toc-text">设置数据合并的键</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参数on的用法"><span class="post-toc-number">8.3.1.</span> <span class="post-toc-text">参数on的用法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#left-on与right-on参数"><span class="post-toc-number">8.3.2.</span> <span class="post-toc-text">left_on与right_on参数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#left-index与right-index参数"><span class="post-toc-number">8.3.3.</span> <span class="post-toc-text">left index与right index参数</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#设置数据连接的集合操作规则"><span class="post-toc-number">8.4.</span> <span class="post-toc-text">设置数据连接的集合操作规则</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#重复列名：suffixes参数"><span class="post-toc-number">8.5.</span> <span class="post-toc-text">重复列名：suffixes参数</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#累计与分组"><span class="post-toc-number">9.</span> <span class="post-toc-text">累计与分组</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Pandas的简单累计功能"><span class="post-toc-number">9.1.</span> <span class="post-toc-text">Pandas的简单累计功能</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GroupBy-分割、应用和组合"><span class="post-toc-number">9.2.</span> <span class="post-toc-text">GroupBy:分割、应用和组合</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#分割、应用和组合"><span class="post-toc-number">9.2.1.</span> <span class="post-toc-text">分割、应用和组合</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#GroupBy对象"><span class="post-toc-number">9.2.2.</span> <span class="post-toc-text">GroupBy对象</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#按列取值"><span class="post-toc-number">9.2.2.1.</span> <span class="post-toc-text">按列取值</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#按组迭代"><span class="post-toc-number">9.2.2.2.</span> <span class="post-toc-text">按组迭代</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#调用方法"><span class="post-toc-number">9.2.2.3.</span> <span class="post-toc-text">调用方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#累计、过滤、转换和应用"><span class="post-toc-number">9.2.3.</span> <span class="post-toc-text">累计、过滤、转换和应用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#累计"><span class="post-toc-number">9.2.3.1.</span> <span class="post-toc-text">累计</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#过滤"><span class="post-toc-number">9.2.3.2.</span> <span class="post-toc-text">过滤</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#转换"><span class="post-toc-number">9.2.3.3.</span> <span class="post-toc-text">转换</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#apply-方法"><span class="post-toc-number">9.2.3.4.</span> <span class="post-toc-text">apply()方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#设置分割的键"><span class="post-toc-number">9.2.4.</span> <span class="post-toc-text">设置分割的键</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#将列表、数组、Series或索引作为分组键"><span class="post-toc-number">9.2.4.1.</span> <span class="post-toc-text">将列表、数组、Series或索引作为分组键</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#用字典或Series将索引映射到分组名称"><span class="post-toc-number">9.2.4.2.</span> <span class="post-toc-text">用字典或Series将索引映射到分组名称</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#任意Python函数"><span class="post-toc-number">9.2.4.3.</span> <span class="post-toc-text">任意Python函数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#多个有效键构成的列表"><span class="post-toc-number">9.2.4.4.</span> <span class="post-toc-text">多个有效键构成的列表</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#数据透视表"><span class="post-toc-number">10.</span> <span class="post-toc-text">数据透视表</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#向量化字符串操作"><span class="post-toc-number">11.</span> <span class="post-toc-text">向量化字符串操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Pandas字符串操作简介"><span class="post-toc-number">11.1.</span> <span class="post-toc-text">Pandas字符串操作简介</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Pandas字符串方法列表"><span class="post-toc-number">11.2.</span> <span class="post-toc-text">Pandas字符串方法列表</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#与Python字符串方法相似的方法"><span class="post-toc-number">11.2.1.</span> <span class="post-toc-text">与Python字符串方法相似的方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用正则表达式的方法"><span class="post-toc-number">11.2.2.</span> <span class="post-toc-text">使用正则表达式的方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#其他字符串方法"><span class="post-toc-number">11.2.3.</span> <span class="post-toc-text">其他字符串方法</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#处理时间序列"><span class="post-toc-number">12.</span> <span class="post-toc-text">处理时间序列</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Python的日期与时间工具"><span class="post-toc-number">12.1.</span> <span class="post-toc-text">Python的日期与时间工具</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#原生Python的日期与时间工具：datetime与dateutil"><span class="post-toc-number">12.1.1.</span> <span class="post-toc-text">原生Python的日期与时间工具：datetime与dateutil</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#时间类型数组：NumPy的datetime64类型"><span class="post-toc-number">12.1.2.</span> <span class="post-toc-text">时间类型数组：NumPy的datetime64类型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Pandas的日期与时间工具：理想与现实的最佳解决方案"><span class="post-toc-number">12.1.3.</span> <span class="post-toc-text">Pandas的日期与时间工具：理想与现实的最佳解决方案</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Pandas时间序列：用时间作索引"><span class="post-toc-number">12.2.</span> <span class="post-toc-text">Pandas时间序列：用时间作索引</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Pandas时间序列数据结构"><span class="post-toc-number">12.3.</span> <span class="post-toc-text">Pandas时间序列数据结构</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#时间频率与偏移量"><span class="post-toc-number">12.4.</span> <span class="post-toc-text">时间频率与偏移量</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#重新取样、迁移和窗口"><span class="post-toc-number">12.5.</span> <span class="post-toc-text">重新取样、迁移和窗口</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#重新取样与频率转换"><span class="post-toc-number">12.5.1.</span> <span class="post-toc-text">重新取样与频率转换</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#时间迁移"><span class="post-toc-number">12.5.2.</span> <span class="post-toc-text">时间迁移</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#移动时间窗口"><span class="post-toc-number">12.5.3.</span> <span class="post-toc-text">移动时间窗口</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#高性能-Pandas-eval-与-query"><span class="post-toc-number">13.</span> <span class="post-toc-text">高性能 Pandas:eval()与 query()</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#query-与eval-的设计动机-复合代数式"><span class="post-toc-number">13.1.</span> <span class="post-toc-text">query()与eval()的设计动机:复合代数式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#用pandas-eval-实现高性能运算"><span class="post-toc-number">13.2.</span> <span class="post-toc-text">用pandas.eval()实现高性能运算</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#pd-eval-支持的运算"><span class="post-toc-number">13.2.1.</span> <span class="post-toc-text">pd.eval()支持的运算</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#算术运算符"><span class="post-toc-number">13.2.1.1.</span> <span class="post-toc-text">算术运算符</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#比较运算符"><span class="post-toc-number">13.2.1.2.</span> <span class="post-toc-text">比较运算符</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#位运算符"><span class="post-toc-number">13.2.1.3.</span> <span class="post-toc-text">位运算符</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#对象属性与索引"><span class="post-toc-number">13.2.1.4.</span> <span class="post-toc-text">对象属性与索引</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#其他运算"><span class="post-toc-number">13.2.1.5.</span> <span class="post-toc-text">其他运算</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#用-DataFrame-eval-实现列间运算"><span class="post-toc-number">13.3.</span> <span class="post-toc-text">用 DataFrame.eval()实现列间运算</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#用-DataFrame-eval-新增列"><span class="post-toc-number">13.3.1.</span> <span class="post-toc-text">用 DataFrame. eval()新增列</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Dataframe-eval-使用局部变量"><span class="post-toc-number">13.3.2.</span> <span class="post-toc-text">Dataframe.eval()使用局部变量</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#DataFrame-query-方法"><span class="post-toc-number">13.4.</span> <span class="post-toc-text">DataFrame.query()方法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#性能决定使用时机"><span class="post-toc-number">13.5.</span> <span class="post-toc-text">性能决定使用时机</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Python数据科学手册 Pandas数据处理"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Python数据科学手册 Pandas数据处理</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-10-31 21:00:56" datetime="2018-10-31T13:00:56.000Z"  itemprop="datePublished">2018-10-31</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/教程/">教程</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>Pandas是在NumPy基础上建立的新程序库,提供了一种高效的 DataFrame数据结构。 DataFrame本质上是一种带行标签和列标签、支持相同类型数据和缺失值的多维数组。 Pandas不仅为带各种标签的数据提供了便利的存储界面,还实现了许多强大的操作,这些操作对数据库框架和电子表格程序的用户来说非常熟悉。</p>
+<p>建立在NumPy数组结构上的 Pandas,尤其是它的 Series和 DataFrame对象,为数据科学家们处理那些消耗大量时间的“数据清理”(data munging)任务提供了捷径。</p>
+<h1 id="安装并使用Pandas"><a href="#安装并使用Pandas" class="headerlink" title="安装并使用Pandas"></a>安装并使用Pandas</h1><p>在安装Pandas之前，确保操作系统中有NumPy。</p>
+<h1 id="Pandas对象简介"><a href="#Pandas对象简介" class="headerlink" title="Pandas对象简介"></a>Pandas对象简介</h1><p>如果从底层视角观察Pandas对象，可以把它们看成增强版的NumPy结构化数组，行列都不再只是简单的整数索引，还可以带上标签。Pandas的三个基本数据结构：Series、DataFrame和Index。</p>
+<h2 id="Pandas的Series对象"><a href="#Pandas的Series对象" class="headerlink" title="Pandas的Series对象"></a>Pandas的Series对象</h2><p>Pandas的 Series对象是一个带索引数据构成的一维数组。可以用一个数组创建 Series对象。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8A%E5%8D%888.45.14.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>从上面的结果中,你会发现 Series对象将一组数据和一组索引绑定在一起,我们可以通过 values属性和 index属性获取数据。 values属性返回的结果与 NumPy数组类似。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8A%E5%8D%8810.33.26.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>index属性返回的结果是一个类型为pd. Index的类数组对象。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8A%E5%8D%8810.34.21.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>和 NumPy数组一样,数据可以通过 Python的中括号索引标签获取。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8A%E5%8D%8810.35.28.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>Pandas的 Series对象比它模仿的一维 NumPy数组更加通用、灵活。</p>
+<h3 id="Serise是通用的-NumPy数组"><a href="#Serise是通用的-NumPy数组" class="headerlink" title="Serise是通用的 NumPy数组"></a>Serise是通用的 NumPy数组</h3><p>Series对象和一维 NumPy数组两者间的本质差异其实是索引: NumPy数组通<br>过隐式定义的整数索引获取数值,而 Pandas的 Series对象用一种显式定义的索引与数值关联。显式索引的定义让 Series对象拥有了更强的能力。例如,索引不<br>再仅仅是整数,还可以是任意想要的类型。如果需要,完全可以用字符串定义索引。也可以使用不连续或不按顺序的索引。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8A%E5%8D%8810.39.55.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8A%E5%8D%8810.40.17.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="Series是特殊的字典"><a href="#Series是特殊的字典" class="headerlink" title="Series是特殊的字典"></a>Series是特殊的字典</h3><p>可以把 Pandas的 Series对象看成一种特殊的 Python字典。字典是一种将任意键映射到一组任意值的数据结构,而 Series对象其实是一种将类型键映射到一组类型值的数据结构。类型至关重要:就像 NumPy数组背后特定类型的经过编译的代码使得它在某些操作上比普通的 Python列表更加高效一样, Pandas series的类型信息使得它在某些操作上比 Python的字典更高效。用字典创建 Series对象时,其索引默认按照顺序排列。典型的字典数值获取方式仍然有效。和字典不同, Series对象还支持数组形式的操作,比如切片。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8A%E5%8D%8810.45.03.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="创建Series对象"><a href="#创建Series对象" class="headerlink" title="创建Series对象"></a>创建Series对象</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8A%E5%8D%8811.06.09.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>其中，index是一个可选参数，data参数支持多种数据类型。data可以是列表或 NumPy数组,这时 index默认值为整数序列，data也可以是一个标量,创建 Series对象时会重复填充到每个索引上。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8A%E5%8D%8811.08.22.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>data还可以是一个字典，index默认是排序的字典键。每一种形式都可以通过显式指定索引筛选需要的结果，这里需要注意的是, Series对象只会保留显式定义的键值对。</p>
+<h2 id="Pandas的-DataFrame对象"><a href="#Pandas的-DataFrame对象" class="headerlink" title="Pandas的 DataFrame对象"></a>Pandas的 DataFrame对象</h2><p>DataFrame既可以作为一个通用型 NumPy数组,也可以看作特殊的 Python字典。</p>
+<h3 id="Dataframe是通用的-NumPy数组"><a href="#Dataframe是通用的-NumPy数组" class="headerlink" title="Dataframe是通用的 NumPy数组"></a>Dataframe是通用的 NumPy数组</h3><p>把 DataFrame看成是有序排列的若干 Series对象。这里的“排<br>列指的是它们拥有共同的索引。</p>
+<p>再结合之前创建的 population的 Series对象,用一个字典创建<br>个包含这些信息的二维对象<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8A%E5%8D%8811.36.12.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8A%E5%8D%8811.36.27.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>和 Series对象一样, DataFrame也有一个 index属性可以获取索引标签。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8A%E5%8D%8811.37.16.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>另外, DataFrame还有一个 columns属性,是存放列标签的Index对象。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%885.05.57.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br> Dataframe可以看作一种通用的 NumPy二维数组,它的行与列都可以通过索引获取。</p>
+<h3 id="DataFrame是特殊的字典"><a href="#DataFrame是特殊的字典" class="headerlink" title="DataFrame是特殊的字典"></a>DataFrame是特殊的字典</h3><p>与 Series类似,我们也可以把 DataFrame看成一种特殊的字典。字典是一个键映射一个值,而 DataFrame是一列映射一个Series的数据。例如,通过’area’的列属性可以返回包含面积数据的Series对象。</p>
+<h3 id="创建DataFrame对象"><a href="#创建DataFrame对象" class="headerlink" title="创建DataFrame对象"></a>创建DataFrame对象</h3><h4 id="通过单个Series对象创建"><a href="#通过单个Series对象创建" class="headerlink" title="通过单个Series对象创建"></a>通过单个Series对象创建</h4><p>DataFrame是一组 Series对象的集合,可以用单个 Series创建一个单列的 Dataframe。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%885.15.53.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h4 id="通过字典列表创建"><a href="#通过字典列表创建" class="headerlink" title="通过字典列表创建"></a>通过字典列表创建</h4><p>任何元素是字典的列表都可以变成DataFrame。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%885.18.24.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>即使字典中有些键不存在, Pandas也会用缺失值NaN(不是数字,not a number)来表示。</p>
+<h4 id="通过Series对象字典创建"><a href="#通过Series对象字典创建" class="headerlink" title="通过Series对象字典创建"></a>通过Series对象字典创建</h4><p>DataFrame也可以用一个由 Series对象构成的字典创建。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%885.24.29.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h4 id="通过NumPy二维数组创建"><a href="#通过NumPy二维数组创建" class="headerlink" title="通过NumPy二维数组创建"></a>通过NumPy二维数组创建</h4><p>假如有一个二维数组,就可以创建个可以指定行列索引值的 DataFrame。如果不指定行列索引值那么行列默认都是整数索引值。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%885.28.58.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h4 id="通过NumPy结构化数组创建"><a href="#通过NumPy结构化数组创建" class="headerlink" title="通过NumPy结构化数组创建"></a>通过NumPy结构化数组创建</h4><p>由于 Pandas的 DataFrame与结构化数组十分相似,因此可以通过结<br>构化数组创建 Dataframe。</p>
+<h2 id="Pandas的Index对象"><a href="#Pandas的Index对象" class="headerlink" title="Pandas的Index对象"></a>Pandas的Index对象</h2><p>Series和 DataFrame对象都使用便于引用和调整的显式索引。 Pandas的 Index对象是一个很有趣的数据结构,可以将它看作是一个不可变数组或有序集合(实际上是一个多集,因为 Index对象可能会包含重复值)。这两种观点使得 Index对象能呈现一些有趣的功能。让我们用一个简单的整数列表来创建一个 Index对象。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%885.36.52.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="将Index看作不可变数组"><a href="#将Index看作不可变数组" class="headerlink" title="将Index看作不可变数组"></a>将Index看作不可变数组</h3><p>Index对象的许多操作都像数组。例如,可以通过标准 Python的取值方法获取数值,也可以通过切片获取数值。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%885.38.38.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>Index对象与 NumPy数组之间的不同在于, Index对象的索引是不可变的,也就是说不能通过通常的方式进行调整。Index对象的不可变特征使得多个DataFrame和数组之间进行索引共享时更加安全,尤其是可以避免因修改索引时粗心大意而导致的副作用。</p>
+<h3 id="将Index看作有序集合"><a href="#将Index看作有序集合" class="headerlink" title="将Index看作有序集合"></a>将Index看作有序集合</h3><p>Pandas对象被设计用于实现许多操作,如连接(join)数据集,其中会涉及许多集合操作。Index对象遵循 Python标准库的集合(set)数据结构的许多习惯用法,包括并集、交集、差集等。</p>
+<h1 id="数据取值与选择"><a href="#数据取值与选择" class="headerlink" title="数据取值与选择"></a>数据取值与选择</h1><h2 id="Series数据选择方法"><a href="#Series数据选择方法" class="headerlink" title="Series数据选择方法"></a>Series数据选择方法</h2><h3 id="将-Series看作字典"><a href="#将-Series看作字典" class="headerlink" title="将 Series看作字典"></a>将 Series看作字典</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%885.46.43.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>我们还可以用 Python字典的表达式和方法来检测键/索引和值。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%885.49.42.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>Series对象还可以用字典语法调整数据。就像你可以通过增加新的键扩展字典一样,你也可以通过增加新的索引值扩展 Series。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%885.50.21.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>Series对象的可变性是一个非常方便的特性: Pandas在底层已经为可能发生的内存布局和数据复制自动决策,用户不需要担心这些问题。</p>
+<h3 id="将-Series看作一维数组"><a href="#将-Series看作一维数组" class="headerlink" title="将 Series看作一维数组"></a>将 Series看作一维数组</h3><p>Series不仅有着和字典一样的接口,而且还具备和 NumPy数组一样的数组数据选择功能,包括索引、掩码、花哨的索引等操作。切片是绝大部分混乱之源。需要注意的是,当使用显式索引(即data[‘a’:’c’])作切片时,结果包含最后一个索引;而当使用隐式索引(即data[0:2])作切片时,结果不包含最后一个索引。</p>
+<h3 id="索引器：loc、iloc和ix"><a href="#索引器：loc、iloc和ix" class="headerlink" title="索引器：loc、iloc和ix"></a>索引器：loc、iloc和ix</h3><p>这些切片和取值的习惯用法经常会造成混乱。例如,如果你的Series是显式整数索引,那么data[1]这样的取值操作会使用显式索引,而data[1:3]这样的切片操作却会使用隐式索引。由于整数索引很容易造成混淆,所以 Pandas提供了一些索引器( indexer)属性来作为取值的方法。它们不是 Series对象的函数方法,而是暴露切片接口的属性。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%886.00.45.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%886.01.34.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>即从0开始，左闭右开区间。<br>第三种取值属性是ix,它是前两种索引器的混合形式,在 Series对象中ix等价于标准的<a href="Python列表"></a>取值方式。ix索引器主要用于DataFrame对象。</p>
+<p>Python代码的设计原则之一是“显式优于隐式”。使用loc和iloc可以让代码更容易维护,可读性更高。特别是在处理整数索引的对象时,强烈推荐使用这两种索引器。它们既可以让代码阅读和理解起来更容易,也能避免因误用索引/切片而产生的小bug。</p>
+<h2 id="DataFrame数据选择方法"><a href="#DataFrame数据选择方法" class="headerlink" title="DataFrame数据选择方法"></a>DataFrame数据选择方法</h2><p>Dataframe在有些方面像二维或结构化数组,在有些方面又像一个共享索引的若干 Series对象构成的字典。</p>
+<h3 id="将-Dataframe看作字典"><a href="#将-Dataframe看作字典" class="headerlink" title="将 Dataframe看作字典"></a>将 Dataframe看作字典</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%886.20.43.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>两个 Series分别构成 Dataframe的一列,可以通过对列名进行字典形式( dictionary- style)的取值获取数据。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%886.23.43.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>虽然属性形式的数据选择方法很方便,但是它并不是通用的。如果列名不是纯字符串,或者列名与 DataFrame的方法同名,那么就不能用属性索引。例如, Dataframe有一个pop()方法,如果用data.pop就不会获取’pop’列,而是显示为方法。另外,还应该避免对用属性形式选择的列直接赋值(即可以用data[‘pop’]=z,但不要用data.pop=z)。</p>
+<h3 id="将DataFrame看作二维数组"><a href="#将DataFrame看作二维数组" class="headerlink" title="将DataFrame看作二维数组"></a>将DataFrame看作二维数组</h3><p>可以把 Dataframe看成是一个增强版的二维数组。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%886.29.56.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>理解了这一点,就可以把许多数组操作方式用在 DataFrame上。例如,可以对 DataFrame进行行列转置。<br>获取一行数据时。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%886.38.00.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>获取一列。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%886.39.09.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>在进行数组形式的取值时，我们就需要用另一种方法。loc、iloc和ix。通过iloc索引器，我们就可以像对待NumPy数组一样索引Pandas的底层数组（Python的隐式索引）<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%886.44.11.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>使用ix索引器可以实现一种混合效果。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%886.46.05.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>需要注意的是,ix索引器对于整数索引的处理和之前在 Series对象中介绍的一样,都容易让人混淆。任何用于处理 NumPy形式数据的方法都可以用于这些索引器。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%886.51.38.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="其他取值方法"><a href="#其他取值方法" class="headerlink" title="其他取值方法"></a>其他取值方法</h3><p>还有一些取值方法看着有点奇怪，但在实践中还是好用。首先，如果对单个标签取值就选择列，而对多个标签用切边就选择行。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%887.01.55.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>切片也可以不用索引值，而直接用行数来实现。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%887.02.51.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>与此类似，掩码操作也可以直接对每一行进行过滤，而不需要使用loc索引器。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%888.12.42.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h1 id="Pandas数值运算方法"><a href="#Pandas数值运算方法" class="headerlink" title="Pandas数值运算方法"></a>Pandas数值运算方法</h1><p>NumPy的基本能力之一是快速对每个元素进行运算,既包括基本算术运算(加、减、乘、除),也包括更复杂的运算(三角函数、指数函数和对数函数等)。 Pandas继承了 NumPy的功能,通用函数是关键。</p>
+<h2 id="通用函数：保留索引"><a href="#通用函数：保留索引" class="headerlink" title="通用函数：保留索引"></a>通用函数：保留索引</h2><p>因为 Pandas是建立在 NumPy基础之上的,所以 NumPy的通用函数同样适用于 Pandas的 Series和 DataFrame对象。</p>
+<h2 id="通用函数：索引对齐"><a href="#通用函数：索引对齐" class="headerlink" title="通用函数：索引对齐"></a>通用函数：索引对齐</h2><p>当在两个 Series或 DataFrame对象上进行二元计算时, Pandas会在计算过程中对齐两个对象的索引。</p>
+<h3 id="Series索引对齐"><a href="#Series索引对齐" class="headerlink" title="Series索引对齐"></a>Series索引对齐</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%888.25.15.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%888.25.28.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>对于缺失位置的数据, Pandas会用NaN填充,表示“此处无数”。这种索引对齐方式是通过 Python内置的集合运算规则实现的,任何缺失值默认都用NaN填充。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%888.29.24.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>如果用NaN值不是我们想要的结果,那么可以用适当的对象方法代替运算符。例如，A.add(B)等价于A+B，也可以设置参数自定义A或B缺失的数据。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%888.31.04.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="DataFrame索引对齐"><a href="#DataFrame索引对齐" class="headerlink" title="DataFrame索引对齐"></a>DataFrame索引对齐</h3><p>在计算两个 DataFrame时,类似的索引对齐规则也同样会出现在共同(并集)列中。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%888.42.52.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>你会发现,两个对象的行列索引可以是不同顺序的,结果的索引会自动按顺序排列。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%888.45.20.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h2 id="通用函数-DataFrame与-Series的运算"><a href="#通用函数-DataFrame与-Series的运算" class="headerlink" title="通用函数: DataFrame与 Series的运算"></a>通用函数: DataFrame与 Series的运算</h2><p>对一个 DataFrame和一个 Series进行计算,行列对齐方式与之前类似。也就是说, DataFrame和 Series的运算规则,与NumPy中二维数组与一维数组的运算规则是一样的。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%889.11.44.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%889.11.54.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>根据 NumPy的广播规则，让二维数组减自身的行数据会按行计算。在 Pandas里默认也是按行运算的。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%889.13.54.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>如果你想按列计算,那么就需要利用前面介绍过的运算符方法,通过axis参数设置。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-29%20%E4%B8%8B%E5%8D%889.16.17.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h1 id="处理缺失值"><a href="#处理缺失值" class="headerlink" title="处理缺失值"></a>处理缺失值</h1><p>大多数教程里使用的数据与现实工作中的数据的区别在于后者很少是干净整齐的,许多目前流行的数据集都会有数据缺失的现象。更为甚者处理不同数据源缺失值的方法还不同。</p>
+<h2 id="选择处理缺失值的方法"><a href="#选择处理缺失值的方法" class="headerlink" title="选择处理缺失值的方法"></a>选择处理缺失值的方法</h2><p>在数据表或 DataFrame中有很多识别缺失值的方法。一般情况下可以分为两种:一种方法是通过一个覆盖全局的掩码表示缺失值,另一种方法是用一个标签值( sentinel value)表示缺失值。在掩码方法中,掩码可能是一个与原数组维度相同的完整布尔类型数组,也可能是用一个比特(0或1)表示有缺失值的局部状态。在标签方法中,标签值可能是具体的数据(例如用9999表示缺失的整数),也可能是些极少出现的形式。另外,标签值还可能是更全局的值,比如用NaN(不是一个数)表示缺失的浮点数,它是IEEE浮点数规范中指定的特殊字符。</p>
+<p>使用这两种方法之前都需要先综合考量:使用单独的掩码数组会额外出现一个布尔类型数组,从而增加存储与计算的负担;而标签值方法缩小了可以被表示为有效值的范围,可能需要在CPU或GPU算术逻辑单元中增加额外的(往往也不是最优的)计算逻辑。通常使用的NaN也不能表示所有数据类型。</p>
+<p>大多数情况下,都不存在最佳选择,不同的编程语言与系统使用不同的方法。</p>
+<h2 id="Pandas的缺失值"><a href="#Pandas的缺失值" class="headerlink" title="Pandas的缺失值"></a>Pandas的缺失值</h2><p>Pandas里处理缺失值的方式延续了 NumPy程序包的方式,并没有为浮点数据类型提供内置的NA作为缺失值。</p>
+<p>Pandas原本也可以按照R语言采用的比特模式为每一种数据类型标注缺失值，但是这种方法非常笨拙。其工作量几乎相当于创建一个新的NumPy程序包。另外，对于一些较小的数据类型，牺牲一个比特作为缺失值标注的掩码还会导致其数据范围缩小。当然, NumPy也是支持掩码数据的,也就是说可以用一个布尔掩码数组为原数组标注“无缺失值”或“有缺失值”。 Pandas也集成了这个功能,<br>但是在存储、计算和编码维护方面都需要耗费不必要的资源,因此这种方式并不可取。</p>
+<p>综合考虑各种方法的优缺点, Pandas最终选择用标签方法表示缺失值,包括两种 Python原有的缺失值:浮点数据类型的NaN值,以及 Python的None对象。后面我们将会发现,虽然这么做也会有一些副作用,但是在实际运用中的效果还是不错的。</p>
+<h3 id="None：Python对象类型的缺失值"><a href="#None：Python对象类型的缺失值" class="headerlink" title="None：Python对象类型的缺失值"></a>None：Python对象类型的缺失值</h3><p>Pandas可以使用的第一种缺失值标签是None,它是一个 Python单体对象,经常在代码中表示缺失值。由于None是一个 Python对象,所以不能作为任何 NumPy/ Pandas数组类型的缺失值,只能用于object数组类型。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8A%E5%8D%8810.42.48.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>这里 dtype= object表示 NumPy认为由于这个数组是 Python对象构成的,因此将其类型判断为 object。虽然这种类型在某些情景中非常有用,对数据的任何操作最终都会在 Python层面完成,但是在进行常见的快速操作时,这种类型比其他原生类型数组要消耗更多的资源。</p>
+<p>使用 Python对象构成的数组就意味着如果你对一个包含None的数组进行累计操作,如sum()或者min(),那么通常会出现类型错误。这就是说,在 Python中没有定义整数与None之间的加法运算。</p>
+<h3 id="NaN-数值类型的缺失值"><a href="#NaN-数值类型的缺失值" class="headerlink" title="NaN:数值类型的缺失值"></a>NaN:数值类型的缺失值</h3><p>另一种缺失值的标签是NaN(全称 Not a number,不是一个数字),是一种按照IEEE浮点数标准设计、在任何系统中都兼容的特殊浮点数。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8A%E5%8D%8810.47.07.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>NumPy会为这个数组选择一个原生浮点类型,这意味着和之前的 object类型数组不同,这个数组会被编译成C代码从而实现快速操作。你可以把NaN看作是一个数据类病毒它会将与它接触过的数据同化。无论和NaN进行何种操作,最终结果都是NaN。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8A%E5%8D%8810.48.02.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>NumPy也提供了一些特殊的累计函数,它们可以忽略缺失值的影响。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8A%E5%8D%8810.49.22.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>谨记,NaN是一种特殊的浮点数,不是整数、字符串以及其他数据类型。</p>
+<h3 id="Pandas中NaN与None的差异"><a href="#Pandas中NaN与None的差异" class="headerlink" title="Pandas中NaN与None的差异"></a>Pandas中NaN与None的差异</h3><p>虽然NaN与None各有各的用处,但是 Pandas把它们看成是可以等价交换的,在适当的时候会将两者进行替换。</p>
+<p>Pandas会将没有标签值的数据类型自动转换为NA。例如,当我们将整型数组中的一个值设置为np.nan时,这个值就会强制转换成浮点数缺失值NA。除了将整型数组的缺失值强制转换为浮点数, Pandas还会自动将None转换为NaN。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8A%E5%8D%8811.36.57.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>需要注意的是, Pandas中字符串类型的数据通常是用 object类型存储的。</p>
+<h2 id="处理缺失值-1"><a href="#处理缺失值-1" class="headerlink" title="处理缺失值"></a>处理缺失值</h2><p>Pandas基本上把None和NaN看成是可以等价交换的缺失值形式。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8A%E5%8D%8811.40.01.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>返回一个填充看缺失值的数据副本。</p>
+<h3 id="发现缺失值"><a href="#发现缺失值" class="headerlink" title="发现缺失值"></a>发现缺失值</h3><p>Pandas数据结构有两种有效的方法可以发现缺失值:isnull()和notnull()。每种方法都返回布尔类型的掩码数据。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8A%E5%8D%8811.42.21.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>布尔类型掩码数组可以直接作为 Series或 DataFrame的索引使用。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8A%E5%8D%8811.43.52.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>在 Series里使用的isnull()和notnull()同样适用于Dataframe,产生的结果同样是布尔类型。</p>
+<h3 id="剔除缺失值"><a href="#剔除缺失值" class="headerlink" title="剔除缺失值"></a>剔除缺失值</h3><p>dropna（）（剔除缺失值）和fillna（）（填充缺失值）。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8A%E5%8D%8811.49.09.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>我们没法从 DataFrame中单独剔除一个值,要么是剔除缺失值所在的整行,要么是整列。根据实际需求,有时你需要剔除整行,有时可能是整列, DataFrame中的 drona()会有一些参数可以配置。默认情况下, drona()会剔除任何包含缺失值的整行数据。可以设置按不同的坐标轴剔除缺失值,比如axis=1(或axis=‘ columns’)会剔除任何包含缺失值的整列数据。</p>
+<p>但是这么做也会把非缺失值一并剔除,因为可能有时候只需要剔除全部是缺失值的行或列,或者绝大多数是缺失值的行或列。这些需求可以通过设置how或 thresh参数来满足,它们可以设置剔除行或列缺失值的数量阈值。</p>
+<p>默认设置是how=‘any’,也就是说只要有缺失值就剔除整行或整列(通过axis设置坐标轴)。你还可以设置how=‘all’,这样就只会剔除全部是缺失值的行或列了。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8A%E5%8D%8811.53.14.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>还可以通过 thresh参数设置行或列中非缺失值的最小数量,从而实现更加个性化的配置。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8A%E5%8D%8811.54.09.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="填充缺失值"><a href="#填充缺失值" class="headerlink" title="填充缺失值"></a>填充缺失值</h3><p>有时候你可能并不想移除缺失值,而是想把它们替换成有效的数值。有效的值可能是像0、1、2那样单独的值,也可能是经过填充( Imputation)或转换( interpolation)得到的。Pandas为此专门提供了一个fillna（）方法，将返回填充了缺失值后的数组副本。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8A%E5%8D%8811.56.55.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>可以用缺失值前面的有效值来从前往后填充。也可以用缺失值后面的有效值来从后往前填充(back-fil)。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%8812.20.08.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>Dataframe的操作方法与 Series类似,只是在填充时需要设置坐标轴参数axis。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%8812.24.46.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>需要注意的是,假如在从前往后填充时,需要填充的缺失值前面没有值,那么它就仍然是缺失值。</p>
+<h1 id="层级索引"><a href="#层级索引" class="headerlink" title="层级索引"></a>层级索引</h1><p>当目前为止,我们接触的都是一维数据和二维数据,用 Pandas的Series和 DataFrame对象就可以存储。但我们也经常会遇到存储多维数据的需求,数据索引超过一两个键。因此, Pandas提供了 Panel和Pane4D对象解决三维数据与四维数据。而在实践中,更直观的形式是通过层级索引( hierarchical indexing,也被称为多级索引,muli- indexing)配合多个有不同等级( level)的一级索引一起使用,这样就可以将高维数组转换成类似一维 Series和二维DataFrame对象的形式。</p>
+<h2 id="所及索引Series"><a href="#所及索引Series" class="headerlink" title="所及索引Series"></a>所及索引Series</h2><h3 id="笨方法"><a href="#笨方法" class="headerlink" title="笨方法"></a>笨方法</h3><p>使用元组。</p>
+<h3 id="好方法：Pandas多级索引"><a href="#好方法：Pandas多级索引" class="headerlink" title="好方法：Pandas多级索引"></a>好方法：Pandas多级索引</h3><p>用元组表示索引其实是多级索引的基础。Pandas的 MultiIndex类型提供了更丰富的操作方法。我们可以用元组创建一个多级索引。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%8812.35.20.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="高维数据的多级索引"><a href="#高维数据的多级索引" class="headerlink" title="高维数据的多级索引"></a>高维数据的多级索引</h3><p>unstack()方法可以快速将一个多级索引的 Series转化为普通索引的DataFrame。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%8812.46.31.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>当然了，也有stack（）方法实现相反的效果。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%8812.47.08.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>如果我们可以用含多级索引的一维 Series数据表示二维数据,那么我们就可以用 Series或 Dataframe表示三维甚至更高维度的数据。多级索引每增加一级,就表示数据增加一维,利用这一特点就可以轻松表示任意维度的数据了。假如要增加一列显示每一年各州的人口统计指标(例如18岁以下的人口),那么对于这种带有<br>Multiindexⅹ的对象,增加一列就像 DataFrame的操作一样简单。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%881.35.13.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%881.40.24.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h2 id="多级索引的创建方法"><a href="#多级索引的创建方法" class="headerlink" title="多级索引的创建方法"></a>多级索引的创建方法</h2><p>为 Series或 DataFrame创建多级索引最直接的办法就是将 index参数设置为至少二维的索引数组。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%881.42.30.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%881.42.40.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>Multiindex的创建工作将在后台完成。同理,如果你把将元组作为键的字典传递给 Pandas, Pandas也会默认转MultiIndex。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%881.44.34.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="显式地创建多级索引"><a href="#显式地创建多级索引" class="headerlink" title="显式地创建多级索引"></a>显式地创建多级索引</h3><p>可以通过一个有不同等级的若干简单数组组成的列表来构建 Multiindex。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%881.48.13.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>也可以通过包含多个索引值的元组构成的列表创建 MultiIndex。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%881.56.48.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>还可以用两个索引的笛卡尔积( Cartesian product)创建Multiindex。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%881.58.25.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>更可以直接提供levels(包含每个等级的索引值列表的列表)和labels(包含每个索引值标签列表的列表)创建 MultiIndex。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%882.00.20.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>在创建 Series或 Dataframe时,可以将这些对象作为 index参数,或者通过 reindex方法更新 Series或 Dataframe的索引。</p>
+<h3 id="多级索引的等级名称"><a href="#多级索引的等级名称" class="headerlink" title="多级索引的等级名称"></a>多级索引的等级名称</h3><p>给MultIindex的等级加上名称会为一些操作提供便利。你可以在前面任何一个 Multiindex构造器中通过 names参数设置等级名称,也可以在创建之后通过索引的names属性来修改名称。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%882.09.03.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="多级列索引"><a href="#多级列索引" class="headerlink" title="多级列索引"></a>多级列索引</h3><p>每个 Dataframe的行与列都是对称的,也就是说既然有多级行索引,那么同样可以有多级列索引。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%882.14.45.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h2 id="多级索引的取值与切片"><a href="#多级索引的取值与切片" class="headerlink" title="多级索引的取值与切片"></a>多级索引的取值与切片</h2><h3 id="Series多级索引"><a href="#Series多级索引" class="headerlink" title="Series多级索引"></a>Series多级索引</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%882.18.58.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>MultIindex也支持局部取值( partial indexing),即只取索引的某一个层级。假如只取最高级的索引,获得的结果是一个新的Series,未被选中的低层索引值会被保留。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%882.20.24.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>类似的还有局部切片,不过要求MultiIndex是按顺序排列的。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%882.21.41.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>如果索引已经排序,那么可以用较低层级的索引取值,第一层级的索引可以用空切片。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%882.23.43.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>其他取值与数据选择的方法也都起作用。下面的例子是通过布尔掩码选择数据。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%882.25.26.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%882.25.34.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>也可以用花哨的索引选择数据。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%882.26.54.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="DataFrame多级索引"><a href="#DataFrame多级索引" class="headerlink" title="DataFrame多级索引"></a>DataFrame多级索引</h3><p>DataFrame多级索引的用法与 Series类似。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%882.32.13.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>由于Dataframe的基本索引是列索引,因此 Series中多级索引的用法到了 DataFrame中就应用在列上了。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%882.35.03.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%882.35.14.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>与单索引类似，loc、iloc和ix索引器都可以使用。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%882.36.03.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>虽然这些索引器将多维数据当作二维数据处理,但是在loc和iloc中可以传递多个层级的索引元组。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%882.38.34.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>这种索引元组的用法不是很方便,如果在元组中使用切片还会导致语法错误。<br>虽然可以用Python内置的slice（）函数获取想要的切片，但是还可以使用IndexSlice对象，Pandas专门用它解决这些问题。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%882.42.45.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h2 id="多级索引行列转换"><a href="#多级索引行列转换" class="headerlink" title="多级索引行列转换"></a>多级索引行列转换</h2><h3 id="有序的索引和无序的索引"><a href="#有序的索引和无序的索引" class="headerlink" title="有序的索引和无序的索引"></a>有序的索引和无序的索引</h3><p>如果MultiIndex不是有序的索引，那么大多数切片操作都会失败。局部切片和许多其他相似的操作都要求MultiIndex的各级索引是有序的（即按照字典顺序由A至Z）。为此Pandas提供了许多便捷的操作完成排序，如sort_index()和sortlevel()方法。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%882.55.56.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>索引排序之后,局部切片就可以正常使用了。</p>
+<h3 id="索引stack与unstack"><a href="#索引stack与unstack" class="headerlink" title="索引stack与unstack"></a>索引stack与unstack</h3><p>我们可以将一个多级索引数据集转换成简单的二维形式,可以通过level参数设置转换的索引层级。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%883.01.03.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>unstack()是 stack()的逆操作,同时使用这两种方法让数据保持不变。</p>
+<h3 id="索引的设置与重置"><a href="#索引的设置与重置" class="headerlink" title="索引的设置与重置"></a>索引的设置与重置</h3><p>层级数据维度转换的另一种方法是行列标签转换,可以通过reset_index方法实现。</p>
+<h2 id="多级索引的数据累计方法"><a href="#多级索引的数据累计方法" class="headerlink" title="多级索引的数据累计方法"></a>多级索引的数据累计方法</h2><p>对于层级索引数据，可以设置参数level实现对数据子集的累计操作。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%883.27.08.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>需要计算每一年的各项平均值，可以将参数level设置为索引year。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%883.28.12.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>如果再设置axis参数,就可以对列索引进行类似的累计操作了。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%883.29.23.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h1 id="合并数据集：Concat与Append操作"><a href="#合并数据集：Concat与Append操作" class="headerlink" title="合并数据集：Concat与Append操作"></a>合并数据集：Concat与Append操作</h1><h2 id="使用pd-concat实现简易合并"><a href="#使用pd-concat实现简易合并" class="headerlink" title="使用pd.concat实现简易合并"></a>使用pd.concat实现简易合并</h2><p>Pandas有一个pd.concat()函数与 np. concatenate语法类似,但是配置参数更多,功能也更强大。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%883.38.32.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>pd. concat()可以简单地合并一维的 Series或 Dataframe对象,与np. concatenate()合并数组一样。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%883.39.11.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%883.39.20.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>它也可以用来合并高维数据。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%884.02.58.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>默认情况下，DataFrame的合并都是逐行进行的（默认设置是axis=0）。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%884.03.50.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>这里使用axis=1效果是一样的，但是用axis=‘col’会更直观。</p>
+<h3 id="索引重复"><a href="#索引重复" class="headerlink" title="索引重复"></a>索引重复</h3><p>np. concatenate与pd. concat最主要的差异之一就是 Pandas在合并时会保留索引,即使索引是重复的!<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%884.06.51.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h4 id="捕捉索引重复的错误"><a href="#捕捉索引重复的错误" class="headerlink" title="捕捉索引重复的错误"></a>捕捉索引重复的错误</h4><p>可以设置verify_integrity参数为True，合并时若有索引重复就会触发异常。</p>
+<h4 id="忽略索引"><a href="#忽略索引" class="headerlink" title="忽略索引"></a>忽略索引</h4><p>有时索引无关紧要，那么合并时就可以忽略它们，可以通过设置ignore_index参数来实现，如果参数设置为True，那么合并时会创建一个新的整数索引。</p>
+<h4 id="增加多级索引"><a href="#增加多级索引" class="headerlink" title="增加多级索引"></a>增加多级索引</h4><p>另一种处理方法是通过keys参数为数据源设置多级索引标签。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%884.12.25.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>结果是多级索引的DataFrame。</p>
+<h3 id="类似join的合并"><a href="#类似join的合并" class="headerlink" title="类似join的合并"></a>类似join的合并</h3><p>实际中，需要合并的数据往往不带有相同的列名。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%887.37.12.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>默认下，某个位置上的缺失会用NaN表示。如果不想这样，可以用join和join_axes参数设置合并方式。默认的合并方式是对所有的输入列进行并集合并（join=‘outer’）,当然也可以用join=‘inner’实现对输入列的交集合并。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%887.40.10.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>另一种合并方式是直接确定结果使用的列名,设置 join_axes参数,里面是索引对象构成的列表(是列表的列表)。</p>
+<h3 id="append-方法"><a href="#append-方法" class="headerlink" title="append()方法"></a>append()方法</h3><p>可以使用df1. append(df2),效果与pd. concat([df1,df2])一样。Pandas的 append()不直接更新原有对象的值,而是为合并后的数据创建一个新对象。因此,它不能被称之为一个非常高效的解决方案,因为每次合并都需要重新创建索引和数据缓存。总之,如果你需要进行多个 append操作,还是建议先创建一个 Dataframe列表,然后用 concat()函数一次性解决所有合并任务。</p>
+<h1 id="合并数据集：合并与连接"><a href="#合并数据集：合并与连接" class="headerlink" title="合并数据集：合并与连接"></a>合并数据集：合并与连接</h1><h2 id="关系代数"><a href="#关系代数" class="headerlink" title="关系代数"></a>关系代数</h2><p>pd. merge()实现的功能基于关系代数( relational algebra)的一部分关系代数是处理关系型数据的通用理论,绝大部分数据库的可用操作都以此为理论基础。</p>
+<h2 id="数据连接的类型"><a href="#数据连接的类型" class="headerlink" title="数据连接的类型"></a>数据连接的类型</h2><h3 id="一对一连接"><a href="#一对一连接" class="headerlink" title="一对一连接"></a>一对一连接</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%887.48.42.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%887.48.53.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="多对一连接"><a href="#多对一连接" class="headerlink" title="多对一连接"></a>多对一连接</h3><p>多对一连接是指,在需要连接的两个列中,有一列的值有重复。通过多对一连接获得的结果 DataFrame将会保留重复值。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%887.56.32.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="多对多连接"><a href="#多对多连接" class="headerlink" title="多对多连接"></a>多对多连接</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%888.02.11.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%888.02.17.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="设置数据合并的键"><a href="#设置数据合并的键" class="headerlink" title="设置数据合并的键"></a>设置数据合并的键</h2><h3 id="参数on的用法"><a href="#参数on的用法" class="headerlink" title="参数on的用法"></a>参数on的用法</h3><p>最简单的方法就是直接将参数on设置为一个列名字符串或者一个包含多列名称的列表。这个参数只能在两个 DataFrame有共同列名的时候才可以使用。</p>
+<h3 id="left-on与right-on参数"><a href="#left-on与right-on参数" class="headerlink" title="left_on与right_on参数"></a>left_on与right_on参数</h3><p>有时你也需要合并两个列名不同的数据集,例如前面的员工信息表中有一个字段不是“ employee’,而是 name”。在这种情况下,就可以用left on和 right on参数来指定列名:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%888.08.06.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>获取的结果中会有一个多余的列,可以通过 Dataframe的drop()方法将这列去掉。</p>
+<h3 id="left-index与right-index参数"><a href="#left-index与right-index参数" class="headerlink" title="left index与right index参数"></a>left index与right index参数</h3><p>除了合并列之外,你可能还需要合并索引。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%888.11.39.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h2 id="设置数据连接的集合操作规则"><a href="#设置数据连接的集合操作规则" class="headerlink" title="设置数据连接的集合操作规则"></a>设置数据连接的集合操作规则</h2><p>通过前面的示例,我们总结出数据连接的一个重要条件:集合操作规则。当一个值出现在一列,却没有出现在另一列时,就需要考虑集合操作规则了。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%888.17.58.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>可以用how参数设置连接方式，默认值为‘inner’，还有‘outer’、‘left’和‘right’。</p>
+<h2 id="重复列名：suffixes参数"><a href="#重复列名：suffixes参数" class="headerlink" title="重复列名：suffixes参数"></a>重复列名：suffixes参数</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%888.43.14.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>由于输出结果中有两个重复的列名,因此pd. merge()函数会自动为它们增加后缀_x或_y,当然也可以通过 suffixes参数自定义后缀名。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%888.44.16.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>suffixes参数同样适用于任何连接方式,即使有三个及三个以上的重复列名时也同样适用。</p>
+<h1 id="累计与分组"><a href="#累计与分组" class="headerlink" title="累计与分组"></a>累计与分组</h1><p>在对较大的数据进行分析时,一项基本的工作就是有效的数据累计( summarization):计算累计( aggregation)指标,如sum()、mean()、 median()、min()和max(),其中每一个指标都呈现了大数据集的特征。</p>
+<h2 id="Pandas的简单累计功能"><a href="#Pandas的简单累计功能" class="headerlink" title="Pandas的简单累计功能"></a>Pandas的简单累计功能</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%888.47.51.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%888.48.04.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>Pandas的 Series和 DataFrame支持所有24节中介绍的常用累计函数。另外,还有一个非常方便的 describe()方法可以计算每一列的若干常用统计值。</p>
+<p><img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%888.50.19.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%888.50.32.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>DataFrame和 Series对象支持以上所有方法。</p>
+<h2 id="GroupBy-分割、应用和组合"><a href="#GroupBy-分割、应用和组合" class="headerlink" title="GroupBy:分割、应用和组合"></a>GroupBy:分割、应用和组合</h2><h3 id="分割、应用和组合"><a href="#分割、应用和组合" class="headerlink" title="分割、应用和组合"></a>分割、应用和组合</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%888.53.00.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>GroupBy的用处就是将这些步骤进行抽象:用户不需要知道在底层如何计算,只要把操作看成一个整体就够了。</p>
+<p>我们可以用 DataFrame的 groupby()方法进行绝大多数常见的分割-应用-组合操作,将需要分组的列名传进去即可。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%888.57.21.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>需要注意的是,这里的返回值不是一个 DataFrame对象,而是个 DataFrame GroupBy对象。这个对象的魔力在于,你可以将它看成是一种特殊形式的 DataFrame,里面隐藏着若干组数据,但是在没有应用累计函数之前不会计算。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%889.02.03.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>sum()只是众多可用方法中的一个。你可以用 Pandas或 NumPy的任意一种累计函数,也可以用任意有效的 DataFrame对象。</p>
+<h3 id="GroupBy对象"><a href="#GroupBy对象" class="headerlink" title="GroupBy对象"></a>GroupBy对象</h3><p>GroupBy对象是一种非常灵活的抽象类型。在大多数场景中,你可以将它看成是 Dataframe的集合,在底层解决所有难题。</p>
+<h4 id="按列取值"><a href="#按列取值" class="headerlink" title="按列取值"></a>按列取值</h4><p>GroupBy对象与 Dataframe一样,也支持按列取值,并返回一个修改过的 GroupBy对象。</p>
+<p>这里从原来的 DataFrame中取某个列名作为一个 Series组。与GroupBy对象一样,直到我们运行累计函数,才会开始计算。</p>
+<h4 id="按组迭代"><a href="#按组迭代" class="headerlink" title="按组迭代"></a>按组迭代</h4><p>GroupBy对象支持直接按组进行迭代,返回的每组都是 Series或 Dataframe。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%889.17.29.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h4 id="调用方法"><a href="#调用方法" class="headerlink" title="调用方法"></a>调用方法</h4><p>借助 Python类的魔力(@ classmethod),可以让任何不由 GroupBy对象直接实现的方法直接应用到每一组,无论是 Dataframe还是 Series对象都同样适用。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%889.17.54.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="累计、过滤、转换和应用"><a href="#累计、过滤、转换和应用" class="headerlink" title="累计、过滤、转换和应用"></a>累计、过滤、转换和应用</h3><h4 id="累计"><a href="#累计" class="headerlink" title="累计"></a>累计</h4><p>aggregate()可以支持更复杂得操作。比如字符串、函数或者函数列表，并且能一次性计算所有累计值。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%889.27.10.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%889.27.19.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>另一种用法是通过Python字典指定不同列需要累计的函数。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%889.28.23.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h4 id="过滤"><a href="#过滤" class="headerlink" title="过滤"></a>过滤</h4><p>过滤操作可以让呢按照分组的属性丢弃若干数据。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%889.59.30.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%889.59.39.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h4 id="转换"><a href="#转换" class="headerlink" title="转换"></a>转换</h4><p>累计操作返回的是对组内全量数据缩减过的结果,而转换操作会返回一个新的全量数据。数据经过转换之后,其形状与原来的输入数据是一样的。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-30%20%E4%B8%8B%E5%8D%8810.00.56.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="apply-方法"><a href="#apply-方法" class="headerlink" title="apply()方法"></a>apply()方法</h4><p>apply()方法让你可以在每个组上应用任意方法。这个函数输入一个 DataFrame,返回一个 Pandas对象( Data Frame或 Series)或一个标量( scalar,单个数值)。</p>
+<h3 id="设置分割的键"><a href="#设置分割的键" class="headerlink" title="设置分割的键"></a>设置分割的键</h3><h4 id="将列表、数组、Series或索引作为分组键"><a href="#将列表、数组、Series或索引作为分组键" class="headerlink" title="将列表、数组、Series或索引作为分组键"></a>将列表、数组、Series或索引作为分组键</h4><h4 id="用字典或Series将索引映射到分组名称"><a href="#用字典或Series将索引映射到分组名称" class="headerlink" title="用字典或Series将索引映射到分组名称"></a>用字典或Series将索引映射到分组名称</h4><h4 id="任意Python函数"><a href="#任意Python函数" class="headerlink" title="任意Python函数"></a>任意Python函数</h4><h4 id="多个有效键构成的列表"><a href="#多个有效键构成的列表" class="headerlink" title="多个有效键构成的列表"></a>多个有效键构成的列表</h4><h1 id="数据透视表"><a href="#数据透视表" class="headerlink" title="数据透视表"></a>数据透视表</h1><h1 id="向量化字符串操作"><a href="#向量化字符串操作" class="headerlink" title="向量化字符串操作"></a>向量化字符串操作</h1><h2 id="Pandas字符串操作简介"><a href="#Pandas字符串操作简介" class="headerlink" title="Pandas字符串操作简介"></a>Pandas字符串操作简介</h2><p>Pandas为包含字符串的 Series和 Index对象提供的str属性堪称两全其美的方法,它既可以满足向量化字符串操作的需求,又可以正确地处理缺失值。例如,我们用前面的数据data创建了一个 Pandas的Series。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%885.25.46.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>可以直接调用转换大写方法capitalize()将所有的字符串变成大写形式，缺失值会被跳过。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%885.27.15.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h2 id="Pandas字符串方法列表"><a href="#Pandas字符串方法列表" class="headerlink" title="Pandas字符串方法列表"></a>Pandas字符串方法列表</h2><h3 id="与Python字符串方法相似的方法"><a href="#与Python字符串方法相似的方法" class="headerlink" title="与Python字符串方法相似的方法"></a>与Python字符串方法相似的方法</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%885.29.42.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>注意，这些方法的返回值不同。有的返回一个字符串Series，有的返回数值，有的返回布尔值，有的返回列表或其他复合值。</p>
+<h3 id="使用正则表达式的方法"><a href="#使用正则表达式的方法" class="headerlink" title="使用正则表达式的方法"></a>使用正则表达式的方法</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%885.32.51.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%885.34.17.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>还可以用正则表达式中的开始符号（\^）与结尾符号（\$）来实现。能将正则表达式应用到Series与DataFrame之中的话，就有可能实现更多的数据分析与清洗方法。</p>
+<h3 id="其他字符串方法"><a href="#其他字符串方法" class="headerlink" title="其他字符串方法"></a>其他字符串方法</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%885.36.55.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h1 id="处理时间序列"><a href="#处理时间序列" class="headerlink" title="处理时间序列"></a>处理时间序列</h1><p>Pandas最初是为金融模型而创建的，因此它拥有一些功能非常强大的日期、时间、带时间索引数据的处理工具。</p>
+<p><strong>时间戳</strong>表示某个具体的时间点(例如2015年7月4日上午7点)。</p>
+<p><strong>时间间隔与周期</strong>表示开始时间点与结束时间点之间的时间长度,例如2015年(指的是2015年1月1日至2015年12月31日这段时间间隔)。周期通常是指一种特殊形式的时间间隔,每个间隔长度相同,彼此之间不会重叠(例如,以24小时为周期构成每天）。</p>
+<p><strong>时间增量</strong>( time delta)或<strong>持续时间</strong>( duration)表示精确的时间长度(例如,某程序运行持续时间2256秒)。</p>
+<h2 id="Python的日期与时间工具"><a href="#Python的日期与时间工具" class="headerlink" title="Python的日期与时间工具"></a>Python的日期与时间工具</h2><h3 id="原生Python的日期与时间工具：datetime与dateutil"><a href="#原生Python的日期与时间工具：datetime与dateutil" class="headerlink" title="原生Python的日期与时间工具：datetime与dateutil"></a>原生Python的日期与时间工具：datetime与dateutil</h3><p>datetime和 dateuti1模块在灵活性与易用性方面都表现出色你可以用这些对象及其相应的方法轻松完成你感兴趣的任意操作但如果你处理的时间数据量比较大,那么速度就会比较慢。就像之前介绍过的 Python的原生列表对象没有 NumPy中已经被编码的数值类型数组的性能好一样, Python的原生日期对象同样也没有NumPy中已经被编码的日期( encoded dates)类型数组的性能好。</p>
+<h3 id="时间类型数组：NumPy的datetime64类型"><a href="#时间类型数组：NumPy的datetime64类型" class="headerlink" title="时间类型数组：NumPy的datetime64类型"></a>时间类型数组：NumPy的datetime64类型</h3><p>Python原生日期格式的性能弱点促使 NumPy团队为 NumPy增加了自己的时间序列类型。 datetime64类型将日期编码为64位整数,这样可以让日期数组非常紧凑(节省内存)。datetime64需要在设置日期时确定具体的输入类型。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%885.53.42.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>只要有了这个日期格式，就可以快速的向量化运算。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%886.00.30.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>虽然 datetime64弥补了 Python原生的datetime类型的不足,但它缺少了许多 datetime(尤其是dateutil)原本具备的便捷方法与函数。</p>
+<h3 id="Pandas的日期与时间工具：理想与现实的最佳解决方案"><a href="#Pandas的日期与时间工具：理想与现实的最佳解决方案" class="headerlink" title="Pandas的日期与时间工具：理想与现实的最佳解决方案"></a>Pandas的日期与时间工具：理想与现实的最佳解决方案</h3><p>Pandas所有关于日期与时间的处理方法全部都是通过 Timestamp对象实现的,它利用 numpy. datetime64的有效存储和向量化接口将 datetime和 dateutil的易用性有机结合起来。 Pandas通过一组 Timestamp对象就可以创建一个可以作为 Series或DataFrame索引的 Datetimelndex。</p>
+<h2 id="Pandas时间序列：用时间作索引"><a href="#Pandas时间序列：用时间作索引" class="headerlink" title="Pandas时间序列：用时间作索引"></a>Pandas时间序列：用时间作索引</h2><p>Pandas时间序列工具非常适合用来处理带时间戳的索引数据。我们可以通过一个时间索引数据创建一个 Series对象。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%886.11.45.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>有了一个带时间索引的Series之后,就能用它来演示之前介绍过的Series取值方法,可以直接用日期进行切片取值。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%886.12.49.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>另外,还有一些仅在此类 Series上可用的取值操作,例如直接通过年份切片获取该年的数据。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%886.14.15.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h2 id="Pandas时间序列数据结构"><a href="#Pandas时间序列数据结构" class="headerlink" title="Pandas时间序列数据结构"></a>Pandas时间序列数据结构</h2><ol>
+<li>针对时间戳数据, Pandas提供了 Timestamp类型。与前面介绍的一样,它本质上是 Python的原生 datetime类型的替代品,但是在性能更好的 numpy.datetime64类型的基础上创建。对应的索引数据结构是Datetimeindex。</li>
+<li>针对时间周期数据, Pandas提供了 Period类型。这是利用numpy. datetime64类型将固定频率的时间间隔进行编码。对应的索引数据结构是 Periodindex。</li>
+<li>针对时间增量或持续时间, Pandas提供了 Timedelta类型。Timedelta是一种代替 Python原生 datetime, timedelta类型的高性能数据结构,同样是基于 numpy. timedelta64类型。对应的索引数据结构是 Timedeltaindex。</li>
+</ol>
+<p>最基础的日期/时间对象是 Timestamp和 Datetimeindex。这两种对象可以直接使用,最常用的方法是pd.to_datetime()函数,它可以解析许多日期与时间格式。对pd.to_datetime()传递一个日期会返回一个 Timestamp类型,传递一个时间序列会返回一个Datetimelndex类型。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%886.24.53.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%886.25.01.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>任何Datetimeindex类型都可以通过to_ period()方法和一个频率代码转换成 Periodindex类型。下面用‘D’将数据转换成单日的时间序列。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%886.25.14.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>当用一个日期减去另一个日期时,返回的结果是 Timedeltaindex类型。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%886.26.51.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>有规律的时间序列：<strong>pd.date_range()</strong>。</p>
+<p>为了能更简便地创建有规律的时间序列, Pandas提供了一些方法:pd.daterange()可以处理时间戳、pd. period range()可以处理周期、pd.timedelta range()可以处理时间间隔。我们已经介绍过, Python的 range()和NumPy的 np.arange()可以用起点、终点和步长(可选的)创建一个序列。pd.daterange()与之类似,通过开始日期、结束日期和频率代码(同样是可选的)创建一个有规律的日期序列,默认的频率是天。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%886.42.06.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>此外,日期范围不一定非是开始时间与结束时间,也可以是开始时间与周期数periods。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%886.43.07.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>你可以通过freq参数改变时间间隔,默认值是D。例如,可以创建个按小时变化的时间戳。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%886.43.52.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>如果要创建一个有规律的周期或时间间隔序列,有类似的函数pd.period_range()和pd. timedelta_range()。下面是一个以月为周期的示例。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%886.46.01.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>一个以小时递增的序列。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%886.46.39.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h2 id="时间频率与偏移量"><a href="#时间频率与偏移量" class="headerlink" title="时间频率与偏移量"></a>时间频率与偏移量</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%886.48.09.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%886.48.19.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%886.49.29.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>可以在频率代码后面加三位月份缩写字母来改变季、年频率的开始时间。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%886.52.28.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>还可以将频率组合起来创建新的周期。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%886.53.22.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h2 id="重新取样、迁移和窗口"><a href="#重新取样、迁移和窗口" class="headerlink" title="重新取样、迁移和窗口"></a>重新取样、迁移和窗口</h2><h3 id="重新取样与频率转换"><a href="#重新取样与频率转换" class="headerlink" title="重新取样与频率转换"></a>重新取样与频率转换</h3><p>处理时间序列数据时,经常需要按照新的频率(更高频率、更低频率)对数据进行重新取样。你可以通过 resample()方法解决这个问题,或者用更简单的 asfreq()方法。这两个方法的主要差异在于, resample()方法是以数据累计( data aggregation)为基础,而 asfreq()方法是以数据选择( data selection)为基础。</p>
+<h3 id="时间迁移"><a href="#时间迁移" class="headerlink" title="时间迁移"></a>时间迁移</h3><p>一种常用的时间序列操作时对数据按时间进行迁移。Pandas有两种解决这类问题的方法：shift()和tshift()。简单来说，shift（）就是迁移数据，而tshift（）就是迁移索引。两种方法都是按照频率代码进行迁移。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%887.38.38.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>shift（900）将数据向前推进了900天，而tshift(900)将时间索引向前推进了900天。</p>
+<h3 id="移动时间窗口"><a href="#移动时间窗口" class="headerlink" title="移动时间窗口"></a>移动时间窗口</h3><h1 id="高性能-Pandas-eval-与-query"><a href="#高性能-Pandas-eval-与-query" class="headerlink" title="高性能 Pandas:eval()与 query()"></a>高性能 Pandas:eval()与 query()</h1><h2 id="query-与eval-的设计动机-复合代数式"><a href="#query-与eval-的设计动机-复合代数式" class="headerlink" title="query()与eval()的设计动机:复合代数式"></a>query()与eval()的设计动机:复合代数式</h2><p>NumPy与Pandas都支持快速的向量化运算。</p>
+<h2 id="用pandas-eval-实现高性能运算"><a href="#用pandas-eval-实现高性能运算" class="headerlink" title="用pandas.eval()实现高性能运算"></a>用pandas.eval()实现高性能运算</h2><p>Pandas的eval()函数用字符串代数式实现了 DataFrame的高性能运算。eval()版本的代数式比普通方法快一倍（而且内存消耗更少），结果也是一样的。</p>
+<h3 id="pd-eval-支持的运算"><a href="#pd-eval-支持的运算" class="headerlink" title="pd.eval()支持的运算"></a>pd.eval()支持的运算</h3><h4 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h4><p>pd.eval()支持所有的算术运算符。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%888.06.04.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h4 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h4><p>pd.eval()支持所有的比较运算符,包括链式代数式。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%888.06.31.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h4 id="位运算符"><a href="#位运算符" class="headerlink" title="位运算符"></a>位运算符</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%888.06.45.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="对象属性与索引"><a href="#对象属性与索引" class="headerlink" title="对象属性与索引"></a>对象属性与索引</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%888.07.28.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="其他运算"><a href="#其他运算" class="headerlink" title="其他运算"></a>其他运算</h4><p>目前pd.eval()还不支持函数调用、条件语句、循环以及更复杂的运算。如果你想要进行这些运算,可以借助 Numexpr来实现。</p>
+<h2 id="用-DataFrame-eval-实现列间运算"><a href="#用-DataFrame-eval-实现列间运算" class="headerlink" title="用 DataFrame.eval()实现列间运算"></a>用 DataFrame.eval()实现列间运算</h2><p>由于 pd. eval()是 Pandas的顶层函数,因此 Dataframe有一个eval()方法可以做类似的运算。使用eval()方法的好处是可以借助列名称进行运算。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%888.13.49.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%888.14.00.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>Dataframe.eval()方法可以通过列名称实现简洁的代数式。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%888.15.50.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="用-DataFrame-eval-新增列"><a href="#用-DataFrame-eval-新增列" class="headerlink" title="用 DataFrame. eval()新增列"></a>用 DataFrame. eval()新增列</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%888.18.05.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%888.18.27.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="Dataframe-eval-使用局部变量"><a href="#Dataframe-eval-使用局部变量" class="headerlink" title="Dataframe.eval()使用局部变量"></a>Dataframe.eval()使用局部变量</h3><p>Dataframe.eval()方法还支持通过@符号使用 Python的局部变量。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%888.20.00.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>@符号表示“这是一个变量名称而不是一个列名称”,从而让你灵活地用两个“命名空间”的资源(列名称的命名空间和 Python对象的命名空间)计算代数式。需要注意的是,@符号只能在Dataframe.eval()方法中使用,而不能在 pandas.eval()函数中使用,因为 pandas. eval()函数只能获取一个( Python)命名空间的内容。</p>
+<h2 id="DataFrame-query-方法"><a href="#DataFrame-query-方法" class="headerlink" title="DataFrame.query()方法"></a>DataFrame.query()方法</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%888.44.58.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>除了计算性能更优以外，这种方法的语法也比掩码代数式语法更好理解。需要注意的是，query()方法也支持@符号引用局部变量。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%888.46.20.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h2 id="性能决定使用时机"><a href="#性能决定使用时机" class="headerlink" title="性能决定使用时机"></a>性能决定使用时机</h2><p>在考虑要不要用这两个函数时,需要思考两个方面:计算时间和内存消耗,而内存消耗是更重要的影响因素。就像前面介绍的那样,每个涉及NumPy数组或Pandas的 DataFrame的复合代数式都会产生临时数组。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C%20Pandas%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-31%20%E4%B8%8B%E5%8D%888.50.41.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>如果临时 DataFrame的内存需求比你的系统内存还大(通常是几吉字),那么最好还是使用eval()和 query()代数式。</p>
+<p>在性能方面，即使没有使用最大的系统内存，eval（）的计算速度也比普通方法快。在实际工作中,我发现普通的计算方法与eval/ query计算方法在计算时间上的差异并非总是那么明显,普通方法在处理较小的数组时反而速度更快!eval/ query方法的优点主要是节省内存,有时语法也更加简洁。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-10-31T13:07:25.000Z" itemprop="dateUpdated">2018-10-31 21:07:25</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/zdkswd">
+            <img src="/img/tmg.jpg" alt="ZDK">
+            ZDK
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/10/31/Python数据科学手册 Pandas数据处理/&title=《Python数据科学手册 Pandas数据处理》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/10/31/Python数据科学手册 Pandas数据处理/&title=《Python数据科学手册 Pandas数据处理》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/10/31/Python数据科学手册 Pandas数据处理/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python数据科学手册 Pandas数据处理》 — ZDK's blog&url=https://github.com/zdkswd/2018/10/31/Python数据科学手册 Pandas数据处理/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/10/31/Python数据科学手册 Pandas数据处理/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/10/28/剑指offer  面试的流程/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">剑指offer  面试的流程</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz",
+            appKey: "gkBx5soQkBREmER84PWbNJeM",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ZDK &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/10/31/Python数据科学手册 Pandas数据处理/&title=《Python数据科学手册 Pandas数据处理》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/10/31/Python数据科学手册 Pandas数据处理/&title=《Python数据科学手册 Pandas数据处理》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/10/31/Python数据科学手册 Pandas数据处理/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python数据科学手册 Pandas数据处理》 — ZDK's blog&url=https://github.com/zdkswd/2018/10/31/Python数据科学手册 Pandas数据处理/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/10/31/Python数据科学手册 Pandas数据处理/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2018/10/31/Python数据科学手册 Pandas数据处理/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'zdk'blog';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
