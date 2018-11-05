@@ -299,14 +299,14 @@ API、POSIX、和C库用户程序在用户...
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-【安卓开发艺术探索】JNI和NDK编程"
+            <article id="post-Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback"
   class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
         <time class="post-time" title="2018-05-31 17:49:56" datetime="2018-05-31T09:49:56.000Z"  itemprop="datePublished">2018-05-31</time>
 
         
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
 
 
 
@@ -317,7 +317,7 @@ API、POSIX、和C库用户程序在用户...
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2018/05/31/【安卓开发艺术探索】JNI和NDK编程/">【安卓开发艺术探索】JNI和NDK编程</a>
+      <a class="post-title-link" href="/2018/05/31/Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback/">Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback</a>
     </h3>
   
 
@@ -327,23 +327,18 @@ API、POSIX、和C库用户程序在用户...
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        NDK还提供了交叉编译器，开发人员只需要简单地修改mk文件就可以生成特定CPU平台的动态库。
-JNI开发流程
-在java中声明native方法声明native方法，且在类头部有加载动态库的过程，库的真实名字为加载所用名字加前缀lib，这是加载so库的规范。  
-编译java源文件得到class文件，然后通过javah命令导出JNI的头文件
-
-
-javac com/ddd/example.ja...
+        SurfaceSurface本身的作用类似一个句柄，得到了这个句柄就可以得到其中的Canvas、原生缓冲器以及其它方面的内容。原生缓冲器（rawbuffer）是用于保存当前窗口的像素数据的。通常画图是在一个Canvas对象上面进行的。
+SurfaceViewSurfaceView，顾名思义就是Surface的View，通过SurfaceView就可以看到Surface的部分或者全部的内容.也...
     
 
-        <a href="/2018/05/31/【安卓开发艺术探索】JNI和NDK编程/" class="post-more waves-effect waves-button">
+        <a href="/2018/05/31/Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback/" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/电子书笔记/">电子书笔记</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
 
     </div>
     
@@ -399,14 +394,14 @@ javac com/ddd/example.ja...
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback"
+            <article id="post-【安卓开发艺术探索】JNI和NDK编程"
   class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
         <time class="post-time" title="2018-05-31 17:49:56" datetime="2018-05-31T09:49:56.000Z"  itemprop="datePublished">2018-05-31</time>
 
         
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
 
 
 
@@ -417,7 +412,7 @@ javac com/ddd/example.ja...
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2018/05/31/Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback/">Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback</a>
+      <a class="post-title-link" href="/2018/05/31/【安卓开发艺术探索】JNI和NDK编程/">【安卓开发艺术探索】JNI和NDK编程</a>
     </h3>
   
 
@@ -427,18 +422,23 @@ javac com/ddd/example.ja...
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        SurfaceSurface本身的作用类似一个句柄，得到了这个句柄就可以得到其中的Canvas、原生缓冲器以及其它方面的内容。原生缓冲器（rawbuffer）是用于保存当前窗口的像素数据的。通常画图是在一个Canvas对象上面进行的。
-SurfaceViewSurfaceView，顾名思义就是Surface的View，通过SurfaceView就可以看到Surface的部分或者全部的内容.也...
+        NDK还提供了交叉编译器，开发人员只需要简单地修改mk文件就可以生成特定CPU平台的动态库。
+JNI开发流程
+在java中声明native方法声明native方法，且在类头部有加载动态库的过程，库的真实名字为加载所用名字加前缀lib，这是加载so库的规范。  
+编译java源文件得到class文件，然后通过javah命令导出JNI的头文件
+
+
+javac com/ddd/example.ja...
     
 
-        <a href="/2018/05/31/Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback/" class="post-more waves-effect waves-button">
+        <a href="/2018/05/31/【安卓开发艺术探索】JNI和NDK编程/" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/电子书笔记/">电子书笔记</a></li></ul>
 
     </div>
     
