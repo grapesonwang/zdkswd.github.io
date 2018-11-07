@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>决策树和随机森林 | ZDK&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="机器学习">
+    <meta name="description" content="机器学习升级版 决策树和随机森林">
+<meta name="keywords" content="机器学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="决策树和随机森林">
+<meta property="og:url" content="https://github.com/zdkswd/2018/11/07/决策树和随机森林/index.html">
+<meta property="og:site_name" content="ZDK&#39;s blog">
+<meta property="og:description" content="机器学习升级版 决策树和随机森林">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%884.26.05.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%884.29.38.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%884.31.08.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%884.32.58.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%884.50.37.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%884.55.26.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%884.55.45.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%886.21.21.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%886.22.28.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%886.24.26.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%886.25.32.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%886.28.16.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%886.31.32.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%886.32.52.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%886.44.46.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%886.50.31.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%886.59.37.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-02%20%E4%B8%8B%E5%8D%884.41.54.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-02%20%E4%B8%8B%E5%8D%884.49.50.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%888.38.31.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%888.39.58.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%888.44.53.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%888.47.21.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%888.51.51.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%888.52.00.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%888.54.11.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%888.57.13.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%889.18.35.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%889.30.27.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-07%20%E4%B8%8B%E5%8D%885.24.46.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-07%20%E4%B8%8B%E5%8D%885.55.53.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-07%20%E4%B8%8B%E5%8D%885.56.28.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-07%20%E4%B8%8B%E5%8D%886.02.05.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-07%20%E4%B8%8B%E5%8D%886.02.38.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-07%20%E4%B8%8B%E5%8D%886.03.34.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-07%20%E4%B8%8B%E5%8D%886.05.18.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-07%20%E4%B8%8B%E5%8D%886.11.57.png">
+<meta property="og:updated_time" content="2018-11-07T11:55:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="决策树和随机森林">
+<meta name="twitter:description" content="机器学习升级版 决策树和随机森林">
+<meta name="twitter:image" content="https://github.com/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%884.26.05.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/tmg.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ZDK</h5>
+          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/zdkswd" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">决策树和随机森林</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">决策树和随机森林</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-11-07T11:55:47.000Z" itemprop="datePublished" class="page-time">
+  2018-11-07
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#机器学习升级版-决策树和随机森林"><span class="post-toc-number">1.</span> <span class="post-toc-text">机器学习升级版 决策树和随机森林</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#统计学习方法-决策树"><span class="post-toc-number">2.</span> <span class="post-toc-text">统计学习方法 决策树</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#决策树模型与学习"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">决策树模型与学习</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#决策树模型"><span class="post-toc-number">2.1.1.</span> <span class="post-toc-text">决策树模型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#决策树与if-then规则"><span class="post-toc-number">2.1.2.</span> <span class="post-toc-text">决策树与if-then规则</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#决策树与条件概率分布"><span class="post-toc-number">2.1.3.</span> <span class="post-toc-text">决策树与条件概率分布</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#决策树学习"><span class="post-toc-number">2.1.4.</span> <span class="post-toc-text">决策树学习</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#特征选择"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">特征选择</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#特征选择问题"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">特征选择问题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#信息增益"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">信息增益</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#信息增益的算法"><span class="post-toc-number">2.2.2.1.</span> <span class="post-toc-text">信息增益的算法</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#信息增益比"><span class="post-toc-number">2.2.3.</span> <span class="post-toc-text">信息增益比</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#信息增益比定义"><span class="post-toc-number">2.2.3.1.</span> <span class="post-toc-text">信息增益比定义</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#决策树的生成"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">决策树的生成</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ID3算法"><span class="post-toc-number">2.3.1.</span> <span class="post-toc-text">ID3算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#算法（ID3算法）"><span class="post-toc-number">2.3.1.1.</span> <span class="post-toc-text">算法（ID3算法）</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#C4-5的生成算法"><span class="post-toc-number">2.3.2.</span> <span class="post-toc-text">C4.5的生成算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#算法（C4-5的生成算法）"><span class="post-toc-number">2.3.2.1.</span> <span class="post-toc-text">算法（C4.5的生成算法）</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#决策树的剪枝"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">决策树的剪枝</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#算法（树的剪枝算法）"><span class="post-toc-number">2.4.1.</span> <span class="post-toc-text">算法（树的剪枝算法）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#CART剪枝"><span class="post-toc-number">2.4.2.</span> <span class="post-toc-text">CART剪枝</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#剪枝，形成一个子树序列"><span class="post-toc-number">2.4.2.1.</span> <span class="post-toc-text">剪枝，形成一个子树序列</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#在剪枝得到的子树序列T0-T1-…-Tn中通过交叉验证选取最优子树Tα"><span class="post-toc-number">2.4.2.2.</span> <span class="post-toc-text">在剪枝得到的子树序列T0,T1,…,Tn中通过交叉验证选取最优子树Tα</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#CART剪枝算法"><span class="post-toc-number">2.4.3.</span> <span class="post-toc-text">CART剪枝算法</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-决策树和随机森林"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">决策树和随机森林</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-11-07 19:55:47" datetime="2018-11-07T11:55:47.000Z"  itemprop="datePublished">2018-11-07</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="机器学习升级版-决策树和随机森林"><a href="#机器学习升级版-决策树和随机森林" class="headerlink" title="机器学习升级版 决策树和随机森林"></a>机器学习升级版 决策树和随机森林</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%884.26.05.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%884.29.38.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%884.31.08.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%884.32.58.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%884.50.37.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%884.55.26.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%884.55.45.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%886.21.21.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%886.22.28.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%886.24.26.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%886.25.32.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%886.28.16.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%886.31.32.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%886.32.52.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%886.44.46.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%886.50.31.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>基于样本和特征的双重随机性。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%886.59.37.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>之所以有那么多种的处理办法，是因为没有某一种是十分有效的。</p>
+<p>CART<br>classification and regression tree</p>
+<h1 id="统计学习方法-决策树"><a href="#统计学习方法-决策树" class="headerlink" title="统计学习方法 决策树"></a>统计学习方法 决策树</h1><p>决策树( decision tree)是一种基本的分类与回归方法。这里主要是用于分类的决策树.决策树模型呈树形结构,在分类问题中,表示基于特征对实例进行分类的过程。它可以认为是 if-then规则的集合,也可以认为是定义在特征空间与类空间上的条件概率分布。</p>
+<p>其主要优点是模型具有可读性,分类速度快。学习时,利用训练数据根据损失函数最小化的原则建立决策树模型。预测时,对新的数据,利用决策树模型进行分类。</p>
+<p>决策树学习通常包括3个步骤:特征选择、决策树的生成和决策树的修剪。</p>
+<h2 id="决策树模型与学习"><a href="#决策树模型与学习" class="headerlink" title="决策树模型与学习"></a>决策树模型与学习</h2><h3 id="决策树模型"><a href="#决策树模型" class="headerlink" title="决策树模型"></a>决策树模型</h3><p>分类决策树模型是一种描述对实例进行分类的树形结构。决策树由结点(node)和有向边( directed edge)组成。<br>结点有两种类型:内部结点( internal node)和叶结点( leaf node)。内部结点表示一个特征或属性,叶结点表示一个类。</p>
+<p>用决策树分类,从根结点开始,对实例的某一特征进行测试,根据测试结果,将实例分配到其子结点;这时,每一个子结点对应着该特征的一个取值.如此递归地对实例进行测试并分配,直至达到叶结点.最后将实例分到叶结点的类中。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-02%20%E4%B8%8B%E5%8D%884.41.54.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>圆代表内部节点，方框代表叶节点。</p>
+<h3 id="决策树与if-then规则"><a href="#决策树与if-then规则" class="headerlink" title="决策树与if-then规则"></a>决策树与if-then规则</h3><p>可以将决策树看成一个 if-then规则的集合.将决策树转换成 if-then规则的过程是这样的:由决策树的根结点到叶结点的每一条路径构建一条规则;路径上内部结点的特征对应着规则的条件,而叶结点的类对应着规则的结论.决策树的路径或其对应的 if-then规则集合具有一个重要的性质:互斥并且完备.这就是说,每一个实例都被一条路径或一条规则所覆盖,而且只被一条路径或一条规则所覆盖.这里所谓覆盖是指实例的特征与路径上的特征一致或实例满足规则的条件。</p>
+<h3 id="决策树与条件概率分布"><a href="#决策树与条件概率分布" class="headerlink" title="决策树与条件概率分布"></a>决策树与条件概率分布</h3><p>决策树还表示给定特征条件下类的条件概率分布。假设X为表示特征的随机变量,Y为表示类的随机变量,那么这个条件概率分布可以表示为：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-02%20%E4%B8%8B%E5%8D%884.49.50.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>X取值与给定划分下单元的集合，Y取值于类的集合。各叶节点上的条件概率往往偏向某一类，即属于某一类的概率较大。决策树分类时将该节点的实例强行分到条件概率大的那一类去。</p>
+<h3 id="决策树学习"><a href="#决策树学习" class="headerlink" title="决策树学习"></a>决策树学习</h3><p>决策树学习本质上是从训练数据集中归纳出一组分类规则。与训练数据集不<br>相矛盾的决策树(即能对训练数据进行正确分类的决策树)可能有多个,也可能<br>一个也没有。我们需要的是一个与训练数据矛盾较小的决策树,同时具有很好的<br>泛化能力。</p>
+<p>决策树学习用损失函数表示这一目标,如下所述,决策树学习的损失函数通常是正则化的极大似然函数.决策树学习的策略是以损失函数为目标函数的最小化。</p>
+<p>当损失函数确定以后,学习问题就变为在损失函数意义下选择最优决策树的问题,因为从所有可能的决策树中选取最优决策树是NP完全问题,所以现实中决策树学习算法通常采用<strong>启发式方法</strong>,近似求解这一最优化问题.这样得到的决策树是次最优(sub- optimal)的。</p>
+<p>决策树学习的算法通常是一个递归地选择最优特征，并根据该特征对训练数据进行分割，使得对各个子数据集有一个最好的分类的过程。</p>
+<p>生成的决策树可能对训练数据有很好的分类能力,但对未知的测试数据却未必有很好的分类能力,即可能发生过拟合现象.我们需要对已生成的树自下而上进行剪枝,将树变得更简单,从而使它具有更好的泛化能力。</p>
+<p>如果特征数量很多,也可以在决策树学习开始的时候,对特征进行选择,只留下对训练数据有足够分类能力的特征。</p>
+<p>决策树学习算法包含特征选择、决策树的生成与决策树的剪枝过程.由于决策树表示一个条件概率分布,所以深浅不同的决策树对应着不同复杂度的概率模型.决策树的生成对应于模型的局部选择,决策树的剪枝对应于模型的全局选择.决策树的生成只考虑局部最优,相对地,决策树的剪枝则考虑全局最优。</p>
+<h2 id="特征选择"><a href="#特征选择" class="headerlink" title="特征选择"></a>特征选择</h2><h3 id="特征选择问题"><a href="#特征选择问题" class="headerlink" title="特征选择问题"></a>特征选择问题</h3><p>特征选择在于选取对训练数据具有分类能力的特征.这样可以提高决策树学习的效率.如果利用一个特征进行分类的结果与随机分类的结果没有很大差别,则称这个特征是没有分类能力的,经验上扔掉这样的特征对决策树学习的精度影响不大,通常特征选择的准则是<strong>信息增益</strong>或<strong>信息增益比</strong>。</p>
+<h3 id="信息增益"><a href="#信息增益" class="headerlink" title="信息增益"></a>信息增益</h3><h4 id="信息增益的算法"><a href="#信息增益的算法" class="headerlink" title="信息增益的算法"></a>信息增益的算法</h4><p>输入训练集D和特征A：<br>输出：特征A对训练数据集D的信息增益g(D,A)。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%888.38.31.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%888.39.58.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%888.44.53.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>A3，A4类似，最后比较各特征的信息增益值。由于特征A3的信息增益值最大，所以选择特征A3作为最优特征。</p>
+<h3 id="信息增益比"><a href="#信息增益比" class="headerlink" title="信息增益比"></a>信息增益比</h3><h4 id="信息增益比定义"><a href="#信息增益比定义" class="headerlink" title="信息增益比定义"></a>信息增益比定义</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%888.47.21.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="决策树的生成"><a href="#决策树的生成" class="headerlink" title="决策树的生成"></a>决策树的生成</h2><h3 id="ID3算法"><a href="#ID3算法" class="headerlink" title="ID3算法"></a>ID3算法</h3><p>ID3算法的<strong>核心</strong>是在决策树各个结点上应用<strong>信息增益</strong>准则选择特征,递归地构建决策树.具体方法是:从根结点( root node)开始,对结点计算所有可能的特征的信息增益,选择信息增益最大的特征作为结点的特征,由该特征的不同取值建立子结点;再对子结点递归地调用以上方法,构建决策树;直到所有特征的信息增益均很小或没有特征可以选择为止,最后得到一个决策树.ID3相当于用极大似然法进行概率模型的选择。</p>
+<h4 id="算法（ID3算法）"><a href="#算法（ID3算法）" class="headerlink" title="算法（ID3算法）"></a>算法（ID3算法）</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%888.51.51.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%888.52.00.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%888.54.11.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>ID3算法只有树的生成，所以该算法生成的树容易产生过拟合。</p>
+<h3 id="C4-5的生成算法"><a href="#C4-5的生成算法" class="headerlink" title="C4.5的生成算法"></a>C4.5的生成算法</h3><p>C4.5算法与ID3算法相似，C4.5算法对ID3算法进行了改进。C4.5在生成的过程中，用<strong>信息增益比</strong>来选择特征。</p>
+<h4 id="算法（C4-5的生成算法）"><a href="#算法（C4-5的生成算法）" class="headerlink" title="算法（C4.5的生成算法）"></a>算法（C4.5的生成算法）</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%888.57.13.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="决策树的剪枝"><a href="#决策树的剪枝" class="headerlink" title="决策树的剪枝"></a>决策树的剪枝</h2><p>决策树生成算法递归地产生决策树,直到不能继续下去为止,这样产生的树往往对训练数据的分类很准确,但对未知的测试数据的分类却没有那么准确,即出现过拟合现象.过拟合的原因在于学习时过多地考虑如何提高对训练数据的正确分类,从而构建出过于复杂的决策树,解决这个问题的办法是考虑决策树的复杂度,对已生成的决策树进行简化。</p>
+<p>在决策树学习中将已生成的树进行简化的过程称为剪枝( pruning).具体地,剪枝从已生成的树上裁掉一些子树或叶结点,并将其根结点或父结点作为新的叶结点,从而简化分类树模型。</p>
+<p>决策树的剪枝往往通过极小化决策树整体的损失函数或代价函数来实现。设树T的叶节点个数为|T|，t是树T的叶节点，该<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%889.18.35.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>C（T）表示模型对训练数据的预测误差，即模型与训练数据的拟合程度，|T|表示模型复杂度，参数α≥0控制两者之间的影响。较大的α促使选择较简单的模型（树），较小的α促使选择较复杂的模型（树）。α=0意味着只考虑模型与训练数据的拟合程度，不考虑模型的复杂度。</p>
+<p>剪枝,就是当α确定时,选择损失函数最小的模型,即损失函数最小的子树.当α值确定时,子树越大,往往与训练数据的拟合越好,但是模型的复杂度就越髙;相反,子树越小,模型的复杂度就越低,但是往往与训练数据的拟合不好,损失函数正好表示了对两者的平衡。</p>
+<h3 id="算法（树的剪枝算法）"><a href="#算法（树的剪枝算法）" class="headerlink" title="算法（树的剪枝算法）"></a>算法（树的剪枝算法）</h3><p>输入：生成算法产生的整个树T，参数α；<br>输出：修剪后的子树Tα。</p>
+<ol>
+<li>计算每个结点的经验熵。</li>
+<li>递归地从树的叶节点向上回缩。</li>
+</ol>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%889.30.27.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ol start="3">
+<li>返回2，直至不能继续为止，得到损失函数最小的子树Tα。</li>
+</ol>
+<p>式(515)只需考虑两个树的损失函数的差,其计算可以在局部进行,所以,决策树的剪枝算法可以由一种动态规划的算法实现。</p>
+<h3 id="CART剪枝"><a href="#CART剪枝" class="headerlink" title="CART剪枝"></a>CART剪枝</h3><p>CART剪枝算法从“完全生长”的决策树的底端剪去一些子树，使决策树变小(模型变简单)，从而能够对未知数据有更准确的预测。</p>
+<p> CART剪枝算法由两步组成:首先从生成算法产生的决策树To底端开始不断剪枝,直到To的根结点，形成一个子树序列{T1,…,Tn};然后通过交叉验证法在独立的验证数据集上对子树序列进行测试，从中选择最优子树。</p>
+<h4 id="剪枝，形成一个子树序列"><a href="#剪枝，形成一个子树序列" class="headerlink" title="剪枝，形成一个子树序列"></a>剪枝，形成一个子树序列</h4><p>在剪枝过程中，计算子树的损失函数:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-07%20%E4%B8%8B%E5%8D%885.24.46.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>T为任意子树，C（T）为训练数据的预测误差（如基尼指数），|T|为子树的叶节点个数，α≥0为参数，Cα（T）为参数是α时的子树T的整体损失。参数α权衡训练数据的拟合程度与模型的复杂度。</p>
+<p>对固定的α,一定存在使损失函数C(T)最小的子树，将其表示为Tα. Tα在损失函数Cα(T)最小的意义下是最优的.容易验证这样的最优子树是唯一的.当α大的时候，最优子树Tα偏小;当α小的时候，最优子树Tα偏大. 极端情况，当α=0时，整体树是最优的，当α趋近正无穷时，根结点组成的单结点树是最优的.</p>
+<p>从整体树T0开始剪枝，对T0的任意内部节点t，以t为单结点树的损失函数是<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-07%20%E4%B8%8B%E5%8D%885.55.53.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>以t为根结点的子树Tt的损失函数是<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-07%20%E4%B8%8B%E5%8D%885.56.28.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>当α=0及α充分小时，有不等式<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-07%20%E4%B8%8B%E5%8D%886.02.05.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>当α增大时，在某一α有<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-07%20%E4%B8%8B%E5%8D%886.02.38.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>当α再增大时，不等式反向。只要<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-07%20%E4%B8%8B%E5%8D%886.03.34.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>Tt与t有相同的损失函数值，而t的节点少，因此t比Tt更可取，对Tt进行剪枝。</p>
+<p>为此，对T0中每一内部结点t，计算<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-07%20%E4%B8%8B%E5%8D%886.05.18.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>它表示剪枝后整体损失函数减少的程度.在T0中剪去g(t)最小的Tt,将得到的子<br>树作为T1，同时将最小的g(t)设为α1. T1为区间[α1,α2)的最优子树.</p>
+<p>如此剪枝下去，直到得到根节点。在这一过程中，不断增加α的值，产生新的区间。</p>
+<h4 id="在剪枝得到的子树序列T0-T1-…-Tn中通过交叉验证选取最优子树Tα"><a href="#在剪枝得到的子树序列T0-T1-…-Tn中通过交叉验证选取最优子树Tα" class="headerlink" title="在剪枝得到的子树序列T0,T1,…,Tn中通过交叉验证选取最优子树Tα"></a>在剪枝得到的子树序列T0,T1,…,Tn中通过交叉验证选取最优子树Tα</h4><p>具体地，利用独立的验证数据集，测试子树序列T0,T1,…,Tn中各棵子树的平方误差或基尼指数.平方误差或基尼指数最小的决策树被认为是最优的决策树.在子树序列中，每棵子树T1,T2,.,Tn都对应于一个参数α1,α2,…,αn,.所以，当最优子树Tk确定时，对应的ak也确定了，即得到最优决策树Tα。</p>
+<h3 id="CART剪枝算法"><a href="#CART剪枝算法" class="headerlink" title="CART剪枝算法"></a>CART剪枝算法</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-07%20%E4%B8%8B%E5%8D%886.11.57.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-11-07T11:55:58.000Z" itemprop="dateUpdated">2018-11-07 19:55:58</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/zdkswd">
+            <img src="/img/tmg.jpg" alt="ZDK">
+            ZDK
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/11/07/决策树和随机森林/&title=《决策树和随机森林》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/11/07/决策树和随机森林/&title=《决策树和随机森林》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/11/07/决策树和随机森林/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《决策树和随机森林》 — ZDK's blog&url=https://github.com/zdkswd/2018/11/07/决策树和随机森林/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/11/07/决策树和随机森林/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/11/04/TensorFlow基础知识上/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">TensorFlow基础知识上</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz",
+            appKey: "gkBx5soQkBREmER84PWbNJeM",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ZDK &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/11/07/决策树和随机森林/&title=《决策树和随机森林》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/11/07/决策树和随机森林/&title=《决策树和随机森林》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/11/07/决策树和随机森林/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《决策树和随机森林》 — ZDK's blog&url=https://github.com/zdkswd/2018/11/07/决策树和随机森林/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/11/07/决策树和随机森林/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2018/11/07/决策树和随机森林/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'zdk'blog';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
