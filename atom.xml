@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/zdkswd/"/>
-  <updated>2018-11-07T11:55:58.000Z</updated>
+  <updated>2018-11-08T07:57:45.000Z</updated>
   <id>https://github.com/zdkswd/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>scikit-learn介绍</title>
+    <link href="https://github.com/zdkswd/2018/11/08/scikit-learn%E4%BB%8B%E7%BB%8D/"/>
+    <id>https://github.com/zdkswd/2018/11/08/scikit-learn介绍/</id>
+    <published>2018-11-08T07:56:56.000Z</published>
+    <updated>2018-11-08T07:57:45.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="机器学习：问题背景"><a href="#机器学习：问题背景" class="headerlink" title="机器学习：问题背景"></a>机器学习：问题背景</h1><p>学习问题分以下几类：</p><h2 id="有监督学习"><a href="#有监督学习" class="headerlink" title="有监督学习"></a>有监督学习</h2><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><h3 id="回归"><a href="#回归" class="headerlink" title="回归"></a>回归</h3><h2 id="无监督学习"><a href="#无监督学习" class="headerlink" title="无监督学习"></a>无监督学习</h2><p>聚类，密度估计等</p><h1 id="加载示例数据集"><a href="#加载示例数据集" class="headerlink" title="加载示例数据集"></a>加载示例数据集</h1><p>有几个标准数据集，鸢尾花和手写字用于分类，以及波士顿房价数据集用于回归。<br>鸢尾花与手写字数据集的导入。<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/scikit-learn%E4%BB%8B%E7%BB%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-08%20%E4%B8%8A%E5%8D%8810.30.43.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><br>数据集就是一个字典对象，包含了所有的数据以及一些关于数据的元数据。数据存储在.data成员中，它是一个n个样本，n个特征的数组。在监督学习的问题中，因变量存在.target成员中。<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/scikit-learn%E4%BB%8B%E7%BB%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-08%20%E4%B8%8A%E5%8D%8810.37.10.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/scikit-learn%E4%BB%8B%E7%BB%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-08%20%E4%B8%8A%E5%8D%8810.41.19.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure></p><h2 id="数据数组的形状"><a href="#数据数组的形状" class="headerlink" title="数据数组的形状"></a>数据数组的形状</h2><p>数据总是二维数组，（n_sample,n_features）的形状，即使原始数据可能有着不同的形状。在手写字识别中，每个原始例子是（8 <em> 8）。<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/scikit-learn%E4%BB%8B%E7%BB%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-08%20%E4%B8%8A%E5%8D%8810.48.28.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><br>但是在data中变成了（1</em>64）。</p><h1 id="学习以及预测"><a href="#学习以及预测" class="headerlink" title="学习以及预测"></a>学习以及预测</h1><p>在scikit-learn中，分类器是一个实现了方法fit(x,y)和predict(T)的Python对象。</p><p>先把分类器当做是一个黑盒。<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/scikit-learn%E4%BB%8B%E7%BB%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-08%20%E4%B8%8A%E5%8D%8810.57.41.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><br>选择模型的参数<br>在这个例子中我们是人工选择的参数，为了寻找这些参数的更好的值，我们能使用例如网格搜索和交叉验证的工具。</p><p>分类器实例拟合模型是通过传递训练集给fit方法。对于训练集，我们使用除了最后一张图片的所有图片，最后一张图片用来做预测。<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/scikit-learn%E4%BB%8B%E7%BB%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-08%20%E4%B8%8B%E5%8D%881.48.35.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><br>来预测：<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/scikit-learn%E4%BB%8B%E7%BB%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-08%20%E4%B8%8B%E5%8D%881.49.15.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure></p><h1 id="模型持久化"><a href="#模型持久化" class="headerlink" title="模型持久化"></a>模型持久化</h1><p>使用pickle。<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/scikit-learn%E4%BB%8B%E7%BB%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-08%20%E4%B8%8B%E5%8D%881.50.45.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure></p><p>使用joblib，joblib在大数据方面更加高效，但是遗憾的是它只能把数据持久化到硬盘而不是字符串（搬到字符串意味着数据在内存中）。<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/scikit-learn%E4%BB%8B%E7%BB%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-08%20%E4%B8%8B%E5%8D%881.57.57.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure></p><p>之后可以重新加载模型（也可以在其他的Python进程中）<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/scikit-learn%E4%BB%8B%E7%BB%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-08%20%E4%B8%8B%E5%8D%881.59.34.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><br><strong>注意</strong>：joblib.dump和joblib.load也接收像文件一样的对象而不是文件名。</p><h1 id="惯例"><a href="#惯例" class="headerlink" title="惯例"></a>惯例</h1><h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><p>除非特别指明，输入将被转换为float64:<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/scikit-learn%E4%BB%8B%E7%BB%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-08%20%E4%B8%8B%E5%8D%882.09.50.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><br>x是float32型，可以通过fit_transform(x)转换为float64。</p><p>回归的目标类型转化为float64，分类的目标类型保留下来。</p><h2 id="改装和更新参数"><a href="#改装和更新参数" class="headerlink" title="改装和更新参数"></a>改装和更新参数</h2><p>超参数在通过set_params()方法创建后能够更新。调用fit()函数超过一次将会重写之前fit()所学的内容。</p><h2 id="多类别vs多标签拟合"><a href="#多类别vs多标签拟合" class="headerlink" title="多类别vs多标签拟合"></a>多类别vs多标签拟合</h2><p>当使用多类别分类器，所执行的学习和预测任务取决于适合于目标数据的格式。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;机器学习：问题背景&quot;&gt;&lt;a href=&quot;#机器学习：问题背景&quot; class=&quot;headerlink&quot; title=&quot;机器学习：问题背景&quot;&gt;&lt;/a&gt;机器学习：问题背景&lt;/h1&gt;&lt;p&gt;学习问题分以下几类：&lt;/p&gt;
+&lt;h2 id=&quot;有监督学习&quot;&gt;&lt;a href=&quot;#有监
+      
+    
+    </summary>
+    
+      <category term="教程" scheme="https://github.com/zdkswd/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+      <category term="机器学习" scheme="https://github.com/zdkswd/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>决策树和随机森林</title>
@@ -499,32 +525,6 @@
       
       
         &lt;p&gt;自然语言从它产生开始,逐渐演变成一种上下文相关的信息表达和传递的方式,因此让计算机处理自然语言,一个基本的问题就是为自然语言这种上下文相关的特性建立数学模型。这个数学模型就是在自然语言处理中常说的统计语言模型( Statistical Language Model),它是今
-      
-    
-    </summary>
-    
-      <category term="读书笔记" scheme="https://github.com/zdkswd/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="数学" scheme="https://github.com/zdkswd/tags/%E6%95%B0%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数学之美 第二章 自然语言处理--从规则到统计</title>
-    <link href="https://github.com/zdkswd/2018/09/18/%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E%20%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86--%E4%BB%8E%E8%A7%84%E5%88%99%E5%88%B0%E7%BB%9F%E8%AE%A1/"/>
-    <id>https://github.com/zdkswd/2018/09/18/数学之美 第二章 自然语言处理--从规则到统计/</id>
-    <published>2018-09-18T01:07:32.000Z</published>
-    <updated>2018-09-18T01:07:41.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>任何语言都是一种编码的方式，而语言的语法规则则是编解码的算法。</p><p>在上世纪70年代之前，计算机对自然语言的处理集中在分析语句和获取语义，基于规则的自然语言处理。主要是因为当时的学术界存在误区，即要让计算机完成翻译或者是语音识别这样只有人类能做到的事情，就必须先让计算机理解自然语言。因为从直觉上大家都会这么认为。但是相比于上下文无关文法，自然语言这种上下文有关的文法对于同样长度的句子复杂度是前者的万倍，因为上下文有关，所以需要更多额外的信息来表示现在的上下文，以及将自然语言变成及其复杂得树，在计算能力没法跟上的那个年代根本没有办法商用。</p><h1 id="从规则到统计"><a href="#从规则到统计" class="headerlink" title="从规则到统计"></a>从规则到统计</h1><p>随着保守的教授陆续的退休，慢慢地研究方向从基于规则逐渐转向了基于统计。</p><p>15年,对于一个学者来讲是一段非常长的时间,如果哪个人从做博士开始就选错了方向并且坚持错误,到15年后发现时,基本上这一辈子可能就一事无成了。</p><h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>基于统计的自然语言处理方法，在数学模型和通信是相通的，甚至就是相同的。因此，在数学意义上自然语言处理又和语言的初衷–通信联系在一起了。但是，科学家们认识到这个联系却花了几十年的时间。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;任何语言都是一种编码的方式，而语言的语法规则则是编解码的算法。&lt;/p&gt;
-&lt;p&gt;在上世纪70年代之前，计算机对自然语言的处理集中在分析语句和获取语义，基于规则的自然语言处理。主要是因为当时的学术界存在误区，即要让计算机完成翻译或者是语音识别这样只有人类能做到的事情，就必须先让
       
     
     </summary>
