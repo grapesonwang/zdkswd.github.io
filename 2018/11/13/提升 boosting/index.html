@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>提升 boosting | ZDK&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="机器学习">
+    <meta name="description" content="机器学习升级版 提升">
+<meta name="keywords" content="机器学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="提升 boosting">
+<meta property="og:url" content="https://github.com/zdkswd/2018/11/13/提升 boosting/index.html">
+<meta property="og:site_name" content="ZDK&#39;s blog">
+<meta property="og:description" content="机器学习升级版 提升">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-10%20%E4%B8%8B%E5%8D%889.25.13.png">
+<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-10%20%E4%B8%8B%E5%8D%889.27.04.png">
+<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-10%20%E4%B8%8B%E5%8D%889.28.25.png">
+<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-09%20%E4%B8%8B%E5%8D%883.41.44.png">
+<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-09%20%E4%B8%8B%E5%8D%883.50.55.png">
+<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-10%20%E4%B8%8B%E5%8D%889.49.37.png">
+<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-11%20%E4%B8%8A%E5%8D%8810.12.38.png">
+<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-11%20%E4%B8%8A%E5%8D%8810.13.20.png">
+<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-11%20%E4%B8%8A%E5%8D%8810.36.10.png">
+<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-11%20%E4%B8%8A%E5%8D%8810.37.47.png">
+<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-11%20%E4%B8%8A%E5%8D%8810.40.05.png">
+<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-11%20%E4%B8%8A%E5%8D%8810.54.43.png">
+<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-11%20%E4%B8%8B%E5%8D%882.54.26.png">
+<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-11%20%E4%B8%8B%E5%8D%882.58.20.png">
+<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-11%20%E4%B8%8B%E5%8D%883.13.09.png">
+<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%884.52.10.png">
+<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%884.53.06.png">
+<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%884.55.56.png">
+<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%885.08.02.png">
+<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%885.09.59.png">
+<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%885.10.33.png">
+<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%885.11.06.png">
+<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%885.21.34.png">
+<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%885.24.03.png">
+<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%885.24.50.png">
+<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%886.01.16.png">
+<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%886.06.13.png">
+<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%886.09.49.png">
+<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%886.12.17.png">
+<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%886.14.37.png">
+<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%8810.00.10.png">
+<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%8810.00.39.png">
+<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-13%20%E4%B8%8A%E5%8D%8810.12.04.png">
+<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-13%20%E4%B8%8A%E5%8D%8810.13.28.png">
+<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-13%20%E4%B8%8A%E5%8D%8810.18.48.png">
+<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-13%20%E4%B8%8A%E5%8D%8810.19.01.png">
+<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-13%20%E4%B8%8A%E5%8D%8810.22.26.png">
+<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-13%20%E4%B8%8A%E5%8D%8810.22.47.png">
+<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-13%20%E4%B8%8A%E5%8D%8810.24.01.png">
+<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-13%20%E4%B8%8A%E5%8D%8810.27.46.png">
+<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-13%20%E4%B8%8A%E5%8D%8810.31.09.png">
+<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-13%20%E4%B8%8A%E5%8D%8810.31.20.png">
+<meta property="og:updated_time" content="2018-11-13T02:38:24.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="提升 boosting">
+<meta name="twitter:description" content="机器学习升级版 提升">
+<meta name="twitter:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-10%20%E4%B8%8B%E5%8D%889.25.13.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/tmg.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ZDK</h5>
+          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/zdkswd" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">提升 boosting</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">提升 boosting</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-11-13T02:36:47.000Z" itemprop="datePublished" class="page-time">
+  2018-11-13
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#机器学习升级版-提升"><span class="post-toc-number">1.</span> <span class="post-toc-text">机器学习升级版 提升</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#统计学习方法-提升方法"><span class="post-toc-number">2.</span> <span class="post-toc-text">统计学习方法 提升方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#AdaBoost"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">AdaBoost</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#AdaBoost算法"><span class="post-toc-number">2.1.1.</span> <span class="post-toc-text">AdaBoost算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#算法（AdaBoost）"><span class="post-toc-number">2.1.1.1.</span> <span class="post-toc-text">算法（AdaBoost）</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#AdaBoost的例子"><span class="post-toc-number">2.1.2.</span> <span class="post-toc-text">AdaBoost的例子</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#AdaBoost算法的训练误差分析"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">AdaBoost算法的训练误差分析</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#定理（AdaBoost的训练误差界）"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">定理（AdaBoost的训练误差界）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#定理（二类分类问题AdaBoost的训练误差界）"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">定理（二类分类问题AdaBoost的训练误差界）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#推论"><span class="post-toc-number">2.2.3.</span> <span class="post-toc-text">推论</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#AdaBoost算法的解释"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">AdaBoost算法的解释</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#前向分布算法"><span class="post-toc-number">2.3.1.</span> <span class="post-toc-text">前向分布算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#前向分步算法"><span class="post-toc-number">2.3.1.1.</span> <span class="post-toc-text">前向分步算法</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#前向分步算法与AdaBoost"><span class="post-toc-number">2.3.2.</span> <span class="post-toc-text">前向分步算法与AdaBoost</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#定理"><span class="post-toc-number">2.3.2.1.</span> <span class="post-toc-text">定理</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#提升树"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">提升树</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#提升树模型"><span class="post-toc-number">2.4.1.</span> <span class="post-toc-text">提升树模型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#提升树算法"><span class="post-toc-number">2.4.2.</span> <span class="post-toc-text">提升树算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#回归问题的提升树算法"><span class="post-toc-number">2.4.2.1.</span> <span class="post-toc-text">回归问题的提升树算法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#例"><span class="post-toc-number">2.4.2.2.</span> <span class="post-toc-text">例</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#梯度提升"><span class="post-toc-number">2.4.3.</span> <span class="post-toc-text">梯度提升</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#梯度提升算法"><span class="post-toc-number">2.4.3.1.</span> <span class="post-toc-text">梯度提升算法</span></a></li></ol></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-提升 boosting"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">提升 boosting</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-11-13 10:36:47" datetime="2018-11-13T02:36:47.000Z"  itemprop="datePublished">2018-11-13</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="机器学习升级版-提升"><a href="#机器学习升级版-提升" class="headerlink" title="机器学习升级版 提升"></a>机器学习升级版 提升</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-10%20%E4%B8%8B%E5%8D%889.25.13.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-10%20%E4%B8%8B%E5%8D%889.27.04.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>把分错的样本权值调高，把分对的样本权值调低。会存在本来已经分对的点在下次划分时被分错的情况。基本上可以避免这种情况。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-10%20%E4%B8%8B%E5%8D%889.28.25.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-09%20%E4%B8%8B%E5%8D%883.41.44.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>对树求梯度，一个树就是一个函数的样子。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-09%20%E4%B8%8B%E5%8D%883.50.55.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-10%20%E4%B8%8B%E5%8D%889.49.37.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-11%20%E4%B8%8A%E5%8D%8810.12.38.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>yhat（t-1）是前t-1棵树累加对样本的预测值，ft(x)是第t棵树对样本的预测值。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-11%20%E4%B8%8A%E5%8D%8810.13.20.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-11%20%E4%B8%8A%E5%8D%8810.36.10.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-11%20%E4%B8%8A%E5%8D%8810.37.47.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>ft没什么意义，只有变成w才有意义。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-11%20%E4%B8%8A%E5%8D%8810.40.05.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-11%20%E4%B8%8A%E5%8D%8810.54.43.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>wj就是样本落在叶子节点的预测值，Gj就是落在节点的一阶梯度的加和，Hj是落在节点的二阶梯度的加和。λ是一个超参数。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-11%20%E4%B8%8B%E5%8D%882.54.26.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>XGBoost小结<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-11%20%E4%B8%8B%E5%8D%882.58.20.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-11%20%E4%B8%8B%E5%8D%883.13.09.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>αm是第m个分类器的权值。</p>
+<h1 id="统计学习方法-提升方法"><a href="#统计学习方法-提升方法" class="headerlink" title="统计学习方法 提升方法"></a>统计学习方法 提升方法</h1><h2 id="AdaBoost"><a href="#AdaBoost" class="headerlink" title="AdaBoost"></a>AdaBoost</h2><p>在概率近似正确(probably approximately correct, <strong>PAC</strong>)学习的框架中，一个概念(一个类)，如果存在一个多项式的学习算法能够学习它，并且正确率很高，那么就称这个概念是<strong>强可学习</strong>的;一个概念，如果存在一个多项式的学习算法能够学习它,学习的正确率仅比随机猜测略好，那么就称这个概念是<strong>弱可学习</strong>的.</p>
+<p>如果已经发现了“弱学习算法”，将它提升(boost) 为“强学习算法”.大家知道，发现弱学习算法通常要比发现强学习算法容易得多.那么如何具体实施提升，便成为开发提升方法时所要解决的问题.关于提升方法的研究很多，有很多算法被提出.最具代表性的是AdaBoost算法。</p>
+<p>对于分类问题而言，给定一个训练样本集，求比较粗糙的分类规则(弱分类器)要比求精确的分类规则(强分类器)容易得多.提升方法就是从弱学习算法出发， 反复学习，得到一系列弱分类器(又称为基本分类器)，然后组合这些弱分类器，构成一个强分类器.大多数的提升方法都是改变训练数据的概率分布(训练数据的权值分布)，针对不同的训练数据分布调用弱学习算法学习一系列弱分类器.</p>
+<p>对提升方法来说，有两个问题需要回答:一是在每一轮如何改变训练数据的权值或概率分布;二是如何将弱分类器组合成一个强分类器.关于第1个问题，AdaBoost的做法是，<strong>提高</strong>那些被前一轮弱分类器<strong>错误分类样本的权值</strong>，而<strong>降低</strong>那些被<strong>正确分类样本的权值</strong>.这样一来，那些没有得到正确分类的数据，由于其权值的加大而受到后一轮的弱分类器的更大关注.于是，分类问题被一系列的弱分类器“分而治之”.至于第2个问题，即弱分类器的组合，AdaBoost 采取加权多数表决的方法.具体地，<strong>加大</strong>分类<strong>误差率小</strong>的弱分类器的<strong>权值</strong>，使其在表决中起较大的作用，<strong>减小</strong>分类<strong>误差率大</strong>的弱分类器的<strong>权值</strong>，使其在表决中起较小的作用.</p>
+<h3 id="AdaBoost算法"><a href="#AdaBoost算法" class="headerlink" title="AdaBoost算法"></a>AdaBoost算法</h3><p>给定一个二类分类的训练数据集。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%884.52.10.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h4 id="算法（AdaBoost）"><a href="#算法（AdaBoost）" class="headerlink" title="算法（AdaBoost）"></a>算法（AdaBoost）</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%884.53.06.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%884.55.56.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="AdaBoost的例子"><a href="#AdaBoost的例子" class="headerlink" title="AdaBoost的例子"></a>AdaBoost的例子</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%885.08.02.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%885.09.59.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%885.10.33.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%885.11.06.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="AdaBoost算法的训练误差分析"><a href="#AdaBoost算法的训练误差分析" class="headerlink" title="AdaBoost算法的训练误差分析"></a>AdaBoost算法的训练误差分析</h2><p>AdaBoost最基本的性质是它能在学习过程中不断减少训练误差，即在训练数据集上的分类误差率。</p>
+<h3 id="定理（AdaBoost的训练误差界）"><a href="#定理（AdaBoost的训练误差界）" class="headerlink" title="定理（AdaBoost的训练误差界）"></a>定理（AdaBoost的训练误差界）</h3><p>AdaBoost算法最终分类器的训练误差界为：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%885.21.34.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>这一定理说明，可以在每一轮选取适当的Gm使得Zm最小，从而使训练误差下降最快。对二类分类问题，有如下结果：</p>
+<h3 id="定理（二类分类问题AdaBoost的训练误差界）"><a href="#定理（二类分类问题AdaBoost的训练误差界）" class="headerlink" title="定理（二类分类问题AdaBoost的训练误差界）"></a>定理（二类分类问题AdaBoost的训练误差界）</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%885.24.03.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="推论"><a href="#推论" class="headerlink" title="推论"></a>推论</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%885.24.50.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>这表明在此条件下AdaBoost的训练误差是以指数速率下降的。这一性质当然很有吸引力。</p>
+<p>AdaBoost算法不需要知道下界y.与早期的提升方法不同，AdaBoost具有适应性，即它能适应弱分类器各自的训练误差率。</p>
+<h2 id="AdaBoost算法的解释"><a href="#AdaBoost算法的解释" class="headerlink" title="AdaBoost算法的解释"></a>AdaBoost算法的解释</h2><p>AdaBoost算法还有另一个解释，即可以认为AdaBoost算法是模型为加法模型、损失函数为指数函数、学习算法为前向分布算法时的二类分类学习方法。</p>
+<h3 id="前向分布算法"><a href="#前向分布算法" class="headerlink" title="前向分布算法"></a>前向分布算法</h3><p>考虑加法模型<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%886.01.16.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>其中b（x;ym）为基函数，ym为基函数的参数，Bm为基函数的系数。</p>
+<p>在给定训练数据及损失函数L（y，f（x））的条件下，学习加法模型f(x)成为损失函数极小化问题。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%886.06.13.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>通常这是一个复杂得优化问题。前向分步算法求解这一优化问题的想法是，因为学习的是加法模型，如果能够从前向后，每一步只学习一个基函数及其系数，逐步逼近目标函数式，就可以简化优化的复杂度。具体的，每步只需优化损失函数：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%886.09.49.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h4 id="前向分步算法"><a href="#前向分步算法" class="headerlink" title="前向分步算法"></a>前向分步算法</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%886.12.17.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%886.14.37.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="前向分步算法与AdaBoost"><a href="#前向分步算法与AdaBoost" class="headerlink" title="前向分步算法与AdaBoost"></a>前向分步算法与AdaBoost</h3><h4 id="定理"><a href="#定理" class="headerlink" title="定理"></a>定理</h4><p>AdaBoost算法是前向分步算法加法算法的特例。这时模型是由基本分类器组成的加法模型，损失函数是指数函数。</p>
+<h2 id="提升树"><a href="#提升树" class="headerlink" title="提升树"></a>提升树</h2><p>提升树是以分类树或回归树为基本分类器的提升方法.提升树被认为是统计学习中性能最好的方法之一。</p>
+<h3 id="提升树模型"><a href="#提升树模型" class="headerlink" title="提升树模型"></a>提升树模型</h3><p>提升方法实际采用加法模型（即基函数的线性组合）与前向分步算法。以决策树为基函数的提升方法称为提升树（boosting tree）。对分类问题决策树是二叉分类树，对回归问题决策树是二叉回归树。基本分类器x&lt;v,或x&gt;v，可以看做是由一个根结点直接连接两个叶节点的简单决策树，即所谓的决策树桩。提升树模型可以表示为决策树的加法模型：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%8810.00.10.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%8810.00.39.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="提升树算法"><a href="#提升树算法" class="headerlink" title="提升树算法"></a>提升树算法</h3><p>提升树算法采用前向分步算法.首先确定初始提升树f0(x)=0,第m步的模型是<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-13%20%E4%B8%8A%E5%8D%8810.12.04.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>其中，fm-1(x)为当前模型，通过最小化损失函数确定下一棵决策树的参数θm。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-13%20%E4%B8%8A%E5%8D%8810.13.28.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>由于树的线性组合可以很好地拟合训练数据，即使数据中的输入与输出之间的关系很复杂也是如此，所以提升树是一个高功能的学习算法.</p>
+<p>针对不同问题的提升树学习算法，其主要区别在于使用的损失函数不同.包括用平方误差损失函数的回归问题，用指数损失函数的分类问题，以及用一般损失函数的一般决策问题.</p>
+<h4 id="回归问题的提升树算法"><a href="#回归问题的提升树算法" class="headerlink" title="回归问题的提升树算法"></a>回归问题的提升树算法</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-13%20%E4%B8%8A%E5%8D%8810.18.48.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-13%20%E4%B8%8A%E5%8D%8810.19.01.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="例"><a href="#例" class="headerlink" title="例"></a>例</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-13%20%E4%B8%8A%E5%8D%8810.22.26.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-13%20%E4%B8%8A%E5%8D%8810.22.47.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-13%20%E4%B8%8A%E5%8D%8810.24.01.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="梯度提升"><a href="#梯度提升" class="headerlink" title="梯度提升"></a>梯度提升</h3><p>提升树利用加法模型与前向分步算法实现学习的优化过程.当损失函数是平方损失和指数损失函数时，每一步优化是很简单的.但对一一般损失函数而言，往往每一步优化并不那么容易.针对这一问题，Freidman 提出了梯度提升(gradient<br>boosting)算法，这是利用最速下降法的近似方法，其关键是利用损失函数负梯度在当前模型的值<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-13%20%E4%B8%8A%E5%8D%8810.27.46.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>作为回归问题提升树算法中的<strong>残差的近似值</strong>，拟合一个<strong>回归树</strong>。</p>
+<h4 id="梯度提升算法"><a href="#梯度提升算法" class="headerlink" title="梯度提升算法"></a>梯度提升算法</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-13%20%E4%B8%8A%E5%8D%8810.31.09.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-13%20%E4%B8%8A%E5%8D%8810.31.20.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-11-13T02:38:24.000Z" itemprop="dateUpdated">2018-11-13 10:38:24</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/zdkswd">
+            <img src="/img/tmg.jpg" alt="ZDK">
+            ZDK
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/11/13/提升 boosting/&title=《提升 boosting》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/11/13/提升 boosting/&title=《提升 boosting》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/11/13/提升 boosting/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《提升 boosting》 — ZDK's blog&url=https://github.com/zdkswd/2018/11/13/提升 boosting/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/11/13/提升 boosting/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/11/10/决策树和随机森林/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">决策树和随机森林</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz",
+            appKey: "gkBx5soQkBREmER84PWbNJeM",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ZDK &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/11/13/提升 boosting/&title=《提升 boosting》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/11/13/提升 boosting/&title=《提升 boosting》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/11/13/提升 boosting/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《提升 boosting》 — ZDK's blog&url=https://github.com/zdkswd/2018/11/13/提升 boosting/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/11/13/提升 boosting/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2018/11/13/提升 boosting/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'zdk'blog';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
