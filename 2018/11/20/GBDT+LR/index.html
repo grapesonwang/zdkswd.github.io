@@ -55,7 +55,7 @@
 <meta property="og:image" content="https://github.com/img/media/GBDT+LR/2127249-a81329ce18881864.png">
 <meta property="og:image" content="https://github.com/img/media/GBDT+LR/1473228-20180917183111311-2021770645.png">
 <meta property="og:image" content="https://github.com/img/media/GBDT+LR/GBDT%E5%8E%9F%E7%90%86%E5%8F%8A%E5%88%A9%E7%94%A8GBDT%E6%9E%84%E9%80%A0%E6%96%B0%E7%9A%84%E7%89%B9%E5%BE%814.jpg">
-<meta property="og:updated_time" content="2018-11-20T08:00:03.000Z">
+<meta property="og:updated_time" content="2018-11-20T12:03:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GBDT+LR">
 <meta name="twitter:description" content="GBDTgbdt在各种竞赛是大放异彩。原因大概有几个，一是效果确实挺不错。二是即可以用于分类也可以用于回归。三是可以筛选特征。 GBDT如何选择特征gbdt选择特征的细节其实是想问你CART Tree生成的过程。这里有一个前提，gbdt的弱分类器默认选择的是CART TREE。其实也可以选择其他弱分类器的，选择的前提是低方差和高偏差。框架服从boosting 框架即可。 GBDT如何构建特征其实说">
@@ -187,7 +187,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#GBDT"><span class="post-toc-number">1.</span> <span class="post-toc-text">GBDT</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GBDT如何选择特征"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">GBDT如何选择特征</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GBDT如何构建特征"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">GBDT如何构建特征</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GBDT如何用于分类"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">GBDT如何用于分类</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GB训练强学习器的思路"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">GB训练强学习器的思路</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GBDT原理"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">GBDT原理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GBDT例"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">GBDT例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GDBT分类篇"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">GDBT分类篇</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#分类例"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">分类例</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#GBDT-LR"><span class="post-toc-number">2.</span> <span class="post-toc-text">GBDT+LR</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#背景"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">背景</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GBDT-LR的结构"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">GBDT+LR的结构</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#RF-LR-Xgb-LR"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">RF + LR ? Xgb + LR?</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GBDT与LR融合具体方案"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">GBDT与LR融合具体方案</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#GBDT-LR-代码"><span class="post-toc-number">3.</span> <span class="post-toc-text">GBDT + LR 代码</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#sklearn多种模型ROC比较"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">sklearn多种模型ROC比较</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#GBDT"><span class="post-toc-number">1.</span> <span class="post-toc-text">GBDT</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GBDT如何选择特征"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">GBDT如何选择特征</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GBDT如何构建特征"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">GBDT如何构建特征</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GBDT如何用于分类"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">GBDT如何用于分类</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GB训练强学习器的思路"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">GB训练强学习器的思路</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GBDT原理"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">GBDT原理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GBDT例"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">GBDT例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GDBT分类篇"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">GDBT分类篇</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#分类例"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">分类例</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#GBDT-LR"><span class="post-toc-number">2.</span> <span class="post-toc-text">GBDT+LR</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#背景"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">背景</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GBDT-LR的结构"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">GBDT+LR的结构</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#RF-LR-Xgb-LR"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">RF + LR ? Xgb + LR?</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GBDT与LR融合具体方案"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">GBDT与LR融合具体方案</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#如何使用得到的特征？"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">如何使用得到的特征？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#总结"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">总结</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#GBDT-LR-代码"><span class="post-toc-number">3.</span> <span class="post-toc-text">GBDT + LR 代码</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#sklearn多种模型ROC比较"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">sklearn多种模型ROC比较</span></a></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -414,8 +414,9 @@
 <p>综合方案为：使用GBDT对非ID和ID分别建一类树。</p>
 <ol>
 <li>非ID类树：<br>不以细粒度的ID建树，此类树作为base，即这些ID一起构建GBDT。即便曝光少的广告、广告主，仍可以通过此类树得到有区分性的特征、特征组合。</li>
-<li>ID类树：<br>以细粒度 的ID建一类树（每个ID构建GBDT），用于发现曝光充分的ID对应有区分性的特征、特征组合。如何根据GBDT建的两类树，对原始特征进行映射？当一条样本x进来之后，遍历两类树到叶子节点，得到的特征作为LR的输入。当AD曝光不充分不足以训练树时，其它树恰好作为补充。</li>
+<li>ID类树：<br>以细粒度 的ID建一类树（每个ID构建GBDT），用于发现曝光充分的ID对应有区分性的特征、特征组合。</li>
 </ol>
+<p>如何根据GBDT建的两类树，对原始特征进行映射？当一条样本x进来之后，遍历两类树到叶子节点，得到的特征作为LR的输入。当AD曝光不充分不足以训练树时，其它树恰好作为补充。</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
@@ -424,6 +425,8 @@
                 <div class="image-caption"></div>
             </figure>
 <p>通过GBDT转换得到特征空间相比于原始ID低了很多。</p>
+<h2 id="如何使用得到的特征？"><a href="#如何使用得到的特征？" class="headerlink" title="如何使用得到的特征？"></a>如何使用得到的特征？</h2><p>通过GBDT生成的特征，可直接作为LR的特征使用，省去人工处理分析特征的环节，LR的输入特征完全依赖于通过GBDT得到的特征。此思路已尝试，通过实验发现GBDT+LR在曝光充分的广告上确实有效果，但整体效果需要权衡优化各类树的使用。同时，也可考虑将GBDT生成特征与LR原有特征结合起来使用，待尝试。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>对于样本量大的数据，线性模型具有训练速度快的特点，但线性模型学习能力限于线性可分数据，所以就需要特征工程将数据尽可能地从输入空间转换到线性可分的特征空间。GBDT与LR的融合模型，其实使用GBDT来发掘有区分度的特征以及组合特征，来替代人工组合特征</p>
 <h1 id="GBDT-LR-代码"><a href="#GBDT-LR-代码" class="headerlink" title="GBDT + LR 代码"></a>GBDT + LR 代码</h1><h2 id="sklearn多种模型ROC比较"><a href="#sklearn多种模型ROC比较" class="headerlink" title="sklearn多种模型ROC比较"></a>sklearn多种模型ROC比较</h2><p><a href="https://github.com/zdkswd/MLcode/blob/master/scikit-learn-code/sklearn-gbdt%2Blr.py">MLcode/sklearn-gbdt+lr.py at master · zdkswd/MLcode · GitHub</a></p>
 
         </div>
@@ -433,7 +436,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-11-20T08:00:03.000Z" itemprop="dateUpdated">2018-11-20 16:00:03</time>
+    最后更新时间：<time datetime="2018-11-20T12:03:32.000Z" itemprop="dateUpdated">2018-11-20 20:03:32</time>
 </span><br>
 
 
@@ -508,7 +511,14 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/11/20/精确率、召回率、真正类率（TPR）、假正类率（FPR）ROC曲线/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">精确率、召回率、真正类率（TPR）、假正类率（FPR）ROC曲线</h4>
+      </a>
+    </div>
   
 
   
