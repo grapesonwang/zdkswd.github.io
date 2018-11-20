@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>GBDT+LR | ZDK&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="机器学习">
+    <meta name="description" content="GBDTgbdt在各种竞赛是大放异彩。原因大概有几个，一是效果确实挺不错。二是即可以用于分类也可以用于回归。三是可以筛选特征。 GBDT如何选择特征gbdt选择特征的细节其实是想问你CART Tree生成的过程。这里有一个前提，gbdt的弱分类器默认选择的是CART TREE。其实也可以选择其他弱分类器的，选择的前提是低方差和高偏差。框架服从boosting 框架即可。 GBDT如何构建特征其实说">
+<meta name="keywords" content="机器学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GBDT+LR">
+<meta property="og:url" content="https://github.com/zdkswd/2018/11/20/GBDT+LR/index.html">
+<meta property="og:site_name" content="ZDK&#39;s blog">
+<meta property="og:description" content="GBDTgbdt在各种竞赛是大放异彩。原因大概有几个，一是效果确实挺不错。二是即可以用于分类也可以用于回归。三是可以筛选特征。 GBDT如何选择特征gbdt选择特征的细节其实是想问你CART Tree生成的过程。这里有一个前提，gbdt的弱分类器默认选择的是CART TREE。其实也可以选择其他弱分类器的，选择的前提是低方差和高偏差。框架服从boosting 框架即可。 GBDT如何构建特征其实说">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/img/media/GBDT+LR/20180128125923199.png">
+<meta property="og:image" content="https://github.com/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%887.49.46.png">
+<meta property="og:image" content="https://github.com/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%887.50.37.png">
+<meta property="og:image" content="https://github.com/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%887.51.41.png">
+<meta property="og:image" content="https://github.com/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%887.53.47.png">
+<meta property="og:image" content="https://github.com/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%887.54.12.png">
+<meta property="og:image" content="https://github.com/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%887.54.38.png">
+<meta property="og:image" content="https://github.com/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%887.57.53.png">
+<meta property="og:image" content="https://github.com/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.07.14.png">
+<meta property="og:image" content="https://github.com/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.07.26.png">
+<meta property="og:image" content="https://github.com/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.07.41.png">
+<meta property="og:image" content="https://github.com/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.07.59.png">
+<meta property="og:image" content="https://github.com/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.08.19.png">
+<meta property="og:image" content="https://github.com/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.12.08.png">
+<meta property="og:image" content="https://github.com/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.13.52.png">
+<meta property="og:image" content="https://github.com/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.14.09.png">
+<meta property="og:image" content="https://github.com/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.16.19.png">
+<meta property="og:image" content="https://github.com/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.17.24.png">
+<meta property="og:image" content="https://github.com/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.18.13.png">
+<meta property="og:image" content="https://github.com/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.18.24.png">
+<meta property="og:image" content="https://github.com/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.18.57.png">
+<meta property="og:image" content="https://github.com/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.19.42.png">
+<meta property="og:image" content="https://github.com/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.21.16.png">
+<meta property="og:image" content="https://github.com/img/media/GBDT+LR/2127249-a81329ce18881864.png">
+<meta property="og:image" content="https://github.com/img/media/GBDT+LR/1473228-20180917183111311-2021770645.png">
+<meta property="og:image" content="https://github.com/img/media/GBDT+LR/GBDT%E5%8E%9F%E7%90%86%E5%8F%8A%E5%88%A9%E7%94%A8GBDT%E6%9E%84%E9%80%A0%E6%96%B0%E7%9A%84%E7%89%B9%E5%BE%814.jpg">
+<meta property="og:updated_time" content="2018-11-20T08:00:03.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GBDT+LR">
+<meta name="twitter:description" content="GBDTgbdt在各种竞赛是大放异彩。原因大概有几个，一是效果确实挺不错。二是即可以用于分类也可以用于回归。三是可以筛选特征。 GBDT如何选择特征gbdt选择特征的细节其实是想问你CART Tree生成的过程。这里有一个前提，gbdt的弱分类器默认选择的是CART TREE。其实也可以选择其他弱分类器的，选择的前提是低方差和高偏差。框架服从boosting 框架即可。 GBDT如何构建特征其实说">
+<meta name="twitter:image" content="https://github.com/img/media/GBDT+LR/20180128125923199.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/tmg.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ZDK</h5>
+          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/zdkswd" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">GBDT+LR</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">GBDT+LR</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-11-20T07:56:56.000Z" itemprop="datePublished" class="page-time">
+  2018-11-20
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#GBDT"><span class="post-toc-number">1.</span> <span class="post-toc-text">GBDT</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GBDT如何选择特征"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">GBDT如何选择特征</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GBDT如何构建特征"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">GBDT如何构建特征</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GBDT如何用于分类"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">GBDT如何用于分类</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GB训练强学习器的思路"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">GB训练强学习器的思路</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GBDT原理"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">GBDT原理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GBDT例"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">GBDT例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GDBT分类篇"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">GDBT分类篇</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#分类例"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">分类例</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#GBDT-LR"><span class="post-toc-number">2.</span> <span class="post-toc-text">GBDT+LR</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#背景"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">背景</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GBDT-LR的结构"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">GBDT+LR的结构</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#RF-LR-Xgb-LR"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">RF + LR ? Xgb + LR?</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GBDT与LR融合具体方案"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">GBDT与LR融合具体方案</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#GBDT-LR-代码"><span class="post-toc-number">3.</span> <span class="post-toc-text">GBDT + LR 代码</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#sklearn多种模型ROC比较"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">sklearn多种模型ROC比较</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-GBDT+LR"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">GBDT+LR</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-11-20 15:56:56" datetime="2018-11-20T07:56:56.000Z"  itemprop="datePublished">2018-11-20</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="GBDT"><a href="#GBDT" class="headerlink" title="GBDT"></a>GBDT</h1><p>gbdt在各种竞赛是大放异彩。原因大概有几个，一是效果确实挺不错。二是即可以用于分类也可以用于回归。三是可以筛选特征。</p>
+<h2 id="GBDT如何选择特征"><a href="#GBDT如何选择特征" class="headerlink" title="GBDT如何选择特征"></a>GBDT如何选择特征</h2><p>gbdt选择特征的细节其实是想问你CART Tree生成的过程。这里有一个前提，gbdt的弱分类器默认选择的是CART TREE。其实也可以选择其他弱分类器的，选择的前提是低方差和高偏差。框架服从boosting 框架即可。</p>
+<h2 id="GBDT如何构建特征"><a href="#GBDT如何构建特征" class="headerlink" title="GBDT如何构建特征"></a>GBDT如何构建特征</h2><p>其实说gbdt 能够构建特征并非很准确，gbdt 本身是不能产生特征的，但是我们可以利用gbdt去产生特征的组合。逻辑回归本身是适合处理线性可分的数据，如果我们想让逻辑回归处理非线性的数据，其中一种方式便是组合不同特征，增强逻辑回归对非线性分布的拟合能力。</p>
+<h2 id="GBDT如何用于分类"><a href="#GBDT如何用于分类" class="headerlink" title="GBDT如何用于分类"></a>GBDT如何用于分类</h2><p>GBDT 无论用于分类还是回归一直都是使用的CART <strong>回归树</strong>。不会因为我们所选择的任务是分类任务就选用分类树。</p>
+<h2 id="GB训练强学习器的思路"><a href="#GB训练强学习器的思路" class="headerlink" title="GB训练强学习器的思路"></a>GB训练强学习器的思路</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/GBDT+LR/20180128125923199.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%887.49.46.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%887.50.37.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%887.51.41.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="GBDT原理"><a href="#GBDT原理" class="headerlink" title="GBDT原理"></a>GBDT原理</h2><p>对于任意的基分类器都可以利用GB的思想训练一个强分类器。而把基分类器选为决策树（DT)时，就是我们常用的GBDT。 </p>
+<p>对于回归任务，当选择的loss function为Least-square。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%887.53.47.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>伪代码为：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%887.54.12.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%887.54.38.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h2 id="GBDT例"><a href="#GBDT例" class="headerlink" title="GBDT例"></a>GBDT例</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%887.57.53.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.07.14.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.07.26.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.07.41.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.07.59.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.08.19.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="GDBT分类篇"><a href="#GDBT分类篇" class="headerlink" title="GDBT分类篇"></a>GDBT分类篇</h2><p>对于回归和分类，其实GBDT过程简直就是一模一样的。如果说最大的不同的话，那就是在于由于loss function不同而引起的初始化不同、叶子节点取值不同。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.12.08.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h2 id="分类例"><a href="#分类例" class="headerlink" title="分类例"></a>分类例</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.13.52.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.14.09.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.16.19.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.17.24.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.18.13.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.18.24.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.18.57.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.19.42.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.21.16.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>多分类：<a href="https://blog.csdn.net/qq_22238533/article/details/79199605" target="_blank" rel="noopener">GBDT原理与实践-多分类篇 - SCUT_Sam - CSDN博客</a></p>
+<h1 id="GBDT-LR"><a href="#GBDT-LR" class="headerlink" title="GBDT+LR"></a>GBDT+LR</h1><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>CTR预估（Click-Through Rate Prediction）是互联网计算广告中的关键环节，预估准确性直接影响公司广告收入。CTR预估中用的最多的模型是LR（Logistic Regression），LR是广义线性模型，与传统线性模型相比，LR使用了Logit变换将函数值映射到0~1区间，映射后的函数值就是CTR的预估值。LR这种线性模型很容易并行化，处理上亿条训练样本不是问题，但线性模型学习能力有限，需要大量特征工程预先分析出有效的特征、特征组合，从而去间接增强LR的非线性学习能力。</p>
+<p>LR模型中的特征组合很关键， 但又无法直接通过特征笛卡尔积解决，只能依靠人工经验，耗时耗力同时并不一定会带来效果提升。如何自动发现有效的特征、特征组合，弥补人工经验不足，缩短LR特征实验周期，是亟需解决的问题。Facebook 2014年的文章介绍了通过GBDT（Gradient Boost Decision Tree）解决LR的特征组合问题，随后Kaggle竞赛也有实践此思路，GBDT与LR融合开始引起了业界关注。</p>
+<p>GBDT（Gradient Boost Decision Tree）是一种常用的非线性模型，它基于集成学习中的boosting思想，每次迭代都在减少残差的梯度方向新建立一颗决策树，迭代多少次就会生成多少颗决策树。GBDT的思想使其具有天然优势可以发现多种有区分性的特征以及特征组合，决策树的路径可以直接作为LR输入特征使用，省去了人工寻找特征、特征组合的步骤。这种通过GBDT生成LR特征的方式（GBDT+LR），业界已有实践（Facebook，Kaggle-2014），且效果不错，是非常值得尝试的思路。</p>
+<p>融合前人工寻找有区分性特征（raw feature）、特征组合、融合后直接通过黑盒子（Tree模型GBDT）进行特征、特种组合的自动发现。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/GBDT+LR/2127249-a81329ce18881864.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>在介绍这个模型之前，我们先来介绍两个问题：</p>
+<ol>
+<li>为什么要使用集成的决策树模型而不是单颗的决策树模型：<br>一棵树的表达能力很弱，不足以表达多个有区分性的特征组合，多棵树的表达能力更强一些。GBDT每棵树都在学习前面棵树尚存的不足，迭代多少次就会生成多少颗树。按paper以及Kaggle竞赛中的GBDT+LR融合方式，多棵树正好满足LR每条训练样本可以通过GBDT映射成多个特征的需求。</li>
+<li>为什么建树采用GBDT而非RF：RF也是多棵树，但从效果上有实践证明不如GBDT。且GBDT前面的树，特征分裂主要体现对多数样本有区分度的特征；后面的树，主要体现的是经过前N颗树，残差仍然较大的少数样本。优先选用在整体上有区分度的特征，再选用针对少数样本有区分度的特征，思路更加合理，这应该也是用GBDT的原因。</li>
+</ol>
+<h2 id="GBDT-LR的结构"><a href="#GBDT-LR的结构" class="headerlink" title="GBDT+LR的结构"></a>GBDT+LR的结构</h2><p>GBDT用来对训练集提取特征作为新的训练输入数据，LR作为新训练输入数据的分类器。</p>
+<p>具体步骤：</p>
+<ol>
+<li>GBDT首先对原始训练数据做训练，得到一个二分类器，当然这里也需要利用网格搜索寻找最佳参数组合。</li>
+<li>与通常做法不同的是，当GBDT训练好做预测的时候，输出的并不是最终的二分类概率值，而是要把模型中的每棵树计算得到的预测概率值所属的叶子结点位置记为1，这样，就构造出了新的训练数据。在用GBDT构造新的训练数据时，采用的正是One-hot方法。并且由于每一弱分类器有且只有一个叶子节点输出预测结果，所以在一个具有n个弱分类器、共计m个叶子结点的GBDT中，每一条训练数据都会被转换为1*m维稀疏向量，且有n个元素为1，其余m-n 个元素全为0。</li>
+<li>新的训练数据构造完成后，下一步就要与原始的训练数据中的label(输出)数据一并输入到Logistic Regression分类器中进行最终分类器的训练。思考一下，在对原始数据进行GBDT提取为新的数据这一操作之后，数据不仅变得稀疏，而且由于弱分类器个数，叶子结点个数的影响，可能会导致新的训练数据特征维度过大的问题，因此，在Logistic Regression这一层中，可使用正则化来减少过拟合的风险，在Facebook的论文中采用的是L1正则化。</li>
+</ol>
+<p>GBDT与LR的融合方式，Facebook的paper有个例子如下图2所示，图中Tree1、Tree2为通过GBDT模型学出来的两颗树，x为一条输入样本，遍历两棵树后，x样本分别落到两颗树的叶子节点上，每个叶子节点对应LR一维特征，那么通过遍历树，就得到了该样本对应的所有LR特征。由于树的每条路径，是通过最小化均方差等方法最终分割出来的有区分性路径，根据该路径得到的特征、特征组合都相对有区分性，效果理论上不会亚于人工经验的处理方式。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/GBDT+LR/1473228-20180917183111311-2021770645.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>论文中GBDT的参数，树的数量最多500颗（500以上就没有提升了），每棵树的节点不多于12。</p>
+<p>GBDT模型的特点，非常适合用来挖掘有效的特征、特征组合。业界不仅GBDT+LR融合有实践，GBDT+FM也有实践，2014 Kaggle CTR竞赛冠军就是使用GBDT+FM（因子分解机），可见，使用GBDT融合其它模型是非常值得尝试的思路。</p>
+<h2 id="RF-LR-Xgb-LR"><a href="#RF-LR-Xgb-LR" class="headerlink" title="RF + LR ? Xgb + LR?"></a>RF + LR ? Xgb + LR?</h2><p>例如Random Forest以及Xgboost等是并不是也可以按类似的方式来构造新的训练样本呢？没错，所有这些基于树的模型都可以和Logistic Regression分类器组合。</p>
+<p>RF也是多棵树，但从效果上有实践证明不如GBDT。且GBDT前面的树，特征分裂主要体现对多数样本有区分度的特征；后面的树，主要体现的是经过前N颗树，残差仍然较大的少数样本。优先选用在整体上有区分度的特征，再选用针对少数样本有区分度的特征，思路更加合理，这应该也是用GBDT的原因。</p>
+<h2 id="GBDT与LR融合具体方案"><a href="#GBDT与LR融合具体方案" class="headerlink" title="GBDT与LR融合具体方案"></a>GBDT与LR融合具体方案</h2><p>在CTR预估中，如何利用AD ID是一个问题。直接将AD ID作为特征建树不可行，而onehot编码过于稀疏，为每个AD ID建GBDT树，相当于发掘出区分每个广告的特征。而对于曝光不充分的样本即长尾部分，无法单独建树。</p>
+<p>综合方案为：使用GBDT对非ID和ID分别建一类树。</p>
+<ol>
+<li>非ID类树：<br>不以细粒度的ID建树，此类树作为base，即这些ID一起构建GBDT。即便曝光少的广告、广告主，仍可以通过此类树得到有区分性的特征、特征组合。</li>
+<li>ID类树：<br>以细粒度 的ID建一类树（每个ID构建GBDT），用于发现曝光充分的ID对应有区分性的特征、特征组合。如何根据GBDT建的两类树，对原始特征进行映射？当一条样本x进来之后，遍历两类树到叶子节点，得到的特征作为LR的输入。当AD曝光不充分不足以训练树时，其它树恰好作为补充。</li>
+</ol>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/GBDT+LR/GBDT%E5%8E%9F%E7%90%86%E5%8F%8A%E5%88%A9%E7%94%A8GBDT%E6%9E%84%E9%80%A0%E6%96%B0%E7%9A%84%E7%89%B9%E5%BE%814.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>通过GBDT转换得到特征空间相比于原始ID低了很多。</p>
+<h1 id="GBDT-LR-代码"><a href="#GBDT-LR-代码" class="headerlink" title="GBDT + LR 代码"></a>GBDT + LR 代码</h1><h2 id="sklearn多种模型ROC比较"><a href="#sklearn多种模型ROC比较" class="headerlink" title="sklearn多种模型ROC比较"></a>sklearn多种模型ROC比较</h2><p><a href="https://github.com/zdkswd/MLcode/blob/master/scikit-learn-code/sklearn-gbdt%2Blr.py">MLcode/sklearn-gbdt+lr.py at master · zdkswd/MLcode · GitHub</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-11-20T08:00:03.000Z" itemprop="dateUpdated">2018-11-20 16:00:03</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/zdkswd">
+            <img src="/img/tmg.jpg" alt="ZDK">
+            ZDK
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/11/20/GBDT+LR/&title=《GBDT+LR》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/11/20/GBDT+LR/&title=《GBDT+LR》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/11/20/GBDT+LR/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《GBDT+LR》 — ZDK's blog&url=https://github.com/zdkswd/2018/11/20/GBDT+LR/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/11/20/GBDT+LR/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/11/16/提升 boosting/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">提升 boosting</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz",
+            appKey: "gkBx5soQkBREmER84PWbNJeM",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ZDK &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/11/20/GBDT+LR/&title=《GBDT+LR》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/11/20/GBDT+LR/&title=《GBDT+LR》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/11/20/GBDT+LR/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《GBDT+LR》 — ZDK's blog&url=https://github.com/zdkswd/2018/11/20/GBDT+LR/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/11/20/GBDT+LR/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2018/11/20/GBDT+LR/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'zdk'blog';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
