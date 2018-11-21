@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Deep Forest: Towards An Alternative to Deep Neural Networks | ZDK&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="机器学习">
+    <meta name="description" content="https://www.ijcai.org/proceedings/2017/0497.pdf 摘要提出了gcForest,一种能够与深层神经网络的表现高度抗衡的决策树集成方法。相比于深层神经网络需要化大力气调整超参数，gcForest更容易去训练。实际上，就算gcForest被应用于不同领域使用不同的数据，也可以通过设置几乎相同的超参数获得极好的表现。gcForest的训练时高效的可扩展的。在作">
+<meta name="keywords" content="机器学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Deep Forest: Towards An Alternative to Deep Neural Networks">
+<meta property="og:url" content="https://github.com/zdkswd/2018/11/21/Deep Forest: Towards An Alternative to Deep Neural Networks/index.html">
+<meta property="og:site_name" content="ZDK&#39;s blog">
+<meta property="og:description" content="https://www.ijcai.org/proceedings/2017/0497.pdf 摘要提出了gcForest,一种能够与深层神经网络的表现高度抗衡的决策树集成方法。相比于深层神经网络需要化大力气调整超参数，gcForest更容易去训练。实际上，就算gcForest被应用于不同领域使用不同的数据，也可以通过设置几乎相同的超参数获得极好的表现。gcForest的训练时高效的可扩展的。在作">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/img/media/Deep%20Forest:%20Towards%20An%20Alternative%20to%20Deep%20Neural%20Networks/20170305230315119.png">
+<meta property="og:image" content="https://github.com/img/media/Deep%20Forest:%20Towards%20An%20Alternative%20to%20Deep%20Neural%20Networks/20170305230948452.png">
+<meta property="og:image" content="https://github.com/img/media/Deep%20Forest:%20Towards%20An%20Alternative%20to%20Deep%20Neural%20Networks/20170305233438302.png">
+<meta property="og:image" content="https://github.com/img/media/Deep%20Forest:%20Towards%20An%20Alternative%20to%20Deep%20Neural%20Networks/20170305234423503.png">
+<meta property="og:updated_time" content="2018-11-21T10:44:51.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Deep Forest: Towards An Alternative to Deep Neural Networks">
+<meta name="twitter:description" content="https://www.ijcai.org/proceedings/2017/0497.pdf 摘要提出了gcForest,一种能够与深层神经网络的表现高度抗衡的决策树集成方法。相比于深层神经网络需要化大力气调整超参数，gcForest更容易去训练。实际上，就算gcForest被应用于不同领域使用不同的数据，也可以通过设置几乎相同的超参数获得极好的表现。gcForest的训练时高效的可扩展的。在作">
+<meta name="twitter:image" content="https://github.com/img/media/Deep%20Forest:%20Towards%20An%20Alternative%20to%20Deep%20Neural%20Networks/20170305230315119.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/tmg.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ZDK</h5>
+          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/zdkswd" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Deep Forest: Towards An Alternative to Deep Neural Networks</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Deep Forest: Towards An Alternative to Deep Neural Networks</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-11-21T10:44:32.000Z" itemprop="datePublished" class="page-time">
+  2018-11-21
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/论文/">论文</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#摘要"><span class="post-toc-number">1.</span> <span class="post-toc-text">摘要</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#介绍"><span class="post-toc-number">2.</span> <span class="post-toc-text">介绍</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#k折交叉验证"><span class="post-toc-number">3.</span> <span class="post-toc-text">k折交叉验证</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#博客"><span class="post-toc-number">4.</span> <span class="post-toc-text">博客</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#级联森林"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">级联森林</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#多粒度扫描（Multi-Grained-Scanning）"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">多粒度扫描（Multi-Grained Scanning）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#总结"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">总结</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Deep Forest: Towards An Alternative to Deep Neural Networks"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Deep Forest: Towards An Alternative to Deep Neural Networks</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-11-21 18:44:32" datetime="2018-11-21T10:44:32.000Z"  itemprop="datePublished">2018-11-21</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/论文/">论文</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p><a href="https://www.ijcai.org/proceedings/2017/0497.pdf" target="_blank" rel="noopener">https://www.ijcai.org/proceedings/2017/0497.pdf</a></p>
+<h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>提出了gcForest,一种能够与深层神经网络的表现高度抗衡的决策树集成方法。相比于深层神经网络需要化大力气调整超参数，gcForest更容易去训练。实际上，就算gcForest被应用于不同领域使用不同的数据，也可以通过设置几乎相同的超参数获得极好的表现。gcForest的训练时高效的可扩展的。在作者的实验中使用PC进行gcForest的训练和使用GPU设备进行训练时间差不多，并且效率的优势可能会比这更加明显，因为gcForest更容易并行实现。更重要的是，深层神经网络需要大规模的训练数据，但是gcForest即使只有小规模的训练数据也能表现很好。还有，作为以树为基础的方法，gcForest比深层神经网络更容易进行理论分析。</p>
+<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>深度神经网络的不足：</p>
+<ol>
+<li>需要大量数据。然而就算是大数据领域也有待带标签数据不足等问题。</li>
+<li>模型复杂，需要强计算力设备进行训练。</li>
+<li>最重要的是有太多超参数，学习的表现又很依赖它们。即使是使用同样的网络模型也由于各种参数设置的不同而变得实际上使用的是不同的学习模型。这让深层学习的训练变得棘手，更像是一门艺术而不是一门科学。同时由于影响的因素太多而难以理论分析深层神经网络。</li>
+</ol>
+<p>作者设想能不能给一些学习模型赋予一些属性让其具有深层学习网络的能力而又没有上述的不足。</p>
+<p>所以论文提出gcForest(multi-Grained Cascade forest )</p>
+<h1 id="k折交叉验证"><a href="#k折交叉验证" class="headerlink" title="k折交叉验证"></a>k折交叉验证</h1><p>常用的精度测试方法主要是交叉验证，例如10折交叉验证(10-fold cross validation)，将数据集分成十份，轮流将其中9份做训练1份做验证，10次的结果的均值作为对算法精度的估计，一般还需要进行多次10折交叉验证求均值，例如：10次10折交叉验证，以求更精确一点。交叉验证有时也称为交叉比对，如：10折交叉比对。</p>
+<h1 id="博客"><a href="#博客" class="headerlink" title="博客"></a>博客</h1><h2 id="级联森林"><a href="#级联森林" class="headerlink" title="级联森林"></a>级联森林</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Deep%20Forest:%20Towards%20An%20Alternative%20to%20Deep%20Neural%20Networks/20170305230315119.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>级联的每个级别包括两个随机森林（蓝色字体标出）和两个完全随机树木森林（黑色）。假设有三个类要预测; 因此，每个森林将输出三维类向量，然后将其连接以重新表示原始输入。注意，要将前一级的特征和这一级的特征连接在一起。</p>
+<p>论文中为了简单起见，在实现中，使用了两个完全随机的树森林（complete-random tree forests）和两个随机森林[Breiman，2001]。每个完全随机的树森林包含1000个完全随机树[Liu et al。，2008]，每棵树通过随机选择一个特征在树的每个节点进行分割实现生成，树一直生长，直到每个叶节点只包含相同类的实例或不超过10个实例。类似地，每个随机森林也包含1000棵树，通过随机选择sqrt(d) 数量的特征作为候选（d是输入特征的数量），然后选择具有最佳 gini 值的特征作为分割。每个森林中的树的数值是一个超参数。</p>
+<p>给定一个实例（就是一个样本），每个森林会通过计算在相关实例落入的叶节点处的不同类的训练样本的百分比，然后对森林中的所有树计平均值，以生成对类的分布的估计。如下图所示，其中红色部分突出了每个实例遍历到叶节点的路径。叶节点中的不同标记表示了不同的类。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Deep%20Forest:%20Towards%20An%20Alternative%20to%20Deep%20Neural%20Networks/20170305230948452.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>被估计的类分布形成类向量（class vector），该类向量接着与输入到级联的下一级的原始特征向量相连接。例如，假设有三个类，则四个森林每一个都将产生一个三维的类向量，因此，级联的下一级将接收12 = 3×4个增强特征（augmented feature）。</p>
+<p>为了降低过拟合风险，每个森林产生的类向量由k折交叉验证（k-fold cross validation）产生。具体来说，每个实例都将被用作 k -1 次训练数据，产生 k -1 个类向量，然后对其取平均值以产生作为级联中下一级的增强特征的最终类向量。需要注意的是，在扩展一个新的级后，整个级联的性能将在验证集上进行估计，如果没有显着的性能增益，训练过程将终止；因此，级联中级的数量是自动确定的。与模型的复杂性固定的大多数深度神经网络相反，gcForest 能够适当地通过终止训练来决定其模型的复杂度（early stop）。这使得 gcForest 能够适用于不同规模的训练数据，而不局限于大规模训练数据。</p>
+<h2 id="多粒度扫描（Multi-Grained-Scanning）"><a href="#多粒度扫描（Multi-Grained-Scanning）" class="headerlink" title="多粒度扫描（Multi-Grained Scanning）"></a>多粒度扫描（Multi-Grained Scanning）</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Deep%20Forest:%20Towards%20An%20Alternative%20to%20Deep%20Neural%20Networks/20170305233438302.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>滑动窗口用于扫描原始特征。假设有400个原始特征，并且使用100个特征的窗口大小。对于序列数据，将通过滑动一个特征的窗口来生成100维的特征向量；总共产生301个特征向量。如果原始特征具有空间关系，比如图像像素为400的20×20的面板，则10×10窗口将产生121个特征向量（即121个10×10的面板）。从正<em>负训练样例中提取的所有特征向量被视为正</em>负实例；它们将被用于生成类向量：从相同大小的窗口提取的实例将用于训练完全随机树森林和随机森林，然后生成类向量并连接为转换后的像素。如上图的上半部分所示，假设有3个类，并且使用100维的窗口；然后，每个森林产生301个三维类向量，导致对应于原始400维原始特征向量的1,806维变换特征向量。</p>
+<p>通过使用多个尺寸的滑动窗口，最终的变换特征矢量将包括更多的特征，如下图所示。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Deep%20Forest:%20Towards%20An%20Alternative%20to%20Deep%20Neural%20Networks/20170305234423503.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>concat成一个3618-dim的原始数据，表示原始的一个数据样本，第一级的输出是12+3618=3630，后面也是一样，直到最后第N级，只有12个输出，然后在每一类别上做avg，然后输出max那一类的label，那就是最终的预测类别。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>带着深度学习的关键在于特征学习和巨大模型的能力这一认识，我们在本文中试图赋予树集成这些属性，并提出了 gcForest 方法。与深度神经网络相比，gcForest在我们的实验中表现了极高的竞争力或更好的性能。更重要的是，gcForest 具有少得多的超参数，并且对参数设置不太敏感；实际上在我们的实验中，通过使用相同的参数设置在不同的域中都获得了优异的性能，并且无论是大规模还是小规模的数据，它的工作都很好。此外，作为一种基于树的方法，gcForest 应该比深度神经网络更容易进行理论分析。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-11-21T10:44:51.000Z" itemprop="dateUpdated">2018-11-21 18:44:51</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/zdkswd">
+            <img src="/img/tmg.jpg" alt="ZDK">
+            ZDK
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/11/21/Deep Forest: Towards An Alternative to Deep Neural Networks/&title=《Deep Forest: Towards An Alternative to Deep Neural Networks》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/11/21/Deep Forest: Towards An Alternative to Deep Neural Networks/&title=《Deep Forest: Towards An Alternative to Deep Neural Networks》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/11/21/Deep Forest: Towards An Alternative to Deep Neural Networks/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Deep Forest: Towards An Alternative to Deep Neural Networks》 — ZDK's blog&url=https://github.com/zdkswd/2018/11/21/Deep Forest: Towards An Alternative to Deep Neural Networks/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/11/21/Deep Forest: Towards An Alternative to Deep Neural Networks/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/11/20/精确率、召回率、真正类率（TPR）、假正类率（FPR）ROC曲线/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">精确率、召回率、真正类率（TPR）、假正类率（FPR）ROC曲线</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz",
+            appKey: "gkBx5soQkBREmER84PWbNJeM",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ZDK &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/11/21/Deep Forest: Towards An Alternative to Deep Neural Networks/&title=《Deep Forest: Towards An Alternative to Deep Neural Networks》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/11/21/Deep Forest: Towards An Alternative to Deep Neural Networks/&title=《Deep Forest: Towards An Alternative to Deep Neural Networks》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/11/21/Deep Forest: Towards An Alternative to Deep Neural Networks/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Deep Forest: Towards An Alternative to Deep Neural Networks》 — ZDK's blog&url=https://github.com/zdkswd/2018/11/21/Deep Forest: Towards An Alternative to Deep Neural Networks/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/11/21/Deep Forest: Towards An Alternative to Deep Neural Networks/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2018/11/21/Deep Forest: Towards An Alternative to Deep Neural Networks/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'zdk'blog';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
