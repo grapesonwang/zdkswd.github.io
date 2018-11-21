@@ -36,7 +36,7 @@
 <meta property="og:image" content="https://github.com/img/media/AutoEncoder%20by%20Forest/ae_eforest_algo2.png">
 <meta property="og:image" content="https://github.com/img/media/AutoEncoder%20by%20Forest/ae_eforest_algo3.png">
 <meta property="og:image" content="https://github.com/img/media/AutoEncoder%20by%20Forest/ae_eforest_exp_image2.png">
-<meta property="og:updated_time" content="2018-11-21T12:17:14.000Z">
+<meta property="og:updated_time" content="2018-11-21T12:20:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AutoEncoder by Forest">
 <meta name="twitter:description" content="https://arxiv.org/abs/1709.09018 摘要自动编码是一个重要的任务，通常由深度神经网络比如CNN来实现。在这篇论文中，我们提出了EncoderForest （eForest）这是第一个基于树集成的自编码器。我们提出了一种方法，让森林能够利用树的决策路径所定义的等效类来进行后向重建，并在监督和无监督环境中展示了其使用情况。实验结果表明，与DNN自编码器相比，eForest">
@@ -202,15 +202,17 @@
 <li>准确： 它的实验重建误差比使用MLP和CNN的自动编码器低。</li>
 <li>有效： efroest在一个单一KNL(多核CPU)上运行比CNN-Base自动编码器在一个Titan-X GPU上运行还快。</li>
 <li>容错率：训练好的模型能够正常运行即使模型部分损坏。</li>
-<li>重利用： 在同一个领域下，使用一个数据集训练的模型可以直接应用到另一个数据集下。<h1 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h1>自动编码器有两个基本的功能，编码和解码。对于一个森林来说，编码并不困难，因为至少其叶节点信息可以被看做一种编码，甚至可以说，结点集合的一个子集或者路径的分支都能够为编码提供更多的信息。<h2 id="编码过程"><a href="#编码过程" class="headerlink" title="编码过程"></a>编码过程</h2>对于给定的一个训练过的有T棵树的集成树模型（也可以是空的森林，编码过程即森林形成过程），前向编码过程将输入数据送到每棵树的根节点，并计算每棵树，得到其所属的叶节点，最后返回一个T维向量，这个T维向量的每一项是每棵树中求到的上述叶节点在树中的编号。注意，算法跟决策树的分割规则无关。只需要是T棵树即可。<figure class="image-bubble">
+<li>重利用： 在同一个领域下，使用一个数据集训练的模型可以直接应用到另一个数据集下。</li>
+</ol>
+<h1 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h1><p>自动编码器有两个基本的功能，编码和解码。对于一个森林来说，编码并不困难，因为至少其叶节点信息可以被看做一种编码，甚至可以说，结点集合的一个子集或者路径的分支都能够为编码提供更多的信息。</p>
+<h2 id="编码过程"><a href="#编码过程" class="headerlink" title="编码过程"></a>编码过程</h2><p>对于给定的一个训练过的有T棵树的集成树模型（也可以是空的森林，编码过程即森林形成过程），前向编码过程将输入数据送到每棵树的根节点，并计算每棵树，得到其所属的叶节点，最后返回一个T维向量，这个T维向量的每一项是每棵树中求到的上述叶节点在树中的编号。注意，算法跟决策树的分割规则无关。只需要是T棵树即可。<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/img/media/AutoEncoder%20by%20Forest/ae_algo1.png" alt="" title="">
                 </div>
                 <div class="image-caption"></div>
-            </figure>
-<h2 id="解码过程"><a href="#解码过程" class="headerlink" title="解码过程"></a>解码过程</h2>一般来说，决策树都是用来前向预测，将数据计算从树的根节点到叶子结点，但是其反向重建是未定义的。下面通过一个小例子来探索解码过程。</li>
-</ol>
+            </figure></p>
+<h2 id="解码过程"><a href="#解码过程" class="headerlink" title="解码过程"></a>解码过程</h2><p>一般来说，决策树都是用来前向预测，将数据计算从树的根节点到叶子结点，但是其反向重建是未定义的。下面通过一个小例子来探索解码过程。</p>
 <p>假设我们正在解决一个二分类问题，数据有三个属性，第一个和第二个属性是数值型属性，第三个属性是布尔型属性（取值为YES, NO），第四个属性是一个三值属性，取值可以是RED，BLUE，GREEN。给定一个实例x，xi代表x的第i个属性值。<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
@@ -259,7 +261,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-11-21T12:17:14.000Z" itemprop="dateUpdated">2018-11-21 20:17:14</time>
+    最后更新时间：<time datetime="2018-11-21T12:20:34.000Z" itemprop="dateUpdated">2018-11-21 20:20:34</time>
 </span><br>
 
 
