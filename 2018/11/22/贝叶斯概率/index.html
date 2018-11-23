@@ -21,13 +21,13 @@
     
     
     <meta name="keywords" content="机器学习">
-    <meta name="description" content="人工智能课上内容你对贝叶斯统计都有怎样的理解？ - 知乎 贝叶斯概率vs经典概率关于统计推断的主张和想法，大体可以纳入到两个体系之内，其一叫频率学派，其特征是把需要推断的参数θ视作固定且未知的常数，而样本X是随机的，其着眼点在样本空间，有关的概率计算都是针对X的分布。另一派叫做贝叶斯学派，他们把参数θ视作随机变量，而样本X是固定的，其着眼点在参数空间，重视参数θ的分布，固定的操作模式是通过参数的先">
+    <meta name="description" content="已修改 人工智能课上内容你对贝叶斯统计都有怎样的理解？ - 知乎 贝叶斯概率vs经典概率关于统计推断的主张和想法，大体可以纳入到两个体系之内，其一叫频率学派，其特征是把需要推断的参数θ视作固定且未知的常数，而样本X是随机的，其着眼点在样本空间，有关的概率计算都是针对X的分布。另一派叫做贝叶斯学派，他们把参数θ视作随机变量，而样本X是固定的，其着眼点在参数空间，重视参数θ的分布，固定的操作模式是通过">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="贝叶斯概率">
 <meta property="og:url" content="https://github.com/zdkswd/2018/11/22/贝叶斯概率/index.html">
 <meta property="og:site_name" content="ZDK&#39;s blog">
-<meta property="og:description" content="人工智能课上内容你对贝叶斯统计都有怎样的理解？ - 知乎 贝叶斯概率vs经典概率关于统计推断的主张和想法，大体可以纳入到两个体系之内，其一叫频率学派，其特征是把需要推断的参数θ视作固定且未知的常数，而样本X是随机的，其着眼点在样本空间，有关的概率计算都是针对X的分布。另一派叫做贝叶斯学派，他们把参数θ视作随机变量，而样本X是固定的，其着眼点在参数空间，重视参数θ的分布，固定的操作模式是通过参数的先">
+<meta property="og:description" content="已修改 人工智能课上内容你对贝叶斯统计都有怎样的理解？ - 知乎 贝叶斯概率vs经典概率关于统计推断的主张和想法，大体可以纳入到两个体系之内，其一叫频率学派，其特征是把需要推断的参数θ视作固定且未知的常数，而样本X是随机的，其着眼点在样本空间，有关的概率计算都是针对X的分布。另一派叫做贝叶斯学派，他们把参数θ视作随机变量，而样本X是固定的，其着眼点在参数空间，重视参数θ的分布，固定的操作模式是通过">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://github.com/img/media/%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%A6%82%E7%8E%87/v2-3ef5e8c52f6257d7624dcae8496dc14c_hd.jpg">
 <meta property="og:image" content="https://github.com/img/media/%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%A6%82%E7%8E%87/v2-0fc8c439d5a4eebf0ca11b46d1b5135d_hd.jpg">
@@ -56,10 +56,12 @@
 <meta property="og:image" content="https://github.com/img/media/%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%A6%82%E7%8E%87/ml_4_14.jpg">
 <meta property="og:image" content="https://github.com/img/media/%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%A6%82%E7%8E%87/ml_4_21.jpg">
 <meta property="og:image" content="https://github.com/img/media/%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%A6%82%E7%8E%87/ml_4_22.jpg">
-<meta property="og:updated_time" content="2018-11-22T08:51:45.000Z">
+<meta property="og:image" content="https://github.com/img/add/6.png">
+<meta property="og:image" content="https://github.com/img/add/7.png">
+<meta property="og:updated_time" content="2018-11-23T05:50:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="贝叶斯概率">
-<meta name="twitter:description" content="人工智能课上内容你对贝叶斯统计都有怎样的理解？ - 知乎 贝叶斯概率vs经典概率关于统计推断的主张和想法，大体可以纳入到两个体系之内，其一叫频率学派，其特征是把需要推断的参数θ视作固定且未知的常数，而样本X是随机的，其着眼点在样本空间，有关的概率计算都是针对X的分布。另一派叫做贝叶斯学派，他们把参数θ视作随机变量，而样本X是固定的，其着眼点在参数空间，重视参数θ的分布，固定的操作模式是通过参数的先">
+<meta name="twitter:description" content="已修改 人工智能课上内容你对贝叶斯统计都有怎样的理解？ - 知乎 贝叶斯概率vs经典概率关于统计推断的主张和想法，大体可以纳入到两个体系之内，其一叫频率学派，其特征是把需要推断的参数θ视作固定且未知的常数，而样本X是随机的，其着眼点在样本空间，有关的概率计算都是针对X的分布。另一派叫做贝叶斯学派，他们把参数θ视作随机变量，而样本X是固定的，其着眼点在参数空间，重视参数θ的分布，固定的操作模式是通过">
 <meta name="twitter:image" content="https://github.com/img/media/%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%A6%82%E7%8E%87/v2-3ef5e8c52f6257d7624dcae8496dc14c_hd.jpg">
     
         <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
@@ -188,7 +190,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#人工智能课上内容"><span class="post-toc-number">1.</span> <span class="post-toc-text">人工智能课上内容</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#贝叶斯概率vs经典概率"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">贝叶斯概率vs经典概率</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#经典概率"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">经典概率</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#贝叶斯概率"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">贝叶斯概率</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#后验分布"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">后验分布</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#先验分布"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">先验分布</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#贝叶斯分析"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">贝叶斯分析</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#统计学习方法-朴素贝叶斯法"><span class="post-toc-number">2.</span> <span class="post-toc-text">统计学习方法 朴素贝叶斯法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#朴素贝叶斯法的学习与分类"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">朴素贝叶斯法的学习与分类</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#基本方法"><span class="post-toc-number">2.1.1.</span> <span class="post-toc-text">基本方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#后验概率最大化的含义"><span class="post-toc-number">2.1.2.</span> <span class="post-toc-text">后验概率最大化的含义</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#朴素贝叶斯的参数估计"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">朴素贝叶斯的参数估计</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#极大似然估计"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">极大似然估计</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#学习与分类算法"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">学习与分类算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#朴素贝叶斯算法（naive-Bayes-algorithm）"><span class="post-toc-number">2.2.2.1.</span> <span class="post-toc-text">朴素贝叶斯算法（naive  Bayes algorithm）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#例"><span class="post-toc-number">2.2.2.2.</span> <span class="post-toc-text">例</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#贝叶斯估计"><span class="post-toc-number">2.2.3.</span> <span class="post-toc-text">贝叶斯估计</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#例-1"><span class="post-toc-number">2.2.3.1.</span> <span class="post-toc-text">例</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#西瓜书-关于朴素贝叶斯分类器的补充"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">西瓜书 关于朴素贝叶斯分类器的补充</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#西瓜书-半朴素贝叶斯分类器"><span class="post-toc-number">3.</span> <span class="post-toc-text">西瓜书 半朴素贝叶斯分类器</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#西瓜书-贝叶斯网"><span class="post-toc-number">4.</span> <span class="post-toc-text">西瓜书 贝叶斯网</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#博客"><span class="post-toc-number">5.</span> <span class="post-toc-text">博客</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#贝叶斯推断"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">贝叶斯推断</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#朴素贝叶斯推断"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">朴素贝叶斯推断</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#实践"><span class="post-toc-number">6.</span> <span class="post-toc-text">实践</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#人工智能课上内容"><span class="post-toc-number">1.</span> <span class="post-toc-text">人工智能课上内容</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#贝叶斯概率vs经典概率"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">贝叶斯概率vs经典概率</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#经典概率"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">经典概率</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#贝叶斯概率"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">贝叶斯概率</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#后验分布"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">后验分布</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#先验分布"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">先验分布</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#贝叶斯分析"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">贝叶斯分析</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#统计学习方法-朴素贝叶斯法"><span class="post-toc-number">2.</span> <span class="post-toc-text">统计学习方法 朴素贝叶斯法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#朴素贝叶斯法的学习与分类"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">朴素贝叶斯法的学习与分类</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#基本方法"><span class="post-toc-number">2.1.1.</span> <span class="post-toc-text">基本方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#后验概率最大化的含义"><span class="post-toc-number">2.1.2.</span> <span class="post-toc-text">后验概率最大化的含义</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#朴素贝叶斯的参数估计"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">朴素贝叶斯的参数估计</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#极大似然估计"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">极大似然估计</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#学习与分类算法"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">学习与分类算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#朴素贝叶斯算法（naive-Bayes-algorithm）"><span class="post-toc-number">2.2.2.1.</span> <span class="post-toc-text">朴素贝叶斯算法（naive  Bayes algorithm）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#例"><span class="post-toc-number">2.2.2.2.</span> <span class="post-toc-text">例</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#贝叶斯估计"><span class="post-toc-number">2.2.3.</span> <span class="post-toc-text">贝叶斯估计</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#例-1"><span class="post-toc-number">2.2.3.1.</span> <span class="post-toc-text">例</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#西瓜书-关于朴素贝叶斯分类器的补充"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">西瓜书 关于朴素贝叶斯分类器的补充</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#西瓜书-半朴素贝叶斯分类器"><span class="post-toc-number">3.</span> <span class="post-toc-text">西瓜书 半朴素贝叶斯分类器</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#西瓜书-贝叶斯网"><span class="post-toc-number">4.</span> <span class="post-toc-text">西瓜书 贝叶斯网</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#博客"><span class="post-toc-number">5.</span> <span class="post-toc-text">博客</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#贝叶斯推断"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">贝叶斯推断</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#朴素贝叶斯推断"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">朴素贝叶斯推断</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#实践"><span class="post-toc-number">6.</span> <span class="post-toc-text">实践</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#朴素贝叶斯"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">朴素贝叶斯</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#sklearn-朴素贝叶斯"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">sklearn-朴素贝叶斯</span></a></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -214,7 +216,8 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="人工智能课上内容"><a href="#人工智能课上内容" class="headerlink" title="人工智能课上内容"></a>人工智能课上内容</h1><p><a href="https://www.zhihu.com/question/21134457" target="_blank" rel="noopener">你对贝叶斯统计都有怎样的理解？ - 知乎</a></p>
+            <p>已修改</p>
+<h1 id="人工智能课上内容"><a href="#人工智能课上内容" class="headerlink" title="人工智能课上内容"></a>人工智能课上内容</h1><p><a href="https://www.zhihu.com/question/21134457" target="_blank" rel="noopener">你对贝叶斯统计都有怎样的理解？ - 知乎</a></p>
 <h2 id="贝叶斯概率vs经典概率"><a href="#贝叶斯概率vs经典概率" class="headerlink" title="贝叶斯概率vs经典概率"></a>贝叶斯概率vs经典概率</h2><p>关于统计推断的主张和想法，大体可以纳入到两个体系之内，其一叫频率学派，其特征是把需要推断的参数θ视作固定且未知的常数，而样本X是随机的，其着眼点在样本空间，有关的概率计算都是针对X的分布。另一派叫做贝叶斯学派，他们把参数θ视作随机变量，而样本X是固定的，其着眼点在参数空间，重视参数θ的分布，固定的操作模式是通过参数的先验分布结合样本信息得到参数的后验分布。</p>
 <h2 id="经典概率"><a href="#经典概率" class="headerlink" title="经典概率"></a>经典概率</h2><p>即我们学习的概率论呀。<br>方法：MLE（极大似然估计）<br>认为世界是确定的。θ是唯一的。</p>
 <h2 id="贝叶斯概率"><a href="#贝叶斯概率" class="headerlink" title="贝叶斯概率"></a>贝叶斯概率</h2><p>方法：MAP（最大后验估计）<br>频率派认为估计对象（参数）是一个未知的固定值。而贝叶斯却认为未知的参数都是随机变量。</p>
@@ -369,7 +372,7 @@
 <p>P(B|A)/P(B)称为”可能性函数”（Likelyhood），这是一个调整因子，使得预估概率更接近真实概率。</p>
 <p>这就是贝叶斯推断的含义。我们先预估一个”先验概率”，然后加入实验结果，看这个实验到底是增强还是削弱了”先验概率”，由此得到更接近事实的”后验概率”。</p>
 <p>在这里，如果”可能性函数”P(B|A)/P(B)&gt;1，意味着”先验概率”被增强，事件A的发生的可能性变大；如果”可能性函数”=1，意味着B事件无助于判断事件A的可能性；如果”可能性函数”&lt;1，意味着”先验概率”被削弱，事件A的可能性变小。</p>
-<p>要知道我们只需要比较 P(H1|E)和P(H2|E)的大小，找到那个最大的概率就可以。既然如此，两者的分母都是相同的，那我们只需要比较分子即可。即比较P(E|H1)P(H1)和P(E|H2)P(H2)的大小，所以为了减少计算量，全概率公式在实际编程中可以不使用。</p>
+<p>要知道我们只需要比较 P(H1|E)和P(H2|E)的大小，找到那个最大的概率就可以。既然如此，两者的分母都是相同的，那我们只需要比较分子即可。即比较P(E|H1)P(H1)和P(E|H2)P(H2)的大小，<strong>所以为了减少计算量，全概率公式在实际编程中可以不使用。</strong></p>
 <p>其中P(B):<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
@@ -419,7 +422,30 @@
                 </div>
                 <div class="image-caption"></div>
             </figure></p>
-<h1 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h1>
+<h1 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h1><h2 id="朴素贝叶斯"><a href="#朴素贝叶斯" class="headerlink" title="朴素贝叶斯"></a>朴素贝叶斯</h2><p><a href="https://github.com/zdkswd/MLcode/blob/master/%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0/bayes.py">https://github.com/zdkswd/MLcode/blob/master/%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0/bayes.py</a></p>
+<h2 id="sklearn-朴素贝叶斯"><a href="#sklearn-朴素贝叶斯" class="headerlink" title="sklearn-朴素贝叶斯"></a>sklearn-朴素贝叶斯</h2><p>在sklearn中一共有三个朴素贝叶斯分类算法类。分别是GaussianNB,MultinomialNB和BernoulliNB。其中GaussianNB就是先验为高斯分布的朴素贝叶斯，MultinomialNB就是先验为多项式分布的朴素贝叶斯，而BernoulliNB就是先验为伯努利分布的朴素贝叶斯。</p>
+<p>对于新闻分类，属于多分类问题。我们可以使用MultinamialNB()完成我们的新闻分类问题。MultinomialNB假设特征的先验概率为多项式分布，即如下式：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/add/6.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>其中， P(Xj = Xjl | Y = Ck)是第k个类别的第j维特征的第l个取值条件概率。mk是训练集中输出为第k类的样本个数。λ为一个大于0的常数，常常取值为1，即拉普拉斯平滑，也可以取其他值。</p>
+<p>MultinamialNB这个函数，只有3个参数：<br>参数说明如下:</p>
+<ol>
+<li>alpha：浮点型可选参数，默认为1.0，其实就是添加拉普拉斯平滑，即为上述公式中的λ ，如果这个参数设置为0，就是不添加平滑；</li>
+<li>fit_prior：布尔型可选参数，默认为True。布尔参数fit_prior表示是否要考虑先验概率，如果是false,则所有的样本类别输出都有相同的类别先验概率。否则可以自己用第三个参数class_prior输入先验概率，或者不输入第三个参数class_prior让MultinomialNB自己从训练集样本来计算先验概率，此时的先验概率为P(Y=Ck)=mk/m。其中m为训练集样本总数量，mk为输出为第k类别的训练集样本数。</li>
+<li>class_prior：可选参数，默认为None。</li>
+</ol>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/add/7.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>MultinomialNB一个重要的功能是有partial_fit方法，这个方法的一般用在如果训练集数据量非常大，一次不能全部载入内存的时候。这时我们可以把训练集分成若干等分，重复调用partial_fit来一步步的学习训练集，非常方便。GaussianNB和BernoulliNB也有类似的功能。 在使用MultinomialNB的fit方法或者partial_fit方法拟合数据后，我们可以进行预测。此时预测有三种方法，包括predict，predict_log_proba和predict_proba。predict方法就是我们最常用的预测方法，直接给出测试集的预测类别输出。predict_proba则不同，它会给出测试集样本在各个类别上预测的概率。容易理解，predict_proba预测出的各个类别概率里的最大值对应的类别，也就是predict方法得到类别。predict_log_proba和predict_proba类似，它会给出测试集样本在各个类别上预测的概率的一个对数转化。转化后predict_log_proba预测出的各个类别对数概率里的最大值对应的类别，也就是predict方法得到类别。</p>
+
         </div>
 
         <blockquote class="post-copyright">
@@ -427,7 +453,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-11-22T08:51:45.000Z" itemprop="dateUpdated">2018-11-22 16:51:45</time>
+    最后更新时间：<time datetime="2018-11-23T05:50:35.000Z" itemprop="dateUpdated">2018-11-23 13:50:35</time>
 </span><br>
 
 
