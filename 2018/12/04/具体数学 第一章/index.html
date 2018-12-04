@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>人工智能第一课 | ZDK&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="数学">
+    <meta name="description" content="具体数学 第一章汉诺塔问题3个柱子的汉诺塔问题，最少移动次数记为T(n)。T(n)=2T(n−1)+1边界条件为T(0)=0。解出                                                                                                          其中等比数列求和公式为：">
+<meta name="keywords" content="数学">
+<meta property="og:type" content="article">
+<meta property="og:title" content="人工智能第一课">
+<meta property="og:url" content="https://github.com/zdkswd/2018/12/04/具体数学 第一章/index.html">
+<meta property="og:site_name" content="ZDK&#39;s blog">
+<meta property="og:description" content="具体数学 第一章汉诺塔问题3个柱子的汉诺塔问题，最少移动次数记为T(n)。T(n)=2T(n−1)+1边界条件为T(0)=0。解出                                                                                                          其中等比数列求和公式为：">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-03%20%E4%B8%8A%E5%8D%888.35.43.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/7dd98d1001e93901d3c632667bec54e737d196a6.jpg">
+<meta property="og:image" content="https://github.com/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/v2-0ff29cd5195ff3e432fef0247a798c4b_b.jpg">
+<meta property="og:image" content="https://github.com/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-03%20%E4%B8%8A%E5%8D%888.57.57.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-03%20%E4%B8%8A%E5%8D%888.58.36.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/1.jpg">
+<meta property="og:image" content="https://github.com/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-03%20%E4%B8%8A%E5%8D%8810.15.51.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/2.jpg">
+<meta property="og:image" content="https://github.com/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-03%20%E4%B8%8A%E5%8D%8810.59.13.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/3.jpg">
+<meta property="og:image" content="https://github.com/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-03%20%E4%B8%8A%E5%8D%8811.00.23.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-03%20%E4%B8%8A%E5%8D%8811.02.04.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-03%20%E4%B8%8B%E5%8D%886.29.36.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-03%20%E4%B8%8B%E5%8D%886.29.56.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-03%20%E4%B8%8B%E5%8D%886.31.18.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-03%20%E4%B8%8B%E5%8D%886.30.46.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-03%20%E4%B8%8B%E5%8D%886.32.45.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-03%20%E4%B8%8B%E5%8D%889.39.46.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-03%20%E4%B8%8B%E5%8D%889.40.06.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/WechatIMG11543844531_.pic.jpg">
+<meta property="og:image" content="https://github.com/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-03%20%E4%B8%8B%E5%8D%889.44.41.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-03%20%E4%B8%8B%E5%8D%889.45.02.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-03%20%E4%B8%8B%E5%8D%889.46.13.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%8812.25.51.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%8812.26.10.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%8812.31.17.png">
+<meta property="og:updated_time" content="2018-12-04T04:34:45.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="人工智能第一课">
+<meta name="twitter:description" content="具体数学 第一章汉诺塔问题3个柱子的汉诺塔问题，最少移动次数记为T(n)。T(n)=2T(n−1)+1边界条件为T(0)=0。解出                                                                                                          其中等比数列求和公式为：">
+<meta name="twitter:image" content="https://github.com/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-03%20%E4%B8%8A%E5%8D%888.35.43.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/tmg.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ZDK</h5>
+          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/zdkswd" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">人工智能第一课</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">人工智能第一课</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-12-04T04:33:32.000Z" itemprop="datePublished" class="page-time">
+  2018-12-04
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#具体数学-第一章"><span class="post-toc-number">1.</span> <span class="post-toc-text">具体数学 第一章</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#汉诺塔问题"><span class="post-toc-number">2.</span> <span class="post-toc-text">汉诺塔问题</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#直线分割平面问题"><span class="post-toc-number">3.</span> <span class="post-toc-text">直线分割平面问题</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#约瑟夫环问题"><span class="post-toc-number">4.</span> <span class="post-toc-text">约瑟夫环问题</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#递推式求和"><span class="post-toc-number">5.</span> <span class="post-toc-text">递推式求和</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-具体数学 第一章"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">人工智能第一课</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-12-04 12:33:32" datetime="2018-12-04T04:33:32.000Z"  itemprop="datePublished">2018-12-04</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="具体数学-第一章"><a href="#具体数学-第一章" class="headerlink" title="具体数学 第一章"></a>具体数学 第一章</h1><h1 id="汉诺塔问题"><a href="#汉诺塔问题" class="headerlink" title="汉诺塔问题"></a>汉诺塔问题</h1><p>3个柱子的汉诺塔问题，最少移动次数记为T(n)。<br>T(n)=2T(n−1)+1<br>边界条件为T(0)=0。解出<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-03%20%E4%B8%8A%E5%8D%888.35.43.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>其中等比数列求和公式为：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/7dd98d1001e93901d3c632667bec54e737d196a6.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>递归<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/v2-0ff29cd5195ff3e432fef0247a798c4b_b.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>移动的时候的原则就如下表示：<br>第一阶段：（n-1）A—&gt;B（把所有的n-1个盘子从A移动到B上）<br>第二阶段：n A—&gt;C（把最底下的n号盘从A移动到C上）<br>第三阶段：（n-1）B—&gt;C（把n-1个盘子从B移动到C上）</p>
+<h1 id="直线分割平面问题"><a href="#直线分割平面问题" class="headerlink" title="直线分割平面问题"></a>直线分割平面问题</h1><p>n条直线最多分割平面为几部分，记为L(n)。所以。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-03%20%E4%B8%8A%E5%8D%888.57.57.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>边界条件为L(0)=1。得。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-03%20%E4%B8%8A%E5%8D%888.58.36.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>这题有个扩展，n个V型最多分割平面为几部分？<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/1.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>将V型补全（红色虚线部分），那么就转化为了2n条直线划分平面数，那么n个V型划分数只要减去2n就行了，所以答案为：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-03%20%E4%B8%8A%E5%8D%8810.15.51.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h1 id="约瑟夫环问题"><a href="#约瑟夫环问题" class="headerlink" title="约瑟夫环问题"></a>约瑟夫环问题</h1><p>约瑟夫问题是个有名的问题：N个人围成一圈，从第一个开始报数，第M个将被杀掉，最后剩下一个，其余人都将被杀掉。例如N=6，M=5，被杀掉的顺序是：5，4，6，2，3，1。<br>书中的例子是每隔一个人杀死一个。J（n）是最后一个幸存者的位置。</p>
+<p>分两种情况讨论：<br>当有2n个人时，踢掉n个人之后，情况如下图所示<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/2.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>观察发现一圈当中的对应位置相同，且左图的数字为右图数字*2-1。所以最后幸存者的位置也有着相同的关系。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-03%20%E4%B8%8A%E5%8D%8810.59.13.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>同理，当有2n+1个人时，踢掉n+1个人之后<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/3.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>观察对应关系可以得出<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-03%20%E4%B8%8A%E5%8D%8811.00.23.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>边界条件为，J(1)=1。<br>这个递推式很难求解，但是枚举出前面几项可以发现，如果令n=2的m次方+l，其中2的m次方是小于等于n的最大2的幂，那么<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-03%20%E4%B8%8A%E5%8D%8811.02.04.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>将n写成二进制可以发现，f(n)就是n的二进制循环左移1位。如n=10，即1010，f(10)=0101=5。<br>现在将其推广到一般形式，原始的式子中α=1，β=-1，r=1。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-03%20%E4%B8%8B%E5%8D%886.29.36.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>由此可见可以设<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-03%20%E4%B8%8B%E5%8D%886.29.56.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>令<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-03%20%E4%B8%8B%E5%8D%886.31.18.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-03%20%E4%B8%8B%E5%8D%886.30.46.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>通过观察得出：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-03%20%E4%B8%8B%E5%8D%886.32.45.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>将递推式继续推广：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-03%20%E4%B8%8B%E5%8D%889.39.46.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>可以得到解为：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-03%20%E4%B8%8B%E5%8D%889.40.06.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>具体为：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/WechatIMG11543844531_.pic.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h1 id="递推式求和"><a href="#递推式求和" class="headerlink" title="递推式求和"></a>递推式求和</h1><p>使用成套方法。<br>成套方法的一般步骤是：寻求一组已知其解的通用参数，然后将特殊情况组合起来得到一般的情形，<br>有多少个独立的参数就需要多少个独立的特解。<br>求解如下递推式：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-03%20%E4%B8%8B%E5%8D%889.44.41.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>用成套方法求解，设<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-03%20%E4%B8%8B%E5%8D%889.45.02.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-03%20%E4%B8%8B%E5%8D%889.46.13.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>对于更复杂得递推式：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%8812.25.51.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>同样设<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%8812.26.10.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%8812.31.17.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-12-04T04:34:45.000Z" itemprop="dateUpdated">2018-12-04 12:34:45</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/zdkswd">
+            <img src="/img/tmg.jpg" alt="ZDK">
+            ZDK
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数学/">数学</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/12/04/具体数学 第一章/&title=《人工智能第一课》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/12/04/具体数学 第一章/&title=《人工智能第一课》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/12/04/具体数学 第一章/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《人工智能第一课》 — ZDK's blog&url=https://github.com/zdkswd/2018/12/04/具体数学 第一章/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/12/04/具体数学 第一章/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/11/28/SVM/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">SVM</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz",
+            appKey: "gkBx5soQkBREmER84PWbNJeM",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ZDK &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/12/04/具体数学 第一章/&title=《人工智能第一课》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/12/04/具体数学 第一章/&title=《人工智能第一课》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/12/04/具体数学 第一章/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《人工智能第一课》 — ZDK's blog&url=https://github.com/zdkswd/2018/12/04/具体数学 第一章/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/12/04/具体数学 第一章/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2018/12/04/具体数学 第一章/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'zdk'blog';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
