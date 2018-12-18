@@ -14,33 +14,33 @@
     
     
     
-    <title>C\C++程序的构筑过程 | ZDK&#39;s blog</title>
+    <title>C C++程序的构筑过程 | ZDK&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
     <meta name="keywords" content="C++">
-    <meta name="description" content="C\C++程序的构筑过程参考：http://www.ruanyifeng.com/blog/2014/11/compiler.html源码要运行，必须先转成二进制的机器码。这是编译器的任务。如源码test.c">
+    <meta name="description" content="C C++程序的构筑过程参考：http://www.ruanyifeng.com/blog/2014/11/compiler.html源码要运行，必须先转成二进制的机器码。这是编译器的任务。如源码test.c">
 <meta name="keywords" content="C++">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C\C++程序的构筑过程">
-<meta property="og:url" content="https://github.com/zdkswd/2018/12/18/C/C++程序的构筑过程/index.html">
+<meta property="og:title" content="C C++程序的构筑过程">
+<meta property="og:url" content="https://github.com/zdkswd/2018/12/18/C C++程序的构筑过程/index.html">
 <meta property="og:site_name" content="ZDK&#39;s blog">
-<meta property="og:description" content="C\C++程序的构筑过程参考：http://www.ruanyifeng.com/blog/2014/11/compiler.html源码要运行，必须先转成二进制的机器码。这是编译器的任务。如源码test.c">
+<meta property="og:description" content="C C++程序的构筑过程参考：http://www.ruanyifeng.com/blog/2014/11/compiler.html源码要运行，必须先转成二进制的机器码。这是编译器的任务。如源码test.c">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://github.com/img/media/C%5CC++%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E7%AD%91%E8%BF%87%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8B%E5%8D%884.21.08.png">
-<meta property="og:image" content="https://github.com/img/media/C%5CC++%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E7%AD%91%E8%BF%87%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8B%E5%8D%884.23.05.png">
-<meta property="og:image" content="https://github.com/img/media/C%5CC++%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E7%AD%91%E8%BF%87%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8B%E5%8D%884.23.23.png">
-<meta property="og:image" content="https://github.com/img/media/C%5CC++%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E7%AD%91%E8%BF%87%E7%A8%8B/bg2014110803.png">
-<meta property="og:image" content="https://github.com/img/media/C%5CC++%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E7%AD%91%E8%BF%87%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8B%E5%8D%884.35.31.png">
-<meta property="og:image" content="https://github.com/img/media/C%5CC++%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E7%AD%91%E8%BF%87%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8B%E5%8D%884.41.06.png">
-<meta property="og:image" content="https://github.com/img/media/C%5CC++%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E7%AD%91%E8%BF%87%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8B%E5%8D%884.42.24.png">
-<meta property="og:updated_time" content="2018-12-18T10:04:34.000Z">
+<meta property="og:image" content="https://github.com/img/media/C%20C++%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E7%AD%91%E8%BF%87%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8B%E5%8D%884.21.08.png">
+<meta property="og:image" content="https://github.com/img/media/C%20C++%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E7%AD%91%E8%BF%87%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8B%E5%8D%884.23.05.png">
+<meta property="og:image" content="https://github.com/img/media/C%20C++%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E7%AD%91%E8%BF%87%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8B%E5%8D%884.23.23.png">
+<meta property="og:image" content="https://github.com/img/media/C%20C++%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E7%AD%91%E8%BF%87%E7%A8%8B/bg2014110803.png">
+<meta property="og:image" content="https://github.com/img/media/C%20C++%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E7%AD%91%E8%BF%87%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8B%E5%8D%884.35.31.png">
+<meta property="og:image" content="https://github.com/img/media/C%20C++%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E7%AD%91%E8%BF%87%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8B%E5%8D%884.41.06.png">
+<meta property="og:image" content="https://github.com/img/media/C%20C++%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E7%AD%91%E8%BF%87%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8B%E5%8D%884.42.24.png">
+<meta property="og:updated_time" content="2018-12-18T10:14:22.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C\C++程序的构筑过程">
-<meta name="twitter:description" content="C\C++程序的构筑过程参考：http://www.ruanyifeng.com/blog/2014/11/compiler.html源码要运行，必须先转成二进制的机器码。这是编译器的任务。如源码test.c">
-<meta name="twitter:image" content="https://github.com/img/media/C%5CC++%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E7%AD%91%E8%BF%87%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8B%E5%8D%884.21.08.png">
+<meta name="twitter:title" content="C C++程序的构筑过程">
+<meta name="twitter:description" content="C C++程序的构筑过程参考：http://www.ruanyifeng.com/blog/2014/11/compiler.html源码要运行，必须先转成二进制的机器码。这是编译器的任务。如源码test.c">
+<meta name="twitter:image" content="https://github.com/img/media/C%20C++%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E7%AD%91%E8%BF%87%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8B%E5%8D%884.21.08.png">
     
         <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
     
@@ -121,7 +121,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">C\C++程序的构筑过程</div>
+        <div class="flex-col header-title ellipsis">C C++程序的构筑过程</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -143,10 +143,10 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">C\C++程序的构筑过程</h1>
+        <h1 class="title">C C++程序的构筑过程</h1>
         <h5 class="subtitle">
             
-                <time datetime="2018-12-18T08:56:56.000Z" itemprop="datePublished" class="page-time">
+                <time datetime="2018-12-18T10:13:56.000Z" itemprop="datePublished" class="page-time">
   2018-12-18
 </time>
 
@@ -168,18 +168,18 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#C-C-程序的构筑过程"><span class="post-toc-number">1.</span> <span class="post-toc-text">C\C++程序的构筑过程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第一步-配置（configure）"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">第一步 配置（configure）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第二步-确定标准库和头文件的位置"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">第二步 确定标准库和头文件的位置</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第三步-确定依赖关系"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">第三步 确定依赖关系</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第四步-头文件的预编译"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">第四步 头文件的预编译</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第五步-预处理（Preprocessing）"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">第五步 预处理（Preprocessing）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第六步-编译（Compilation）"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">第六步 编译（Compilation）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第七步-连接（Linking）"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">第七步 连接（Linking）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第八步-安装（Installation）"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">第八步 安装（Installation）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第九步-操作系统连接"><span class="post-toc-number">1.9.</span> <span class="post-toc-text">第九步 操作系统连接</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#生成安装包"><span class="post-toc-number">1.10.</span> <span class="post-toc-text">生成安装包</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#动态连接（Dynamic-linking）"><span class="post-toc-number">1.11.</span> <span class="post-toc-text">动态连接（Dynamic linking）</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#C-C-程序的构筑过程"><span class="post-toc-number">1.</span> <span class="post-toc-text">C C++程序的构筑过程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第一步-配置（configure）"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">第一步 配置（configure）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第二步-确定标准库和头文件的位置"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">第二步 确定标准库和头文件的位置</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第三步-确定依赖关系"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">第三步 确定依赖关系</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第四步-头文件的预编译"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">第四步 头文件的预编译</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第五步-预处理（Preprocessing）"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">第五步 预处理（Preprocessing）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第六步-编译（Compilation）"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">第六步 编译（Compilation）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第七步-连接（Linking）"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">第七步 连接（Linking）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第八步-安装（Installation）"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">第八步 安装（Installation）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第九步-操作系统连接"><span class="post-toc-number">1.9.</span> <span class="post-toc-text">第九步 操作系统连接</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#生成安装包"><span class="post-toc-number">1.10.</span> <span class="post-toc-text">生成安装包</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#动态连接（Dynamic-linking）"><span class="post-toc-number">1.11.</span> <span class="post-toc-text">动态连接（Dynamic linking）</span></a></li></ol></li></ol>
         </nav>
     </aside>
 
 
-<article id="post-C\C++程序的构筑过程"
+<article id="post-C C++程序的构筑过程"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">C\C++程序的构筑过程</h1>
+        <h1 class="post-card-title">C C++程序的构筑过程</h1>
         <div class="post-meta">
-            <time class="post-time" title="2018-12-18 16:56:56" datetime="2018-12-18T08:56:56.000Z"  itemprop="datePublished">2018-12-18</time>
+            <time class="post-time" title="2018-12-18 18:13:56" datetime="2018-12-18T10:13:56.000Z"  itemprop="datePublished">2018-12-18</time>
 
             
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
@@ -194,28 +194,28 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="C-C-程序的构筑过程"><a href="#C-C-程序的构筑过程" class="headerlink" title="C\C++程序的构筑过程"></a>C\C++程序的构筑过程</h1><p>参考：<a href="http://www.ruanyifeng.com/blog/2014/11/compiler.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2014/11/compiler.html</a><br>源码要运行，必须先转成二进制的机器码。这是编译器的任务。<br>如源码test.c<br><figure class="image-bubble">
+            <h1 id="C-C-程序的构筑过程"><a href="#C-C-程序的构筑过程" class="headerlink" title="C C++程序的构筑过程"></a>C C++程序的构筑过程</h1><p>参考：<a href="http://www.ruanyifeng.com/blog/2014/11/compiler.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2014/11/compiler.html</a><br>源码要运行，必须先转成二进制的机器码。这是编译器的任务。<br>如源码test.c<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/img/media/C%5CC++%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E7%AD%91%E8%BF%87%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8B%E5%8D%884.21.08.png" alt="" title="">
+                    <img src="/img/media/C%20C++%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E7%AD%91%E8%BF%87%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8B%E5%8D%884.21.08.png" alt="" title="">
                 </div>
                 <div class="image-caption"></div>
             </figure><br>要编译器处理一下才能运行。<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/img/media/C%5CC++%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E7%AD%91%E8%BF%87%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8B%E5%8D%884.23.05.png" alt="" title="">
+                    <img src="/img/media/C%20C++%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E7%AD%91%E8%BF%87%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8B%E5%8D%884.23.05.png" alt="" title="">
                 </div>
                 <div class="image-caption"></div>
             </figure><br>对于复杂的项目，编译过程还必须分成三步。<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/img/media/C%5CC++%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E7%AD%91%E8%BF%87%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8B%E5%8D%884.23.23.png" alt="" title="">
+                    <img src="/img/media/C%20C++%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E7%AD%91%E8%BF%87%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8B%E5%8D%884.23.23.png" alt="" title="">
                 </div>
                 <div class="image-caption"></div>
             </figure><br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/img/media/C%5CC++%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E7%AD%91%E8%BF%87%E7%A8%8B/bg2014110803.png" alt="" title="">
+                    <img src="/img/media/C%20C++%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E7%AD%91%E8%BF%87%E7%A8%8B/bg2014110803.png" alt="" title="">
                 </div>
                 <div class="image-caption"></div>
             </figure></p>
@@ -227,7 +227,7 @@
 <h2 id="第三步-确定依赖关系"><a href="#第三步-确定依赖关系" class="headerlink" title="第三步 确定依赖关系"></a>第三步 确定依赖关系</h2><p>对于大型项目来说，源码文件之间往往存在依赖关系，编译器需要确定编译的先后顺序。假定A文件依赖于B文件，编译器应该保证做到下面两点。<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/img/media/C%5CC++%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E7%AD%91%E8%BF%87%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8B%E5%8D%884.35.31.png" alt="" title="">
+                    <img src="/img/media/C%20C++%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E7%AD%91%E8%BF%87%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8B%E5%8D%884.35.31.png" alt="" title="">
                 </div>
                 <div class="image-caption"></div>
             </figure><br>编译顺序保存在一个叫做makefile的文件中，里面列出哪个文件先编译，哪个文件后编译。而makefile文件由configure脚本运行生成，这就是为什么编译时configure必须首先运行的原因。</p>
@@ -237,7 +237,7 @@
 <h2 id="第五步-预处理（Preprocessing）"><a href="#第五步-预处理（Preprocessing）" class="headerlink" title="第五步 预处理（Preprocessing）"></a>第五步 预处理（Preprocessing）</h2><p>预编译完成后，编译器就开始替换掉源码中bash的头文件和宏。以本文开头的那段源码为例，它包含头文件stdio.h，替换后的样子如下。<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/img/media/C%5CC++%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E7%AD%91%E8%BF%87%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8B%E5%8D%884.41.06.png" alt="" title="">
+                    <img src="/img/media/C%20C++%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E7%AD%91%E8%BF%87%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8B%E5%8D%884.41.06.png" alt="" title="">
                 </div>
                 <div class="image-caption"></div>
             </figure><br>为了便于阅读，上面代码只截取了头文件中与源码相关的那部分，即fputs和FILE的声明，省略了stdio.h的其他部分（因为它们非常长）。另外，上面代码的头文件没有经过预编译，而实际上，插入源码的是预编译后的结果。编译器在这一步还会移除注释。</p>
@@ -246,7 +246,7 @@
 <p>下面是本文开头的那段源码转成的汇编码。<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/img/media/C%5CC++%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E7%AD%91%E8%BF%87%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8B%E5%8D%884.42.24.png" alt="" title="">
+                    <img src="/img/media/C%20C++%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E7%AD%91%E8%BF%87%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8B%E5%8D%884.42.24.png" alt="" title="">
                 </div>
                 <div class="image-caption"></div>
             </figure><br>这种转码后的文件称为对象文件（object file）。</p>
@@ -271,7 +271,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-12-18T10:04:34.000Z" itemprop="dateUpdated">2018-12-18 18:04:34</time>
+    最后更新时间：<time datetime="2018-12-18T10:14:22.000Z" itemprop="dateUpdated">2018-12-18 18:14:22</time>
 </span><br>
 
 
@@ -301,7 +301,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/12/18/C/C++程序的构筑过程/&title=《C\C++程序的构筑过程》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/12/18/C C++程序的构筑过程/&title=《C C++程序的构筑过程》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -311,22 +311,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/12/18/C/C++程序的构筑过程/&title=《C\C++程序的构筑过程》 — ZDK's blog&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/12/18/C C++程序的构筑过程/&title=《C C++程序的构筑过程》 — ZDK's blog&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/12/18/C/C++程序的构筑过程/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/12/18/C C++程序的构筑过程/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《C\C++程序的构筑过程》 — ZDK's blog&url=https://github.com/zdkswd/2018/12/18/C/C++程序的构筑过程/&via=https://github.com/zdkswd" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《C C++程序的构筑过程》 — ZDK's blog&url=https://github.com/zdkswd/2018/12/18/C C++程序的构筑过程/&via=https://github.com/zdkswd" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/12/18/C/C++程序的构筑过程/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/12/18/C C++程序的构筑过程/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -448,7 +448,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/12/18/C/C++程序的构筑过程/&title=《C\C++程序的构筑过程》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/12/18/C C++程序的构筑过程/&title=《C C++程序的构筑过程》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -458,22 +458,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/12/18/C/C++程序的构筑过程/&title=《C\C++程序的构筑过程》 — ZDK's blog&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/12/18/C C++程序的构筑过程/&title=《C C++程序的构筑过程》 — ZDK's blog&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/12/18/C/C++程序的构筑过程/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/12/18/C C++程序的构筑过程/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《C\C++程序的构筑过程》 — ZDK's blog&url=https://github.com/zdkswd/2018/12/18/C/C++程序的构筑过程/&via=https://github.com/zdkswd" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《C C++程序的构筑过程》 — ZDK's blog&url=https://github.com/zdkswd/2018/12/18/C C++程序的构筑过程/&via=https://github.com/zdkswd" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/12/18/C/C++程序的构筑过程/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/12/18/C C++程序的构筑过程/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -484,7 +484,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2018/12/18/C/C++程序的构筑过程/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2018/12/18/C C++程序的构筑过程/" alt="微信分享二维码">
 </div>
 
 
