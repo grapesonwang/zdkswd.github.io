@@ -14,7 +14,7 @@
     
     
     
-    <title>C++ Primer 类之前 | ZDK&#39;s blog</title>
+    <title>C++ Primer 数据 语句 | ZDK&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
@@ -24,8 +24,8 @@
     <meta name="description" content="开始学习C++进入C++通常main()被启动代码调用，而启动代码是由编译器添加到程序中的，是程序和操作系统的桥梁。 C++必修包含一个名为main()的函数，大小写拼写都要正确。如果没有main(),程序将不完整，编译器将指出未定义main()函数。 存在一些例外情况。例如,在 Windows编程中,可以编写一个动态链接库(DLL)模块,这是其他 Windows程序可以使用的代码。由于DLL模块">
 <meta name="keywords" content="C++">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C++ Primer 类之前">
-<meta property="og:url" content="https://github.com/zdkswd/2018/12/18/C++ Primer 类之前/index.html">
+<meta property="og:title" content="C++ Primer 数据 语句">
+<meta property="og:url" content="https://github.com/zdkswd/2018/12/18/C++ Primer 数据 语句/index.html">
 <meta property="og:site_name" content="ZDK&#39;s blog">
 <meta property="og:description" content="开始学习C++进入C++通常main()被启动代码调用，而启动代码是由编译器添加到程序中的，是程序和操作系统的桥梁。 C++必修包含一个名为main()的函数，大小写拼写都要正确。如果没有main(),程序将不完整，编译器将指出未定义main()函数。 存在一些例外情况。例如,在 Windows编程中,可以编写一个动态链接库(DLL)模块,这是其他 Windows程序可以使用的代码。由于DLL模块">
 <meta property="og:locale" content="zh-CN">
@@ -122,75 +122,9 @@
 <meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-11%20%E4%B8%8B%E5%8D%888.34.27.png">
 <meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-11%20%E4%B8%8B%E5%8D%888.36.37.png">
 <meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-11%20%E4%B8%8B%E5%8D%888.53.54.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-12%20%E4%B8%8B%E5%8D%888.56.12.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-12%20%E4%B8%8B%E5%8D%889.00.42.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%8812.36.24.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%8812.37.33.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%8812.54.10.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%881.07.30.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%881.09.57.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%881.14.41.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%881.21.44.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%881.25.40.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%882.51.42.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%882.56.12.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%883.03.53.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%883.12.05.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%883.25.02.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%883.22.33.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%883.31.50.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%884.06.52.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%884.10.57.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%884.15.45.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%884.17.30.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%884.24.18.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%884.40.38.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%885.00.48.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%885.05.34.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%886.18.47.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%886.39.02.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%887.40.40.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%887.43.15.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%888.15.54.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%888.44.01.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%888.46.19.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%888.54.32.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%889.26.40.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%889.40.36.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-17%20%E4%B8%8A%E5%8D%8810.57.59.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-17%20%E4%B8%8A%E5%8D%8811.01.01.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-17%20%E4%B8%8A%E5%8D%8811.01.41.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-17%20%E4%B8%8B%E5%8D%8812.50.33.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-17%20%E4%B8%8B%E5%8D%8812.52.13.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-17%20%E4%B8%8B%E5%8D%881.05.02.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-17%20%E4%B8%8B%E5%8D%881.11.15.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-17%20%E4%B8%8B%E5%8D%885.37.16.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-17%20%E4%B8%8B%E5%8D%885.37.40.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-17%20%E4%B8%8B%E5%8D%885.54.35.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-17%20%E4%B8%8B%E5%8D%886.12.05.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-17%20%E4%B8%8B%E5%8D%886.13.21.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-17%20%E4%B8%8B%E5%8D%886.23.43.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-17%20%E4%B8%8B%E5%8D%886.37.07.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-17%20%E4%B8%8B%E5%8D%886.37.54.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-17%20%E4%B8%8B%E5%8D%886.39.56.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-17%20%E4%B8%8B%E5%8D%889.09.28.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-17%20%E4%B8%8B%E5%8D%889.31.48.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8A%E5%8D%888.53.00.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8A%E5%8D%888.54.21.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8A%E5%8D%889.13.35.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8A%E5%8D%889.14.52.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8A%E5%8D%889.15.03.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8A%E5%8D%889.25.14.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8A%E5%8D%889.26.44.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8B%E5%8D%881.09.52.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8B%E5%8D%881.24.43.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8B%E5%8D%881.32.31.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8B%E5%8D%882.11.32.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8B%E5%8D%882.39.59.png">
-<meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8B%E5%8D%882.48.41.png">
-<meta property="og:updated_time" content="2018-12-18T07:45:49.000Z">
+<meta property="og:updated_time" content="2018-12-18T07:57:22.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C++ Primer 类之前">
+<meta name="twitter:title" content="C++ Primer 数据 语句">
 <meta name="twitter:description" content="开始学习C++进入C++通常main()被启动代码调用，而启动代码是由编译器添加到程序中的，是程序和操作系统的桥梁。 C++必修包含一个名为main()的函数，大小写拼写都要正确。如果没有main(),程序将不完整，编译器将指出未定义main()函数。 存在一些例外情况。例如,在 Windows编程中,可以编写一个动态链接库(DLL)模块,这是其他 Windows程序可以使用的代码。由于DLL模块">
 <meta name="twitter:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-20%20%E4%B8%8A%E5%8D%889.31.15.png">
     
@@ -273,7 +207,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">C++ Primer 类之前</div>
+        <div class="flex-col header-title ellipsis">C++ Primer 数据 语句</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -295,7 +229,7 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">C++ Primer 类之前</h1>
+        <h1 class="title">C++ Primer 数据 语句</h1>
         <h5 class="subtitle">
             
                 <time datetime="2018-12-18T07:07:56.000Z" itemprop="datePublished" class="page-time">
@@ -320,16 +254,16 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#开始学习C"><span class="post-toc-number">1.</span> <span class="post-toc-text">开始学习C++</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#进入C"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">进入C++</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#C-预处理器和iostream文件"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">C++预处理器和iostream文件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#头文件名"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">头文件名</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#名称空间"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">名称空间</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#处理数据"><span class="post-toc-number">2.</span> <span class="post-toc-text">处理数据</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#简单变量"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">简单变量</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#变量名"><span class="post-toc-number">2.1.1.</span> <span class="post-toc-text">变量名</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#整型"><span class="post-toc-number">2.1.2.</span> <span class="post-toc-text">整型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#short、int和long"><span class="post-toc-number">2.1.3.</span> <span class="post-toc-text">short、int和long</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#符号常量—预处理器方式"><span class="post-toc-number">2.1.4.</span> <span class="post-toc-text">符号常量—预处理器方式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#无符号类型"><span class="post-toc-number">2.1.5.</span> <span class="post-toc-text">无符号类型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#选择整型的类型"><span class="post-toc-number">2.1.6.</span> <span class="post-toc-text">选择整型的类型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#整型常量"><span class="post-toc-number">2.1.7.</span> <span class="post-toc-text">整型常量</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#C-如何确定常量的类型"><span class="post-toc-number">2.1.8.</span> <span class="post-toc-text">C++如何确定常量的类型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#char类型：字符和小整数"><span class="post-toc-number">2.1.9.</span> <span class="post-toc-text">char类型：字符和小整数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#wcha-t"><span class="post-toc-number">2.1.10.</span> <span class="post-toc-text">wcha_t</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#const限定符"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">const限定符</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#浮点数"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">浮点数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#书写浮点数"><span class="post-toc-number">2.3.1.</span> <span class="post-toc-text">书写浮点数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#浮点类型"><span class="post-toc-number">2.3.2.</span> <span class="post-toc-text">浮点类型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#浮点数的优缺点"><span class="post-toc-number">2.3.3.</span> <span class="post-toc-text">浮点数的优缺点</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#C-算术操作符"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">C++算术操作符</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#操作符优先级和结合性"><span class="post-toc-number">2.4.1.</span> <span class="post-toc-text">操作符优先级和结合性</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#除法分支"><span class="post-toc-number">2.4.2.</span> <span class="post-toc-text">除法分支</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#求模操作符"><span class="post-toc-number">2.4.3.</span> <span class="post-toc-text">求模操作符</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#类型转换"><span class="post-toc-number">2.4.4.</span> <span class="post-toc-text">类型转换</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#赋值时进行的转换"><span class="post-toc-number">2.4.4.1.</span> <span class="post-toc-text">赋值时进行的转换</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#表达式中的转换"><span class="post-toc-number">2.4.4.2.</span> <span class="post-toc-text">表达式中的转换</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#传递参数时转换"><span class="post-toc-number">2.4.4.3.</span> <span class="post-toc-text">传递参数时转换</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#强制类型转换"><span class="post-toc-number">2.4.4.4.</span> <span class="post-toc-text">强制类型转换</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#复合类型"><span class="post-toc-number">3.</span> <span class="post-toc-text">复合类型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数组"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">数组</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数组的声明"><span class="post-toc-number">3.1.1.</span> <span class="post-toc-text">数组的声明</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数组的初始化规则"><span class="post-toc-number">3.1.2.</span> <span class="post-toc-text">数组的初始化规则</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#字符串"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">字符串</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#拼接字符串常量"><span class="post-toc-number">3.2.1.</span> <span class="post-toc-text">拼接字符串常量</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#在数组中使用字符串"><span class="post-toc-number">3.2.2.</span> <span class="post-toc-text">在数组中使用字符串</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#字符串输入"><span class="post-toc-number">3.2.3.</span> <span class="post-toc-text">字符串输入</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#每次读取一行字符串输入"><span class="post-toc-number">3.2.4.</span> <span class="post-toc-text">每次读取一行字符串输入</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#面向行的输入：getline"><span class="post-toc-number">3.2.4.1.</span> <span class="post-toc-text">面向行的输入：getline()</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#面向行的输入：get"><span class="post-toc-number">3.2.4.2.</span> <span class="post-toc-text">面向行的输入：get()</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#混合输入字符串和数字"><span class="post-toc-number">3.2.5.</span> <span class="post-toc-text">混合输入字符串和数字</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#string类简介"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">string类简介</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#赋值、拼接和附加"><span class="post-toc-number">3.3.1.</span> <span class="post-toc-text">赋值、拼接和附加</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#string类的其他操作"><span class="post-toc-number">3.3.2.</span> <span class="post-toc-text">string类的其他操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#string类I-O"><span class="post-toc-number">3.3.3.</span> <span class="post-toc-text">string类I/O</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#结构简介"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">结构简介</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#在程序中使用结构"><span class="post-toc-number">3.4.1.</span> <span class="post-toc-text">在程序中使用结构</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#结构可以将string类作为成员吗"><span class="post-toc-number">3.4.2.</span> <span class="post-toc-text">结构可以将string类作为成员吗</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#其他结构属性"><span class="post-toc-number">3.4.3.</span> <span class="post-toc-text">其他结构属性</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#结构数组"><span class="post-toc-number">3.4.4.</span> <span class="post-toc-text">结构数组</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#结构中的位字段"><span class="post-toc-number">3.4.5.</span> <span class="post-toc-text">结构中的位字段</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#共用体"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">共用体</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#枚举"><span class="post-toc-number">3.6.</span> <span class="post-toc-text">枚举</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#设置枚举量的值"><span class="post-toc-number">3.6.1.</span> <span class="post-toc-text">设置枚举量的值</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#枚举的取值范围"><span class="post-toc-number">3.6.2.</span> <span class="post-toc-text">枚举的取值范围</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#指针和自由存储空间"><span class="post-toc-number">3.7.</span> <span class="post-toc-text">指针和自由存储空间</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#声明和初始化指针"><span class="post-toc-number">3.7.1.</span> <span class="post-toc-text">声明和初始化指针</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#指针的危险"><span class="post-toc-number">3.7.2.</span> <span class="post-toc-text">指针的危险</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#指针和数字"><span class="post-toc-number">3.7.3.</span> <span class="post-toc-text">指针和数字</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用new来分配内存"><span class="post-toc-number">3.7.4.</span> <span class="post-toc-text">使用new来分配内存</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#内存被耗尽"><span class="post-toc-number">3.7.5.</span> <span class="post-toc-text">内存被耗尽</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用delete来释放内存"><span class="post-toc-number">3.7.6.</span> <span class="post-toc-text">使用delete来释放内存</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用new来创建动态数组"><span class="post-toc-number">3.7.7.</span> <span class="post-toc-text">使用new来创建动态数组</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#使用new创建动态数组"><span class="post-toc-number">3.7.7.1.</span> <span class="post-toc-text">使用new创建动态数组</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#使用动态数组"><span class="post-toc-number">3.7.7.2.</span> <span class="post-toc-text">使用动态数组</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#指针、数组和指针算术"><span class="post-toc-number">3.8.</span> <span class="post-toc-text">指针、数组和指针算术</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#指针算术："><span class="post-toc-number">3.8.1.</span> <span class="post-toc-text">指针算术：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#指针和字符串"><span class="post-toc-number">3.8.2.</span> <span class="post-toc-text">指针和字符串</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用new创建动态结构"><span class="post-toc-number">3.8.3.</span> <span class="post-toc-text">使用new创建动态结构</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#自动存储、静态存储和动态存储"><span class="post-toc-number">3.8.4.</span> <span class="post-toc-text">自动存储、静态存储和动态存储</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#自动存储"><span class="post-toc-number">3.8.4.1.</span> <span class="post-toc-text">自动存储</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#静态存储"><span class="post-toc-number">3.8.4.2.</span> <span class="post-toc-text">静态存储</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#动态存储"><span class="post-toc-number">3.8.4.3.</span> <span class="post-toc-text">动态存储</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#堆栈、堆和内存泄露"><span class="post-toc-number">3.8.5.</span> <span class="post-toc-text">堆栈、堆和内存泄露</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#循环和关系表达式"><span class="post-toc-number">4.</span> <span class="post-toc-text">循环和关系表达式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#for循环"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">for循环</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#表达式与语句"><span class="post-toc-number">4.1.1.</span> <span class="post-toc-text">表达式与语句</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#递增操作符（-）和递减操作符（—）"><span class="post-toc-number">4.1.2.</span> <span class="post-toc-text">递增操作符（++）和递减操作符（—）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#组合赋值操作符"><span class="post-toc-number">4.1.3.</span> <span class="post-toc-text">组合赋值操作符</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#关系表达式"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">关系表达式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#可能犯的错误"><span class="post-toc-number">4.2.1.</span> <span class="post-toc-text">可能犯的错误</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#while循环"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">while循环</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#for与while"><span class="post-toc-number">4.3.1.</span> <span class="post-toc-text">for与while</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#类型别名"><span class="post-toc-number">4.3.2.</span> <span class="post-toc-text">类型别名</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#do-while循环"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">do while循环</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#嵌套循环和二维数组"><span class="post-toc-number">4.5.</span> <span class="post-toc-text">嵌套循环和二维数组</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#初始化二维数组"><span class="post-toc-number">4.5.1.</span> <span class="post-toc-text">初始化二维数组</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#分支语句和逻辑操作符"><span class="post-toc-number">5.</span> <span class="post-toc-text">分支语句和逻辑操作符</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#if语句"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">if语句</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#if-else语句"><span class="post-toc-number">5.1.1.</span> <span class="post-toc-text">if else语句</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#格式化if-else语句"><span class="post-toc-number">5.1.2.</span> <span class="post-toc-text">格式化if else语句</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#if-else-if-else结构"><span class="post-toc-number">5.1.3.</span> <span class="post-toc-text">if else if else结构</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#逻辑表达式"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">逻辑表达式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#逻辑OR操作符："><span class="post-toc-number">5.2.1.</span> <span class="post-toc-text">逻辑OR操作符：| |</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#逻辑AND操作符：-amp-amp"><span class="post-toc-number">5.2.2.</span> <span class="post-toc-text">逻辑AND操作符：&amp;&amp;</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#逻辑NOT操作符：！"><span class="post-toc-number">5.2.3.</span> <span class="post-toc-text">逻辑NOT操作符：！</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#逻辑操作符细节"><span class="post-toc-number">5.2.4.</span> <span class="post-toc-text">逻辑操作符细节</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#其他表示方式"><span class="post-toc-number">5.2.5.</span> <span class="post-toc-text">其他表示方式</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#字符函数库cctype"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">字符函数库cctype</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#？：操作符"><span class="post-toc-number">5.4.</span> <span class="post-toc-text">？：操作符</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#switch语句"><span class="post-toc-number">5.5.</span> <span class="post-toc-text">switch语句</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#将枚举量作为标签"><span class="post-toc-number">5.5.1.</span> <span class="post-toc-text">将枚举量作为标签</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#switch和if-else"><span class="post-toc-number">5.5.2.</span> <span class="post-toc-text">switch和if else</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#break和continue语句"><span class="post-toc-number">5.6.</span> <span class="post-toc-text">break和continue语句</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#简单文件输入-输出"><span class="post-toc-number">5.7.</span> <span class="post-toc-text">简单文件输入/输出</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#文本输入"><span class="post-toc-number">5.7.1.</span> <span class="post-toc-text">文本输入</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#文件输出"><span class="post-toc-number">5.7.2.</span> <span class="post-toc-text">文件输出</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#函数"><span class="post-toc-number">6.</span> <span class="post-toc-text">函数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#函数参数和按值传递"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">函数参数和按值传递</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#函数和数组"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">函数和数组</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#将数组作为参数意味着什么"><span class="post-toc-number">6.2.1.</span> <span class="post-toc-text">将数组作为参数意味着什么</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用数组区间的函数"><span class="post-toc-number">6.2.2.</span> <span class="post-toc-text">使用数组区间的函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#指针和const"><span class="post-toc-number">6.2.3.</span> <span class="post-toc-text">指针和const</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#函数和二维数组"><span class="post-toc-number">6.3.</span> <span class="post-toc-text">函数和二维数组</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#函数和C-风格字符串"><span class="post-toc-number">6.4.</span> <span class="post-toc-text">函数和C-风格字符串</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#将c-风格字符串作为参数的函数"><span class="post-toc-number">6.4.1.</span> <span class="post-toc-text">将c-风格字符串作为参数的函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#返回C-风格字符串的函数"><span class="post-toc-number">6.4.2.</span> <span class="post-toc-text">返回C-风格字符串的函数</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#函数指针"><span class="post-toc-number">6.5.</span> <span class="post-toc-text">函数指针</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#获取函数地址"><span class="post-toc-number">6.5.1.</span> <span class="post-toc-text">获取函数地址</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#声明函数指针"><span class="post-toc-number">6.5.2.</span> <span class="post-toc-text">声明函数指针</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用指针来调用函数"><span class="post-toc-number">6.5.3.</span> <span class="post-toc-text">使用指针来调用函数</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#函数探幽"><span class="post-toc-number">7.</span> <span class="post-toc-text">函数探幽</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#C-内联函数"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">C++内联函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#引用变量"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">引用变量</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#创建引用变量"><span class="post-toc-number">7.2.1.</span> <span class="post-toc-text">创建引用变量</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#将引用用作函数参数"><span class="post-toc-number">7.2.2.</span> <span class="post-toc-text">将引用用作函数参数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#引用的属性和特别之处"><span class="post-toc-number">7.2.3.</span> <span class="post-toc-text">引用的属性和特别之处</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#临时变量、引用参数和const"><span class="post-toc-number">7.2.3.1.</span> <span class="post-toc-text">临时变量、引用参数和const</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#应尽可能使用const"><span class="post-toc-number">7.2.4.</span> <span class="post-toc-text">应尽可能使用const</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#将引用用于结构"><span class="post-toc-number">7.2.5.</span> <span class="post-toc-text">将引用用于结构</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#何时使用引用参数"><span class="post-toc-number">7.2.6.</span> <span class="post-toc-text">何时使用引用参数</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#默认参数"><span class="post-toc-number">7.3.</span> <span class="post-toc-text">默认参数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#函数重载"><span class="post-toc-number">7.4.</span> <span class="post-toc-text">函数重载</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#何时使用函数重载"><span class="post-toc-number">7.4.1.</span> <span class="post-toc-text">何时使用函数重载</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#名称修饰"><span class="post-toc-number">7.4.2.</span> <span class="post-toc-text">名称修饰</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#函数模板"><span class="post-toc-number">7.5.</span> <span class="post-toc-text">函数模板</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#重载的模板"><span class="post-toc-number">7.5.1.</span> <span class="post-toc-text">重载的模板</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#显式具体化"><span class="post-toc-number">7.5.2.</span> <span class="post-toc-text">显式具体化</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#内存模型和名称空间"><span class="post-toc-number">8.</span> <span class="post-toc-text">内存模型和名称空间</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#单独编译"><span class="post-toc-number">8.1.</span> <span class="post-toc-text">单独编译</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#头文件管理"><span class="post-toc-number">8.1.1.</span> <span class="post-toc-text">头文件管理</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#存储持续性、作用域和链接性"><span class="post-toc-number">8.2.</span> <span class="post-toc-text">存储持续性、作用域和链接性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#链接性"><span class="post-toc-number">8.2.1.</span> <span class="post-toc-text">链接性</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#作用域和链接"><span class="post-toc-number">8.2.2.</span> <span class="post-toc-text">作用域和链接</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#自动存储持续性"><span class="post-toc-number">8.2.3.</span> <span class="post-toc-text">自动存储持续性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#自动变量和堆栈"><span class="post-toc-number">8.2.3.1.</span> <span class="post-toc-text">自动变量和堆栈</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#寄存器变量"><span class="post-toc-number">8.2.3.2.</span> <span class="post-toc-text">寄存器变量</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#静态持续变量"><span class="post-toc-number">8.2.4.</span> <span class="post-toc-text">静态持续变量</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#全局变量和局部变量"><span class="post-toc-number">8.2.5.</span> <span class="post-toc-text">全局变量和局部变量</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#静态持续性、内部链接性"><span class="post-toc-number">8.2.6.</span> <span class="post-toc-text">静态持续性、内部链接性</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#静态存储持续性、无连接性"><span class="post-toc-number">8.2.7.</span> <span class="post-toc-text">静态存储持续性、无连接性</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#说明符和限定符"><span class="post-toc-number">8.2.8.</span> <span class="post-toc-text">说明符和限定符</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#再谈const"><span class="post-toc-number">8.2.9.</span> <span class="post-toc-text">再谈const</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#函数和链接性"><span class="post-toc-number">8.2.10.</span> <span class="post-toc-text">函数和链接性</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#C-在哪里查找函数"><span class="post-toc-number">8.2.11.</span> <span class="post-toc-text">C++在哪里查找函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#语言链接性"><span class="post-toc-number">8.2.12.</span> <span class="post-toc-text">语言链接性</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#存储方案和动态分配"><span class="post-toc-number">8.2.13.</span> <span class="post-toc-text">存储方案和动态分配</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#布局new操作符"><span class="post-toc-number">8.3.</span> <span class="post-toc-text">布局new操作符</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#名称空间-1"><span class="post-toc-number">8.4.</span> <span class="post-toc-text">名称空间</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#传统的C-名称空间"><span class="post-toc-number">8.4.1.</span> <span class="post-toc-text">传统的C++名称空间</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#新的名称空间特性"><span class="post-toc-number">8.4.2.</span> <span class="post-toc-text">新的名称空间特性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#using声明和using编译指令"><span class="post-toc-number">8.4.2.1.</span> <span class="post-toc-text">using声明和using编译指令</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#using编译指令和using声明值比较"><span class="post-toc-number">8.4.2.2.</span> <span class="post-toc-text">using编译指令和using声明值比较</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#名称空间的其他特性"><span class="post-toc-number">8.4.2.3.</span> <span class="post-toc-text">名称空间的其他特性</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#未命名的名称空间"><span class="post-toc-number">8.4.2.4.</span> <span class="post-toc-text">未命名的名称空间</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#名称空间的指导原则"><span class="post-toc-number">8.4.3.</span> <span class="post-toc-text">名称空间的指导原则</span></a></li></ol></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#开始学习C"><span class="post-toc-number">1.</span> <span class="post-toc-text">开始学习C++</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#进入C"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">进入C++</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#C-预处理器和iostream文件"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">C++预处理器和iostream文件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#头文件名"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">头文件名</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#名称空间"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">名称空间</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#处理数据"><span class="post-toc-number">2.</span> <span class="post-toc-text">处理数据</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#简单变量"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">简单变量</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#变量名"><span class="post-toc-number">2.1.1.</span> <span class="post-toc-text">变量名</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#整型"><span class="post-toc-number">2.1.2.</span> <span class="post-toc-text">整型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#short、int和long"><span class="post-toc-number">2.1.3.</span> <span class="post-toc-text">short、int和long</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#符号常量—预处理器方式"><span class="post-toc-number">2.1.4.</span> <span class="post-toc-text">符号常量—预处理器方式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#无符号类型"><span class="post-toc-number">2.1.5.</span> <span class="post-toc-text">无符号类型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#选择整型的类型"><span class="post-toc-number">2.1.6.</span> <span class="post-toc-text">选择整型的类型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#整型常量"><span class="post-toc-number">2.1.7.</span> <span class="post-toc-text">整型常量</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#C-如何确定常量的类型"><span class="post-toc-number">2.1.8.</span> <span class="post-toc-text">C++如何确定常量的类型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#char类型：字符和小整数"><span class="post-toc-number">2.1.9.</span> <span class="post-toc-text">char类型：字符和小整数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#wcha-t"><span class="post-toc-number">2.1.10.</span> <span class="post-toc-text">wcha_t</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#const限定符"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">const限定符</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#浮点数"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">浮点数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#书写浮点数"><span class="post-toc-number">2.3.1.</span> <span class="post-toc-text">书写浮点数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#浮点类型"><span class="post-toc-number">2.3.2.</span> <span class="post-toc-text">浮点类型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#浮点数的优缺点"><span class="post-toc-number">2.3.3.</span> <span class="post-toc-text">浮点数的优缺点</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#C-算术操作符"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">C++算术操作符</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#操作符优先级和结合性"><span class="post-toc-number">2.4.1.</span> <span class="post-toc-text">操作符优先级和结合性</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#除法分支"><span class="post-toc-number">2.4.2.</span> <span class="post-toc-text">除法分支</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#求模操作符"><span class="post-toc-number">2.4.3.</span> <span class="post-toc-text">求模操作符</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#类型转换"><span class="post-toc-number">2.4.4.</span> <span class="post-toc-text">类型转换</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#赋值时进行的转换"><span class="post-toc-number">2.4.4.1.</span> <span class="post-toc-text">赋值时进行的转换</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#表达式中的转换"><span class="post-toc-number">2.4.4.2.</span> <span class="post-toc-text">表达式中的转换</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#传递参数时转换"><span class="post-toc-number">2.4.4.3.</span> <span class="post-toc-text">传递参数时转换</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#强制类型转换"><span class="post-toc-number">2.4.4.4.</span> <span class="post-toc-text">强制类型转换</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#复合类型"><span class="post-toc-number">3.</span> <span class="post-toc-text">复合类型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数组"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">数组</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数组的声明"><span class="post-toc-number">3.1.1.</span> <span class="post-toc-text">数组的声明</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数组的初始化规则"><span class="post-toc-number">3.1.2.</span> <span class="post-toc-text">数组的初始化规则</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#字符串"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">字符串</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#拼接字符串常量"><span class="post-toc-number">3.2.1.</span> <span class="post-toc-text">拼接字符串常量</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#在数组中使用字符串"><span class="post-toc-number">3.2.2.</span> <span class="post-toc-text">在数组中使用字符串</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#字符串输入"><span class="post-toc-number">3.2.3.</span> <span class="post-toc-text">字符串输入</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#每次读取一行字符串输入"><span class="post-toc-number">3.2.4.</span> <span class="post-toc-text">每次读取一行字符串输入</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#面向行的输入：getline"><span class="post-toc-number">3.2.4.1.</span> <span class="post-toc-text">面向行的输入：getline()</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#面向行的输入：get"><span class="post-toc-number">3.2.4.2.</span> <span class="post-toc-text">面向行的输入：get()</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#混合输入字符串和数字"><span class="post-toc-number">3.2.5.</span> <span class="post-toc-text">混合输入字符串和数字</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#string类简介"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">string类简介</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#赋值、拼接和附加"><span class="post-toc-number">3.3.1.</span> <span class="post-toc-text">赋值、拼接和附加</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#string类的其他操作"><span class="post-toc-number">3.3.2.</span> <span class="post-toc-text">string类的其他操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#string类I-O"><span class="post-toc-number">3.3.3.</span> <span class="post-toc-text">string类I/O</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#结构简介"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">结构简介</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#在程序中使用结构"><span class="post-toc-number">3.4.1.</span> <span class="post-toc-text">在程序中使用结构</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#结构可以将string类作为成员吗"><span class="post-toc-number">3.4.2.</span> <span class="post-toc-text">结构可以将string类作为成员吗</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#其他结构属性"><span class="post-toc-number">3.4.3.</span> <span class="post-toc-text">其他结构属性</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#结构数组"><span class="post-toc-number">3.4.4.</span> <span class="post-toc-text">结构数组</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#结构中的位字段"><span class="post-toc-number">3.4.5.</span> <span class="post-toc-text">结构中的位字段</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#共用体"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">共用体</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#枚举"><span class="post-toc-number">3.6.</span> <span class="post-toc-text">枚举</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#设置枚举量的值"><span class="post-toc-number">3.6.1.</span> <span class="post-toc-text">设置枚举量的值</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#枚举的取值范围"><span class="post-toc-number">3.6.2.</span> <span class="post-toc-text">枚举的取值范围</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#指针和自由存储空间"><span class="post-toc-number">3.7.</span> <span class="post-toc-text">指针和自由存储空间</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#声明和初始化指针"><span class="post-toc-number">3.7.1.</span> <span class="post-toc-text">声明和初始化指针</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#指针的危险"><span class="post-toc-number">3.7.2.</span> <span class="post-toc-text">指针的危险</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#指针和数字"><span class="post-toc-number">3.7.3.</span> <span class="post-toc-text">指针和数字</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用new来分配内存"><span class="post-toc-number">3.7.4.</span> <span class="post-toc-text">使用new来分配内存</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#内存被耗尽"><span class="post-toc-number">3.7.5.</span> <span class="post-toc-text">内存被耗尽</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用delete来释放内存"><span class="post-toc-number">3.7.6.</span> <span class="post-toc-text">使用delete来释放内存</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用new来创建动态数组"><span class="post-toc-number">3.7.7.</span> <span class="post-toc-text">使用new来创建动态数组</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#使用new创建动态数组"><span class="post-toc-number">3.7.7.1.</span> <span class="post-toc-text">使用new创建动态数组</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#使用动态数组"><span class="post-toc-number">3.7.7.2.</span> <span class="post-toc-text">使用动态数组</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#指针、数组和指针算术"><span class="post-toc-number">3.8.</span> <span class="post-toc-text">指针、数组和指针算术</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#指针算术："><span class="post-toc-number">3.8.1.</span> <span class="post-toc-text">指针算术：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#指针和字符串"><span class="post-toc-number">3.8.2.</span> <span class="post-toc-text">指针和字符串</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用new创建动态结构"><span class="post-toc-number">3.8.3.</span> <span class="post-toc-text">使用new创建动态结构</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#自动存储、静态存储和动态存储"><span class="post-toc-number">3.8.4.</span> <span class="post-toc-text">自动存储、静态存储和动态存储</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#自动存储"><span class="post-toc-number">3.8.4.1.</span> <span class="post-toc-text">自动存储</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#静态存储"><span class="post-toc-number">3.8.4.2.</span> <span class="post-toc-text">静态存储</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#动态存储"><span class="post-toc-number">3.8.4.3.</span> <span class="post-toc-text">动态存储</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#堆栈、堆和内存泄露"><span class="post-toc-number">3.8.5.</span> <span class="post-toc-text">堆栈、堆和内存泄露</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#循环和关系表达式"><span class="post-toc-number">4.</span> <span class="post-toc-text">循环和关系表达式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#for循环"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">for循环</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#表达式与语句"><span class="post-toc-number">4.1.1.</span> <span class="post-toc-text">表达式与语句</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#递增操作符（-）和递减操作符（—）"><span class="post-toc-number">4.1.2.</span> <span class="post-toc-text">递增操作符（++）和递减操作符（—）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#组合赋值操作符"><span class="post-toc-number">4.1.3.</span> <span class="post-toc-text">组合赋值操作符</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#关系表达式"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">关系表达式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#可能犯的错误"><span class="post-toc-number">4.2.1.</span> <span class="post-toc-text">可能犯的错误</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#while循环"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">while循环</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#for与while"><span class="post-toc-number">4.3.1.</span> <span class="post-toc-text">for与while</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#类型别名"><span class="post-toc-number">4.3.2.</span> <span class="post-toc-text">类型别名</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#do-while循环"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">do while循环</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#嵌套循环和二维数组"><span class="post-toc-number">4.5.</span> <span class="post-toc-text">嵌套循环和二维数组</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#初始化二维数组"><span class="post-toc-number">4.5.1.</span> <span class="post-toc-text">初始化二维数组</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#分支语句和逻辑操作符"><span class="post-toc-number">5.</span> <span class="post-toc-text">分支语句和逻辑操作符</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#if语句"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">if语句</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#if-else语句"><span class="post-toc-number">5.1.1.</span> <span class="post-toc-text">if else语句</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#格式化if-else语句"><span class="post-toc-number">5.1.2.</span> <span class="post-toc-text">格式化if else语句</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#if-else-if-else结构"><span class="post-toc-number">5.1.3.</span> <span class="post-toc-text">if else if else结构</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#逻辑表达式"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">逻辑表达式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#逻辑OR操作符："><span class="post-toc-number">5.2.1.</span> <span class="post-toc-text">逻辑OR操作符：| |</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#逻辑AND操作符：-amp-amp"><span class="post-toc-number">5.2.2.</span> <span class="post-toc-text">逻辑AND操作符：&amp;&amp;</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#逻辑NOT操作符：！"><span class="post-toc-number">5.2.3.</span> <span class="post-toc-text">逻辑NOT操作符：！</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#逻辑操作符细节"><span class="post-toc-number">5.2.4.</span> <span class="post-toc-text">逻辑操作符细节</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#其他表示方式"><span class="post-toc-number">5.2.5.</span> <span class="post-toc-text">其他表示方式</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#字符函数库cctype"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">字符函数库cctype</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#？：操作符"><span class="post-toc-number">5.4.</span> <span class="post-toc-text">？：操作符</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#switch语句"><span class="post-toc-number">5.5.</span> <span class="post-toc-text">switch语句</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#将枚举量作为标签"><span class="post-toc-number">5.5.1.</span> <span class="post-toc-text">将枚举量作为标签</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#switch和if-else"><span class="post-toc-number">5.5.2.</span> <span class="post-toc-text">switch和if else</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#break和continue语句"><span class="post-toc-number">5.6.</span> <span class="post-toc-text">break和continue语句</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#简单文件输入-输出"><span class="post-toc-number">5.7.</span> <span class="post-toc-text">简单文件输入/输出</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#文本输入"><span class="post-toc-number">5.7.1.</span> <span class="post-toc-text">文本输入</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#文件输出"><span class="post-toc-number">5.7.2.</span> <span class="post-toc-text">文件输出</span></a></li></ol></li></ol></li></ol>
         </nav>
     </aside>
 
 
-<article id="post-C++ Primer 类之前"
+<article id="post-C++ Primer 数据 语句"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">C++ Primer 类之前</h1>
+        <h1 class="post-card-title">C++ Primer 数据 语句</h1>
         <div class="post-meta">
             <time class="post-time" title="2018-12-18 15:07:56" datetime="2018-12-18T07:07:56.000Z"  itemprop="datePublished">2018-12-18</time>
 
@@ -1088,584 +1022,6 @@
 <li>可以结合使用ifstream 和eof()、 fail()等方法来判断输入是否成功。</li>
 <li>ifstream对象本身被用作测试条件时，如果最后一个读取操作成功，它将被转换为布尔值true,否则被转换为false。</li>
 </ol>
-<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><p><strong>定义函数:</strong><br>分为有返回值函数和无返回值函数。<br>void：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-12%20%E4%B8%8B%E5%8D%888.56.12.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>有返回值：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-12%20%E4%B8%8B%E5%8D%889.00.42.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>C++对于返回值的类型有一定的限制:不能是数组，但可以是其他任何类型，如整数、浮点数、指针，甚至可以是结构和对象(有趣的是，虽然C++函数不能直接返回数组，但可以将数组作为结构或对象组成部分来返回)。</p>
-<p>通常，函数通过将返回值复制到指定的CPU寄存器或内存单元中来将其返回。随后，调用程序将查看该内存单元。返回函数和调用函数必须就该内存单元中存储的数据的类型达成一致。函数原型将返回值类型告知调用程序，而函数定义命令被调用函数应返回什么类型的数据。<br> <strong>函数原型和函数调用</strong><br> <strong>为什么需要原型:</strong><br>原型描述了函数到编译器的接口，即，将函数的返回值类型（如果有的话）以及参数的类型和数量告诉编译器。<br> <strong>原型的句法:</strong><br>函数原型是一条语句，因此必须以分号结束。获得原型最简单的方法是，复制函数定义中的函数头，并添加分号。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%8812.36.24.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>在函数原型中不要求提供变量名，有类型列表就足够了。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%8812.37.33.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>在原型的参数列表中，可以包括变量名，也可以不包括。原型中的变量名相当于占位符，因此不必与函数定义中的变量名相同。<br><strong>原型的功能:</strong><br>原型可以帮助编译器完成许多工作，可以极大地降低程序出错的几率，具体说，原型确保：</p>
-<ol>
-<li>编译器正确处理函数返回值。</li>
-<li>编译器检查使用的参数数目是否正确。</li>
-<li>编译器检查使用的参数类型是否正确，如果不正确，则转换为正确的类型（如果可能的话）。</li>
-</ol>
-<p>静态类型检查可捕获许多在运行阶段非常难以捕获的错误。</p>
-<h2 id="函数参数和按值传递"><a href="#函数参数和按值传递" class="headerlink" title="函数参数和按值传递"></a>函数参数和按值传递</h2><p>C++使用参数（argument）来表示实参，使用参量（parameter）来表示形参。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%8812.54.10.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<h2 id="函数和数组"><a href="#函数和数组" class="headerlink" title="函数和数组"></a>函数和数组</h2><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%881.07.30.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<p>方括号指出arr是一个数组，而方括号为空则表明，可以将任何长度的数组传递给该函数。arr实际上并不是数组，而是一个指针。在编写函数的其余部分时，可以将arr看作是数组。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%881.09.57.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>其中使用int <em> arr 替换了int arr [] 。这证明这两个函数头都是正确的，因为在C++中，当(且仅当)用于函数头或函数原型中，int </em> arr 和int arr[ ]的含义才是相同的。它们都意味着arr是一个int指针。不过，数组表示法(int arr[]) 提醒用户，arr 不仅指向int, 还指向int数组的第一个int。当指针指向数组的第一个元素时， 本书使用数组表示法;而当指针指向一个独立的值时，使用指针表示法。 别忘了，在其他的上下文中，int * arr和int arr[]的含义并不相同。例如， 不能在函数体中使用int tip[ ]来声明指针。<br>两个恒等式：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%881.14.41.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>将指针（包括数组名）加1，实际上是加上了一个与指针指向的类型长度相等的值。对于遍历数组而言，使用指针加法和数组下标是等效的。</p>
-<h3 id="将数组作为参数意味着什么"><a href="#将数组作为参数意味着什么" class="headerlink" title="将数组作为参数意味着什么"></a>将数组作为参数意味着什么</h3><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%881.21.44.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<p>将数组地址作为参数可以节省复制整个数组所需的时间和内存。 如果数组很大，则使用拷贝的系统开销将非常大;程序不仅需要更多的计算机内存，还需要花费时间来复制大块的数据。另一方面，使用原始数据增加了破坏数据的风险。可以使用const来解决这个问题。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%881.25.40.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<h3 id="使用数组区间的函数"><a href="#使用数组区间的函数" class="headerlink" title="使用数组区间的函数"></a>使用数组区间的函数</h3><p>对于处理数组的C++函数，必须将数组中的数据种类、数组的起始位置和数组中元素数量提交给它；传统的C、C++方法是，将指向数组起始处的指针作为一个参数，将数组长度作为第二个参数（指针指出数组的位置和数据类型），这样便给函数提供了找到所有数据所需的信息。</p>
-<p>还有另一种给两数提供所需信息的方法，即指定元素区间(range), 这可以通过传递两个指针来完成:一个指针标识数组的开头，另一个指针标识数组的尾部。</p>
-<h3 id="指针和const"><a href="#指针和const" class="headerlink" title="指针和const"></a>指针和const</h3><p>可以用两种不同的方式将const用于指针。第一种是让指针指向一个常量对象，这样可以防止使用该指针来修改所指向的值。第二种是将指针本身声明为常量，这样可以防止改变指针指向的位置。<br>指向常量的指针pt:<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%882.51.42.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>pt的声明并不意味着它指向的值实际上就是一个常量，而只是意味着对pt而言，这个值是常量。例如，pt 指向age, 而age不是const。可以直接通过age变量来修改age的值，但不能使用pt指针来修改它。</p>
-<p>可以将const变量的地址赋给指向const的指针，但不能将const地址赋给常规指针。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%882.56.12.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%883.03.53.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>上述函数调用试图将const指针赋给非const指针，编译器将禁止这种函数调用。</p>
-<p>第二种使用const的方式使得无法修改指针的值。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%883.12.05.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>关键字const的位置与之前不同。这种声明格式使得finger只能指向sloth,但允许使用finger来修改sloth的值。中间的声明不允许使用ps来修改sloth的值，但允许将ps指向另一个位置。</p>
-<h2 id="函数和二维数组"><a href="#函数和二维数组" class="headerlink" title="函数和二维数组"></a>函数和二维数组</h2><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%883.25.02.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<p>data是一个数组名，该数组有3个元素。每个元素都是数组，由4个int值组成。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%883.22.33.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<h2 id="函数和C-风格字符串"><a href="#函数和C-风格字符串" class="headerlink" title="函数和C-风格字符串"></a>函数和C-风格字符串</h2><h3 id="将c-风格字符串作为参数的函数"><a href="#将c-风格字符串作为参数的函数" class="headerlink" title="将c-风格字符串作为参数的函数"></a>将c-风格字符串作为参数的函数</h3><p>假设要将字符串作为参数传递给函数，表示字符串的方式有3种：</p>
-<ol>
-<li>char数组。</li>
-<li>用引号括起的字符串常量。</li>
-<li>被设置为字符串的地址的char指针</li>
-</ol>
-<p>3种选择的类型都是char指针（即char <em> ），可将其作为字符串处理函数的参数。字符串函数原型应将其表示字符串的形参声明为char </em> 指针。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%883.31.50.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<h3 id="返回C-风格字符串的函数"><a href="#返回C-风格字符串的函数" class="headerlink" title="返回C-风格字符串的函数"></a>返回C-风格字符串的函数</h3><p>函数无法返回一个字符串，但可以返回字符串的地址，这样做的效率更高。</p>
-<p>要创建包含n个字符的字符串，需要能够存储n+1个字符的空间，以便能够存储空值字符。</p>
-<h2 id="函数指针"><a href="#函数指针" class="headerlink" title="函数指针"></a>函数指针</h2><p>分为以下三个步骤。</p>
-<h3 id="获取函数地址"><a href="#获取函数地址" class="headerlink" title="获取函数地址"></a>获取函数地址</h3><p>获取函数的地址很简单，只要使用函数名（后面不跟参数）即可。一定要区分传递的是函数的地址还是函数的返回值。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%884.06.52.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<h3 id="声明函数指针"><a href="#声明函数指针" class="headerlink" title="声明函数指针"></a>声明函数指针</h3><p>声明指向某种数据类型的指针时，必须指定指针指向的类型。同样，声明指向函数的指针时，也必须指定指针指向的函数类型。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%884.10.57.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br><strong>提示:通常，要声明指向特定类型的函数的指针，可以首先编写这种函数的原型，然后用( * pf)替换函数名，这样pf就是这类函数的指针。</strong><br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%884.15.45.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>正确地声明pf后，便可以将对应函数的地址赋给它：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%884.17.30.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<h3 id="使用指针来调用函数"><a href="#使用指针来调用函数" class="headerlink" title="使用指针来调用函数"></a>使用指针来调用函数</h3><p>使用指针来调用被指向的函数。（ <em> pf）扮演的角色与函数名相同，因此使用（ </em> pf）时，只需将它看做函数名即可。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%884.24.18.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>C++进行了折衷，这2种方式都是正确的。</p>
-<h1 id="函数探幽"><a href="#函数探幽" class="headerlink" title="函数探幽"></a>函数探幽</h1><h2 id="C-内联函数"><a href="#C-内联函数" class="headerlink" title="C++内联函数"></a>C++内联函数</h2><p>内联函数是C++为提高程序运行速度所做的一项改进。常规函数和内联函数之间的主要区别不在于编写方式，而在于C++编译器如何将它们组合到程序中。</p>
-<p>内联函数的编译代码与其他程序代码“内联”起来了。也就是说，编译器将使用相应的函数代码替换函数调用。对于内联代码，程序无需跳到另一个位置处执行代码，然后再跳回来。因此，内联函数的运行速度比常规函数稍快，但代价是需要占用更多的内存。如果程序在10个不同的地方调用同一个内联函数，则该程序将包含该函数的10个代码拷贝。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%884.40.38.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>要使用这项特性，必须采用下述措施之一：</p>
-<ol>
-<li>在函数声明前加关键字inline。</li>
-<li>在函数定义前加上关键字inline。</li>
-</ol>
-<p>程序员请求将函数作为内联函数时，编译器并不一定会满足这种要求。它可能认为该函数过大或注意到函数调用了自己(内联函数不能递归)，因此不将其作为内联函数;而有些编译器没有启用或实现这种特性。</p>
-<h2 id="引用变量"><a href="#引用变量" class="headerlink" title="引用变量"></a>引用变量</h2><h3 id="创建引用变量"><a href="#创建引用变量" class="headerlink" title="创建引用变量"></a>创建引用变量</h3><p>C和C++使用&amp;符号来指示变量的地址。C++给&amp;符号赋了了另一个含义，将其用来声明引用。例如，要将rodents作为rats变量的别名，可以这样做:<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%885.00.48.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>其中,  &amp; 不是地址操作符，而是类型标识符的一部分。就像声明中的char * 指的是指向char的指针一样,int  &amp; 指的是指向int的引用。</p>
-<p>看似引用和指针用法很类似，其实是有差别的，差别之一是，必须在声明引用时将其初始化，而不能像指针那样，先声明，再赋值。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%885.05.34.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>引用更接近const指针，鼻血在创建时进行初始化，一旦与某个变量关联起来，就将一直效忠于它。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%886.18.47.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<h3 id="将引用用作函数参数"><a href="#将引用用作函数参数" class="headerlink" title="将引用用作函数参数"></a>将引用用作函数参数</h3><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%886.39.02.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<h3 id="引用的属性和特别之处"><a href="#引用的属性和特别之处" class="headerlink" title="引用的属性和特别之处"></a>引用的属性和特别之处</h3><h4 id="临时变量、引用参数和const"><a href="#临时变量、引用参数和const" class="headerlink" title="临时变量、引用参数和const"></a>临时变量、引用参数和const</h4><p>如果实参与引用参数不匹配，C++将生成临时变量。仅当参数为const引用时，C++才允许这样做。</p>
-<p>如果引用参数时const，则编译器将在下面两种情况下生成临时变量：</p>
-<ol>
-<li>实参的类型正确，但不是左值。</li>
-<li>实参的类型不正确，但可以转换为正确的类型。</li>
-</ol>
-<p>左值参数时可被引用的数据对象，例如，变量、数组元素、结构成员、引用和被解除引用的指针都是左值。非左值包括字面常量和包含多项的表达式。</p>
-<p>记住:如果函数调用的参数不是左值或与相应的const引用参数的类型不匹配，则C++将创建类型正确的匿名变量，将函数调用的参数的值传递给该匿名变量，并让参数来引用该变量。</p>
-<h3 id="应尽可能使用const"><a href="#应尽可能使用const" class="headerlink" title="应尽可能使用const"></a>应尽可能使用const</h3><p>将引用参数声明为常量数据的引用的理由有3个:</p>
-<ol>
-<li>使用const可以避免无意中修改数据的编程错误。</li>
-<li>使用const使函数能够处理const和非const实参，否则将只能接受非const数据。</li>
-<li>使用const引用使函数能够正确生成并使用临时变量。</li>
-</ol>
-<p>因此，应尽可能将引用形参声明为const。</p>
-<h3 id="将引用用于结构"><a href="#将引用用于结构" class="headerlink" title="将引用用于结构"></a>将引用用于结构</h3><p>引用非常适合用于结构和类(C++的用户定义类型).确实，引入引用主要是为了用于这些类型的，而不是基本的内置类型。</p>
-<h3 id="何时使用引用参数"><a href="#何时使用引用参数" class="headerlink" title="何时使用引用参数"></a>何时使用引用参数</h3><p>使用引用参数的主要原因有两个：</p>
-<ol>
-<li>程序员能够修改调用函数的数据对象。</li>
-<li>通过传递引用而不是整个数据对象，可以提高程序的运行速度。</li>
-</ol>
-<p>当数据对象较大时(如结构和类对象),第二个原因最重要。这些也是使用指针参数的原因。这是有道理的,因为引用参数实际上是基于指针的代码的另一个接口。</p>
-<p>指导原则<br>对于使用传递的值而不作修改的函数:</p>
-<ol>
-<li>如果数据对象很小,如内置数据类型或小型结构,则按值传递。</li>
-<li>如果数据对象是数组,则使用指针,因为这是惟一的选择,并将指针声明为指向 const的指针。</li>
-<li>如果数据对象是较大的结构,则使用 const指针或 const引用,以提高程序的效率。这样可以节省复制结构所需的时间和空间。</li>
-<li>如果数据对象是类对象,则使用 const引用。类设计的语义常常要求使用引用,这是C+新增这项特性的主要原因。因此,传递类对象参数的标准方式是按引用传递。</li>
-</ol>
-<p>对于修改调用函数中数据的函数。</p>
-<ol>
-<li>如果数据对象是内置数据类型，则使用指针。</li>
-<li>如果数据对象是数组，则只能使用指针。</li>
-<li>如果数据对象是结构， 则使用引用或指针。</li>
-<li>如果数据对象是类对象，则使用引用。</li>
-</ol>
-<h2 id="默认参数"><a href="#默认参数" class="headerlink" title="默认参数"></a>默认参数</h2><p>对于带参数列表的函数，必须从右向左添加默认值。也就是说，要为某个参数设置默认值，则必须为它右边所有的参数提供默认值：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%887.40.40.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>实参按从左到右的顺序依次被賦给相应的形参，而不能跳过任何参数。下面的调用是不允许的。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%887.43.15.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>默认参数不是编程方面的重大突破，而只是提供了一种便捷的方式。</p>
-<h2 id="函数重载"><a href="#函数重载" class="headerlink" title="函数重载"></a>函数重载</h2><p>所数重载的关键是函数的参数列表一也称为函数特 征标( function signature). 如果两个函数的参数数目和类型相同， 同时参数的排列顺序也相同，则它们的特征标相同， 而变量名是无关紧要的。C++ 允许定义名称相同的函数，条件是它们的特征标不同。如果参数数目和或参数类型不同，则特征标也不同。</p>
-<p>一些看起来彼此不同的特征标是不能共存的。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%888.15.54.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>为避免混乱，编译器在检查函数特征标时，将把类型引用和类型本身视为同一个特征标。</p>
-<h3 id="何时使用函数重载"><a href="#何时使用函数重载" class="headerlink" title="何时使用函数重载"></a>何时使用函数重载</h3><p>函数重载很吸引人，但也不能滥用。仅当函数基本上执行相同的任务，但使用不同形式的数据时才应采用函数重载。</p>
-<p>使用一个带默认参数的函数要简单些。只需编写一个函数(而不是两个函数)，程序也只需为一个函数(而不是两个)请求内存:需要修改函数时，只需修改一个。不过，如果需要使用不同类型的参数时，则默认参数便不管用了， 在这种情况下，应该使用函数重载。</p>
-<h3 id="名称修饰"><a href="#名称修饰" class="headerlink" title="名称修饰"></a>名称修饰</h3><p>使用C++开发工具中的编辑器编写和编译程序时，C++将执行一些神奇的操作，名称修饰或名称矫正。根据函数原型中指定的形参类型对每个函数名进行加密。</p>
-<h2 id="函数模板"><a href="#函数模板" class="headerlink" title="函数模板"></a>函数模板</h2><p>函数模板是通用的函数描述，就是使用通用类型来定义函数，其中的通用类型可用具体的类型（如int或double）替换。通过将类型作为参数传递给模板，可使编译器生成该类型的函数。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%888.44.01.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>建立一个模板，将类型命名为Any。关键字template和class是必需的，类型名可以任意选择。关键字typename可用来替换关键字class，就是说可以编写模板定义：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%888.46.19.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br><strong>提示: 如果需要多个将同一种算法用于不同类型的函数，请使用模板，如果不考虑向后兼容的问题，并愿意键入较长的单词, 则声明类型参数时，应使用关键字typename而不使用class。</strong></p>
-<h3 id="重载的模板"><a href="#重载的模板" class="headerlink" title="重载的模板"></a>重载的模板</h3><p>需要多个对不同类型使用同一种算法的函数时，可使用模板。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%888.54.32.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<h3 id="显式具体化"><a href="#显式具体化" class="headerlink" title="显式具体化"></a>显式具体化</h3><p>在代码中包含函数模板本身并不会生成函数定义，它只是一个用于生成函数定义的方案。编译器使用模板为特定类型生成函数定义时，得到的是模板实例。模板并非函数定义，但使用int的模板实例是函数定义。这种实例化方式被称为隐式实例化，因为编译器之所以知道需要进行定义，是由于程序调用Swap（）函数时提供了int参数。</p>
-<p>最初，编译器只能通过隐式实例化，来使用模板生成函数定义，C++还允许显示实例化。这意味着可以直接命令编译器创建特定的实例，Swap<int>()。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%889.26.40.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>显示具体化使用下面两个等价声明之一：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%889.40.36.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>显示具体化声明在关键字Template后包含&lt;&gt;，而显式实例化没有。</int></p>
-<p><strong>警告：视图在同一个编程单元中使用同一类型的显示实例和显示具体化将出错。</strong></p>
-<p>隐式实例化、显式实例化和显式具体化统称为具体化(specialization)。 它们的相同之处在于，它们表示的都是使用具体类型的函数定义，而不是通用描述。</p>
-<h1 id="内存模型和名称空间"><a href="#内存模型和名称空间" class="headerlink" title="内存模型和名称空间"></a>内存模型和名称空间</h1><p>C++为在内存中存储数据方面提供了多种选择。可以选择数据保留在内存中的时间长度（存储持续性）以及程序的哪一部分可以访问数据（作用域和链接）等。可以使用new来动态地分配内存而布局new操作符提供了这种技术的一种变种。C++名称空间是另一种控制访问权的方式。通常，大型程序都由多个源代码文件组成，这些文件可能共享一些数据。这样的程序涉及到程序文件的单独编译。</p>
-<h2 id="单独编译"><a href="#单独编译" class="headerlink" title="单独编译"></a>单独编译</h2><p>和C语言一样，C++也允许甚至鼓励程序员将组件函数放在独立的文件中。 可以单独编译这些文件，然后将它们链接成可执行的程序(通常，C++编译器既编译程序，也管理链接器)。,如果只修改了一个文件，则可以只重新编译该文件，然后将它与其他文件的编译版本链接。这使得大程序的管理更便捷。另外，大多数C++环境都提供了其他工具来帮助管理。例如，UNIX和Linux系统都具有make程序， 可以跟踪程序依赖的文件以及这些文件的最后修改时间。运行make时，如果它检测到上次编译后修改了源文件，make将记住重新构建程序所需的步骤。</p>
-<p>可以将原来的程序分为三部分：</p>
-<ol>
-<li>头文件：包含结构声明和使用这些结构的函数的原型</li>
-<li>源代码文件：包含与结构有关的函数的代码。</li>
-<li>源代码文件：包含调用与结构相关的函数的代码。</li>
-</ol>
-<p>不要将函数定义或变量声明放到头文件中。例如，如果在头文件包含—个函数定义，然后在其他两个文件(属于同一个程序)中包含该头文件，则同一个程序中将包含同一个函数的两个定义，除非函数是内联的， 否则这将出错。</p>
-<p>下面列出了头文件中常包含的内容:</p>
-<ol>
-<li>函数原型</li>
-<li>使用# define或const定义的符号常量</li>
-<li>结构声明</li>
-<li>类声明</li>
-<li>模板声明</li>
-<li>内联函数</li>
-</ol>
-<p>模板声明不是将被编译的代码，它们指示编译器如何生成与源代码中的函数调用相匹配的函数定义。被声明为const的数据和内联函数有特殊的链接属性，因此可将其放在头文件而不会引起问题。</p>
-<p>注意，在包含头文件时，<br>我们使用“coordin.h”,而不是&lt; coodin.h &gt;。如果文件名包含在尖括号中，则C++编译器将在存储标准头文件的主机系统的文件系统中查找:但如果文件名包含在双引号中，则编译器将首先查找当前的工作目录或源代码目录(或其他目录，这取决于编译器)。如果没有在那里找到头文件，则将在标准位置查找。因此在包含自己的头文件时，应使用引号而不是尖括号。</p>
-<p>在IDE中，不要将头文件加入到工程列表中，也不要在源代码文件中使用# include 来包含其他源代码文件。</p>
-<h3 id="头文件管理"><a href="#头文件管理" class="headerlink" title="头文件管理"></a>头文件管理</h3><p>在同一个文件中只能将同一个头文件包含一次。记住这个规则很容易，但很可能在不知情的情况下将头文件包含多次。例如， 可能使用包含了另外一个头文件的头文件。有一种标准的C/C++技术可以避免多次包含同一个头文件。它是基于预处理器编译指令#ifndef(即if not defined)的。下面的代码片段:<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-17%20%E4%B8%8A%E5%8D%8810.57.59.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>意味着仅当以前没有使用预处理器编译指令# define定义名称COORDIN_H_时，才处理# ifndef和# endif之间的语句。</p>
-<p>通常，使用# define语句来创建符号常量。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-17%20%E4%B8%8A%E5%8D%8811.01.01.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>但只要将# define用于名称，就足以完成该名称的定义。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-17%20%E4%B8%8A%E5%8D%8811.01.41.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>编译器首次遇到该文件时，名称COORDIN_H_没有定义（我们根据include文件名来选择名称，并加一些下划线，以创建一个在其他地方不太可能被定义的名称）。如果在同一个文件中遇到其他包含coordin.h的代码，编译器将知道COORDIN_H_已经被定义了，从而跳到# endif后面的一行上。这种方法并不能防止编译器将文件包含两次，而只是让它忽略了第一次包含之外的所有内容。大多数标准C和C++头文件都使用这种防护(guarding)方案。</p>
-<h2 id="存储持续性、作用域和链接性"><a href="#存储持续性、作用域和链接性" class="headerlink" title="存储持续性、作用域和链接性"></a>存储持续性、作用域和链接性</h2><h3 id="链接性"><a href="#链接性" class="headerlink" title="链接性"></a>链接性</h3><p>链接性（linkage）描述了名称如何在不同单元间共享。链接性为外部的名称，可在文件间共享，连接性为内部的名称，只能由一个文件中的函数共享。自动变量的名称没有链接性，因为它不能共享。</p>
-<h3 id="作用域和链接"><a href="#作用域和链接" class="headerlink" title="作用域和链接"></a>作用域和链接</h3><p>作用域（scope）描述了名称在文件的多大范围内可见。链接性(linkage) 描述了名称如何在不同单元间共享。链接性为外部的名称可在文件间共享，链接性为内部的名称只能由一个文件中的函数共享。自动变量的名称没有链接性，因为它们不能共享。</p>
-<h3 id="自动存储持续性"><a href="#自动存储持续性" class="headerlink" title="自动存储持续性"></a>自动存储持续性</h3><p>在默认情况下，在函数中声明的函数参数和变量的存储持续性为自动， 作用域为局部，没有链接性。当程序开始执行这些变量所属的代码块时，将为其分配<br>内存;当函数结束时，这些变量都将消失(注意，执行到代码块时，将为变量分配内存， 但其作用域的起点为其声明位置)。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-17%20%E4%B8%8B%E5%8D%8812.50.33.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>可以使用C++ (和C)关键字auto 来显式地指出存储类别:<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-17%20%E4%B8%8B%E5%8D%8812.52.13.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<h4 id="自动变量和堆栈"><a href="#自动变量和堆栈" class="headerlink" title="自动变量和堆栈"></a>自动变量和堆栈</h4><p>由于自动变量的数目随函数的开始和结束而增减，因此程序必须在运行时对自动变量进行管理。常用的方法是<strong>留出一段内存，并将其视为堆栈</strong>，以管理变量的增减。之所以被称为堆栈，是由于新数据被象征性地放在原有数据的上面(也就是说，在相邻的内存单元中，而不是在同一个内存单元中)，当程序使用完后，将其从堆栈中删除。堆栈的默认长度取决于实现，但编译器通常提供改变堆栈长度的选项。程序使用两个指针来跟踪堆栈，一个指针指向栈底即堆栈的开始位置，另一个指针指向堆顶即下一个可用内存单元。当函数被调用时，其自动变量将被加入到堆栈中，栈顶指针指向变量后面的下一个可用的内存单元。函数结束时，栈顶指针被重置为函数被调用前的值，从而释放新变量使用的内存。</p>
-<p>堆栈是后进先出的，即最后加入到堆栈中的变量首先被弹出。这种设计简化了参数传递。函数调用将其参数的值放在栈顶，然后重新设置栈顶指针。被调用的函数根据其形参描述来确定每个参数的地址。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-17%20%E4%B8%8B%E5%8D%881.05.02.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>所以说形参存在于堆栈。堆栈是内存留出的一小段。</p>
-<h4 id="寄存器变量"><a href="#寄存器变量" class="headerlink" title="寄存器变量"></a>寄存器变量</h4><p>和C语言一样，C++也支持使用register关键字来声明局部变量。寄存器变量是另一种形式的自动变量，因此其存储持续性为自动，作用域为局部，但没有链接性。关键字register提醒编译器，用户希望它通过使用CPU寄存器，而不是堆栈来处理特定的变量，从而提供对变量的快速访问。这里的理念是，CPU访问寄存器中的值的速度比访问堆栈中内存快。要声明寄存器变量，请在类型前加上关键字register:<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-17%20%E4%B8%8B%E5%8D%881.11.15.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<p>现代编译器已经足够聪明，在编写for循环时，编译器可能自动使用寄存器来存储循环计数。</p>
-<p>如果变量被存储在寄存器则没有内存地址，因此不能讲地址操作符用于寄存器变量。</p>
-<p>简而言之，常规局部变量、使用auto 声明的局部变量以及使用register 声明的局部变量的存储持续性都是自动的， 作用域都是局部的，也都没有链接性。</p>
-<p>声明局部变量时，如果没有使用说明符，则与使用auto声明变量等效。通常， 处理这种变量的方式是将其放置到内存堆栈中。使用register说明符指出该变量将被频繁使用，编译器可能会选择使用内存堆栈之外的其他方式(如使用CPU寄存器)来存储它。</p>
-<h3 id="静态持续变量"><a href="#静态持续变量" class="headerlink" title="静态持续变量"></a>静态持续变量</h3><p>和C语言一样，C++也为静态存储持续性变量提供了3种链接性:外部链接性、内部链接性和无链接性。这3种链接性都在整个程序执行期间存在，与自动变量相比，它们的寿命更长。由于静态变量的数目在程序运行期间是不变的，因此程序不需要使用特殊的装置(如堆栈)来管理它们。<strong>编译器将分配固定的内存块来存储所有的静态变量</strong>，<strong>这些变量在整个程序执行期间一直存在</strong>。另外， 如果没有显式地初始化静态变量，编译器就将把它<strong>设置为0</strong>。在默认情况下，静态数组和结构将每个元素或成员的所有位都设置为0。</p>
-<p>要想创建链接性为外部的静态持续变量，必须在代码块的外面声明它; 要创建链接性为内部的静态持续变量，必须在代码块的外面声明它，并使用static限定符:要创建没有链接性的静态持续变量，必须在代码块内声明它，并使用static限定符。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-17%20%E4%B8%8B%E5%8D%885.37.16.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-17%20%E4%B8%8B%E5%8D%885.37.40.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>所有静态持续变量在整个程序执行期间都存在。在funct1（）中声明的变量count的作用域为局部，没有链接性，这意味着只能在funct1（）函数中使用它，就像自动变量一样，但不同之处在于，即使函数没有执行时，count也留在内存中。global和one_file的作用域为整个文件，即在从声明位置到文件结尾的范围内都可以被使用。由于one_file的链接性为内部，因此只能在包含上述代码的文件中；由于global的链接性为外部，因此可以在程序的其他文件中使用它。</p>
-<p>所有静态持续变量只能使用常量表达式来初始化静态变量。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-17%20%E4%B8%8B%E5%8D%885.54.35.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>链接性为外部的变量通常简称为外部变量，它们的存储持续性为静态，作用域为整个文件。外部变量是在函数外部定义的，因此对所有函数而言都是外部的。外部变量也称为全局变量。如果定义了与外部变量同名的自动变量，该自动变量将隐藏同名的外部变量。</p>
-<p>关键字extern的意思是“通过以前被外部定义的名称使用该变量”。外部变量声明：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-17%20%E4%B8%8B%E5%8D%886.12.05.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>称为定义声明，给该变量分配存储空间。重新声明：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-17%20%E4%B8%8B%E5%8D%886.13.21.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>称为引用声明，或简称为声明。它不给变量分配存储空间，因为它引用已有的变量。只能在引用其他地方（或函数）定义的变量的声明中使用关键字extern。当试图赋值时将会报错。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-17%20%E4%B8%8B%E5%8D%886.23.43.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>仅当声明将为变量分配存储空间时（即定义声明），才能在声明中初始化变量。毕竟，初始化指的是在分配内存单元时给它赋值。</p>
-<h3 id="全局变量和局部变量"><a href="#全局变量和局部变量" class="headerlink" title="全局变量和局部变量"></a>全局变量和局部变量</h3><p>过多使用全局变量会破坏数据的完整性，外部存储尤其适于表示常量数据，因为这样可以使用关键字const来防止数据被修改。</p>
-<h3 id="静态持续性、内部链接性"><a href="#静态持续性、内部链接性" class="headerlink" title="静态持续性、内部链接性"></a>静态持续性、内部链接性</h3><p>对于外部链接变量，有且只有一个文件中包含了该变量的外部定义，其他文件要使用该变量，必须在引用声明中使用关键字extern。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-17%20%E4%B8%8B%E5%8D%886.37.07.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>如果文件试图定义另一个同名的外部变量将出错：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-17%20%E4%B8%8B%E5%8D%886.37.54.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>如果文件定义了一个静态外部变量，其名称与另一个文件中声明的常规外部变量相同，则在该文件中，静态变量将隐藏常规外部变量。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-17%20%E4%B8%8B%E5%8D%886.39.56.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<h3 id="静态存储持续性、无连接性"><a href="#静态存储持续性、无连接性" class="headerlink" title="静态存储持续性、无连接性"></a>静态存储持续性、无连接性</h3><p>如果初始化了静态局部变量，则程序只在启动时进行一次初始化，以后再调用函数时，将不会像自动变量那样再次被初始化。</p>
-<h3 id="说明符和限定符"><a href="#说明符和限定符" class="headerlink" title="说明符和限定符"></a>说明符和限定符</h3><p>存储说明符：</p>
-<ol>
-<li>auto</li>
-<li>register</li>
-<li>static</li>
-<li>extern</li>
-<li>mutable</li>
-</ol>
-<p>在同一个声明中不能使用多个说明符。mutable 是为了突破 const 的限制而设置的。可以用来修饰一个类的成员变量。被 mutable 修饰的变量，将永远处于可变的状态，即使是 const 函数中也可以改变这个变量的值。</p>
-<p>cv限定符：</p>
-<ol>
-<li>const</li>
-<li>volatile(易变的，不稳定的)</li>
-</ol>
-<p><strong>volatile</strong>关键字表明，即使程序代码没有对内存单元进行修改，其值也可能发生变化。听起来似乎很神秘，实际上并非如此。例如，可以将一个指针指向某个硬件位置，其中包含了来自串行端口的时间或信息。在这种情况下，硬件(而不是程序)可能修改其中的内容。或者两个程序可能互相影响，共享数据。该关键字的作用是为了改善编译器的优化能力。例如，假设编译器发现，程序在几条语句中两次使用了某个变量的值，则编译器可能不是让程序查找这个值两次，而是将这个值缓存到寄存器中。这种优化假设变量的值在这两次使用之间不会变化。如果不将变量声明为volatile, 则编译器将进行这种优化;将变量声明为volatile,相当于告诉编译器，不要进行这种优化。避免出现和想象结果不一致的情况。</p>
-<h3 id="再谈const"><a href="#再谈const" class="headerlink" title="再谈const"></a>再谈const</h3><p>在C++中，const限定符对默认存储类型稍有影响。在默认情况下全局变量的链接性为外部的，但const全局变量的链接性为内部的。也就是说，在C++看来， 全局const定义就像使用了static说明符一样。（就链接性而言）</p>
-<p>内部链接还意味着，每个文件都有自己的一组常量，而不是所有文件共享一组常量。每个定义都是共所属文件私有的，这就是能够将常量定义放在头文件中的原因。这样，只要在两个源代码文件中包括同一个头文件，则它们将获得同一组常量。</p>
-<p>如果出于某种原因，程序员希望某个常量的链接性为外部的，则可以使用extern关键字来覆盖默认的内部链接性:<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-17%20%E4%B8%8B%E5%8D%889.09.28.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>这种情况下，必须在所有使用该常量的文件中使用extem关键字来声明它。这与常规外部变量不同，定义常规外部变量时，不必使用extem关键字，但在使用该变量的其他文件中必须使用extem。</p>
-<h3 id="函数和链接性"><a href="#函数和链接性" class="headerlink" title="函数和链接性"></a>函数和链接性</h3><p>C++不允许在一个函数中定义另一个函数，因此所有函数的存储持续性都自动为静态的，即在整个程序执行期间都一直存在。在默认情况下，函数的链接性为外部的，即可以在文件间共享。可以在函数原型中使用关键字extern来指出函数时再另一个文件中定义的，不过这是可选的（要让程序在另一个文件中查找函数， 该文件必须作为程序的组成部分被编译，或者是由链接程序搜索的库文件)。还可以使用关键字static将函数的链接性设置为内部的，使之只能在一个文件中使用。必须同时在原型和函数定义汇总使用该关键字。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-17%20%E4%B8%8B%E5%8D%889.31.48.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>这意味着该函数以在这个文件中可见，还意味着可以在其他文件中定义同名的的函数。和变量一样，在定义静态函数的文件中，静态函数将覆盖外部定义，因此即使在外部定义了同名的函数，该文件仍将使用静态函数。</p>
-<p>C++有一个“单定义规则”，即对于每个非内联函数，程序中只能包含一个定义。对于链接性为外部的函数来说，这意味着在多文件程序中，只能有一个文件包含该函数的定义，但使用该函数的每个文件都应包含其函数原型。</p>
-<p>内联函数不受这项规则的约束，这允许程序员能够将内联函数的定义放在头文件中。这样，包含了头文件的每个文件都有内联函数的定义。不过，C++要求同一个函数的所有内联定义都必须相同。</p>
-<h3 id="C-在哪里查找函数"><a href="#C-在哪里查找函数" class="headerlink" title="C++在哪里查找函数"></a>C++在哪里查找函数</h3><p>如果该文件中的函数原型指出该函数是静态的，则编译器将只在该文件中查找函数定义;否则， 编译器(包括链接程序)将在所有的程序文件中查找。如果找到两个定义，编译器将发出错误消息，因为每个外部函数只能有一个定义。<br>如果在程序文件中没有找到， 编译器将在库中搜索。这意味着如果定义了一个与库函数同名的函数， 编译器将使用程序员定义的版本， 而不是库函数(不过，C++保留了标准库函数的名称，即程序员不应使用它们).一些编译器-链接程序要求显式地指出要搜索哪些库。</p>
-<h3 id="语言链接性"><a href="#语言链接性" class="headerlink" title="语言链接性"></a>语言链接性</h3><p>另一种形式的链接性称为语言链接性，也对函数有影响。链接程序要求每个不同的函数都有不同的符号名。在C++中，同一个名称可能对应多个函数，必须将这些函数翻译为不同的符号名称。因此，C++编译器执行名称矫正或名称修饰，为重载函数生成不同的符号名称。例如， 可能将spiff (int)转换为_spof_i,而将spiff (double, double) 转换为_spif_d_d.这种方法被称为C++语言链接(C++ language linkage)。</p>
-<p>链接程序寻找与C++函数调用匹配的函数时，使用的方法与c语言不同。但如果要在c++程序中使用C库中预编译的兩数，将出现什么情况呢?例如，假设有下面的代码:<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8A%E5%8D%888.53.00.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>它在C库文件中的符号名称为_spif, 但对于我们假设的链接程序来说，C++查询约定是查找符号名称<em>spiff</em> i。为解决这种问题，可以用函数原型来指出要使用的约定:<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8A%E5%8D%888.54.21.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>第个原型使用C语言链接性:而后面的两个使用C+语言链接性。第二个原型是通过默认方式指出这一点的，而第三个显式地指出了这一点。</p>
-<h3 id="存储方案和动态分配"><a href="#存储方案和动态分配" class="headerlink" title="存储方案和动态分配"></a>存储方案和动态分配</h3><p>与自动内存不同，动态内存不是LIFO,其分配和释放顺序要取决于new和delete 在何时以何种方式被使用。通常，<strong>编译器使用3块独立的内存:一块用于静态变量(可能再细分)，一块用于自动变量， 另外一块用于动态存储。</strong></p>
-<p>如果将p_fees的链接性声明为外部的，则文件中位于该声明后面的所有函数都<br>可以使用它。另外，通过在另一个文件中使用：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8A%E5%8D%889.13.35.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>可以在这个文件中使用该指针。不过，请注意， 使用new来设置p_ fees 的语句必须位于函数中(如下面的代码段所示)，这是因为只能使用常量表达式来初始化静态存储变量:<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8A%E5%8D%889.14.52.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8A%E5%8D%889.15.03.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br><strong>注意: 在程序结束时，由new分配的内存通常都将被释放，不过情况也并不总是这样。例如,在不那么健壮的操作系统中，在某些情况下，请求大型内存块将导致该代码块在程序结束不会被自动释放。最佳的做法是， 使用delete 来释放new分配的内存。</strong></p>
-<h2 id="布局new操作符"><a href="#布局new操作符" class="headerlink" title="布局new操作符"></a>布局new操作符</h2><p>new负责在<strong>堆(heap)</strong> 中找到一个足以能够满足要求的内存块。new操作符还有另一种变体，被称为布局(placement)new操作符，它能够指定要使用的位置。程序员可能使用这种特性来设置其内存管理规程或处理需要通过特定地址进行访问的硬件。要使用布局new特性，首先需要包含头文件new。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8A%E5%8D%889.25.14.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>它提供了new操作符原型，下面是new操作符的四种用法：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8A%E5%8D%889.26.44.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>其中如果buffer是静态存储区，那么就new到了静态存储区。而常规new就到了动态管理的堆中。</p>
-<p>由于buffer指定的内存是静态内存，而delete只能指向常规new操作符分配的堆内存，就是说数组buffer位于delete的管辖区域之外。</p>
-<h2 id="名称空间-1"><a href="#名称空间-1" class="headerlink" title="名称空间"></a>名称空间</h2><p>当随着工程的增大，名称相互冲突的可能性也将增加。使用多个厂商的类库时，可能导致名称冲突。C++标准提供了名称空间工具，以便更好地控制名称的作用域。</p>
-<h3 id="传统的C-名称空间"><a href="#传统的C-名称空间" class="headerlink" title="传统的C++名称空间"></a>传统的C++名称空间</h3><p>几个概念：<br><strong>声明区域</strong>(declaration region)。 声明区域是可以在其中进行声明的区域。例如，可以在函数外面声明全局变量，对于这种变量，其声明区域为其声明所在的文件。对于在函数中声明的变量，其声明区域为其声明所在的代码块。</p>
-<p><strong>潜在作用域</strong>。变量的潜在作用域从声明点开始,到其声明域的结尾。因此潜在作用域比声明区域小,这是由于变量必须定义后才能使用。</p>
-<h3 id="新的名称空间特性"><a href="#新的名称空间特性" class="headerlink" title="新的名称空间特性"></a>新的名称空间特性</h3><p>C++新增了这样一种功能,即通过定义一种新的声明区域来创建命名的名称空间,这样做的目的之一是提供一个声明名称的区域。一个名称空间中的名称不会与另外一个名称空间的相同名称发生冲突,同时允许程序的其他部分使用该名称空间中声明的东西。例如,下面的代码使用新的关键字 namespace创建了两个名称空间:Jack和Jill。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8B%E5%8D%881.09.52.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>名称空间可以是全局的,也可以位于另一个名称空间中,但不能位于代码块中。因此,在默认情况下,在名称空间中声明的名称的链接性为外部的(除非它引用了常量)</p>
-<p>除了用户定义的名称空间外，还存在另一个名称空间一全局名称空间(global namespace)。 它对应于文件级声明区域，因此前面所说的全局变量现在被描述为位于全局名称空间中。</p>
-<p>任何名称空间中的名称都不会与其他名称空间中的名称发生冲突。</p>
-<p>当然, 需要有一种方法来访问给定名称空间中的名称。最简单的方法是，通过作用域解析操作符::,使用名称空间来限定该名称。未被装饰的名称(如pail)被称为未限定的名称(unqualifed name);包含名称空间的名称(如Jack;pail)被称为限定的名称(qualified name).</p>
-<h4 id="using声明和using编译指令"><a href="#using声明和using编译指令" class="headerlink" title="using声明和using编译指令"></a>using声明和using编译指令</h4><p>如果不希望每次使用名称都使用：：，C++提供了两种机制（using声明和using编译指令）来简化对名称空间中名称的使用。using声明使特定的表示符可用，using编译指令使整个名称空间可用。</p>
-<p>using声明由限定的名称和它前面的关键字using组成：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8B%E5%8D%881.24.43.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<p>using编译命令使所有的名称都可用。using编译命令由名称空间名和它前面的关键字using namespace组成，它使名称空间中的所有名称都可用，而不需要使用作用域解析操作符：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8B%E5%8D%881.32.31.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<h4 id="using编译指令和using声明值比较"><a href="#using编译指令和using声明值比较" class="headerlink" title="using编译指令和using声明值比较"></a>using编译指令和using声明值比较</h4><p>使用using编译指令导入一个名称空间中所有的名称与使用using声明是不一样的，而更像是大量使用作用域解析操作符。使用 using声明时,就好像声明了相应的名称一样。如果某个名称已经在函数中声明了,则不能用 using声明导入相同的名称。然而,使用 using编译指令时,将进行名称解析,就像在包含 using声明和名称空间本身的最小声明区域中声明了名称一样。在下面的范例中,名称空间为全局的。如果使用 using编译指令导入一个已经在函数中声明的名称,则局部名称将隐藏名称空间名,就像隐藏同名的全局变量样。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8B%E5%8D%882.11.32.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>一般来说，使用using声明比使用using编译指令更安全，这是由于它只导入指定的名称。如果该名称与局部名称发生冲突，编译器将发出指示。using编译指令导入所有名称，包括可能并不需要的名称。如果与局部名称发生冲突，则局部名称将覆盖名称空间版本，而编译器并不会发出警告。另外，名称空间的开放性意味着名称空间的名称可能分散在多个地方，这使得难以准确知道添加了哪些名称。</p>
-<h4 id="名称空间的其他特性"><a href="#名称空间的其他特性" class="headerlink" title="名称空间的其他特性"></a>名称空间的其他特性</h4><p>可以将名称空间声明进行嵌套。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8B%E5%8D%882.39.59.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>这里flame指的是element:: fire  ::flame。</p>
-<h4 id="未命名的名称空间"><a href="#未命名的名称空间" class="headerlink" title="未命名的名称空间"></a>未命名的名称空间</h4><p>可以通过省略名称空间的名称来创建未命名的名称空间：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8B%E5%8D%882.48.41.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>不能再未命名名称空间所属文件之外的其他文件中，使用该名称空间中的名称，因此这种方法可以替代链接性为内部的静态变量。</p>
-<h3 id="名称空间的指导原则"><a href="#名称空间的指导原则" class="headerlink" title="名称空间的指导原则"></a>名称空间的指导原则</h3><ol>
-<li>使用在已命名的名称空间中声明的变量，而不是使用外部全局变量。</li>
-<li>使用在已命名的名称空间中声明的变量，而不是使用静态全局变量。</li>
-<li>如果开发了一个函数库或类库，将其放在一个名称空间中。</li>
-<li>仅将编译指令using作为一种将旧代码转换为使用名称空间的权宜之计。（其实若冲突IDE中会报含糊不清错误）</li>
-<li>不要在头文件中使用using 编译指令。首先，这样做掩盖了要让哪些名称可用;另外， 包含头文件的顺序可能影响程序的行为。 如果非要使用编译指令using,应将其放在所有预处理器编译指令#include之后。</li>
-<li>导入名称时， 首选使用作用域解析操作符或using声明的方法。</li>
-<li>对于using声明，首选将其作用域设置为局部而不是全局。</li>
-</ol>
-<p>对于简单程序，使用using编译指令并非什么大逆不道的事。</p>
 
         </div>
 
@@ -1674,7 +1030,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-12-18T07:45:49.000Z" itemprop="dateUpdated">2018-12-18 15:45:49</time>
+    最后更新时间：<time datetime="2018-12-18T07:57:22.000Z" itemprop="dateUpdated">2018-12-18 15:57:22</time>
 </span><br>
 
 
@@ -1704,7 +1060,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/12/18/C++ Primer 类之前/&title=《C++ Primer 类之前》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/12/18/C++ Primer 数据 语句/&title=《C++ Primer 数据 语句》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -1714,22 +1070,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/12/18/C++ Primer 类之前/&title=《C++ Primer 类之前》 — ZDK's blog&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/12/18/C++ Primer 数据 语句/&title=《C++ Primer 数据 语句》 — ZDK's blog&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/12/18/C++ Primer 类之前/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/12/18/C++ Primer 数据 语句/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《C++ Primer 类之前》 — ZDK's blog&url=https://github.com/zdkswd/2018/12/18/C++ Primer 类之前/&via=https://github.com/zdkswd" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《C++ Primer 数据 语句》 — ZDK's blog&url=https://github.com/zdkswd/2018/12/18/C++ Primer 数据 语句/&via=https://github.com/zdkswd" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/12/18/C++ Primer 类之前/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/12/18/C++ Primer 数据 语句/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -1754,9 +1110,9 @@
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2018/12/07/具体数学 Interger Functions/" id="post-next" class="post-nav-link">
+      <a href="/2018/12/18/C++ Primer 函数 内存 名称空间/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">具体数学 Interger Functions</h4>
+        <h4 class="title">C++ Primer 函数 内存 名称空间</h4>
       </a>
     </div>
   
@@ -1851,7 +1207,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/12/18/C++ Primer 类之前/&title=《C++ Primer 类之前》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/12/18/C++ Primer 数据 语句/&title=《C++ Primer 数据 语句》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -1861,22 +1217,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/12/18/C++ Primer 类之前/&title=《C++ Primer 类之前》 — ZDK's blog&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/12/18/C++ Primer 数据 语句/&title=《C++ Primer 数据 语句》 — ZDK's blog&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/12/18/C++ Primer 类之前/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/12/18/C++ Primer 数据 语句/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《C++ Primer 类之前》 — ZDK's blog&url=https://github.com/zdkswd/2018/12/18/C++ Primer 类之前/&via=https://github.com/zdkswd" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《C++ Primer 数据 语句》 — ZDK's blog&url=https://github.com/zdkswd/2018/12/18/C++ Primer 数据 语句/&via=https://github.com/zdkswd" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/12/18/C++ Primer 类之前/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/12/18/C++ Primer 数据 语句/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -1887,7 +1243,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2018/12/18/C++ Primer 类之前/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2018/12/18/C++ Primer 数据 语句/" alt="微信分享二维码">
 </div>
 
 
