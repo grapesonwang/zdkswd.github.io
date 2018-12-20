@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>TCP | ZDK&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="计算机网络">
+    <meta name="description" content="参考http://www.ruanyifeng.com/blog/2017/06/tcp-protocol.html《码出高效》 TCPTCP 数据包在 IP 数据包的负载里面。它的头信息最少也需要20字节，因此 TCP 数据包的最大负载是 1480 - 20 = 1460 字节。由于 IP 和 TCP 协议往往有额外的头信息，所以 TCP 负载实际为1400字节左右。 因此，一条1500字节的信">
+<meta name="keywords" content="计算机网络">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TCP">
+<meta property="og:url" content="https://github.com/zdkswd/2018/12/20/TCP/index.html">
+<meta property="og:site_name" content="ZDK&#39;s blog">
+<meta property="og:description" content="参考http://www.ruanyifeng.com/blog/2017/06/tcp-protocol.html《码出高效》 TCPTCP 数据包在 IP 数据包的负载里面。它的头信息最少也需要20字节，因此 TCP 数据包的最大负载是 1480 - 20 = 1460 字节。由于 IP 和 TCP 协议往往有额外的头信息，所以 TCP 负载实际为1400字节左右。 因此，一条1500字节的信">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/img/media/TCP/bg20170060810.png">
+<meta property="og:image" content="https://github.com/img/media/TCP/download_resize_jpg.jpeg">
+<meta property="og:image" content="https://github.com/img/media/TCP/download_resize_jpg%202.jpeg">
+<meta property="og:image" content="https://github.com/img/media/TCP/bg2017060807.png">
+<meta property="og:image" content="https://github.com/img/media/TCP/1FE37517-343E-4A56-BEF8-B5D6917902CE.png">
+<meta property="og:image" content="https://github.com/img/media/TCP/E1B0A675-06F7-49B6-9646-D1BECC6A2F6D.png">
+<meta property="og:image" content="https://github.com/img/media/TCP/106CECAD-6E10-481C-91ED-AA5B8E258E18.png">
+<meta property="og:image" content="https://github.com/img/media/TCP/2010101120591634.jpg">
+<meta property="og:image" content="https://github.com/img/media/TCP/2010101123101842.jpg">
+<meta property="og:image" content="https://github.com/img/media/TCP/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-20%20%E4%B8%8A%E5%8D%889.13.34.png">
+<meta property="og:image" content="https://github.com/img/media/TCP/bg2017060809.png">
+<meta property="og:image" content="https://github.com/img/media/TCP/bg2017060812.jpg">
+<meta property="og:image" content="https://github.com/img/media/TCP/bg2017060811.png">
+<meta property="og:updated_time" content="2018-12-20T07:20:37.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TCP">
+<meta name="twitter:description" content="参考http://www.ruanyifeng.com/blog/2017/06/tcp-protocol.html《码出高效》 TCPTCP 数据包在 IP 数据包的负载里面。它的头信息最少也需要20字节，因此 TCP 数据包的最大负载是 1480 - 20 = 1460 字节。由于 IP 和 TCP 协议往往有额外的头信息，所以 TCP 负载实际为1400字节左右。 因此，一条1500字节的信">
+<meta name="twitter:image" content="https://github.com/img/media/TCP/bg20170060810.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/tmg.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ZDK</h5>
+          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/zdkswd" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">TCP</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">TCP</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-12-20T07:19:47.000Z" itemprop="datePublished" class="page-time">
+  2018-12-20
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#TCP"><span class="post-toc-number">1.</span> <span class="post-toc-text">TCP</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#TCP报文格式"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">TCP报文格式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#TCP数据包的编号（SEQ）"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">TCP数据包的编号（SEQ）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#TCP数据包的组装"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">TCP数据包的组装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#TCP建立连接"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">TCP建立连接</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#从编程角度来看TCP连接"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">从编程角度来看TCP连接</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#TCP断开连接"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">TCP断开连接</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#编程角度看TCP断开"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">编程角度看TCP断开</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#慢启动和ACK"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">慢启动和ACK</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数据包的遗失处理"><span class="post-toc-number">1.9.</span> <span class="post-toc-text">数据包的遗失处理</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-TCP"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">TCP</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-12-20 15:19:47" datetime="2018-12-20T07:19:47.000Z"  itemprop="datePublished">2018-12-20</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>参考<a href="http://www.ruanyifeng.com/blog/2017/06/tcp-protocol.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2017/06/tcp-protocol.html</a><br>《码出高效》</p>
+<h1 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h1><p>TCP 数据包在 IP 数据包的负载里面。它的头信息最少也需要20字节，因此 TCP 数据包的最大负载是 1480 - 20 = 1460 字节。由于 IP 和 TCP 协议往往有额外的头信息，所以 TCP 负载实际为1400字节左右。</p>
+<p>因此，一条1500字节的信息需要两个 TCP 数据包。HTTP/2 协议的一大改进， 就是压缩 HTTP 协议的头信息，使得一个 HTTP 请求可以放在一个 TCP 数据包里面，而不是分成多个，这样就提高了速度。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/TCP/bg20170060810.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>（图片说明：以太网数据包的负载是1500字节，TCP 数据包的负载在1400字节左右。）</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/TCP/download_resize_jpg.jpeg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>传输控制协议（Transmission Control Protoco,TCP，是一种面向连接、确保数据在端到端间可靠传输的协议。面向连接是指在发送数据前，需要先建立一条虚拟的链路，然后让数据在这条链路上“流动”完成传输。为了确保数据的可靠传输，不仅需要对发出的每一个字节进行编号确认，校验每一个数据包的有效性，在出现超时情况下进行重传，还需要通过实线滑动窗口和拥塞控制等机制，避免网络状况恶化而最终影响数据传输的极端情形。</p>
+<h2 id="TCP报文格式"><a href="#TCP报文格式" class="headerlink" title="TCP报文格式"></a>TCP报文格式</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/TCP/download_resize_jpg%202.jpeg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>TCP是面向连接的，因此有服务器端和客户端之分。需要服务器端先在相应的端口上进行监听，准备好接受客户端发起的建立连接的请求。客户端发起的，目标机器端口就是服务器端所监听的端口号。比如一些由国际组织定义的广为人知的端口号——代表HTTP的80端口，代表SSH的22端口，代表HTTPS的443端口。</p>
+<p>SYN用作建立连接时的同步信号；ACK用于对收到的数据进行确认，所确认的数据有确认序列号表示；FIN表示后面没有数据需要发送，通常意味着所建立的连接需要关闭了。</p>
+<h2 id="TCP数据包的编号（SEQ）"><a href="#TCP数据包的编号（SEQ）" class="headerlink" title="TCP数据包的编号（SEQ）"></a>TCP数据包的编号（SEQ）</h2><p>一个包1400字节，那么一次性发送大量数据，就必须分成多个包。比如，一个 10MB 的文件，需要发送7100多个包。</p>
+<p>发送的时候，TCP 协议为每个包编号（sequence number，简称 SEQ），以便接收的一方按照顺序还原。万一发生丢包，也可以知道丢失的是哪一个包。</p>
+<p>第一个包的编号是一个随机数。为了便于理解，这里就把它称为1号包。假定这个包的负载长度是100字节，那么可以推算出下一个包的编号应该是101。这就是说，每个数据包都可以得到两个编号：自身的编号，以及下一个包的编号。接收方由此知道，应该按照什么顺序将它们还原成原始文件。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/TCP/bg2017060807.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>（图片说明：当前包的编号是45943，下一个数据包的编号是46183，由此可知，这个包的负载是240字节。）</p>
+<h2 id="TCP数据包的组装"><a href="#TCP数据包的组装" class="headerlink" title="TCP数据包的组装"></a>TCP数据包的组装</h2><p>收到 TCP 数据包以后，组装还原是操作系统完成的。应用程序不会直接处理 TCP 数据包。</p>
+<p>对于应用程序来说，不用关心数据通信的细节。除非线路异常，收到的总是完整的数据。应用程序需要的数据放在 TCP 数据包里面，有自己的格式（比如 HTTP 协议）。</p>
+<p>TCP 并没有提供任何机制，表示原始文件的大小，这由应用层的协议来规定。比如，HTTP 协议就有一个头信息Content-Length，表示信息体的大小。对于操作系统来说，就是持续地接收 TCP 数据包，将它们按照顺序组装好，一个包都不少。</p>
+<p>操作系统不会去处理 TCP 数据包里面的数据。一旦组装好 TCP 数据包，就把它们转交给应用程序。TCP 数据包里面有一个端口（port）参数，就是用来指定转交给监听该端口的应用程序。</p>
+<p>应用程序收到组装好的原始数据，以浏览器为例，就会根据 HTTP 协议的Content-Length字段正确读出一段段的数据。这也意味着，一次 TCP 通信可以包括多个 HTTP 通信。</p>
+<h2 id="TCP建立连接"><a href="#TCP建立连接" class="headerlink" title="TCP建立连接"></a>TCP建立连接</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/TCP/1FE37517-343E-4A56-BEF8-B5D6917902CE.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>三次握手：</p>
+<ol>
+<li>A机器发出的一个数据包并将SYN置1，表示希望建立连接。这个包中的序列号假设是x。</li>
+<li>B机器收到A机器发过来的数据包后，通过SYN得知这是一个建立连接的请求，于是发送一个响应包并将SYN和ACK标记都置1。假设这个包中的序列号为y，而确认序列号必须是x+1，表示收到了A发过来的SYN。在TCP中，SYN被当作数据部分的一个字节。</li>
+<li>A收到B的响应包后需进行确认，确认包中将ACK置1，并将确认序列号设置为y+1，表示收到了来自B的SYN。</li>
+</ol>
+<p>之所以需要三次握手是为了信息对等和防止超时。在第二次握手完成时，对B来说并不知道A收到了B的第一次回信，就是不确定A有收报的能力以及自己有发报的能力。所以需要A再一次回复来确认。而且还要防止出现请求超时导致的脏连接。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/TCP/E1B0A675-06F7-49B6-9646-D1BECC6A2F6D.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h2 id="从编程角度来看TCP连接"><a href="#从编程角度来看TCP连接" class="headerlink" title="从编程角度来看TCP连接"></a>从编程角度来看TCP连接</h2><p>从编程的角度，TCP连接的建立是通过文件描述符（FIle Descripter,fd）完成的。通过创建套接字获得一个fd，然后服务器端和客户端需要机遇所获得的fd调用不同的函数分别进入监听状态和发起连接请求。由于fd的数量将决定服务端进程所能建立连接的数量，对于大规模分布式服务来说，当fd不足时就会出现“open too many files”错误而使得无法建立更多的连接。为此，需要注意调整服务端进程和操作系统所支持的最大文件句柄数。通过使用ulimit -n命令来查看单个进程可以打开文件句柄的数目。如果想查看当前系统各进程产生了多少句柄，可以使用如下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsof -n | awk &apos;&#123;print $2&#125;&apos;| sort|uniq -c |sort -nr|more</span><br></pre></td></tr></table></figure></p>
+<p>执行结果中左侧是句柄数，右侧是进程号。lsof命令用于查看当前系统所打开fd的数量。在Linux系统中，很多资源都是以fd的形式进行读写的，除了提到的文件和TCP连接，UDP数据报、输入输出设备等都抽象成了fd。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在linux系统中文件句柄（file handles）和文件描述符(file descriptor)是一个一一对应的关系</span><br></pre></td></tr></table></figure></p>
+<p>想知道具体的PID对应的具体应用程序是谁，使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ax|grep 32764</span><br></pre></td></tr></table></figure></p>
+<p>TCP在协议层面支持Keep Alive功能，即隔段时间通过向对方发送数据表示连接处于健康状态。不少服务将确保连接健康的行为放到了应用层，通过定期发送心跳包检查连接的健康度。一旦心跳包出现异常不仅会主动关闭连接，还会回收与连接相关的其他用于提供服务的资源，确保系统资源最大限度地被有效利用。</p>
+<h2 id="TCP断开连接"><a href="#TCP断开连接" class="headerlink" title="TCP断开连接"></a>TCP断开连接</h2><p>四次挥手。A机器想要关闭连接，则待本方数据发送完毕后，传递FIN信号给B机器。B机器应答ACK，告诉A机器可以断开，但是需要等B机器处理完数据，再主动给A机器发送FIN信号。这时，A机器处于半关闭状态（FIN_WAIT_2）,无法再发送新的数据。B机器做好连接关闭前的准备工作后，发送FIN给A机器，此时B机器也进入半关闭状态（CLOSE_WAIT）。A机器发送针对B机器FIN的ACK后，进入TIME-WAIT状态，经过2MSL后，没有收到B机器传来的报文，则确定B机器已经收到A机器最后发送的ACK指令，此时TCP连接正式释放。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/TCP/106CECAD-6E10-481C-91ED-AA5B8E258E18.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><strong>TIME_WAIT</strong>和<strong>CLOSE_WAIT</strong>分别表示主动关闭和被动关闭产生的阶段性状态，如果在线上服务器大量出现这两种状态，就会加重机器负载，也会影响有效连接的创建，因此需要进行有针对性的调优处理。</p>
+<p><strong>TIME_WAIT</strong>：主动要求关闭的机器表示收到了对方的FIN报文，并发送出ACK报文，进入TIME_WAIT状态，等2MSL后即可进入到CLOSED状态。如果FIN_WAIT_1状态下，同时收到带FIN标志和ACK标志的报文时，可以直接进入TIME_WAIT状态，而无须经过FIN_WAIT_2状态。</p>
+<p><strong>CLOSE_WAIT</strong>：被动要求关闭的机器收到对方请求关闭连接的FIN报文，在第一次ACK应答后，马上进入CLOSE_WAIT状态。这种状态其实表示在等待关闭，并且通知应用程序发送剩余数据，处理现场信息，关闭相关资源。</p>
+<p>2MSL是报文在网络上生存的最长时间，超过阈值便将报文丢弃。一般来说，MSL大于TTL衰减至0的时间。在RFC793中规定MSL为2分钟。但是在当前的高速网络中，2分钟的等待时间会造成资源的极大浪费，在高并发服务器上通常会使用更小的值。不直接关闭，进入CLOSED状态的原因有如下几点：</p>
+<ol>
+<li>确认被动关闭方能够顺利进入CLOSED状态。假如最后一个ACK由于网络原因导致无法到达B机器，处于LAST_ACK的B机器通常“自信”地以为对方没有收到自己的FIN+ACK报文，所以会重发。A机器收到第二次的FIN+ACK报文，会重发一次ACK，并且重新计时。如果A机器收到B机器的FIN+ACK报文后，发送一个ACK给B机器，就“自私”地立马进入CLOSED状态，可能会导致B机器无法确保收到最后的ACK指令，也无法进入CLOSED状态。这是A机器不负责任的表现。</li>
+<li>防止失效请求。这样做是为了防止已失效连接的请求数据包与正常连接的请求数据包混淆而发生异常。</li>
+</ol>
+<h2 id="编程角度看TCP断开"><a href="#编程角度看TCP断开" class="headerlink" title="编程角度看TCP断开"></a>编程角度看TCP断开</h2><p>因为TIME_WAIT状态下无法真正释放句柄资源，在此期间，Socket中使用的本地端口在默认情况下不能再被使用。该限制对于客户端机器无所谓，但对于高并发服务器来说，会极大地限制有效连接的创建数量，称为性能瓶颈。所以将高并发服务器TIME_WAIT超时时间调小。</p>
+<p>在服务器上通过变更/ etc /sysctl.conf文件来修改该省略值（秒）：net.ipv4.tcp_fin_timeout=30(建议小于30秒为宜)。</p>
+<p>修改完之后执行/ sbin / sysctl -p让参数生效即可。可通过如下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -n | awk &apos;/^tcp/ &#123;++S[$NF]&#125; END &#123;for(a in S) print a,S[a]&#125;&apos;</span><br></pre></td></tr></table></figure></p>
+<p>查看各连接状态的计数情况。</p>
+<p>在sysctl.conf中还有其他连接参数也用来不断地调优服务器TCP连接能力，以提升服务器的有效利用率。毕竟现代网络和路由器处理能力越来越强，跨国时延通常也在1s以内，丢包率极低。如何快速地使用连接资源被释放和复用，参数的优化往往可以取得事半功倍的效果。记得某大公司在大型购物节时，系统宕机，老总下令要加一倍的服务器来解决问题。事实上，如果是参数配置错误导致的系统宕机，即使增加硬件资源，也无法达到好的效果。硬件的增加与性能的提升绝对不是线性相关的，更多的时候是对数曲线关系。</p>
+<p>TIME_WAIT是挥手四次断开连接的尾声，如果此状态连接过多，则可以通过优化服务器参数得到解决。如果不是对方连接的异常，一般不会出现连接无法关闭的情况。</p>
+<p>CLOSE_WAIT过多很可能是程序自身的问题，如果在对方关闭连接后，程序没有检测到，或者忘记自己关闭连接。在某次故障中，外部请求出现超时的情况，当时的Apache服务器使用的是默认的配置方式，通过命令： netstat -ant|grep -i “443”|grep CLOSE_WAIT|wc -1发现在HTTPS的443端口堆积了2.1万个左右的CLOSE_WAIT状态。经排查发现，原来是某程序处理完业务逻辑后没有释放流操作，但程序一直运行正常，直到运营活动时才大量触发该业务逻辑，最终导致故障的产生。</p>
+<h2 id="慢启动和ACK"><a href="#慢启动和ACK" class="headerlink" title="慢启动和ACK"></a>慢启动和ACK</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/TCP/2010101120591634.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/TCP/2010101123101842.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>服务器发送数据包，当然越快越好，最好一次性全发出去。但是，发得太快，就有可能丢包。带宽小、路由器过热、缓存溢出等许多因素都会导致丢包。线路不好的话，发得越快，丢得越多。</p>
+<p>最理想的状态是，在线路允许的情况下，达到最高速率。但是我们怎么知道，对方线路的理想速率是多少呢？答案就是慢慢试。</p>
+<p>TCP 协议为了做到效率与可靠性的统一，设计了一个慢启动（slow start）机制。开始的时候，发送得较慢，然后根据丢包的情况，调整速率：如果不丢包，就加快发送速度；如果丢包，就降低发送速度。</p>
+<p>Linux 内核里面设定了（常量TCP_INIT_CWND），刚开始通信的时候，发送方一次性发送10个数据包，即”发送窗口”的大小为10。然后停下来，等待接收方的确认，再继续发送。</p>
+<p>默认情况下，接收方每收到两个 TCP 数据包，就要发送一个确认消息。”确认”的英语是 acknowledgement，所以这个确认消息就简称 ACK。</p>
+<p>ACK 携带两个信息。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/TCP/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-20%20%E4%B8%8A%E5%8D%889.13.34.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>发送方有了这两个信息，再加上自己已经发出的数据包的最新编号，就会推测出接收方大概的接收速度，从而降低或增加发送速率。这被称为”发送窗口”，这个窗口的大小是可变的。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/TCP/bg2017060809.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>（图片说明：每个 ACK 都带有下一个数据包的编号，以及接收窗口的剩余容量。双方都会发送 ACK。）</p>
+<p>注意，由于 TCP 通信是双向的，所以双方都需要发送 ACK。两方的窗口大小，很可能是不一样的。而且 ACK 只是很简单的几个字段，通常与数据合并在一个数据包里面发送。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/TCP/bg2017060812.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>（图片说明：上图一共4次通信。第一次通信，A 主机发给B 主机的数据包编号是1，长度是100字节，因此第二次通信 B 主机的 ACK 编号是 1 + 100 = 101，第三次通信 A 主机的数据包编号也是 101。同理，第二次通信 B 主机发给 A 主机的数据包编号是1，长度是200字节，因此第三次通信 A 主机的 ACK 是201，第四次通信 B 主机的数据包编号也是201。）</p>
+<p>即使对于带宽很大、线路很好的连接，TCP 也总是从10个数据包开始慢慢试，过了一段时间以后，才达到最高的传输速率。这就是 TCP 的慢启动。</p>
+<h2 id="数据包的遗失处理"><a href="#数据包的遗失处理" class="headerlink" title="数据包的遗失处理"></a>数据包的遗失处理</h2><p>TCP 协议可以保证数据通信的完整性，这是怎么做到的？</p>
+<p>前面说过，每一个数据包都带有下一个数据包的编号。如果下一个数据包没有收到，那么 ACK 的编号就不会发生变化。</p>
+<p>举例来说，现在收到了4号包，但是没有收到5号包。ACK 就会记录，期待收到5号包。过了一段时间，5号包收到了，那么下一轮 ACK 会更新编号。如果5号包还是没收到，但是收到了6号包或7号包，那么 ACK 里面的编号不会变化，总是显示5号包。这会导致大量重复内容的 ACK。</p>
+<p>如果发送方发现收到三个连续的重复 ACK，或者超时了还没有收到任何 ACK，就会确认丢包，即5号包遗失了，从而再次发送这个包。通过这种机制，TCP 保证了不会有数据包丢失。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/TCP/bg2017060811.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>（图片说明：Host B 没有收到100号数据包，会连续发出相同的 ACK，触发 Host A 重发100号数据包。）</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-12-20T07:20:37.000Z" itemprop="dateUpdated">2018-12-20 15:20:37</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/zdkswd">
+            <img src="/img/tmg.jpg" alt="ZDK">
+            ZDK
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/计算机网络/">计算机网络</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/12/20/TCP/&title=《TCP》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/12/20/TCP/&title=《TCP》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/12/20/TCP/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《TCP》 — ZDK's blog&url=https://github.com/zdkswd/2018/12/20/TCP/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/12/20/TCP/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/12/19/HTTP协议  SSL:TLS协议/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">HTTP协议  SSL/TLS协议</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz",
+            appKey: "gkBx5soQkBREmER84PWbNJeM",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ZDK &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/12/20/TCP/&title=《TCP》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/12/20/TCP/&title=《TCP》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/12/20/TCP/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《TCP》 — ZDK's blog&url=https://github.com/zdkswd/2018/12/20/TCP/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/12/20/TCP/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2018/12/20/TCP/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'zdk'blog';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
