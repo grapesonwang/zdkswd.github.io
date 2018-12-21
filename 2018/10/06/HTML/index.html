@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>HTML | ZDK&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="HTML">
+    <meta name="description" content="html+csschrome市场份额多。 常见浏览器内核介绍：浏览器内核又可以分成两个部分：渲染引擎（layout engineer或者Rendering Engine）和JS引擎。 渲染引擎它负责取得网页的内容(HTML、XML、图像等等)、整理讯息(例如加入Css等),以及计算网页的显示方式,然后会输出至显示器或打印机。浏览器的内核的不同对于网页的语法解释会有不同,所以渲染的效果也不相同。 J">
+<meta name="keywords" content="HTML">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML">
+<meta property="og:url" content="https://github.com/zdkswd/2018/10/06/HTML/index.html">
+<meta property="og:site_name" content="ZDK&#39;s blog">
+<meta property="og:description" content="html+csschrome市场份额多。 常见浏览器内核介绍：浏览器内核又可以分成两个部分：渲染引擎（layout engineer或者Rendering Engine）和JS引擎。 渲染引擎它负责取得网页的内容(HTML、XML、图像等等)、整理讯息(例如加入Css等),以及计算网页的显示方式,然后会输出至显示器或打印机。浏览器的内核的不同对于网页的语法解释会有不同,所以渲染的效果也不相同。 J">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-29%20%E4%B8%8B%E5%8D%887.08.19.png">
+<meta property="og:image" content="https://github.com/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-29%20%E4%B8%8B%E5%8D%887.11.06.png">
+<meta property="og:image" content="https://github.com/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-29%20%E4%B8%8B%E5%8D%887.15.01.png">
+<meta property="og:image" content="https://github.com/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-29%20%E4%B8%8B%E5%8D%887.44.03.png">
+<meta property="og:image" content="https://github.com/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-29%20%E4%B8%8B%E5%8D%887.55.09.png">
+<meta property="og:image" content="https://github.com/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-29%20%E4%B8%8B%E5%8D%888.05.35.png">
+<meta property="og:image" content="https://github.com/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-29%20%E4%B8%8B%E5%8D%888.28.08.png">
+<meta property="og:image" content="https://github.com/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-29%20%E4%B8%8B%E5%8D%888.34.39.png">
+<meta property="og:image" content="https://github.com/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-29%20%E4%B8%8B%E5%8D%888.37.07.png">
+<meta property="og:image" content="https://github.com/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-29%20%E4%B8%8B%E5%8D%888.44.35.png">
+<meta property="og:image" content="https://github.com/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-29%20%E4%B8%8B%E5%8D%888.47.34.png">
+<meta property="og:image" content="https://github.com/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-29%20%E4%B8%8B%E5%8D%888.51.42.png">
+<meta property="og:image" content="https://github.com/zdkswd/2018/10/06/HTML/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-29%20%E4%B8%8B%E5%8D%888.54.11.png">
+<meta property="og:image" content="https://github.com/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-29%20%E4%B8%8B%E5%8D%888.59.04.png">
+<meta property="og:image" content="https://github.com/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-29%20%E4%B8%8B%E5%8D%889.00.58.png">
+<meta property="og:image" content="https://github.com/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-29%20%E4%B8%8B%E5%8D%889.02.00.png">
+<meta property="og:image" content="https://github.com/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-29%20%E4%B8%8B%E5%8D%889.22.34.png">
+<meta property="og:image" content="https://github.com/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-29%20%E4%B8%8B%E5%8D%889.40.29.png">
+<meta property="og:image" content="https://github.com/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-01%20%E4%B8%8A%E5%8D%8811.52.29.png">
+<meta property="og:image" content="https://github.com/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-01%20%E4%B8%8A%E5%8D%8811.58.01.png">
+<meta property="og:image" content="https://github.com/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-01%20%E4%B8%8B%E5%8D%8812.00.19.png">
+<meta property="og:image" content="https://github.com/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-01%20%E4%B8%8B%E5%8D%8812.02.54.png">
+<meta property="og:image" content="https://github.com/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-01%20%E4%B8%8B%E5%8D%8812.05.50.png">
+<meta property="og:image" content="https://github.com/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-01%20%E4%B8%8B%E5%8D%8812.09.31.png">
+<meta property="og:image" content="https://github.com/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-01%20%E4%B8%8B%E5%8D%8812.17.29.png">
+<meta property="og:image" content="https://github.com/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-01%20%E4%B8%8B%E5%8D%8812.19.37.png">
+<meta property="og:image" content="https://github.com/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-01%20%E4%B8%8B%E5%8D%8812.20.07.png">
+<meta property="og:image" content="https://github.com/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-01%20%E4%B8%8B%E5%8D%8812.55.58.png">
+<meta property="og:image" content="https://github.com/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-01%20%E4%B8%8B%E5%8D%881.02.38.png">
+<meta property="og:image" content="https://github.com/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-01%20%E4%B8%8B%E5%8D%881.02.52.png">
+<meta property="og:image" content="https://github.com/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-01%20%E4%B8%8B%E5%8D%881.04.17.png">
+<meta property="og:image" content="https://github.com/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-01%20%E4%B8%8B%E5%8D%881.11.47.png">
+<meta property="og:image" content="https://github.com/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-01%20%E4%B8%8B%E5%8D%881.14.37.png">
+<meta property="og:image" content="https://github.com/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-01%20%E4%B8%8B%E5%8D%881.21.58.png">
+<meta property="og:image" content="https://github.com/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-01%20%E4%B8%8B%E5%8D%881.23.14.png">
+<meta property="og:image" content="https://github.com/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-01%20%E4%B8%8B%E5%8D%882.34.17.png">
+<meta property="og:image" content="https://github.com/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-01%20%E4%B8%8B%E5%8D%883.00.29.png">
+<meta property="og:image" content="https://github.com/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-01%20%E4%B8%8B%E5%8D%883.23.35.png">
+<meta property="og:image" content="https://github.com/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-01%20%E4%B8%8B%E5%8D%883.27.31.png">
+<meta property="og:image" content="https://github.com/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-01%20%E4%B8%8B%E5%8D%883.17.34.png">
+<meta property="og:image" content="https://github.com/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-01%20%E4%B8%8B%E5%8D%883.19.41.png">
+<meta property="og:updated_time" content="2018-12-20T08:00:13.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTML">
+<meta name="twitter:description" content="html+csschrome市场份额多。 常见浏览器内核介绍：浏览器内核又可以分成两个部分：渲染引擎（layout engineer或者Rendering Engine）和JS引擎。 渲染引擎它负责取得网页的内容(HTML、XML、图像等等)、整理讯息(例如加入Css等),以及计算网页的显示方式,然后会输出至显示器或打印机。浏览器的内核的不同对于网页的语法解释会有不同,所以渲染的效果也不相同。 J">
+<meta name="twitter:image" content="https://github.com/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-29%20%E4%B8%8B%E5%8D%887.08.19.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/tmg.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ZDK</h5>
+          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/zdkswd" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">HTML</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">HTML</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-10-06T13:31:32.000Z" itemprop="datePublished" class="page-time">
+  2018-10-06
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/听课笔记/">听课笔记</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#html-css"><span class="post-toc-number">1.</span> <span class="post-toc-text">html+css</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#常见浏览器内核介绍："><span class="post-toc-number">2.</span> <span class="post-toc-text">常见浏览器内核介绍：</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Web标准"><span class="post-toc-number">3.</span> <span class="post-toc-text">Web标准</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Web标准构成"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">Web标准构成</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#HTMl初识"><span class="post-toc-number">4.</span> <span class="post-toc-text">HTMl初识</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#HTML标签分类"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">HTML标签分类</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#双标签"><span class="post-toc-number">4.1.1.</span> <span class="post-toc-text">双标签</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#单标签"><span class="post-toc-number">4.1.2.</span> <span class="post-toc-text">单标签</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#HTML标签关系"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">HTML标签关系</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#嵌套关系"><span class="post-toc-number">4.2.1.</span> <span class="post-toc-text">嵌套关系</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#并列关系"><span class="post-toc-number">4.2.2.</span> <span class="post-toc-text">并列关系</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#HTML开发"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">HTML开发</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#文档类型-lt-DOCTYPE-gt"><span class="post-toc-number">4.3.1.</span> <span class="post-toc-text">文档类型&lt;!DOCTYPE&gt;</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#字符集"><span class="post-toc-number">4.3.2.</span> <span class="post-toc-text">字符集</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#HTML语义化"><span class="post-toc-number">4.3.3.</span> <span class="post-toc-text">HTML语义化</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#HTMl常用标签"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">HTMl常用标签</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#排版标签"><span class="post-toc-number">4.4.1.</span> <span class="post-toc-text">排版标签</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#（内容）标题标签（熟记）"><span class="post-toc-number">4.4.1.1.</span> <span class="post-toc-text">（内容）标题标签（熟记）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#段落标签（熟记）"><span class="post-toc-number">4.4.1.2.</span> <span class="post-toc-text">段落标签（熟记）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#水平线标签（认识）"><span class="post-toc-number">4.4.1.3.</span> <span class="post-toc-text">水平线标签（认识）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#语义化后的效果："><span class="post-toc-number">4.4.1.4.</span> <span class="post-toc-text">语义化后的效果：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#换行标签（熟记）"><span class="post-toc-number">4.4.1.5.</span> <span class="post-toc-text">换行标签（熟记）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#div-span标签（重点）"><span class="post-toc-number">4.4.1.6.</span> <span class="post-toc-text">div span标签（重点）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#文本格式化标签（熟记）"><span class="post-toc-number">4.4.1.7.</span> <span class="post-toc-text">文本格式化标签（熟记）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#图像标签img-重点"><span class="post-toc-number">4.4.1.8.</span> <span class="post-toc-text">图像标签img(重点)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#链接标签（重点）"><span class="post-toc-number">4.4.1.9.</span> <span class="post-toc-text">链接标签（重点）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#锚点定位（难点）"><span class="post-toc-number">4.4.1.10.</span> <span class="post-toc-text">锚点定位（难点）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#base标签"><span class="post-toc-number">4.4.1.11.</span> <span class="post-toc-text">base标签</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#特殊字符标签"><span class="post-toc-number">4.4.1.12.</span> <span class="post-toc-text">特殊字符标签</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#注释标签"><span class="post-toc-number">4.4.1.13.</span> <span class="post-toc-text">注释标签</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#路径（重点难点）"><span class="post-toc-number">4.5.</span> <span class="post-toc-text">路径（重点难点）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#相对路径"><span class="post-toc-number">4.5.1.</span> <span class="post-toc-text">相对路径</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#绝对路径"><span class="post-toc-number">4.5.2.</span> <span class="post-toc-text">绝对路径</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#列表标签"><span class="post-toc-number">4.6.</span> <span class="post-toc-text">列表标签</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#无序列表ul（重点）"><span class="post-toc-number">4.6.1.</span> <span class="post-toc-text">无序列表ul（重点）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#有序列表ol-了解"><span class="post-toc-number">4.6.2.</span> <span class="post-toc-text">有序列表ol(了解)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#自定义列表（理解）"><span class="post-toc-number">4.6.3.</span> <span class="post-toc-text">自定义列表（理解）</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#表格table（会使用）"><span class="post-toc-number">4.7.</span> <span class="post-toc-text">表格table（会使用）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#创建表格"><span class="post-toc-number">4.7.1.</span> <span class="post-toc-text">创建表格</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#表格属性"><span class="post-toc-number">4.7.2.</span> <span class="post-toc-text">表格属性</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#表头标签"><span class="post-toc-number">4.7.3.</span> <span class="post-toc-text">表头标签</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#表格标题"><span class="post-toc-number">4.7.4.</span> <span class="post-toc-text">表格标题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#表格结构（了解）"><span class="post-toc-number">4.7.5.</span> <span class="post-toc-text">表格结构（了解）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#合并单元格（难点）"><span class="post-toc-number">4.7.6.</span> <span class="post-toc-text">合并单元格（难点）</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#表单标签（掌握）"><span class="post-toc-number">4.8.</span> <span class="post-toc-text">表单标签（掌握）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#input控件（重点）"><span class="post-toc-number">4.8.1.</span> <span class="post-toc-text">input控件（重点）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#label标签（理解）"><span class="post-toc-number">4.8.2.</span> <span class="post-toc-text">label标签（理解）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#textarea控件（文本域）"><span class="post-toc-number">4.8.3.</span> <span class="post-toc-text">textarea控件（文本域）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#表单域"><span class="post-toc-number">4.8.4.</span> <span class="post-toc-text">表单域</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-HTML"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">HTML</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-10-06 21:31:32" datetime="2018-10-06T13:31:32.000Z"  itemprop="datePublished">2018-10-06</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/听课笔记/">听课笔记</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="html-css"><a href="#html-css" class="headerlink" title="html+css"></a>html+css</h1><p>chrome市场份额多。</p>
+<h1 id="常见浏览器内核介绍："><a href="#常见浏览器内核介绍：" class="headerlink" title="常见浏览器内核介绍："></a>常见浏览器内核介绍：</h1><p>浏览器内核又可以分成两个部分：渲染引擎（layout engineer或者Rendering Engine）和JS引擎。</p>
+<p><strong>渲染引擎</strong>它负责取得网页的内容(HTML、XML、图像等等)、整理讯息(例如加入Css等),以及计算网页的显示方式,然后会输出至显示器或打印机。浏览器的内核的不同对于网页的语法解释会有不同,所以渲染的效果也不相同。</p>
+<p><strong>JS引擎</strong>则是解析Javascript语言,执行 Javascript语言来实现网页的动态效果。</p>
+<p>最开始渲染引擎和J5引擎并没有区分的很明确,后来]S引擎越来越独立,内核就倾向于只指渲染引擎。有一个网页标准计划小组制作了个ACID来测试引擎的兼容性和性能。内核的种类很多,如加上没什么人使用的非商业的免费内核,可能会有10多种,但是常见的浏览器内核可以分这四种: Trident、 Gecko、 Blink、 Webkit。 </p>
+<p>(1) Trident(IE内核)<br>国内很多的双核浏览器的其中一核便是 Trident,美其名曰”兼容模式”。<br>代表:、傲游、世界之窗浏览器、 Avant、腾讯TT、猎豹安全浏览器、360极速浏览器、百度浏览器等。<br>Window10发布后,正将其内置浏览器命名为Edge,Edge最显著的特点就是新内核 EdgeHTML。</p>
+<p>(2)Gecko(firefox)<br>Gecko( Firefox内核): Mozilla fire fox(火狐浏览器)采用该内核, Gecko的特点是代码完全公开,因此,其可开发程度很高,全世界的程序员都可以为其编写代码,增加功能。可惜这几年已经没落了,比如打开速度慢、升级频繁、猪一样的队友flash、神一样的对手 chrome。</p>
+<p>(3) webkit(Safari)<br>Safari是苹果公司开发的浏览器,所用浏览器内核的名称是大名鼎鼎的 Webkit.<br>现在很多人错误地把 webkit叫做 chrome内核(即使 chrome内核已经是 blink了),苹果感觉像被别人抢了媳妇,都哭晕再厕所里面了。代表浏览器:傲游浏览器3、 Apple Safari(Win/ Mac_iPhone_iPad)、 Symbian手机浏览器、 Android默认浏览器。</p>
+<p>(4) Chromium/Blink(chrome)<br>在 Chromium项目中研发 Blink渲染引擎(即浏览器核心),内置于 Chrome浏览器之中。 Blink其实是 Webkit的分支。<br>大部分国产浏览器最新版都采用Bink内核。</p>
+<p>移动端的浏览器内核主要说的是系统内置浏览器的内核。</p>
+<p>Android手机而言,使用率最高的就是 Webkit内核,大部分国产浏览器宣称的自己的内核,基本上也是属于 webkit二次开发。</p>
+<p>IOS以及WP7平台上,由于系统原因,系统大部分自带浏览器内核,一般是 Safari或者IE内核 Trident的。</p>
+<h1 id="Web标准"><a href="#Web标准" class="headerlink" title="Web标准"></a>Web标准</h1><p>通过Web标准不同的浏览器内核展示统一内容。</p>
+<h2 id="Web标准构成"><a href="#Web标准构成" class="headerlink" title="Web标准构成"></a>Web标准构成</h2><p>主要包括：结构（HTML）（<strong>最重要</strong>），表现（CSS），和行为（JS）。</p>
+<h1 id="HTMl初识"><a href="#HTMl初识" class="headerlink" title="HTMl初识"></a>HTMl初识</h1><p>超（除了文字之外还有其他的，还可以链接），文本，标签，语言（有规范）。</p>
+<p>语法骨架，一万年不变：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-29%20%E4%B8%8B%E5%8D%887.08.19.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-29%20%E4%B8%8B%E5%8D%887.11.06.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>h4之前标签是不分大小写的，h5之后最好小写。</p>
+<p>头部是指标签栏位置。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-29%20%E4%B8%8B%E5%8D%887.15.01.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>页面内容基本在body中。</p>
+<h2 id="HTML标签分类"><a href="#HTML标签分类" class="headerlink" title="HTML标签分类"></a>HTML标签分类</h2><h3 id="双标签"><a href="#双标签" class="headerlink" title="双标签"></a>双标签</h3><p>一对尖括号。</p>
+<p><head></head></p>
+<h3 id="单标签"><a href="#单标签" class="headerlink" title="单标签"></a>单标签</h3><p><br><br>单标签数量非常少，用脚趾能数过来。<br>其中都有’/ ‘,’/‘表示关闭符。</p>
+<h2 id="HTML标签关系"><a href="#HTML标签关系" class="headerlink" title="HTML标签关系"></a>HTML标签关系</h2><h3 id="嵌套关系"><a href="#嵌套关系" class="headerlink" title="嵌套关系"></a>嵌套关系</h3><p>父子关系</p>
+<h3 id="并列关系"><a href="#并列关系" class="headerlink" title="并列关系"></a>并列关系</h3><p> <strong>倡议</strong>：如果两个标签之间的关系是嵌套关系，子元素最好缩进一个Tab的身位。如果是并列关系，最好上下对齐。</p>
+<h2 id="HTML开发"><a href="#HTML开发" class="headerlink" title="HTML开发"></a>HTML开发</h2><p>使用sublime，输入html:5或者！后按下tab键自动生成骨骼框架。</p>
+<p>右键在浏览器中打开，快捷键f12。</p>
+<h3 id="文档类型-lt-DOCTYPE-gt"><a href="#文档类型-lt-DOCTYPE-gt" class="headerlink" title="文档类型&lt;!DOCTYPE&gt;"></a>文档类型&lt;!DOCTYPE&gt;</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-29%20%E4%B8%8B%E5%8D%887.44.03.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>图中就是h5版本。</p>
+<h3 id="字符集"><a href="#字符集" class="headerlink" title="字符集"></a>字符集</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-29%20%E4%B8%8B%E5%8D%887.55.09.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>UTF-16固定用2个字节来存储。<br>UTF-8（国际通用）,这里的8非常容易误导人,8不是指一个字节,难道一个字节表示一个字符?实际上不是.当用UTF-8时表示一个字符是可变的,有可能是用一个字节表示一个字符,也可能是两个,三个..反正是根据字符对应的数字大小来确定。</p>
+<h3 id="HTML语义化"><a href="#HTML语义化" class="headerlink" title="HTML语义化"></a>HTML语义化</h3><p>核心：在合适的地方给个合适的标签。</p>
+<h2 id="HTMl常用标签"><a href="#HTMl常用标签" class="headerlink" title="HTMl常用标签"></a>HTMl常用标签</h2><h3 id="排版标签"><a href="#排版标签" class="headerlink" title="排版标签"></a>排版标签</h3><h4 id="（内容）标题标签（熟记）"><a href="#（内容）标题标签（熟记）" class="headerlink" title="（内容）标题标签（熟记）"></a>（内容）标题标签（熟记）</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-29%20%E4%B8%8B%E5%8D%888.05.35.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="段落标签（熟记）"><a href="#段落标签（熟记）" class="headerlink" title="段落标签（熟记）"></a>段落标签（熟记）</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-29%20%E4%B8%8B%E5%8D%888.28.08.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="水平线标签（认识）"><a href="#水平线标签（认识）" class="headerlink" title="水平线标签（认识）"></a>水平线标签（认识）</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-29%20%E4%B8%8B%E5%8D%888.34.39.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="语义化后的效果："><a href="#语义化后的效果：" class="headerlink" title="语义化后的效果："></a>语义化后的效果：</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-29%20%E4%B8%8B%E5%8D%888.37.07.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="换行标签（熟记）"><a href="#换行标签（熟记）" class="headerlink" title="换行标签（熟记）"></a>换行标签（熟记）</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-29%20%E4%B8%8B%E5%8D%888.44.35.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="div-span标签（重点）"><a href="#div-span标签（重点）" class="headerlink" title="div span标签（重点）"></a>div span标签（重点）</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-29%20%E4%B8%8B%E5%8D%888.47.34.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>通常css+div<br>div独占一行，span一行可以放多个。</p>
+<h4 id="文本格式化标签（熟记）"><a href="#文本格式化标签（熟记）" class="headerlink" title="文本格式化标签（熟记）"></a>文本格式化标签（熟记）</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-29%20%E4%B8%8B%E5%8D%888.51.42.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-29%20%E4%B8%8B%E5%8D%888.54.11.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="图像标签img-重点"><a href="#图像标签img-重点" class="headerlink" title="图像标签img(重点)"></a>图像标签img(重点)</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-29%20%E4%B8%8B%E5%8D%888.59.04.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-29%20%E4%B8%8B%E5%8D%889.00.58.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-29%20%E4%B8%8B%E5%8D%889.02.00.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>单独给宽高会等比缩放。</p>
+<h4 id="链接标签（重点）"><a href="#链接标签（重点）" class="headerlink" title="链接标签（重点）"></a>链接标签（重点）</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-29%20%E4%B8%8B%E5%8D%889.22.34.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="锚点定位（难点）"><a href="#锚点定位（难点）" class="headerlink" title="锚点定位（难点）"></a>锚点定位（难点）</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-29%20%E4%B8%8B%E5%8D%889.40.29.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="base标签"><a href="#base标签" class="headerlink" title="base标签"></a>base标签</h4><p>base可以设置整体链接的打开状态。<br>在head中使用，单标签。</p>
+<h4 id="特殊字符标签"><a href="#特殊字符标签" class="headerlink" title="特殊字符标签"></a>特殊字符标签</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-01%20%E4%B8%8A%E5%8D%8811.52.29.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="注释标签"><a href="#注释标签" class="headerlink" title="注释标签"></a>注释标签</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-01%20%E4%B8%8A%E5%8D%8811.58.01.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="路径（重点难点）"><a href="#路径（重点难点）" class="headerlink" title="路径（重点难点）"></a>路径（重点难点）</h2><h3 id="相对路径"><a href="#相对路径" class="headerlink" title="相对路径"></a>相对路径</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-01%20%E4%B8%8B%E5%8D%8812.00.19.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="绝对路径"><a href="#绝对路径" class="headerlink" title="绝对路径"></a>绝对路径</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-01%20%E4%B8%8B%E5%8D%8812.02.54.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="列表标签"><a href="#列表标签" class="headerlink" title="列表标签"></a>列表标签</h2><p>整齐有序。</p>
+<h3 id="无序列表ul（重点）"><a href="#无序列表ul（重点）" class="headerlink" title="无序列表ul（重点）"></a>无序列表ul（重点）</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-01%20%E4%B8%8B%E5%8D%8812.05.50.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>先到先得，先到先显示。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-01%20%E4%B8%8B%E5%8D%8812.09.31.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="有序列表ol-了解"><a href="#有序列表ol-了解" class="headerlink" title="有序列表ol(了解)"></a>有序列表ol(了解)</h3><p>注意事项和ul类似，使用也类似。</p>
+<h3 id="自定义列表（理解）"><a href="#自定义列表（理解）" class="headerlink" title="自定义列表（理解）"></a>自定义列表（理解）</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-01%20%E4%B8%8B%E5%8D%8812.17.29.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>由三个标签组成。</p>
+<p>效果：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-01%20%E4%B8%8B%E5%8D%8812.19.37.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-01%20%E4%B8%8B%E5%8D%8812.20.07.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="表格table（会使用）"><a href="#表格table（会使用）" class="headerlink" title="表格table（会使用）"></a>表格table（会使用）</h2><p>表格不是用来布局的，常见处理，显示表格式数据。</p>
+<h3 id="创建表格"><a href="#创建表格" class="headerlink" title="创建表格"></a>创建表格</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-01%20%E4%B8%8B%E5%8D%8812.55.58.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-01%20%E4%B8%8B%E5%8D%881.02.38.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-01%20%E4%B8%8B%E5%8D%881.02.52.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="表格属性"><a href="#表格属性" class="headerlink" title="表格属性"></a>表格属性</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-01%20%E4%B8%8B%E5%8D%881.04.17.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>三参为0 border  cellpadding cellspacing 为0</p>
+<h3 id="表头标签"><a href="#表头标签" class="headerlink" title="表头标签"></a>表头标签</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-01%20%E4%B8%8B%E5%8D%881.11.47.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p> 一般第一行或第一列使用。居中且加粗。</p>
+<h3 id="表格标题"><a href="#表格标题" class="headerlink" title="表格标题"></a>表格标题</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-01%20%E4%B8%8B%E5%8D%881.14.37.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="表格结构（了解）"><a href="#表格结构（了解）" class="headerlink" title="表格结构（了解）"></a>表格结构（了解）</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-01%20%E4%B8%8B%E5%8D%881.21.58.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-01%20%E4%B8%8B%E5%8D%881.23.14.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="合并单元格（难点）"><a href="#合并单元格（难点）" class="headerlink" title="合并单元格（难点）"></a>合并单元格（难点）</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-01%20%E4%B8%8B%E5%8D%882.34.17.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p> 在td属性中使用。</p>
+<h2 id="表单标签（掌握）"><a href="#表单标签（掌握）" class="headerlink" title="表单标签（掌握）"></a>表单标签（掌握）</h2><p>收集用户信息。<br>一个完整的表单通常由三部分组成：<br>表单控件（也称为表单元素）、提示信息和表单域。</p>
+<h3 id="input控件（重点）"><a href="#input控件（重点）" class="headerlink" title="input控件（重点）"></a>input控件（重点）</h3><p>单标签。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-01%20%E4%B8%8B%E5%8D%883.00.29.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br> 用name来控制单选组，多选组。</p>
+<h3 id="label标签（理解）"><a href="#label标签（理解）" class="headerlink" title="label标签（理解）"></a>label标签（理解）</h3><p>label标签为input元素定义标注（标签）。<br>作用：用于绑定一个表单元素，当点击label标签时，被绑定的表单元素就会获得输入焦点。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-01%20%E4%B8%8B%E5%8D%883.23.35.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="textarea控件（文本域）"><a href="#textarea控件（文本域）" class="headerlink" title="textarea控件（文本域）"></a>textarea控件（文本域）</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-01%20%E4%B8%8B%E5%8D%883.27.31.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="表单域"><a href="#表单域" class="headerlink" title="表单域"></a>表单域</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-01%20%E4%B8%8B%E5%8D%883.17.34.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/html+css/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-01%20%E4%B8%8B%E5%8D%883.19.41.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-12-20T08:00:13.000Z" itemprop="dateUpdated">2018-12-20 16:00:13</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/zdkswd">
+            <img src="/img/tmg.jpg" alt="ZDK">
+            ZDK
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/">HTML</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/10/06/HTML/&title=《HTML》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/10/06/HTML/&title=《HTML》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/10/06/HTML/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《HTML》 — ZDK's blog&url=https://github.com/zdkswd/2018/10/06/HTML/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/10/06/HTML/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/10/06/CSS/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">CSS</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/09/26/数学之美 第四章 谈谈中文分词/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">数学之美 第四章 谈谈中文分词</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz",
+            appKey: "gkBx5soQkBREmER84PWbNJeM",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ZDK &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/10/06/HTML/&title=《HTML》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/10/06/HTML/&title=《HTML》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/10/06/HTML/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《HTML》 — ZDK's blog&url=https://github.com/zdkswd/2018/10/06/HTML/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/10/06/HTML/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2018/10/06/HTML/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'zdk'blog';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
