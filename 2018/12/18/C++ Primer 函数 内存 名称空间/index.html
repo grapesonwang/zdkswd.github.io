@@ -95,7 +95,7 @@
 <meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8B%E5%8D%882.11.32.png">
 <meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8B%E5%8D%882.39.59.png">
 <meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8B%E5%8D%882.48.41.png">
-<meta property="og:updated_time" content="2018-12-18T07:57:10.000Z">
+<meta property="og:updated_time" content="2019-01-07T06:26:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++ Primer 函数 内存 名称空间">
 <meta name="twitter:description" content="函数定义函数:分为有返回值函数和无返回值函数。void：                                                                                                          有返回值：">
@@ -305,7 +305,7 @@
                     <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%881.09.57.png" alt="" title="">
                 </div>
                 <div class="image-caption"></div>
-            </figure><br>其中使用int <em> arr 替换了int arr [] 。这证明这两个函数头都是正确的，因为在C++中，当(且仅当)用于函数头或函数原型中，int </em> arr 和int arr[ ]的含义才是相同的。它们都意味着arr是一个int指针。不过，数组表示法(int arr[]) 提醒用户，arr 不仅指向int, 还指向int数组的第一个int。当指针指向数组的第一个元素时， 本书使用数组表示法;而当指针指向一个独立的值时，使用指针表示法。 别忘了，在其他的上下文中，int * arr和int arr[]的含义并不相同。例如， 不能在函数体中使用int tip[ ]来声明指针。<br>两个恒等式：<br><figure class="image-bubble">
+            </figure><br>其中使用int * arr 替换了int arr [] 。这证明这两个函数头都是正确的，因为在C++中，当(且仅当)用于函数头或函数原型中，int * arr 和int arr[ ]的含义才是相同的。它们都意味着arr是一个int指针。不过，数组表示法(int arr[]) 提醒用户，arr 不仅指向int, 还指向int数组的第一个int。当指针指向数组的第一个元素时， 本书使用数组表示法;而当指针指向一个独立的值时，使用指针表示法。 别忘了，在其他的上下文中，int * arr和int arr[]的含义并不相同。例如， 不能在函数体中使用int tip[ ]来声明指针。<br>两个恒等式：<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%881.14.41.png" alt="" title="">
@@ -375,7 +375,7 @@
 <li>用引号括起的字符串常量。</li>
 <li>被设置为字符串的地址的char指针</li>
 </ol>
-<p>3种选择的类型都是char指针（即char <em> ），可将其作为字符串处理函数的参数。字符串函数原型应将其表示字符串的形参声明为char </em> 指针。<br><figure class="image-bubble">
+<p>3种选择的类型都是char指针（即char * ），可将其作为字符串处理函数的参数。字符串函数原型应将其表示字符串的形参声明为char * 指针。<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%883.31.50.png" alt="" title="">
@@ -411,7 +411,7 @@
                 </div>
                 <div class="image-caption"></div>
             </figure></p>
-<h3 id="使用指针来调用函数"><a href="#使用指针来调用函数" class="headerlink" title="使用指针来调用函数"></a>使用指针来调用函数</h3><p>使用指针来调用被指向的函数。（ <em> pf）扮演的角色与函数名相同，因此使用（ </em> pf）时，只需将它看做函数名即可。<br><figure class="image-bubble">
+<h3 id="使用指针来调用函数"><a href="#使用指针来调用函数" class="headerlink" title="使用指针来调用函数"></a>使用指针来调用函数</h3><p>使用指针来调用被指向的函数。（ * pf）扮演的角色与函数名相同，因此使用（ * pf）时，只需将它看做函数名即可。<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-16%20%E4%B8%8B%E5%8D%884.24.18.png" alt="" title="">
@@ -552,10 +552,11 @@
                 </div>
                 <div class="image-caption"></div>
             </figure><br>显示具体化声明在关键字Template后包含&lt;&gt;，而显式实例化没有。</int></p>
-<p><strong>警告：视图在同一个编程单元中使用同一类型的显示实例和显示具体化将出错。</strong></p>
+<p><strong>警告：试图在同一个编程单元中使用同一类型的显示实例和显示具体化将出错。</strong></p>
+<p>实例化就是不用单独的再有个实现了，具体化是还要有一个单独的实现。</p>
 <p>隐式实例化、显式实例化和显式具体化统称为具体化(specialization)。 它们的相同之处在于，它们表示的都是使用具体类型的函数定义，而不是通用描述。</p>
 <h1 id="内存模型和名称空间"><a href="#内存模型和名称空间" class="headerlink" title="内存模型和名称空间"></a>内存模型和名称空间</h1><p>C++为在内存中存储数据方面提供了多种选择。可以选择数据保留在内存中的时间长度（存储持续性）以及程序的哪一部分可以访问数据（作用域和链接）等。可以使用new来动态地分配内存而布局new操作符提供了这种技术的一种变种。C++名称空间是另一种控制访问权的方式。通常，大型程序都由多个源代码文件组成，这些文件可能共享一些数据。这样的程序涉及到程序文件的单独编译。</p>
-<h2 id="单独编译"><a href="#单独编译" class="headerlink" title="单独编译"></a>单独编译</h2><p>和C语言一样，C++也允许甚至鼓励程序员将组件函数放在独立的文件中。 可以单独编译这些文件，然后将它们链接成可执行的程序(通常，C++编译器既编译程序，也管理链接器)。,如果只修改了一个文件，则可以只重新编译该文件，然后将它与其他文件的编译版本链接。这使得大程序的管理更便捷。另外，大多数C++环境都提供了其他工具来帮助管理。例如，UNIX和Linux系统都具有make程序， 可以跟踪程序依赖的文件以及这些文件的最后修改时间。运行make时，如果它检测到上次编译后修改了源文件，make将记住重新构建程序所需的步骤。</p>
+<h2 id="单独编译"><a href="#单独编译" class="headerlink" title="单独编译"></a>单独编译</h2><p>和C语言一样，C++也允许甚至鼓励程序员将组件函数放在独立的文件中。可以单独编译这些文件，然后将它们链接成可执行的程序(通常，C++编译器既编译程序，也管理链接器)。如果只修改了一个文件，则可以只重新编译该文件，然后将它与其他文件的编译版本链接。这使得大程序的管理更便捷。另外，大多数C++环境都提供了其他工具来帮助管理。例如，UNIX和Linux系统都具有make程序，可以跟踪程序依赖的文件以及这些文件的最后修改时间。运行make时，如果它检测到上次编译后修改了源文件，make将记住重新构建程序所需的步骤。</p>
 <p>可以将原来的程序分为三部分：</p>
 <ol>
 <li>头文件：包含结构声明和使用这些结构的函数的原型</li>
@@ -725,19 +726,19 @@
 <p>内联函数不受这项规则的约束，这允许程序员能够将内联函数的定义放在头文件中。这样，包含了头文件的每个文件都有内联函数的定义。不过，C++要求同一个函数的所有内联定义都必须相同。</p>
 <h3 id="C-在哪里查找函数"><a href="#C-在哪里查找函数" class="headerlink" title="C++在哪里查找函数"></a>C++在哪里查找函数</h3><p>如果该文件中的函数原型指出该函数是静态的，则编译器将只在该文件中查找函数定义;否则， 编译器(包括链接程序)将在所有的程序文件中查找。如果找到两个定义，编译器将发出错误消息，因为每个外部函数只能有一个定义。<br>如果在程序文件中没有找到， 编译器将在库中搜索。这意味着如果定义了一个与库函数同名的函数， 编译器将使用程序员定义的版本， 而不是库函数(不过，C++保留了标准库函数的名称，即程序员不应使用它们).一些编译器-链接程序要求显式地指出要搜索哪些库。</p>
 <h3 id="语言链接性"><a href="#语言链接性" class="headerlink" title="语言链接性"></a>语言链接性</h3><p>另一种形式的链接性称为语言链接性，也对函数有影响。链接程序要求每个不同的函数都有不同的符号名。在C++中，同一个名称可能对应多个函数，必须将这些函数翻译为不同的符号名称。因此，C++编译器执行名称矫正或名称修饰，为重载函数生成不同的符号名称。例如， 可能将spiff (int)转换为_spof_i,而将spiff (double, double) 转换为_spif_d_d.这种方法被称为C++语言链接(C++ language linkage)。</p>
-<p>链接程序寻找与C++函数调用匹配的函数时，使用的方法与c语言不同。但如果要在c++程序中使用C库中预编译的兩数，将出现什么情况呢?例如，假设有下面的代码:<br><figure class="image-bubble">
+<p>链接程序寻找与C++函数调用匹配的函数时，使用的方法与c语言不同。但如果要在c++程序中使用C库中预编译的函数，将出现什么情况呢?例如，假设有下面的代码:<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8A%E5%8D%888.53.00.png" alt="" title="">
                 </div>
                 <div class="image-caption"></div>
-            </figure><br>它在C库文件中的符号名称为_spif, 但对于我们假设的链接程序来说，C++查询约定是查找符号名称<em>spiff</em> i。为解决这种问题，可以用函数原型来指出要使用的约定:<br><figure class="image-bubble">
+            </figure><br>它在C库文件中的符号名称为_spif, 但对于我们假设的链接程序来说，C++查询约定是查找符号名称_spiff_ i。为解决这种问题，可以用函数原型来指出要使用的约定:<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8A%E5%8D%888.54.21.png" alt="" title="">
                 </div>
                 <div class="image-caption"></div>
-            </figure><br>第个原型使用C语言链接性:而后面的两个使用C+语言链接性。第二个原型是通过默认方式指出这一点的，而第三个显式地指出了这一点。</p>
+            </figure><br>第一个原型使用C语言链接性:而后面的两个使用C+语言链接性。第二个原型是通过默认方式指出这一点的，而第三个显式地指出了这一点。</p>
 <h3 id="存储方案和动态分配"><a href="#存储方案和动态分配" class="headerlink" title="存储方案和动态分配"></a>存储方案和动态分配</h3><p>与自动内存不同，动态内存不是LIFO,其分配和释放顺序要取决于new和delete 在何时以何种方式被使用。通常，<strong>编译器使用3块独立的内存:一块用于静态变量(可能再细分)，一块用于自动变量， 另外一块用于动态存储。</strong></p>
 <p>如果将p_fees的链接性声明为外部的，则文件中位于该声明后面的所有函数都<br>可以使用它。另外，通过在另一个文件中使用：<br><figure class="image-bubble">
                 <div class="img-lightbox">
@@ -839,7 +840,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-12-18T07:57:10.000Z" itemprop="dateUpdated">2018-12-18 15:57:10</time>
+    最后更新时间：<time datetime="2019-01-07T06:26:17.000Z" itemprop="dateUpdated">2019-01-07 14:26:17</time>
 </span><br>
 
 

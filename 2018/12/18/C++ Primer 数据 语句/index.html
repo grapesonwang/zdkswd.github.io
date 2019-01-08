@@ -122,7 +122,7 @@
 <meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-11%20%E4%B8%8B%E5%8D%888.34.27.png">
 <meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-11%20%E4%B8%8B%E5%8D%888.36.37.png">
 <meta property="og:image" content="https://github.com/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-11%20%E4%B8%8B%E5%8D%888.53.54.png">
-<meta property="og:updated_time" content="2018-12-18T08:02:40.000Z">
+<meta property="og:updated_time" content="2019-01-06T07:04:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++ Primer 数据 语句">
 <meta name="twitter:description" content="开始学习C++进入C++通常main()被启动代码调用，而启动代码是由编译器添加到程序中的，是程序和操作系统的桥梁。 C++必修包含一个名为main()的函数，大小写拼写都要正确。如果没有main(),程序将不完整，编译器将指出未定义main()函数。 存在一些例外情况。例如,在 Windows编程中,可以编写一个动态链接库(DLL)模块,这是其他 Windows程序可以使用的代码。由于DLL模块">
@@ -715,13 +715,13 @@
                     <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%888.58.29.png" alt="" title="">
                 </div>
                 <div class="image-caption"></div>
-            </figure><br>需要强调的是，int <em> 是一种类型，是指向int的指针。在哪里添加空格对于编译器是没有任何区别的。以下声明：<br><figure class="image-bubble">
+            </figure><br>需要强调的是，int * 是一种类型，是指向int的指针。在哪里添加空格对于编译器是没有任何区别的。以下声明：<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/img/media/C++%20Primer%20%E7%B1%BB%E4%B9%8B%E5%89%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%889.03.35.png" alt="" title="">
                 </div>
                 <div class="image-caption"></div>
-            </figure><br>将创建一个指针p1和一个常规int变量p2。对每个指针变量名，都需要使用一个 </em> 。</p>
+            </figure><br>将创建一个指针p1和一个常规int变量p2。对每个指针变量名，都需要使用一个 * 。</p>
 <h3 id="指针的危险"><a href="#指针的危险" class="headerlink" title="指针的危险"></a>指针的危险</h3><p>在C++中创建指针时，计算机将分配用来存储地址的内存，但不会分配用来存储指针所指向的数据的内存。</p>
 <p><strong>警告</strong>：<strong>一定要在对指针应用解除引用操作符（ * ）之前，将指针初始化为一个确定的、适当的地址。</strong></p>
 <h3 id="指针和数字"><a href="#指针和数字" class="headerlink" title="指针和数字"></a>指针和数字</h3><p>指针不是整型，虽然计算机通常把地址当做整数来处理。在C99标准发布前，C语言允许直接对指针赋值整数，但C++在类型一致性上要求更严格，编译器将显示一条错误信息，要将数字值作为地址来使用，应通过强制类型转换将数字转换为适当的地址类型：<br><figure class="image-bubble">
@@ -825,7 +825,7 @@
                 <div class="image-caption"></div>
             </figure><br>这将把足以存储infatable结构的 块可用内存的地址赋给ps。 这种句法和C++的内置类型完全相同。</p>
 <p>箭头成员操作符（-&gt;），可用于指向结构的指针，就像点操作符可用于结构名一样。如ps指向一个inflatable结构，则ps-&gt;price是被指向的结构的price成员。如果结构标识符是结构名，则使用句点操作符;如果标识符是指向结构的指针，则使用箭头操作符。</p>
-<p>另一种访问结构成员的方法是，如果ps是指向结构的指针，则 <em> ps 就是被指向的值一结构本身。 由于 </em> ps是一个结构，因此( * ps) .price 是该结构的price 成员。C++的操作符优先规则要求使用括号。</p>
+<p>另一种访问结构成员的方法是，如果ps是指向结构的指针，则 * ps 就是被指向的值一结构本身。 由于 * ps是一个结构，因此( * ps) .price 是该结构的price 成员。C++的操作符优先规则要求使用括号。</p>
 <h3 id="自动存储、静态存储和动态存储"><a href="#自动存储、静态存储和动态存储" class="headerlink" title="自动存储、静态存储和动态存储"></a>自动存储、静态存储和动态存储</h3><p>根据用于分配内存的方法，C++有3种管理数据内存的方式: 自助存储、静态存储和动态存储(有时也叫作自由存储空间或堆)。</p>
 <h4 id="自动存储"><a href="#自动存储" class="headerlink" title="自动存储"></a>自动存储</h4><p>在函数内部定义的常规变量使用自助存储空间，被称为自动变量(automatic variable),这意味着它们在所属的函数被调用时自动产生，在该函数结束时消亡。</p>
 <p>实际上，自动变量是一个局部变量，其作用域为包它的代码块。代码块是被包含在花括号中的一段代码。</p>
@@ -1030,7 +1030,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-12-18T08:02:40.000Z" itemprop="dateUpdated">2018-12-18 16:02:40</time>
+    最后更新时间：<time datetime="2019-01-06T07:04:50.000Z" itemprop="dateUpdated">2019-01-06 15:04:50</time>
 </span><br>
 
 

@@ -14,25 +14,28 @@
     
     
     
-    <title>Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback | ZDK&#39;s blog</title>
+    <title>安卓开发的MVC和MVP模式 | ZDK&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="Android">
-    <meta name="description" content="SurfaceSurface本身的作用类似一个句柄，得到了这个句柄就可以得到其中的Canvas、原生缓冲器以及其它方面的内容。原生缓冲器（rawbuffer）是用于保存当前窗口的像素数据的。通常画图是在一个Canvas对象上面进行的。 SurfaceViewSurfaceView，顾名思义就是Surface的View，通过SurfaceView就可以看到Surface的部分或者全部的内容.也就是说">
-<meta name="keywords" content="Android">
+    <meta name="keywords" content="Android,电子书笔记">
+    <meta name="description" content="MVC和MVP示意图">
+<meta name="keywords" content="Android,电子书笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback">
-<meta property="og:url" content="https://github.com/zdkswd/2018/05/31/Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback/index.html">
+<meta property="og:title" content="安卓开发的MVC和MVP模式">
+<meta property="og:url" content="https://github.com/zdkswd/2018/05/31/安卓开发的MVC和MVP模式/index.html">
 <meta property="og:site_name" content="ZDK&#39;s blog">
-<meta property="og:description" content="SurfaceSurface本身的作用类似一个句柄，得到了这个句柄就可以得到其中的Canvas、原生缓冲器以及其它方面的内容。原生缓冲器（rawbuffer）是用于保存当前窗口的像素数据的。通常画图是在一个Canvas对象上面进行的。 SurfaceViewSurfaceView，顾名思义就是Surface的View，通过SurfaceView就可以看到Surface的部分或者全部的内容.也就是说">
+<meta property="og:description" content="MVC和MVP示意图">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-31T09:51:27.000Z">
+<meta property="og:image" content="https://github.com/img/media/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91%E7%9A%84MVC%E5%92%8CMVP%E6%A8%A1%E5%BC%8F/20170813105245063.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91%E7%9A%84MVC%E5%92%8CMVP%E6%A8%A1%E5%BC%8F/20170813013123472.png">
+<meta property="og:updated_time" content="2019-01-08T03:51:22.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback">
-<meta name="twitter:description" content="SurfaceSurface本身的作用类似一个句柄，得到了这个句柄就可以得到其中的Canvas、原生缓冲器以及其它方面的内容。原生缓冲器（rawbuffer）是用于保存当前窗口的像素数据的。通常画图是在一个Canvas对象上面进行的。 SurfaceViewSurfaceView，顾名思义就是Surface的View，通过SurfaceView就可以看到Surface的部分或者全部的内容.也就是说">
+<meta name="twitter:title" content="安卓开发的MVC和MVP模式">
+<meta name="twitter:description" content="MVC和MVP示意图">
+<meta name="twitter:image" content="https://github.com/img/media/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91%E7%9A%84MVC%E5%92%8CMVP%E6%A8%A1%E5%BC%8F/20170813105245063.png">
     
         <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
     
@@ -113,7 +116,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback</div>
+        <div class="flex-col header-title ellipsis">安卓开发的MVC和MVP模式</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -135,7 +138,7 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback</h1>
+        <h1 class="title">安卓开发的MVC和MVP模式</h1>
         <h5 class="subtitle">
             
                 <time datetime="2018-05-31T09:49:56.000Z" itemprop="datePublished" class="page-time">
@@ -160,16 +163,16 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Surface"><span class="post-toc-number">1.</span> <span class="post-toc-text">Surface</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#SurfaceView"><span class="post-toc-number">2.</span> <span class="post-toc-text">SurfaceView</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#SurfaceHolder"><span class="post-toc-number">3.</span> <span class="post-toc-text">SurfaceHolder</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#SurfaceHolder-Callback"><span class="post-toc-number">4.</span> <span class="post-toc-text">SurfaceHolder.Callback</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#MVC和MVP示意图"><span class="post-toc-number">1.</span> <span class="post-toc-text">MVC和MVP示意图</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#MVP和MVC的区别"><span class="post-toc-number">2.</span> <span class="post-toc-text">MVP和MVC的区别</span></a></li></ol>
         </nav>
     </aside>
 
 
-<article id="post-Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback"
+<article id="post-安卓开发的MVC和MVP模式"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback</h1>
+        <h1 class="post-card-title">安卓开发的MVC和MVP模式</h1>
         <div class="post-meta">
             <time class="post-time" title="2018-05-31 17:49:56" datetime="2018-05-31T09:49:56.000Z"  itemprop="datePublished">2018-05-31</time>
 
@@ -186,21 +189,28 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h2 id="Surface"><a href="#Surface" class="headerlink" title="Surface"></a>Surface</h2><p>Surface本身的作用类似一个句柄，得到了这个句柄就可以得到其中的Canvas、原生缓冲器以及其它方面的内容。<br>原生缓冲器（rawbuffer）是用于保存当前窗口的像素数据的。<br>通常画图是在一个Canvas对象上面进行的。</p>
-<h2 id="SurfaceView"><a href="#SurfaceView" class="headerlink" title="SurfaceView"></a>SurfaceView</h2><p>SurfaceView，顾名思义就是Surface的View，通过SurfaceView就可以看到Surface的部分或者全部的内容.<br>也就是说，Surface是用通过SurfaceView才能展示其中的内容。<br>SurfaceView是Android中View的子类。事实上，在Android中所有用于界面展示的类皆为View的子类，包括那些不可见的、各种各样的Layout。</p>
-<p>在Android中Surface是从Object派生而来，且实现了Parcelable接口。看到Parcelable就让人能很自然地想到数据容器，SurfaceView就是用来展示Surface中的数据的。在这个层面上而言，Surface就是管理数据的地方，SurfaceView就是展示数据的地方。</p>
-<p>这个类的目的之一，就是提供一个可以用另外一个线程（第二个线程）进行屏幕渲染的surface（译注：即UI线程和绘制线程可以分离）。如果你打算这样使用，那么应当注意一些线程方面的语义：</p>
-<ul>
-<li>所有SurfaceView和SurfaceHolder.Callback中声明的方法，必须在运行SurfaceView窗口中的线程中调用（典型地，就是应用的主线程。译注：即UI线程），因为它们需要正确地将同时被绘制线程访问的各种状态进行同步。</li>
-<li>必须保证，只有在背后的Surface有效的时候 – 在SurfaceHolder.Callback.surfaceCreated()和 SurfaceHolder.Callback.surfaceDestroyed()这两个方法调用之间，访问它。</li>
-</ul>
-<p>Android中实现<strong>序列化</strong>有两个选择：一是实现<strong>Serializable</strong>接口（是JavaSE本身就支持的），一是实现<strong>Parcelable</strong>接口（是Android特有功能，效率比实现Serializable接口高效，可用于Intent数据传递，也可以用于进程间通信（IPC））。实现Serializable接口非常简单，声明一下就可以了，而实现Parcelable接口稍微复杂一些，但效率更高，推荐用这种方法提高性能。</p>
-<h2 id="SurfaceHolder"><a href="#SurfaceHolder" class="headerlink" title="SurfaceHolder"></a>SurfaceHolder</h2><p>SurfaceHolder是一个接口，其作用就像一个关于Surface的监听器。提供访问和控制SurfaceView背后的Surface 相关的方法.它通过三个回调方法，让我们可以感知到Surface的创建、销毁或者改变。在SurfaceView中有一个方法getHolder，可以很方便地获得SurfaceView所对应的Surface所对应的SurfaceHolder.<br>从设计模式的高度来看，Surface、SurfaceView和SurfaceHolder实质上就是广为人知的MVC，即Model-View-Controller。</p>
-<h2 id="SurfaceHolder-Callback"><a href="#SurfaceHolder-Callback" class="headerlink" title="SurfaceHolder.Callback"></a>SurfaceHolder.Callback</h2><p>前面已经讲到SurfaceHolder是一个接口，它通过回到方法的方式，让我们可以感知到Surface的创建、销毁或者改变。其实这一点是通过其内部的静态子接口SurfaceHolder.Callback来实现的。SurfaceHolder.Callback中定义了三个接口方法：</p>
-<ol>
-<li>abstract void surfaceChanged(SurfaceHolderholder, int format, int width, int height)<br>当surface发生任何结构性的变化时（格式或者大小），该方法就会被立即调用。</li>
-<li>abstract void surfaceCreated(SurfaceHolderholder)<br>当surface对象创建后，该方法就会被立即调用。</li>
-<li>abstract void surfaceDestroyed(SurfaceHolderholder)<br>当surface对象在将要销毁前，该方法会被立即调用。</li>
+            <h1 id="MVC和MVP示意图"><a href="#MVC和MVP示意图" class="headerlink" title="MVC和MVP示意图"></a>MVC和MVP示意图</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91%E7%9A%84MVC%E5%92%8CMVP%E6%A8%A1%E5%BC%8F/20170813105245063.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91%E7%9A%84MVC%E5%92%8CMVP%E6%A8%A1%E5%BC%8F/20170813013123472.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h1 id="MVP和MVC的区别"><a href="#MVP和MVC的区别" class="headerlink" title="MVP和MVC的区别"></a>MVP和MVC的区别</h1><ol>
+<li><strong>Activity职责不同</strong>，Activity在MVP中是View层，在MVC中是Controller层，这是MVC和MVP很主要的一个区别，可以说Android从MVC转向MVP开发也主要是优化Activity的代码，避免Activity的代码臃肿庞大。</li>
+<li><strong>View层不同</strong>，MVC的View层指的是XML布局文件或者是用Java自定义的View，MVP的View层是Activity或者Fragment。使用传统的MVC，其中的View，对应的是各种Layout布局文件，但是这些布局文件中并不像Web端那样强大，能做的事情非常有限。MVP的View层Activity在实际项目中，随着逻辑的复杂度越来越大，Activity臃肿的缺点仍然体现出来了，因为Activity中还是充满了大量与View层无关的代码，比如各种事件的处理派发，就如MVC中的那样View层和Controller代码耦合在一起无法自拔。</li>
+<li><strong>控制层不同</strong>，MVC的控制层是Activity，或者是Fragment，Controller对应的是Activity，而Activity中却又具有操作UI的功能，我们在实际的项目中也会有很多UI操作在这一层，也做了很多View中应该做的事情，当然Controller层Activity中也包含Controller应该做的事情，比如各种事件的派发回调，而且在一层中我们会根据事件再去调用Model层操作数据，所以这种MVC的方式在实际项目中，Activity所在的Controller是非常重的，各层次之间的耦合情况也比较严重，不方便单元测试。MVP的控制层是Presenter，里面没有很多的实际东西，主要是做Model和View层的交互。</li>
+<li><strong>关系链不同</strong>，MVP中Model层与View是没有关系的，彼此不会通讯和操作，Model与View的通讯都是Presenter层来传达的。但是在MVC中，Model层和View是曾在交互的。比如我们自定义的View控件里面肯定是要使用Model的数据的，View也要根据不同的Model数据做出不同的展现！这点尤其是体现在自定义的View中，自定义View需要设置数据，用户操作了自定义控件需要改变数据，View要操作Model怎么办？有人说把Controller传到自定义的View啊，现实是不可能没一个自定义View都去持有Controller的引用，其实在MVP中就不会这么尴尬，接口就可以完成。</li>
+<li><strong>适用范围不同</strong>，在Android中，MVP和MVC都用自己的适用情况，使用MVP可以更好的解耦三大模块，模块之间比较清晰，也很方便使用MVP来组件化架构整体项目。但是MVC也是有用武之地的，在组件化的Module或者中间件我们可以使用MVC来做，Module或者中间件不会存在很复杂的View层，使用MVC可以更加方便我们实现功能。</li>
+<li><strong>交互方式不同</strong>，MVP中通讯交互基本都是通过接口的，MVC中的通讯交互很多时候都是实打实的调用对象的方法，简单粗暴！</li>
+<li><strong>实现方法不同</strong> ，MVC和MVP的Model几乎一样的，都是处理数据，只要不在Activity或者Fragment中请求数据，其他的所有控制都放在Activity或者Fragment中，这样写就基本是MVC的模式，这样写不麻烦，但是很容易把Activity写出上万行代码。用MVP的时候我们需要写很多View和Presenter接口来实现模块之间的通讯，会增加很多类。</li>
 </ol>
 
         </div>
@@ -210,7 +220,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-05-31T09:51:27.000Z" itemprop="dateUpdated">2018-05-31 17:51:27</time>
+    最后更新时间：<time datetime="2019-01-08T03:51:22.000Z" itemprop="dateUpdated">2019-01-08 11:51:22</time>
 </span><br>
 
 
@@ -230,7 +240,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/电子书笔记/">电子书笔记</a></li></ul>
 
 
             
@@ -240,7 +250,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/05/31/Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback/&title=《Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/05/31/安卓开发的MVC和MVP模式/&title=《安卓开发的MVC和MVP模式》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -250,22 +260,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/05/31/Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback/&title=《Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback》 — ZDK's blog&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/05/31/安卓开发的MVC和MVP模式/&title=《安卓开发的MVC和MVP模式》 — ZDK's blog&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/05/31/Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/05/31/安卓开发的MVC和MVP模式/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback》 — ZDK's blog&url=https://github.com/zdkswd/2018/05/31/Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback/&via=https://github.com/zdkswd" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《安卓开发的MVC和MVP模式》 — ZDK's blog&url=https://github.com/zdkswd/2018/05/31/安卓开发的MVC和MVP模式/&via=https://github.com/zdkswd" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/05/31/Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/05/31/安卓开发的MVC和MVP模式/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -288,18 +298,18 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2018/05/31/安卓开发的MVC和MVP模式/" id="post-prev" class="post-nav-link">
+      <a href="/2018/05/31/【安卓开发艺术探索】JNI和NDK编程/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">安卓开发的MVC和MVP模式</h4>
+        <h4 class="title">【安卓开发艺术探索】JNI和NDK编程</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2018/05/31/implementation 与 compile 的区别 .iml build文件夹 安卓视图/" id="post-next" class="post-nav-link">
+      <a href="/2018/05/31/Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">implementation 与 compile 的区别 .iml build文件夹 安卓视图</h4>
+        <h4 class="title">Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback</h4>
       </a>
     </div>
   
@@ -394,7 +404,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/05/31/Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback/&title=《Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/05/31/安卓开发的MVC和MVP模式/&title=《安卓开发的MVC和MVP模式》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -404,22 +414,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/05/31/Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback/&title=《Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback》 — ZDK's blog&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/05/31/安卓开发的MVC和MVP模式/&title=《安卓开发的MVC和MVP模式》 — ZDK's blog&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/05/31/Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/05/31/安卓开发的MVC和MVP模式/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback》 — ZDK's blog&url=https://github.com/zdkswd/2018/05/31/Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback/&via=https://github.com/zdkswd" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《安卓开发的MVC和MVP模式》 — ZDK's blog&url=https://github.com/zdkswd/2018/05/31/安卓开发的MVC和MVP模式/&via=https://github.com/zdkswd" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/05/31/Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/05/31/安卓开发的MVC和MVP模式/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -430,7 +440,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2018/05/31/Surface、SurfaceView、SurfaceHolder及SurfaceHolder.Callback/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2018/05/31/安卓开发的MVC和MVP模式/" alt="微信分享二维码">
 </div>
 
 
