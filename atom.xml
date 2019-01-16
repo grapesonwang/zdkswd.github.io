@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/zdkswd/"/>
-  <updated>2019-01-14T04:20:40.000Z</updated>
+  <updated>2019-01-16T12:11:36.000Z</updated>
   <id>https://github.com/zdkswd/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SSH</title>
+    <link href="https://github.com/zdkswd/2019/01/16/SSH/"/>
+    <id>https://github.com/zdkswd/2019/01/16/SSH/</id>
+    <published>2019-01-16T12:09:56.000Z</published>
+    <updated>2019-01-16T12:11:36.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h1><p>参考<a href="http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html</a></p><h1 id="什么是SSH"><a href="#什么是SSH" class="headerlink" title="什么是SSH"></a>什么是SSH</h1><p>SSH是一种网络协议，用于计算机之间的加密登录。</p><p>如果一个用户从本地计算机，使用SSH协议登录另一台远程计算机，我们就可以认为，这种登录是安全的，即使被中途截获，密码也不会泄露。</p><p>最早的时候，互联网通信都是明文通信，一旦被截获，内容就暴露无疑。1995年，芬兰学者Tatu Ylonen设计了SSH协议，将登录信息全部加密，成为互联网安全的一个基本解决方案，迅速在全世界获得推广，目前已经成为Linux系统的标准配置。</p><p>SSH只是一种协议，存在多种实现，既有商业实现，也有开源实现。本文针对的实现是OpenSSH，它是自由软件，应用非常广泛。本文只讨论SSH在Linux Shell中的用法。</p><h1 id="最基本的用法"><a href="#最基本的用法" class="headerlink" title="最基本的用法"></a>最基本的用法</h1><p>SSH主要用于远程登录。假定你要以用户名user，登录远程主机host，只要一条简单命令就可以了。<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/SSH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-16%20%E4%B8%8B%E5%8D%886.28.07.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><br>如果本地用户名与远程用户名一致，登录时可以省略用户名。<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/SSH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-16%20%E4%B8%8B%E5%8D%886.28.41.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><br>SSH的默认端口是22，也就是说，你的登录请求会送进远程主机的22端口。使用p参数，可以修改这个端口。<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/SSH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-16%20%E4%B8%8B%E5%8D%886.29.04.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><br>上面这条命令表示，ssh直接连接远程主机的2222端口。</p><h1 id="中间人攻击"><a href="#中间人攻击" class="headerlink" title="中间人攻击"></a>中间人攻击</h1><p>SSH之所以能够保证安全，原因在于它采用了公钥加密。</p><p>整个过程是这样的：（1）远程主机收到用户的登录请求，把自己的公钥发给用户。（2）用户使用这个公钥，将登录密码加密后，发送回来。（3）远程主机用自己的私钥，解密登录密码，如果密码正确，就同意用户登录。</p><p>这个过程本身是安全的，但是实施的时候存在一个风险：如果有人截获了登录请求，然后冒充远程主机，将伪造的公钥发给用户，那么用户很难辨别真伪。因为不像https协议，SSH协议的公钥是没有证书中心（CA）公证的，也就是说，都是自己签发的。</p><p>可以设想，如果攻击者插在用户与远程主机之间（比如在公共的wifi区域），用伪造的公钥，获取用户的登录密码。再用这个密码登录远程主机，那么SSH的安全机制就荡然无存了。这种风险就是著名的”中间人攻击”（Man-in-the-middle attack）。</p><p>SSH协议也有应对的方法。</p><h1 id="口令登录"><a href="#口令登录" class="headerlink" title="口令登录"></a>口令登录</h1><p>如果你是第一次登录对方主机，系统会出现下面的提示：<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/SSH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-16%20%E4%B8%8B%E5%8D%886.36.44.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><br>这段话的意思是，无法确认host主机的真实性，只知道它的公钥指纹，问你还想继续连接吗？</p><p>所谓”公钥指纹”，是指公钥长度较长（这里采用RSA算法，长达1024位），很难比对，所以对其进行MD5计算，将它变成一个128位的指纹。上例中是98:2e:d7:e0:de:9f:ac:67:28:c2:42:2d:37:16:58:4d，再进行比较，就容易多了。</p><p>很自然的一个问题就是，用户怎么知道远程主机的公钥指纹应该是多少？回答是没有好办法，远程主机必须在自己的网站上贴出公钥指纹，以便用户自行核对。</p><p>假定经过风险衡量以后，用户决定接受这个远程主机的公钥。<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/SSH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-16%20%E4%B8%8B%E5%8D%886.39.17.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><br>系统会出现一句提示，表示host主机已经得到认可。然后会要求输入密码。密码正确就可以登录了。</p><p>当远程主机的公钥被接受以后，它就会被保存在文件$HOME/ .ssh /known_hosts之中。下次再连接这台主机，系统就会认出它的公钥已经保存在本地了，从而跳过警告部分，直接提示输入密码。</p><p>每个SSH用户都有自己的known_hosts文件，此外系统也有一个这样的文件，通常是/ etc / ssh /ssh_known_hosts，保存一些对所有用户都可信赖的远程主机的公钥。</p><h1 id="公钥登录"><a href="#公钥登录" class="headerlink" title="公钥登录"></a>公钥登录</h1><p>使用密码登录，每次都必须输入密码，非常麻烦。好在SSH还提供了公钥登录，可以省去输入密码的步骤。</p><p>所谓”公钥登录”，原理很简单，就是用户将自己的公钥储存在远程主机上。登录的时候，远程主机会向用户发送一段随机字符串，用户用自己的私钥加密后，再发回来。远程主机用事先储存的公钥进行解密，如果成功，就证明用户是可信的，直接允许登录shell，不再要求密码。</p><p>这种方法要求用户必须提供自己的公钥。如果没有现成的，可以直接用ssh-keygen生成一个：<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/SSH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-16%20%E4%B8%8B%E5%8D%887.00.07.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><br>运行上面的命令以后，系统会出现一系列提示，可以一路回车。其中有一个问题是，要不要对私钥设置口令（passphrase），如果担心私钥的安全，这里可以设置一个。</p><p>运行结束以后，在$HOME/ .ssh /目录下，会新生成两个文件：id_rsa.pub和id_rsa。前者是你的公钥，后者是你的私钥。</p><p>这时再输入下面的命令，将公钥传送到远程主机host上面：<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/SSH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-16%20%E4%B8%8B%E5%8D%887.50.44.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><br>从此再登录，就不需要输入密码了。</p><p>如果还是不行，就打开远程主机的_etc_ssh/sshd_config这个文件，检查下面几行前面# 注释是否取掉。<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/SSH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-16%20%E4%B8%8B%E5%8D%887.58.07.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><br>然后，重启远程主机的ssh服务。<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/SSH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-16%20%E4%B8%8B%E5%8D%887.58.26.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure></p><h1 id="公钥私钥补充"><a href="#公钥私钥补充" class="headerlink" title="公钥私钥补充"></a>公钥私钥补充</h1><p>如果只是单方面采用非对称性加密算法,其实有两种方式,用于不同用处。</p><p>第一种是签名,使用私钥加密,公钥解密,用于让所有公钥所有者验证私钥所有者的身份并且用来防止私钥所有者发布的内容被篡改.但是不用来保证内容不被他人获得。</p><p>第二种是加密,用公钥加密,私钥解密,用于向公钥所有者发布信息,这个信息可能被他人篡改,但是无法被他人获得。</p><p>如果甲想给乙发一个安全的保密的数据,那么应该甲乙各自有一个私钥,甲先用乙的公钥加密这段数据,再用自己的私钥加密这段加密后的数据.最后再发给乙,这样确保了内容即不会被读取,也不会被篡改。</p><h1 id="远程操作"><a href="#远程操作" class="headerlink" title="远程操作"></a>远程操作</h1><p>SSH不仅可以用于远程主机登录，还可以直接在远程主机上执行操作。</p><p>SSH可以在用户和远程主机之间，建立命令和数据的传输通道，因此很多事情都可以通过SSH来完成。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;SSH&quot;&gt;&lt;a href=&quot;#SSH&quot; class=&quot;headerlink&quot; title=&quot;SSH&quot;&gt;&lt;/a&gt;SSH&lt;/h1&gt;&lt;p&gt;参考&lt;a href=&quot;http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login
+      
+    
+    </summary>
+    
+      <category term="知识总结" scheme="https://github.com/zdkswd/categories/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"/>
+    
+    
+      <category term="计算机网络" scheme="https://github.com/zdkswd/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
   
   <entry>
     <title>python requests库</title>
@@ -492,32 +517,6 @@
     </summary>
     
       <category term="论文" scheme="https://github.com/zdkswd/categories/%E8%AE%BA%E6%96%87/"/>
-    
-    
-      <category term="机器学习" scheme="https://github.com/zdkswd/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>精确率、召回率、真正类率（TPR）、假正类率（FPR）ROC曲线</title>
-    <link href="https://github.com/zdkswd/2018/11/20/%E7%B2%BE%E7%A1%AE%E7%8E%87%E3%80%81%E5%8F%AC%E5%9B%9E%E7%8E%87%E3%80%81%E7%9C%9F%E6%AD%A3%E7%B1%BB%E7%8E%87%EF%BC%88TPR%EF%BC%89%E3%80%81%E5%81%87%E6%AD%A3%E7%B1%BB%E7%8E%87%EF%BC%88FPR%EF%BC%89ROC%E6%9B%B2%E7%BA%BF/"/>
-    <id>https://github.com/zdkswd/2018/11/20/精确率、召回率、真正类率（TPR）、假正类率（FPR）ROC曲线/</id>
-    <published>2018-11-20T12:21:47.000Z</published>
-    <updated>2018-11-23T13:38:32.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>已修改</p><h1 id="精确率、召回率、真正类率（TPR）、假正类率（FPR）ROC曲线"><a href="#精确率、召回率、真正类率（TPR）、假正类率（FPR）ROC曲线" class="headerlink" title="精确率、召回率、真正类率（TPR）、假正类率（FPR）ROC曲线"></a>精确率、召回率、真正类率（TPR）、假正类率（FPR）ROC曲线</h1><p>针对二分类问题。<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/%E7%B2%BE%E7%A1%AE%E7%8E%87%E3%80%81%E5%8F%AC%E5%9B%9E%E7%8E%87%E3%80%81%E7%9C%9F%E6%AD%A3%E7%B1%BB%E7%8E%87%EF%BC%88TPR%EF%BC%89%E3%80%81%E5%81%87%E6%AD%A3%E7%B1%BB%E7%8E%87%EF%BC%88FPR%EF%BC%89ROC%E6%9B%B2%E7%BA%BF/314331-2023b85ae2a8d04f.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><br>精确率 = TP / (TP + FP)，表示返回的正例中真正例所占的比例；<br>召回率 = TP / (TP + FN)，表示返回的真正例占所有正例的比例。<br>真正类率（TPR），TPR = TP / (TP + FN)，返回的正类占所有正类的比例；（没错，跟召回率一个公式）TPR越大越好。<br>假正类率（FPR），FPR = FP / (FP + TN)，返回的负类占所有负类的比例。FPR越小越好<br>ROC curve:FPR越小越好。<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/%E7%B2%BE%E7%A1%AE%E7%8E%87%E3%80%81%E5%8F%AC%E5%9B%9E%E7%8E%87%E3%80%81%E7%9C%9F%E6%AD%A3%E7%B1%BB%E7%8E%87%EF%BC%88TPR%EF%BC%89%E3%80%81%E5%81%87%E6%AD%A3%E7%B1%BB%E7%8E%87%EF%BC%88FPR%EF%BC%89ROC%E6%9B%B2%E7%BA%BF/2394427-5f11fd1e6af07393.jpg" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><br>对于ROC来说，横坐标就是FPR，而纵坐标就是TPR，因此可以想见，当 TPR越大，而FPR越小时，说明分类结果是较好的。</p><p>AUC:<br>AUC 即ROC曲线下的面积，计算方式即为ROC Curve的微积分值，其物理意义可以表示为：随机给定一正一负两个样本，将正样本排在负样本之前的概率，因此AUC越大，说明正样本越有可能被排在负样本之前，即分类的结果越好。</p><p>ROC的总结：</p><ol><li>ROC 可以反映二分类器的总体分类性能，但是无法直接从图中识别出分类最好的阈值，事实上最好的阈值也是视具体的场景所定；</li><li>ROC Curve 对应的AUC越大说明分类性能越好;</li><li>ROC曲线一定是需要在 y = x之上的，否则就是一个不理想的分类器；</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;已修改&lt;/p&gt;
-&lt;h1 id=&quot;精确率、召回率、真正类率（TPR）、假正类率（FPR）ROC曲线&quot;&gt;&lt;a href=&quot;#精确率、召回率、真正类率（TPR）、假正类率（FPR）ROC曲线&quot; class=&quot;headerlink&quot; title=&quot;精确率、召回率、真正类率（TPR）
-      
-    
-    </summary>
-    
-      <category term="知识总结" scheme="https://github.com/zdkswd/categories/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"/>
     
     
       <category term="机器学习" scheme="https://github.com/zdkswd/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
