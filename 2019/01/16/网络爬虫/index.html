@@ -30,7 +30,10 @@
 <meta property="og:description" content="网络爬虫参考https://cuijiahua.com/blog/2017/10/spider_tutorial_1.html网络爬虫的第一步就是根据URL，获取网页的HTML信息。在Python3中，可以使用urllib.request和requests进行网页爬取。  urllib库是python内置的，无需我们额外安装，只要安装了Python就可以使用这个库。 requests库是第三方库，">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://github.com/img/media/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8B%E5%8D%888.59.57.png">
-<meta property="og:updated_time" content="2019-01-16T12:17:17.000Z">
+<meta property="og:image" content="https://github.com/img/media/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-23%20%E4%B8%8B%E5%8D%889.04.27.png">
+<meta property="og:image" content="https://github.com/img/media/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-23%20%E4%B8%8B%E5%8D%889.08.54.png">
+<meta property="og:image" content="https://github.com/img/media/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-23%20%E4%B8%8B%E5%8D%889.04.02.png">
+<meta property="og:updated_time" content="2019-01-16T12:21:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网络爬虫 爬小说 爬图片 爬视频">
 <meta name="twitter:description" content="网络爬虫参考https://cuijiahua.com/blog/2017/10/spider_tutorial_1.html网络爬虫的第一步就是根据URL，获取网页的HTML信息。在Python3中，可以使用urllib.request和requests进行网页爬取。  urllib库是python内置的，无需我们额外安装，只要安装了Python就可以使用这个库。 requests库是第三方库，">
@@ -162,7 +165,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#网络爬虫"><span class="post-toc-number">1.</span> <span class="post-toc-text">网络爬虫</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#小说下载"><span class="post-toc-number">2.</span> <span class="post-toc-text">小说下载</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#背景"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">背景</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#小试牛刀"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">小试牛刀</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Beautiful-Soup"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">Beautiful Soup</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#爬取壁纸"><span class="post-toc-number">3.</span> <span class="post-toc-text">爬取壁纸</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#背景-1"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">背景</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实战"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">实战</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#网络爬虫"><span class="post-toc-number">1.</span> <span class="post-toc-text">网络爬虫</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#小说下载"><span class="post-toc-number">2.</span> <span class="post-toc-text">小说下载</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#背景"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">背景</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#小试牛刀"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">小试牛刀</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Beautiful-Soup"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">Beautiful Soup</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#爬取壁纸"><span class="post-toc-number">3.</span> <span class="post-toc-text">爬取壁纸</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#背景-1"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">背景</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实战"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">实战</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#爱奇艺VIP视频下载"><span class="post-toc-number">4.</span> <span class="post-toc-text">爱奇艺VIP视频下载</span></a></li></ol>
         </nav>
     </aside>
 
@@ -222,7 +225,7 @@
 <li>使用Beautiful Soup解析HTML信息，找到所有<img>标签，提取src属性，获取图片存放地址；</li>
 <li>根据图片存放地址，下载图片。</li>
 </ol>
-<p>照此方法得不到<img>标签，而是<script>标签，因为这个网站的所有图片都是动态加载的！网站有静态网站和动态网站之分，上一个实战爬取的网站是静态网站，而这个网站是动态网站，动态加载有一部分的目的就是为了反爬虫。</p>
+<p>照此方法得不到<img>标签，而是\&lt;script>标签，因为这个网站的所有图片都是动态加载的！网站有静态网站和动态网站之分，上一个实战爬取的网站是静态网站，而这个网站是动态网站，动态加载有一部分的目的就是为了反爬虫。</p>
 <p>动态网站使用动态加载常用的手段就是通过调用JavaScript来实现的。一个动态加载的网站可能使用很多JavaScript脚本，我们只要找到负责动态加载图片的JavaScript脚本。强大的抓包工具，它会帮助分析。这个强大的抓包工具就是Fiddler。但是Fiddler只在Windows上才能发挥完全的作用，所以我用的是一个跨平台的抓包工具Charles。</p>
 <p>经过抓包发现，在如下数据包中。<br><figure class="image-bubble">
                 <div class="img-lightbox">
@@ -254,7 +257,7 @@
 <p>反爬虫的手段除了动态加载，还有一个反爬虫手段，那就是验证Request Headers。Requests Headers里有很多参数，有Accept、Accept-Encoding、Accept-Language、DPR、User-Agent、Viewport-Width、accept-version、Referer、x-unsplash-client、authorization、Connection、Host。</p>
 <ol>
 <li>User-Agent：这里面存放浏览器的信息。如果我们不设置这个参数，用Python程序直接发送GET请求，服务器接受到的User-Agent信息就会是一个包含python字样的User-Agent。如果后台设计者验证这个User-Agent参数是否合法，不让带Python字样的User-Agent访问，这样就起到了反爬虫的作用。这是一个最简单的，最常用的反爬虫手段。</li>
-<li>Referer：这个参数也可以用于反爬虫，它表示这个请求是从哪发出的。可以看到我们通过浏览器访问网站，这个请求是从<a href="https://unsplash.com/，这个地址发出的。如果后台设计者，验证这个参数，对于不是从这个地址跳转过来的请求一律禁止访问，这样就也起到了反爬虫的作用。">https://unsplash.com/，这个地址发出的。如果后台设计者，验证这个参数，对于不是从这个地址跳转过来的请求一律禁止访问，这样就也起到了反爬虫的作用。</a></li>
+<li>Referer：这个参数也可以用于反爬虫，它表示这个请求是从哪发出的。可以看到我们通过浏览器访问网站，这个请求是从<a href="https://unsplash.com/，这个地址发出的。如果后台设计者，验证这个参数，对于不是从这个地址跳转过来的请求一律禁止访问，这样就也起到了反爬虫的作用。" target="_blank" rel="noopener">https://unsplash.com/，这个地址发出的。如果后台设计者，验证这个参数，对于不是从这个地址跳转过来的请求一律禁止访问，这样就也起到了反爬虫的作用。</a></li>
 <li>authorization：这个参数是基于AAA模型中的身份验证信息允许访问一种资源的行为。在我们用浏览器访问的时候，服务器会为访问者分配这个用户ID。如果后台设计者，验证这个参数，对于没有用户ID的请求一律禁止访问，这样就又起到了反爬虫的作用。</li>
 </ol>
 <p>Unsplash是根据authorization参数进行反爬虫的。通过程序手动添加这个参数，然后再发送GET请求，就可以顺利访问了。即requests.get()方法，添加headers参数即可。</p>
@@ -262,10 +265,10 @@
 <p>图片的ID已经获得了，再通过字符串处理一下，就生成了我们需要的图片下载请求地址。根据这个地址，我们就可以下载图片了。下载方式，使用直接写入文件的方法。</p>
 <p>每次获取链接加一个1s延时，因为人在浏览页面的时候，翻页的动作不可能太快。我们要让我们的爬虫尽量友好一些。</p>
 <p>下载速度还行，有的图片下载慢是因为图片太大。可以看到也打印了一些警报信息，这是因为没有进行SSL验证。</p>
-<h1 id="爱奇艺VIP视频下载"><a href="#爱奇艺VIP视频下载" class="headerlink" title="爱奇艺VIP视频下载"></a>爱奇艺VIP视频下载</h1><p>现在失效了，只能手动抓包了<br><a href="https://github.com/zdkswd/papapachong/tree/master/%E7%88%AC%E5%8F%96%E8%A7%86%E9%A2%91">papapachong/爬取视频 at master · zdkswd/papapachong · GitHub</a><br><a href="http://www.wq114.org/">vip视频解析,vip视频在线解析</a>有效的url解析网站。<br>解析格式：<a href="http://www.wq114.org/yun.php?url=">www.wq114.org/yun.php?url=</a> [视频url]<br>利用网络爬虫进行抓包，可以将视频下载下来。</p>
+<h1 id="爱奇艺VIP视频下载"><a href="#爱奇艺VIP视频下载" class="headerlink" title="爱奇艺VIP视频下载"></a>爱奇艺VIP视频下载</h1><p>现在失效了，只能手动抓包了<br><a href="https://github.com/zdkswd/papapachong/tree/master/%E7%88%AC%E5%8F%96%E8%A7%86%E9%A2%91">papapachong/爬取视频 at master · zdkswd/papapachong · GitHub</a><br><a href="http://www.wq114.org/" target="_blank" rel="noopener">vip视频解析,vip视频在线解析</a>有效的url解析网站。<br>解析格式：<a href="http://www.wq114.org/yun.php?url=" target="_blank" rel="noopener">www.wq114.org/yun.php?url=</a> [视频url]<br>利用网络爬虫进行抓包，可以将视频下载下来。</p>
 <p>HTTP请求头Referer的作用：表示请求来源。</p>
 <p>编写代码的时候注意一个问题，就是我们需要使用requests.session()保持我们的会话请求。简单理解就是，在初次访问服务器的时候，服务器会给你分配一个身份证明。我们需要拿着这个身份证去继续访问，如果没有这个身份证明，服务器就不会再让你访问。这也就是这个服务器的反爬虫手段，会验证用户的身份。</p>
-</script></p>
+
         </div>
 
         <blockquote class="post-copyright">
@@ -273,7 +276,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-01-16T12:17:17.000Z" itemprop="dateUpdated">2019-01-16 20:17:17</time>
+    最后更新时间：<time datetime="2019-01-16T12:21:26.000Z" itemprop="dateUpdated">2019-01-16 20:21:26</time>
 </span><br>
 
 
