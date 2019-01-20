@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/zdkswd/"/>
-  <updated>2019-01-16T12:21:26.000Z</updated>
+  <updated>2019-01-20T12:25:49.000Z</updated>
   <id>https://github.com/zdkswd/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>鸟哥Linux基础   Linux的规划与安装</title>
+    <link href="https://github.com/zdkswd/2019/01/20/%E9%B8%9F%E5%93%A5Linux%E5%9F%BA%E7%A1%80%20%20%20Linux%E7%9A%84%E8%A7%84%E5%88%92%E4%B8%8E%E5%AE%89%E8%A3%85/"/>
+    <id>https://github.com/zdkswd/2019/01/20/鸟哥Linux基础   Linux的规划与安装/</id>
+    <published>2019-01-20T12:25:32.000Z</published>
+    <updated>2019-01-20T12:25:49.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="第零章、计算机概论"><a href="#第零章、计算机概论" class="headerlink" title="第零章、计算机概论"></a>第零章、计算机概论</h1><p>CPU实际要处理的数据完全来自于内存（不管是程序还是一般文件数据）。<br>CPU架构<br>精简指令集RISC，如ARM架构。目前世界上使用范围最广的CPU就是ARM架构。<br>复杂指令集CISC。AMD，Intel x86。</p><h1 id="第一章、Linux是什么与如何学习"><a href="#第一章、Linux是什么与如何学习" class="headerlink" title="第一章、Linux是什么与如何学习"></a>第一章、Linux是什么与如何学习</h1><p>早期的Linux是针对386开发的。Linux提供了一个完整的操作系统当中最底层的硬件控制与资源管理的完整架构，这个架构是沿袭Unix良好的传统来的，所以相当的稳定而功能强大！</p><p>Linux参考了标准的POSIX规范。POSIX是可携式操作系统接口的缩写，重点在规范核心与应用程序之间的接口，这是由美国电器与电子工程师学会（IEEE）所发布的一项标准。</p><p>Linux其实就是一个操作系统最底层的核心及其提供的核心工具。它是GNU GPL授权模式，所以任何人均可取得源代码与可执行这个核心程序，并且可以修改。此外，因为Linux参考POSIX设计规范，于是相容于Unix操作系统，亦可称为Unix Like的一种。</p><p>Linux distributions就是Kernel+Softwares+Tools+可完整安装程序。一般称为可完整安装套件或Linux发布商套件。<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%E5%9F%BA%E7%A1%80%20%20%20Linux%E7%9A%84%E8%A7%84%E5%88%92%E4%B8%8E%E5%AE%89%E8%A3%85/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-18%20%E4%B8%8A%E5%8D%889.33.47.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure></p><p>由于Linux核心是由工程师写得，由源代码安装到x86计算机上面成为可以执行的binary文件这个过程不是人人都会的，所以早期确实只有工程师对Linux感兴趣。一直到一些社群与商业公司将Linux核心配合自由软件，并提供完整的安装程序且制成光盘，对于一般人来说，Linux才越来越有吸引力。</p><p>每个distributions差异性并不大，主要是套件管理方式上的区分为dpkg和RPM。<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%E5%9F%BA%E7%A1%80%20%20%20Linux%E7%9A%84%E8%A7%84%E5%88%92%E4%B8%8E%E5%AE%89%E8%A3%85/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-18%20%E4%B8%8A%E5%8D%889.42.34.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure></p><p>到底是要买商业版还是社群版的Linux distribution呢?如果是要装在个人计算机上面做为桌面电脑用的， 建议使用社群版，包括Fedora, Ubuntu, OpenSuSE等等。如果是用在服务器上面的， 建议使用商业版本，包括Red Hat, SuSE等。这是因为社群版通常开发者会加入最新的软件，这些软件可能会有一些bug存在。至于商业版则是经过一段时间的磨合后，才将稳定的软件放进去。</p><p>Linux的运用场景<br>企业环境的利用：<br><strong>网络服务器:</strong><br>这是Linux当前最热门的应用了!承袭了Unix高稳定性的良好传统，Linux.上面的网络功能特别的稳定与强大!此外，由于GNU计划与Linux的GPL授权模式，让很多优秀的软件都在Linux上面发展，且这些在Linux上面的服务器软件几乎都是自由软件!因此，做为一部网络服务器，例如WWW, Mail Server, File Server等等， Linux绝对是上上之选!当然，这也是Linux的强项!由于Linux server的需求强烈，因此许多硬件厂商推出产品时，还得要特别说明有支持的Linux distributions呢!</p><p><strong>关键任务的应用（金融数据库、大型企业网管环境）</strong><br>由于个人计算机的性能大幅提升且价格便宜，所以金融业与大型企业的环境为了要精实自己机房的机器设备，因此很多企业渐渐的走向Intel相容的x86主机环境。而这些企业所使用的软件大多使用Unix操作系统平台的软件，总不能连过去发展的软件都一口气全部换掉吧!所以，这个时候符合Unix操作系统标准并且可以在x86.上运行的Linux就渐渐崭露头角了!</p><p><strong>学术机构的高性能运算任务：</strong><br>学术机构的研究常常需要自行开发软件，所以对于可作为开发环境的操作系统需求非常的迫切!举例来说，非常多技职体系的科技大学就很需要这方面的环境，好进行一些毕业专题的制作呢!又例如工程界流体力学的数值模式运算、娱乐事业的特效功能处理、软件开发者的工作平台等等。由于Linux的创造者本身就是个计算机性能癖，所以Linux有强大的运算能力;并且Linux具有支持度相当广泛的GCC编译软件，因此Linux在这方面的优势可是相当明显的!</p><p>个人使用：<br><strong>个人电脑：</strong><br>为了要强化桌面电脑的使用率，Linux与X Window System结合了!要注意的是，X Window System仅只是Linux上面的一套软件，而不是核心喔!所以即使X Window挂了，对Linux也可能不会有直接的影响。</p><p><strong>手持系统（PDA、手机）:</strong><br>Android就是Linux核心的一支，专门用来针对手机/平板这类ARM机器所设计的。</p><p><strong>嵌入式系统：</strong><br>包括路由器、防火墙、手机、IP分享器、交换器、机器人控制芯片、家电用品的微计算机控制器等等，都可以是Linux操作系统喔!</p><p>云端运用：<br><strong>云程序</strong><br><strong>端设备</strong></p><p>以服务器或者是嵌入式系统的应用来说，X Window是非必备的软件，因为服务器是要提供用户端来连线的，X Window通常会吃掉很多系统资源。</p><h1 id="第二章-主机规划与磁盘划分"><a href="#第二章-主机规划与磁盘划分" class="headerlink" title="第二章 主机规划与磁盘划分"></a>第二章 主机规划与磁盘划分</h1><p>并非所有的产品都会支持特定的操作系统，这牵涉到硬件开发商是否有意愿提供适当的驱动程序之故。因此，当我们想要购买或者是升级某些计算机元件时，应该要特别注意该硬件是否有针对您的操作系统提供适当的驱动程序，否则可能买了无法使用。</p><p>在Linux系统中，每个设备被当成一个文件来对待，几乎所有的硬件设备文件都在/dev这个目录内。</p><h2 id="磁盘分区"><a href="#磁盘分区" class="headerlink" title="磁盘分区"></a>磁盘分区</h2><p>整个磁盘的第一个扇区特别的重要，因为他记录了整个磁盘的重要信息。早期磁盘第一个扇区里面含有重要的信息称为MBR格式，但是由于磁盘的容量不断扩大，造成读写上的一些困扰，甚至有些大于2TB以上的磁盘分区已经让某些操作系统无法存取。因此后来又多了一个新的磁盘分区格式，称为GPT。</p><h3 id="MSDOS（MBR）与GPT"><a href="#MSDOS（MBR）与GPT" class="headerlink" title="MSDOS（MBR）与GPT"></a>MSDOS（MBR）与GPT</h3><p>MSDOS（MBR）分区表格式与限制：<br>早期的Linux系统为了相容于Windows的磁盘，因此使用的是支持Windows的<br>MBR (Master Boot Record,主要开机纪录区)的方式来处理开机管理程序与分区表!而开机管理程序纪录区与分区表则通通放在磁盘的第一个扇区，这个扇区通常是512Bytes的大小(旧的磁盘扇区都是512Bytes喔!)，所以说，第一个扇区512Bytes会有这两个数据:</p><ol><li>主要开机记录区（Masrer Boot Record,MBR）：可以安装开机管理程序的地方，有446Bytes</li><li>分区表（partition table）:记录整颗硬盘分区的状态，有64Bytes</li></ol><h3 id="Linux安装模式下，磁盘分区的选择（极重要）"><a href="#Linux安装模式下，磁盘分区的选择（极重要）" class="headerlink" title="Linux安装模式下，磁盘分区的选择（极重要）"></a>Linux安装模式下，磁盘分区的选择（极重要）</h3><h4 id="目录树结构"><a href="#目录树结构" class="headerlink" title="目录树结构"></a>目录树结构</h4><p>Linux内所有的数据都是以文件形态来呈现的，Linux系统最重要的地方就是在于目录树架构。就是以根目录为主，然后向下呈现分支状的目录结构的一种文件架构。<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%E5%9F%BA%E7%A1%80%20%20%20Linux%E7%9A%84%E8%A7%84%E5%88%92%E4%B8%8E%E5%AE%89%E8%A3%85/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-20%20%E4%B8%8B%E5%8D%887.55.08.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><br>所有的文件都是由根目录（_）衍生来的，当要取得mydata那个文件时，系统就由根目录开始找，最终的文件名为: _home_dmtsai_mydata的意思。</p><h4 id="文件系统与目录树的关系（挂载）"><a href="#文件系统与目录树的关系（挂载）" class="headerlink" title="文件系统与目录树的关系（挂载）"></a>文件系统与目录树的关系（挂载）</h4><p>挂载就是利用一个目录当成进入点，将磁盘分区的数据放置在该目录下，也就是说，进入该目录就可以读取该分区的意思。<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%E5%9F%BA%E7%A1%80%20%20%20Linux%E7%9A%84%E8%A7%84%E5%88%92%E4%B8%8E%E5%AE%89%E8%A3%85/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-20%20%E4%B8%8B%E5%8D%888.11.25.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><br>假设硬盘分为两个分区 partition1是挂载到根目录,至于 partition2则是挂载到\/ home这个目录。这也就是说当我的数据放置在 home 内的各次目录时,数据是放置到partition2的如果不是放在\/home下面的目录,那么数据就会被放置到 partition1。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;第零章、计算机概论&quot;&gt;&lt;a href=&quot;#第零章、计算机概论&quot; class=&quot;headerlink&quot; title=&quot;第零章、计算机概论&quot;&gt;&lt;/a&gt;第零章、计算机概论&lt;/h1&gt;&lt;p&gt;CPU实际要处理的数据完全来自于内存（不管是程序还是一般文件数据）。&lt;br&gt;CPU架
+      
+    
+    </summary>
+    
+      <category term="读书笔记" scheme="https://github.com/zdkswd/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="Linux" scheme="https://github.com/zdkswd/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>网络爬虫 爬小说 爬图片 爬视频</title>
@@ -493,32 +518,6 @@
     </summary>
     
       <category term="论文" scheme="https://github.com/zdkswd/categories/%E8%AE%BA%E6%96%87/"/>
-    
-    
-      <category term="机器学习" scheme="https://github.com/zdkswd/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>特征工程与表示学习,数据的粒度,数据量</title>
-    <link href="https://github.com/zdkswd/2018/11/21/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%A1%A8%E7%A4%BA%E5%AD%A6%E4%B9%A0,%E6%95%B0%E6%8D%AE%E7%9A%84%E7%B2%92%E5%BA%A6,%E6%95%B0%E6%8D%AE%E9%87%8F/"/>
-    <id>https://github.com/zdkswd/2018/11/21/特征工程与表示学习,数据的粒度,数据量/</id>
-    <published>2018-11-21T10:48:47.000Z</published>
-    <updated>2018-11-21T10:48:55.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://zhuanlan.zhihu.com/p/41521695" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/41521695</a></p><p>正因为数据表示的重要性，机器学习一般有两种思路来提升原始数据的表达</p><ol><li>特征学习(feature learning)，又叫表示学习(representation learning)或者表征学习，一般指的是自动学习有用的数据特征。</li><li>特征工程(feature engineering)，主要指对于数据的人为处理提取，有时候也代指“洗数据”。</li></ol><h1 id="表示学习"><a href="#表示学习" class="headerlink" title="表示学习"></a>表示学习</h1><p>模型自动对输入数据进行学习，得到更有利于使用的特征(*可能同时做出了预测)。代表的算法大致包括：</p><ol><li>深度学习，包括大部分常见的模型如CNN_RNN_DBN等。</li><li>某些无监督学习算法，如主成分分析(PCA)及自编码器（autoencoder）通过对数据转化而使得输入数据更有意义。</li><li>某些树模型可以自动的学习到数据中的特征并同时作出预测。</li></ol><h1 id="模型选择"><a href="#模型选择" class="headerlink" title="模型选择"></a>模型选择</h1><p>什么时候用「手工提取」什么时候用「表示学习」。一种简单的看法是，要想自动学习到数据的良好表达，就需要大量的数据。这个现象也解释了为什么「特征工程」往往在中小数据集上表现良好，而「表示学习」在大量复杂数据上更有用武之地。</p><p>比如我们会假设数据分布，会假设映射函数的性质，也会假设预测值与输入值间的关系。这一切假设其实并非凭空猜想，而是基于我们对于问题的理解，从某种角度来看，这是一种先验，是贝叶斯模型。在中小数据集上的机器学习往往使用的就是强假设模型（人类知识先验）+一个简单线性分类器。当数据愈发复杂，数据量逐渐加大后，我们对于数据的理解越来越肤浅，做出的假设也越来越倾向于随机，那么此时人工特征工程往往是有害的，而需要使用摆脱了人类先验的模型，比如深度学习或者集成模型。</p><p>模型选择的过程其实也是在衡量我们对于问题及数据的理解是否深刻，是在人类先验与数据量之间的一场博弈。从这个角度来看，深度学习首先革的是传统机器学习模型的命：最先被淘汰的不是工人，而是特定场景下的传统机器学习模型。</p><h1 id="数据的粒度"><a href="#数据的粒度" class="headerlink" title="数据的粒度"></a>数据的粒度</h1><p>数据的粒度可以理解为数据的细分程度。随着细分程度的改变，那么数据量也会有明显的变化。数据的粒度越细，数据量越大。</p><p>过于具体的数据缺失了特征，有效的特征仅在某个特定的粒度才存在。打个比方，人是由原子、分子、细胞、组织、器官构成，但在分子层面我们不一定能分辨它是人，只有到达一定的粒度才可以。因此，数据收集的第一个重点是搞清楚，在什么粒度可以解决我们的问题，而不是盲目的收集一大堆数据，或者收集过于抽象的数据。</p><h1 id="到底需要多少数据？"><a href="#到底需要多少数据？" class="headerlink" title="到底需要多少数据？"></a>到底需要多少数据？</h1><h2 id="数据量与特征量的比例"><a href="#数据量与特征量的比例" class="headerlink" title="数据量与特征量的比例"></a>数据量与特征量的比例</h2><p>谈论数据量，不能光说有多少条数据n，一定也要考虑数据的特征数m。</p><p>人们讨论数据量，往往讨论的是n，也就是有多少条数据。但这个是不准确的，因为更加适合的评估应该是n/m，也就是样本量除以特征数，原因很简单。如果你只有100条数据，但只有2个特征。如果用线性函数来拟合，相当于给你100个点来拟合到二次函数上，这个数据量一般来说是比较充裕的。但还是100个数据点，每个数据的特征数是200，那么很明显你的数据是不够的，过拟合的风险极高。</p><h2 id="特征间的相关性和有效性"><a href="#特征间的相关性和有效性" class="headerlink" title="特征间的相关性和有效性"></a>特征间的相关性和有效性</h2><p>数据间重复性低：包括样本间重复性比较低，特征间重复性比较低，即特征间线性无关</p><p>数据的有效性：此处的有效性指的是你的变量对于解决问题有帮助，而不是完全无关或者关联性极低的数据。</p><h2 id="数据是否越多越好？"><a href="#数据是否越多越好？" class="headerlink" title="数据是否越多越好？"></a>数据是否越多越好？</h2><p>数据比模型更重要，数据重要性 &gt;&gt; 模型重要性。机器学习模型的表现高度依赖于数据量，选择对的模型只是其次，因为巧妇难为无米之炊。</p><p>数据不是越多越好，随机数据中也可能因为巧合而存在某种关联。</p><h2 id="数据量与模型选择"><a href="#数据量与模型选择" class="headerlink" title="数据量与模型选择"></a>数据量与模型选择</h2><p>数据量很小，用朴素贝叶斯、逻辑回归或支持向量机<br>数据量适中或者较大，用树模型，优先 xgboost和lightgbm<br>数据量较大，尝试使用神经网络<br>所以说到底，依然不存在定式，而依赖于经验和理解。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/41521695&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://zhuanlan.zhihu.com/p/41521695&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;正因为数据表示的重
-      
-    
-    </summary>
-    
-      <category term="知识总结" scheme="https://github.com/zdkswd/categories/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"/>
     
     
       <category term="机器学习" scheme="https://github.com/zdkswd/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>

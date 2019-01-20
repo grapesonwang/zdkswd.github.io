@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>鸟哥Linux基础   Linux的规划与安装 | ZDK&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Linux">
+    <meta name="description" content="第零章、计算机概论CPU实际要处理的数据完全来自于内存（不管是程序还是一般文件数据）。CPU架构精简指令集RISC，如ARM架构。目前世界上使用范围最广的CPU就是ARM架构。复杂指令集CISC。AMD，Intel x86。 第一章、Linux是什么与如何学习早期的Linux是针对386开发的。Linux提供了一个完整的操作系统当中最底层的硬件控制与资源管理的完整架构，这个架构是沿袭Unix良好的">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="鸟哥Linux基础   Linux的规划与安装">
+<meta property="og:url" content="https://github.com/zdkswd/2019/01/20/鸟哥Linux基础   Linux的规划与安装/index.html">
+<meta property="og:site_name" content="ZDK&#39;s blog">
+<meta property="og:description" content="第零章、计算机概论CPU实际要处理的数据完全来自于内存（不管是程序还是一般文件数据）。CPU架构精简指令集RISC，如ARM架构。目前世界上使用范围最广的CPU就是ARM架构。复杂指令集CISC。AMD，Intel x86。 第一章、Linux是什么与如何学习早期的Linux是针对386开发的。Linux提供了一个完整的操作系统当中最底层的硬件控制与资源管理的完整架构，这个架构是沿袭Unix良好的">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/img/media/%E9%B8%9F%E5%93%A5Linux%E5%9F%BA%E7%A1%80%20%20%20Linux%E7%9A%84%E8%A7%84%E5%88%92%E4%B8%8E%E5%AE%89%E8%A3%85/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-18%20%E4%B8%8A%E5%8D%889.33.47.png">
+<meta property="og:image" content="https://github.com/img/media/%E9%B8%9F%E5%93%A5Linux%E5%9F%BA%E7%A1%80%20%20%20Linux%E7%9A%84%E8%A7%84%E5%88%92%E4%B8%8E%E5%AE%89%E8%A3%85/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-18%20%E4%B8%8A%E5%8D%889.42.34.png">
+<meta property="og:image" content="https://github.com/img/media/%E9%B8%9F%E5%93%A5Linux%E5%9F%BA%E7%A1%80%20%20%20Linux%E7%9A%84%E8%A7%84%E5%88%92%E4%B8%8E%E5%AE%89%E8%A3%85/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-20%20%E4%B8%8B%E5%8D%887.55.08.png">
+<meta property="og:image" content="https://github.com/img/media/%E9%B8%9F%E5%93%A5Linux%E5%9F%BA%E7%A1%80%20%20%20Linux%E7%9A%84%E8%A7%84%E5%88%92%E4%B8%8E%E5%AE%89%E8%A3%85/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-20%20%E4%B8%8B%E5%8D%888.11.25.png">
+<meta property="og:updated_time" content="2019-01-20T12:25:49.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="鸟哥Linux基础   Linux的规划与安装">
+<meta name="twitter:description" content="第零章、计算机概论CPU实际要处理的数据完全来自于内存（不管是程序还是一般文件数据）。CPU架构精简指令集RISC，如ARM架构。目前世界上使用范围最广的CPU就是ARM架构。复杂指令集CISC。AMD，Intel x86。 第一章、Linux是什么与如何学习早期的Linux是针对386开发的。Linux提供了一个完整的操作系统当中最底层的硬件控制与资源管理的完整架构，这个架构是沿袭Unix良好的">
+<meta name="twitter:image" content="https://github.com/img/media/%E9%B8%9F%E5%93%A5Linux%E5%9F%BA%E7%A1%80%20%20%20Linux%E7%9A%84%E8%A7%84%E5%88%92%E4%B8%8E%E5%AE%89%E8%A3%85/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-18%20%E4%B8%8A%E5%8D%889.33.47.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/tmg.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ZDK</h5>
+          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/zdkswd" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">鸟哥Linux基础   Linux的规划与安装</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">鸟哥Linux基础   Linux的规划与安装</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-01-20T12:25:32.000Z" itemprop="datePublished" class="page-time">
+  2019-01-20
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第零章、计算机概论"><span class="post-toc-number">1.</span> <span class="post-toc-text">第零章、计算机概论</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第一章、Linux是什么与如何学习"><span class="post-toc-number">2.</span> <span class="post-toc-text">第一章、Linux是什么与如何学习</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第二章-主机规划与磁盘划分"><span class="post-toc-number">3.</span> <span class="post-toc-text">第二章 主机规划与磁盘划分</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#磁盘分区"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">磁盘分区</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#MSDOS（MBR）与GPT"><span class="post-toc-number">3.1.1.</span> <span class="post-toc-text">MSDOS（MBR）与GPT</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Linux安装模式下，磁盘分区的选择（极重要）"><span class="post-toc-number">3.1.2.</span> <span class="post-toc-text">Linux安装模式下，磁盘分区的选择（极重要）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#目录树结构"><span class="post-toc-number">3.1.2.1.</span> <span class="post-toc-text">目录树结构</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#文件系统与目录树的关系（挂载）"><span class="post-toc-number">3.1.2.2.</span> <span class="post-toc-text">文件系统与目录树的关系（挂载）</span></a></li></ol></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-鸟哥Linux基础   Linux的规划与安装"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">鸟哥Linux基础   Linux的规划与安装</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-01-20 20:25:32" datetime="2019-01-20T12:25:32.000Z"  itemprop="datePublished">2019-01-20</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="第零章、计算机概论"><a href="#第零章、计算机概论" class="headerlink" title="第零章、计算机概论"></a>第零章、计算机概论</h1><p>CPU实际要处理的数据完全来自于内存（不管是程序还是一般文件数据）。<br>CPU架构<br>精简指令集RISC，如ARM架构。目前世界上使用范围最广的CPU就是ARM架构。<br>复杂指令集CISC。AMD，Intel x86。</p>
+<h1 id="第一章、Linux是什么与如何学习"><a href="#第一章、Linux是什么与如何学习" class="headerlink" title="第一章、Linux是什么与如何学习"></a>第一章、Linux是什么与如何学习</h1><p>早期的Linux是针对386开发的。Linux提供了一个完整的操作系统当中最底层的硬件控制与资源管理的完整架构，这个架构是沿袭Unix良好的传统来的，所以相当的稳定而功能强大！</p>
+<p>Linux参考了标准的POSIX规范。POSIX是可携式操作系统接口的缩写，重点在规范核心与应用程序之间的接口，这是由美国电器与电子工程师学会（IEEE）所发布的一项标准。</p>
+<p>Linux其实就是一个操作系统最底层的核心及其提供的核心工具。它是GNU GPL授权模式，所以任何人均可取得源代码与可执行这个核心程序，并且可以修改。此外，因为Linux参考POSIX设计规范，于是相容于Unix操作系统，亦可称为Unix Like的一种。</p>
+<p>Linux distributions就是Kernel+Softwares+Tools+可完整安装程序。一般称为可完整安装套件或Linux发布商套件。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%E5%9F%BA%E7%A1%80%20%20%20Linux%E7%9A%84%E8%A7%84%E5%88%92%E4%B8%8E%E5%AE%89%E8%A3%85/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-18%20%E4%B8%8A%E5%8D%889.33.47.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>由于Linux核心是由工程师写得，由源代码安装到x86计算机上面成为可以执行的binary文件这个过程不是人人都会的，所以早期确实只有工程师对Linux感兴趣。一直到一些社群与商业公司将Linux核心配合自由软件，并提供完整的安装程序且制成光盘，对于一般人来说，Linux才越来越有吸引力。</p>
+<p>每个distributions差异性并不大，主要是套件管理方式上的区分为dpkg和RPM。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%E5%9F%BA%E7%A1%80%20%20%20Linux%E7%9A%84%E8%A7%84%E5%88%92%E4%B8%8E%E5%AE%89%E8%A3%85/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-18%20%E4%B8%8A%E5%8D%889.42.34.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>到底是要买商业版还是社群版的Linux distribution呢?如果是要装在个人计算机上面做为桌面电脑用的， 建议使用社群版，包括Fedora, Ubuntu, OpenSuSE等等。如果是用在服务器上面的， 建议使用商业版本，包括Red Hat, SuSE等。这是因为社群版通常开发者会加入最新的软件，这些软件可能会有一些bug存在。至于商业版则是经过一段时间的磨合后，才将稳定的软件放进去。</p>
+<p>Linux的运用场景<br>企业环境的利用：<br><strong>网络服务器:</strong><br>这是Linux当前最热门的应用了!承袭了Unix高稳定性的良好传统，Linux.上面的网络功能特别的稳定与强大!此外，由于GNU计划与Linux的GPL授权模式，让很多优秀的软件都在Linux上面发展，且这些在Linux上面的服务器软件几乎都是自由软件!因此，做为一部网络服务器，例如WWW, Mail Server, File Server等等， Linux绝对是上上之选!当然，这也是Linux的强项!由于Linux server的需求强烈，因此许多硬件厂商推出产品时，还得要特别说明有支持的Linux distributions呢!</p>
+<p><strong>关键任务的应用（金融数据库、大型企业网管环境）</strong><br>由于个人计算机的性能大幅提升且价格便宜，所以金融业与大型企业的环境为了要精实自己机房的机器设备，因此很多企业渐渐的走向Intel相容的x86主机环境。而这些企业所使用的软件大多使用Unix操作系统平台的软件，总不能连过去发展的软件都一口气全部换掉吧!所以，这个时候符合Unix操作系统标准并且可以在x86.上运行的Linux就渐渐崭露头角了!</p>
+<p><strong>学术机构的高性能运算任务：</strong><br>学术机构的研究常常需要自行开发软件，所以对于可作为开发环境的操作系统需求非常的迫切!举例来说，非常多技职体系的科技大学就很需要这方面的环境，好进行一些毕业专题的制作呢!又例如工程界流体力学的数值模式运算、娱乐事业的特效功能处理、软件开发者的工作平台等等。由于Linux的创造者本身就是个计算机性能癖，所以Linux有强大的运算能力;并且Linux具有支持度相当广泛的GCC编译软件，因此Linux在这方面的优势可是相当明显的!</p>
+<p>个人使用：<br><strong>个人电脑：</strong><br>为了要强化桌面电脑的使用率，Linux与X Window System结合了!要注意的是，X Window System仅只是Linux上面的一套软件，而不是核心喔!所以即使X Window挂了，对Linux也可能不会有直接的影响。</p>
+<p><strong>手持系统（PDA、手机）:</strong><br>Android就是Linux核心的一支，专门用来针对手机/平板这类ARM机器所设计的。</p>
+<p><strong>嵌入式系统：</strong><br>包括路由器、防火墙、手机、IP分享器、交换器、机器人控制芯片、家电用品的微计算机控制器等等，都可以是Linux操作系统喔!</p>
+<p>云端运用：<br><strong>云程序</strong><br><strong>端设备</strong></p>
+<p>以服务器或者是嵌入式系统的应用来说，X Window是非必备的软件，因为服务器是要提供用户端来连线的，X Window通常会吃掉很多系统资源。</p>
+<h1 id="第二章-主机规划与磁盘划分"><a href="#第二章-主机规划与磁盘划分" class="headerlink" title="第二章 主机规划与磁盘划分"></a>第二章 主机规划与磁盘划分</h1><p>并非所有的产品都会支持特定的操作系统，这牵涉到硬件开发商是否有意愿提供适当的驱动程序之故。因此，当我们想要购买或者是升级某些计算机元件时，应该要特别注意该硬件是否有针对您的操作系统提供适当的驱动程序，否则可能买了无法使用。</p>
+<p>在Linux系统中，每个设备被当成一个文件来对待，几乎所有的硬件设备文件都在/dev这个目录内。</p>
+<h2 id="磁盘分区"><a href="#磁盘分区" class="headerlink" title="磁盘分区"></a>磁盘分区</h2><p>整个磁盘的第一个扇区特别的重要，因为他记录了整个磁盘的重要信息。早期磁盘第一个扇区里面含有重要的信息称为MBR格式，但是由于磁盘的容量不断扩大，造成读写上的一些困扰，甚至有些大于2TB以上的磁盘分区已经让某些操作系统无法存取。因此后来又多了一个新的磁盘分区格式，称为GPT。</p>
+<h3 id="MSDOS（MBR）与GPT"><a href="#MSDOS（MBR）与GPT" class="headerlink" title="MSDOS（MBR）与GPT"></a>MSDOS（MBR）与GPT</h3><p>MSDOS（MBR）分区表格式与限制：<br>早期的Linux系统为了相容于Windows的磁盘，因此使用的是支持Windows的<br>MBR (Master Boot Record,主要开机纪录区)的方式来处理开机管理程序与分区表!而开机管理程序纪录区与分区表则通通放在磁盘的第一个扇区，这个扇区通常是512Bytes的大小(旧的磁盘扇区都是512Bytes喔!)，所以说，第一个扇区512Bytes会有这两个数据:</p>
+<ol>
+<li>主要开机记录区（Masrer Boot Record,MBR）：可以安装开机管理程序的地方，有446Bytes</li>
+<li>分区表（partition table）:记录整颗硬盘分区的状态，有64Bytes</li>
+</ol>
+<h3 id="Linux安装模式下，磁盘分区的选择（极重要）"><a href="#Linux安装模式下，磁盘分区的选择（极重要）" class="headerlink" title="Linux安装模式下，磁盘分区的选择（极重要）"></a>Linux安装模式下，磁盘分区的选择（极重要）</h3><h4 id="目录树结构"><a href="#目录树结构" class="headerlink" title="目录树结构"></a>目录树结构</h4><p>Linux内所有的数据都是以文件形态来呈现的，Linux系统最重要的地方就是在于目录树架构。就是以根目录为主，然后向下呈现分支状的目录结构的一种文件架构。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%E5%9F%BA%E7%A1%80%20%20%20Linux%E7%9A%84%E8%A7%84%E5%88%92%E4%B8%8E%E5%AE%89%E8%A3%85/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-20%20%E4%B8%8B%E5%8D%887.55.08.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>所有的文件都是由根目录（_）衍生来的，当要取得mydata那个文件时，系统就由根目录开始找，最终的文件名为: _home_dmtsai_mydata的意思。</p>
+<h4 id="文件系统与目录树的关系（挂载）"><a href="#文件系统与目录树的关系（挂载）" class="headerlink" title="文件系统与目录树的关系（挂载）"></a>文件系统与目录树的关系（挂载）</h4><p>挂载就是利用一个目录当成进入点，将磁盘分区的数据放置在该目录下，也就是说，进入该目录就可以读取该分区的意思。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%E5%9F%BA%E7%A1%80%20%20%20Linux%E7%9A%84%E8%A7%84%E5%88%92%E4%B8%8E%E5%AE%89%E8%A3%85/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-20%20%E4%B8%8B%E5%8D%888.11.25.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>假设硬盘分为两个分区 partition1是挂载到根目录,至于 partition2则是挂载到\/ home这个目录。这也就是说当我的数据放置在 home 内的各次目录时,数据是放置到partition2的如果不是放在\/home下面的目录,那么数据就会被放置到 partition1。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-01-20T12:25:49.000Z" itemprop="dateUpdated">2019-01-20 20:25:49</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/zdkswd">
+            <img src="/img/tmg.jpg" alt="ZDK">
+            ZDK
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2019/01/20/鸟哥Linux基础   Linux的规划与安装/&title=《鸟哥Linux基础   Linux的规划与安装》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2019/01/20/鸟哥Linux基础   Linux的规划与安装/&title=《鸟哥Linux基础   Linux的规划与安装》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2019/01/20/鸟哥Linux基础   Linux的规划与安装/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《鸟哥Linux基础   Linux的规划与安装》 — ZDK's blog&url=https://github.com/zdkswd/2019/01/20/鸟哥Linux基础   Linux的规划与安装/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2019/01/20/鸟哥Linux基础   Linux的规划与安装/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/01/16/网络爬虫/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">网络爬虫 爬小说 爬图片 爬视频</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz",
+            appKey: "gkBx5soQkBREmER84PWbNJeM",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ZDK &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2019/01/20/鸟哥Linux基础   Linux的规划与安装/&title=《鸟哥Linux基础   Linux的规划与安装》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2019/01/20/鸟哥Linux基础   Linux的规划与安装/&title=《鸟哥Linux基础   Linux的规划与安装》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2019/01/20/鸟哥Linux基础   Linux的规划与安装/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《鸟哥Linux基础   Linux的规划与安装》 — ZDK's blog&url=https://github.com/zdkswd/2019/01/20/鸟哥Linux基础   Linux的规划与安装/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2019/01/20/鸟哥Linux基础   Linux的规划与安装/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2019/01/20/鸟哥Linux基础   Linux的规划与安装/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'zdk'blog';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
