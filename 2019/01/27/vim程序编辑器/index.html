@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Vim | ZDK&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Linux">
+    <meta name="description" content="vim程序编辑器在所有的Linux distributions上都会有一套文书编辑器，即vi，vim是进阶版的vi，vim可以用不同颜色显示文字内容，还可以进行shell script，C program等程序编辑功能，可以将vim视为一种程序编辑器。 vi与vim在Linux的世界中，绝大部分的配置文件都是以ASCII的纯文本形态存在的，因此利用简单的文字编辑软件就能够修改设置了。 为何要学vi">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vim">
+<meta property="og:url" content="https://github.com/zdkswd/2019/01/27/vim程序编辑器/index.html">
+<meta property="og:site_name" content="ZDK&#39;s blog">
+<meta property="og:description" content="vim程序编辑器在所有的Linux distributions上都会有一套文书编辑器，即vi，vim是进阶版的vi，vim可以用不同颜色显示文字内容，还可以进行shell script，C program等程序编辑功能，可以将vim视为一种程序编辑器。 vi与vim在Linux的世界中，绝大部分的配置文件都是以ASCII的纯文本形态存在的，因此利用简单的文字编辑软件就能够修改设置了。 为何要学vi">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-26%20%E4%B8%8A%E5%8D%8811.19.54.png">
+<meta property="og:image" content="https://github.com/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-26%20%E4%B8%8A%E5%8D%8811.56.38.png">
+<meta property="og:image" content="https://github.com/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-26%20%E4%B8%8A%E5%8D%8811.57.59.png">
+<meta property="og:image" content="https://github.com/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-26%20%E4%B8%8A%E5%8D%8811.58.26.png">
+<meta property="og:image" content="https://github.com/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-26%20%E4%B8%8B%E5%8D%8812.02.51.png">
+<meta property="og:image" content="https://github.com/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-26%20%E4%B8%8B%E5%8D%8812.04.19.png">
+<meta property="og:image" content="https://github.com/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-27%20%E4%B8%8A%E5%8D%888.03.09.png">
+<meta property="og:image" content="https://github.com/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-27%20%E4%B8%8A%E5%8D%888.04.47.png">
+<meta property="og:image" content="https://github.com/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-27%20%E4%B8%8A%E5%8D%888.25.48.png">
+<meta property="og:image" content="https://github.com/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-27%20%E4%B8%8A%E5%8D%888.29.26.png">
+<meta property="og:image" content="https://github.com/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-27%20%E4%B8%8A%E5%8D%889.02.27.png">
+<meta property="og:image" content="https://github.com/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-27%20%E4%B8%8A%E5%8D%889.06.13.png">
+<meta property="og:image" content="https://github.com/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-27%20%E4%B8%8A%E5%8D%889.07.15.png">
+<meta property="og:updated_time" content="2019-01-27T02:20:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vim">
+<meta name="twitter:description" content="vim程序编辑器在所有的Linux distributions上都会有一套文书编辑器，即vi，vim是进阶版的vi，vim可以用不同颜色显示文字内容，还可以进行shell script，C program等程序编辑功能，可以将vim视为一种程序编辑器。 vi与vim在Linux的世界中，绝大部分的配置文件都是以ASCII的纯文本形态存在的，因此利用简单的文字编辑软件就能够修改设置了。 为何要学vi">
+<meta name="twitter:image" content="https://github.com/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-26%20%E4%B8%8A%E5%8D%8811.19.54.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/tmg.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ZDK</h5>
+          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/zdkswd" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Vim</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Vim</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-01-27T02:19:32.000Z" itemprop="datePublished" class="page-time">
+  2019-01-27
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#vim程序编辑器"><span class="post-toc-number">1.</span> <span class="post-toc-text">vim程序编辑器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#vi与vim"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">vi与vim</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#为何要学vim"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">为何要学vim</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#vi的使用"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">vi的使用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一般指令模式（command-mode）"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">一般指令模式（command mode）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#编辑模式（insert-mode）"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">编辑模式（insert mode）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#命令行命令模式（command-line-mode）"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">命令行命令模式（command-line mode）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#简易执行范例"><span class="post-toc-number">1.2.4.</span> <span class="post-toc-text">简易执行范例</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#使用vi-filename进入一般指令模式"><span class="post-toc-number">1.2.4.1.</span> <span class="post-toc-text">使用vi filename进入一般指令模式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#按下i进入编辑模式，开始编辑文字"><span class="post-toc-number">1.2.4.2.</span> <span class="post-toc-text">按下i进入编辑模式，开始编辑文字</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#按下esc按钮回到一般指令模式"><span class="post-toc-number">1.2.4.3.</span> <span class="post-toc-text">按下esc按钮回到一般指令模式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#进入命令行界面，文件存储并离开vi环境"><span class="post-toc-number">1.2.4.4.</span> <span class="post-toc-text">进入命令行界面，文件存储并离开vi环境</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#按键说明"><span class="post-toc-number">1.2.5.</span> <span class="post-toc-text">按键说明</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#一般指令模式可用的按钮说明，光标移动，复制贴上，搜寻取代"><span class="post-toc-number">1.2.5.1.</span> <span class="post-toc-text">一般指令模式可用的按钮说明，光标移动，复制贴上，搜寻取代</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#一般指令模式切换到编辑模式的可用的按钮说明"><span class="post-toc-number">1.2.5.2.</span> <span class="post-toc-text">一般指令模式切换到编辑模式的可用的按钮说明</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#一般指令切换到命令行界面可用按钮说明"><span class="post-toc-number">1.2.5.3.</span> <span class="post-toc-text">一般指令切换到命令行界面可用按钮说明</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#vim的暂存盘，救援恢复与打开时的警告讯息"><span class="post-toc-number">1.2.6.</span> <span class="post-toc-text">vim的暂存盘，救援恢复与打开时的警告讯息</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#vim的额外功能"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">vim的额外功能</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#区块选择（Visual-Block）"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">区块选择（Visual Block）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#多文件编辑"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">多文件编辑</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#多窗口功能"><span class="post-toc-number">1.3.3.</span> <span class="post-toc-text">多窗口功能</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#vim的补全功能"><span class="post-toc-number">1.3.4.</span> <span class="post-toc-text">vim的补全功能</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#vim环境设置与记录：-vimrc，-viminfo"><span class="post-toc-number">1.3.5.</span> <span class="post-toc-text">vim环境设置与记录： ~/.vimrc，~/.viminfo</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#vim常用指令示意图"><span class="post-toc-number">1.3.6.</span> <span class="post-toc-text">vim常用指令示意图</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#vim使用注意事项"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">vim使用注意事项</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#中文编码问题"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">中文编码问题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#DOS与Linux的断行字符"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">DOS与Linux的断行字符</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#语系编码转换"><span class="post-toc-number">1.4.3.</span> <span class="post-toc-text">语系编码转换</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-vim程序编辑器"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Vim</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-01-27 10:19:32" datetime="2019-01-27T02:19:32.000Z"  itemprop="datePublished">2019-01-27</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="vim程序编辑器"><a href="#vim程序编辑器" class="headerlink" title="vim程序编辑器"></a>vim程序编辑器</h1><p>在所有的Linux distributions上都会有一套文书编辑器，即vi，vim是进阶版的vi，vim可以用不同颜色显示文字内容，还可以进行shell script，C program等程序编辑功能，可以将vim视为一种程序编辑器。</p>
+<h2 id="vi与vim"><a href="#vi与vim" class="headerlink" title="vi与vim"></a>vi与vim</h2><p>在Linux的世界中，绝大部分的配置文件都是以ASCII的纯文本形态存在的，因此利用简单的文字编辑软件就能够修改设置了。</p>
+<h3 id="为何要学vim"><a href="#为何要学vim" class="headerlink" title="为何要学vim"></a>为何要学vim</h3><ol>
+<li>所有的Unⅸ Like系统都会内置ⅵ文书编辑器，其他的文书编辑器则不一定会存在。</li>
+<li>很多个别软件的编辑借口都会主动调用vi</li>
+<li>vim具有程序编辑的能力，可以主动的以字体颜色辨别语法的正确性，方便程序设计。</li>
+<li>因为程序简单，编辑速度相当快速。</li>
+</ol>
+<p>重点是第二点，因为有太多的Linux上面的指令都默认使用vi作为数据编辑的接口，所以必须一定要学会vi，否则很多指令根本无法操作。</p>
+<p>简单来说vi是老式的文本处理器，不过功能已经很齐全了，但是还是有可以进步的地方，vim则可以说是程序开发者的一项很好用的工具。</p>
+<h2 id="vi的使用"><a href="#vi的使用" class="headerlink" title="vi的使用"></a>vi的使用</h2><h3 id="一般指令模式（command-mode）"><a href="#一般指令模式（command-mode）" class="headerlink" title="一般指令模式（command mode）"></a>一般指令模式（command mode）</h3><p>以ⅵ打开一个文件就直接进入一般指令模式了(这是默认的模式，也简称为一般模式)。在这个模式中，可以使用“上下左右”按键来移动光标，可以使用“删除字符”或”删除整列”来处理文件内容,也可以使用“复制,粘贴”来处理你的文件数据。</p>
+<h3 id="编辑模式（insert-mode）"><a href="#编辑模式（insert-mode）" class="headerlink" title="编辑模式（insert mode）"></a>编辑模式（insert mode）</h3><p>在一般指令模式中可以进行删除丶复制丶贴上等等的动作’但是却无法编辑文件内容的!要等到你按下i,l,o,O,a,A,r,R等任何一个字母之后才会进入编辑模式。注意了!通常在Linux中按下这些按键时,在画面的左下方会出现” INSERT或REPLACE”的字样,此时才可以进行编辑。而如釆要回到一般指令模式时，则必须要按下”Esc”这个按键即可退岀编辑模式。</p>
+<h3 id="命令行命令模式（command-line-mode）"><a href="#命令行命令模式（command-line-mode）" class="headerlink" title="命令行命令模式（command-line mode）"></a>命令行命令模式（command-line mode）</h3><p>在一般模式中，输入：/?三个中的任何一个按钮，就可以将光标移动到最下面的那一列。在这个模式中可以提供你搜寻数据的动作，而读取、存盘、大量取代字符、离开vi、显示行号等等则是在此模式中达成的。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-26%20%E4%B8%8A%E5%8D%8811.19.54.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="简易执行范例"><a href="#简易执行范例" class="headerlink" title="简易执行范例"></a>简易执行范例</h3><h4 id="使用vi-filename进入一般指令模式"><a href="#使用vi-filename进入一般指令模式" class="headerlink" title="使用vi filename进入一般指令模式"></a>使用vi filename进入一般指令模式</h4><h4 id="按下i进入编辑模式，开始编辑文字"><a href="#按下i进入编辑模式，开始编辑文字" class="headerlink" title="按下i进入编辑模式，开始编辑文字"></a>按下i进入编辑模式，开始编辑文字</h4><h4 id="按下esc按钮回到一般指令模式"><a href="#按下esc按钮回到一般指令模式" class="headerlink" title="按下esc按钮回到一般指令模式"></a>按下esc按钮回到一般指令模式</h4><h4 id="进入命令行界面，文件存储并离开vi环境"><a href="#进入命令行界面，文件存储并离开vi环境" class="headerlink" title="进入命令行界面，文件存储并离开vi环境"></a>进入命令行界面，文件存储并离开vi环境</h4><p>存盘（write）并离开（quit）的指令很简单，输入<strong>：wq</strong>（冒号要输入）即可存盘离开。（注意，按下后该光标就会移动到最后面一列）。如果文件权限不对，可能无法写入，此时可以使用强制写入，使用<strong>：wq！</strong>（冒号要输入）多加一个惊叹号。</p>
+<h3 id="按键说明"><a href="#按键说明" class="headerlink" title="按键说明"></a>按键说明</h3><p>编辑模式与命令行界面之间并不能切换。</p>
+<h4 id="一般指令模式可用的按钮说明，光标移动，复制贴上，搜寻取代"><a href="#一般指令模式可用的按钮说明，光标移动，复制贴上，搜寻取代" class="headerlink" title="一般指令模式可用的按钮说明，光标移动，复制贴上，搜寻取代"></a>一般指令模式可用的按钮说明，光标移动，复制贴上，搜寻取代</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-26%20%E4%B8%8A%E5%8D%8811.56.38.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-26%20%E4%B8%8A%E5%8D%8811.57.59.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-26%20%E4%B8%8A%E5%8D%8811.58.26.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="一般指令模式切换到编辑模式的可用的按钮说明"><a href="#一般指令模式切换到编辑模式的可用的按钮说明" class="headerlink" title="一般指令模式切换到编辑模式的可用的按钮说明"></a>一般指令模式切换到编辑模式的可用的按钮说明</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-26%20%E4%B8%8B%E5%8D%8812.02.51.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="一般指令切换到命令行界面可用按钮说明"><a href="#一般指令切换到命令行界面可用按钮说明" class="headerlink" title="一般指令切换到命令行界面可用按钮说明"></a>一般指令切换到命令行界面可用按钮说明</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-26%20%E4%B8%8B%E5%8D%8812.04.19.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="vim的暂存盘，救援恢复与打开时的警告讯息"><a href="#vim的暂存盘，救援恢复与打开时的警告讯息" class="headerlink" title="vim的暂存盘，救援恢复与打开时的警告讯息"></a>vim的暂存盘，救援恢复与打开时的警告讯息</h3><p>vim是通过暂存盘来进行救援恢复的。当使用vim编辑时，vim会在同一目录下再创建一个名为.filename.swap的文件。对文件做的动作会被记录到swp当中，如果系统由于某些原因断掉，编辑的文件还没有储存，swp就能发挥救援作用。</p>
+<h2 id="vim的额外功能"><a href="#vim的额外功能" class="headerlink" title="vim的额外功能"></a>vim的额外功能</h2><p>目前大部分的distribution都以vim取代vi了。vim还可以直接进行debug。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">debug和release的区别</span><br><span class="line">Debug：调试版本，包含调试信息，所以容量比Release大很多，并且不进行任何优化（优化会使调试复杂化，因为源代码和生成的指令间关系会更复杂），便于程序员调试。</span><br><span class="line">Release：发布版本，不对源代码进行调试，编译时对应用程序的速度进行优化，使得程序在代码大小和运行速度上都是最优的。</span><br></pre></td></tr></table></figure></p>
+<h3 id="区块选择（Visual-Block）"><a href="#区块选择（Visual-Block）" class="headerlink" title="区块选择（Visual Block）"></a>区块选择（Visual Block）</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-27%20%E4%B8%8A%E5%8D%888.03.09.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="多文件编辑"><a href="#多文件编辑" class="headerlink" title="多文件编辑"></a>多文件编辑</h3><p>可以使用vim后面同时接好几个文件同时打开。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-27%20%E4%B8%8A%E5%8D%888.04.47.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>利用多文件编辑的功能’可以让你很快速的就将需要的数据复制到正确的文件内。当然这个功能也可以利用窗口接口来达到，那就是多窗口功能。</p>
+<h3 id="多窗口功能"><a href="#多窗口功能" class="headerlink" title="多窗口功能"></a>多窗口功能</h3><p>vim也可以实现分区窗口的功能。在命令行界面输入<strong>:sp {filename}</strong>即可，filename可有可无，如果想要在新窗口启动另一个文件，就加入文件名，否则仅输入<strong>:sp</strong>，出现的是同一个文件在两个窗口间。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-27%20%E4%B8%8A%E5%8D%888.25.48.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="vim的补全功能"><a href="#vim的补全功能" class="headerlink" title="vim的补全功能"></a>vim的补全功能</h3><p>程序编辑器都可以进行语法检验以及根据输入来挑字进行补全。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-27%20%E4%B8%8A%E5%8D%888.29.26.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>先输入前者再输入后者。</p>
+<h3 id="vim环境设置与记录：-vimrc，-viminfo"><a href="#vim环境设置与记录：-vimrc，-viminfo" class="headerlink" title="vim环境设置与记录： ~/.vimrc，~/.viminfo"></a>vim环境设置与记录： ~/.vimrc，~/.viminfo</h3><p>以vim软件来搜寻一个文件内部的字串时，字串会被反白。再次vim编辑这个文件时，泛白的情况还是存在的。当重复编辑同一个文件第二次进入该文件时，光标还在上次离开的那一列上头。这是因为vim会主动的将做过的行为记录下来，记录的文件就是：~/.viminfo，该文件是自动生成的，不必自行创建，在vim里所做过的动作都可以在这个文件内部查询到。vim的环境参数有很多，如果想要知道目前的设置值，可以在一般指令模式时输入<strong>：set all</strong>来查阅。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-27%20%E4%B8%8A%E5%8D%889.02.27.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>每次使用vim都要重新设置一次各个参数值貌似不太合理，所以可以通过配置文件直接规定习惯的vim操作环境。整体的vim设置一般放在/ etc / vimrc 这个文件，不过不建议修改，可以修改 ~ / .vimrc这个文件（默认不存在，要手动创建）。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-27%20%E4%B8%8A%E5%8D%889.06.13.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="vim常用指令示意图"><a href="#vim常用指令示意图" class="headerlink" title="vim常用指令示意图"></a>vim常用指令示意图</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-27%20%E4%B8%8A%E5%8D%889.07.15.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="vim使用注意事项"><a href="#vim使用注意事项" class="headerlink" title="vim使用注意事项"></a>vim使用注意事项</h2><h3 id="中文编码问题"><a href="#中文编码问题" class="headerlink" title="中文编码问题"></a>中文编码问题</h3><h3 id="DOS与Linux的断行字符"><a href="#DOS与Linux的断行字符" class="headerlink" title="DOS与Linux的断行字符"></a>DOS与Linux的断行字符</h3><h3 id="语系编码转换"><a href="#语系编码转换" class="headerlink" title="语系编码转换"></a>语系编码转换</h3>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-01-27T02:20:46.000Z" itemprop="dateUpdated">2019-01-27 10:20:46</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/zdkswd">
+            <img src="/img/tmg.jpg" alt="ZDK">
+            ZDK
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2019/01/27/vim程序编辑器/&title=《Vim》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2019/01/27/vim程序编辑器/&title=《Vim》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2019/01/27/vim程序编辑器/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Vim》 — ZDK's blog&url=https://github.com/zdkswd/2019/01/27/vim程序编辑器/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2019/01/27/vim程序编辑器/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/01/25/鸟哥Linux Linux文件、目录与磁盘格式/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">鸟哥Linux Linux文件、目录与磁盘格式</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz",
+            appKey: "gkBx5soQkBREmER84PWbNJeM",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ZDK &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2019/01/27/vim程序编辑器/&title=《Vim》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2019/01/27/vim程序编辑器/&title=《Vim》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2019/01/27/vim程序编辑器/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Vim》 — ZDK's blog&url=https://github.com/zdkswd/2019/01/27/vim程序编辑器/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2019/01/27/vim程序编辑器/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2019/01/27/vim程序编辑器/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'zdk'blog';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
