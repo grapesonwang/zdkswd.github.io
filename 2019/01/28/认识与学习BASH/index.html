@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>认识与学习BASH | ZDK&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Linux">
+    <meta name="description" content="认识与学习BASH认识BASH这个Shell硬件，核心与Shell必须通过shell将我们输入指令与内核沟通，好让内核可以控制硬件来正确无误的工作。操作系统其实是一组软件，这组软件在控制整个硬件与管理系统的活动监测，操作系统管理的就是整个硬件功能。使用者通过应用程序来指挥内核让内核达成我们所需要的硬件任务。壳程序的功能知识提供使用者操作系统的一个接口，因此需要可以调用其他软件，就是很多其他的指令，">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="认识与学习BASH">
+<meta property="og:url" content="https://github.com/zdkswd/2019/01/28/认识与学习BASH/index.html">
+<meta property="og:site_name" content="ZDK&#39;s blog">
+<meta property="og:description" content="认识与学习BASH认识BASH这个Shell硬件，核心与Shell必须通过shell将我们输入指令与内核沟通，好让内核可以控制硬件来正确无误的工作。操作系统其实是一组软件，这组软件在控制整个硬件与管理系统的活动监测，操作系统管理的就是整个硬件功能。使用者通过应用程序来指挥内核让内核达成我们所需要的硬件任务。壳程序的功能知识提供使用者操作系统的一个接口，因此需要可以调用其他软件，就是很多其他的指令，">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-27%20%E4%B8%8B%E5%8D%889.36.47.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%888.52.23.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%889.14.46.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%889.43.02.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%889.49.21.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%889.59.21.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%8810.02.06.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%8810.09.13.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%8810.11.34.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%8810.46.33.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%8810.51.50.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%8811.15.04.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%8811.15.29.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%8811.23.09.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%8811.24.50.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%8811.29.49.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%8811.31.10.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%8811.30.57.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%8811.31.39.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%8811.34.41.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%8811.59.58.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%8812.03.26.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%8812.06.33.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%884.22.35.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%884.24.13.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%884.35.22.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%884.46.01.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%884.48.58.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%885.26.55.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%885.27.38.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%885.28.58.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%885.31.20.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%885.46.36.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%888.06.01.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%888.11.46.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%888.17.03.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%888.18.38.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%888.21.09.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%888.22.56.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%888.36.44.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%888.37.38.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%888.42.06.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%888.45.25.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%888.47.51.png">
+<meta property="og:updated_time" content="2019-01-28T13:04:20.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="认识与学习BASH">
+<meta name="twitter:description" content="认识与学习BASH认识BASH这个Shell硬件，核心与Shell必须通过shell将我们输入指令与内核沟通，好让内核可以控制硬件来正确无误的工作。操作系统其实是一组软件，这组软件在控制整个硬件与管理系统的活动监测，操作系统管理的就是整个硬件功能。使用者通过应用程序来指挥内核让内核达成我们所需要的硬件任务。壳程序的功能知识提供使用者操作系统的一个接口，因此需要可以调用其他软件，就是很多其他的指令，">
+<meta name="twitter:image" content="https://github.com/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-27%20%E4%B8%8B%E5%8D%889.36.47.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/tmg.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ZDK</h5>
+          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/zdkswd" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">认识与学习BASH</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">认识与学习BASH</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-01-28T12:55:32.000Z" itemprop="datePublished" class="page-time">
+  2019-01-28
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#认识与学习BASH"><span class="post-toc-number">1.</span> <span class="post-toc-text">认识与学习BASH</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#认识BASH这个Shell"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">认识BASH这个Shell</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#硬件，核心与Shell"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">硬件，核心与Shell</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#为何要学命令行shell"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">为何要学命令行shell</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#命令行shell：大家都一样"><span class="post-toc-number">1.1.2.1.</span> <span class="post-toc-text">命令行shell：大家都一样</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#远端管理：命令行就是比较快"><span class="post-toc-number">1.1.2.2.</span> <span class="post-toc-text">远端管理：命令行就是比较快</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Linux的任督二脉：shell"><span class="post-toc-number">1.1.2.3.</span> <span class="post-toc-text">Linux的任督二脉：shell</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#系统的合法shell与-etc-shells功能"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">系统的合法shell与/etc/shells功能</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Bash-shell的功能"><span class="post-toc-number">1.1.4.</span> <span class="post-toc-text">Bash shell的功能</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#命令编修能力（history）"><span class="post-toc-number">1.1.4.1.</span> <span class="post-toc-text">命令编修能力（history）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#命令与文件补全功能（【tab】键的好处）"><span class="post-toc-number">1.1.4.2.</span> <span class="post-toc-text">命令与文件补全功能（【tab】键的好处）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#命令别名设置功能：（alias）"><span class="post-toc-number">1.1.4.3.</span> <span class="post-toc-text">命令别名设置功能：（alias）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#工作控制，前景背景控制（job-control-foreground-background）"><span class="post-toc-number">1.1.4.4.</span> <span class="post-toc-text">工作控制，前景背景控制（job control,foreground,background）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#程序化脚本（shell-scripts）"><span class="post-toc-number">1.1.4.5.</span> <span class="post-toc-text">程序化脚本（shell scripts）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#万用字符（wildcard）"><span class="post-toc-number">1.1.4.6.</span> <span class="post-toc-text">万用字符（wildcard）</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#查询指令是否是Bash-shell的内置命令：type"><span class="post-toc-number">1.1.5.</span> <span class="post-toc-text">查询指令是否是Bash shell的内置命令：type</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#指令的下达与快速编辑按钮"><span class="post-toc-number">1.1.6.</span> <span class="post-toc-text">指令的下达与快速编辑按钮</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Shell的变量功能"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Shell的变量功能</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#什么是变量"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">什么是变量</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#变量的可变性与方便性"><span class="post-toc-number">1.2.1.1.</span> <span class="post-toc-text">变量的可变性与方便性</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#影响bash环境操作的变量"><span class="post-toc-number">1.2.1.2.</span> <span class="post-toc-text">影响bash环境操作的变量</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#脚本程序设计（shell-script）的好帮手"><span class="post-toc-number">1.2.1.3.</span> <span class="post-toc-text">脚本程序设计（shell script）的好帮手</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#变量的取用与设置：echo，变量设置规则，unset"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">变量的取用与设置：echo，变量设置规则，unset</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#变量的取用：echo"><span class="post-toc-number">1.2.2.1.</span> <span class="post-toc-text">变量的取用：echo</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#环境变量的功能"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">环境变量的功能</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#用env观察环境变量与常见环境变量说明"><span class="post-toc-number">1.2.3.1.</span> <span class="post-toc-text">用env观察环境变量与常见环境变量说明</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#用set观察所有变量（含环境变量与自订变量）"><span class="post-toc-number">1.2.3.2.</span> <span class="post-toc-text">用set观察所有变量（含环境变量与自订变量）</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#影响显示结果的语系变量（locale）"><span class="post-toc-number">1.2.4.</span> <span class="post-toc-text">影响显示结果的语系变量（locale）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#变量键盘读取，数组与声明：read，array，declare"><span class="post-toc-number">1.2.5.</span> <span class="post-toc-text">变量键盘读取，数组与声明：read，array，declare</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#read"><span class="post-toc-number">1.2.5.1.</span> <span class="post-toc-text">read</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#declare，typeset"><span class="post-toc-number">1.2.5.2.</span> <span class="post-toc-text">declare，typeset</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#array变量类型"><span class="post-toc-number">1.2.5.3.</span> <span class="post-toc-text">array变量类型</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#与文件系统及程序的限制关系：ulimit"><span class="post-toc-number">1.2.6.</span> <span class="post-toc-text">与文件系统及程序的限制关系：ulimit</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#变量内容的删除，取代与替换（optional）"><span class="post-toc-number">1.2.7.</span> <span class="post-toc-text">变量内容的删除，取代与替换（optional）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#变量内容的删除与取代"><span class="post-toc-number">1.2.7.1.</span> <span class="post-toc-text">变量内容的删除与取代</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#变量的测试与内容替换"><span class="post-toc-number">1.2.7.2.</span> <span class="post-toc-text">变量的测试与内容替换</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#命令别名与历史命令"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">命令别名与历史命令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#命令别名设置：alias，unalias"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">命令别名设置：alias，unalias</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#历史命令：history"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">历史命令：history</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Bash-Shell的操作环境"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">Bash Shell的操作环境</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#路径与指令搜寻顺序"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">路径与指令搜寻顺序</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#bash的进站与欢迎讯息：-etc-issue-etc-motd"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">bash的进站与欢迎讯息：/ etc / issue,/ etc / motd</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#bash的环境配置文件"><span class="post-toc-number">1.4.3.</span> <span class="post-toc-text">bash的环境配置文件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#login与non-login-shell"><span class="post-toc-number">1.4.3.1.</span> <span class="post-toc-text">login与non-login shell</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#终端机的环境设置：stty，set"><span class="post-toc-number">1.4.4.</span> <span class="post-toc-text">终端机的环境设置：stty，set</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#万用字符与特殊符号"><span class="post-toc-number">1.4.5.</span> <span class="post-toc-text">万用字符与特殊符号</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数据流重导向"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">数据流重导向</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#什么是数据流重导向"><span class="post-toc-number">1.5.1.</span> <span class="post-toc-text">什么是数据流重导向</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#命令执行的判断依据：；，-amp-amp-，‖"><span class="post-toc-number">1.5.2.</span> <span class="post-toc-text">命令执行的判断依据：；，&amp;&amp;，‖</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#管线命令（pipe）"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">管线命令（pipe）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#选取命令：cut，grep"><span class="post-toc-number">1.6.1.</span> <span class="post-toc-text">选取命令：cut，grep</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#cut"><span class="post-toc-number">1.6.1.1.</span> <span class="post-toc-text">cut</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#grep"><span class="post-toc-number">1.6.1.2.</span> <span class="post-toc-text">grep</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#排序命令：sort，wc，uniq"><span class="post-toc-number">1.6.2.</span> <span class="post-toc-text">排序命令：sort，wc，uniq</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#sort"><span class="post-toc-number">1.6.2.1.</span> <span class="post-toc-text">sort</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#uniq"><span class="post-toc-number">1.6.2.2.</span> <span class="post-toc-text">uniq</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#wc"><span class="post-toc-number">1.6.2.3.</span> <span class="post-toc-text">wc</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#双向重导向：tee"><span class="post-toc-number">1.6.3.</span> <span class="post-toc-text">双向重导向：tee</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#字符转换命令：tr，col，join，paste，expand"><span class="post-toc-number">1.6.4.</span> <span class="post-toc-text">字符转换命令：tr，col，join，paste，expand</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#tr"><span class="post-toc-number">1.6.4.1.</span> <span class="post-toc-text">tr</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#col"><span class="post-toc-number">1.6.4.2.</span> <span class="post-toc-text">col</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#join"><span class="post-toc-number">1.6.4.3.</span> <span class="post-toc-text">join</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#paste"><span class="post-toc-number">1.6.4.4.</span> <span class="post-toc-text">paste</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#expand"><span class="post-toc-number">1.6.4.5.</span> <span class="post-toc-text">expand</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#分区命令：split"><span class="post-toc-number">1.6.5.</span> <span class="post-toc-text">分区命令：split</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参数代换：xargs"><span class="post-toc-number">1.6.6.</span> <span class="post-toc-text">参数代换：xargs</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#关于减号-的用途"><span class="post-toc-number">1.6.7.</span> <span class="post-toc-text">关于减号-的用途</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-认识与学习BASH"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">认识与学习BASH</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-01-28 20:55:32" datetime="2019-01-28T12:55:32.000Z"  itemprop="datePublished">2019-01-28</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="认识与学习BASH"><a href="#认识与学习BASH" class="headerlink" title="认识与学习BASH"></a>认识与学习BASH</h1><h2 id="认识BASH这个Shell"><a href="#认识BASH这个Shell" class="headerlink" title="认识BASH这个Shell"></a>认识BASH这个Shell</h2><h3 id="硬件，核心与Shell"><a href="#硬件，核心与Shell" class="headerlink" title="硬件，核心与Shell"></a>硬件，核心与Shell</h3><p>必须通过shell将我们输入指令与内核沟通，好让内核可以控制硬件来正确无误的工作。操作系统其实是一组软件，这组软件在控制整个硬件与管理系统的活动监测，操作系统管理的就是整个硬件功能。使用者通过应用程序来指挥内核让内核达成我们所需要的硬件任务。壳程序的功能知识提供使用者操作系统的一个接口，因此需要可以调用其他软件，就是很多其他的指令，我们可以通过壳程序（就是命令行界面）来操作这些应用程序，让这些应用程序调用核心来运行所需的工作。只要能够操作应用程序的接口都能称为壳程序，狭义的壳程序指的是命令行包括bash，广义的壳程序包括图形接口软件。</p>
+<h3 id="为何要学命令行shell"><a href="#为何要学命令行shell" class="headerlink" title="为何要学命令行shell"></a>为何要学命令行shell</h3><h4 id="命令行shell：大家都一样"><a href="#命令行shell：大家都一样" class="headerlink" title="命令行shell：大家都一样"></a>命令行shell：大家都一样</h4><p>几乎各家distribution使用的bash都是一样的。</p>
+<h4 id="远端管理：命令行就是比较快"><a href="#远端管理：命令行就是比较快" class="headerlink" title="远端管理：命令行就是比较快"></a>远端管理：命令行就是比较快</h4><p>Linux的管理常常需要通过远端连线，而连线时命令行的传速度一定比较快，而且不容易出现断线或者是信息外流的问题。</p>
+<h4 id="Linux的任督二脉：shell"><a href="#Linux的任督二脉：shell" class="headerlink" title="Linux的任督二脉：shell"></a>Linux的任督二脉：shell</h4><h3 id="系统的合法shell与-etc-shells功能"><a href="#系统的合法shell与-etc-shells功能" class="headerlink" title="系统的合法shell与/etc/shells功能"></a>系统的合法shell与/etc/shells功能</h3><p>shell有众多版本，Linux的叫bash，也是基于GNU架构下发展出来的。shell还包括sh，csh。在/ etc / shells这个文件中至少就有几个可以用的shells。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-27%20%E4%B8%8B%E5%8D%889.36.47.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>我们系统合法的shell要写入/ etc / shells这个文件，系统某些服务在运行过程中，会去检查使用者能够使用的shells，检查的文件就是 / etc / shells这个文件。</p>
+<h3 id="Bash-shell的功能"><a href="#Bash-shell的功能" class="headerlink" title="Bash shell的功能"></a>Bash shell的功能</h3><p>bash是Linux distributions的标准shell。bash主要相容于sh。bash的主要优点：</p>
+<h4 id="命令编修能力（history）"><a href="#命令编修能力（history）" class="headerlink" title="命令编修能力（history）"></a>命令编修能力（history）</h4><p>bash可以使用上下键找到前后一个输入的指令，在很多distribution中，默认的指令记忆功能可以达到1000个，指令记录放在主文件夹内的.bash_history中，不过~/ .bash_history记录的是前一次登录以前所执行的指令，这一次登录的指令都被暂存在内存中，当成功登出系统后，指令记忆才会记录到.bash_history中。</p>
+<h4 id="命令与文件补全功能（【tab】键的好处）"><a href="#命令与文件补全功能（【tab】键的好处）" class="headerlink" title="命令与文件补全功能（【tab】键的好处）"></a>命令与文件补全功能（【tab】键的好处）</h4><h4 id="命令别名设置功能：（alias）"><a href="#命令别名设置功能：（alias）" class="headerlink" title="命令别名设置功能：（alias）"></a>命令别名设置功能：（alias）</h4><p>在命令行输入alias就可以知道目前的命令别名有哪些了。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%888.52.23.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>就可以用alias来替代ls -al命令了。</p>
+<h4 id="工作控制，前景背景控制（job-control-foreground-background）"><a href="#工作控制，前景背景控制（job-control-foreground-background）" class="headerlink" title="工作控制，前景背景控制（job control,foreground,background）"></a>工作控制，前景背景控制（job control,foreground,background）</h4><h4 id="程序化脚本（shell-scripts）"><a href="#程序化脚本（shell-scripts）" class="headerlink" title="程序化脚本（shell scripts）"></a>程序化脚本（shell scripts）</h4><p>将管理系统需要下达的连续指令写成一个文件，该文件可以通过对谈互动式的方式来进行主机的侦测工作，也可以借由shell提供的环境变量及相关指令来进行设计。</p>
+<h4 id="万用字符（wildcard）"><a href="#万用字符（wildcard）" class="headerlink" title="万用字符（wildcard）"></a>万用字符（wildcard）</h4><p>bash还支持许多的万用字符来帮助使用者查询与指令下达，比如想知道有多少以X为开头的文件，就可使用 X * 来查看。</p>
+<h3 id="查询指令是否是Bash-shell的内置命令：type"><a href="#查询指令是否是Bash-shell的内置命令：type" class="headerlink" title="查询指令是否是Bash shell的内置命令：type"></a>查询指令是否是Bash shell的内置命令：type</h3><p>通过type指令来知道指令是来自于外部指令（其他非bash所提供的指令）或是内置在bash当中的指令。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%889.14.46.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="指令的下达与快速编辑按钮"><a href="#指令的下达与快速编辑按钮" class="headerlink" title="指令的下达与快速编辑按钮"></a>指令的下达与快速编辑按钮</h3><p>使用反斜杠加回车键，可以进行多行的输入。</p>
+<h2 id="Shell的变量功能"><a href="#Shell的变量功能" class="headerlink" title="Shell的变量功能"></a>Shell的变量功能</h2><h3 id="什么是变量"><a href="#什么是变量" class="headerlink" title="什么是变量"></a>什么是变量</h3><h4 id="变量的可变性与方便性"><a href="#变量的可变性与方便性" class="headerlink" title="变量的可变性与方便性"></a>变量的可变性与方便性</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%889.43.02.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>小写的mail是指令，大写的MAIL是变量名称。</p>
+<h4 id="影响bash环境操作的变量"><a href="#影响bash环境操作的变量" class="headerlink" title="影响bash环境操作的变量"></a>影响bash环境操作的变量</h4><p>系统通过PATH这个变量里面的内容记录的路径顺序来搜寻指令。环境变量如PATH，HOME，MAIL，SHELL等等，都是很重要的，为了区别与自订变量的不同，环境变量通常以大写字符表示。</p>
+<h4 id="脚本程序设计（shell-script）的好帮手"><a href="#脚本程序设计（shell-script）的好帮手" class="headerlink" title="脚本程序设计（shell script）的好帮手"></a>脚本程序设计（shell script）的好帮手</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%889.49.21.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="变量的取用与设置：echo，变量设置规则，unset"><a href="#变量的取用与设置：echo，变量设置规则，unset" class="headerlink" title="变量的取用与设置：echo，变量设置规则，unset"></a>变量的取用与设置：echo，变量设置规则，unset</h3><h4 id="变量的取用：echo"><a href="#变量的取用：echo" class="headerlink" title="变量的取用：echo"></a>变量的取用：echo</h4><p>变量前面要加上$符号才行。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%889.59.21.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>设置和修改变量内容，用等号连接变量与他的内容就好了。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%8810.02.06.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>当一个变量名称尚未被设置时，默认的内容是空，变量在设置时也要符合一些规则，否则设置失败。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%8810.09.13.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%8810.11.34.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>子程序就是在目前这个shell的情况下，去启用另一个新的shell，新的shell就是子程序，在一般状态下，父程序的自订变量是无法在子程序中使用的，但是通过export将变量变成环境变量后，就能够在子程序下面应用了。</p>
+<h3 id="环境变量的功能"><a href="#环境变量的功能" class="headerlink" title="环境变量的功能"></a>环境变量的功能</h3><h4 id="用env观察环境变量与常见环境变量说明"><a href="#用env观察环境变量与常见环境变量说明" class="headerlink" title="用env观察环境变量与常见环境变量说明"></a>用env观察环境变量与常见环境变量说明</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%8810.46.33.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>MAIL当我们使用mail这个指令收信时，系统会去读取的邮件信箱文件（mailbox）。</p>
+<h4 id="用set观察所有变量（含环境变量与自订变量）"><a href="#用set观察所有变量（含环境变量与自订变量）" class="headerlink" title="用set观察所有变量（含环境变量与自订变量）"></a>用set观察所有变量（含环境变量与自订变量）</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%8810.51.50.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="影响显示结果的语系变量（locale）"><a href="#影响显示结果的语系变量（locale）" class="headerlink" title="影响显示结果的语系变量（locale）"></a>影响显示结果的语系变量（locale）</h3><p>利用locale指令查询Linux支持了多少语系。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%8811.15.04.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%8811.15.29.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="变量键盘读取，数组与声明：read，array，declare"><a href="#变量键盘读取，数组与声明：read，array，declare" class="headerlink" title="变量键盘读取，数组与声明：read，array，declare"></a>变量键盘读取，数组与声明：read，array，declare</h3><h4 id="read"><a href="#read" class="headerlink" title="read"></a>read</h4><p>要读取来自键盘输入的变量，就是用read这个指令。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%8811.23.09.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h4 id="declare，typeset"><a href="#declare，typeset" class="headerlink" title="declare，typeset"></a>declare，typeset</h4><p>declare与typeset是一样都是声明变量的类型。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%8811.24.50.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>变量的默认类型是字符串，所以若是不指定变量类型，则1+2为一个字符串而不是计算式，bash环境中的数值计算默认最多能达到整数形态，所以1 / 3结果是0。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%8811.29.49.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h4 id="array变量类型"><a href="#array变量类型" class="headerlink" title="array变量类型"></a>array变量类型</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%8811.31.10.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%8811.30.57.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%8811.31.39.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="与文件系统及程序的限制关系：ulimit"><a href="#与文件系统及程序的限制关系：ulimit" class="headerlink" title="与文件系统及程序的限制关系：ulimit"></a>与文件系统及程序的限制关系：ulimit</h3><p>由于Linux主机是多用户多任务操作系统，防止资源超过限制，bash可以限制使用者的某些系统资源，包括可以打开的文件数量，可以使用的CPU时间，可以使用的内存总量。用ulimit来实现。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%8811.34.41.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>一般身份使用者如果以ulimit设置了-f的文件大小，那么只能继续减小文件的大小，不能增加文件的大小。</p>
+<h3 id="变量内容的删除，取代与替换（optional）"><a href="#变量内容的删除，取代与替换（optional）" class="headerlink" title="变量内容的删除，取代与替换（optional）"></a>变量内容的删除，取代与替换（optional）</h3><h4 id="变量内容的删除与取代"><a href="#变量内容的删除与取代" class="headerlink" title="变量内容的删除与取代"></a>变量内容的删除与取代</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%8811.59.58.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%8812.03.26.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="变量的测试与内容替换"><a href="#变量的测试与内容替换" class="headerlink" title="变量的测试与内容替换"></a>变量的测试与内容替换</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%8812.06.33.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="命令别名与历史命令"><a href="#命令别名与历史命令" class="headerlink" title="命令别名与历史命令"></a>命令别名与历史命令</h2><h3 id="命令别名设置：alias，unalias"><a href="#命令别名设置：alias，unalias" class="headerlink" title="命令别名设置：alias，unalias"></a>命令别名设置：alias，unalias</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%884.22.35.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="历史命令：history"><a href="#历史命令：history" class="headerlink" title="历史命令：history"></a>历史命令：history</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%884.24.13.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>当以bash登陆Linux主机之后，系统会主动由主文件夹的~ / .bash_history读取以前曾经下过的指令，记录的条数与bash的HISTFILESIZE这个变量设置值有关。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%884.35.22.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h2 id="Bash-Shell的操作环境"><a href="#Bash-Shell的操作环境" class="headerlink" title="Bash Shell的操作环境"></a>Bash Shell的操作环境</h2><h3 id="路径与指令搜寻顺序"><a href="#路径与指令搜寻顺序" class="headerlink" title="路径与指令搜寻顺序"></a>路径与指令搜寻顺序</h3><p>指令运行的顺序：</p>
+<ol>
+<li>以相对/ 绝对路径执行指令，例如/ bin / ls 或 . / ls。</li>
+<li>由alias找到该指令来执行。</li>
+<li>由bash内置的（builtin）指令来执行。</li>
+<li>通过$PATH这个变量的顺序搜寻到的第一个指令来执行。</li>
+</ol>
+<h3 id="bash的进站与欢迎讯息：-etc-issue-etc-motd"><a href="#bash的进站与欢迎讯息：-etc-issue-etc-motd" class="headerlink" title="bash的进站与欢迎讯息：/ etc / issue,/ etc / motd"></a>bash的进站与欢迎讯息：/ etc / issue,/ etc / motd</h3><p>登陆时的提示字串。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%884.46.01.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>登陆后取得一些讯息，可以将讯息加入到/ etc / motd中，一定要root的身份才能修改。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%884.48.58.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="bash的环境配置文件"><a href="#bash的环境配置文件" class="headerlink" title="bash的环境配置文件"></a>bash的环境配置文件</h3><h4 id="login与non-login-shell"><a href="#login与non-login-shell" class="headerlink" title="login与non-login shell"></a>login与non-login shell</h4><p>区别在于取得bash用不用登陆（login）。这两个取得bash的情况中，读取的配置文件数据并不一致。<br>login shell会读取下列文件：</p>
+<ol>
+<li>/ etc / profile:这是系统整体的设置，最好不要修改这个文件。</li>
+<li>~ / .bash_profile 或 ~ / .bash_login 或 ~ / .profile :属于使用者个人设置，要改自己的数据，就写入这里。</li>
+</ol>
+<p>non-login shell仅会读取：~ / .bashrc 而已。</p>
+<h3 id="终端机的环境设置：stty，set"><a href="#终端机的环境设置：stty，set" class="headerlink" title="终端机的环境设置：stty，set"></a>终端机的环境设置：stty，set</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%885.26.55.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>bash默认组合键。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%885.27.38.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="万用字符与特殊符号"><a href="#万用字符与特殊符号" class="headerlink" title="万用字符与特殊符号"></a>万用字符与特殊符号</h3><p>万用字符：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%885.28.58.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>特殊符号：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%885.31.20.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h2 id="数据流重导向"><a href="#数据流重导向" class="headerlink" title="数据流重导向"></a>数据流重导向</h2><p>数据流重导向就是将某个指令执行后应该要出现在屏幕上的数据，给它传输到其他的地方，例如文件或者是设备，在Linux文字模式下很重要，尤其是如果想要将某些数据存储下来。</p>
+<h3 id="什么是数据流重导向"><a href="#什么是数据流重导向" class="headerlink" title="什么是数据流重导向"></a>什么是数据流重导向</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%885.46.36.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="命令执行的判断依据：；，-amp-amp-，‖"><a href="#命令执行的判断依据：；，-amp-amp-，‖" class="headerlink" title="命令执行的判断依据：；，&amp;&amp;，‖"></a>命令执行的判断依据：；，&amp;&amp;，‖</h3><h2 id="管线命令（pipe）"><a href="#管线命令（pipe）" class="headerlink" title="管线命令（pipe）"></a>管线命令（pipe）</h2><p>管线命令使用的是“|”界定符号，管线命令与连续下达命令式不一样的。管线命令“|”仅能处理经由前面一个指令传来的正确信息，也就是standard output信息，对于stdandard error并没有直接处理的能力。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%888.06.01.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<ol>
+<li>管线命令仅会处理standard output，对于standard error output会予以忽略</li>
+<li>管线命令必须能够接受来自前一个指令的数据成为standard input继续处理才行。</li>
+</ol>
+<h3 id="选取命令：cut，grep"><a href="#选取命令：cut，grep" class="headerlink" title="选取命令：cut，grep"></a>选取命令：cut，grep</h3><h4 id="cut"><a href="#cut" class="headerlink" title="cut"></a>cut</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%888.11.46.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>cut主要用途是在于将同一行里面的数据进行分解。</p>
+<h4 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h4><p>grep是分析一行讯息，若当中有我们所需要的信息，就将该行拿出来。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%888.17.03.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="排序命令：sort，wc，uniq"><a href="#排序命令：sort，wc，uniq" class="headerlink" title="排序命令：sort，wc，uniq"></a>排序命令：sort，wc，uniq</h3><h4 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%888.18.38.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="uniq"><a href="#uniq" class="headerlink" title="uniq"></a>uniq</h4><p>想要将重复的数据仅列出一个显示。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%888.21.09.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h4 id="wc"><a href="#wc" class="headerlink" title="wc"></a>wc</h4><p>wc指令可以帮我们计算输出讯息的整体数据。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%888.22.56.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="双向重导向：tee"><a href="#双向重导向：tee" class="headerlink" title="双向重导向：tee"></a>双向重导向：tee</h3><h3 id="字符转换命令：tr，col，join，paste，expand"><a href="#字符转换命令：tr，col，join，paste，expand" class="headerlink" title="字符转换命令：tr，col，join，paste，expand"></a>字符转换命令：tr，col，join，paste，expand</h3><h4 id="tr"><a href="#tr" class="headerlink" title="tr"></a>tr</h4><p>tr可以用来删除一段讯息中文字，或者是进行文字讯息的替换。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%888.36.44.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h4 id="col"><a href="#col" class="headerlink" title="col"></a>col</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%888.37.38.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>col键可以用来简单的处理将tab按键取代为空格键。</p>
+<h4 id="join"><a href="#join" class="headerlink" title="join"></a>join</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%888.42.06.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="paste"><a href="#paste" class="headerlink" title="paste"></a>paste</h4><p>相对于join要对比两个文件的数据相关性，paste就是直接将两行粘在一起，中间以tab隔开。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%888.45.25.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h4 id="expand"><a href="#expand" class="headerlink" title="expand"></a>expand</h4><h3 id="分区命令：split"><a href="#分区命令：split" class="headerlink" title="分区命令：split"></a>分区命令：split</h3><p>如果有文件太大，找split就对了，可以将一个大文件依据文件大小或行数来分区，就可以将大文件分区为小文件了。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%888.47.51.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="参数代换：xargs"><a href="#参数代换：xargs" class="headerlink" title="参数代换：xargs"></a>参数代换：xargs</h3><h3 id="关于减号-的用途"><a href="#关于减号-的用途" class="headerlink" title="关于减号-的用途"></a>关于减号-的用途</h3>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-01-28T13:04:20.000Z" itemprop="dateUpdated">2019-01-28 21:04:20</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/zdkswd">
+            <img src="/img/tmg.jpg" alt="ZDK">
+            ZDK
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2019/01/28/认识与学习BASH/&title=《认识与学习BASH》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2019/01/28/认识与学习BASH/&title=《认识与学习BASH》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2019/01/28/认识与学习BASH/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《认识与学习BASH》 — ZDK's blog&url=https://github.com/zdkswd/2019/01/28/认识与学习BASH/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2019/01/28/认识与学习BASH/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/01/27/vim程序编辑器/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Vim</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz",
+            appKey: "gkBx5soQkBREmER84PWbNJeM",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ZDK &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2019/01/28/认识与学习BASH/&title=《认识与学习BASH》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2019/01/28/认识与学习BASH/&title=《认识与学习BASH》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2019/01/28/认识与学习BASH/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《认识与学习BASH》 — ZDK's blog&url=https://github.com/zdkswd/2019/01/28/认识与学习BASH/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2019/01/28/认识与学习BASH/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2019/01/28/认识与学习BASH/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'zdk'blog';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
