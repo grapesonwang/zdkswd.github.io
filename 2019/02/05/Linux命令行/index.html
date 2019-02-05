@@ -29,7 +29,7 @@
 <meta property="og:site_name" content="ZDK&#39;s blog">
 <meta property="og:description" content="Linux命令行为了更好的使用实验室的服务器，特此来进行总结。 后台运行在当前终端运行一个脚本时，该终端会不占用而无法进行其他工作。比如在训练模型是想要查看GPU的使用情况，或者断开与远程服务器的连接但保持训练的进行。这时我们就需要借助 tmux 这个工具。tmux 是一个终端选择器（terminal multiplexer），它可以让用户在一个终端窗口中控制多个终端。对于连接远程服务器的工作有很">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-05T11:33:44.000Z">
+<meta property="og:updated_time" content="2019-02-05T13:20:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux命令行">
 <meta name="twitter:description" content="Linux命令行为了更好的使用实验室的服务器，特此来进行总结。 后台运行在当前终端运行一个脚本时，该终端会不占用而无法进行其他工作。比如在训练模型是想要查看GPU的使用情况，或者断开与远程服务器的连接但保持训练的进行。这时我们就需要借助 tmux 这个工具。tmux 是一个终端选择器（terminal multiplexer），它可以让用户在一个终端窗口中控制多个终端。对于连接远程服务器的工作有很">
@@ -160,7 +160,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Linux命令行"><span class="post-toc-number">1.</span> <span class="post-toc-text">Linux命令行</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#后台运行"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">后台运行</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GPU使用"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">GPU使用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#远程查看server端的log"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">远程查看server端的log</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Linux命令行"><span class="post-toc-number">1.</span> <span class="post-toc-text">Linux命令行</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#后台运行"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">后台运行</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GPU使用"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">GPU使用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#远程查看server端的log"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">远程查看server端的log</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#screen"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">screen</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Linux查看物理CPU个数、核数、逻辑CPU个数"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">Linux查看物理CPU个数、核数、逻辑CPU个数</span></a></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -212,6 +212,45 @@
 <p>$ tensorboard –log path_to_log_files  </p>
 </blockquote>
 <p>然后在本地的浏览器中输入server的地址再加上port的编号即可。</p>
+<h2 id="screen"><a href="#screen" class="headerlink" title="screen"></a>screen</h2><p>在SSH远程连接被断开或者关闭的时候，系统里面的下载程序还能继续运行。<br>解决方法：<br>1.安装screen<br>实验室服务器已安装此步跳过。<br>2 创建screen会话，自定义screen虚拟终端的名称，test可以改为想要的名称</p>
+<blockquote>
+<p>screen -S  test</p>
+</blockquote>
+<p>3 查看之前的会话虚拟终端</p>
+<blockquote>
+<p>screen -r test</p>
+</blockquote>
+<p>查看所有screen会话</p>
+<blockquote>
+<p>screen -ls</p>
+</blockquote>
+<p>保存当前的screen会话<br>按键盘上的ctrl＋a，然后再按d</p>
+<p>退出screen</p>
+<blockquote>
+<p>exit</p>
+</blockquote>
+<p>删除会话</p>
+<blockquote>
+<p>screen -wipe test</p>
+</blockquote>
+<h2 id="Linux查看物理CPU个数、核数、逻辑CPU个数"><a href="#Linux查看物理CPU个数、核数、逻辑CPU个数" class="headerlink" title="Linux查看物理CPU个数、核数、逻辑CPU个数"></a>Linux查看物理CPU个数、核数、逻辑CPU个数</h2><p>查看物理CPU个数</p>
+<blockquote>
+<p>cat /proc/cpuinfo| grep “physical id”| sort| uniq| wc -l</p>
+</blockquote>
+<p>查看每个物理CPU中core的个数(即核数)</p>
+<blockquote>
+<p>cat /proc/cpuinfo| grep “cpu cores”| uniq</p>
+</blockquote>
+<p>查看逻辑CPU的个数</p>
+<blockquote>
+<p>cat /proc/cpuinfo| grep “processor”| wc -l</p>
+</blockquote>
+<p>查看CPU信息（型号）</p>
+<blockquote>
+<p>cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c</p>
+</blockquote>
+<p>注，根据之前博客中提到的，/proc目录本身是一个虚拟文件系统，放置的数据都是在内存当中，例如系统核心，进程信息，周边设备的状态及网络状态。这个目录下的数据都在内存当中。</p>
+<p>物理cpu个数、核数、逻辑cpu数的概念<br><strong>物理cpu数</strong>：主板上实际插入的cpu数量，可以数不重复的 physical id 有几个（physical id）。<br><strong>cpu核数</strong>：单块CPU上面能处理数据的芯片组的数量，如双核、四核等。（cpu cores）<br><strong>逻辑cpu数</strong>：一般情况下，逻辑cpu=物理CPU个数×每颗核数，如果不相等的话，则表示服务器的CPU支持超线程技术（HT：简单来说，它可使处理器中的1 颗内核如2 颗内核那样在操作系统中发挥作用。这样一来，操作系统可使用的执行资源扩大了一倍，大幅提高了系统的整体性能，此时逻辑cpu=物理CPU个数×每颗核数x2）</p>
 
         </div>
 
@@ -220,7 +259,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-02-05T11:33:44.000Z" itemprop="dateUpdated">2019-02-05 19:33:44</time>
+    最后更新时间：<time datetime="2019-02-05T13:20:50.000Z" itemprop="dateUpdated">2019-02-05 21:20:50</time>
 </span><br>
 
 
