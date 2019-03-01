@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>卷积神经网络 | ZDK&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="机器学习">
+    <meta name="description" content="博客参考深度学习实战教程(四)：卷积神经网络卷积神经网络常见架构，也就是N个卷积层叠加，然后(可选)叠加一个Pooling层，重复这个结构M次，最后叠加K个全连接层。                                                                                                           卷积神经网络的层结构">
+<meta name="keywords" content="机器学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="卷积神经网络">
+<meta property="og:url" content="https://github.com/zdkswd/2019/03/01/卷积神经网络/index.html">
+<meta property="og:site_name" content="ZDK&#39;s blog">
+<meta property="og:description" content="博客参考深度学习实战教程(四)：卷积神经网络卷积神经网络常见架构，也就是N个卷积层叠加，然后(可选)叠加一个Pooling层，重复这个结构M次，最后叠加K个全连接层。                                                                                                           卷积神经网络的层结构">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/img/media/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/dl-10-3.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/dl-10-4.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/dl-10-1-2.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/dl-10-1-5.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/dl-10-1-7.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/20171209171829551.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-28%20%E4%B8%8B%E5%8D%888.53.11.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-28%20%E4%B8%8B%E5%8D%888.53.31.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-28%20%E4%B8%8B%E5%8D%889.57.16.png">
+<meta property="og:image" content="https://github.com/img/media/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-01%20%E4%B8%8B%E5%8D%881.35.52.png">
+<meta property="og:updated_time" content="2019-03-01T07:01:15.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="卷积神经网络">
+<meta name="twitter:description" content="博客参考深度学习实战教程(四)：卷积神经网络卷积神经网络常见架构，也就是N个卷积层叠加，然后(可选)叠加一个Pooling层，重复这个结构M次，最后叠加K个全连接层。                                                                                                           卷积神经网络的层结构">
+<meta name="twitter:image" content="https://github.com/img/media/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/dl-10-3.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/tmg.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ZDK</h5>
+          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/zdkswd" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">卷积神经网络</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">卷积神经网络</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-03-01T07:01:47.000Z" itemprop="datePublished" class="page-time">
+  2019-03-01
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#博客"><span class="post-toc-number">1.</span> <span class="post-toc-text">博客</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#卷积神经网络的训练"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">卷积神经网络的训练</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#卷积层的训练"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">卷积层的训练</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Pooling层的训练"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">Pooling层的训练</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#美团-卷积神经网络"><span class="post-toc-number">2.</span> <span class="post-toc-text">美团 卷积神经网络</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#百面-深度卷积神经网络"><span class="post-toc-number">3.</span> <span class="post-toc-text">百面 深度卷积神经网络</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题1"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">问题1</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题3"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">问题3</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-卷积神经网络"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">卷积神经网络</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-03-01 15:01:47" datetime="2019-03-01T07:01:47.000Z"  itemprop="datePublished">2019-03-01</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="博客"><a href="#博客" class="headerlink" title="博客"></a>博客</h1><p>参考<a href="https://cuijiahua.com/blog/2018/12/dl-10.html" target="_blank" rel="noopener">深度学习实战教程(四)：卷积神经网络</a><br>卷积神经网络常见架构，也就是N个卷积层叠加，然后(可选)叠加一个Pooling层，重复这个结构M次，最后叠加K个全连接层。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/dl-10-3.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>卷积神经网络的层结构和全连接神经网络的层结构有很大不同。全连接神经网络每层的神经元是按照一维排列的，也就是排成一条线的样子；而卷积神经网络每层的神经元是按照三维排列的，也就是排成一个长方体的样子，有宽度、高度和深度。</p>
+<p>对于上图展示的神经网络，输入层的宽度和高度对应于输入图像的宽度和高度，而它的深度为1。接着，第一个卷积层对这幅图像进行了卷积操作，得到了三个Feature Map。因为图中看出这个卷积层包含三个Filter，也就是三套参数，每个Filter都可以把原始输入图像卷积得到一个Feature Map，三个Filter就可以得到三个Feature Map。至于一个卷积层可以有多少个Filter，那是可以自由设定的。也就是说，卷积层的Filter个数也是一个<strong>超参数</strong>。我们可以把Feature Map可以看做是通过卷积变换提取到的图像特征，三个Filter就对原始图像提取出三组不同的特征，也就是得到了三个Feature Map，也称做<strong>三个通道</strong>(channel)。</p>
+<p>在第一个卷积层之后，Pooling层对三个Feature Map做了下采样，得到了三个更小的Feature Map。接着，是第二个卷积层，它有5个Filter。每个Fitler都把前面下采样之后的3个Feature Map卷积在一起，得到一个新的Feature Map。这样，5个Filter就得到了5个Feature Map。接着，是第二个Pooling，继续对5个Feature Map进行下采样，得到了5个更小的Feature Map。</p>
+<p>上图最后两层是全连接层，第一个全连接层的每个神经元，和上一层5个Feature Map中的每个神经元相连，第二个全连接层(也就是输出层)的每个神经元，则和第一个全连接层的每个神经元相连，这样得到了整个网络的输出。</p>
+<p>对于卷积操作<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/dl-10-4.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>用X𝑖,𝑗表示图像的第i行第j列元素；对filter的每个权重进行编号，用W𝑚,𝑛表示第m行第n列权重，用𝑤𝑏表示filter的偏置项；对Feature Map的每个元素进行编号，用𝑎𝑖,𝑗表示Feature Map的第i行第j列元素；用f表示激活函数(这个例子选择relu函数作为激活函数)。然后，使用下列公式计算卷积：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/dl-10-1-2.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>在卷积过程中，可以设置步幅strid。</p>
+<p>图像大小、步幅和卷积后的Feature Map大小有关。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/dl-10-1-5.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>在上面两个公式中，𝑊2是卷积后Feature Map的宽度；𝑊1是卷积前图像的宽度；𝐹是filter的宽度；𝑃是Zero Padding数量，Zero Padding是指在原始图像周围补几圈0，如果𝑃的值是1，那么就补1圈0；𝑆是步幅；𝐻2是卷积后Feature Map的高度；𝐻1是卷积前图像的宽度。式2和式3本质上是一样的。</p>
+<p>如果卷积前的图像深度为D，那么相应的filter的深度也必须为D。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/dl-10-1-7.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/20171209171829551.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>我们前面还曾提到，每个卷积层可以有多个filter。每个filter和原始图像进行卷积后，都可以得到一个Feature Map。因此，卷积后Feature Map的个数和卷积层的filter个数是相同的。</p>
+<p>这里面体现了局部连接和权值共享：每层神经元只和上一层部分神经元相连(卷积计算规则)，且filter的权值对于上一层所有神经元都是一样的。对于包含两个3<em> 3 </em>3的fitler的卷积层来说，其参数数量仅有(3 <em> 3 </em> 3+1) * 2=56个，且参数数量与上一层神经元个数无关。与全连接神经网络相比，其参数数量大大减少了。</p>
+<p>池化层的操作<br>Pooling层主要的作用是下采样，通过去掉Feature Map中不重要的样本，进一步减少参数数量。Max Pooing之外，常用的还有Mean Pooling——取各样本的平均值。对于深度为D的Feature Map，各层独立做Pooling，因此Pooling后的深度仍然为D。</p>
+<h2 id="卷积神经网络的训练"><a href="#卷积神经网络的训练" class="headerlink" title="卷积神经网络的训练"></a>卷积神经网络的训练</h2><p>和全连接神经网络相比，卷积神经网络的训练要复杂一些。但训练的原理是一样的：利用链式求导计算损失函数对每个权重的偏导数（梯度），然后根据梯度下降公式更新权重。训练算法依然是反向传播算法。</p>
+<p>对于卷积神经网络，由于涉及到局部连接、下采样的等操作，影响到了第二步误差项𝛿的具体计算方法，而权值共享影响了第三步权重𝑤的梯度的计算方法。</p>
+<h3 id="卷积层的训练"><a href="#卷积层的训练" class="headerlink" title="卷积层的训练"></a>卷积层的训练</h3><p>获得了所有的梯度之后，就是根据梯度下降算法来更新每个权重。</p>
+<h3 id="Pooling层的训练"><a href="#Pooling层的训练" class="headerlink" title="Pooling层的训练"></a>Pooling层的训练</h3><p>无论max pooling还是mean pooling，都没有需要学习的参数。因此，在卷积神经网络的训练中，Pooling层需要做的仅仅是将误差项传递到上一层，而没有梯度的计算。<br>详见<a href="https://cuijiahua.com/blog/2018/12/dl-10.html" target="_blank" rel="noopener">https://cuijiahua.com/blog/2018/12/dl-10.html</a></p>
+<h1 id="美团-卷积神经网络"><a href="#美团-卷积神经网络" class="headerlink" title="美团 卷积神经网络"></a>美团 卷积神经网络</h1><p>卷积神经网络中最重要的两个概念是卷积和池化。</p>
+<p>卷积操作在信号处理中可以看作滤波过程，过滤或提取出需要的频段信息。相应的，图像处理中也可实现不同功能的卷积操作，如边缘轮廓，锐化，模糊化等。简言之，卷积核沿着输入矩阵从左到右，从上到下遍历，每到一个网格，其输出是输入矩阵对应位置元素相乘并求和。如下图所示的卷积操作过程可以看出，如果卷积核设计得当（可以通过网络学习出来），不同层次的局部重要信息就能提取出来，另一方面卷积核共享参数能显著降低参数量。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-28%20%E4%B8%8B%E5%8D%888.53.11.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>另外一个重要的概念是池化，下图为最大池化的操作。池化有两个作用：一个是降维，另一个就是保持局部不变性，提取抽象信息。深灰色区域在池化后的输出值为6，而且即使该区域的像素发生扰动（像素值不超过6），输出值也不会变，因此具备一定健壮性。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-28%20%E4%B8%8B%E5%8D%888.53.31.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>卷积神经网络在计算机视觉应用非常广，包括图像分类，检测，识别等，从2012年的AlexNet，到2014年的VGG，2015年的GoogleNet，2016年的ResNet，都是卷积神经网络不断演化并在ImageNet比赛上不断刷新成绩。卷积神经网络在自然语言处理方向也有很好的应用，比如情感分类，文本匹配等。</p>
+<h1 id="百面-深度卷积神经网络"><a href="#百面-深度卷积神经网络" class="headerlink" title="百面 深度卷积神经网络"></a>百面 深度卷积神经网络</h1><p>卷积神经网络是一种前馈神经网络，其特点是每层的神经元节点只响应前一层局部区域范围内的神经元（全连接网络中每个神经元节点响应前一层的全部节点）。一个深度卷积神经网络模型通常由若干卷积层叠加若干全连接层组成，中间也包括各种非线性操作以及池化操作。卷积神经网络同样可以使用反向传播算法进行训练，相较于其他网络模型，卷积神经网络的<strong>参数共享</strong>特性使得需要优化的参数数目大大缩减，提高了模型的训练效率以及可扩展性。由于卷积运算主要用于处理类网格结构的数据，因此对于时间序列以及图像数据的分析与识别具有显著优势。</p>
+<h2 id="问题1"><a href="#问题1" class="headerlink" title="问题1"></a>问题1</h2><p>问：卷积操作的本质特性包括系数交互和参数共享，具体解释这两种特性及其作用。</p>
+<p>答：稀疏交互（sparse interaction）<br>在传统神经网络中，网络层之间输入与输出的连接关系可以由一个权值参数矩阵来表示，其中每个单独的参数值都表示了前后层某两个神经元节点之间的交互。对于全连接网络，任意一对输入与输出神经元之间都产生交互，形成稠密的连接结构。</p>
+<p>而在卷积神经网络中，卷积核尺度远小于输入的维度，这样每个输出神经元仅与前一层特定局部区域内的神经元存在连接权重（即产生交互），我们称这种特性为稀疏交互。具体来说，假设网络中相邻两层分别有m个输入和n个输出，全连接网络中权值参数矩阵将包含m <em> n个参数。对于稀疏交互的卷积神经网络，如果限定每个输出与前一层神经元的连接数为k，那么该层的参数总量为k </em> n。在实际应用中，一般k值远小于m就可以取得较为可观的效果；而此时优化过程的时间复杂度将会减小几个数量级，过拟合的情况也得到较好的改善。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-28%20%E4%B8%8B%E5%8D%889.57.16.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>稀疏交互的物理意义是，通常图像，文本，语音等现实世界中的数据都具有局部的特征结构，我们可以先学习局部的特征，再将局部的特征组合起来形成更复杂和抽象的特征。</p>
+<p>参数共享（Parameter Sharing）<br>参数共享是指在同一个模型的不同模块中使用相同的参数，它是卷积运算的固有属性。全连接网络中，计算每层的输出时，权值参数矩阵中的每个元素只作用于某个输入元素一次；而在卷积神经网络中，卷积核中的每一个元素将作用于每一次局部输入的特定位置上。根据参数共享的思想，我们只需要学习一组参数集合，而不需要针对每个位置的每个参数都进行优化，从而大大降低了模型的存储需求。</p>
+<p>参数共享的物理意义是使得卷积层具有平移等特性。假如图像中有一只猫，那么无论它出现在图像中的任何位置，我们都应该将它识别为猫，也就是说神经网络的输出对于平移变换来说应当是等变的。特别地，当函数f（x）与g（x）满足f（g（x））=g（f（x））时我们称f（x）关于变换g具有等变性。也就是说，在猫的图片上先进行卷积，再向右平移l像素的输出，与先将图片向右平移l像素再进行卷积操作的输出结果是相等的。</p>
+<h2 id="问题3"><a href="#问题3" class="headerlink" title="问题3"></a>问题3</h2><p>问：卷积神经网络如何用于文本分类任务？</p>
+<p>答：卷积神经网络的核心思想是捕捉局部特征，最初在图像领域取得了巨大的成功，后来在文本领域也得到了广泛的应用。对于文本来说，局部特征就是由若干单词组成的滑动窗口，类似于N-gram特征进行组合和筛选，获得不同抽象层次的语义信息。由于在每次卷积中采用了共享权重的机制，因此它的训练速度相对较快，在实际的文本分类任务中取得了非常不错的效果。</p>
+<p>下图是一个用卷积神经网络模型进行文本表示，并最终用于文本分类的网络结构。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-01%20%E4%B8%8B%E5%8D%881.35.52.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br> 输入层是一个N <em> K的矩阵，其中N为文章所对应的单词总数，K是每个词对应的表示向量的维度。每个词的K维向量可以是预先在其他语料库中训练好的，也可以作为未知的参数有网络训练得到。这两种方法各有优势，一方面，预先训练的词嵌入可以利用其他语料库得到更多的先验知识；另一方面，由当前网络训练的词向量能够更好地抓住与当前任务相关联的特征。因此，图中的输入层实际采用了两个通道的形式，即有两个N </em> K的输入矩阵，其中一个用预先训练好的词嵌入表达，并且在训练过程中不再发生变化；另外一个也由同样的方式初始化，但是会作为参数，随着网络的训练发生改变。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-03-01T07:01:15.000Z" itemprop="dateUpdated">2019-03-01 15:01:15</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/zdkswd">
+            <img src="/img/tmg.jpg" alt="ZDK">
+            ZDK
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2019/03/01/卷积神经网络/&title=《卷积神经网络》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2019/03/01/卷积神经网络/&title=《卷积神经网络》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2019/03/01/卷积神经网络/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《卷积神经网络》 — ZDK's blog&url=https://github.com/zdkswd/2019/03/01/卷积神经网络/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2019/03/01/卷积神经网络/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/02/28/百面 多层感知机的反向传播算法/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">百面机器学习 多层感知机的反向传播算法</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz",
+            appKey: "gkBx5soQkBREmER84PWbNJeM",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ZDK &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2019/03/01/卷积神经网络/&title=《卷积神经网络》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2019/03/01/卷积神经网络/&title=《卷积神经网络》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2019/03/01/卷积神经网络/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《卷积神经网络》 — ZDK's blog&url=https://github.com/zdkswd/2019/03/01/卷积神经网络/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2019/03/01/卷积神经网络/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2019/03/01/卷积神经网络/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'zdk'blog';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
