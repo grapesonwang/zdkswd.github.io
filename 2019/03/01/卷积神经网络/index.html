@@ -39,7 +39,7 @@
 <meta property="og:image" content="https://github.com/img/media/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-28%20%E4%B8%8B%E5%8D%888.53.31.png">
 <meta property="og:image" content="https://github.com/img/media/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-28%20%E4%B8%8B%E5%8D%889.57.16.png">
 <meta property="og:image" content="https://github.com/img/media/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-01%20%E4%B8%8B%E5%8D%881.35.52.png">
-<meta property="og:updated_time" content="2019-03-01T07:01:15.000Z">
+<meta property="og:updated_time" content="2019-03-03T12:44:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="卷积神经网络">
 <meta name="twitter:description" content="博客参考深度学习实战教程(四)：卷积神经网络卷积神经网络常见架构，也就是N个卷积层叠加，然后(可选)叠加一个Pooling层，重复这个结构M次，最后叠加K个全连接层。                                                                                                           卷积神经网络的层结构">
@@ -243,7 +243,7 @@
                 <div class="image-caption"></div>
             </figure>
 <p>我们前面还曾提到，每个卷积层可以有多个filter。每个filter和原始图像进行卷积后，都可以得到一个Feature Map。因此，卷积后Feature Map的个数和卷积层的filter个数是相同的。</p>
-<p>这里面体现了局部连接和权值共享：每层神经元只和上一层部分神经元相连(卷积计算规则)，且filter的权值对于上一层所有神经元都是一样的。对于包含两个3<em> 3 </em>3的fitler的卷积层来说，其参数数量仅有(3 <em> 3 </em> 3+1) * 2=56个，且参数数量与上一层神经元个数无关。与全连接神经网络相比，其参数数量大大减少了。</p>
+<p>这里面体现了局部连接和权值共享：每层神经元只和上一层部分神经元相连(卷积计算规则)，且filter的权值对于上一层所有神经元都是一样的。对于包含两个3* 3 *3的fitler的卷积层来说，其参数数量仅有(3 * 3 * 3+1) * 2=56个，且参数数量与上一层神经元个数无关。与全连接神经网络相比，其参数数量大大减少了。</p>
 <p>池化层的操作<br>Pooling层主要的作用是下采样，通过去掉Feature Map中不重要的样本，进一步减少参数数量。Max Pooing之外，常用的还有Mean Pooling——取各样本的平均值。对于深度为D的Feature Map，各层独立做Pooling，因此Pooling后的深度仍然为D。</p>
 <h2 id="卷积神经网络的训练"><a href="#卷积神经网络的训练" class="headerlink" title="卷积神经网络的训练"></a>卷积神经网络的训练</h2><p>和全连接神经网络相比，卷积神经网络的训练要复杂一些。但训练的原理是一样的：利用链式求导计算损失函数对每个权重的偏导数（梯度），然后根据梯度下降公式更新权重。训练算法依然是反向传播算法。</p>
 <p>对于卷积神经网络，由于涉及到局部连接、下采样的等操作，影响到了第二步误差项𝛿的具体计算方法，而权值共享影响了第三步权重𝑤的梯度的计算方法。</p>
@@ -267,7 +267,7 @@
 <h1 id="百面-深度卷积神经网络"><a href="#百面-深度卷积神经网络" class="headerlink" title="百面 深度卷积神经网络"></a>百面 深度卷积神经网络</h1><p>卷积神经网络是一种前馈神经网络，其特点是每层的神经元节点只响应前一层局部区域范围内的神经元（全连接网络中每个神经元节点响应前一层的全部节点）。一个深度卷积神经网络模型通常由若干卷积层叠加若干全连接层组成，中间也包括各种非线性操作以及池化操作。卷积神经网络同样可以使用反向传播算法进行训练，相较于其他网络模型，卷积神经网络的<strong>参数共享</strong>特性使得需要优化的参数数目大大缩减，提高了模型的训练效率以及可扩展性。由于卷积运算主要用于处理类网格结构的数据，因此对于时间序列以及图像数据的分析与识别具有显著优势。</p>
 <h2 id="问题1"><a href="#问题1" class="headerlink" title="问题1"></a>问题1</h2><p>问：卷积操作的本质特性包括系数交互和参数共享，具体解释这两种特性及其作用。</p>
 <p>答：稀疏交互（sparse interaction）<br>在传统神经网络中，网络层之间输入与输出的连接关系可以由一个权值参数矩阵来表示，其中每个单独的参数值都表示了前后层某两个神经元节点之间的交互。对于全连接网络，任意一对输入与输出神经元之间都产生交互，形成稠密的连接结构。</p>
-<p>而在卷积神经网络中，卷积核尺度远小于输入的维度，这样每个输出神经元仅与前一层特定局部区域内的神经元存在连接权重（即产生交互），我们称这种特性为稀疏交互。具体来说，假设网络中相邻两层分别有m个输入和n个输出，全连接网络中权值参数矩阵将包含m <em> n个参数。对于稀疏交互的卷积神经网络，如果限定每个输出与前一层神经元的连接数为k，那么该层的参数总量为k </em> n。在实际应用中，一般k值远小于m就可以取得较为可观的效果；而此时优化过程的时间复杂度将会减小几个数量级，过拟合的情况也得到较好的改善。<br><figure class="image-bubble">
+<p>而在卷积神经网络中，卷积核尺度远小于输入的维度，这样每个输出神经元仅与前一层特定局部区域内的神经元存在连接权重（即产生交互），我们称这种特性为稀疏交互。具体来说，假设网络中相邻两层分别有m个输入和n个输出，全连接网络中权值参数矩阵将包含m * n个参数。对于稀疏交互的卷积神经网络，如果限定每个输出与前一层神经元的连接数为k，那么该层的参数总量为k * n。在实际应用中，一般k值远小于m就可以取得较为可观的效果；而此时优化过程的时间复杂度将会减小几个数量级，过拟合的情况也得到较好的改善。<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/img/media/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-28%20%E4%B8%8B%E5%8D%889.57.16.png" alt="" title="">
@@ -284,7 +284,7 @@
                     <img src="/img/media/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-01%20%E4%B8%8B%E5%8D%881.35.52.png" alt="" title="">
                 </div>
                 <div class="image-caption"></div>
-            </figure><br> 输入层是一个N <em> K的矩阵，其中N为文章所对应的单词总数，K是每个词对应的表示向量的维度。每个词的K维向量可以是预先在其他语料库中训练好的，也可以作为未知的参数有网络训练得到。这两种方法各有优势，一方面，预先训练的词嵌入可以利用其他语料库得到更多的先验知识；另一方面，由当前网络训练的词向量能够更好地抓住与当前任务相关联的特征。因此，图中的输入层实际采用了两个通道的形式，即有两个N </em> K的输入矩阵，其中一个用预先训练好的词嵌入表达，并且在训练过程中不再发生变化；另外一个也由同样的方式初始化，但是会作为参数，随着网络的训练发生改变。</p>
+            </figure><br> 输入层是一个N * K的矩阵，其中N为文章所对应的单词总数，K是每个词对应的表示向量的维度。每个词的K维向量可以是预先在其他语料库中训练好的，也可以作为未知的参数有网络训练得到。这两种方法各有优势，一方面，预先训练的词嵌入可以利用其他语料库得到更多的先验知识；另一方面，由当前网络训练的词向量能够更好地抓住与当前任务相关联的特征。因此，图中的输入层实际采用了两个通道的形式，即有两个N * K的输入矩阵，其中一个用预先训练好的词嵌入表达，并且在训练过程中不再发生变化；另外一个也由同样的方式初始化，但是会作为参数，随着网络的训练发生改变。</p>
 
         </div>
 
@@ -293,7 +293,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-03-01T07:01:15.000Z" itemprop="dateUpdated">2019-03-01 15:01:15</time>
+    最后更新时间：<time datetime="2019-03-03T12:44:18.000Z" itemprop="dateUpdated">2019-03-03 20:44:18</time>
 </span><br>
 
 
@@ -368,7 +368,14 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/03/04/XGBoost： A Scalable Tree Boosting System/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">XGBoost： A Scalable Tree Boosting System</h4>
+      </a>
+    </div>
   
 
   
