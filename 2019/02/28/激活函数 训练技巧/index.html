@@ -49,7 +49,7 @@
 <meta property="og:image" content="https://github.com/img/media/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%20%E8%AE%AD%E7%BB%83%E6%8A%80%E5%B7%A7/281551335543_.pic.jpg">
 <meta property="og:image" content="https://github.com/img/media/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%20%E8%AE%AD%E7%BB%83%E6%8A%80%E5%B7%A7/291551336805_.pic.jpg">
 <meta property="og:image" content="https://github.com/img/media/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%20%E8%AE%AD%E7%BB%83%E6%8A%80%E5%B7%A7/301551338705_.pic.jpg">
-<meta property="og:updated_time" content="2019-02-28T08:08:44.000Z">
+<meta property="og:updated_time" content="2019-03-10T07:47:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="激活函数 训练技巧">
 <meta name="twitter:description" content="百面 深度神经网络中的激活函数线性模型是机器学习领域中最基本也是最重要的工具，以逻辑回归和线性回归为例，无论是通过闭解形式还是使用凸优化，它们都能高效且可靠地拟合数据。然而真实情况中，我们往往会遇到线性不可分的问题（如XOR异或函数），需要非线性变换对数据的分布进行重新映射。对于深度神经网络，我们在每一层线性变换后叠加一个非线性激活函数，以避免多层网络等效于单层线性函数，从而获得更强大的学习与拟合">
@@ -360,6 +360,7 @@
                 </div>
                 <div class="image-caption"></div>
             </figure><br>批量归一化在卷积神经网络中应用时，需要注意卷积神经网络的参数共享机制。每一个卷积核的参数在不同位置的神经元当中是共享的，因此也应该被一起归一化。具体实现中，假设网络训练中每一批包含b个样本，由一个卷积核生成的特征图的宽高分别是w和h，则每个特征图所对应的全部神经元个数为b <em> w </em> h；利用这些神经元对应的所有输入数据，我们根据一组待学习的参数γ和β对每个输入数据进行批量归一化操作。如果有f个卷积核，就对应f个特征图和f组不同的β和γ参数。</p>
+<p>批标准化的使用方法：<br>批标准化一般用在非线性映射（激活函数）之前，对y= Wx + b进行规范化，是结果(输出信号的各个维度)的均值都为0,方差为1,让每一层的输入有一个稳定的分布会有利于网络的训练。<br>在神经网络收敛过慢或者梯度爆炸时的那个无法训练的情况下都可以尝试。<br>批准标化指的是批数据, 把数据分成小批小批进行随机梯度下降. 而且在每批数据进行前向传递的时候, 对每一层都进行标化的处理。</p>
 <h1 id="美团-激活函数"><a href="#美团-激活函数" class="headerlink" title="美团 激活函数"></a>美团 激活函数</h1><p>在深度前馈神经网络中，有个关键的问题需要考虑：非线性变换有什么用，如何进行选择？</p>
 <p>理论上，包含非线性变换的深度前馈神经网络能拟合任何连续函数。非线性变换一方面可以解决线性感知机无法解决的问题（比如XOR问题），真正发挥深层网络的优势。</p>
 <p>Sigmoid有双边饱和效应，当信号超过一定门限后会被抑制，反向梯度容易消失，回传不会多远。而且取值范围（0，1），取值不是以0为中心对称，这样容易产生梯度同正同负的线性，降低收敛速度，适合在最外层用来做概率预测。</p>
@@ -373,7 +374,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-02-28T08:08:44.000Z" itemprop="dateUpdated">2019-02-28 16:08:44</time>
+    最后更新时间：<time datetime="2019-03-10T07:47:38.000Z" itemprop="dateUpdated">2019-03-10 15:47:38</time>
 </span><br>
 
 
