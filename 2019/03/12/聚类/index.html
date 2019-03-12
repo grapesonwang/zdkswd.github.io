@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>聚类 | ZDK&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="机器学习">
+    <meta name="description" content="概述在“无监督学习”( unsupervised learning)中,训练样本的标记信息是未知的,目标是通过对无标记训练样本的学习来揭示数据的内在性质及规律,为进一步的数据分析提供基础.此类学习任务中研究最多、应用最广的是“聚类”( clustering） 聚类试图将数据集中的样本划分为若干个通常是不相交的子集,每个子集称为一个“簇”(cluster).通过这样的划分，每个簇可能对应于一些潜在的">
+<meta name="keywords" content="机器学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="聚类">
+<meta property="og:url" content="https://github.com/zdkswd/2019/03/12/聚类/index.html">
+<meta property="og:site_name" content="ZDK&#39;s blog">
+<meta property="og:description" content="概述在“无监督学习”( unsupervised learning)中,训练样本的标记信息是未知的,目标是通过对无标记训练样本的学习来揭示数据的内在性质及规律,为进一步的数据分析提供基础.此类学习任务中研究最多、应用最广的是“聚类”( clustering） 聚类试图将数据集中的样本划分为若干个通常是不相交的子集,每个子集称为一个“簇”(cluster).通过这样的划分，每个簇可能对应于一些潜在的">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8A%E5%8D%8810.00.59.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8A%E5%8D%8810.02.02.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8A%E5%8D%8810.02.28.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8A%E5%8D%8810.02.59.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8A%E5%8D%8810.17.20.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8A%E5%8D%8810.18.07.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8A%E5%8D%8810.18.28.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8A%E5%8D%8810.36.49.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8A%E5%8D%8810.37.01.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8A%E5%8D%8810.38.35.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8A%E5%8D%8810.40.34.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8A%E5%8D%8810.42.10.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8A%E5%8D%8810.46.29.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8A%E5%8D%8810.47.01.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%8812.30.35.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%8812.38.59.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%8812.44.09.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%8812.46.12.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%8812.47.13.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%8812.47.59.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%8812.48.47.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%8812.53.04.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%8812.57.41.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%881.28.14.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%881.45.59.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%881.54.09.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%882.02.00.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%882.03.41.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%882.03.28.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%882.10.09.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%882.11.07.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%882.22.09.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%882.24.24.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%882.41.24.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%882.45.11.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%883.12.14.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%883.12.30.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%883.25.52.png">
+<meta property="og:image" content="https://github.com/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%883.31.13.png">
+<meta property="og:updated_time" content="2019-03-12T07:35:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="聚类">
+<meta name="twitter:description" content="概述在“无监督学习”( unsupervised learning)中,训练样本的标记信息是未知的,目标是通过对无标记训练样本的学习来揭示数据的内在性质及规律,为进一步的数据分析提供基础.此类学习任务中研究最多、应用最广的是“聚类”( clustering） 聚类试图将数据集中的样本划分为若干个通常是不相交的子集,每个子集称为一个“簇”(cluster).通过这样的划分，每个簇可能对应于一些潜在的">
+<meta name="twitter:image" content="https://github.com/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8A%E5%8D%8810.00.59.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/tmg.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ZDK</h5>
+          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/zdkswd" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">聚类</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">聚类</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-03-12T07:34:12.000Z" itemprop="datePublished" class="page-time">
+  2019-03-12
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#概述"><span class="post-toc-number">1.</span> <span class="post-toc-text">概述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#性能度量"><span class="post-toc-number">2.</span> <span class="post-toc-text">性能度量</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#外部指标"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">外部指标</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Jaccard系数-Jaccard-Coefficient-简称JC"><span class="post-toc-number">2.1.1.</span> <span class="post-toc-text">Jaccard系数(Jaccard Coefficient, 简称JC)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#FM指数-Fowlkes-and-Mallows-Index-简称FMI"><span class="post-toc-number">2.1.2.</span> <span class="post-toc-text">FM指数(Fowlkes and Mallows Index,简称FMI)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Rand指数-Rand-Index-简称RI"><span class="post-toc-number">2.1.3.</span> <span class="post-toc-text">Rand指数(Rand Index,简称RI)</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#内部指标"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">内部指标</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#DB指数-Davies-Bouldin-Index-简称DBI"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">DB指数(Davies- Bouldin Index,简称DBI)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Dunn指数-Dunn-Index-简称DI"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">Dunn指数(Dunn Index,简称DI)</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#距离计算"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">距离计算</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#原型聚类"><span class="post-toc-number">3.</span> <span class="post-toc-text">原型聚类</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#k均值算法"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">k均值算法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#学习向量量化"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">学习向量量化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#高斯混合聚类"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">高斯混合聚类</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#密度聚类"><span class="post-toc-number">4.</span> <span class="post-toc-text">密度聚类</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#层次聚类"><span class="post-toc-number">5.</span> <span class="post-toc-text">层次聚类</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-聚类"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">聚类</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-03-12 15:34:12" datetime="2019-03-12T07:34:12.000Z"  itemprop="datePublished">2019-03-12</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>在“无监督学习”( unsupervised learning)中,训练样本的标记信息是未知的,目标是通过对无标记训练样本的学习来揭示数据的内在性质及规律,为进一步的数据分析提供基础.此类学习任务中研究最多、应用最广的是“聚类”( clustering）</p>
+<p>聚类试图将数据集中的样本划分为若干个通常是不相交的子集,每个子集称为一个“簇”(cluster).通过这样的划分，每个簇可能对应于一些潜在的概念(类别),如“浅色瓜”“深色瓜” ，“有籽瓜”，“无籽瓜”,甚至“本地瓜”，“外地瓜”等;需说明的是,这些概念对聚类算法而言事先是未知的，聚类过程仅能自动形成簇结构,簇所对应的概念语义需由使用者来把握和命名.对聚类算法而言，标记簇亦称为类。</p>
+<p>聚类既能作为一个单独过程,用于找寻数据内在的分布结构,也可作为分类等其他学习任务的前驱过程.例如,在一些商业应用中需对新用户的类型进行判别，但定义“用户类型”对商家来说却可能不太容易，此时往往可先对用户数据进行聚类，根据聚类结果将每个簇定义为一个类,然后再基于这些类训练分类模型,用于判别新用户的类型.</p>
+<h1 id="性能度量"><a href="#性能度量" class="headerlink" title="性能度量"></a>性能度量</h1><p>对聚类结果,我们需通过某种性能度量来评估其好坏;另一方面，若明确了最终将要使用的性能度量,则可直接将其作为聚类过程的优化目标，从而更好地得到符合要求的聚类结果.</p>
+<p>什么样的聚类结果比较好呢?直观上看,我们希望“物以类聚” ’，即同簇的样本尽可能彼此相似,不同簇的样本尽可能不同.换言之,聚类结果的“簇内相似度”(intra-cluster similarity)高且“簇间相似度”(inter-cluster similarity)低.</p>
+<p>聚类性能度量大致有两类一 类是将聚类结果与某个“参考模型”(reference model)进行比较,称为“外部指标”(external index); 另一类是直接考察聚类结果而不利用任何参考模型,称为“内部指标”(internal index).</p>
+<h2 id="外部指标"><a href="#外部指标" class="headerlink" title="外部指标"></a>外部指标</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8A%E5%8D%8810.00.59.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="Jaccard系数-Jaccard-Coefficient-简称JC"><a href="#Jaccard系数-Jaccard-Coefficient-简称JC" class="headerlink" title="Jaccard系数(Jaccard Coefficient, 简称JC)"></a>Jaccard系数(Jaccard Coefficient, 简称JC)</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8A%E5%8D%8810.02.02.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="FM指数-Fowlkes-and-Mallows-Index-简称FMI"><a href="#FM指数-Fowlkes-and-Mallows-Index-简称FMI" class="headerlink" title="FM指数(Fowlkes and Mallows Index,简称FMI)"></a>FM指数(Fowlkes and Mallows Index,简称FMI)</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8A%E5%8D%8810.02.28.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="Rand指数-Rand-Index-简称RI"><a href="#Rand指数-Rand-Index-简称RI" class="headerlink" title="Rand指数(Rand Index,简称RI)"></a>Rand指数(Rand Index,简称RI)</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8A%E5%8D%8810.02.59.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>上述性能度量的结果值均在[0, 1]区间,值越大越好。</p>
+<h2 id="内部指标"><a href="#内部指标" class="headerlink" title="内部指标"></a>内部指标</h2><p>距离越大则样本的相似度越低。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8A%E5%8D%8810.17.20.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="DB指数-Davies-Bouldin-Index-简称DBI"><a href="#DB指数-Davies-Bouldin-Index-简称DBI" class="headerlink" title="DB指数(Davies- Bouldin Index,简称DBI)"></a>DB指数(Davies- Bouldin Index,简称DBI)</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8A%E5%8D%8810.18.07.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="Dunn指数-Dunn-Index-简称DI"><a href="#Dunn指数-Dunn-Index-简称DI" class="headerlink" title="Dunn指数(Dunn Index,简称DI)"></a>Dunn指数(Dunn Index,简称DI)</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8A%E5%8D%8810.18.28.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>DBI的值越小越好，而DI则相反，值越大越好。</p>
+<h2 id="距离计算"><a href="#距离计算" class="headerlink" title="距离计算"></a>距离计算</h2><p>对函数dist(,),若它是一个“距离度量”(distance measure),则需满足一些基本性质:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8A%E5%8D%8810.36.49.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8A%E5%8D%8810.37.01.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>直递性常被直接称为“三角不等式”。<br>给定样本xi = (xi1;xi2;…;xin) 与xj = (xj1;xj2;..;xjn), 最常用的是“闵可夫斯基距离”(Minkowski distance)<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8A%E5%8D%8810.38.35.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>上式即为xi-xj的Lp范数。<br>当p=2时，闵可夫斯基距离即欧氏距离。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8A%E5%8D%8810.40.34.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>当p=1时，闵可夫斯基距离即曼哈顿距离。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8A%E5%8D%8810.42.10.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>闵可夫斯基距离适用于{1,2,3}这样的有序属性，而不适用于{飞机，火车，轮船}这样的无序属性。对无序属性可采用VDM。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8A%E5%8D%8810.46.29.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8A%E5%8D%8810.47.01.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>当样本空间中不同属性的重要性不同时,还可使用“加权距离“</p>
+<p>通常我们是基于某种形式的距离来定义“相似度度量”(similarity measure), 距离越大,相似度越小.然而，用于相似度度量的距离未必一定要满足距离度量的所有基本性质,尤其是直递性。</p>
+<h1 id="原型聚类"><a href="#原型聚类" class="headerlink" title="原型聚类"></a>原型聚类</h1><h2 id="k均值算法"><a href="#k均值算法" class="headerlink" title="k均值算法"></a>k均值算法</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%8812.30.35.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>最小化式(9.24)并不容易，找到它的最优解需考察样本集D所有可能的簇划分,这是一个NP难问题.因此, k均值算法采用了贪心策略,通过迭代优化来近似求解式(9.24).</p>
+<p>对于以下数据集，为方便叙述，将编号为i的样本称为xi，这是一个包含密度与含糖率两个属性值的二维向量。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%8812.38.59.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%8812.44.09.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>为避免运行时间过长,通常设置一一个最大运行轮数或最小调整幅度阈值,若达到最大轮数或调整幅度小于阈值,则停止运行。</p>
+<p>假定聚类簇数k= 3,算法开始时随机选取三个样本x6, x12, x27作为初始均值向量,即<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%8812.46.12.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>考察样本x1 = (0.697; 0.460),它与当前均值向量μ1, μu2, μ3的距离分别为0.369, 0.506, 0.166, 因此x1将被划入簇C3中.类似的,对数据集中的所有样本<br>考察一遍后, 可得当前簇划分为<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%8812.47.13.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>于是，可从C1、C2、C3分别求出新的均值向量<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%8812.47.59.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>更新当前均值向量后，不断重复上述过程,如图9.3所示，第五轮迭代产生的结<br>果与第四轮迭代相同，于是算法停止得到最终的簇划分.<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%8812.48.47.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h2 id="学习向量量化"><a href="#学习向量量化" class="headerlink" title="学习向量量化"></a>学习向量量化</h2><p>与k均值算法类似，“ 学习向量量化”(Learning Vector Quantization,简称LVQ)也是试图找到一组原型向量来刻画聚类结构,但与一般聚类算法不同的是,LVQ假设数据样本带有类别标记，学习过程利用样本的这些监督信息来辅助聚类.</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%8812.53.04.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%8812.57.41.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>在每一轮迭代中，算法随机选取一个有标记的训练样本，找出与其距离最近的原型向量，并根据两者的类别标记是否一致来对原型向量进行响应的更新。若算法的停止条件已满足，例如已达到最大迭代轮数，或原型向量更新很小甚至不再更新，则将当前原型向量作为最终结果返回。</p>
+<p>以西瓜数据集为例演示LVQ的学习过程。假定q=5，即学习目标是找到5个原型向量<strong>p1,p2,p3,p4,p5</strong>,并假定其对应的类别标记分别为c1,c2,c2,c1,c1。</p>
+<p>算法开始时,根据样本的类别标记和簇的预设类别标记对原型向量进行随机初始化，假定初始化为样本<strong>x5, x12, x18, x23, x29</strong>.在第一轮迭代中，假定随机选取的样本为x1,该样本与当前原型向量<strong>p1,p2,p3,p4,p5</strong>的距离分别为0.283, 0.506, 0.434, 0.260, 0.032.由于<strong>p5</strong>与<strong>x1</strong>距离最近且两者具有相同的类别标记c2,假定学习率η= 0.1,则LVQ更新<strong>p5</strong>得到新原型向量<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%881.28.14.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%881.45.59.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="高斯混合聚类"><a href="#高斯混合聚类" class="headerlink" title="高斯混合聚类"></a>高斯混合聚类</h2><p>与k均值、LVQ用原型向量来刻画聚类结构不同,高斯混合(Mixture-of-Gaussian)聚类采用概率模型来表达聚类原型.<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%881.54.09.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>可定义高斯混合分布<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%882.02.00.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%882.03.41.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%882.03.28.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>按下不表</p>
+<h1 id="密度聚类"><a href="#密度聚类" class="headerlink" title="密度聚类"></a>密度聚类</h1><p>密度聚类亦称“基于密度的聚类”(density-based clustering), 此类算法假设聚类结构能通过样本分布的紧密程度确定.通常情形下，密度聚类算法从样本密度的角度来考察样本之间的可连接性，并基于可连接样本不断扩展聚类簇以获得最终的聚类结果.<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%882.10.09.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%882.11.07.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>密度直达关系通常不满足对称性，密度可达关系满足直递性,但不满足对称性.密度相连关系满足对称性。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%882.22.09.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%882.24.24.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>D中不属于任何簇的样本被认为是噪声(noise)或异常(anomaly)样本。</p>
+<p>若x为核心对象,由x密度可达的所有样本组成的集合记为X = {x’∈D |x’由x密度可达},则不难证明X即为满足连接性与最大性的簇.</p>
+<p> DBSCAN算法先任选数据集中的一个核心对象为“种子”(seed),再由此出发确定相应的聚类簇，算法先根据给定的邻域参数找到所有核心对象；然后以任一核心对象为出发点，找到由其密度可达的样本生成聚类簇，直到所有核心对象均被访问过为止。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%882.41.24.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>以西瓜数据集为例，假定邻域参数设置为e=0.11，MinPts=5.DBSCAN算法先找出各样本的∈-邻域并确定核心对象集合: S= {x3, x5, x6, x8, x9, x13, x14, x18, x19, x24, x25, x28, x29}.然后，从Ω中随机选取一个核心对象作为种子，找出由它密度可达的所有样本,这就构成了第一个聚类簇.不失一般性,假定核心对象x8被选中作为种子，则DBSCAN生成的第一个聚类簇为<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%882.45.11.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>然后, DBSCAN将C1中包含的核心对象从几中去除:Ω=Ω \ C1 ={x3, x5, x9, x13, x14, x24, x25, x28, x2g}.再从更新后的集合8中随机选取一个核心对象作为种子来生成下一一个聚类簇..上述过程不断重复,直至I为空.图9.10显示DBSCAN先后生成聚类簇的情况. C1之后生成的聚类簇为<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%883.12.14.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%883.12.30.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h1 id="层次聚类"><a href="#层次聚类" class="headerlink" title="层次聚类"></a>层次聚类</h1><p>层次聚类(hierarchical clustering)试图在不同层次对数据集进行划分，从而形成树形的聚类结构.数据集的划分可采用“自底向上”的聚合策略,也可采用“自顶向下”的分拆策略.</p>
+<p>AGNES是一种采用自底向上聚合策略的层次聚类算法.它先将数据集中的每个样本看作一个初始聚类簇,然后在算法运行的每一步中找出距离最近的两个聚类簇进行合并,该过程不断重复,直至达到预设的聚类簇个数.这里的关键是如何计算聚类簇之间的距离.实际上,每个簇是一个样本集合,因此,只需采用关于集合的某种距离即可。</p>
+<p>对于给定聚类簇Ci，Cj，可通过下面式子来计算距离：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%883.25.52.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>显然,最小距离由两个簇的最近样本决定,最大距离由两个簇的最远样本决定，而平均距离则由两个簇的所有样本共同决定.当聚类簇距离由dmin，dmax或davg计算时，AGNES算法被相应地称为“单链接”(single-linkage)、 “ 全链接”(complete linkage)或“均链接”(average-linkage)算法.</p>
+<p>AGNES算法先对仅含一个样本的初始聚类簇和相应的距离矩阵进行初始化;然后AGNES不断合并距离最近的聚类簇,并对合并得到的聚类簇的距离矩阵进行更新;上述过程不断重复,直至达到预设的聚类簇数.<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%81%9A%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%883.31.13.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-03-12T07:35:44.000Z" itemprop="dateUpdated">2019-03-12 15:35:44</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/zdkswd">
+            <img src="/img/tmg.jpg" alt="ZDK">
+            ZDK
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2019/03/12/聚类/&title=《聚类》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2019/03/12/聚类/&title=《聚类》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2019/03/12/聚类/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《聚类》 — ZDK's blog&url=https://github.com/zdkswd/2019/03/12/聚类/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2019/03/12/聚类/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/03/07/决策树 个人总结/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">决策树 个人总结</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz",
+            appKey: "gkBx5soQkBREmER84PWbNJeM",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ZDK &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2019/03/12/聚类/&title=《聚类》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2019/03/12/聚类/&title=《聚类》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2019/03/12/聚类/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《聚类》 — ZDK's blog&url=https://github.com/zdkswd/2019/03/12/聚类/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2019/03/12/聚类/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2019/03/12/聚类/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'zdk'blog';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
