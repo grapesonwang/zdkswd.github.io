@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>百面 非监督学习 | ZDK&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="机器学习">
+    <meta name="description" content="EM算法（期望最大）解决隐变量混合模型的参数估计。 是软性的聚类，某个数据点可以不同强弱程度地同时属于不同的聚类。 极大似然估计，只是一种概率论在统计学的应用，它是参数估计的方法之一。说的是已知某个随机样本满足某种概率分布，但是其中具体的参数不清楚，通过若干次试验，观察其结果，利用结果推出参数的大概值。 如何感性地理解EM算法https://www.jianshu.com/p/1121509ac1">
+<meta name="keywords" content="机器学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="百面 非监督学习">
+<meta property="og:url" content="https://github.com/zdkswd/2019/03/15/百面 非监督学习/index.html">
+<meta property="og:site_name" content="ZDK&#39;s blog">
+<meta property="og:description" content="EM算法（期望最大）解决隐变量混合模型的参数估计。 是软性的聚类，某个数据点可以不同强弱程度地同时属于不同的聚类。 极大似然估计，只是一种概率论在统计学的应用，它是参数估计的方法之一。说的是已知某个随机样本满足某种概率分布，但是其中具体的参数不清楚，通过若干次试验，观察其结果，利用结果推出参数的大概值。 如何感性地理解EM算法https://www.jianshu.com/p/1121509ac1">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/img/media/%E7%99%BE%E9%9D%A2%20%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/page110image5024.jpg">
+<meta property="og:image" content="https://github.com/img/media/%E7%99%BE%E9%9D%A2%20%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/page111image2648.jpg">
+<meta property="og:image" content="https://github.com/img/media/%E7%99%BE%E9%9D%A2%20%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/page111image3160.jpg">
+<meta property="og:image" content="https://github.com/img/media/%E7%99%BE%E9%9D%A2%20%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%886.53.47.png">
+<meta property="og:image" content="https://github.com/img/media/%E7%99%BE%E9%9D%A2%20%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%886.54.23.png">
+<meta property="og:image" content="https://github.com/img/media/%E7%99%BE%E9%9D%A2%20%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/page112image848.jpg">
+<meta property="og:image" content="https://github.com/img/media/%E7%99%BE%E9%9D%A2%20%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%888.11.32.png">
+<meta property="og:image" content="https://github.com/img/media/%E7%99%BE%E9%9D%A2%20%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%888.42.40.png">
+<meta property="og:image" content="https://github.com/img/media/%E7%99%BE%E9%9D%A2%20%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%888.50.02.png">
+<meta property="og:image" content="https://github.com/img/media/%E7%99%BE%E9%9D%A2%20%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/page120image6336.jpg">
+<meta property="og:image" content="https://github.com/img/media/%E7%99%BE%E9%9D%A2%20%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-14%20%E4%B8%8B%E5%8D%889.56.05.png">
+<meta property="og:image" content="https://github.com/img/media/%E7%99%BE%E9%9D%A2%20%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-14%20%E4%B8%8B%E5%8D%8810.00.29.png">
+<meta property="og:updated_time" content="2019-03-15T06:49:37.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="百面 非监督学习">
+<meta name="twitter:description" content="EM算法（期望最大）解决隐变量混合模型的参数估计。 是软性的聚类，某个数据点可以不同强弱程度地同时属于不同的聚类。 极大似然估计，只是一种概率论在统计学的应用，它是参数估计的方法之一。说的是已知某个随机样本满足某种概率分布，但是其中具体的参数不清楚，通过若干次试验，观察其结果，利用结果推出参数的大概值。 如何感性地理解EM算法https://www.jianshu.com/p/1121509ac1">
+<meta name="twitter:image" content="https://github.com/img/media/%E7%99%BE%E9%9D%A2%20%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/page110image5024.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/tmg.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ZDK</h5>
+          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/zdkswd" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">百面 非监督学习</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">百面 非监督学习</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-03-15T06:48:47.000Z" itemprop="datePublished" class="page-time">
+  2019-03-15
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#EM算法（期望最大）"><span class="post-toc-number">1.</span> <span class="post-toc-text">EM算法（期望最大）</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#K均值聚类"><span class="post-toc-number">2.</span> <span class="post-toc-text">K均值聚类</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题1"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">问题1</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题2"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">问题2</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题3"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">问题3</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题4"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">问题4</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#高斯混合模型"><span class="post-toc-number">3.</span> <span class="post-toc-text">高斯混合模型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题1-1"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">问题1</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#聚类算法的评估"><span class="post-toc-number">4.</span> <span class="post-toc-text">聚类算法的评估</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题1-2"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">问题1</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#自组织映射神经网络"><span class="post-toc-number">5.</span> <span class="post-toc-text">自组织映射神经网络</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题1-3"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">问题1</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-百面 非监督学习"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">百面 非监督学习</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-03-15 14:48:47" datetime="2019-03-15T06:48:47.000Z"  itemprop="datePublished">2019-03-15</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="EM算法（期望最大）"><a href="#EM算法（期望最大）" class="headerlink" title="EM算法（期望最大）"></a>EM算法（期望最大）</h1><p>解决隐变量混合模型的参数估计。</p>
+<p>是软性的聚类，某个数据点可以不同强弱程度地同时属于不同的聚类。</p>
+<p>极大似然估计，只是一种概率论在统计学的应用，它是参数估计的方法之一。说的是已知某个随机样本满足某种概率分布，但是其中具体的参数不清楚，通过若干次试验，观察其结果，利用结果推出参数的大概值。</p>
+<p>如何感性地理解EM算法<br><a href="https://www.jianshu.com/p/1121509ac1dc" target="_blank" rel="noopener">https://www.jianshu.com/p/1121509ac1dc</a></p>
+<h1 id="K均值聚类"><a href="#K均值聚类" class="headerlink" title="K均值聚类"></a>K均值聚类</h1><p>它的基本思想是，通过迭代方式寻找K个簇(Cluster) 的一种划分方案，使得聚类结果对应的代价函数最小。特别地，代价函数可以定义为各个样本距离所属簇中心点的误差平方和<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/page110image5024.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>其中xi代表第i个样本，ci是xi所属于的簇，μci代表簇对应的中心点，M是样本总数。</p>
+<h2 id="问题1"><a href="#问题1" class="headerlink" title="问题1"></a>问题1</h2><p>问：简述K均值算法的具体步骤。</p>
+<p>答：K均值聚类的核心目标是将给定的数据集划分成K个簇，并给出每个数据对应的簇中心点。<br>（1）数据预处理，如归一化、离群点处理等。<br>（2）随机选取K个簇中心，记为<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/page111image2648.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>（3）定义代价函数:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/page111image3160.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>（4）令t=0,1,2,…为迭代步数，重复下面过程直到J收敛:<br>●对于每一个样本xi,将其分配到距离最近的簇<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%886.53.47.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>● 对于每一个类簇k，重新计算该类簇的中心<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%886.54.23.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>K均值算法在迭代时,假设当前J没有达到最小值,那么首先固定簇中心{μx},调整每个样例xi所属的类别ci来让J函数减少;然后固定{ci},调整簇中心{μk}使J减小。这两个过程交替循环,J单调递减:当J递减到最小值时,{μk}和{ci}也同时收敛。<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/page112image848.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>如图所示，首先初始化中心点，叉子代表中心点，根据中心点的位置计算每个样本所属的簇，用不同颜色表示，然后根据每个簇中的所有点平均值计算新的中心点位置。</p>
+<h2 id="问题2"><a href="#问题2" class="headerlink" title="问题2"></a>问题2</h2><p>问：K均值算法的优缺点是什么?如何对其进行调优?</p>
+<p>答：K均值算法有一些缺点，例如受初值和离群点的影响每次的结果不稳定、结果通常不是全局最优而是局部最优解、无法很好地解决数据簇分布差别比较大的情况(比如一类是另一类样本数量的100倍)、不太适用于离散分类等。但是瑕不掩瑜，K均值聚类的优点也是很明显和突出的，主要体现在:对于大数据集，K均值聚类算法相对是可伸缩和高效的，它的计算复杂度是O(NKt)接近于线性，其中N是数据对象的数目，<strong>K是聚类的簇数</strong>，堤迭代的轮数。尽管算法经常以局部最优结束，但一般情况下达到的局部最优已经可以满足聚类的需求。</p>
+<p>K均值算法的调优一般可以从以下几个角度出发。<br>（1）<strong>数据归一化和离群点处理</strong>。<br>K均值聚类本质上是—种基于欧式距离度量的数据划分方法，均值和方差大的<br>维度将对数据的聚类结果产生决定性的影响，所以未做归一化处理和统一单位的数据是无法直接参与运算和比较的。同时，离群点或者少量的噪声数据就会对均值产生较大的影响，导致中心偏移，因此使用K均值聚类算法之前通常需要对数据做预处理。<br>（2）<strong>合理选择K值</strong><br>K值的选择是K均值聚类最大的问题之一，这也是K均值聚类算法的主要缺点。实际上，我们希望能够找到一些可行的办法来弥补这一缺点，或者说找到K值的合理估计方法。但是，K值的选择一般基于经验和多次实验结果。例如采用手肘法，我们可以尝试不同的K值，并将不同K值所对应的损失函数画成折线，横轴为K的取值，纵轴为误差平方和所定义的损失函数。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%888.11.32.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>由图可见，K值越大，距离和越小;并且，当K=3时， 存在一个拐点，就像人的肘部一样;当K∈(1,3)时，曲线急速下降;当K&gt;3时，曲线趋于平稳。手肘法认为拐点就是K的最佳值。</p>
+<p>手肘法是一个经验方法，缺点就是不够自动化，Gap Statistic方法的优点是，不再需要肉眼判断，而只需要找到最大的Gap statistic所对应的K即可,因此该方法也适用于批量化作业。在这里继续使用上面的损失函数，当分为K簇时，对应的损失函数为Dk。Gap Statistics定义为<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%888.42.40.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>其中E(logDk)是logDk.的期望，一般通过蒙特卡洛模拟产生。我们在样本所在的区域内按照均匀分布随机地产生和原始样本数一样多的随机样本，并对这个随机样本做K均值，得到一个D;重复多次就可以计算出E(logDk)的近似值。那么Gap(K)物理含义可以视为随机样本的损失与实际样本的损失之差。试想实际样本对应的最佳簇数为K，那么实际样本的损失应该相对较小，随机样本损失与实际样本损失之差也相应地达到最小值，从而Gap(K)取得最大值所对应的K值就是最佳的簇数。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-12%20%E4%B8%8B%E5%8D%888.50.02.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>（3）<strong>采用核函数</strong><br>采用核函数是另一种可以尝试的改进方向。传统的欧式距离度量方式，使得K<br>均值算法本质_上假设了各个数据簇的数据具有-样的先验概率，并呈现球形或者高维球形分布，这种分布在实际生活中并不常见。面对非凸的数据分布形状时，可能需要引入核函数来优化，这时算法又称为核K均值算法，是核聚类方法的一种。<strong>核聚类方法的主要思想是通过一个非线性映射，将输入空间中的数据点映射到高位的特征空间中，并在新的特征空间中进行聚类。</strong>非线性映射增加了数据点线性可分的概率，从而在经典的聚类算法失效的情况下，通过引入核函数可以达到更为准确的聚类结果。</p>
+<h2 id="问题3"><a href="#问题3" class="headerlink" title="问题3"></a>问题3</h2><p>问：针对K均值算法的缺点，有哪些改进的模型？</p>
+<p>答：K均值的主要缺点有。<br>（1）需要人工预先确定初始K值，且该值和真实的数据分布未必吻合。<br>（2）K均值只能收敛到局部最优，效果受到初始值很大。<br>（3）易受到噪点的影响。<br>（4）样本点只能被划分到单一的类中。</p>
+<p><strong>K-means++算法</strong><br>K均值的改进算法中，对初始值选择的改进是很重要的一部分。而这类算法<br>中，最具影响力的当属K-means++算法。原始K均值算法最开始随机选取数据集中K个点作为聚类中心，而K-means++ 按照如下的思想选取K个聚类中心。假设已经选取了n个初始聚类中心(0&lt;n&lt;K) ，则在选取第n+1个聚类中心时，距离当前n个聚类中心越远的点会有更高的概率被选为第n+1个聚类中心。在选取第一个聚类中心(n=1) 时同样通过随机的方法。可以说这也符合我们的直觉，聚类中心当然是互相离得越远越好。当选择完初始点后，K-means++ 后续的执行和经典K均值算法相同，这也是对初始值选择进行改进的方法等共同点。</p>
+<p><strong>ISODATA算法</strong><br>当K值的大小不确定时，可以使用<strong>ISODATA</strong>算法。ISODATA的全称是迭代自<br>组织数据分析法。在K均值算法中，聚类个数K的值需要预先人为地确定，并且在整个算法过程中无法更改。而当遇到高维度、海量的数据集时，人们往往很难准确地估计出K的大小。ISODATA算法就是针对这个问题进行了改进，它的思想也很直观。当属于某个类别的样本数过少时，把该类别去除;当属于某个类别的样本数过多、分散程度较大时，把该类别分为两个子类别。ISODATA算法在K均值算法的基础之上增加了两个操作，一是<strong>分裂</strong>操作，对应着增加聚类中心数;二是<strong>合并</strong>操作，对应着减少聚类中心数。ISODATA算法是一个比较常见的算法，其缺点是需要指定的参数比较多，不仅仅需要一个参考的聚类数量K，还需要制定3个阈值。下面介绍ISODATA算法的各个输入参数。<br>（1）预期的聚类中心数目K。在ISODATA运行过程中聚类中心数可以变化，K0是一个用户指定的参考值，该算法的聚类中心数目变动范围也由其决定。具体地，最终输出的聚类中心数目常见范围是从K0的一半，到两倍K0。<br>（2）每个类所要求的最少样本数目Nmin。如果分裂后会导致某个子类别所包   含样本数目小于该阈值,就不会对该类别进行分裂操作。<br>（3）最大方差Sigma。用于控制某个类别中样本的分散程度。当样本的分散程度超过这个阈值时，且分裂后满足(1),进行分裂操作。<br>(4) 两个聚类中心之间所允许最小距离Dmin。如果两个类靠得非常近(即这两个类别对应聚类中心之间的距离非常小)，小于该阈值时，则对这两个类进行合并操作。</p>
+<p>如果希望样本不划分到单一的类中，可以使用模糊C均值或者高斯混合模型。</p>
+<h2 id="问题4"><a href="#问题4" class="headerlink" title="问题4"></a>问题4</h2><p>问：证明K均值算法的收敛性。</p>
+<p>答：首先，我们需要知道K均值聚类的迭代算法实际上是一种最大期望算法(Expectation-Maximization algorithm)，简称EM算法。EM算法解决的是在概率模型中含有无法观测的隐含变量情况下的参数估计问题。即证明EM算法的收敛性。详见zdk的自己的公式推导。</p>
+<h1 id="高斯混合模型"><a href="#高斯混合模型" class="headerlink" title="高斯混合模型"></a>高斯混合模型</h1><p>高斯混合模型( Gaussian Mixed Model,GMM)也是一种常见的聚类算法, 与K均值算法类似,同样使用了EM算法进行迭代计算。高斯混合模型假设每个簇的数据都是符合高斯分布(又叫正态分布)的,当前数据呈现的分布就是各个簇的高斯分布叠加在一起的结果。</p>
+<h2 id="问题1-1"><a href="#问题1-1" class="headerlink" title="问题1"></a>问题1</h2><p>问：高斯混合模型的核心思想是什么?它是如何迭代计算的?</p>
+<p>答：<br>高斯混合模型的核心思想是，假设数据可以看作从多个高斯分布中生成出来<br>的。在该假设下，每个单独的分模型都是标准高斯模型，其均值μ和方差Σ,是待估计的参数。此外，每个分模型都还有一个参数π，可以理解为权重或生成数据的概率。高斯混合模型的公式为<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/page120image6336.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>然而，通常我们并不能直接得到高斯混合模型的参数，而是观察到了一系列数据点，给出一个类别的数量K后，希望求得最佳的K个高斯分模型。因此，高斯<br>混合模型的计算，便成了最佳的均值μ,方差Σ、权重π的寻找，这类问题通常通过最大似然估计来求解。遗憾的是，此问题中直接使用最大似然估计,得到的是一个复杂的非凸函数，目标函数是和的对数，难以展开和对其求偏导。</p>
+<p>在这种情况下，可以用上一节已经介绍过的EM算法框架来求解该优化问题。<br>EM算法是在最大化目标函数时，先固定-一个变量使整体函数变为凸优化函数，求导得到最值，然后利用最优参数更新被固定的变量，进入下一一个循环。具体到高斯混合模型的求解，EM算法的迭代过程如下。</p>
+<p>首先，初始随机选择各参数的值。然后，重复下述两步，直到收敛。<br>(1)E步骤。根据当前的参数，计算每个点由某个分模型生成的概率。<br>(2) M步骤。使用E步骤估计出的概率，来改进每个分模型的均值，方差和权重。</p>
+<p>也就是说，我们并不知道最佳的K个高斯分布的各自3个参数，也不知道每个数据点究竟是哪个高斯分布生成的。所以每次循环时，先固定当前的高斯分布不变，获得每个数据点由各个高斯分布生成的概率。然后固定该生成概率不变，根据数据点和生成概率，获得-一个组更佳的高斯分布。循环往复，直到参数不再变化，或者变化非常小时，便得到了比较合理的一组高斯分布。</p>
+<p>高斯混合模型与K均值算法的相同点是，它们都是可用于聚类的算法;都需要指定K值;都是使用EM算法来求解;都往往只能收敛于局部最优。而它相比于K均值算法的优点是，可以给出一个样本属于某类的概率是多少;不仅仅可以用于聚类，还可以用于概率密度的估计;并且可以用于生成新的样本点。</p>
+<h1 id="聚类算法的评估"><a href="#聚类算法的评估" class="headerlink" title="聚类算法的评估"></a>聚类算法的评估</h1><h2 id="问题1-2"><a href="#问题1-2" class="headerlink" title="问题1"></a>问题1</h2><p>问：以聚类问题为例，假设没有外部标签数据，如何评估两个聚类算法的优劣?</p>
+<p>答：非监督学习通常没有标注数据，模型、算法的设计直接影响最终的输出和模型的性能。为了评估不同聚类算法的性能优劣，我们需要了解常见的数据簇的特点。</p>
+<p>●以中心定义的数据簇:这类数据集合倾向于球形分布，通常中心被定义为质心，即此数据簇中所有点的平均值。集合中的数据到中心的距离相比到其他簇中心的距离更近。<br>●以密度定义的数据簇:这类数据集合呈现和周围数据簇明显不同的密度，或稠密或稀疏。当数据簇不规则或互相盘绕，并且有噪声和离群点时，常常使用基于密度的簇定义。<br>● 以连通定义的数据簇:这类数据集合中的数据点和数据点之间有连接关系，整个数据簇表现为图结构。该定义对不规则形状或者缠绕的数据簇有效。<br>● 以概念定义的数据簇:这类数据集合中的所有数据点具有某种共同性质。</p>
+<p>由于数据以及需求的多样性，没有一种算法能够适用于所有的数据类型、数据簇或应用场景，似乎每种情况都可能需要一种不同的评估方法或度量标准。例<br>如，K均值聚类可以用误差平方和来评估,但是基于密度的数据簇可能不是球形，误差平方和则会失效。在许多情况下，判断聚类算法结果的好坏强烈依赖于主观解释。尽管如此，聚类算法的评估还是必需的，它是聚类分析中十分重要的部分之一。</p>
+<p>聚类评估的任务是估计在数据集上进行聚类的可行性，以及聚类方法产生结<br>果的质量。这一过程又分为三个子任务。<br>(1)估计聚类趋势。<br>(2)判定数据簇数<br>(3)测定聚类质量</p>
+<h1 id="自组织映射神经网络"><a href="#自组织映射神经网络" class="headerlink" title="自组织映射神经网络"></a>自组织映射神经网络</h1><p>自组织映射神经网络(Self-Organizing Map，SOM)是无监督学习方法中一类重要方法，可以用作聚类、高维可视化、数据压缩、特征提取等多种用途。在深度神经网络大为流行的今天，谈及自组织映射神经网络依然是一件非常有意义的事情，这主要是由于自组织映射神经网络融入了大量人脑神经元的信号处理机制，有着独特的结构特点。</p>
+<h2 id="问题1-3"><a href="#问题1-3" class="headerlink" title="问题1"></a>问题1</h2><p>问：自组织映射神经网络是如何工作的?它与K均值算法有何区别?</p>
+<p>答：生物学研究表明，在人脑的感知通道上，神经元组织是有序排列的;同时，大脑皮层会对外界特定时空信息的输入在特定区域产生兴奋，而且相类似的外界信息输入产生对应兴奋的大脑皮层区域也连续映像的。例如，生物视网膜中有许多特定的细胞对特定的图形比较敏感，当视网膜中有若千个接收单元同时受特定模式刺激时，就使大脑皮层中的特定神经元开始兴奋，且输入模式接近时与之对应的兴奋神经元也接近;在听觉通道上，神经元在结构排列上与频率的关系十分密切，对于某个频率，特定的神经元具有最大的响应，位置相邻的神经元具有相近的频率特征，而远离的神经元具有的频率特征差别也较大。大脑皮层中神经元的这种响应特点不是先天安排好的，而是通过后天的学习自组织形成的。</p>
+<p>在生物神经系统中，还存在着一种侧抑制现象，即一个神经细胞兴奋后，会对周围其他神经细胞产生抑制作用。这种抑制作用会使神经细胞之间出现竞争，其结果是某些获胜，而另一些则失败。表现形式是获胜神经细胞兴奋，失败神经细胞抑制。自组织神经网络就是对上述生物神经系统功能的一种人工神经网络模拟。</p>
+<p>自组织映射神经网络本质上是一个两层的神经网络，包含输入层和输出层(竞争层)。输入层模拟感知外界输入信息的视网膜,输出层模拟做出响应的大脑皮层。输出层中神经元的个数通常是聚类的个数，代表每一个需要聚成的类。训练时采用“竞争学习”的方式，每个输入的样例在输出层中找到一个和它最匹配的节点，称为激活节点，也叫winning neuron;紧接着用随机梯度下降法更新激活节点的参数;同时，和激活节点临近的点也根据它们距离激活节点的远近而适当地更新参数。这种竞争可以通过神经元之间的横向抑制连接(负反馈路径)来实现。自组织映射神经网络的输出层节点是有拓扑关系的。这个拓扑关系依据需求确定，如果想要-维的模型，那么隐藏节点可以是“-维线阵”;如果想要二维的拓扑关系，那么就行成一个“二维平面阵”，如图5.8所示。也有更高维度的拓扑关系的，比如“三维栅格阵”，但并不常见。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-14%20%E4%B8%8B%E5%8D%889.56.05.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>假设输入空间是D维，输入模式为x={xi,i=1.=…D}, 输入单元i和神经元j之间在计算层的连接权重为w= {wi,j= 1,..N,i=1,..,,D},其中N是神经元的总数。自组织映射神经网络的自组织学习过程可以归纳为以下几个子过程。<br>(1)初始化。所有连接权重都用小的随机值进行初始化。<br>(2)竞争。神经元计算每一个输入模式各自的判别函数值，并宣布具有最小判别函数值的特定神经元为胜利者，其中每个神经元j的判别函数为<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-14%20%E4%B8%8B%E5%8D%8810.00.29.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>(3)合作。获胜神经元(ω)决定了兴奋神经元拓扑邻域的空间位置。确定激活结点I(x)之后,我们也希望更新和它临近的节点。简单地说,临近的节点距离越远,更新的程度要打更大折扣。<br>(4)适应。适当调整相关兴奋神经元的连接权重,使得获胜的神经元对相似输入模式的后续应用的响应增强。<br>(5)迭代。继续回到步骤(2),直到特征映射趋于稳定。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-03-15T06:49:37.000Z" itemprop="dateUpdated">2019-03-15 14:49:37</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/zdkswd">
+            <img src="/img/tmg.jpg" alt="ZDK">
+            ZDK
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2019/03/15/百面 非监督学习/&title=《百面 非监督学习》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2019/03/15/百面 非监督学习/&title=《百面 非监督学习》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2019/03/15/百面 非监督学习/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《百面 非监督学习》 — ZDK's blog&url=https://github.com/zdkswd/2019/03/15/百面 非监督学习/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2019/03/15/百面 非监督学习/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/03/12/聚类/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">聚类</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz",
+            appKey: "gkBx5soQkBREmER84PWbNJeM",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ZDK &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2019/03/15/百面 非监督学习/&title=《百面 非监督学习》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2019/03/15/百面 非监督学习/&title=《百面 非监督学习》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2019/03/15/百面 非监督学习/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《百面 非监督学习》 — ZDK's blog&url=https://github.com/zdkswd/2019/03/15/百面 非监督学习/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2019/03/15/百面 非监督学习/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2019/03/15/百面 非监督学习/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'zdk'blog';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
