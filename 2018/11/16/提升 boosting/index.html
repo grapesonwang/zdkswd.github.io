@@ -21,29 +21,14 @@
     
     
     <meta name="keywords" content="机器学习">
-    <meta name="description" content="机器学习升级版 提升">
+    <meta name="description" content="统计学习方法 提升方法AdaBoost在概率近似正确(probably approximately correct, PAC)学习的框架中，一个概念(一个类)，如果存在一个多项式的学习算法能够学习它，并且正确率很高，那么就称这个概念是强可学习的;一个概念，如果存在一个多项式的学习算法能够学习它,学习的正确率仅比随机猜测略好，那么就称这个概念是弱可学习的. 如果已经发现了“弱学习算法”，将它提升(b">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="提升 boosting">
 <meta property="og:url" content="https://github.com/zdkswd/2018/11/16/提升 boosting/index.html">
 <meta property="og:site_name" content="ZDK&#39;s blog">
-<meta property="og:description" content="机器学习升级版 提升">
+<meta property="og:description" content="统计学习方法 提升方法AdaBoost在概率近似正确(probably approximately correct, PAC)学习的框架中，一个概念(一个类)，如果存在一个多项式的学习算法能够学习它，并且正确率很高，那么就称这个概念是强可学习的;一个概念，如果存在一个多项式的学习算法能够学习它,学习的正确率仅比随机猜测略好，那么就称这个概念是弱可学习的. 如果已经发现了“弱学习算法”，将它提升(b">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-10%20%E4%B8%8B%E5%8D%889.25.13.png">
-<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-10%20%E4%B8%8B%E5%8D%889.27.04.png">
-<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-10%20%E4%B8%8B%E5%8D%889.28.25.png">
-<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-09%20%E4%B8%8B%E5%8D%883.41.44.png">
-<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-09%20%E4%B8%8B%E5%8D%883.50.55.png">
-<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-10%20%E4%B8%8B%E5%8D%889.49.37.png">
-<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-11%20%E4%B8%8A%E5%8D%8810.12.38.png">
-<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-11%20%E4%B8%8A%E5%8D%8810.13.20.png">
-<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-11%20%E4%B8%8A%E5%8D%8810.36.10.png">
-<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-11%20%E4%B8%8A%E5%8D%8810.37.47.png">
-<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-11%20%E4%B8%8A%E5%8D%8810.40.05.png">
-<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-11%20%E4%B8%8A%E5%8D%8810.54.43.png">
-<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-11%20%E4%B8%8B%E5%8D%882.54.26.png">
-<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-11%20%E4%B8%8B%E5%8D%882.58.20.png">
-<meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-11%20%E4%B8%8B%E5%8D%883.13.09.png">
 <meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%884.52.10.png">
 <meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%884.53.06.png">
 <meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%884.55.56.png">
@@ -73,11 +58,11 @@
 <meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-13%20%E4%B8%8A%E5%8D%8810.31.20.png">
 <meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/mL_10_12.png">
 <meta property="og:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/mL_10_13.png">
-<meta property="og:updated_time" content="2018-11-16T08:14:52.000Z">
+<meta property="og:updated_time" content="2019-03-26T05:26:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="提升 boosting">
-<meta name="twitter:description" content="机器学习升级版 提升">
-<meta name="twitter:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-10%20%E4%B8%8B%E5%8D%889.25.13.png">
+<meta name="twitter:description" content="统计学习方法 提升方法AdaBoost在概率近似正确(probably approximately correct, PAC)学习的框架中，一个概念(一个类)，如果存在一个多项式的学习算法能够学习它，并且正确率很高，那么就称这个概念是强可学习的;一个概念，如果存在一个多项式的学习算法能够学习它,学习的正确率仅比随机猜测略好，那么就称这个概念是弱可学习的. 如果已经发现了“弱学习算法”，将它提升(b">
+<meta name="twitter:image" content="https://github.com/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%884.52.10.png">
     
         <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
     
@@ -205,7 +190,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#机器学习升级版-提升"><span class="post-toc-number">1.</span> <span class="post-toc-text">机器学习升级版 提升</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#统计学习方法-提升方法"><span class="post-toc-number">2.</span> <span class="post-toc-text">统计学习方法 提升方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#AdaBoost"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">AdaBoost</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#AdaBoost算法"><span class="post-toc-number">2.1.1.</span> <span class="post-toc-text">AdaBoost算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#算法（AdaBoost）"><span class="post-toc-number">2.1.1.1.</span> <span class="post-toc-text">算法（AdaBoost）</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#AdaBoost的例子"><span class="post-toc-number">2.1.2.</span> <span class="post-toc-text">AdaBoost的例子</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#AdaBoost算法的训练误差分析"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">AdaBoost算法的训练误差分析</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#定理（AdaBoost的训练误差界）"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">定理（AdaBoost的训练误差界）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#定理（二类分类问题AdaBoost的训练误差界）"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">定理（二类分类问题AdaBoost的训练误差界）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#推论"><span class="post-toc-number">2.2.3.</span> <span class="post-toc-text">推论</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#AdaBoost算法的解释"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">AdaBoost算法的解释</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#前向分布算法"><span class="post-toc-number">2.3.1.</span> <span class="post-toc-text">前向分布算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#前向分步算法"><span class="post-toc-number">2.3.1.1.</span> <span class="post-toc-text">前向分步算法</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#前向分步算法与AdaBoost"><span class="post-toc-number">2.3.2.</span> <span class="post-toc-text">前向分步算法与AdaBoost</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#定理"><span class="post-toc-number">2.3.2.1.</span> <span class="post-toc-text">定理</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#提升树"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">提升树</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#提升树模型"><span class="post-toc-number">2.4.1.</span> <span class="post-toc-text">提升树模型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#提升树算法"><span class="post-toc-number">2.4.2.</span> <span class="post-toc-text">提升树算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#基函数是分类树（二叉分类树）"><span class="post-toc-number">2.4.2.1.</span> <span class="post-toc-text">基函数是分类树（二叉分类树）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#回归问题的提升树算法（基函数是回归树）"><span class="post-toc-number">2.4.2.2.</span> <span class="post-toc-text">回归问题的提升树算法（基函数是回归树）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#例"><span class="post-toc-number">2.4.2.3.</span> <span class="post-toc-text">例</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#梯度提升"><span class="post-toc-number">2.4.3.</span> <span class="post-toc-text">梯度提升</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#梯度提升算法"><span class="post-toc-number">2.4.3.1.</span> <span class="post-toc-text">梯度提升算法</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#博客"><span class="post-toc-number">3.</span> <span class="post-toc-text">博客</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#实践"><span class="post-toc-number">4.</span> <span class="post-toc-text">实践</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#AdaBoost单层决策树"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">AdaBoost单层决策树</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#scikit-learn-AdaBoost"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">scikit-learn AdaBoost</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#统计学习方法-提升方法"><span class="post-toc-number">1.</span> <span class="post-toc-text">统计学习方法 提升方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#AdaBoost"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">AdaBoost</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#AdaBoost算法"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">AdaBoost算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#算法（AdaBoost）"><span class="post-toc-number">1.1.1.1.</span> <span class="post-toc-text">算法（AdaBoost）</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#AdaBoost的例子"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">AdaBoost的例子</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#AdaBoost算法的训练误差分析"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">AdaBoost算法的训练误差分析</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#定理（AdaBoost的训练误差界）"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">定理（AdaBoost的训练误差界）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#定理（二类分类问题AdaBoost的训练误差界）"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">定理（二类分类问题AdaBoost的训练误差界）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#推论"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">推论</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#AdaBoost算法的解释"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">AdaBoost算法的解释</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#前向分布算法"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">前向分布算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#前向分步算法"><span class="post-toc-number">1.3.1.1.</span> <span class="post-toc-text">前向分步算法</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#前向分步算法与AdaBoost"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">前向分步算法与AdaBoost</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#定理"><span class="post-toc-number">1.3.2.1.</span> <span class="post-toc-text">定理</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#提升树"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">提升树</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#提升树模型"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">提升树模型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#提升树算法"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">提升树算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#基函数是分类树（二叉分类树）"><span class="post-toc-number">1.4.2.1.</span> <span class="post-toc-text">基函数是分类树（二叉分类树）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#回归问题的提升树算法（基函数是回归树）"><span class="post-toc-number">1.4.2.2.</span> <span class="post-toc-text">回归问题的提升树算法（基函数是回归树）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#例"><span class="post-toc-number">1.4.2.3.</span> <span class="post-toc-text">例</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#梯度提升"><span class="post-toc-number">1.4.3.</span> <span class="post-toc-text">梯度提升</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#梯度提升算法"><span class="post-toc-number">1.4.3.1.</span> <span class="post-toc-text">梯度提升算法</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#博客"><span class="post-toc-number">2.</span> <span class="post-toc-text">博客</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#实践"><span class="post-toc-number">3.</span> <span class="post-toc-text">实践</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#AdaBoost单层决策树"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">AdaBoost单层决策树</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#scikit-learn-AdaBoost"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">scikit-learn AdaBoost</span></a></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -231,100 +216,7 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="机器学习升级版-提升"><a href="#机器学习升级版-提升" class="headerlink" title="机器学习升级版 提升"></a>机器学习升级版 提升</h1><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-10%20%E4%B8%8B%E5%8D%889.25.13.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-10%20%E4%B8%8B%E5%8D%889.27.04.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<p>把分错的样本权值调高，把分对的样本权值调低。会存在本来已经分对的点在下次划分时被分错的情况。基本上可以避免这种情况。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-10%20%E4%B8%8B%E5%8D%889.28.25.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-09%20%E4%B8%8B%E5%8D%883.41.44.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>对树求梯度，一个树就是一个函数的样子。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-09%20%E4%B8%8B%E5%8D%883.50.55.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-10%20%E4%B8%8B%E5%8D%889.49.37.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-11%20%E4%B8%8A%E5%8D%8810.12.38.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>yhat（t-1）是前t-1棵树累加对样本的预测值，ft(x)是第t棵树对样本的预测值。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-11%20%E4%B8%8A%E5%8D%8810.13.20.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-11%20%E4%B8%8A%E5%8D%8810.36.10.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-11%20%E4%B8%8A%E5%8D%8810.37.47.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>ft没什么意义，只有变成w才有意义。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-11%20%E4%B8%8A%E5%8D%8810.40.05.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-11%20%E4%B8%8A%E5%8D%8810.54.43.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>wj就是样本落在叶子节点的预测值，Gj就是落在节点的一阶梯度的加和，Hj是落在节点的二阶梯度的加和。λ是一个超参数。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-11%20%E4%B8%8B%E5%8D%882.54.26.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>XGBoost小结<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-11%20%E4%B8%8B%E5%8D%882.58.20.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-11%20%E4%B8%8B%E5%8D%883.13.09.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>αm是第m个分类器的权值。</p>
-<h1 id="统计学习方法-提升方法"><a href="#统计学习方法-提升方法" class="headerlink" title="统计学习方法 提升方法"></a>统计学习方法 提升方法</h1><h2 id="AdaBoost"><a href="#AdaBoost" class="headerlink" title="AdaBoost"></a>AdaBoost</h2><p>在概率近似正确(probably approximately correct, <strong>PAC</strong>)学习的框架中，一个概念(一个类)，如果存在一个多项式的学习算法能够学习它，并且正确率很高，那么就称这个概念是<strong>强可学习</strong>的;一个概念，如果存在一个多项式的学习算法能够学习它,学习的正确率仅比随机猜测略好，那么就称这个概念是<strong>弱可学习</strong>的.</p>
+            <h1 id="统计学习方法-提升方法"><a href="#统计学习方法-提升方法" class="headerlink" title="统计学习方法 提升方法"></a>统计学习方法 提升方法</h1><h2 id="AdaBoost"><a href="#AdaBoost" class="headerlink" title="AdaBoost"></a>AdaBoost</h2><p>在概率近似正确(probably approximately correct, <strong>PAC</strong>)学习的框架中，一个概念(一个类)，如果存在一个多项式的学习算法能够学习它，并且正确率很高，那么就称这个概念是<strong>强可学习</strong>的;一个概念，如果存在一个多项式的学习算法能够学习它,学习的正确率仅比随机猜测略好，那么就称这个概念是<strong>弱可学习</strong>的.</p>
 <p>如果已经发现了“弱学习算法”，将它提升(boost) 为“强学习算法”.大家知道，发现弱学习算法通常要比发现强学习算法容易得多.那么如何具体实施提升，便成为开发提升方法时所要解决的问题.关于提升方法的研究很多，有很多算法被提出.最具代表性的是AdaBoost算法。</p>
 <p>对于分类问题而言，给定一个训练样本集，求比较粗糙的分类规则(弱分类器)要比求精确的分类规则(强分类器)容易得多.提升方法就是从弱学习算法出发， 反复学习，得到一系列弱分类器(又称为基本分类器)，然后组合这些弱分类器，构成一个强分类器.大多数的提升方法都是改变训练数据的概率分布(训练数据的权值分布)，针对不同的训练数据分布调用弱学习算法学习一系列弱分类器.</p>
 <p>对提升方法来说，有两个问题需要回答:一是在每一轮如何改变训练数据的权值或概率分布;二是如何将弱分类器组合成一个强分类器.关于第1个问题，AdaBoost的做法是，<strong>提高</strong>那些被前一轮弱分类器<strong>错误分类样本的权值</strong>，而<strong>降低</strong>那些被<strong>正确分类样本的权值</strong>.这样一来，那些没有得到正确分类的数据，由于其权值的加大而受到后一轮的弱分类器的更大关注.于是，分类问题被一系列的弱分类器“分而治之”.至于第2个问题，即弱分类器的组合，AdaBoost 采取加权多数表决的方法.具体地，<strong>加大</strong>分类<strong>误差率小</strong>的弱分类器的<strong>权值</strong>，使其在表决中起较大的作用，<strong>减小</strong>分类<strong>误差率大</strong>的弱分类器的<strong>权值</strong>，使其在表决中起较小的作用.</p>
@@ -554,7 +446,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-11-16T08:14:52.000Z" itemprop="dateUpdated">2018-11-16 16:14:52</time>
+    最后更新时间：<time datetime="2019-03-26T05:26:22.000Z" itemprop="dateUpdated">2019-03-26 13:26:22</time>
 </span><br>
 
 
