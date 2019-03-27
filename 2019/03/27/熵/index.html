@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>熵 | ZDK&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="机器学习">
+    <meta name="description" content="熵https://www.jianshu.com/p/09b70253c840完美解释交叉熵 随机变量包含不确定性的变量称为随机变量，统计学就是研究这类不确定性变量的工具。刻画随机变量最有力的一个工具就是它的概率分布。有了概率分布，我们可以说对一个随机变量有了完全的掌握，因为我们可以知道它可能取哪些值，某个值的概率是多少。 什么是熵概率分布是对随机变量的刻画，不同的随机变量有着相同或不同的概率分布">
+<meta name="keywords" content="机器学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="熵">
+<meta property="og:url" content="https://github.com/zdkswd/2019/03/27/熵/index.html">
+<meta property="og:site_name" content="ZDK&#39;s blog">
+<meta property="og:description" content="熵https://www.jianshu.com/p/09b70253c840完美解释交叉熵 随机变量包含不确定性的变量称为随机变量，统计学就是研究这类不确定性变量的工具。刻画随机变量最有力的一个工具就是它的概率分布。有了概率分布，我们可以说对一个随机变量有了完全的掌握，因为我们可以知道它可能取哪些值，某个值的概率是多少。 什么是熵概率分布是对随机变量的刻画，不同的随机变量有着相同或不同的概率分布">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/img/media/%E7%86%B5/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-26%20%E4%B8%8B%E5%8D%889.14.29.png">
+<meta property="og:image" content="https://github.com/img/media/%E7%86%B5/u=2536703424,2008652302&fm=173&app=49&f=JPEG.jpg">
+<meta property="og:image" content="https://github.com/img/media/%E7%86%B5/u=766989654,2959505221&fm=173&app=49&f=JPEG.jpg">
+<meta property="og:image" content="https://github.com/img/media/%E7%86%B5/u=1914240327,2567469862&fm=173&app=49&f=JPEG.jpg">
+<meta property="og:image" content="https://github.com/img/media/%E7%86%B5/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-27%20%E4%B8%8A%E5%8D%889.09.49.png">
+<meta property="og:image" content="https://github.com/img/media/%E7%86%B5/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-27%20%E4%B8%8A%E5%8D%889.18.40.png">
+<meta property="og:image" content="https://github.com/img/media/%E7%86%B5/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-27%20%E4%B8%8B%E5%8D%8812.29.58.png">
+<meta property="og:image" content="https://github.com/img/media/%E7%86%B5/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-27%20%E4%B8%8B%E5%8D%881.44.20.png">
+<meta property="og:image" content="https://github.com/img/media/%E7%86%B5/9922720e0cf3d7ca31c6e0d3ff1fbe096b63a967.png">
+<meta property="og:image" content="https://github.com/img/media/%E7%86%B5/u=3840435294,1181281422&fm=173&app=49&f=JPEG.jpg">
+<meta property="og:updated_time" content="2019-03-27T11:47:41.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="熵">
+<meta name="twitter:description" content="熵https://www.jianshu.com/p/09b70253c840完美解释交叉熵 随机变量包含不确定性的变量称为随机变量，统计学就是研究这类不确定性变量的工具。刻画随机变量最有力的一个工具就是它的概率分布。有了概率分布，我们可以说对一个随机变量有了完全的掌握，因为我们可以知道它可能取哪些值，某个值的概率是多少。 什么是熵概率分布是对随机变量的刻画，不同的随机变量有着相同或不同的概率分布">
+<meta name="twitter:image" content="https://github.com/img/media/%E7%86%B5/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-26%20%E4%B8%8B%E5%8D%889.14.29.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/tmg.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ZDK</h5>
+          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/zdkswd" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">熵</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">熵</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-03-27T11:46:47.000Z" itemprop="datePublished" class="page-time">
+  2019-03-27
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#熵"><span class="post-toc-number">1.</span> <span class="post-toc-text">熵</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#随机变量"><span class="post-toc-number">2.</span> <span class="post-toc-text">随机变量</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#什么是熵"><span class="post-toc-number">3.</span> <span class="post-toc-text">什么是熵</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#熵的数学表达"><span class="post-toc-number">4.</span> <span class="post-toc-text">熵的数学表达</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#从另一个角度理解熵"><span class="post-toc-number">5.</span> <span class="post-toc-text">从另一个角度理解熵</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#伯努利分布的熵"><span class="post-toc-number">6.</span> <span class="post-toc-text">伯努利分布的熵</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#联合熵"><span class="post-toc-number">7.</span> <span class="post-toc-text">联合熵</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#条件熵"><span class="post-toc-number">8.</span> <span class="post-toc-text">条件熵</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#李航-信息增益"><span class="post-toc-number">9.</span> <span class="post-toc-text">李航 信息增益</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#相对熵（又叫互熵，KL散度）"><span class="post-toc-number">10.</span> <span class="post-toc-text">相对熵（又叫互熵，KL散度）</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#交叉熵"><span class="post-toc-number">11.</span> <span class="post-toc-text">交叉熵</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#为什么使用交叉熵损失函数"><span class="post-toc-number">11.1.</span> <span class="post-toc-text">为什么使用交叉熵损失函数</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-熵"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">熵</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-03-27 19:46:47" datetime="2019-03-27T11:46:47.000Z"  itemprop="datePublished">2019-03-27</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="熵"><a href="#熵" class="headerlink" title="熵"></a>熵</h1><p><a href="https://www.jianshu.com/p/09b70253c840" target="_blank" rel="noopener">https://www.jianshu.com/p/09b70253c840</a><br><a href="https://baijiahao.baidu.com/s?id=1618702220267847958&amp;wfr=spider&amp;for=pc" target="_blank" rel="noopener">完美解释交叉熵</a></p>
+<h1 id="随机变量"><a href="#随机变量" class="headerlink" title="随机变量"></a>随机变量</h1><p>包含不确定性的变量称为随机变量，统计学就是研究这类不确定性变量的工具。刻画随机变量最有力的一个工具就是它的概率分布。有了概率分布，我们可以说对一个随机变量有了完全的掌握，因为我们可以知道它可能取哪些值，某个值的概率是多少。</p>
+<h1 id="什么是熵"><a href="#什么是熵" class="headerlink" title="什么是熵"></a>什么是熵</h1><p>概率分布是对随机变量的刻画，不同的随机变量有着相同或不同的概率分布，熵，就是对不同概率分布的刻画！本质上，是为了描述不确定的程度，并以此对不同的概率分布进行比较。</p>
+<p>如果我们知道一枚硬币抛出后正面朝上概率为0.8，要比知道概率为0.5，更容易猜对硬币抛出后哪面朝上。即0.8的概率分布比0.5的概率分布对我们来说，具有更大的信息量。</p>
+<p>需要的是一个定量的指标，来衡量概率分布的不确定性。这个指标就是熵。</p>
+<h1 id="熵的数学表达"><a href="#熵的数学表达" class="headerlink" title="熵的数学表达"></a>熵的数学表达</h1><p>以抛硬币为例，我们看正面这个取值。可以看到，取正面的概率越大，则不确定性就越小。即概率越大，不确定性越小。能够表达出概率越大，不确定性越小的表达式就是：<br>-logP，图像如下：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E7%86%B5/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-26%20%E4%B8%8B%E5%8D%889.14.29.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>图中的纵轴为-logP，横轴为P。</p>
+<p>-logP只是衡量了某个概率的不确定性，对于抛硬币，是正面的不确定性小了，那是反面的不确定性就大了。所以衡量一个概率的分布的不确定性，就要综合衡量所有概率表达的不确定性，也就是求一个概率分部综合的不确定性。<strong>熵</strong>的表达式即为：<strong>-∑PlogP</strong></p>
+<p>这个指标可以理解成概率分布的不确定性的期望值。这个值越大，表示该概率分布不确定性越大。它为我们人类提供的“信息”就越小，我们越难利用这个概率分布做出一个正确的判断。从这个角度，我们可以看到，熵是对概率分布信息含量的衡量，这与它是不确定性的衡量，其实是两种解读方式而已。</p>
+<h1 id="从另一个角度理解熵"><a href="#从另一个角度理解熵" class="headerlink" title="从另一个角度理解熵"></a>从另一个角度理解熵</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E7%86%B5/u=2536703424,2008652302&fm=173&app=49&f=JPEG.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>上图例中，每种颜色的概率都是1/4。此时的最优策略。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E7%86%B5/u=766989654,2959505221&fm=173&app=49&f=JPEG.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>上图为1/8绿色, 1/8 橘色, 1/4 红色, 1/2 蓝色时的最优策略。</p>
+<p>对于同一问题，目标是问最少次数的问题，就能得到正确的答案。在这个问题中, 问题个数的期望是<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E7%86%B5/u=1914240327,2567469862&fm=173&app=49&f=JPEG.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>即为<strong>熵</strong>。<br>第一幅图的熵为 1/4(机率) <em> 2道题目 </em> 4颗球 = 2，平均需要问两道题目才能找出不同颜色的球，也就是说期望值为2，就是熵。<br>第二幅图为1/2×1+1/4×2+1/8×3+1/8×3=1.75。<br>极端情况下全是一种颜色，就不用问问题，熵为0。</p>
+<p>熵的意义就是在<strong>最优化</strong>策略下, <strong>猜到颜色所需要的问题的个数</strong>。也就是一种情况下，只对应一个熵。在不同的情况中，熵越大，需要问的东西越多，说明其不确定性大，熵越小，<strong>需要判断的次数就越少</strong>。</p>
+<h1 id="伯努利分布的熵"><a href="#伯努利分布的熵" class="headerlink" title="伯努利分布的熵"></a>伯努利分布的熵</h1><p>抛硬币即为伯努利分布，它的熵为：H(p) = -plogp -(1-p)log(1-p)</p>
+<p>画出来即为下图：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E7%86%B5/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-27%20%E4%B8%8A%E5%8D%889.09.49.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><strong>当p=0.5时，熵最大</strong>，因为此时硬币朝上朝下完全是随机的，<strong>不确定性最大</strong>。在两侧当其中一面向上的概率为1时，则完全没有不确定性。所以熵就是0。<strong>熵越大，不确定性越大，熵越小，信息越多。</strong>所以熵越小越好，可以把熵看做是优化的目标。</p>
+<p>事实上方差可以用来描述变量变化程度，和熵有一致性，方差越大，不确定性就越大，熵就越大。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E7%86%B5/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-27%20%E4%B8%8A%E5%8D%889.18.40.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h1 id="联合熵"><a href="#联合熵" class="headerlink" title="联合熵"></a>联合熵</h1><p>联合熵与联合概率分布有关，对于随机变量X和Y，二者的联合概率分布为p(x,y),则这个联合概率分布的熵就叫做<strong>联合熵</strong>：<br><strong>H(x,y) = -Σp(x,y)log(p(x,y))</strong></p>
+<p>H(x,y)肯定是大于等于H(x)或H(y)的。仅当X没有不确定性时，比如永远是正面朝上，此时，在Y的基础上联合X，并没有引入新的不确定性，所以，H(x,y)=H(y)。</p>
+<h1 id="条件熵"><a href="#条件熵" class="headerlink" title="条件熵"></a>条件熵</h1><p>x,y的联合熵大于等于x和y单独的熵，对于y来说，引入的x增大了熵，那么，衡量x的引入增加了多大的熵呢，这就是<strong>条件熵</strong>。<br><strong>H(x|y) = H(x,y) - H(y)</strong></p>
+<p>注意H(x|y)叫做条件熵，它可不是条件概率p(x|y)的熵。因为p(x|y)不是一个概率分布。</p>
+<p>条件熵的计算，和条件概率还是有点关系的。<br>H(x|y) = - Σp(x,y)log(p(x|y))</p>
+<p><strong>条件熵是在Y上引入X后增加的不确定性</strong>，从感觉上，增加的不确定性无论如何不可能大于X本身自有的不确定性，也就是：<br><strong>H(x|y) &lt;= H(x)</strong>  仅当x，y相互独立时，等号才成立。</p>
+<h1 id="李航-信息增益"><a href="#李航-信息增益" class="headerlink" title="李航 信息增益"></a>李航 信息增益</h1><p>当熵和条件熵中的概率有数据统计（特别是极大似然估计）得到时，所对应的熵与条件熵分别称为<strong>经验熵</strong>和<strong>经验条件熵</strong>。此时如果有0概率，令0log0=0</p>
+<p><strong>信息增益</strong>表示得知<strong>特征X</strong>的信息而使得<strong>类Y</strong>的信息的不确定性减少的程度。</p>
+<p>特征A对训练数据集D的信息增益g(D,A)，定义为集合D的经验熵H(D)与特征A给定条件下D的经验条件熵H(D|A)之差，即<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E7%86%B5/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-27%20%E4%B8%8B%E5%8D%8812.29.58.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>一般地，熵H(Y)与条件熵H(Y|X)之差称为<strong>互信息</strong>。决策树学习中的信息增益等价于训练数据集中<strong>类与特征的互信息</strong>。详见决策树个人总结。</p>
+<h1 id="相对熵（又叫互熵，KL散度）"><a href="#相对熵（又叫互熵，KL散度）" class="headerlink" title="相对熵（又叫互熵，KL散度）"></a>相对熵（又叫互熵，KL散度）</h1><p>相对熵和前面的几个概念联系不大。互熵D(q||p)实际上就是在衡量我们通过计算得出的真实分布的表达式q，究竟与由样本统计得来的分布p有多接近，在衡量多接近这个概念时，我们运用到了熵的形式。PQ完全相同，互熵就等于0了。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E7%86%B5/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-27%20%E4%B8%8B%E5%8D%881.44.20.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>其中P代表真实分布，Q代表模型分布。也可写为：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E7%86%B5/9922720e0cf3d7ca31c6e0d3ff1fbe096b63a967.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p><strong>KL散度大于等于0</strong>.</p>
+<p>其值等于<strong>真实分布</strong>与<strong>拟合分布</strong>的<strong>交叉熵</strong>与真实分布的<strong>信息熵</strong>之差。<br>此时是两个分布间的运算，与前面同个分布两个变量的运算不是一个概念。</p>
+<h1 id="交叉熵"><a href="#交叉熵" class="headerlink" title="交叉熵"></a>交叉熵</h1><p>P的熵是-Σp(x)log(p(x))，Q的熵是-ΣQ(x)log(Q(x))<br>交叉熵即为<strong>-ΣP(x)log(Q(x))</strong><br>交叉熵是不满足交换律的。<br>如果说对于第二个例子，仍然使用第一个例子中的策略，如下<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E7%86%B5/u=3840435294,1181281422&fm=173&app=49&f=JPEG.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>即认为小球分布是(1/4，1/4，1/4，1/4），这个分布就是非真实分布。平均来说, 需要的问题数是 1/8×2+1/8×2+1/4×2+1/2×2=2。 因此, 在例子二中使用例子一的策略是一个比较差的策略. 其中2是这个方案中的<strong>交叉熵</strong>。而最优方案的交叉熵是1.75。那样预测模型与真实最佳模型是一样的。</p>
+<p>即为给定一个策略（分布）, 交叉熵就是在该策略（分布）下猜中颜色所需要的问题的期望值。更普遍的说，<strong>交叉熵用来衡量在给定的真实分布下，使用非真实分布所指定的策略产生的熵。</strong></p>
+<h2 id="为什么使用交叉熵损失函数"><a href="#为什么使用交叉熵损失函数" class="headerlink" title="为什么使用交叉熵损失函数"></a>为什么使用交叉熵损失函数</h2><p>由于KL散度是衡量真实与模型分布的准则，后一项为常数值，KL值大于等于0，所以损失函数为交叉熵即可，使交叉熵越小越好。交叉熵的最小值即为真实分布的熵。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-03-27T11:47:41.000Z" itemprop="dateUpdated">2019-03-27 19:47:41</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/zdkswd">
+            <img src="/img/tmg.jpg" alt="ZDK">
+            ZDK
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2019/03/27/熵/&title=《熵》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2019/03/27/熵/&title=《熵》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2019/03/27/熵/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《熵》 — ZDK's blog&url=https://github.com/zdkswd/2019/03/27/熵/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2019/03/27/熵/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/03/24/统计学习方法  k近邻法/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">统计学习方法  k近邻法</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz",
+            appKey: "gkBx5soQkBREmER84PWbNJeM",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ZDK &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2019/03/27/熵/&title=《熵》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2019/03/27/熵/&title=《熵》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2019/03/27/熵/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《熵》 — ZDK's blog&url=https://github.com/zdkswd/2019/03/27/熵/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2019/03/27/熵/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2019/03/27/熵/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'zdk'blog';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
