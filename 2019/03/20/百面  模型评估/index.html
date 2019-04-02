@@ -37,10 +37,11 @@
 <meta property="og:image" content="https://github.com/img/media/%E7%99%BE%E9%9D%A2%20%20%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0/page44image3632.jpg">
 <meta property="og:image" content="https://github.com/img/media/%E7%99%BE%E9%9D%A2%20%20%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0/page45image4736.jpg">
 <meta property="og:image" content="https://github.com/img/media/%E7%99%BE%E9%9D%A2%20%20%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0/page45image6248.jpg">
+<meta property="og:image" content="https://github.com/img/add/32.png">
 <meta property="og:image" content="https://github.com/img/media/%E7%99%BE%E9%9D%A2%20%20%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-20%20%E4%B8%8A%E5%8D%8810.09.37.png">
 <meta property="og:image" content="https://github.com/img/media/%E7%99%BE%E9%9D%A2%20%20%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-20%20%E4%B8%8A%E5%8D%8810.37.59.png">
 <meta property="og:image" content="https://github.com/img/media/%E7%99%BE%E9%9D%A2%20%20%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-20%20%E4%B8%8B%E5%8D%881.55.13.png">
-<meta property="og:updated_time" content="2019-03-29T13:41:47.000Z">
+<meta property="og:updated_time" content="2019-04-02T10:33:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="百面 模型评估">
 <meta name="twitter:description" content="百面  模型评估模型评估主要分为离线评估和在线评估两个阶段。针对分类、排序、回归、序列预测等不同类型的机器学习问题，评估指标的选择也有所不同。知道每种评估指标的精确定义、有针对性地选择合适的评估指标、根据评估指标的反馈进行模型调整，这些都是机器学习在模型评估阶段的关键问题，也是一名合格的算法工程师应当具备的基本功。 评估指标的局限性在模型评估过程中，分类问题、排序问题、回归问题往往需要使用不同的指">
@@ -172,7 +173,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#百面-模型评估"><span class="post-toc-number">1.</span> <span class="post-toc-text">百面  模型评估</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#评估指标的局限性"><span class="post-toc-number">2.</span> <span class="post-toc-text">评估指标的局限性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题1-准确率-Accuracy-的局限性"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">问题1  准确率(Accuracy)的局限性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题2-精确率-Precision-与召回率的权衡"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">问题2  精确率(Precision)与召回率的权衡</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题3-平方根误差的“意外”"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">问题3   平方根误差的“意外”</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ROC曲线"><span class="post-toc-number">3.</span> <span class="post-toc-text">ROC曲线</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题1-什么是ROC曲线？"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">问题1  什么是ROC曲线？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题2-如何绘制ROC曲线？"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">问题2 如何绘制ROC曲线？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题3-如何计算AUC？"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">问题3  如何计算AUC？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题4-ROC曲线相比PR曲线有什么特点？"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">问题4 ROC曲线相比PR曲线有什么特点？</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#AB测试"><span class="post-toc-number">4.</span> <span class="post-toc-text">AB测试</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题1"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">问题1</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题2-如何进行线上AB测试？"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">问题2  如何进行线上AB测试？</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#模型评估的方法"><span class="post-toc-number">5.</span> <span class="post-toc-text">模型评估的方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题1-1"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">问题1</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题2"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">问题2</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#百面-模型评估"><span class="post-toc-number">1.</span> <span class="post-toc-text">百面  模型评估</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#评估指标的局限性"><span class="post-toc-number">2.</span> <span class="post-toc-text">评估指标的局限性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题1-准确率-Accuracy-的局限性"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">问题1  准确率(Accuracy)的局限性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题2-精确率-Precision-与召回率的权衡"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">问题2  精确率(Precision)与召回率的权衡</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题3-平方根误差的“意外”"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">问题3   平方根误差的“意外”</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ROC曲线"><span class="post-toc-number">3.</span> <span class="post-toc-text">ROC曲线</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题1-什么是ROC曲线？"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">问题1  什么是ROC曲线？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题2-如何绘制ROC曲线？"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">问题2 如何绘制ROC曲线？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题3-如何计算AUC？"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">问题3  如何计算AUC？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#树的AUC的计算"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">树的AUC的计算</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#AUC缺点"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">AUC缺点</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题4-ROC曲线相比PR曲线有什么特点？"><span class="post-toc-number">3.6.</span> <span class="post-toc-text">问题4 ROC曲线相比PR曲线有什么特点？</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#AB测试"><span class="post-toc-number">4.</span> <span class="post-toc-text">AB测试</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题1"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">问题1</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题2-如何进行线上AB测试？"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">问题2  如何进行线上AB测试？</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#模型评估的方法"><span class="post-toc-number">5.</span> <span class="post-toc-text">模型评估的方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题1-1"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">问题1</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题2"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">问题2</span></a></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -254,7 +255,7 @@
                 </div>
                 <div class="image-caption"></div>
             </figure><br>相比RMSE, MAPE相当于把每个点的误差进行了归一化，降低了个别离群点带来的绝对误差的影响。</p>
-<h1 id="ROC曲线"><a href="#ROC曲线" class="headerlink" title="ROC曲线"></a>ROC曲线</h1><p>二值分类器( Binary Classifier)是机器学习领域中最常见也是应用最广泛的分类器。评价二值分类器的指标很多,比如 precision、 recall F1 score、PR曲线等。上一小节已对这些指标做了一定的介绍,但也发现这些指标或多或少只能反      映模型在某一方面的性能。相比而言,ROC曲线则有很多优点,经常作为评估二值分类器最重要的指标之一。</p>
+<h1 id="ROC曲线"><a href="#ROC曲线" class="headerlink" title="ROC曲线"></a>ROC曲线</h1><p>二值分类器( Binary Classifier)是机器学习领域中最常见也是应用最广泛的分类器。评价二值分类器的指标很多,比如 precision、 recall F1 score、PR曲线等。上一小节已对这些指标做了一定的介绍,但也发现这些指标或多或少只能反映模型在某一方面的性能。相比而言,ROC曲线则有很多优点,经常作为评估二值分类器最重要的指标之一。</p>
 <h2 id="问题1-什么是ROC曲线？"><a href="#问题1-什么是ROC曲线？" class="headerlink" title="问题1  什么是ROC曲线？"></a>问题1  什么是ROC曲线？</h2><p>ROC曲线的横坐标为假阳性率(False Positive Rate，FPR) ;纵坐标为真阳性率, (True Positive Rate, TPR)。FPR和TPR的计算方法分别为<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
@@ -267,10 +268,16 @@
                     <img src="/img/media/%E7%99%BE%E9%9D%A2%20%20%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0/page45image6248.jpg" alt="" title="">
                 </div>
                 <div class="image-caption"></div>
-            </figure><br>上式中，P是真实的正样本的数量，N是真实的负样本的数量，TP是P个正样本中被分类器预测为正样本的个数，FP是N个负样本中被分类器预测为正样本的个数。<strong>发现TPR与Recall是相等的。</strong></p>
-<p>举个例子，假设有10位疑似癌症患者，其中有3位很不幸确实患了癌症(P=3)，另外7位不是癌症患者(N=7) 。医院对这10位疑似患者做了诊断，诊断出3位癌症患者，其中有2位确实是真正的患者(TP=2) 。那么真阳性率TPR=TP \/ P=2\/ 3。对于7位非癌症患者来说，有一位很不幸被误诊为癌症患者(FP= 1)，那么假阳性率FPR=FP \/ N=1\/ 7。对于“该医院”这个分类器来说，这组分类结果就对应ROC曲线上的一个点(1\/7, 2\/3)。</p>
+            </figure><br>上式中，P是真实的正样本的数量，N是真实的负样本的数量，TP是P个正样本中被分类器预测为正样本的个数，FP是N个负样本中被分类器预测为正样本的个数。<strong>发现TPR与Recall是相等的。</strong>FPR即为误诊率，公式为<br>（N被认为P） / N。</p>
+<p>举个例子，假设有10位疑似癌症患者，其中有3位很不幸确实患了癌症(P=3)，另外7位不是癌症患者(N=7) 。医院对这10位疑似患者做了诊断，诊断出3位癌症患者，其中有2位确实是真正的患者(TP=2) 。那么真阳性率TPR=TP \ P=2\ 3。对于7位非癌症患者来说，有一位很不幸被误诊为癌症患者(FP= 1)，那么假阳性率FPR=FP \ N=1\ 7。对于“该医院”这个分类器来说，这组分类结果就对应ROC曲线上的一个点(1\7, 2\3)。</p>
 <h2 id="问题2-如何绘制ROC曲线？"><a href="#问题2-如何绘制ROC曲线？" class="headerlink" title="问题2 如何绘制ROC曲线？"></a>问题2 如何绘制ROC曲线？</h2><p>事实上，ROC曲线是通过不断移动分类器的“截断点”来生成曲线上的一组关键点的。</p>
-<p>在二值分类问题中，模型的输出一般都是预测样本为正例的概率，在输出最终的正例，负例之前，我们需要指定一个<strong>阈值</strong>，预测概率大于该阈值的样本会被判为正例，小于该阈值的样本则会被判为负例。<strong>截断点</strong>指的是区分<strong>正负预测结果的阈值</strong>。</p>
+<p>在二值分类问题中，模型的输出一般都是预测样本为正例的概率，所以下表中的概率值都为<strong>正值的概率</strong>，在输出最终的正例，负例之前，我们需要指定一个<strong>阈值</strong>，预测概率大于该阈值的样本会被判为正例，小于该阈值的样本则会被判为负例。<strong>截断点</strong>指的是区分<strong>正负预测结果的阈值</strong>。下图是模型的输出结果,样本按照预测概率从高到低排序。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/add/32.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure> </p>
 <p>通过动态地调整截断点，从最高的得分开始(实际上是从正无穷开始，对应着ROC曲线的零点)，逐渐调整到最低得分，每一个截断点都会对应一个FPR和TPR，在ROC图上绘制出每个截断点对应的位置，再连接所有点就得到最终的ROC曲线。</p>
 <p>例如下图的ROC曲线。<br>当截断点选择为正无穷时，模型把全部样本预测为负例，那么FP和TP必然都为0，FPR和TPR也都为0，因此曲线的第一个点的坐标就是(0,0)。当把截断点调整为0.9时，模型预测1号样本为正样本，并且该样本确实是正样本，因此，TP=1, 20个样本中，所有正例数量为P=10,故TPR=TP/ P=1/ 10;这里没有预测错的正样本，即FP=0, 负样本总数N=10,故FPR=FP /N=0 /10=0,对应ROC曲线上的点(0,0.1) 。依次调整截断点，直到画出全部的关键点，再连接关键点即得到最终的ROC曲线。<strong>不是说以假阳性率为自变量以真阳性率为因变量哦</strong>。<br><figure class="image-bubble">
                 <div class="img-lightbox">
@@ -279,7 +286,10 @@
                 </div>
                 <div class="image-caption"></div>
             </figure></p>
+<p>还有一种更直观地绘制ROC曲线的方法。首先根据样本标签统计出正负样本的数量，假设正样本数量为P，负样本数量为N。接下来把横轴刻度间隔设置为1 / N,纵轴的刻度间隔设置为1 / P。再根据模型输出的预测概率对样本进行排序（从高到低）；依次遍历样本，同时从零点开始绘制ROC曲线，每遇到一个正样本就沿着纵轴方向绘制一个刻度间隔的曲线，每遇到一个负样本就沿横轴方向绘制一个刻度间隔的曲线，直到遍历完所有样本，曲线最终停在（1，1）整个ROC曲线绘制完成。这样就很好理解<strong>为什么面积越大，分类性能越好了</strong>，想象这个过程即可。</p>
 <h2 id="问题3-如何计算AUC？"><a href="#问题3-如何计算AUC？" class="headerlink" title="问题3  如何计算AUC？"></a>问题3  如何计算AUC？</h2><p>AUC指的是ROC曲线下的面积大小，该值能够量化地反映基于ROC曲线衡量出的模型性能。ROC曲线一般都处于y=x这条直线的上方，如果不是的话，只要把模型预测的概率反转成1-p就可以得到一个更好的分类器。所以AUC的取值一般在0.5至1之间。<strong>AUC越大，说明分类器越可能把真正的正样本排在前面，分类性能越好。</strong>比如极端好，那就是条x=0这条直线啊。</p>
+<h2 id="树的AUC的计算"><a href="#树的AUC的计算" class="headerlink" title="树的AUC的计算"></a>树的AUC的计算</h2><p>很多机器学习的模型对分类问题的预测结果都是概率，如果要计算accuracy，需要把概率转化为类别，这就需要手动设置一个阈值。可以结合着第一种画AUC的方法来看，对于决策树，这种，可以使用第二种方法比较好理解，当然都用第二种都比较好理解。</p>
+<h2 id="AUC缺点"><a href="#AUC缺点" class="headerlink" title="AUC缺点"></a>AUC缺点</h2><p>AUC的最大问题在于它并不在乎所有实例的绝对预测数值，而只在乎它们的相对数值。</p>
 <h2 id="问题4-ROC曲线相比PR曲线有什么特点？"><a href="#问题4-ROC曲线相比PR曲线有什么特点？" class="headerlink" title="问题4 ROC曲线相比PR曲线有什么特点？"></a>问题4 ROC曲线相比PR曲线有什么特点？</h2><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
@@ -314,7 +324,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-03-29T13:41:47.000Z" itemprop="dateUpdated">2019-03-29 21:41:47</time>
+    最后更新时间：<time datetime="2019-04-02T10:33:07.000Z" itemprop="dateUpdated">2019-04-02 18:33:07</time>
 </span><br>
 
 
