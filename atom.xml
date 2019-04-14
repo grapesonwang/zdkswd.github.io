@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/zdkswd/"/>
-  <updated>2019-04-14T07:58:35.690Z</updated>
+  <updated>2019-04-14T07:44:25.371Z</updated>
   <id>https://github.com/zdkswd/</id>
   
   <author>
@@ -15,36 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>《深度学习》3 概率与信息论</title>
-    <link href="https://github.com/zdkswd/2019/04/14/test/"/>
-    <id>https://github.com/zdkswd/2019/04/14/test/</id>
-    <published>2019-04-14T09:20:12.000Z</published>
-    <updated>2019-04-14T07:58:35.690Z</updated>
-    
-    <content type="html"><![CDATA[<p>1 L_{1}=\sum_{i=1}^{N} \max \left(0, h\left(y_{i}\right)-h\left(x_{i}\right)\right)</p><p>2 (L_{1}=\sum_{i=1}^{N} \max \left(0, h\left(y_{i}\right)-h\left(x_{i}\right)\right))</p><p>3 $$L_{1}=\sum_{i=1}^{N} \max \left(0, h\left(y_{i}\right)-h\left(x_{i}\right)\right)$$</p><p>4 \begin{equation}<br>L_{1}=\sum_{i=1}^{N} \max \left(0, h\left(y_{i}\right)-h\left(x_{i}\right)\right)<br>\end{equation} </p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;1 L_{1}=\sum_{i=1}^{N} \max \left(0, h\left(y_{i}\right)-h\left(x_{i}\right)\right)&lt;/p&gt;
-&lt;p&gt;2 (L_{1}=\sum_{i=1}^{N} \max \left(0, h\left(y
-      
-    
-    </summary>
-    
-      <category term="读书笔记" scheme="https://github.com/zdkswd/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="机器学习" scheme="https://github.com/zdkswd/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="概率" scheme="https://github.com/zdkswd/tags/%E6%A6%82%E7%8E%87/"/>
-    
-      <category term="信息论" scheme="https://github.com/zdkswd/tags/%E4%BF%A1%E6%81%AF%E8%AE%BA/"/>
-    
-  </entry>
   
   <entry>
     <title>Kaggle竞赛案例一</title>
@@ -527,6 +497,32 @@
     </summary>
     
       <category term="知识总结" scheme="https://github.com/zdkswd/categories/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"/>
+    
+    
+      <category term="机器学习" scheme="https://github.com/zdkswd/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>XGBoost 陈天奇论文 ppt 个人总结</title>
+    <link href="https://github.com/zdkswd/2019/03/04/XGBoost%20%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/"/>
+    <id>https://github.com/zdkswd/2019/03/04/XGBoost 个人总结/</id>
+    <published>2019-03-04T08:49:32.000Z</published>
+    <updated>2019-03-07T12:15:41.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://arxiv.org/pdf/1603.02754.pdf" target="_blank" rel="noopener">https://arxiv.org/pdf/1603.02754.pdf</a></p><h1 id="阅读目标"><a href="#阅读目标" class="headerlink" title="阅读目标"></a>阅读目标</h1><p>了解作者群<br>1 论文解决了什么问题<br>2 论文核心贡献是什么<br>3 详细研究论文的具体方法</p><h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>文中提到，XGBoost，这个系统的效果已经被大量的机器学习和数据挖掘竞赛所验证。以Kaggle为例，2015年29组优胜方案中17组使用了XGBoost。这其中，8组只是使用了XGBoost去训练模型，其他大部分都是将XGBoost和神经网络做集成。作为对比，第二受欢迎的工具，深度神经网络，有11组采用。在KDDCup 2015中，top-10 每一组都使用了XGBoost。</p><p>在以下问题上提出了优胜的解决方案，包括：商店销售预测，高能物理事件分类，网站文本分类，顾客行为预测，动作检测，广告点击通过率预测，风险预测，大规模的在线课程辍学率预测。</p><p>XGBoost在所有场景中的可扩展性也十分的重要，XGBoost的可扩展性归功于一些重要的系统和算法优化。这些创新包括：一种处理稀疏数据的新奇的树的学习算法；并行和分布式计算让学习进行的更快能够进行更快的模型探索。提出了具有合理理论支撑的分布分位调整框架。</p><p>论文的主要贡献有：</p><ol><li>构建了高可扩展的端到端的boosting系统。</li><li>提出了具有合理理论支撑的分布分位调整框架。</li><li>介绍了一个新奇的并行适应稀疏处理树学习算法。</li><li>提出了基于缓存快的结构便于外存树的学习。</li></ol><p>已经有人做了并行树、基于外存的计算、缓存的计算、稀疏特征的学习等一些列工作，这篇文章最重要的是能够把很多特征结合到一个系统中。</p><p>文章的组织结构：boosting树的正则化（防止过拟合）、树的split方法（decision Tree 使用Gini划分）、系统设计、实验。</p><p>陈天奇XGBoost ppt（内容非常详细）链接:<a href="https://pan.baidu.com/s/10NWfRM9qimswGxPsF9VlDw" target="_blank" rel="noopener">https://pan.baidu.com/s/10NWfRM9qimswGxPsF9VlDw</a>  密码:v3y6</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/add/24.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/add/25.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/add/26.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://arxiv.org/pdf/1603.02754.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://arxiv.org/pdf/1603.02754.pdf&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;阅读目标&quot;&gt;
+      
+    
+    </summary>
+    
+      <category term="论文" scheme="https://github.com/zdkswd/categories/%E8%AE%BA%E6%96%87/"/>
     
     
       <category term="机器学习" scheme="https://github.com/zdkswd/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
