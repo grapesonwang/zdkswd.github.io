@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Kaggle竞赛案例一 | ZDK&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="机器学习">
+    <meta name="description" content="Kaggle_CrowdFlowerGitHub - ChenglongChen/Kaggle_CrowdFlower: 1st Place Solution for Search Results Relevance Competition on Kaggle (https://www.kaggle.com/c/crowdflower-search-relevance)1st Place Solu">
+<meta name="keywords" content="机器学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kaggle竞赛案例一">
+<meta property="og:url" content="https://github.com/zdkswd/2019/04/14/Kaggle竞赛案例一/index.html">
+<meta property="og:site_name" content="ZDK&#39;s blog">
+<meta property="og:description" content="Kaggle_CrowdFlowerGitHub - ChenglongChen/Kaggle_CrowdFlower: 1st Place Solution for Search Results Relevance Competition on Kaggle (https://www.kaggle.com/c/crowdflower-search-relevance)1st Place Solu">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/img/media/Kaggle%E7%AB%9E%E8%B5%9B%E6%A1%88%E4%BE%8B%E4%B8%80/FlowChart.jpg">
+<meta property="og:image" content="https://github.com/img/media/Kaggle%E7%AB%9E%E8%B5%9B%E6%A1%88%E4%BE%8B%E4%B8%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-12%20%E4%B8%8B%E5%8D%883.09.02.png">
+<meta property="og:image" content="https://github.com/img/media/Kaggle%E7%AB%9E%E8%B5%9B%E6%A1%88%E4%BE%8B%E4%B8%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-12%20%E4%B8%8B%E5%8D%883.17.52.png">
+<meta property="og:image" content="https://github.com/img/media/Kaggle%E7%AB%9E%E8%B5%9B%E6%A1%88%E4%BE%8B%E4%B8%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-12%20%E4%B8%8B%E5%8D%883.20.07.png">
+<meta property="og:image" content="https://github.com/img/media/Kaggle%E7%AB%9E%E8%B5%9B%E6%A1%88%E4%BE%8B%E4%B8%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-12%20%E4%B8%8B%E5%8D%883.23.08.png">
+<meta property="og:image" content="https://github.com/img/media/Kaggle%E7%AB%9E%E8%B5%9B%E6%A1%88%E4%BE%8B%E4%B8%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-12%20%E4%B8%8B%E5%8D%883.24.35.png">
+<meta property="og:image" content="https://github.com/img/media/Kaggle%E7%AB%9E%E8%B5%9B%E6%A1%88%E4%BE%8B%E4%B8%80/FlowChart%202.jpg">
+<meta property="og:image" content="https://github.com/img/media/Kaggle%E7%AB%9E%E8%B5%9B%E6%A1%88%E4%BE%8B%E4%B8%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-12%20%E4%B8%8B%E5%8D%888.55.03.png">
+<meta property="og:image" content="https://github.com/img/media/Kaggle%E7%AB%9E%E8%B5%9B%E6%A1%88%E4%BE%8B%E4%B8%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-12%20%E4%B8%8B%E5%8D%889.04.04.png">
+<meta property="og:image" content="https://github.com/img/media/Kaggle%E7%AB%9E%E8%B5%9B%E6%A1%88%E4%BE%8B%E4%B8%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-12%20%E4%B8%8B%E5%8D%889.04.46.png">
+<meta property="og:image" content="https://github.com/img/media/Kaggle%E7%AB%9E%E8%B5%9B%E6%A1%88%E4%BE%8B%E4%B8%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-12%20%E4%B8%8B%E5%8D%888.52.35.png">
+<meta property="og:image" content="https://github.com/img/media/Kaggle%E7%AB%9E%E8%B5%9B%E6%A1%88%E4%BE%8B%E4%B8%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-13%20%E4%B8%8B%E5%8D%883.18.54.png">
+<meta property="og:image" content="https://github.com/img/media/Kaggle%E7%AB%9E%E8%B5%9B%E6%A1%88%E4%BE%8B%E4%B8%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-13%20%E4%B8%8B%E5%8D%883.25.09.png">
+<meta property="og:image" content="https://github.com/img/media/Kaggle%E7%AB%9E%E8%B5%9B%E6%A1%88%E4%BE%8B%E4%B8%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-13%20%E4%B8%8B%E5%8D%888.09.49.png">
+<meta property="og:image" content="https://github.com/img/media/Kaggle%E7%AB%9E%E8%B5%9B%E6%A1%88%E4%BE%8B%E4%B8%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-13%20%E4%B8%8B%E5%8D%888.11.42.png">
+<meta property="og:image" content="https://github.com/img/media/Kaggle%E7%AB%9E%E8%B5%9B%E6%A1%88%E4%BE%8B%E4%B8%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-13%20%E4%B8%8B%E5%8D%888.27.11.png">
+<meta property="og:updated_time" content="2019-04-14T07:38:55.409Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Kaggle竞赛案例一">
+<meta name="twitter:description" content="Kaggle_CrowdFlowerGitHub - ChenglongChen/Kaggle_CrowdFlower: 1st Place Solution for Search Results Relevance Competition on Kaggle (https://www.kaggle.com/c/crowdflower-search-relevance)1st Place Solu">
+<meta name="twitter:image" content="https://github.com/img/media/Kaggle%E7%AB%9E%E8%B5%9B%E6%A1%88%E4%BE%8B%E4%B8%80/FlowChart.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/tmg.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ZDK</h5>
+          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/zdkswd" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Kaggle竞赛案例一</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Kaggle竞赛案例一</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-14T07:37:47.000Z" itemprop="datePublished" class="page-time">
+  2019-04-14
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Kaggle-CrowdFlower"><span class="post-toc-number">1.</span> <span class="post-toc-text">Kaggle_CrowdFlower</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#概述"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">概述</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#预处理"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">预处理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#去除HTML标签"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">去除HTML标签</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#单词替换"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">单词替换</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#特征提取-选择"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">特征提取/选择</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#计数特征"><span class="post-toc-number">1.5.1.</span> <span class="post-toc-text">计数特征</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#基础计数特征"><span class="post-toc-number">1.5.1.1.</span> <span class="post-toc-text">基础计数特征</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#交叉计数特征"><span class="post-toc-number">1.5.1.2.</span> <span class="post-toc-text">交叉计数特征</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#交叉位置特征"><span class="post-toc-number">1.5.1.3.</span> <span class="post-toc-text">交叉位置特征</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#距离特征"><span class="post-toc-number">1.5.2.</span> <span class="post-toc-text">距离特征</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#TF-IDF特征"><span class="post-toc-number">1.5.3.</span> <span class="post-toc-text">TF-IDF特征</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#其他特征"><span class="post-toc-number">1.5.4.</span> <span class="post-toc-text">其他特征</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#查询ID"><span class="post-toc-number">1.5.4.1.</span> <span class="post-toc-text">查询ID</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#特征选择"><span class="post-toc-number">1.5.5.</span> <span class="post-toc-text">特征选择</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#模型技术和训练"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">模型技术和训练</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#交叉验证方法学"><span class="post-toc-number">1.6.1.</span> <span class="post-toc-text">交叉验证方法学</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#划分"><span class="post-toc-number">1.6.1.1.</span> <span class="post-toc-text">划分</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Kaggle-HomeDepot"><span class="post-toc-number">2.</span> <span class="post-toc-text">Kaggle_HomeDepot</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Kaggle——销售量预测"><span class="post-toc-number">3.</span> <span class="post-toc-text">Kaggle——销售量预测</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#part1-hands-on-data"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">part1 hands on data</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数据域含义"><span class="post-toc-number">3.1.1.</span> <span class="post-toc-text">数据域含义</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#trick1"><span class="post-toc-number">3.1.2.</span> <span class="post-toc-text">trick1</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#trick2"><span class="post-toc-number">3.1.3.</span> <span class="post-toc-text">trick2</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#trick3"><span class="post-toc-number">3.1.4.</span> <span class="post-toc-text">trick3</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#item-id"><span class="post-toc-number">3.1.5.</span> <span class="post-toc-text">item_id</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#shop-id"><span class="post-toc-number">3.1.6.</span> <span class="post-toc-text">shop_id</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#price"><span class="post-toc-number">3.1.7.</span> <span class="post-toc-text">price</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#dates"><span class="post-toc-number">3.1.8.</span> <span class="post-toc-text">dates</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#shop-info"><span class="post-toc-number">3.1.9.</span> <span class="post-toc-text">shop info</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#items-csv"><span class="post-toc-number">3.1.10.</span> <span class="post-toc-text">items.csv</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#category-csv"><span class="post-toc-number">3.1.11.</span> <span class="post-toc-text">category.csv</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#test-set"><span class="post-toc-number">3.1.12.</span> <span class="post-toc-text">test set</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Kaggle——销售量预测-1"><span class="post-toc-number">4.</span> <span class="post-toc-text">Kaggle——销售量预测</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#part1-，perfect-features"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">part1 ，perfect features</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Monthly-sales"><span class="post-toc-number">4.1.1.</span> <span class="post-toc-text">Monthly sales</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#测试集"><span class="post-toc-number">4.1.2.</span> <span class="post-toc-text">测试集</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Shops-Items-Cats-features"><span class="post-toc-number">4.1.3.</span> <span class="post-toc-text">Shops/Items/Cats features</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Traget-lags"><span class="post-toc-number">4.1.4.</span> <span class="post-toc-text">Traget lags</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#均值编码特征"><span class="post-toc-number">4.1.5.</span> <span class="post-toc-text">均值编码特征</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#trend-features"><span class="post-toc-number">4.1.6.</span> <span class="post-toc-text">trend features</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Special-features"><span class="post-toc-number">4.1.7.</span> <span class="post-toc-text">Special features</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#最终准备"><span class="post-toc-number">4.1.8.</span> <span class="post-toc-text">最终准备</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#part2-xgboost"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">part2 ,xgboost</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Kaggle竞赛案例一"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Kaggle竞赛案例一</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-14 15:37:47" datetime="2019-04-14T07:37:47.000Z"  itemprop="datePublished">2019-04-14</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="Kaggle-CrowdFlower"><a href="#Kaggle-CrowdFlower" class="headerlink" title="Kaggle_CrowdFlower"></a>Kaggle_CrowdFlower</h1><p><a href="https://github.com/ChenglongChen/Kaggle_CrowdFlower">GitHub - ChenglongChen/Kaggle_CrowdFlower: 1st Place Solution for Search Results Relevance Competition on Kaggle (https://www.kaggle.com/c/crowdflower-search-relevance)</a><br>1st Place Solution for Search Results Relevance Competition on Kaggle<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Kaggle%E7%AB%9E%E8%B5%9B%E6%A1%88%E4%BE%8B%E4%B8%80/FlowChart.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>问题描述：搜索结果相关挑战，给定搜索结果，搜索出的产品名称，产品描述，建立模型去预测搜索结果的相关得分。</p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>解决方案分为两部分：特征工程和模型集成。</p>
+<p>特征包括三部分的特征：<br>1.计数特征<br>2.距离特征<br>3.TF-IDF特征</p>
+<p>在生产特征前，对数据进行拼写检查，同义词替换，词干提取是非常有用的。模型集成包括两个主要的步骤，首先，使用不同种，不同参数设置，不同特征子集去训练模型。然后使用训练的模型进行bagged集成选择。在训练集上使用交叉验证来评估表现。</p>
+<h2 id="预处理"><a href="#预处理" class="headerlink" title="预处理"></a>预处理</h2><p>进行了几步去清洗文本。</p>
+<h2 id="去除HTML标签"><a href="#去除HTML标签" class="headerlink" title="去除HTML标签"></a>去除HTML标签</h2><p>在商品描述中存在html标签的干扰，使用bs4去除之。</p>
+<h2 id="单词替换"><a href="#单词替换" class="headerlink" title="单词替换"></a>单词替换</h2><p>在搜索中会出现词义相关的搜索，要考虑到。<br>1.拼写纠正<br>2.同义词替换<br>3.词干提取</p>
+<h2 id="特征提取-选择"><a href="#特征提取-选择" class="headerlink" title="特征提取/选择"></a>特征提取/选择</h2><p>$$<br>\left(q_{i}, t_{i}, d_{i}\right)<br>$$是train.csv以及test.csv中的第i个样本，qi是查询，ti是产品名，di是产品描述。使用ri和vi来表示<strong>median_relevance</strong>和<strong>relevance_variance</strong>。使用函数ngram(s,n)去提取句子中的n个词。例如<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Kaggle%E7%AB%9E%E8%B5%9B%E6%A1%88%E4%BE%8B%E4%B8%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-12%20%E4%B8%8B%E5%8D%883.09.02.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="计数特征"><a href="#计数特征" class="headerlink" title="计数特征"></a>计数特征</h3><p>为$$<br>\left{q_{i}, t_{i}, d_{i}\right}<br>$$生成计数特征。</p>
+<h4 id="基础计数特征"><a href="#基础计数特征" class="headerlink" title="基础计数特征"></a>基础计数特征</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Kaggle%E7%AB%9E%E8%B5%9B%E6%A1%88%E4%BE%8B%E4%B8%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-12%20%E4%B8%8B%E5%8D%883.17.52.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="交叉计数特征"><a href="#交叉计数特征" class="headerlink" title="交叉计数特征"></a>交叉计数特征</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Kaggle%E7%AB%9E%E8%B5%9B%E6%A1%88%E4%BE%8B%E4%B8%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-12%20%E4%B8%8B%E5%8D%883.20.07.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="交叉位置特征"><a href="#交叉位置特征" class="headerlink" title="交叉位置特征"></a>交叉位置特征</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Kaggle%E7%AB%9E%E8%B5%9B%E6%A1%88%E4%BE%8B%E4%B8%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-12%20%E4%B8%8B%E5%8D%883.23.08.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="距离特征"><a href="#距离特征" class="headerlink" title="距离特征"></a>距离特征</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Kaggle%E7%AB%9E%E8%B5%9B%E6%A1%88%E4%BE%8B%E4%B8%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-12%20%E4%B8%8B%E5%8D%883.24.35.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="TF-IDF特征"><a href="#TF-IDF特征" class="headerlink" title="TF-IDF特征"></a>TF-IDF特征</h3><h3 id="其他特征"><a href="#其他特征" class="headerlink" title="其他特征"></a>其他特征</h3><h4 id="查询ID"><a href="#查询ID" class="headerlink" title="查询ID"></a>查询ID</h4><p>将查询id进行独热编码。</p>
+<h3 id="特征选择"><a href="#特征选择" class="headerlink" title="特征选择"></a>特征选择</h3><p>相同的模型经常被用来在特征集上进行交叉验证来测试与之前的特征集合相比是否得分有所提升。对于高维特征，使用XGBoost with linear booster(MSE为目标函数)，对于低维特征使用sklearn中的ExtraTreesRegressor。</p>
+<p>值得注意的是，有了集成选择(<strong>ensemble selection</strong>)，我们可以利用不同的特征集合来训练特征库，并且利用集成选择去挑选出最佳的集成。但是特征选择依旧有用。使用上述的特征选择，可以首先明确一些表现好的特征集合，然后使用其去训练模型，这会在一定程度上减少计算负担。</p>
+<h2 id="模型技术和训练"><a href="#模型技术和训练" class="headerlink" title="模型技术和训练"></a>模型技术和训练</h2><h3 id="交叉验证方法学"><a href="#交叉验证方法学" class="headerlink" title="交叉验证方法学"></a>交叉验证方法学</h3><h4 id="划分"><a href="#划分" class="headerlink" title="划分"></a>划分</h4><p>StratifiedKFold</p>
+<h1 id="Kaggle-HomeDepot"><a href="#Kaggle-HomeDepot" class="headerlink" title="Kaggle_HomeDepot"></a>Kaggle_HomeDepot</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Kaggle%E7%AB%9E%E8%B5%9B%E6%A1%88%E4%BE%8B%E4%B8%80/FlowChart%202.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h1 id="Kaggle——销售量预测"><a href="#Kaggle——销售量预测" class="headerlink" title="Kaggle——销售量预测"></a>Kaggle——销售量预测</h1><p>比赛地址<a href="https://www.kaggle.com/c/competitive-data-science-predict-future-sales/data" target="_blank" rel="noopener">Predict Future Sales | Kaggle</a><br>这个比赛作为经典的时间序列问题之一，目标是为了预测下个月每种产品和商店的总销售额。</p>
+<p>以下为<strong>1st solution</strong>。</p>
+<h2 id="part1-hands-on-data"><a href="#part1-hands-on-data" class="headerlink" title="part1 hands on data"></a>part1 hands on data</h2><p><a href="https://www.kaggle.com/kyakovlev/1st-place-solution-part-1-hands-on-data/notebook" target="_blank" rel="noopener">https://www.kaggle.com/kyakovlev/1st-place-solution-part-1-hands-on-data/notebook</a></p>
+<h3 id="数据域含义"><a href="#数据域含义" class="headerlink" title="数据域含义"></a>数据域含义</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Kaggle%E7%AB%9E%E8%B5%9B%E6%A1%88%E4%BE%8B%E4%B8%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-12%20%E4%B8%8B%E5%8D%888.55.03.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>数据集情况：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Kaggle%E7%AB%9E%E8%B5%9B%E6%A1%88%E4%BE%8B%E4%B8%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-12%20%E4%B8%8B%E5%8D%889.04.04.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Kaggle%E7%AB%9E%E8%B5%9B%E6%A1%88%E4%BE%8B%E4%B8%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-12%20%E4%B8%8B%E5%8D%889.04.46.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="trick1"><a href="#trick1" class="headerlink" title="trick1"></a>trick1</h3><p><strong>downcasting DataFrame.</strong> It will save some memory, everyone will need all memory possible.</p>
+<p>In this case from 134.4MB to 61.6 MB</p>
+<h3 id="trick2"><a href="#trick2" class="headerlink" title="trick2"></a>trick2</h3><p>pd.pivot_table()透视表功能<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Kaggle%E7%AB%9E%E8%B5%9B%E6%A1%88%E4%BE%8B%E4%B8%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-12%20%E4%B8%8B%E5%8D%888.52.35.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="trick3"><a href="#trick3" class="headerlink" title="trick3"></a>trick3</h3><p>利用图像去除极端值<br>使用<strong>seaborn</strong>。boxplot</p>
+<h3 id="item-id"><a href="#item-id" class="headerlink" title="item_id"></a>item_id</h3><p>以item_id为索引，月份为列名生成表格来观察数据。<br>分析每个月销售的总和的趋势。<br>分析每个平均一个商品销售的趋势（和👆趋势一致）<br>查看有多少6个月来没有销售记录的商品<br>查看测试数据中有多少这样过期的商品<br>查看价格和销售额的离群点</p>
+<p>可能的特征：</p>
+<ol>
+<li>时间间隔</li>
+<li>商品放出的日期</li>
+<li>上月的销售</li>
+<li>销售的日期</li>
+<li>临近的商品（id1000与1001的商品可能有所相似）</li>
+</ol>
+<h3 id="shop-id"><a href="#shop-id" class="headerlink" title="shop_id"></a>shop_id</h3><p>以shop_id为索引，月份为列名生成表格来观察数据。<br>查看最近开张的商店数<br>查看最近倒闭的商店数</p>
+<p>可能的特征：</p>
+<ol>
+<li>时间间隔（shop_id/shp_cnt_mth）</li>
+<li>开业月份（可能的开业促销活动）</li>
+<li>倒闭月份（可能的清仓大甩卖）<h3 id="price"><a href="#price" class="headerlink" title="price"></a>price</h3>可能的特征：</li>
+<li>价格分档（1/10/20/等等），显然，更低价的物品拥有着更大的销量。</li>
+<li>打折和打折期间</li>
+<li>价格的时间间隔（显示打折）</li>
+<li>价格修正</li>
+<li>店铺的收入<h3 id="dates"><a href="#dates" class="headerlink" title="dates"></a>dates</h3>可能的日期特征：</li>
+<li>周末和假期的销售额（去修正月度的销售）</li>
+<li>该月有几天（去修正月度的销售）</li>
+<li>是第几个月（与季节性的物品有关）</li>
+</ol>
+<h3 id="shop-info"><a href="#shop-info" class="headerlink" title="shop info"></a>shop info</h3><p>shop city | shop type | shop name</p>
+<p>可能的商店特征：</p>
+<ol>
+<li>shop city</li>
+<li>shop type</li>
+</ol>
+<h3 id="items-csv"><a href="#items-csv" class="headerlink" title="items.csv"></a>items.csv</h3><p>从items.csv中挖掘特征<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Kaggle%E7%AB%9E%E8%B5%9B%E6%A1%88%E4%BE%8B%E4%B8%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-13%20%E4%B8%8B%E5%8D%883.18.54.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>可能的特征，1.item name 2.Encoded aditional feature</p>
+<h3 id="category-csv"><a href="#category-csv" class="headerlink" title="category.csv"></a>category.csv</h3><p>category.csv中满足的格式<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Kaggle%E7%AB%9E%E8%B5%9B%E6%A1%88%E4%BE%8B%E4%B8%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-13%20%E4%B8%8B%E5%8D%883.25.09.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>可能的种类特征：</p>
+<ol>
+<li>部分</li>
+<li>主要种类的名字</li>
+<li>主要子种类的名字</li>
+<li>第二子种类的名字</li>
+</ol>
+<h3 id="test-set"><a href="#test-set" class="headerlink" title="test set"></a>test set</h3><p>对测试数据集进行分析<br>将测试条目分为三组：</p>
+<ol>
+<li>Item/shop pairs that are in train</li>
+<li>Items without any data</li>
+<li>Items that are in train</li>
+</ol>
+<h1 id="Kaggle——销售量预测-1"><a href="#Kaggle——销售量预测-1" class="headerlink" title="Kaggle——销售量预测"></a>Kaggle——销售量预测</h1><p>没有看错，接下来是另一个solution<br>主要是Feature Engineering，XGBoost<br><a href="https://www.kaggle.com/dlarionov/feature-engineering-xgboost" target="_blank" rel="noopener">https://www.kaggle.com/dlarionov/feature-engineering-xgboost</a></p>
+<h2 id="part1-，perfect-features"><a href="#part1-，perfect-features" class="headerlink" title="part1 ，perfect features"></a>part1 ，perfect features</h2><p>同样使用sns 显示后，去除离群点<br>其中有一个物品的价格是负，使用价格中位数来替换之。<br>根据名字来看有些商店id重复出现了，fix it。<br>对于商店，种类，物品进行预处理</p>
+<h3 id="Monthly-sales"><a href="#Monthly-sales" class="headerlink" title="Monthly sales"></a>Monthly sales</h3><p>新增特征revenue：<br>train[‘revenue’] = train[‘item_price’] *  train[‘item_cnt_day’]</p>
+<p>测试集是34个月中一些商店和一些物品的组合，共有5100 items * 42 shops = 2142400对组合。363个物品在训练集中是没有的。因此，对于大多数测试集中的物品目标值应该是0.另一个方面，训练集只包含过去售出或者退回的对。主要的思路是计算月度的销售将其在当月的对中用0值进行扩展。这样训练数据将会与测试数据相似。</p>
+<p>将训练集中的 shop/item对去聚合去计算目标聚合，然后将目标值截取为（0，20），这样训练目标值将会与测试预测相似。</p>
+<h3 id="测试集"><a href="#测试集" class="headerlink" title="测试集"></a>测试集</h3><p>将测试集的月份设置为34，并与训练集进行合并</p>
+<h3 id="Shops-Items-Cats-features"><a href="#Shops-Items-Cats-features" class="headerlink" title="Shops/Items/Cats features"></a>Shops/Items/Cats features</h3><p>将shop，item，item_category表进行合并</p>
+<h3 id="Traget-lags"><a href="#Traget-lags" class="headerlink" title="Traget lags"></a>Traget lags</h3><p>相当于将窗口移动，[0,33]，lags为1则为[1,33]</p>
+<h3 id="均值编码特征"><a href="#均值编码特征" class="headerlink" title="均值编码特征"></a>均值编码特征</h3><p>表格的特征的命名形式为  feature1_feature2_avg_feature_cnt<br>意思为选定feature1,feature2,来聚合feature_cnt求均值。<br>求每个月中物品售出的均值数 0.3左右<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Kaggle%E7%AB%9E%E8%B5%9B%E6%A1%88%E4%BE%8B%E4%B8%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-13%20%E4%B8%8B%E5%8D%888.09.49.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>求每个月中每个物品所对应的均值（可以理解为平均每家商店售出的值）<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Kaggle%E7%AB%9E%E8%B5%9B%E6%A1%88%E4%BE%8B%E4%B8%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-13%20%E4%B8%8B%E5%8D%888.11.42.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>选定date_block_num，shop_id，在item_cnt_month聚合求均值<br>可以理解为一个月一家店销售物品数量的均值数<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Kaggle%E7%AB%9E%E8%B5%9B%E6%A1%88%E4%BE%8B%E4%B8%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-13%20%E4%B8%8B%E5%8D%888.27.11.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>同理还有：<br>选定date_block_num，item_category_id，在item_cnt_month聚合求均值<br>选定date_block_num，item_category_id，shop_id，在item_cnt_month聚合求均值<br>选定date_block_num，type_code，shop_id，在item_cnt_month聚合求均值<br>选定date_block_num，subtype_code，shop_id，在item_cnt_month聚合求均值<br>选定date_block_num，city_code，在item_cnt_month聚合求均值<br>选定date_block_num，city_code，item_id 在item_cnt_month聚合求均值<br>选定date_block_num，type_code 在item_cnt_month聚合求均值<br>选定date_block_num，subtype_code 在item_cnt_month聚合求均值</p>
+<h3 id="trend-features"><a href="#trend-features" class="headerlink" title="trend features"></a>trend features</h3><p>上六个月的价格趋势。<br>上个月的商店的营收趋势。</p>
+<h3 id="Special-features"><a href="#Special-features" class="headerlink" title="Special features"></a>Special features</h3><p>将月份中添加上天数</p>
+<p>对于每个shop/item对上一笔销售的月，使用编程方法实现：<br>创建HashTable键值等于{shop_id,item_id},值等于date_block_num。对于数据表从上往下迭代。如果{row.shop_id,row.item_id}不在表中，则添加进表中，并将值设为row.date_block_num。如果HashTable中包含值，则计算cached value与row.date_block_num。</p>
+<p>Months since the first sale for each shop/item pair and for item only.</p>
+<h3 id="最终准备"><a href="#最终准备" class="headerlink" title="最终准备"></a>最终准备</h3><p>Because of the using 12 as lag value drop first 12 months. Also drop all the columns with this month calculated values (other words which can not be calcucated for the test set).</p>
+<p>Producing lags brings a lot of nulls.</p>
+<h2 id="part2-xgboost"><a href="#part2-xgboost" class="headerlink" title="part2 ,xgboost"></a>part2 ,xgboost</h2>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-04-14T07:38:55.409Z" itemprop="dateUpdated">2019-04-14 15:38:55</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/zdkswd">
+            <img src="/img/tmg.jpg" alt="ZDK">
+            ZDK
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2019/04/14/Kaggle竞赛案例一/&title=《Kaggle竞赛案例一》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2019/04/14/Kaggle竞赛案例一/&title=《Kaggle竞赛案例一》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2019/04/14/Kaggle竞赛案例一/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Kaggle竞赛案例一》 — ZDK's blog&url=https://github.com/zdkswd/2019/04/14/Kaggle竞赛案例一/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2019/04/14/Kaggle竞赛案例一/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/14/XGBoost调参/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">XGBoost调参</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz",
+            appKey: "gkBx5soQkBREmER84PWbNJeM",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ZDK &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2019/04/14/Kaggle竞赛案例一/&title=《Kaggle竞赛案例一》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2019/04/14/Kaggle竞赛案例一/&title=《Kaggle竞赛案例一》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2019/04/14/Kaggle竞赛案例一/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Kaggle竞赛案例一》 — ZDK's blog&url=https://github.com/zdkswd/2019/04/14/Kaggle竞赛案例一/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2019/04/14/Kaggle竞赛案例一/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2019/04/14/Kaggle竞赛案例一/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'zdk'blog';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
