@@ -45,7 +45,7 @@
 <meta property="og:image" content="https://github.com/img/media/Kaggle%E7%AB%9E%E8%B5%9B%E6%A1%88%E4%BE%8B%E4%B8%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-13%20%E4%B8%8B%E5%8D%888.09.49.png">
 <meta property="og:image" content="https://github.com/img/media/Kaggle%E7%AB%9E%E8%B5%9B%E6%A1%88%E4%BE%8B%E4%B8%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-13%20%E4%B8%8B%E5%8D%888.11.42.png">
 <meta property="og:image" content="https://github.com/img/media/Kaggle%E7%AB%9E%E8%B5%9B%E6%A1%88%E4%BE%8B%E4%B8%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-13%20%E4%B8%8B%E5%8D%888.27.11.png">
-<meta property="og:updated_time" content="2019-04-14T07:38:55.409Z">
+<meta property="og:updated_time" content="2019-04-14T07:44:25.371Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kaggle竞赛案例一">
 <meta name="twitter:description" content="Kaggle_CrowdFlowerGitHub - ChenglongChen/Kaggle_CrowdFlower: 1st Place Solution for Search Results Relevance Competition on Kaggle (https://www.kaggle.com/c/crowdflower-search-relevance)1st Place Solu">
@@ -216,14 +216,14 @@
 <h2 id="预处理"><a href="#预处理" class="headerlink" title="预处理"></a>预处理</h2><p>进行了几步去清洗文本。</p>
 <h2 id="去除HTML标签"><a href="#去除HTML标签" class="headerlink" title="去除HTML标签"></a>去除HTML标签</h2><p>在商品描述中存在html标签的干扰，使用bs4去除之。</p>
 <h2 id="单词替换"><a href="#单词替换" class="headerlink" title="单词替换"></a>单词替换</h2><p>在搜索中会出现词义相关的搜索，要考虑到。<br>1.拼写纠正<br>2.同义词替换<br>3.词干提取</p>
-<h2 id="特征提取-选择"><a href="#特征提取-选择" class="headerlink" title="特征提取/选择"></a>特征提取/选择</h2><p>$$<br>\left(q_{i}, t_{i}, d_{i}\right)<br>$$是train.csv以及test.csv中的第i个样本，qi是查询，ti是产品名，di是产品描述。使用ri和vi来表示<strong>median_relevance</strong>和<strong>relevance_variance</strong>。使用函数ngram(s,n)去提取句子中的n个词。例如<br><figure class="image-bubble">
+<h2 id="特征提取-选择"><a href="#特征提取-选择" class="headerlink" title="特征提取/选择"></a>特征提取/选择</h2><p>$$\left(q_{i}, t_{i}, d_{i}\right)$$是train.csv以及test.csv中的第i个样本，qi是查询，ti是产品名，di是产品描述。使用ri和vi来表示<strong>median_relevance</strong>和<strong>relevance_variance</strong>。使用函数ngram(s,n)去提取句子中的n个词。例如<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/img/media/Kaggle%E7%AB%9E%E8%B5%9B%E6%A1%88%E4%BE%8B%E4%B8%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-12%20%E4%B8%8B%E5%8D%883.09.02.png" alt="" title="">
                 </div>
                 <div class="image-caption"></div>
             </figure></p>
-<h3 id="计数特征"><a href="#计数特征" class="headerlink" title="计数特征"></a>计数特征</h3><p>为$$<br>\left{q_{i}, t_{i}, d_{i}\right}<br>$$生成计数特征。</p>
+<h3 id="计数特征"><a href="#计数特征" class="headerlink" title="计数特征"></a>计数特征</h3><p>为$$\left{q_{i}, t_{i}, d_{i}\right}$$生成计数特征。</p>
 <h4 id="基础计数特征"><a href="#基础计数特征" class="headerlink" title="基础计数特征"></a>基础计数特征</h4><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
@@ -397,7 +397,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-04-14T07:38:55.409Z" itemprop="dateUpdated">2019-04-14 15:38:55</time>
+    最后更新时间：<time datetime="2019-04-14T07:44:25.371Z" itemprop="dateUpdated">2019-04-14 15:44:25</time>
 </span><br>
 
 
