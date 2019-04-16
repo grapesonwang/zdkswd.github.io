@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/zdkswd/"/>
-  <updated>2019-04-14T12:15:42.157Z</updated>
+  <updated>2019-04-16T02:43:13.399Z</updated>
   <id>https://github.com/zdkswd/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>转 逻辑回归LR的特征为什么要先离散化</title>
+    <link href="https://github.com/zdkswd/2019/04/16/%E8%BD%AC%20%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92LR%E7%9A%84%E7%89%B9%E5%BE%81%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%85%88%E7%A6%BB%E6%95%A3%E5%8C%96/"/>
+    <id>https://github.com/zdkswd/2019/04/16/转 逻辑回归LR的特征为什么要先离散化/</id>
+    <published>2019-04-16T02:42:56.000Z</published>
+    <updated>2019-04-16T02:43:13.399Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="转-逻辑回归LR的特征为什么要先离散化"><a href="#转-逻辑回归LR的特征为什么要先离散化" class="headerlink" title="转 逻辑回归LR的特征为什么要先离散化"></a>转 逻辑回归LR的特征为什么要先离散化</h1><p><a href="https://blog.csdn.net/yang090510118/article/details/39478033" target="_blank" rel="noopener">逻辑回归LR的特征为什么要先离散化 - yang090510118的专栏 - CSDN博客</a></p><p>在工业界，很少直接将连续值作为特征喂给逻辑回归模型，而是将连续特征离散化为一系列0、1特征交给逻辑回归模型，这样做的优势有以下几点：</p><ol><li>稀疏向量内积乘法运算速度快，计算结果方便存储，容易scalable（扩展）。</li><li>离散化后的特征对异常数据有很强的鲁棒性：比如一个特征是年龄&gt;30是1，否则0。如果特征没有离散化，一个异常数据“年龄300岁”会给模型造成很大的干扰。</li><li>逻辑回归属于广义线性模型，表达能力受限；单变量离散化为N个后，每个变量有单独的权重，相当于为模型引入了非线性，能够提升模型表达能力，加大拟合。</li><li>离散化后可以进行特征交叉，由M+N个变量变为M*N个变量，进一步引入非线性，提升表达能力。</li><li>特征离散化后，模型会更稳定，比如如果对用户年龄离散化，20-30作为一个区间，不会因为一个用户年龄长了一岁就变成一个完全不同的人。当然处于区间相邻处的样本会刚好相反，所以怎么划分区间是门学问。</li></ol><p>模型是使用离散特征还是连续特征，其实是一个“海量离散特征+简单模型” 同 “少量连续特征+复杂模型”的权衡。既可以离散化用线性模型，也可以用连续特征加深度学习。就看是喜欢折腾特征还是折腾模型了。通常来说，前者容易，而且可以n个人一起并行做，有成功经验；后者目前看很赞，能走多远还须拭目以待。</p><p>大概的理解：</p><p>1）计算简单<br>2）简化模型<br>3）增强模型的泛化能力，不易受噪声的影响</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;转-逻辑回归LR的特征为什么要先离散化&quot;&gt;&lt;a href=&quot;#转-逻辑回归LR的特征为什么要先离散化&quot; class=&quot;headerlink&quot; title=&quot;转 逻辑回归LR的特征为什么要先离散化&quot;&gt;&lt;/a&gt;转 逻辑回归LR的特征为什么要先离散化&lt;/h1&gt;&lt;p&gt;&lt;a
+      
+    
+    </summary>
+    
+      <category term="知识总结" scheme="https://github.com/zdkswd/categories/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"/>
+    
+    
+      <category term="机器学习" scheme="https://github.com/zdkswd/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>featexp</title>
@@ -492,32 +517,6 @@
       
       
         &lt;h1 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h1&gt;&lt;p&gt;在“无监督学习”( unsupervised learning)中,训练样本的标记信息是未知的,目标是通过对无标记训练样本的学习来揭示数据的
-      
-    
-    </summary>
-    
-      <category term="知识总结" scheme="https://github.com/zdkswd/categories/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"/>
-    
-    
-      <category term="机器学习" scheme="https://github.com/zdkswd/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>决策树 个人总结</title>
-    <link href="https://github.com/zdkswd/2019/03/07/%E5%86%B3%E7%AD%96%E6%A0%91%20%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/"/>
-    <id>https://github.com/zdkswd/2019/03/07/决策树 个人总结/</id>
-    <published>2019-03-07T12:22:47.000Z</published>
-    <updated>2019-03-07T12:22:05.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="决策树-个人总结"><a href="#决策树-个人总结" class="headerlink" title="决策树 个人总结"></a>决策树 个人总结</h1><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%20%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/22.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%20%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/23.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;决策树-个人总结&quot;&gt;&lt;a href=&quot;#决策树-个人总结&quot; class=&quot;headerlink&quot; title=&quot;决策树 个人总结&quot;&gt;&lt;/a&gt;决策树 个人总结&lt;/h1&gt;&lt;figure class=&quot;image-bubble&quot;&gt;
-                &lt;di
       
     
     </summary>

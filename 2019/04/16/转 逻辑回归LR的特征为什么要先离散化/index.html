@@ -14,25 +14,25 @@
     
     
     
-    <title>Bazel 和Protocol Buffer | ZDK&#39;s blog</title>
+    <title>转 逻辑回归LR的特征为什么要先离散化 | ZDK&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="机器学习,TensorFlow">
-    <meta name="description" content="BazelBazel是一个类似于Make的编译工具，是Google为其内部软件开发的特点量身定制的工具，如今Google使用它来构建内部大多数的软件。Google认为直接用Makefile构建软件速度太慢，结果不可靠，所以构建了一个新的工具叫做Bazel，Bazel的规则层级更高。 Protocol BufferProtocol Buffer是谷歌开发的处理结构化数据的工具。解决结构数据在信息持久">
-<meta name="keywords" content="机器学习,TensorFlow">
+    <meta name="keywords" content="机器学习">
+    <meta name="description" content="转 逻辑回归LR的特征为什么要先离散化逻辑回归LR的特征为什么要先离散化 - yang090510118的专栏 - CSDN博客 在工业界，很少直接将连续值作为特征喂给逻辑回归模型，而是将连续特征离散化为一系列0、1特征交给逻辑回归模型，这样做的优势有以下几点：  稀疏向量内积乘法运算速度快，计算结果方便存储，容易scalable（扩展）。 离散化后的特征对异常数据有很强的鲁棒性：比如一个特征是年">
+<meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Bazel 和Protocol Buffer">
-<meta property="og:url" content="https://github.com/zdkswd/2018/05/25/Bazel 和Protocol Buffer/index.html">
+<meta property="og:title" content="转 逻辑回归LR的特征为什么要先离散化">
+<meta property="og:url" content="https://github.com/zdkswd/2019/04/16/转 逻辑回归LR的特征为什么要先离散化/index.html">
 <meta property="og:site_name" content="ZDK&#39;s blog">
-<meta property="og:description" content="BazelBazel是一个类似于Make的编译工具，是Google为其内部软件开发的特点量身定制的工具，如今Google使用它来构建内部大多数的软件。Google认为直接用Makefile构建软件速度太慢，结果不可靠，所以构建了一个新的工具叫做Bazel，Bazel的规则层级更高。 Protocol BufferProtocol Buffer是谷歌开发的处理结构化数据的工具。解决结构数据在信息持久">
+<meta property="og:description" content="转 逻辑回归LR的特征为什么要先离散化逻辑回归LR的特征为什么要先离散化 - yang090510118的专栏 - CSDN博客 在工业界，很少直接将连续值作为特征喂给逻辑回归模型，而是将连续特征离散化为一系列0、1特征交给逻辑回归模型，这样做的优势有以下几点：  稀疏向量内积乘法运算速度快，计算结果方便存储，容易scalable（扩展）。 离散化后的特征对异常数据有很强的鲁棒性：比如一个特征是年">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-25T11:01:05.000Z">
+<meta property="og:updated_time" content="2019-04-16T02:43:13.399Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bazel 和Protocol Buffer">
-<meta name="twitter:description" content="BazelBazel是一个类似于Make的编译工具，是Google为其内部软件开发的特点量身定制的工具，如今Google使用它来构建内部大多数的软件。Google认为直接用Makefile构建软件速度太慢，结果不可靠，所以构建了一个新的工具叫做Bazel，Bazel的规则层级更高。 Protocol BufferProtocol Buffer是谷歌开发的处理结构化数据的工具。解决结构数据在信息持久">
+<meta name="twitter:title" content="转 逻辑回归LR的特征为什么要先离散化">
+<meta name="twitter:description" content="转 逻辑回归LR的特征为什么要先离散化逻辑回归LR的特征为什么要先离散化 - yang090510118的专栏 - CSDN博客 在工业界，很少直接将连续值作为特征喂给逻辑回归模型，而是将连续特征离散化为一系列0、1特征交给逻辑回归模型，这样做的优势有以下几点：  稀疏向量内积乘法运算速度快，计算结果方便存储，容易scalable（扩展）。 离散化后的特征对异常数据有很强的鲁棒性：比如一个特征是年">
     
         <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
     
@@ -113,7 +113,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">Bazel 和Protocol Buffer</div>
+        <div class="flex-col header-title ellipsis">转 逻辑回归LR的特征为什么要先离散化</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -135,11 +135,11 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">Bazel 和Protocol Buffer</h1>
+        <h1 class="title">转 逻辑回归LR的特征为什么要先离散化</h1>
         <h5 class="subtitle">
             
-                <time datetime="2018-05-25T11:00:56.000Z" itemprop="datePublished" class="page-time">
-  2018-05-25
+                <time datetime="2019-04-16T02:42:56.000Z" itemprop="datePublished" class="page-time">
+  2019-04-16
 </time>
 
 
@@ -160,18 +160,18 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Bazel"><span class="post-toc-number">1.</span> <span class="post-toc-text">Bazel</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Protocol-Buffer"><span class="post-toc-number">2.</span> <span class="post-toc-text">Protocol Buffer</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#转-逻辑回归LR的特征为什么要先离散化"><span class="post-toc-number">1.</span> <span class="post-toc-text">转 逻辑回归LR的特征为什么要先离散化</span></a></li></ol>
         </nav>
     </aside>
 
 
-<article id="post-Bazel 和Protocol Buffer"
+<article id="post-转 逻辑回归LR的特征为什么要先离散化"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">Bazel 和Protocol Buffer</h1>
+        <h1 class="post-card-title">转 逻辑回归LR的特征为什么要先离散化</h1>
         <div class="post-meta">
-            <time class="post-time" title="2018-05-25 19:00:56" datetime="2018-05-25T11:00:56.000Z"  itemprop="datePublished">2018-05-25</time>
+            <time class="post-time" title="2019-04-16 10:42:56" datetime="2019-04-16T02:42:56.000Z"  itemprop="datePublished">2019-04-16</time>
 
             
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
@@ -186,8 +186,18 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h2 id="Bazel"><a href="#Bazel" class="headerlink" title="Bazel"></a>Bazel</h2><p>Bazel是一个类似于Make的编译工具，是Google为其内部软件开发的特点量身定制的工具，如今Google使用它来构建内部大多数的软件。Google认为直接用Makefile构建软件速度太慢，结果不可靠，所以构建了一个新的工具叫做Bazel，Bazel的规则层级更高。</p>
-<h2 id="Protocol-Buffer"><a href="#Protocol-Buffer" class="headerlink" title="Protocol Buffer"></a>Protocol Buffer</h2><p>Protocol Buffer是谷歌开发的处理结构化数据的工具。解决结构数据在信息持久化或网络传输时需要进行序列化以及还原数据的问题。</p>
+            <h1 id="转-逻辑回归LR的特征为什么要先离散化"><a href="#转-逻辑回归LR的特征为什么要先离散化" class="headerlink" title="转 逻辑回归LR的特征为什么要先离散化"></a>转 逻辑回归LR的特征为什么要先离散化</h1><p><a href="https://blog.csdn.net/yang090510118/article/details/39478033" target="_blank" rel="noopener">逻辑回归LR的特征为什么要先离散化 - yang090510118的专栏 - CSDN博客</a></p>
+<p>在工业界，很少直接将连续值作为特征喂给逻辑回归模型，而是将连续特征离散化为一系列0、1特征交给逻辑回归模型，这样做的优势有以下几点：</p>
+<ol>
+<li>稀疏向量内积乘法运算速度快，计算结果方便存储，容易scalable（扩展）。</li>
+<li>离散化后的特征对异常数据有很强的鲁棒性：比如一个特征是年龄&gt;30是1，否则0。如果特征没有离散化，一个异常数据“年龄300岁”会给模型造成很大的干扰。</li>
+<li>逻辑回归属于广义线性模型，表达能力受限；单变量离散化为N个后，每个变量有单独的权重，相当于为模型引入了非线性，能够提升模型表达能力，加大拟合。</li>
+<li>离散化后可以进行特征交叉，由M+N个变量变为M*N个变量，进一步引入非线性，提升表达能力。</li>
+<li>特征离散化后，模型会更稳定，比如如果对用户年龄离散化，20-30作为一个区间，不会因为一个用户年龄长了一岁就变成一个完全不同的人。当然处于区间相邻处的样本会刚好相反，所以怎么划分区间是门学问。</li>
+</ol>
+<p>模型是使用离散特征还是连续特征，其实是一个“海量离散特征+简单模型” 同 “少量连续特征+复杂模型”的权衡。既可以离散化用线性模型，也可以用连续特征加深度学习。就看是喜欢折腾特征还是折腾模型了。通常来说，前者容易，而且可以n个人一起并行做，有成功经验；后者目前看很赞，能走多远还须拭目以待。</p>
+<p>大概的理解：</p>
+<p>1）计算简单<br>2）简化模型<br>3）增强模型的泛化能力，不易受噪声的影响</p>
 
         </div>
 
@@ -196,7 +206,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-05-25T11:01:05.000Z" itemprop="dateUpdated">2018-05-25 19:01:05</time>
+    最后更新时间：<time datetime="2019-04-16T02:43:13.399Z" itemprop="dateUpdated">2019-04-16 10:43:13</time>
 </span><br>
 
 
@@ -216,7 +226,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TensorFlow/">TensorFlow</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li></ul>
 
 
             
@@ -226,7 +236,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/05/25/Bazel 和Protocol Buffer/&title=《Bazel 和Protocol Buffer》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2019/04/16/转 逻辑回归LR的特征为什么要先离散化/&title=《转 逻辑回归LR的特征为什么要先离散化》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -236,22 +246,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/05/25/Bazel 和Protocol Buffer/&title=《Bazel 和Protocol Buffer》 — ZDK's blog&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2019/04/16/转 逻辑回归LR的特征为什么要先离散化/&title=《转 逻辑回归LR的特征为什么要先离散化》 — ZDK's blog&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/05/25/Bazel 和Protocol Buffer/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2019/04/16/转 逻辑回归LR的特征为什么要先离散化/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Bazel 和Protocol Buffer》 — ZDK's blog&url=https://github.com/zdkswd/2018/05/25/Bazel 和Protocol Buffer/&via=https://github.com/zdkswd" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《转 逻辑回归LR的特征为什么要先离散化》 — ZDK's blog&url=https://github.com/zdkswd/2019/04/16/转 逻辑回归LR的特征为什么要先离散化/&via=https://github.com/zdkswd" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/05/25/Bazel 和Protocol Buffer/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2019/04/16/转 逻辑回归LR的特征为什么要先离散化/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -271,21 +281,14 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2018/05/25/Tensorflow模型持久化/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">Tensorflow模型持久化</h4>
-      </a>
-    </div>
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2018/05/20/Gradle/" id="post-next" class="post-nav-link">
+      <a href="/2019/04/14/featexp/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">Gradle</h4>
+        <h4 class="title">featexp</h4>
       </a>
     </div>
   
@@ -380,7 +383,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/05/25/Bazel 和Protocol Buffer/&title=《Bazel 和Protocol Buffer》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2019/04/16/转 逻辑回归LR的特征为什么要先离散化/&title=《转 逻辑回归LR的特征为什么要先离散化》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -390,22 +393,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/05/25/Bazel 和Protocol Buffer/&title=《Bazel 和Protocol Buffer》 — ZDK's blog&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2019/04/16/转 逻辑回归LR的特征为什么要先离散化/&title=《转 逻辑回归LR的特征为什么要先离散化》 — ZDK's blog&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/05/25/Bazel 和Protocol Buffer/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2019/04/16/转 逻辑回归LR的特征为什么要先离散化/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Bazel 和Protocol Buffer》 — ZDK's blog&url=https://github.com/zdkswd/2018/05/25/Bazel 和Protocol Buffer/&via=https://github.com/zdkswd" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《转 逻辑回归LR的特征为什么要先离散化》 — ZDK's blog&url=https://github.com/zdkswd/2019/04/16/转 逻辑回归LR的特征为什么要先离散化/&via=https://github.com/zdkswd" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/05/25/Bazel 和Protocol Buffer/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2019/04/16/转 逻辑回归LR的特征为什么要先离散化/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -416,7 +419,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2018/05/25/Bazel 和Protocol Buffer/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2019/04/16/转 逻辑回归LR的特征为什么要先离散化/" alt="微信分享二维码">
 </div>
 
 
