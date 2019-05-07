@@ -48,7 +48,7 @@
 <meta property="og:image" content="https://github.com/img/media/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%20%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95O(n%5E2)%20O(nlogn)/640.gif">
 <meta property="og:image" content="https://github.com/img/media/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%20%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95O(n%5E2)%20O(nlogn)/aa03ae570dace416127c9ccf9db8ac05.jpg">
 <meta property="og:image" content="https://github.com/img/media/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%20%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95O(n%5E2)%20O(nlogn)/898d94fc32e0a795fd65897293b98791.jpg">
-<meta property="og:updated_time" content="2019-04-30T12:06:13.712Z">
+<meta property="og:updated_time" content="2019-05-07T12:10:22.450Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="极客时间 排序算法O(n^2) O(nlogn)">
 <meta name="twitter:description" content="极客时间 排序算法O(n^2) O(nlogn)                                                                                                           所谓的算法稳定性就是">
@@ -180,7 +180,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#极客时间-排序算法O-n-2-O-nlogn"><span class="post-toc-number">1.</span> <span class="post-toc-text">极客时间 排序算法O(n^2) O(nlogn)</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#冒泡排序"><span class="post-toc-number">2.</span> <span class="post-toc-text">冒泡排序</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#插入排序"><span class="post-toc-number">3.</span> <span class="post-toc-text">插入排序</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#选择排序"><span class="post-toc-number">4.</span> <span class="post-toc-text">选择排序</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#归并排序"><span class="post-toc-number">5.</span> <span class="post-toc-text">归并排序</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#快速排序"><span class="post-toc-number">6.</span> <span class="post-toc-text">快速排序</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#极客时间-排序算法O-n-2-O-nlogn"><span class="post-toc-number">1.</span> <span class="post-toc-text">极客时间 排序算法O(n^2) O(nlogn)</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#冒泡排序"><span class="post-toc-number">2.</span> <span class="post-toc-text">冒泡排序</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#插入排序"><span class="post-toc-number">3.</span> <span class="post-toc-text">插入排序</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#选择排序"><span class="post-toc-number">4.</span> <span class="post-toc-text">选择排序</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#归并排序"><span class="post-toc-number">5.</span> <span class="post-toc-text">归并排序</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#快速排序"><span class="post-toc-number">6.</span> <span class="post-toc-text">快速排序</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#O-n-时间找到一组数据第K大元素"><span class="post-toc-number">7.</span> <span class="post-toc-text">O(n)时间找到一组数据第K大元素</span></a></li></ol>
         </nav>
     </aside>
 
@@ -342,6 +342,7 @@
                 <div class="image-caption"></div>
             </figure><br>选择A[0…n-1]的最后一个元素A[n-1]作为pivot,对数组原地分区，这样数组就分为了三部分,A[0…p-1],A[p],A[p+1…n-1]。</p>
 <p>如果p+1=K，那么A[p]就是要求解的元素；如果K&gt;p+1,说明在右侧，然后同样思路在右边区间去找。</p>
+<h1 id="O-n-时间找到一组数据第K大元素"><a href="#O-n-时间找到一组数据第K大元素" class="headerlink" title="O(n)时间找到一组数据第K大元素"></a>O(n)时间找到一组数据第K大元素</h1><p>解题思路:利用快排中分区的思想,选择数组区间A[0…n-1]的左右一个元素A[n-1]作为pivot,对数组A[0…n-1]原地分区,这样数组就分成了三部分,A[0…p-1],A[p],A[p+1…n-1],如果p+1=k那么A[p]就是要求解的元素,如果K&gt;p+1,则说明第K大的元素在A[p+1…n-1]这个区间,否则在A[0…p-1]这个区间,递归的查找第K大的元素。</p>
 
         </div>
 
@@ -350,7 +351,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-04-30T12:06:13.712Z" itemprop="dateUpdated">2019-04-30 20:06:13</time>
+    最后更新时间：<time datetime="2019-05-07T12:10:22.450Z" itemprop="dateUpdated">2019-05-07 20:10:22</time>
 </span><br>
 
 
