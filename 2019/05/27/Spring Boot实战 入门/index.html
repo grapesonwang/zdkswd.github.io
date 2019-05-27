@@ -20,16 +20,16 @@
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="Spring">
+    <meta name="keywords" content="Spring,Java">
     <meta name="description" content="自动配置初始化后的项目Application.java不仅是启动引导类，还是配置类。@SpringBootApplication开启组件扫描和自动配置。将三个有用的注解组合在了一起。1.Spring的@Configuration:标明该类使用Spring基于Java的配置。2.Spring的@ComponentScan:启用组件扫描，这样所写的Web控制器类和其他组件才能被自动发现并注册为Spri">
-<meta name="keywords" content="Spring">
+<meta name="keywords" content="Spring,Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring Boot实战 入门">
 <meta property="og:url" content="https://github.com/zdkswd/2019/05/27/Spring Boot实战 入门/index.html">
 <meta property="og:site_name" content="ZDK&#39;s blog">
 <meta property="og:description" content="自动配置初始化后的项目Application.java不仅是启动引导类，还是配置类。@SpringBootApplication开启组件扫描和自动配置。将三个有用的注解组合在了一起。1.Spring的@Configuration:标明该类使用Spring基于Java的配置。2.Spring的@ComponentScan:启用组件扫描，这样所写的Web控制器类和其他组件才能被自动发现并注册为Spri">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://github.com/zdkswd/2019/05/27/Spring%20Boot实战%20入门/Spring%20Boot%E5%AE%9E%E6%88%98%20%E5%85%A5%E9%97%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-23%20%E4%B8%8A%E5%8D%888.13.40.png">
+<meta property="og:image" content="https://github.com/img/media/Spring%20Boot%E5%AE%9E%E6%88%98%20%E5%85%A5%E9%97%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-23%20%E4%B8%8A%E5%8D%888.13.47.png">
 <meta property="og:image" content="https://github.com/img/media/Spring%20Boot%E5%AE%9E%E6%88%98%20%E5%85%A5%E9%97%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-23%20%E4%B8%8A%E5%8D%888.15.40.png">
 <meta property="og:image" content="https://github.com/img/media/Spring%20Boot%E5%AE%9E%E6%88%98%20%E5%85%A5%E9%97%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-23%20%E4%B8%8A%E5%8D%888.16.59.png">
 <meta property="og:image" content="https://github.com/img/media/Spring%20Boot%E5%AE%9E%E6%88%98%20%E5%85%A5%E9%97%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-23%20%E4%B8%8A%E5%8D%888.18.46.png">
@@ -48,11 +48,11 @@
 <meta property="og:image" content="https://github.com/img/media/Spring%20Boot%E5%AE%9E%E6%88%98%20%E5%85%A5%E9%97%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-23%20%E4%B8%8B%E5%8D%883.51.20.png">
 <meta property="og:image" content="https://github.com/img/media/Spring%20Boot%E5%AE%9E%E6%88%98%20%E5%85%A5%E9%97%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-23%20%E4%B8%8B%E5%8D%883.57.59.png">
 <meta property="og:image" content="https://github.com/img/media/Spring%20Boot%E5%AE%9E%E6%88%98%20%E5%85%A5%E9%97%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-27%20%E4%B8%8B%E5%8D%882.48.39.png">
-<meta property="og:updated_time" content="2019-05-27T06:59:40.708Z">
+<meta property="og:updated_time" content="2019-05-27T07:05:48.829Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring Boot实战 入门">
 <meta name="twitter:description" content="自动配置初始化后的项目Application.java不仅是启动引导类，还是配置类。@SpringBootApplication开启组件扫描和自动配置。将三个有用的注解组合在了一起。1.Spring的@Configuration:标明该类使用Spring基于Java的配置。2.Spring的@ComponentScan:启用组件扫描，这样所写的Web控制器类和其他组件才能被自动发现并注册为Spri">
-<meta name="twitter:image" content="https://github.com/zdkswd/2019/05/27/Spring%20Boot实战%20入门/Spring%20Boot%E5%AE%9E%E6%88%98%20%E5%85%A5%E9%97%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-23%20%E4%B8%8A%E5%8D%888.13.40.png">
+<meta name="twitter:image" content="https://github.com/img/media/Spring%20Boot%E5%AE%9E%E6%88%98%20%E5%85%A5%E9%97%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-23%20%E4%B8%8A%E5%8D%888.13.47.png">
     
         <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
     
@@ -209,20 +209,24 @@
             <h1 id="自动配置"><a href="#自动配置" class="headerlink" title="自动配置"></a>自动配置</h1><p><strong>初始化后的项目</strong><br>Application.java不仅是启动引导类，还是配置类。<br><strong>@SpringBootApplication</strong>开启组件扫描和自动配置。将三个有用的注解组合在了一起。<br>1.Spring的<strong>@Configuration</strong>:标明该类使用Spring基于Java的配置。<br>2.Spring的<strong>@ComponentScan</strong>:启用组件扫描，这样所写的Web控制器类和其他组件才能被自动发现并注册为Spring应用程序上下文中里的Bean。<br>3.Spring Boot的<strong>@EnableAutoConfiguration</strong>:这一行配置开启了Spring Boot自动配置的魔力，可以不再写成篇的配置了。</p>
 <p><strong>application.properties</strong>可以很方便地细粒度调整Spring Boot的自动配置。完全不用告诉Spring Boot加载application.properties,只要存在就会被加载。</p>
 <p> <strong>Spring Boot项目构建插件</strong><br>Spring Boot的构建插件对构建过程有所帮助，如Maven钟spring-boot-maven-plugin。构建插件的主要功能是把项目打包成一个可执行的超级JAR，包括把应用程序的所有依赖打入JAR文件中，并为JAR添加一个描述文件，其中的内容能用java -jar来运行应用程序。</p>
-<p><strong>指定基于功能的依赖</strong><br>并不需要指定版本号，起步依赖本身的版本是由正在使用的Spring Boot的版本来决定的，而起步依赖则会决定它们引入的传递依赖版本。<br>Maven和gradle中使用构建工具来显示包含项目汇总每一个库以及它们的版本。<br><figure class="image-bubble">
+<p><strong>指定基于功能的依赖</strong><br>并不需要指定版本号，起步依赖本身的版本是由正在使用的Spring Boot的版本来决定的，而起步依赖则会决定它们引入的传递依赖版本。<br>Maven和gradle中使用构建工具来显示包含项目汇总每一个库以及它们的版本。</p>
+<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="Spring%20Boot%E5%AE%9E%E6%88%98%20%E5%85%A5%E9%97%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-23%20%E4%B8%8A%E5%8D%888.13.40.png" alt="](/img/media/Spring%20Boot%E5%AE%9E%E6%88%98%20%E5%85%A5%E9%97%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-23%20%E4%B8%8A%E5%8D%888.13.47.png)![" title="">
+                    <img src="/img/media/Spring%20Boot%E5%AE%9E%E6%88%98%20%E5%85%A5%E9%97%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-23%20%E4%B8%8A%E5%8D%888.13.47.png" alt="" title="">
                 </div>
-                <div class="image-caption">](/img/media/Spring%20Boot%E5%AE%9E%E6%88%98%20%E5%85%A5%E9%97%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-23%20%E4%B8%8A%E5%8D%888.13.47.png)![</div>
-            </figure></p>
-<p><strong>覆盖起步依赖引入的传递依赖</strong><br>gradle<br><figure class="image-bubble">
+                <div class="image-caption"></div>
+            </figure>
+<p>![]<br>(Spring%20Boot%E5%AE%9E%E6%88%98%20%E5%85%A5%E9%97%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-23%20%E4%B8%8A%E5%8D%888.13.40.png)</p>
+<p><strong>覆盖起步依赖引入的传递依赖</strong><br>gradle</p>
+<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/img/media/Spring%20Boot%E5%AE%9E%E6%88%98%20%E5%85%A5%E9%97%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-23%20%E4%B8%8A%E5%8D%888.15.40.png" alt="" title="">
                 </div>
                 <div class="image-caption"></div>
-            </figure><br>Maven<br><figure class="image-bubble">
+            </figure>
+<p>Maven<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/img/media/Spring%20Boot%E5%AE%9E%E6%88%98%20%E5%85%A5%E9%97%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-23%20%E4%B8%8A%E5%8D%888.16.59.png" alt="" title="">
@@ -360,7 +364,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-05-27T06:59:40.708Z" itemprop="dateUpdated">2019-05-27 14:59:40</time>
+    最后更新时间：<time datetime="2019-05-27T07:05:48.829Z" itemprop="dateUpdated">2019-05-27 15:05:48</time>
 </span><br>
 
 
@@ -380,7 +384,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li></ul>
 
 
             
