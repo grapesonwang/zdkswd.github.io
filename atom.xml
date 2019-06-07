@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/zdkswd/"/>
-  <updated>2019-06-05T12:56:37.192Z</updated>
+  <updated>2019-06-07T14:22:50.499Z</updated>
   <id>https://github.com/zdkswd/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java 异常处理</title>
+    <link href="https://github.com/zdkswd/2019/06/07/Java%20%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/"/>
+    <id>https://github.com/zdkswd/2019/06/07/Java 异常处理/</id>
+    <published>2019-06-07T14:22:47.000Z</published>
+    <updated>2019-06-07T14:22:50.499Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="码出高效"><a href="#码出高效" class="headerlink" title="码出高效"></a>码出高效</h1><h2 id="throw-throws"><a href="#throw-throws" class="headerlink" title="throw throws"></a>throw throws</h2><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/Java%20%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/WechatIMG122.jpeg" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><p><strong>throw</strong>是方法内部抛出具体异常类对象的关键字，<strong>throws</strong>则用在方法上，表示方法调用者可以通过此方法声明向上抛出异常对象。</p><h2 id="异常分类"><a href="#异常分类" class="headerlink" title="异常分类"></a>异常分类</h2><p>在Exception中，unchecked异常是运行时异常，它们都继承自<strong>RuntimeException</strong>，不需要程序进行显式的捕捉和处理。</p><h2 id="try代码块"><a href="#try代码块" class="headerlink" title="try代码块"></a>try代码块</h2><p><strong>（1）try代码块</strong>：监视代码执行过程，一旦发现异常直接跳转catch，没有catch。则直接跳转至finally。<br><strong>（2）catch代码块</strong>。<br><strong>（3）finally代码块</strong>：try存在时，可以只有catch代码块，也可以只有finally代码块。不管有没有异常发生，即使发生OutOfMemoryError也会执行，通常用于处理善后清理工作。</p><p><strong>finally是在return表达式运行后执行的，此时将要return的结果已经被暂存起来，待finally代码块执行结束后再将之暂存的结果返回。</strong></p><p><strong>finally</strong>代码块中使用<strong>return</strong>语句使返回值的判断变得复杂，所以避免返回值不可控，<strong>不要在finally代码块中使用return语句。</strong></p><p>Lock、ThreadLocal、InputStream等这些需要进行强制释放和清除的对象都得在finally代码块中进行显式的清理，避免产生内存泄露，或者资源消耗。</p><h1 id="java核心技术36讲"><a href="#java核心技术36讲" class="headerlink" title="java核心技术36讲"></a>java核心技术36讲</h1><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/Java%20%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/accba531a365e6ae39614ebfa3273900.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><p>业界有一种争论，甚至可以算是某种程度的共识，Java语言的Cheaked Exception也许是一个<strong>设计错误</strong>。<br>（1）Checked Exception的假设是捕获了异常然后恢复程序。但是实际上大多数情况下根本不可能恢复。Checked Exception的使用已经大大偏离了最初的设计目的。<br>（2）Checked Exception不兼容functional编程。</p><p>但是确实有意向异常，比如和环境相关的IO、网络等其实是存在可恢复性的。</p><p>从性能角度看Java异常处理机制，有两个比较昂贵的地方：<br>（1）try-catch代码段会产生额外的性能开销，它往往会<strong>影响JVM对代码进行优化</strong>，所以建议仅捕获必要的代码段，不要一个大的try包住整段代码；与此同时用异常控制代码流程远比通常意义上的条件语句要低效。<br>（2）Java每实例化一个Exception，都会对当时的栈进行快照，这是一个相对比较重的操作。如果发生的比较频繁，这个开销就不能忽略了。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;码出高效&quot;&gt;&lt;a href=&quot;#码出高效&quot; class=&quot;headerlink&quot; title=&quot;码出高效&quot;&gt;&lt;/a&gt;码出高效&lt;/h1&gt;&lt;h2 id=&quot;throw-throws&quot;&gt;&lt;a href=&quot;#throw-throws&quot; class=&quot;headerlink&quot; 
+      
+    
+    </summary>
+    
+      <category term="知识总结" scheme="https://github.com/zdkswd/categories/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"/>
+    
+    
+      <category term="Java" scheme="https://github.com/zdkswd/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>Java I/O</title>
@@ -490,31 +515,6 @@
       
       
         &lt;h1 id=&quot;word2vec&quot;&gt;&lt;a href=&quot;#word2vec&quot; class=&quot;headerlink&quot; title=&quot;word2vec&quot;&gt;&lt;/a&gt;word2vec&lt;/h1&gt;&lt;p&gt;谷歌2013年提出的word2vec是目前最常用的词嵌入模型之一。Word2ec实际是一种&lt;
-      
-    
-    </summary>
-    
-      <category term="知识总结" scheme="https://github.com/zdkswd/categories/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"/>
-    
-    
-      <category term="机器学习" scheme="https://github.com/zdkswd/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>About id </title>
-    <link href="https://github.com/zdkswd/2019/04/16/About%20id/"/>
-    <id>https://github.com/zdkswd/2019/04/16/About id/</id>
-    <published>2019-04-16T12:42:47.000Z</published>
-    <updated>2019-04-17T04:35:42.947Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="如何利用id类特征"><a href="#如何利用id类特征" class="headerlink" title="如何利用id类特征"></a>如何利用id类特征</h1><p><a href="https://www.zhihu.com/question/34819617" target="_blank" rel="noopener">机器学习中如何利用id类特征？ - 知乎</a></p><h2 id="为什么用"><a href="#为什么用" class="headerlink" title="为什么用"></a>为什么用</h2><p>会极大提高模型的个性化能力和实际效果。而且可以对抗热度穿透现象。</p><p>直接加入id类特征，尽管并不能实现完全的个性化，但是可以把每个用户的行为模式区分开，从而提高了其他特征的泛化能力。</p><p>例如有两个id和一项特征来进行一个回归预测。一个id是正常用户，一个id是刷子用户。式子可以表示为w1x1+w2x2+w3x3=rate<br>对于正常用户rate值低，刷子用户rate值高。即w1x1+w3x3值较小，w2x2+w3x3值较大。可得是w2x2项较大即模型学习到了提高w2，对于不同的id就进行了区别对待。</p><p>加入id类特征的价值：</p><ol><li>可以使得在学习过程中每个人的信号更合理地影响整体模型，使得模型泛化能力更好。</li><li>可以使得模型能够对每个id有更细粒度的排序能力，使得模型的个性化效果更好。</li></ol><h2 id="怎么用"><a href="#怎么用" class="headerlink" title="怎么用"></a>怎么用</h2><ol><li>id类特征上的信号是及其稀疏的，所以意味着我们需要更大量的数据，但是其实这并不困难，在计算广告，推荐系统的场景下，单个id上收集的数据其实是非常多的，但是一定要通过正则化的方法来限制以使id类特征不过拟合。</li><li>id类特征在预测中的命中率可能并不高，但这其实也不是问题。因为一个特征就是一个体系，一个体系化的特征是通过层次化的特征设计来达到命中率和个性化的综合。比如说 用户id-&gt;用户GPS坐标+用户喜好Tag+用户最近行为-&gt;用户年龄，用户性别。通过分层，由最细粒度到最粗粒度的特征搭配来保证特征命中率。</li><li>组合。单独的id类特征时意义并没有那么高，有意义的是不同层次的交叉组合。userid和itemid交互后，也就是用户对物品的评分矩阵，这时候就可以使用itemcf或svd等等。</li><li>模型和算法。实际上，LR是适合使用ID类特征One-hot编码的，原因在于LR适合接受超高维度的特征输入。但是这么做的前提是训练样本足够多。对于XGBoost，DNN，就要先对id特征one-hot进行embedding。</li></ol><h1 id="Entity-Embeddings-of-Categorical-Variables"><a href="#Entity-Embeddings-of-Categorical-Variables" class="headerlink" title="Entity Embeddings of Categorical Variables"></a>Entity Embeddings of Categorical Variables</h1><p><a href="https://arxiv.org/pdf/1604.06737.pdf" target="_blank" rel="noopener">https://arxiv.org/pdf/1604.06737.pdf</a></p><h2 id="Intorduction"><a href="#Intorduction" class="headerlink" title="Intorduction"></a>Intorduction</h2><p>神经网路不适合去拟合非连续的函数，因为其假定一般形式具有连续性。在训练阶段，数据的连续性保证了优化的收敛性，在预测阶段，输入值的微小变化保证了输出的稳定。另一方面，决策树不假定特征变量有任何的连续性。</p><p>有意思的是，如果我们使用了正确的表示数据的形式，在现实世界中，我们面对的问题总是连续的。每当我们找到了一个更好的方式来表示连续数据，就提升了神经网络学习数据的能力。比如NLP是由于使用了w2v去将one-hot转为了连续的向量。</p><p>不同于自然中存在的非结构化数据，机器学习中使用的结构化数据可能很难发现连续性质。神经网络连续函数的特性限制了对于类别变量的应用。embedding解决了one-hot的两个问题，一是太过稀疏，而是类与类之间没有关联。</p><p>记号：（h,r,t），h和t是两个实体，r是关系。<br>在w2v中发现隐向量具有如下的关系：<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/About%20id/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-16%20%E4%B8%8B%E5%8D%881.49.04.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><br>w2v除了使用常规的滑动窗口学习还可以使用标记进行监督学习。<br>以及说树是结构化数据中用的最多的模型。以及该方法针对的是表格数据中的离散目标值，也就是类别值。</p><h2 id="Entity-Embedding"><a href="#Entity-Embedding" class="headerlink" title="Entity Embedding"></a>Entity Embedding</h2><p>embedding层的维度D是个超参数。范围是[1,m-1]，m是类别数。在实际中，根据实验来确定最后的维度数。下面是一些经验之谈，一，大体的估计一下需要描述的维度，二如果不知道怎么下手，从m-1开始。</p><p>定义衡量两个隐向量相似度的方法。最简单的就是隐向量求距离。</p><p>a example for dimension<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/About%20id/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-16%20%E4%B8%8B%E5%8D%882.52.30.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure></p><p>原始的数据是两部分，第一部分是train.csv,包含了2.5年的每日销售数据，包括1115种不同的商店，共计有1017210条数据。第二部分是关于1115店的更详细的信息。除了主办方给出的数据，外部的数据同样重要，比如日期的天气信息，流行信息，甚至于重大比赛的日期信息。</p><h1 id="业务实践"><a href="#业务实践" class="headerlink" title="业务实践"></a>业务实践</h1><p>场景：网络购物场景中，运用W2V+BP进行个性化推荐。</p><ol><li><strong>对物品进行向量化</strong>，把每个用户看作一篇文章，用户购买物品按照时间序列排序，物品看作词，带入W2V模型得到物品的向量。</li><li><strong>样本收集</strong>，收集客户端中，对用户的物品曝光及购买记录，以用户历史购买的物品列表作为用户画像，以给用户曝光物品后用户是否购买为目标变量。</li><li><strong>构造W2V + BP的模型</strong>，模型的输入有两个，第一个为用户历史购买物品的向量均值，第二个为曝光物品的向量。模型的输出为用户是否购买曝光的物品，中间用BP网络进行连接。</li><li><strong>模型训练与使用</strong>，模型训练：目前业界一般使用TF进行实现，BP网络的节点数及层数需要根据训练情况确定。模型使用：给定一个用户u及一个物品i，把用户u购买物品向量均值及物品i的向量作为模型输入，计算物品i的模型得分。重复该操作，计算出用户u所有候选物品的模型得分，根据物品的模型得分降序推荐给用户。</li></ol><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/About%20id/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-16%20%E4%B8%8B%E5%8D%884.23.44.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;如何利用id类特征&quot;&gt;&lt;a href=&quot;#如何利用id类特征&quot; class=&quot;headerlink&quot; title=&quot;如何利用id类特征&quot;&gt;&lt;/a&gt;如何利用id类特征&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://www.zhihu.com/question/34
       
     
     </summary>
