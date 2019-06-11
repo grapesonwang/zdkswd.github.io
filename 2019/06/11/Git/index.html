@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Git | ZDK&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Git">
+    <meta name="description" content="Git一些命令config的三个作用域  local(default,只对某个仓库有效)    global   system  git config –list//查看现有配置信息  add到的是git暂存区的作用，commit前的一个区域，比如可以用于暂存工作状态，然后再做修改，比较两次的修改，满意了第二次覆盖，不满意将第一次的提交。暂存区中不合适也可以回退。 因为需要查看暂存区的状态，使用的">
+<meta name="keywords" content="Git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git">
+<meta property="og:url" content="https://github.com/zdkswd/2019/06/11/Git/index.html">
+<meta property="og:site_name" content="ZDK&#39;s blog">
+<meta property="og:description" content="Git一些命令config的三个作用域  local(default,只对某个仓库有效)    global   system  git config –list//查看现有配置信息  add到的是git暂存区的作用，commit前的一个区域，比如可以用于暂存工作状态，然后再做修改，比较两次的修改，满意了第二次覆盖，不满意将第一次的提交。暂存区中不合适也可以回退。 因为需要查看暂存区的状态，使用的">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/img/media/Git/1560059022340.png">
+<meta property="og:image" content="https://github.com/img/media/Git/1560059639501.png">
+<meta property="og:image" content="https://github.com/img/media/Git/1560060359602.png">
+<meta property="og:image" content="https://github.com/img/media/Git/1560068929555.png">
+<meta property="og:updated_time" content="2019-06-11T01:33:18.640Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git">
+<meta name="twitter:description" content="Git一些命令config的三个作用域  local(default,只对某个仓库有效)    global   system  git config –list//查看现有配置信息  add到的是git暂存区的作用，commit前的一个区域，比如可以用于暂存工作状态，然后再做修改，比较两次的修改，满意了第二次覆盖，不满意将第一次的提交。暂存区中不合适也可以回退。 因为需要查看暂存区的状态，使用的">
+<meta name="twitter:image" content="https://github.com/img/media/Git/1560059022340.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/tmg.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ZDK</h5>
+          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/zdkswd" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Git</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Git</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-06-11T01:32:55.000Z" itemprop="datePublished" class="page-time">
+  2019-06-11
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Git"><span class="post-toc-number">1.</span> <span class="post-toc-text">Git</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一些命令"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">一些命令</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#常用场景-在本地维护自己的分支"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">常用场景(在本地维护自己的分支)</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Github常用操作"><span class="post-toc-number">2.</span> <span class="post-toc-text">Github常用操作</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#开源项目"><span class="post-toc-number">3.</span> <span class="post-toc-text">开源项目</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Git"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Git</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-06-11 09:32:55" datetime="2019-06-11T01:32:55.000Z"  itemprop="datePublished">2019-06-11</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><h2 id="一些命令"><a href="#一些命令" class="headerlink" title="一些命令"></a>一些命令</h2><p>config的三个作用域  local(default,只对某个仓库有效)    global   system</p>
+<blockquote>
+<p>git config –list//查看现有配置信息</p>
+</blockquote>
+<p>add到的是git暂存区的作用，commit前的一个区域，比如可以用于暂存工作状态，然后再做修改，比较两次的修改，满意了第二次覆盖，不满意将第一次的提交。暂存区中不合适也可以回退。</p>
+<p>因为需要查看暂存区的状态，使用的命令是：</p>
+<blockquote>
+<p>git status</p>
+</blockquote>
+<p>git重命名命令</p>
+<blockquote>
+<p>git mv src dest</p>
+</blockquote>
+<p>git log</p>
+<blockquote>
+<p>git log (–oneline一行显示) (–all所有分支) (-n4最近四个) (–graph绘制图形)</p>
+</blockquote>
+<p>.git目录</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Git/1560059022340.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>HEAD存储指向当前工作的分支</p>
+<p>config中记录user的信息，如果设置local配置，则会在此存储local信息。</p>
+<p>refs引用存储heads(分支)  tags(标签信息)</p>
+<p>objects存储对象</p>
+<p>commit,tree和blob对象之间的关系。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Git/1560059639501.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Git/1560060359602.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>分离头指针（detached HEAD）指的是HEAD指向一个commit而不是一个分支，很可能会被git当作垃圾清理掉。</p>
+<p>HEAD与branch</p>
+<p>HEAD不仅可以指向分支，最终是落脚于某个commit，还可以指向之前一次commit。所以HEAD指向commit。HEAD可以用于指代所指commit。</p>
+<h2 id="常用场景-在本地维护自己的分支"><a href="#常用场景-在本地维护自己的分支" class="headerlink" title="常用场景(在本地维护自己的分支)"></a>常用场景(在本地维护自己的分支)</h2><p>清除不要分支</p>
+<blockquote>
+<p>git branch -D 分支名</p>
+</blockquote>
+<p> 最新commit描述不准确，进行修改</p>
+<blockquote>
+<p>git commit –amend//双单杠</p>
+</blockquote>
+<p>老旧commit描述不准确，进行修改</p>
+<blockquote>
+<p>git rebase -i 被修改的父类的id</p>
+</blockquote>
+<p>进入交互式界面用于指定对commit要进行的操作</p>
+<p>r </p>
+<p>wq！保存并退出进入交互式界面，来修改message信息。</p>
+<p>wq！保存并退出</p>
+<p>历史多个连续commit合并</p>
+<p>和上面一样的操作选择父节点，不过是r变s。</p>
+<p>历史不连续commit合并</p>
+<p>选择父节点，然后将要和并的不在父节点下的commit显式pick id号,将父节点下要合并的子节点挨着放，s开头。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Git/1560068929555.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>比较暂存区与HEAD所含文件</p>
+<blockquote>
+<p>git diff –cached</p>
+</blockquote>
+<p>比较工作区和暂存区</p>
+<blockquote>
+<p>git diff</p>
+</blockquote>
+<p>将暂存区恢复成和HEAD一样</p>
+<blockquote>
+<p>git reset HEAD</p>
+</blockquote>
+<p>将工作区文件恢复成暂存区一样（add后又做了变更，然后不满意时）</p>
+<blockquote>
+<p>git checkout – 文件名</p>
+</blockquote>
+<p>取消暂存区部分文件变更</p>
+<blockquote>
+<p>git reset HEAD –文件名</p>
+</blockquote>
+<p>消除最近几次提交</p>
+<blockquote>
+<p>git reset –hard commit_id</p>
+</blockquote>
+<p>这样HEAD和暂存区都指向了commit_id所指的commit</p>
+<p>比较不同提交的差异</p>
+<blockquote>
+<p>git diff commit_id1 commit_id2</p>
+</blockquote>
+<p>正确的删除一个文件</p>
+<blockquote>
+<p>git rm 文件名</p>
+</blockquote>
+<p>当开发时临时加了紧急任务时，将自己现在做的修改压入堆栈。</p>
+<blockquote>
+<p>git stash</p>
+</blockquote>
+<p>取回使用apply，取栈顶信息，不出栈。</p>
+<blockquote>
+<p>git stash apply</p>
+</blockquote>
+<p>取回使用pop，栈顶出栈</p>
+<blockquote>
+<p>git stash pop</p>
+</blockquote>
+<p>.gitignore用于指定不需要Git管理的文件，将文件名加在其中或者使用通配符来指定不需要git管理的文件。</p>
+<p>git传输的协议分为哑协议和智能协议。在本地也存在git备份，类比于远端库有一个本地库。</p>
+<h1 id="Github常用操作"><a href="#Github常用操作" class="headerlink" title="Github常用操作"></a>Github常用操作</h1><p>配置公私钥 ssh 本地生产公私钥，将公钥粘贴到github中。</p>
+<p>git pull是分两步走，先是fetch然后是merge。</p>
+<p>当远端有文件，本地没有，这时fetch不是fast-forward方式，要通过merge合并。</p>
+<p>也可以用rebase方式。</p>
+<p>不同人修改不同文件如何处理</p>
+<p>远端新建分支，本地建分支与远端相关联</p>
+<blockquote>
+<p>git chechout -b(切换到新建分支)  本地分支命名  远端分支命名</p>
+</blockquote>
+<p>查看分支情况,本地以及远端</p>
+<blockquote>
+<p>git branch -av</p>
+</blockquote>
+<p>修改相同文件不同区域，同理，可以不用人介入的merge。</p>
+<p>当多人修改同一区域的时候，pull(fetch and merge)会失败，自动merge会失败。文件中会显式标出冲突的地方。</p>
+<p>此时有两个选择，一，终止merge git merge –abort</p>
+<p>二，解决冲突的地方，然后commit  然后push到远端</p>
+<p>同时变更了文件名和文件内容，git可以正常的合并。</p>
+<p>禁止向集成分支执行push -f操作。</p>
+<p>高效搜索github项目。in:readme stars:&gt;1000 advanced search</p>
+<h1 id="开源项目"><a href="#开源项目" class="headerlink" title="开源项目"></a>开源项目</h1><p>保证代码质量 fork下来，pull request</p>
+<p>organization</p>
+<p>项目分支情况 insights-&gt;network</p>
+<p>merge rebase合并分支</p>
+<p>分支和master产生冲突时，master会合并到分支解决冲突，解决完然后再提交pull request，又回到master产生一个commit。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-06-11T01:33:18.640Z" itemprop="dateUpdated">2019-06-11 09:33:18</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/zdkswd">
+            <img src="/img/tmg.jpg" alt="ZDK">
+            ZDK
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2019/06/11/Git/&title=《Git》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2019/06/11/Git/&title=《Git》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2019/06/11/Git/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Git》 — ZDK's blog&url=https://github.com/zdkswd/2019/06/11/Git/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2019/06/11/Git/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/06/07/Java 异常处理/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Java 异常处理</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz",
+            appKey: "gkBx5soQkBREmER84PWbNJeM",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ZDK &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2019/06/11/Git/&title=《Git》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2019/06/11/Git/&title=《Git》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2019/06/11/Git/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Git》 — ZDK's blog&url=https://github.com/zdkswd/2019/06/11/Git/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2019/06/11/Git/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2019/06/11/Git/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'zdk'blog';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
