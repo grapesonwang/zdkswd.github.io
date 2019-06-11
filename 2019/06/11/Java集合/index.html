@@ -14,27 +14,25 @@
     
     
     
-    <title>JavaScript标准参考教程 1 导论 | ZDK&#39;s blog</title>
+    <title>Java集合 | ZDK&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="JavaScript">
-    <meta name="description" content="JS标准参考教程 1 导论什么是JSJavaScript 是一种嵌入式（embedded）语言。它本身提供的核心语法不算很多，只能用来做一些数学和逻辑运算。JavaScript 本身不提供任何与 I/O（输入/输出）相关的 API，都要靠宿主环境（host）提供，所以 JavaScript 只合适嵌入更大型的应用程序环境，去调用宿主环境提供的底层 API。 目前，已经嵌入 JavaScript 的">
-<meta name="keywords" content="JavaScript">
+    <meta name="keywords" content="Java">
+    <meta name="description" content="Java QueueJava Queue中应当使用offer和poll而不是add和remove，原因是一些队列有大小限制，因此如果想在一个满的队列中加入一个新项，多出的项就会被拒绝。 offer 方法不是对调用 add() 方法抛出一个 unchecked 异常，而只是得到由 offer() 返回的 false。  poll() 方法在用空集合调用时不是抛出异常，只是返回 null。因此新的方法">
+<meta name="keywords" content="Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript标准参考教程 1 导论">
-<meta property="og:url" content="https://github.com/zdkswd/2018/08/11/JavaScript标准参考教程 导论/index.html">
+<meta property="og:title" content="Java集合">
+<meta property="og:url" content="https://github.com/zdkswd/2019/06/11/Java集合/index.html">
 <meta property="og:site_name" content="ZDK&#39;s blog">
-<meta property="og:description" content="JS标准参考教程 1 导论什么是JSJavaScript 是一种嵌入式（embedded）语言。它本身提供的核心语法不算很多，只能用来做一些数学和逻辑运算。JavaScript 本身不提供任何与 I/O（输入/输出）相关的 API，都要靠宿主环境（host）提供，所以 JavaScript 只合适嵌入更大型的应用程序环境，去调用宿主环境提供的底层 API。 目前，已经嵌入 JavaScript 的">
+<meta property="og:description" content="Java QueueJava Queue中应当使用offer和poll而不是add和remove，原因是一些队列有大小限制，因此如果想在一个满的队列中加入一个新项，多出的项就会被拒绝。 offer 方法不是对调用 add() 方法抛出一个 unchecked 异常，而只是得到由 offer() 返回的 false。  poll() 方法在用空集合调用时不是抛出异常，只是返回 null。因此新的方法">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://github.com/img/add/1.png">
-<meta property="og:updated_time" content="2018-10-09T03:11:45.000Z">
+<meta property="og:updated_time" content="2019-06-11T03:54:01.465Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript标准参考教程 1 导论">
-<meta name="twitter:description" content="JS标准参考教程 1 导论什么是JSJavaScript 是一种嵌入式（embedded）语言。它本身提供的核心语法不算很多，只能用来做一些数学和逻辑运算。JavaScript 本身不提供任何与 I/O（输入/输出）相关的 API，都要靠宿主环境（host）提供，所以 JavaScript 只合适嵌入更大型的应用程序环境，去调用宿主环境提供的底层 API。 目前，已经嵌入 JavaScript 的">
-<meta name="twitter:image" content="https://github.com/img/add/1.png">
+<meta name="twitter:title" content="Java集合">
+<meta name="twitter:description" content="Java QueueJava Queue中应当使用offer和poll而不是add和remove，原因是一些队列有大小限制，因此如果想在一个满的队列中加入一个新项，多出的项就会被拒绝。 offer 方法不是对调用 add() 方法抛出一个 unchecked 异常，而只是得到由 offer() 返回的 false。  poll() 方法在用空集合调用时不是抛出异常，只是返回 null。因此新的方法">
     
         <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
     
@@ -115,7 +113,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">JavaScript标准参考教程 1 导论</div>
+        <div class="flex-col header-title ellipsis">Java集合</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -137,15 +135,15 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">JavaScript标准参考教程 1 导论</h1>
+        <h1 class="title">Java集合</h1>
         <h5 class="subtitle">
             
-                <time datetime="2018-08-11T08:58:56.000Z" itemprop="datePublished" class="page-time">
-  2018-08-11
+                <time datetime="2019-06-11T03:53:47.000Z" itemprop="datePublished" class="page-time">
+  2019-06-11
 </time>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/教程/">教程</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
 
             
         </h5>
@@ -162,21 +160,21 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#JS标准参考教程-1-导论"><span class="post-toc-number">1.</span> <span class="post-toc-text">JS标准参考教程 1 导论</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#什么是JS"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">什么是JS</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#JS代码的注意问题"><span class="post-toc-number">2.</span> <span class="post-toc-text">JS代码的注意问题</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Java-Queue"><span class="post-toc-number">1.</span> <span class="post-toc-text">Java Queue</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Vector、ArrayList、LinkedList"><span class="post-toc-number">2.</span> <span class="post-toc-text">Vector、ArrayList、LinkedList</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Java-asList数组转集合"><span class="post-toc-number">3.</span> <span class="post-toc-text">Java asList数组转集合</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Hashtable、HashMap、TreeMap"><span class="post-toc-number">4.</span> <span class="post-toc-text">Hashtable、HashMap、TreeMap</span></a></li></ol>
         </nav>
     </aside>
 
 
-<article id="post-JavaScript标准参考教程 导论"
+<article id="post-Java集合"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">JavaScript标准参考教程 1 导论</h1>
+        <h1 class="post-card-title">Java集合</h1>
         <div class="post-meta">
-            <time class="post-time" title="2018-08-11 16:58:56" datetime="2018-08-11T08:58:56.000Z"  itemprop="datePublished">2018-08-11</time>
+            <time class="post-time" title="2019-06-11 11:53:47" datetime="2019-06-11T03:53:47.000Z"  itemprop="datePublished">2019-06-11</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/教程/">教程</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
 
 
 
@@ -188,18 +186,16 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="JS标准参考教程-1-导论"><a href="#JS标准参考教程-1-导论" class="headerlink" title="JS标准参考教程 1 导论"></a>JS标准参考教程 1 导论</h1><h2 id="什么是JS"><a href="#什么是JS" class="headerlink" title="什么是JS"></a>什么是JS</h2><p>JavaScript 是一种嵌入式（embedded）语言。它本身提供的核心语法不算很多，只能用来做一些数学和逻辑运算。JavaScript 本身不提供任何与 I/O（输入/输出）相关的 API，都要靠宿主环境（host）提供，所以 JavaScript 只合适嵌入更大型的应用程序环境，去调用宿主环境提供的底层 API。</p>
-<p>目前，已经嵌入 JavaScript 的宿主环境有多种，最常见的环境就是浏览器，另外还有服务器环境，也就是 Node 项目。</p>
-<p>JavaScript 的核心语法部分相当精简，只包括两个部分：基本的语法构造（比如操作符、控制结构、语句）和标准库（就是一系列具有各种功能的对象比如Array、Date、Math等）。除此之外，各种宿主环境提供额外的 API（即只能在该环境使用的接口），以便 JavaScript 调用。以浏览器为例，它提供的额外 API 可以分成三大类。<br>    •    浏览器控制类：操作浏览器<br>    •    DOM 类：操作网页的各种元素<br>    •    Web 类：实现互联网的各种功能</p>
-<p>JavaScript 语言本身，虽然是一种解释型语言，但是在现代浏览器中，JavaScript 都是编译后运行。程序会被高度优化，运行效率接近二进制程序。而且，JavaScript 引擎正在快速发展，性能将越来越好。</p>
-<p>此书是针对<strong>浏览器</strong>的js</p>
-<h1 id="JS代码的注意问题"><a href="#JS代码的注意问题" class="headerlink" title="JS代码的注意问题"></a>JS代码的注意问题</h1><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/add/1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+            <h1 id="Java-Queue"><a href="#Java-Queue" class="headerlink" title="Java Queue"></a>Java Queue</h1><p>Java Queue中应当使用offer和poll而不是add和remove，原因是<br>一些队列有大小限制，因此如果想在一个满的队列中加入一个新项，多出的项就会被拒绝。 offer 方法不是对调用 add() 方法抛出一个 unchecked 异常，而只是得到由 offer() 返回的 false。 </p>
+<p>poll() 方法在用空集合调用时不是抛出异常，只是返回 null。因此新的方法更适合容易出现异常条件的情况。</p>
+<p>peek，element区别：element() 和 peek() 用于在队列的头部查询元素。与 remove() 方法类似，在队列为空时， element() 抛出一个异常，而 peek() 返回 null。</p>
+<h1 id="Vector、ArrayList、LinkedList"><a href="#Vector、ArrayList、LinkedList" class="headerlink" title="Vector、ArrayList、LinkedList"></a>Vector、ArrayList、LinkedList</h1><p><strong>Vector</strong>是Java早期提供的<strong>线程安全</strong>的<strong>动态数组</strong>，如果不需要线程安全，并不建议选择，毕竟同步是有额外开销的。Vector内部是使用对象数组来保存数据，可以根据需要自动的增加容量，当数组已满时，会创建新的数组，并拷贝原有数组数据。</p>
+<p><strong>ArrayList</strong>是应用更加广泛的<strong>动态数组</strong>实现，它本身不是线程安全的，所以性能要好很多。与Vector近似，ArrayL ist也是可以根据需要调整容量，不过两者的调整逻辑有所区别，Vector 在扩容时会提高1倍，而ArrayList则是增加50%。</p>
+<p><strong>LinkedList</strong>顾名思义是Java提供的<strong>双向链表</strong>，所以它不需要像上面两种那样调整容量，它也不是线程安全的。</p>
+<h1 id="Java-asList数组转集合"><a href="#Java-asList数组转集合" class="headerlink" title="Java asList数组转集合"></a>Java asList数组转集合</h1><p>Arrays.asList() 方法，这个方法会返回一个 ArrayList 类型的对象。但是用这个对象对列表进行添加删除更新操作，就会UnsupportedOperationException 异常。这个 ArrayList 类并非 java.util.ArrayList 类，而是 Arrays 类的静态内部类！内部类里面并没有 add、remove 方法，这个类继承的 AbstractList 类里面有这些方法。如果是想将一个数组转化成一个列表并做增加删除操作的话以<br>Arrays.asList() 作为参数新建一个arraylist,真正的arraylist。</p>
+<h1 id="Hashtable、HashMap、TreeMap"><a href="#Hashtable、HashMap、TreeMap" class="headerlink" title="Hashtable、HashMap、TreeMap"></a>Hashtable、HashMap、TreeMap</h1><p><strong>Hashtable</strong>是早期Java类军提供的一个哈希表实现，本身是<strong>同步</strong>的，不支持null 键和值，由于同步导致的性能开销，所以已经<strong>很少被推荐使用</strong>。</p>
+<p><strong>HashMap</strong>是应用更加广泛的哈希表实现，行为上大致上与HashTable 一致，主要区别在于HashMap<strong>不是同步</strong>的，支持null键和值等。通常情况下，HashMap进行put或者get 操作，可以达到常数时间的性能，所以它是绝大部分利用<strong>键值对存取场景的首选</strong>，比如， 实现一个用户ID和用户信息对应的运行时存储结构。不是线程安全的。</p>
+<p><strong>TreeMap</strong>则是基于<strong>红黑树</strong>的一种提供顺序访问的Map,和HashMap不同，它的get、put、remove之类操作都是0 (log(n)) 的时间复杂度，具体顺序可以由指定的Comparator来决定，或者根据键的自然顺序来判断。</p>
 
         </div>
 
@@ -208,7 +204,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-10-09T03:11:45.000Z" itemprop="dateUpdated">2018-10-09 11:11:45</time>
+    最后更新时间：<time datetime="2019-06-11T03:54:01.465Z" itemprop="dateUpdated">2019-06-11 11:54:01</time>
 </span><br>
 
 
@@ -228,7 +224,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
 
 
             
@@ -238,7 +234,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/08/11/JavaScript标准参考教程 导论/&title=《JavaScript标准参考教程 1 导论》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2019/06/11/Java集合/&title=《Java集合》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -248,22 +244,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/08/11/JavaScript标准参考教程 导论/&title=《JavaScript标准参考教程 1 导论》 — ZDK's blog&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2019/06/11/Java集合/&title=《Java集合》 — ZDK's blog&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/08/11/JavaScript标准参考教程 导论/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2019/06/11/Java集合/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JavaScript标准参考教程 1 导论》 — ZDK's blog&url=https://github.com/zdkswd/2018/08/11/JavaScript标准参考教程 导论/&via=https://github.com/zdkswd" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Java集合》 — ZDK's blog&url=https://github.com/zdkswd/2019/06/11/Java集合/&via=https://github.com/zdkswd" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/08/11/JavaScript标准参考教程 导论/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2019/06/11/Java集合/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -283,21 +279,14 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2018/08/14/JavaScript标准参考教程 语法 一/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">JavaScript标准参考教程 语法 一</h4>
-      </a>
-    </div>
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2018/08/11/微信小程序剖析-运行机制/" id="post-next" class="post-nav-link">
+      <a href="/2019/06/11/Git/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">微信小程序剖析 运行机制</h4>
+        <h4 class="title">Git</h4>
       </a>
     </div>
   
@@ -392,7 +381,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2018/08/11/JavaScript标准参考教程 导论/&title=《JavaScript标准参考教程 1 导论》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2019/06/11/Java集合/&title=《Java集合》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -402,22 +391,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2018/08/11/JavaScript标准参考教程 导论/&title=《JavaScript标准参考教程 1 导论》 — ZDK's blog&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2019/06/11/Java集合/&title=《Java集合》 — ZDK's blog&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2018/08/11/JavaScript标准参考教程 导论/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2019/06/11/Java集合/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JavaScript标准参考教程 1 导论》 — ZDK's blog&url=https://github.com/zdkswd/2018/08/11/JavaScript标准参考教程 导论/&via=https://github.com/zdkswd" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Java集合》 — ZDK's blog&url=https://github.com/zdkswd/2019/06/11/Java集合/&via=https://github.com/zdkswd" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2018/08/11/JavaScript标准参考教程 导论/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2019/06/11/Java集合/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -428,7 +417,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2018/08/11/JavaScript标准参考教程 导论/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2019/06/11/Java集合/" alt="微信分享二维码">
 </div>
 
 
