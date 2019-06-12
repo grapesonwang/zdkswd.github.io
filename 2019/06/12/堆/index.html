@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>堆 | ZDK&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="算法">
+    <meta name="description" content="堆堆的应用场景非常多，最经典的就是堆排序。堆排序是一种原地，时间复杂度为O(nlogn)的排序算法。在实际软件开发中，快速排序性能要比堆排序好。 堆的定义 堆是一个完全二叉树; 堆中每一个节点的值都必须大于等于(或小于等于)其子树中每个节点的值。分别对应大顶堆和小顶堆。  实现一个堆用数组存储一个堆。">
+<meta name="keywords" content="算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="堆">
+<meta property="og:url" content="https://github.com/zdkswd/2019/06/12/堆/index.html">
+<meta property="og:site_name" content="ZDK&#39;s blog">
+<meta property="og:description" content="堆堆的应用场景非常多，最经典的就是堆排序。堆排序是一种原地，时间复杂度为O(nlogn)的排序算法。在实际软件开发中，快速排序性能要比堆排序好。 堆的定义 堆是一个完全二叉树; 堆中每一个节点的值都必须大于等于(或小于等于)其子树中每个节点的值。分别对应大顶堆和小顶堆。  实现一个堆用数组存储一个堆。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/img/media/%E5%A0%86/4d349f57947df6590a2dd1364c3b0b1e.jpg">
+<meta property="og:image" content="https://github.com/img/media/%E5%A0%86/e578654f930002a140ebcf72b11eb722.jpg">
+<meta property="og:image" content="https://github.com/img/media/%E5%A0%86/e3744661e038e4ae570316bc862b2c0e.jpg">
+<meta property="og:image" content="https://github.com/img/media/%E5%A0%86/110d6f442e718f86d2a1d16095513260.jpg">
+<meta property="og:image" content="https://github.com/img/media/%E5%A0%86/50c1e6bc6fe68378d0a66bdccfff441e.jpg">
+<meta property="og:image" content="https://github.com/img/media/%E5%A0%86/aabb8d15b1b92d5e040895589c60419d.jpg">
+<meta property="og:image" content="https://github.com/img/media/%E5%A0%86/23958f889ca48dbb8373f521708408d1.jpg">
+<meta property="og:image" content="https://github.com/img/media/%E5%A0%86/6e81fdde42ec3fd288d32eb866867fbd.jpg">
+<meta property="og:image" content="https://github.com/img/media/%E5%A0%86/08c29d3e014a4baf5f8148c2271e6099.jpg">
+<meta property="og:image" content="https://github.com/img/media/%E5%A0%86/aee4dcaf9d34111870a1d66a6e109fb1.jpg">
+<meta property="og:updated_time" content="2019-06-12T13:50:33.612Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="堆">
+<meta name="twitter:description" content="堆堆的应用场景非常多，最经典的就是堆排序。堆排序是一种原地，时间复杂度为O(nlogn)的排序算法。在实际软件开发中，快速排序性能要比堆排序好。 堆的定义 堆是一个完全二叉树; 堆中每一个节点的值都必须大于等于(或小于等于)其子树中每个节点的值。分别对应大顶堆和小顶堆。  实现一个堆用数组存储一个堆。">
+<meta name="twitter:image" content="https://github.com/img/media/%E5%A0%86/4d349f57947df6590a2dd1364c3b0b1e.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/tmg.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ZDK</h5>
+          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/zdkswd" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">堆</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">堆</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-06-12T13:49:47.000Z" itemprop="datePublished" class="page-time">
+  2019-06-12
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#堆"><span class="post-toc-number">1.</span> <span class="post-toc-text">堆</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#堆的定义"><span class="post-toc-number">2.</span> <span class="post-toc-text">堆的定义</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#实现一个堆"><span class="post-toc-number">3.</span> <span class="post-toc-text">实现一个堆</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-往堆中插入一个元素"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">1.往堆中插入一个元素</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-删除堆顶元素"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">2.删除堆顶元素</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#基于堆实现排序"><span class="post-toc-number">4.</span> <span class="post-toc-text">基于堆实现排序</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-建堆"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">1.建堆</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-排序"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">2.排序</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#快排与堆排序"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">快排与堆排序</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#堆的应用"><span class="post-toc-number">5.</span> <span class="post-toc-text">堆的应用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#堆的应用一：优先级队列"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">堆的应用一：优先级队列</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-合并有序小文件"><span class="post-toc-number">5.1.1.</span> <span class="post-toc-text">1.合并有序小文件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-高性能定时器"><span class="post-toc-number">5.1.2.</span> <span class="post-toc-text">2.高性能定时器</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#堆的应用二：利用堆求TopK"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">堆的应用二：利用堆求TopK</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#堆的应用三：利用堆求中位数"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">堆的应用三：利用堆求中位数</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-堆"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">堆</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-06-12 21:49:47" datetime="2019-06-12T13:49:47.000Z"  itemprop="datePublished">2019-06-12</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h1><p>堆的应用场景非常多，最经典的就是堆排序。堆排序是一种原地，时间复杂度为<strong>O(nlogn)</strong>的排序算法。在实际软件开发中，快速排序性能要比堆排序好。</p>
+<h1 id="堆的定义"><a href="#堆的定义" class="headerlink" title="堆的定义"></a>堆的定义</h1><ol>
+<li>堆是一个完全二叉树;</li>
+<li>堆中每一个节点的值都必须大于等于(或小于等于)其子树中每个节点的值。分别对应大顶堆和小顶堆。</li>
+</ol>
+<h1 id="实现一个堆"><a href="#实现一个堆" class="headerlink" title="实现一个堆"></a>实现一个堆</h1><p>用数组存储一个堆。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%A0%86/4d349f57947df6590a2dd1364c3b0b1e.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h2 id="1-往堆中插入一个元素"><a href="#1-往堆中插入一个元素" class="headerlink" title="1.往堆中插入一个元素"></a>1.往堆中插入一个元素</h2><p>往堆中插入一个元素后需要继续满足堆的两个特性，就需要进行调整，让其重新满足堆的特性，这个过程就叫做<strong>堆化</strong>。分为从下往上和从上往下。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%A0%86/e578654f930002a140ebcf72b11eb722.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>堆化就是顺着节点所在的路径从上或从下对比交换。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%A0%86/e3744661e038e4ae570316bc862b2c0e.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>让新插入的节点与父节点对比大小，如果不满足子节点小于等于父节点的大小关系，就互换两个节点，一直重复这个过程，直到父子节点之间满足大小关系。即为从下往上。</p>
+<h2 id="2-删除堆顶元素"><a href="#2-删除堆顶元素" class="headerlink" title="2.删除堆顶元素"></a>2.删除堆顶元素</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%A0%86/110d6f442e718f86d2a1d16095513260.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>从上往下。</p>
+<h1 id="基于堆实现排序"><a href="#基于堆实现排序" class="headerlink" title="基于堆实现排序"></a>基于堆实现排序</h1><p>时间复杂度<strong>O(nlogn)</strong>，原地排序算法。堆排序分为两个大步骤，<strong>建堆</strong>和<strong>排序</strong>。</p>
+<h2 id="1-建堆"><a href="#1-建堆" class="headerlink" title="1.建堆"></a>1.建堆</h2><p>有两种思路，<br>第一种，在堆中插入一个元素，起初堆中只包含一个数据，就是下标为1的数据，然后调用插入操作，将下标从2到n的数据依次插入到堆中，这样就将包含n个数据的数据组织成了堆。</p>
+<p>第二种思路，直接从第一个非叶子节点开始，依次堆化。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%A0%86/50c1e6bc6fe68378d0a66bdccfff441e.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%A0%86/aabb8d15b1b92d5e040895589c60419d.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>建堆的时间复杂度分析：<strong>O(n)</strong></p>
+<h2 id="2-排序"><a href="#2-排序" class="headerlink" title="2.排序"></a>2.排序</h2><p>建堆结束后，数组中数据已经是按照大顶堆的特性来组织的。数组中的第一个元素就是堆顶，也就是最大的元素。不断取出堆顶的元素也就完成了排序。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%A0%86/23958f889ca48dbb8373f521708408d1.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><strong>堆排序的时间复杂度、空间复杂度以及稳定性：</strong><br>整个堆排序只需要极个别临时存储空间，堆排序是原地排序算法。堆排序包括<strong>建堆</strong>和<strong>排序</strong>两个操作。建堆的时间复杂度是<strong>O(n)</strong>,排序过程的时间复杂度是<strong>O(nlogn)</strong>,所以堆排序整体的时间复杂度是<strong>O(nlogn)</strong>。</p>
+<p>堆排序不是稳定的排序算法，因为在排序过程中，存在将堆最后一个节点与堆顶节点互换的操作，所以就有可能改变相同数据原始相对顺序。</p>
+<p>如果堆从0开始存储，实际上处理思路是没有变化的，唯一变化的是代码实现时计算子节点和父节点的下标公式改变了。</p>
+<h2 id="快排与堆排序"><a href="#快排与堆排序" class="headerlink" title="快排与堆排序"></a>快排与堆排序</h2><p>实际开发中，快排比堆排序性能好的两方面原因。<br><strong>一，堆排序数据访问的方式没有快速排序友好。</strong><br>对于快速排序来说，数据是顺序访问的，对于堆排序来说，数据是跳着访问的。这样对CPU缓存是不友好的。<br><strong>二，对于同样的数据，在排序过程中，堆排序算法的数据交换次数多于快速排序。</strong>堆排序的第一步是建堆，建堆的过程会打乱数据原有的相对先后顺序，导致原数据的有序度降低。对于一组已经有序的数据，经过建堆，数据变得更无序了。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%A0%86/6e81fdde42ec3fd288d32eb866867fbd.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h1 id="堆的应用"><a href="#堆的应用" class="headerlink" title="堆的应用"></a>堆的应用</h1><p>堆有几个非常重要的应用：优先级队列，求TopK和求中位数。</p>
+<h2 id="堆的应用一：优先级队列"><a href="#堆的应用一：优先级队列" class="headerlink" title="堆的应用一：优先级队列"></a>堆的应用一：优先级队列</h2><p>队列是先进先出，不过在优先级队列里，出队顺序不是先进先出，而是按照优先级来，优先级最高的最先出队。</p>
+<p>一个堆就可以看作是一个优先级队列。</p>
+<p>有很多数据结构和算法都依赖它，比如霍夫曼编码，图的最短路径，最小生成树算法等等。很多语言都提供了优先级队列的实现，比如Java的PriorityQueue，C++的priority_queue等。</p>
+<h3 id="1-合并有序小文件"><a href="#1-合并有序小文件" class="headerlink" title="1.合并有序小文件"></a>1.合并有序小文件</h3><p>假设有100个小文件，每个文件的大小是100MB，每个文件中存储的都是有序的字符串。希望将这些100个小文件合并成一个有序的大文件。 这里就会用到优先级队列。</p>
+<p>从小文件中取出字符串放入小订堆汇总，堆顶的元素，也就是优先级队列队首的元素就是最小的字符串。将这个字符串放入到大文件中，并将其从堆中删除。再从小文件中取出下一个字符串，放入到堆中。循环这个过程，就可以将100个小文件依次放入到大文件中。</p>
+<p>其中，删除堆顶数据和往堆中插入数据的时间复杂度都是O(logn)。</p>
+<h3 id="2-高性能定时器"><a href="#2-高性能定时器" class="headerlink" title="2.高性能定时器"></a>2.高性能定时器</h3><h2 id="堆的应用二：利用堆求TopK"><a href="#堆的应用二：利用堆求TopK" class="headerlink" title="堆的应用二：利用堆求TopK"></a>堆的应用二：利用堆求TopK</h2><p>TopK问题分为两类，一类是针对静态数据集合，就是数据集合事先确定，不会再变。另一类是针对动态数据集合，就是数据集合事先并不确定，有数据动态地加入到集合中。</p>
+<p>针对静态数据，如何在一个包含n个数据的数组中，查找前K大数据呢?我们可以维护一个大小为K的<strong>小顶堆</strong>，顺序遍历数组，从数组中取出数据与堆顶元素比较。如果比堆顶元素大，我们就把堆顶元素删除，并且将这个元素插入到堆中;如果比堆顶元素小，则不做处理，继续遍历数组。这样等数组中的数据都遍历完之后，堆中的数据就是前K大数据了。遍历数组需要O(n)的时间复杂度，一次堆化操作需要O(logK)的时间复杂度,所以最坏情况下，n个元素都入堆一次，时间复杂度就是<strong>O(nlogK)</strong>。</p>
+<p>动态数据求得Top K就是实时Top K。一个数据集合中有两个操作，一个是添加数据，另一个询问当前的前K大数据。</p>
+<p>实际上，我们可以一直都维护一个K大小的小顶堆，当有数据被添加到集合中时，我们就拿它与堆顶的元素对比。如果比堆顶元素大，我们就把堆顶元素删除，并且将这个元素插入到堆中;如果比堆顶元素小，则不做处理。这样，无论任何时候需要查询当前的前K大数据，都可以立刻返回。</p>
+<h2 id="堆的应用三：利用堆求中位数"><a href="#堆的应用三：利用堆求中位数" class="headerlink" title="堆的应用三：利用堆求中位数"></a>堆的应用三：利用堆求中位数</h2><p>对于静态数据，中位数是固定的，可以先排序取中间就是中位数，面对<strong>动态数据</strong>集合，中位数不断变动，如果再用先排序的方法，效率就不高了。<strong>借助堆这种数据结构，不用排序，就可以非常高效地实现求中位数操作。</strong></p>
+<p>需要维护两个堆，一个大顶堆，一个小顶堆。大顶堆中存储前半部分数据，小顶堆中存储后半部分数据，且小顶堆中的数据都大于大顶堆中的数据。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%A0%86/08c29d3e014a4baf5f8148c2271e6099.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><strong>大顶堆的堆顶即为要找的中位数。</strong></p>
+<p>当新添加一个数据的时候，如果新加入的数据小于等于大顶堆的堆顶元素，就将这个新数据插入到大顶堆;否则，就将这个新数据插入到小顶堆。</p>
+<p>这个时候就有可能出现，两个堆中的数据个数不符合约定的情况:<strong>如果n是偶数，两个堆中的数据个数都是n / 2;如果n是奇数，大顶堆有 n / 2 +1 个数据，小顶堆有 n / 2 个数据。</strong>这个时候，可以从一个堆中不停地将堆项元素移动到另一个堆，通过这样的调整，来让两个堆中的数据满足约定。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%A0%86/aee4dcaf9d34111870a1d66a6e109fb1.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><strong>插入数据</strong>因为需要涉及堆化，所以时间复杂度为<strong>O(logn)</strong>, 但是求中位数只需要返回大顶堆的堆顶元素，时间复杂度为<strong>O(1)</strong>。</p>
+<p><strong>通过类似的方法可以求任意百分位值。</strong></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-06-12T13:50:33.612Z" itemprop="dateUpdated">2019-06-12 21:50:33</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/zdkswd">
+            <img src="/img/tmg.jpg" alt="ZDK">
+            ZDK
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2019/06/12/堆/&title=《堆》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2019/06/12/堆/&title=《堆》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2019/06/12/堆/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《堆》 — ZDK's blog&url=https://github.com/zdkswd/2019/06/12/堆/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2019/06/12/堆/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/06/12/树/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">树</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz",
+            appKey: "gkBx5soQkBREmER84PWbNJeM",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ZDK &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2019/06/12/堆/&title=《堆》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2019/06/12/堆/&title=《堆》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2019/06/12/堆/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《堆》 — ZDK's blog&url=https://github.com/zdkswd/2019/06/12/堆/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2019/06/12/堆/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2019/06/12/堆/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'zdk'blog';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
