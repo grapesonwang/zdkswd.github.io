@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/zdkswd/"/>
-  <updated>2019-06-12T13:50:33.612Z</updated>
+  <updated>2019-06-14T13:03:56.547Z</updated>
   <id>https://github.com/zdkswd/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>图</title>
+    <link href="https://github.com/zdkswd/2019/06/14/%E5%9B%BE/"/>
+    <id>https://github.com/zdkswd/2019/06/14/图/</id>
+    <published>2019-06-14T13:03:47.000Z</published>
+    <updated>2019-06-14T13:03:56.547Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="图的概念"><a href="#图的概念" class="headerlink" title="图的概念"></a>图的概念</h1><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/%E5%9B%BE/df85dc345a9726cab0338e68982fd1af.jpg" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><p><strong>无向图</strong>，两者之间建立一条边，称为顶点的<strong>度</strong>。就是跟顶点相连接的边的条数。</p><hr><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/%E5%9B%BE/c31759a37d8a8719841f347bd479b796.jpg" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><p><strong>有向图</strong>，在有向图中把度分为<strong>入度</strong>和<strong>出度</strong>。</p><hr><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/%E5%9B%BE/55d7e4806dc47950ae098d959b03ace8.jpg" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><p><strong>带权图</strong>，每条边都有一个权重。</p><h1 id="图的存储方法"><a href="#图的存储方法" class="headerlink" title="图的存储方法"></a>图的存储方法</h1><h2 id="邻接矩阵存储法"><a href="#邻接矩阵存储法" class="headerlink" title="邻接矩阵存储法"></a>邻接矩阵存储法</h2><p>图最直观的存储方法就是<strong>邻接矩阵</strong>。<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/%E5%9B%BE/625e7493b5470e774b5aa91fb4fdb9d2.jpg" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><br>用邻接表来表示一个图虽然简单直观，比较浪费存储空间。如果存储的是<strong>稀疏图</strong>，就更加浪费空间了。</p><p>邻接矩阵的优点在于简单直接，在获取两个顶点关系时非常高效，其次还方便计算。</p><h2 id="邻接表存储方法"><a href="#邻接表存储方法" class="headerlink" title="邻接表存储方法"></a>邻接表存储方法</h2><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/%E5%9B%BE/039bc254b97bd11670cdc4bf2a8e1394.jpg" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><p>邻接表存储起来比较节省空间，使用起来比较耗时间。</p><p>如果链过长，为了提高查找效率，可以将链表换成其他更加高效的数据结构，比如红黑树。也可以使用其他动态数据结构比如跳表和散列表。</p><h2 id="存储微博关系"><a href="#存储微博关系" class="headerlink" title="存储微博关系"></a>存储微博关系</h2><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/%E5%9B%BE/501440bcffdcf4e6f9a5ca1117e990a1.jpg" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><p>邻接表中存储了用户的关注关系，逆邻接表中存储的是用户的被关注关系。</p><h1 id="搜索算法"><a href="#搜索算法" class="headerlink" title="搜索算法"></a>搜索算法</h1><h2 id="广度优先搜索（BFS）"><a href="#广度优先搜索（BFS）" class="headerlink" title="广度优先搜索（BFS）"></a>广度优先搜索（BFS）</h2><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/%E5%9B%BE/002e9e54fb0d4dbf5462226d946fa1ea.jpg" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><p>借助<strong>队列</strong>。<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/%E5%9B%BE/4cd192d4c220cc9ac8049fd3547dba39.jpg" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><br>广度优先搜索的时间复杂度是<strong>O(V+E)</strong>,<strong>V</strong>表示顶点的个数，<strong>E</strong>表示边的个数。</p><p>广度优先搜索的控件消耗主要在几个辅助变量visited数组、queue队列、prev数组上。这三个存储空间的大小都不会超过顶点的个数。所以空间复杂度是O(V)。</p><h2 id="深度优先搜索-DFS"><a href="#深度优先搜索-DFS" class="headerlink" title="深度优先搜索(DFS)"></a>深度优先搜索(DFS)</h2><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/%E5%9B%BE/8778201ce6ff7037c0b3f26b83efba85.jpg" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><p>借助<strong>栈</strong>。</p><p>深度优先搜索算法的时间复杂度是<strong>O(E)</strong>,E表示边的个数。</p><p>深度优先搜索算法的消耗内存主要是visited、 prev 数组和递归调用栈。visited、 prev 数组的大小跟顶点的个数V成正比，递归调用栈的最大深度不会超过顶点的个数，所以总的空间复杂度就是<strong>O(V)</strong>。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;图的概念&quot;&gt;&lt;a href=&quot;#图的概念&quot; class=&quot;headerlink&quot; title=&quot;图的概念&quot;&gt;&lt;/a&gt;图的概念&lt;/h1&gt;&lt;figure class=&quot;image-bubble&quot;&gt;
+                &lt;div class=&quot;img-lig
+      
+    
+    </summary>
+    
+      <category term="知识总结" scheme="https://github.com/zdkswd/categories/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"/>
+    
+    
+      <category term="算法" scheme="https://github.com/zdkswd/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>堆</title>
@@ -500,31 +526,6 @@
     
     
       <category term="算法" scheme="https://github.com/zdkswd/tags/%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Keras.Embedding</title>
-    <link href="https://github.com/zdkswd/2019/04/25/Keras.Embedding/"/>
-    <id>https://github.com/zdkswd/2019/04/25/Keras.Embedding/</id>
-    <published>2019-04-25T12:51:47.000Z</published>
-    <updated>2019-04-25T12:51:41.039Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Keras-Embedding"><a href="#Keras-Embedding" class="headerlink" title="Keras.Embedding"></a>Keras.Embedding</h1><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/Keras.Embedding/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-25%20%E4%B8%8B%E5%8D%886.13.17.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/Keras.Embedding/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-25%20%E4%B8%8B%E5%8D%886.13.33.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/Keras.Embedding/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-25%20%E4%B8%8B%E5%8D%886.14.32.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/Keras.Embedding/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-25%20%E4%B8%8B%E5%8D%886.14.51.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><p>对于一个类别变量的embedding层，input_length=1.input_dim为labelEncoder后的最大值。将label的一个值转化为out_dim的向量的多个值表示。实验如下：<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/Keras.Embedding/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-25%20%E4%B8%8B%E5%8D%888.14.15.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/img/media/Keras.Embedding/WechatIMG85.jpeg" alt="" title="">                </div>                <div class="image-caption"></div>            </figure></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;Keras-Embedding&quot;&gt;&lt;a href=&quot;#Keras-Embedding&quot; class=&quot;headerlink&quot; title=&quot;Keras.Embedding&quot;&gt;&lt;/a&gt;Keras.Embedding&lt;/h1&gt;&lt;figure class=&quot;image-
-      
-    
-    </summary>
-    
-      <category term="知识总结" scheme="https://github.com/zdkswd/categories/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"/>
-    
-    
-      <category term="机器学习" scheme="https://github.com/zdkswd/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
