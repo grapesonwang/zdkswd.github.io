@@ -30,7 +30,9 @@
 <meta property="og:description" content="java 编程思想File类file类名字具有一定的误导性，它既能代表一个特定文件的名称，又能代表一个目录下的一组文件的名称。如果指的是一个文件集，就可以对此集合调用list（）方法。返回一个字符数组，如果想要取得不同目录列表，只需再创建一个不同的File对象。 File类不仅仅只代表存在的文件或目录。也可以用File对象来创建新的目录或尚不存在的整个目录路径。我们还可以查看文件的特性（如：大小，">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://github.com/img/add/33.png">
-<meta property="og:updated_time" content="2019-06-05T12:56:37.192Z">
+<meta property="og:image" content="https://github.com/img/add/34.png">
+<meta property="og:image" content="https://github.com/img/add/35.png">
+<meta property="og:updated_time" content="2019-06-19T06:12:32.924Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java I&#x2F;O">
 <meta name="twitter:description" content="java 编程思想File类file类名字具有一定的误导性，它既能代表一个特定文件的名称，又能代表一个目录下的一组文件的名称。如果指的是一个文件集，就可以对此集合调用list（）方法。返回一个字符数组，如果想要取得不同目录列表，只需再创建一个不同的File对象。 File类不仅仅只代表存在的文件或目录。也可以用File对象来创建新的目录或尚不存在的整个目录路径。我们还可以查看文件的特性（如：大小，">
@@ -162,7 +164,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#java-编程思想"><span class="post-toc-number">1.</span> <span class="post-toc-text">java 编程思想</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#File类"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">File类</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#输入输出"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">输入输出</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#底层原理"><span class="post-toc-number">2.</span> <span class="post-toc-text">底层原理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#缓冲（缓存）处理"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">缓冲（缓存）处理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#虚拟内存"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">虚拟内存</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#close与flush"><span class="post-toc-number">3.</span> <span class="post-toc-text">close与flush</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#java-编程思想"><span class="post-toc-number">1.</span> <span class="post-toc-text">java 编程思想</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#File类"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">File类</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#输入输出"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">输入输出</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#底层原理"><span class="post-toc-number">2.</span> <span class="post-toc-text">底层原理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#缓冲（缓存）处理"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">缓冲（缓存）处理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#虚拟内存"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">虚拟内存</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#close与flush"><span class="post-toc-number">3.</span> <span class="post-toc-text">close与flush</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#reader、writer与Stream"><span class="post-toc-number">4.</span> <span class="post-toc-text">reader、writer与Stream</span></a></li></ol>
         </nav>
     </aside>
 
@@ -214,6 +216,22 @@
 <p>通过将内核空间地址映射到相同的物理地址作为一个用户空间的虚拟地址。这个缓存同时对内核和用户空间进程可见。</p>
 <h1 id="close与flush"><a href="#close与flush" class="headerlink" title="close与flush"></a>close与flush</h1><p>A:close()关闭流对象，但是<strong>先刷新一次缓冲区</strong>，关闭之后，流对象不可以继续再使用了。close（）中会调用flush。<br>B:flush()仅仅是刷新缓冲区(一般写字符时要用,因为字符是先进入的缓冲区)，流对象还可以继续使用</p>
 <p><strong>在io中，为了提高效率，通常是在缓存区满时进行一次读写，所以对于缓存区未满的情况下需要手动调用刷新将缓存区数据取出。</strong></p>
+<h1 id="reader、writer与Stream"><a href="#reader、writer与Stream" class="headerlink" title="reader、writer与Stream"></a>reader、writer与Stream</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/add/34.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>InputStream 是字节输入流的所有类的超类,一般我们使用它的子类,如FileInputStream等.一个byte一个byte的读。<br>InputStreamReader 是字节流通向字符流的桥梁,它将字节流转换为字符流.</p>
+<p>bufferedwriter与filewriter的关系。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/add/35.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>BufferedWriter<br>1.有缓冲区（默认8192字符=16384字节）可以通过构造方法来修改（一般不需修改）<br>2.由于有缓冲区所以效率要比FileWriter高<br>3.缓冲区能缓存8192个字符满了或者close、flush之后才会进行查码表之后再缓存在StreamEncoder的缓冲区中（8192字节）<br>4.内部是使用FileWriter来读写的<br>FileWriter<br>1.其实内部也有缓冲区（8192字节）<br>2.FileWriter效率低<br>3.来一个字符查一次码表缓冲在StreamEncoder的缓冲区中（8192字节）。</p>
+<p>读写操作应该close的一个原因是其对文件操作会占用操作系统的文件描述符，操作系统的文件描述符有上限。</p>
 
         </div>
 
@@ -222,7 +240,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-06-05T12:56:37.192Z" itemprop="dateUpdated">2019-06-05 20:56:37</time>
+    最后更新时间：<time datetime="2019-06-19T06:12:32.924Z" itemprop="dateUpdated">2019-06-19 14:12:32</time>
 </span><br>
 
 
