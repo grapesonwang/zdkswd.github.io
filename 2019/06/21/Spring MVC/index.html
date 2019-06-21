@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Spring MVC | ZDK&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Java,Spring">
+    <meta name="description" content="Spring MVC起步处理流程                                                                                                           在请求离开浏览器时，1️⃣：会带有用户所请求内容信息，至少会包含请求的URL。还可能带有其他的信息，例如用户提交的表单信息。 单实例Servlet ，Di">
+<meta name="keywords" content="Java,Spring">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring MVC">
+<meta property="og:url" content="https://github.com/zdkswd/2019/06/21/Spring MVC/index.html">
+<meta property="og:site_name" content="ZDK&#39;s blog">
+<meta property="og:description" content="Spring MVC起步处理流程                                                                                                           在请求离开浏览器时，1️⃣：会带有用户所请求内容信息，至少会包含请求的URL。还可能带有其他的信息，例如用户提交的表单信息。 单实例Servlet ，Di">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/img/media/Spring%20MVC/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-19%20%E4%B8%8A%E5%8D%889.21.30.png">
+<meta property="og:image" content="https://github.com/img/media/Spring%20MVC/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-19%20%E4%B8%8A%E5%8D%8810.15.35.png">
+<meta property="og:image" content="https://github.com/img/media/Spring%20MVC/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-19%20%E4%B8%8A%E5%8D%8810.26.39.png">
+<meta property="og:image" content="https://github.com/img/media/Spring%20MVC/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-19%20%E4%B8%8A%E5%8D%8810.31.10.png">
+<meta property="og:image" content="https://github.com/img/media/Spring%20MVC/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-19%20%E4%B8%8A%E5%8D%8810.34.25.png">
+<meta property="og:image" content="https://github.com/img/media/Spring%20MVC/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-19%20%E4%B8%8A%E5%8D%8810.42.28.png">
+<meta property="og:image" content="https://github.com/img/media/Spring%20MVC/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-19%20%E4%B8%8B%E5%8D%882.19.43.png">
+<meta property="og:image" content="https://github.com/img/media/Spring%20MVC/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-19%20%E4%B8%8B%E5%8D%882.26.10.png">
+<meta property="og:image" content="https://github.com/img/media/Spring%20MVC/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-19%20%E4%B8%8B%E5%8D%882.27.09.png">
+<meta property="og:image" content="https://github.com/img/media/Spring%20MVC/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-19%20%E4%B8%8B%E5%8D%882.36.50.png">
+<meta property="og:image" content="https://github.com/img/media/Spring%20MVC/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-21%20%E4%B8%8A%E5%8D%888.18.00.png">
+<meta property="og:image" content="https://github.com/img/media/Spring%20MVC/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-21%20%E4%B8%8A%E5%8D%888.48.01.png">
+<meta property="og:image" content="https://github.com/img/media/Spring%20MVC/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-21%20%E4%B8%8A%E5%8D%889.01.41.png">
+<meta property="og:image" content="https://github.com/img/media/Spring%20MVC/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-21%20%E4%B8%8A%E5%8D%889.04.26.png">
+<meta property="og:image" content="https://github.com/img/media/Spring%20MVC/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-21%20%E4%B8%8A%E5%8D%889.18.37.png">
+<meta property="og:image" content="https://github.com/img/media/Spring%20MVC/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-21%20%E4%B8%8A%E5%8D%889.20.10.png">
+<meta property="og:image" content="https://github.com/img/media/Spring%20MVC/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-21%20%E4%B8%8A%E5%8D%889.42.30.png">
+<meta property="og:image" content="https://github.com/img/media/Spring%20MVC/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-21%20%E4%B8%8A%E5%8D%889.49.23.png">
+<meta property="og:image" content="https://github.com/img/media/Spring%20MVC/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-21%20%E4%B8%8A%E5%8D%889.49.39.png">
+<meta property="og:image" content="https://github.com/img/media/Spring%20MVC/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-21%20%E4%B8%8A%E5%8D%8810.08.52.png">
+<meta property="og:image" content="https://github.com/img/media/Spring%20MVC/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-21%20%E4%B8%8A%E5%8D%8810.14.11.png">
+<meta property="og:image" content="https://github.com/img/media/Spring%20MVC/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-21%20%E4%B8%8A%E5%8D%8811.04.29.png">
+<meta property="og:image" content="https://github.com/img/media/Spring%20MVC/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-21%20%E4%B8%8B%E5%8D%881.56.31.png">
+<meta property="og:updated_time" content="2019-06-21T06:12:04.417Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Spring MVC">
+<meta name="twitter:description" content="Spring MVC起步处理流程                                                                                                           在请求离开浏览器时，1️⃣：会带有用户所请求内容信息，至少会包含请求的URL。还可能带有其他的信息，例如用户提交的表单信息。 单实例Servlet ，Di">
+<meta name="twitter:image" content="https://github.com/img/media/Spring%20MVC/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-19%20%E4%B8%8A%E5%8D%889.21.30.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/tmg.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ZDK</h5>
+          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/zdkswd" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Spring MVC</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Spring MVC</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-06-21T06:10:47.000Z" itemprop="datePublished" class="page-time">
+  2019-06-21
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Spring-MVC起步"><span class="post-toc-number">1.</span> <span class="post-toc-text">Spring MVC起步</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#处理流程"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">处理流程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#搭建Spring-MVC"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">搭建Spring MVC</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置DispatcherServlet"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">配置DispatcherServlet</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#两个应用上下文的联系"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">两个应用上下文的联系</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#启用Spring-MVC"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">启用Spring MVC</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#编写基本的控制器"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">编写基本的控制器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#传递模型数据到视图中"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">传递模型数据到视图中</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#接受请求的输入"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">接受请求的输入</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#处理查询参数"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">处理查询参数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#通过路径参数接受输入"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">通过路径参数接受输入</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#处理表单"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">处理表单</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#编写处理表单的控制器"><span class="post-toc-number">1.5.1.</span> <span class="post-toc-text">编写处理表单的控制器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#校验表单"><span class="post-toc-number">1.5.2.</span> <span class="post-toc-text">校验表单</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#渲染Web视图"><span class="post-toc-number">2.</span> <span class="post-toc-text">渲染Web视图</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#理解视图解析"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">理解视图解析</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#创建JSP视图"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">创建JSP视图</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置适用于JSP的视图解析器"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">配置适用于JSP的视图解析器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#解析JSTL视图"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">解析JSTL视图</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用Spring的JSP库"><span class="post-toc-number">2.2.3.</span> <span class="post-toc-text">使用Spring的JSP库</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#将表单绑定到模型上"><span class="post-toc-number">2.2.3.1.</span> <span class="post-toc-text">将表单绑定到模型上</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#展现错误"><span class="post-toc-number">2.2.3.2.</span> <span class="post-toc-text">展现错误</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Spring通用的标签库"><span class="post-toc-number">2.2.4.</span> <span class="post-toc-text">Spring通用的标签库</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#展现国际化"><span class="post-toc-number">2.2.4.1.</span> <span class="post-toc-text">展现国际化</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用Thymeleaf"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">使用Thymeleaf</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置Thymeleaf视图解析器"><span class="post-toc-number">2.3.1.</span> <span class="post-toc-text">配置Thymeleaf视图解析器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#定义Thymeleaf模板"><span class="post-toc-number">2.3.2.</span> <span class="post-toc-text">定义Thymeleaf模板</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#借助Thymeleaf实现表单绑定"><span class="post-toc-number">2.3.2.1.</span> <span class="post-toc-text">借助Thymeleaf实现表单绑定</span></a></li></ol></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Spring MVC"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Spring MVC</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-06-21 14:10:47" datetime="2019-06-21T06:10:47.000Z"  itemprop="datePublished">2019-06-21</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="Spring-MVC起步"><a href="#Spring-MVC起步" class="headerlink" title="Spring MVC起步"></a>Spring MVC起步</h1><h2 id="处理流程"><a href="#处理流程" class="headerlink" title="处理流程"></a>处理流程</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Spring%20MVC/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-19%20%E4%B8%8A%E5%8D%889.21.30.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>在请求离开浏览器时，1️⃣：会带有用户所请求内容信息，至少会包含请求的URL。还可能带有其他的信息，例如用户提交的表单信息。</p>
+<p>单实例Servlet ，DispatcherServlet将请求委托给应用程序的其他组件来执行实际处理。通过所携带的URL来进行决策。</p>
+<p>控制器返回时仅仅传递了一个逻辑名称，这个名字将会用来查找产生结果的真正视图。</p>
+<h2 id="搭建Spring-MVC"><a href="#搭建Spring-MVC" class="headerlink" title="搭建Spring MVC"></a>搭建Spring MVC</h2><h3 id="配置DispatcherServlet"><a href="#配置DispatcherServlet" class="headerlink" title="配置DispatcherServlet"></a>配置DispatcherServlet</h3><p>传统方式，DispatcherServlet这样的Servlet会配置在web.xml中。但不是唯一的方法。扩展AbstractAnnotationConfigDispatcherServletInitializer的任意类都会自动配置DispatcherServlet和Spring应用上下文。Spring的应用上下文会位于应用程序的Servlet上下文之中。即为dispatchservlet.xml。</p>
+<p>在 Servlet3环境中,容器会在类路径中查找实现 javax. servlet.ServletcontainerInitializer接口的类,如果能发现的话,就会用来配置 Servlet容器。Spring提供了这个接口的实现,名为SpringServletcontainerInitializer,这个类反过来又会查找实现 WebApplicationInitializer的类并将配置的任务交给它们来完成。 Spring3.2引入了一个便利的 WebApplicationInitializer基础实现,也就是AbstractAnnotationconfigDispatcherservletInitializer。当扩展了AbstractAnnotationconfigDispatcherServletinitializer，同时也就实现了 WebApplicationInitializer,因此当部署到 Servlet容器中的时候,容器会自动发现它,并用它来配置 Servlet上下文。</p>
+<h3 id="两个应用上下文的联系"><a href="#两个应用上下文的联系" class="headerlink" title="两个应用上下文的联系"></a>两个应用上下文的联系</h3><p>当DispatcherServlet启动的时候，它会创建Spring应用上下文，并加载配置文件或配置类中所声明的bean。</p>
+<p>在Spring Web应用中，通常还会有另外一个应用上下文。另外的这个应用上下文是由ContextLoaderListener创建的。</p>
+<p>DispatcherServlet加载包含Web组件的bean,如控制器、视图解析器以及处理器映射，而ContextLoaderListener要加载应用中的其他bean。 这些bean通常是驱动应用后端的中间层和数据层组件。</p>
+<h3 id="启用Spring-MVC"><a href="#启用Spring-MVC" class="headerlink" title="启用Spring MVC"></a>启用Spring MVC</h3><p>传统是使用xml，也可以通过config来配置。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Spring%20MVC/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-19%20%E4%B8%8A%E5%8D%8810.15.35.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h2 id="编写基本的控制器"><a href="#编写基本的控制器" class="headerlink" title="编写基本的控制器"></a>编写基本的控制器</h2><p><strong>@Controller</strong>注解与<strong>@Component</strong>注解实现的效果是一样的，表意性会强一些。</p>
+<p>@RequestMapping的属性能够接受一个String类型的数组。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Spring%20MVC/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-19%20%E4%B8%8A%E5%8D%8810.26.39.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="传递模型数据到视图中"><a href="#传递模型数据到视图中" class="headerlink" title="传递模型数据到视图中"></a>传递模型数据到视图中</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Spring%20MVC/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-19%20%E4%B8%8A%E5%8D%8810.31.10.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>将Repository注入Controller。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Spring%20MVC/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-19%20%E4%B8%8A%E5%8D%8810.34.25.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>Model作为参数，方法就能将从Repository中获取的东西填充到模型中。Model实际上就是一个Map，它会传递给视图，这样数据就能渲染到客户端了。当调用addAttribute方法不指定key时，key会根据值的对象类型推断确定。如果希望使用非Spring类型，可以用Map来替代Model。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Spring%20MVC/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-19%20%E4%B8%8A%E5%8D%8810.42.28.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>在返回时统统返回的是jsp的名称。</p>
+<p>JSP访问模型：当视图是JSP时，模型数据会作为请求属性放到请求(request)中，所以可以在jsp文件中使用JSTL的<c :="" foreach="">标签来渲染列表。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Spring%20MVC/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-19%20%E4%B8%8B%E5%8D%882.19.43.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></c></p>
+<h2 id="接受请求的输入"><a href="#接受请求的输入" class="headerlink" title="接受请求的输入"></a>接受请求的输入</h2><p>Spring MVC允许多种方式将客户端的数据传送到控制器的处理器方法中，包括：</p>
+<ol>
+<li>查询参数(Query Parameter )</li>
+<li>表单参数( Form Parameter )</li>
+<li>路径变量(Path Variable )</li>
+</ol>
+<h3 id="处理查询参数"><a href="#处理查询参数" class="headerlink" title="处理查询参数"></a>处理查询参数</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Spring%20MVC/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-19%20%E4%B8%8B%E5%8D%882.26.10.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>客户端发的请求形如：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Spring%20MVC/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-19%20%E4%B8%8B%E5%8D%882.27.09.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="通过路径参数接受输入"><a href="#通过路径参数接受输入" class="headerlink" title="通过路径参数接受输入"></a>通过路径参数接受输入</h3><p>带有参数的请求尽管可以正常工作，但是从面向资源的角度来看并不理想。<br>理想情况下，要识别的资源应该通过URL路径进行标示，而不是通过查询参数。对“spittles/ 12345”发起 GET 请求要优于对“ / spittles / show?spitte_id=12345”发起请求。前者能够识别出要查询的资源，而后者描述的是带有参数的一个操作，本质上是通过HTTP发起的RPC。</p>
+<p>为了实现路径变量，Spring MVC允许在@RequestMapping路径中添加占位符。占位符的名称要用大括号(“{”和“}”)括起来。路径中的其他部分要与所处理的请求完全匹配，但是占位符部分可以是任意的值。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Spring%20MVC/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-19%20%E4%B8%8B%E5%8D%882.36.50.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>spittle ()方法会将参数传递到SpittleRepository的findOone ()方法中，用来获取某个Spittle对象,然后将Spittle对象添加到模型中。模型的key将会是spittle,这是根据传递到addAttribute ()方法中的类型推断得到的。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Spring%20MVC/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-21%20%E4%B8%8A%E5%8D%888.18.00.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>如果传递请求中少量的数据，那查询参数和路径变量是很合适的。通常还需要传递很多的数据(也许是表单提交的数据)，查询参数显得有些笨拙和受限了。可以编写控制器方法来处理表单提交。</p>
+<h2 id="处理表单"><a href="#处理表单" class="headerlink" title="处理表单"></a>处理表单</h2><p>Spring MVC控制器为表单处理提供了良好的支持。使用表单分为两个方面:<strong>展现表单以及处理用户通过表单提交的数据。</strong></p>
+<h3 id="编写处理表单的控制器"><a href="#编写处理表单的控制器" class="headerlink" title="编写处理表单的控制器"></a>编写处理表单的控制器</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Spring%20MVC/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-21%20%E4%B8%8A%E5%8D%888.48.01.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>当InternalResourceViewResolver看到视图格式中的“redirect:” 前缀时，就知道要将其解析为重定向的规则，而不是视图的名称。在本例中，它将会重定向到用户基本信息的页面。例如，如果Spitter .username属性的值为“jbauer”, 那么视图将会重定向到“ / spitter / jbauer”.<br>除了“redirect:”, InternalResourceViewResolver 还能识别“forward:” 前缀。当它发现视图格式中以“forward:” 作为前缀时，请求将会前往(forward) 指定的URL路径，而不再是重定向。</p>
+<h3 id="校验表单"><a href="#校验表单" class="headerlink" title="校验表单"></a>校验表单</h3><p>与其让校验逻辑弄乱处理器方法，还不如使用Spring对Java校验API 的支持。从Spring 3.0开始，在Spring MVC中提供了对Java校验API的支持。在Spring MVC中要使用Java校验API的话，并不需要什么额外的配置。只要保证在类路径下包含这个Java API的实现，比如Hibernate Validator。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Spring%20MVC/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-21%20%E4%B8%8A%E5%8D%889.01.41.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Spring%20MVC/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-21%20%E4%B8%8A%E5%8D%889.04.26.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><strong>@Valid</strong>注解，告知Spring，需要确保这个对象满足校验限制。<br>如果没有错误的话，Spitter 对象将会通过Repository 进行保存，控制器会像之前那样重定向到基本信息页面。</p>
+<h1 id="渲染Web视图"><a href="#渲染Web视图" class="headerlink" title="渲染Web视图"></a>渲染Web视图</h1><h2 id="理解视图解析"><a href="#理解视图解析" class="headerlink" title="理解视图解析"></a>理解视图解析</h2><p>编写的控制器方法都没有直接产生浏览器中渲染所需的HTML。这些方法只是将一些数据填充到模型中，然后将模型传递给一个用来渲染的视图。这些方法会返回一个String类型的值，这个值是视图的逻辑名称，不会直接引用具体的视图实现。尽管我编写了几个简单的JavaServer Page (JSP) 视图，但是控制器并不关心这些。</p>
+<p>将控制器中请求处理的逻辑和视图中的渲染实现解耦是Spring MVC的一个重要特性。控制器只通过逻辑视图名来了解视图，Spring视图解析器来确定使用哪一个视图实现来渲染模型。</p>
+<p>Spring MVC定义了一一个名为ViewResolver的接口，<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Spring%20MVC/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-21%20%E4%B8%8A%E5%8D%889.18.37.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>当给resolveViewName(方法传入一个视图名和Locale对象时，它会返回一个View实例。View 是另外一个接口。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Spring%20MVC/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-21%20%E4%B8%8A%E5%8D%889.20.10.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>View接口的任务就是接受模型以及Servlet 的request 和response对象，并将输出结果渲染到response中。<br>其中<strong>InternalResourceViewResolver</strong>只是<strong>ViewResolver</strong>的实现之一，将视图解析为Web应用的内部资源(一般为JSP)。JSP曾经是，而且现在依然还是Java领域占主导地位的视图技术。</p>
+<h2 id="创建JSP视图"><a href="#创建JSP视图" class="headerlink" title="创建JSP视图"></a>创建JSP视图</h2><p>Spring 提供了两种支持JSP视图的方式:<br>1.<strong>InternalResourceViewResolver</strong>会将视图名解析为JSP文件。另外，如果在JSP页面中使用了JSP 标准标签库( JSTL)的话，InternalResourceViewResolver 能够将视图名解析为JstIView形式的JSP文件，从而将JSTL本地化和资源bundle变量暴露给JSTL的格式化(formatting)和信息( message)标签。<br>2.Spring提供了两个JSP标签库，一个用于表单到模型的绑定，另一个提供了通用的工具类特性。</p>
+<h3 id="配置适用于JSP的视图解析器"><a href="#配置适用于JSP的视图解析器" class="headerlink" title="配置适用于JSP的视图解析器"></a>配置适用于JSP的视图解析器</h3><p>InternalResourceViewResolver所采取的方式并不那么直接。它遵循一种约定，会在视图名上添加前缀和后缀,进而确定一个 Web应用中视图资源的物理路径。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Spring%20MVC/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-21%20%E4%B8%8A%E5%8D%889.42.30.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="解析JSTL视图"><a href="#解析JSTL视图" class="headerlink" title="解析JSTL视图"></a>解析JSTL视图</h3><p>如果想让InternalResourceViewResolver将视图解析为JstlView,而不是InternalResourceView的话，只需设置viewClass属性即可:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Spring%20MVC/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-21%20%E4%B8%8A%E5%8D%889.49.23.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>XML中：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Spring%20MVC/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-21%20%E4%B8%8A%E5%8D%889.49.39.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>JSTL的格式化标签需要- -个 Locale对象，以便于恰当地格式化地域相关的值，如日期和货币。信息标签可以借助Spring的信息资源和Locale,从而选择适当的信息渲染到HTML之中。通过解析JstlView, JSTL能够获得Locale对象以及Spring中配置的信息资源。</p>
+<p>不管使用Java配置还是使用XML,都能确保JSTL的格式化和信息标签能够获得Locale对象以及Spring中配置的信息资源。</p>
+<h3 id="使用Spring的JSP库"><a href="#使用Spring的JSP库" class="headerlink" title="使用Spring的JSP库"></a>使用Spring的JSP库</h3><p>当为JSP添加功能时，标签库是一种很强大的方式，能够避免在脚本块中直接编写Java代码。Spring 提供了两个JSP标签库，用来帮助定义Spring MVC Web的视图。<br>其中一个标签库会用来渲染HTML表单标签，这些标签可以绑定model中的某个属性。<br>另外一个标签库包含了一些工具类标签，随时都可以非常便利地使用它们。</p>
+<h4 id="将表单绑定到模型上"><a href="#将表单绑定到模型上" class="headerlink" title="将表单绑定到模型上"></a>将表单绑定到模型上</h4><p>Spring的表单绑定JSP标签库包含了14个标签,它们中的大多数都用来渲染HTML中的表单标签。但是，与原生HTML标签的区别在于会绑定模型中的一一个对象,能够根据模型中对象的属性填充值。标签库中还包含了一个为用户展现错误的标签，会将错误信息渲染到最终的HTML之中。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Spring%20MVC/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-21%20%E4%B8%8A%E5%8D%8810.08.52.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><a href="sf:form" target="_blank" rel="noopener">sf:form</a>会渲染会一个HTML <form>标签，但也会通过commandName属性构建针对某个模型对象的上下文信息。在其他的表单绑定标签中，会引用这个模型对象的属性。模型中必须要有一个key为spitter的对象，否则，表单不能正常渲染（会出现JSP错误）。<br>如果在模型中Spitter对象的firstName属性值为Jack,那么&lt;sf:input  path=“firstName”/&gt; 所渲染的<input>标签中，会存在value=“Jack”。</form></p>
+<h4 id="展现错误"><a href="#展现错误" class="headerlink" title="展现错误"></a>展现错误</h4><p>如果存在校验错误的话，请求中会包含错误的详细信息，这些信息是与模型数据放到一起的。所需要做的就是到模型中将这些数据抽取出来，并展现给用户。<a href="sf:errors" target="_blank" rel="noopener">sf:errors</a>能够让这项任务变得很简单。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Spring%20MVC/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-21%20%E4%B8%8A%E5%8D%8810.14.11.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="Spring通用的标签库"><a href="#Spring通用的标签库" class="headerlink" title="Spring通用的标签库"></a>Spring通用的标签库</h3><h4 id="展现国际化"><a href="#展现国际化" class="headerlink" title="展现国际化"></a>展现国际化</h4><h2 id="使用Thymeleaf"><a href="#使用Thymeleaf" class="headerlink" title="使用Thymeleaf"></a>使用Thymeleaf</h2><p>JSP存在一些缺陷，大多数的JSP模板都是采用HTML的形式，但是又掺杂上了各种JSP标签库的标签，使其变得很混乱。这些标签库能够以便利的方式为JSP带来动态渲染的强大功能，但是也摧毁了维持一个格式良好的文档的可能性。</p>
+<p>同时，JSP规范是与Servlet 规范紧密耦合的。这意味着它只能用在基于Servlet 的Web应用之中。JSP 模板不能作为通用的模板(如格式化Email),也不能用于非Servlet的Web应用。</p>
+<p>Thymeleaf模板是原生的，不依赖于标签库。能在接受原始HTML的地方进行编辑和渲染。因为没有与Servlet规范耦合,因此Thymeleaf模板能够进人JSP所无法涉足的领域。</p>
+<h3 id="配置Thymeleaf视图解析器"><a href="#配置Thymeleaf视图解析器" class="headerlink" title="配置Thymeleaf视图解析器"></a>配置Thymeleaf视图解析器</h3><p>为了要在Spring中使用Thymeleaf,我们需要配置三个启用Thymeleaf与Spring集成的bean:<br><strong>ThymeleafViewResolver</strong>:将逻辑视图名称解析为Thymeleaf模板视图;<br><strong>SpringTemplateEngine</strong>:处理模板并渲染结果;<br><strong>TemplateResolver</strong>:加载Thymeleaf模板。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Spring%20MVC/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-21%20%E4%B8%8A%E5%8D%8811.04.29.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>不管使用哪种配置方式，Thymeleaf 都可以将响应中的模板渲染到Spring MVC控制器所处理的请求中。</p>
+<p><strong>ThymeleafViewResolver</strong>是Spring MVC中ViewResolver的一个实现类。像其他的视图解析器一样， 会接受一个逻辑视图名称,并将其解析为视图。不过在该场景下，视图会是一个Thymeleaf模板。<br>其中<strong>ThymeleafViewResolver</strong>中注入了一个对<strong>SpringTemplateEngine</strong>的引用。SpringTemplateEngine会在Spring中启用Thymeleaf引擎，用来解析模板，并基于这些模板渲染结果。对其注入一个<strong>TemplateResolver</strong> 的引用。<br><strong>TemplateResolver</strong>会最终定位和查找模板。与之前配置InternalResourceViewResolver类似，使用了prefix和suffix属性。前缀和后缀将会与逻辑视图名组合使用,进而定位Thymeleaf引擎。它的templateMode属性被设置成了HTML5，这表明预期要解析的模板会渲染成HTML5输出。</p>
+<h3 id="定义Thymeleaf模板"><a href="#定义Thymeleaf模板" class="headerlink" title="定义Thymeleaf模板"></a>定义Thymeleaf模板</h3><p>Thymeleaf在很大程度上就是HTML文件，与JSP不同，没有什么特殊的标签或标签库。Thymeleaf 之所以能够发挥作用，是因为通过自定义的命名空间，为标准的HTML标签集合添加Thymeleaf属性。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Spring%20MVC/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-21%20%E4%B8%8B%E5%8D%881.56.31.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h4 id="借助Thymeleaf实现表单绑定"><a href="#借助Thymeleaf实现表单绑定" class="headerlink" title="借助Thymeleaf实现表单绑定"></a>借助Thymeleaf实现表单绑定</h4>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-06-21T06:12:04.417Z" itemprop="dateUpdated">2019-06-21 14:12:04</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/zdkswd">
+            <img src="/img/tmg.jpg" alt="ZDK">
+            ZDK
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2019/06/21/Spring MVC/&title=《Spring MVC》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2019/06/21/Spring MVC/&title=《Spring MVC》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2019/06/21/Spring MVC/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Spring MVC》 — ZDK's blog&url=https://github.com/zdkswd/2019/06/21/Spring MVC/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2019/06/21/Spring MVC/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/06/14/图/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">图</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz",
+            appKey: "gkBx5soQkBREmER84PWbNJeM",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ZDK &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2019/06/21/Spring MVC/&title=《Spring MVC》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2019/06/21/Spring MVC/&title=《Spring MVC》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2019/06/21/Spring MVC/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Spring MVC》 — ZDK's blog&url=https://github.com/zdkswd/2019/06/21/Spring MVC/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2019/06/21/Spring MVC/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2019/06/21/Spring MVC/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'zdk'blog';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
