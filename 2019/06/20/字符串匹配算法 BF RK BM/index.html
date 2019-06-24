@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | ZDK&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="title: ‘字符串匹配算法 BF RK BM’date: 2019-06-24 10:40:47tags: [算法] category: 知识总结概述java中的indexOf(),Python中的find()函数，底层依赖的就是字符串匹配算法。 字符串匹匹配算法有BF算法，RK算法，BM算法，KMP算法。 其中BF算法RK算法是单模式匹配算法，即为一个串和另一个串进行匹配。 BF算法Bru">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="https://github.com/zdkswd/2019/06/20/字符串匹配算法 BF RK BM/index.html">
+<meta property="og:site_name" content="ZDK&#39;s blog">
+<meta property="og:description" content="title: ‘字符串匹配算法 BF RK BM’date: 2019-06-24 10:40:47tags: [算法] category: 知识总结概述java中的indexOf(),Python中的find()函数，底层依赖的就是字符串匹配算法。 字符串匹匹配算法有BF算法，RK算法，BM算法，KMP算法。 其中BF算法RK算法是单模式匹配算法，即为一个串和另一个串进行匹配。 BF算法Bru">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/f36fed972a5bdc75331d59c36eb15aa2.jpg">
+<meta property="og:image" content="https://github.com/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/015c85a9c2a4adc11236f9a40c6d57ee.jpg">
+<meta property="og:image" content="https://github.com/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/d5c1cb11d9fc97d0b28513ba7495ab04.jpg">
+<meta property="og:image" content="https://github.com/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/f99c16f2f899d19935567102c59661f5.jpg">
+<meta property="og:image" content="https://github.com/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/f298f1e5c93b205345b9cd6d9c53fbee.jpg">
+<meta property="og:image" content="https://github.com/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/224b899c6e82ec54594e2683acc4552f.jpg">
+<meta property="og:image" content="https://github.com/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/00c353326466a8ce4e790e36924704c9.jpg">
+<meta property="og:image" content="https://github.com/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/4316dd98eac500a01a0fd632bb5e77f9.jpg">
+<meta property="og:image" content="https://github.com/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/cf362f9e59c01aaf40a34d2f10e1ef15.jpg">
+<meta property="og:image" content="https://github.com/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/540809418354024206d9989cb6cdd89e.jpg">
+<meta property="og:image" content="https://github.com/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/220daef736418df84367215647bca5da.jpg">
+<meta property="og:image" content="https://github.com/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/4e36c4d48d1b6c3b499fb021f03c7f64.jpg">
+<meta property="og:image" content="https://github.com/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/a8d229aa217a67051fbb31b8aeb2edca.jpg">
+<meta property="og:image" content="https://github.com/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/8f520fb9d9cec0f6ea641d4181eb432e.jpg">
+<meta property="og:image" content="https://github.com/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/d78990dbcb794d1aa2cf4a3c646ae58a.jpg">
+<meta property="og:image" content="https://github.com/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/b9785be3e91e34bbc23961f67c234b63.jpg">
+<meta property="og:image" content="https://github.com/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/0544d2997d8bb57c10e13ccac4015e23.jpg">
+<meta property="og:image" content="https://github.com/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/6caa0f61387fd2b3109fe03d803192f9.jpg">
+<meta property="og:image" content="https://github.com/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/bf78f8a0506e069fa318f36c42a95e02.jpg">
+<meta property="og:image" content="https://github.com/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/7742f1d02d0940a1ef3760faf4929ec8.jpg">
+<meta property="og:image" content="https://github.com/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/99a6cfadf2f9a713401ba8feac2484c2.jpg">
+<meta property="og:image" content="https://github.com/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/279be7d64e6254dac1a32d2f6d1a2383.jpg">
+<meta property="og:updated_time" content="2019-06-24T02:41:32.385Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="title: ‘字符串匹配算法 BF RK BM’date: 2019-06-24 10:40:47tags: [算法] category: 知识总结概述java中的indexOf(),Python中的find()函数，底层依赖的就是字符串匹配算法。 字符串匹匹配算法有BF算法，RK算法，BM算法，KMP算法。 其中BF算法RK算法是单模式匹配算法，即为一个串和另一个串进行匹配。 BF算法Bru">
+<meta name="twitter:image" content="https://github.com/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/f36fed972a5bdc75331d59c36eb15aa2.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/tmg.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ZDK</h5>
+          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/zdkswd" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-06-20T01:08:39.940Z" itemprop="datePublished" class="page-time">
+  2019-06-20
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#category-知识总结"><span class="post-toc-number">1.</span> <span class="post-toc-text">category: 知识总结</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#概述"><span class="post-toc-number"></span> <span class="post-toc-text">概述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#BF算法"><span class="post-toc-number"></span> <span class="post-toc-text">BF算法</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#RK算法"><span class="post-toc-number"></span> <span class="post-toc-text">RK算法</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二维空间"><span class="post-toc-number"></span> <span class="post-toc-text">二维空间</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#BM算法"><span class="post-toc-number"></span> <span class="post-toc-text">BM算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#BM算法原理分析"><span class="post-toc-number">1.</span> <span class="post-toc-text">BM算法原理分析</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#坏字符规则"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">坏字符规则</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#好后缀规则"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">好后缀规则</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#BM算法代码实现"><span class="post-toc-number">2.</span> <span class="post-toc-text">BM算法代码实现</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#BM算法的性能分析及优化"><span class="post-toc-number">3.</span> <span class="post-toc-text">BM算法的性能分析及优化</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-字符串匹配算法 BF RK BM"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-06-20 09:08:39" datetime="2019-06-20T01:08:39.940Z"  itemprop="datePublished">2019-06-20</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <hr>
+<p>title: ‘字符串匹配算法 BF RK BM’<br>date: 2019-06-24 10:40:47<br>tags: [算法]</p>
+<h2 id="category-知识总结"><a href="#category-知识总结" class="headerlink" title="category: 知识总结"></a>category: 知识总结</h2><h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p><strong>java</strong>中的<strong>indexOf(),Python</strong>中的<strong>find()</strong>函数，底层依赖的就是字符串匹配算法。</p>
+<p>字符串匹匹配算法有<strong>BF算法，RK算法，BM算法，KMP算法。</strong></p>
+<p>其中BF算法RK算法是单模式匹配算法，即为一个串和另一个串进行匹配。</p>
+<h1 id="BF算法"><a href="#BF算法" class="headerlink" title="BF算法"></a>BF算法</h1><p>Brute Force，即为暴力匹配算法，比较简单，性能不高。</p>
+<p>主串的长度记作n,模式串的长度记作m。因为是在主串中查找模式串,所以n&gt;m。在主串中，检查起始位置分别是0、1、…n-m且长度为m的n-m+1个子串，看有没有跟模式串匹配的。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/f36fed972a5bdc75331d59c36eb15aa2.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>算法最坏时间复杂度为<strong>O(n * m)</strong></p>
+<p>尽管理论上，BF算法的时间复杂度很高，但在实际的开发中，它却是一个比较常用的字符串匹配算法。<br>第一，实际的软件开发中，大部分情况下，模式串和主串的长度都不会太长。而且每次模式串与主串中的子串匹配的时候，当中途遇到不能匹配的字符的时候，就可以就停止了，不需要把m个字符都比对一下。所以，尽管理论上的最坏情况时间复杂度是O(n * m)，但是，统计意义上，大部分情况下，算法执行效率要比这个高很多。<br>第二，朴素字符串匹配算法思想简单，代码实现也非常简单。简单意味着不容易出错，如果有bug也容易暴露和修复。在工程中，在满足性能要求的前提下，简单是首选。这也是常说的KISS (Keep it Simple and Stupid)设计原则。</p>
+<p>在实际的软件开发中，绝大部分情况下，朴素的字符串匹配算法就够用了。</p>
+<h1 id="RK算法"><a href="#RK算法" class="headerlink" title="RK算法"></a>RK算法</h1><p>RK算法即为BF算法的升级版。</p>
+<p>RK算法的思路为:通过哈希算法对主串中的n-m+1个子串分别求哈希值，然后逐个与模式串的哈希值比较大小。如果某个子串的哈希值与模式串相等，那就说明对应的子串和模式串匹配了。因为哈希值是一个数字，数字之间比较是否相等非常快速的，所以模式串和子串比较的效率就提高了。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/015c85a9c2a4adc11236f9a40c6d57ee.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>为了避免遍历字串中的每一个字符，提高算法的效率，需要对哈希算法进行设计。</p>
+<p>假设要匹配的字符串的字符集中只包含K个字符，可以用一个K进制数来表示一个子串，这个K进制数转化成十进制数，作为子串的哈希值。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/d5c1cb11d9fc97d0b28513ba7495ab04.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>这种哈希算法有一个特点， 在主串中，相邻两个子串的哈希值的计算公式有一定关系。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/f99c16f2f899d19935567102c59661f5.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>规律:相邻两个子串s[i-1]和s[i] (i 表示子串在主串中的起始位置，子串的长度都为m)，对应的哈希值计算公式有交集，可以使用s[i-1]的哈希值很快的计算出s[i]的哈希值。用公式表示:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/f298f1e5c93b205345b9cd6d9c53fbee.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>26^(m-1)这部分的计算，我们可以通过查表的方法来提高效率。我们事先计算好26^0、26^1、 2……26^(m -1),并且存储在一个长度为m的数组中，公式中的“次方”就对应数组的下标。当我们需要计算26的x次方的时候，就可以从数组的下标为x的位置取值，直接使用，省去了计算的时间。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/224b899c6e82ec54594e2683acc4552f.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>RK算法时间复杂度分析：<br>整个RK算法包含两部分，计算子串哈希值和模式串哈希值与子串哈希值之间的比较。<br>第一部分，可以通过设计特殊的哈希算法，只需要扫描一遍主串就能计算出所有子串的哈希值了，这部分的时间复杂度是O(n)。<br>如果模式串很长，相应的主串中的子串也会很长，通过上面的哈希算法计算得到的哈希值就可能很大，如果超过了计算机中整型数据可以表示的范围，为了能将哈希值落在整型数据范围内，可以牺牲一下， 允许哈希冲突。比如可以将字符串中每个字母对应的数字相加得到哈希值，这样产生的哈希值数据范围就小很多。<br>当存在哈希冲突的时候，有可能存在这样的情况，子串和模式串的哈希值虽然是相同的，但是两者本身并不匹配。解决方法是当发现一个子串的哈希值跟模式串的哈希值相等的时候，只需要再对比一下子串和模式串本身。</p>
+<p>极端情况下，如果存在大量的冲突，每次都要对比字串和模式串本身，时间复杂度会退化为O( n * m)。一般情况下，冲突不会很多，RK算法效率还是比BF算法高。</p>
+<h1 id="二维空间"><a href="#二维空间" class="headerlink" title="二维空间"></a>二维空间</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/00c353326466a8ce4e790e36924704c9.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>可以同理看做一个字符串来处理。</p>
+<h1 id="BM算法"><a href="#BM算法" class="headerlink" title="BM算法"></a>BM算法</h1><p>BF，RK算法中遇到不匹配，模式串往后滑动一位，然后从模式串第一个字符开始重新匹配。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/4316dd98eac500a01a0fd632bb5e77f9.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>主串中的c，在模式串中是不存在的，模式串向后滑动的时候，只要c与模式串有重合，肯定无法匹配。所以，可以一次性把模式串往后多滑动几位，把模式串移动到c的后面。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/cf362f9e59c01aaf40a34d2f10e1ef15.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>BM算法，本质上其实就是在寻找这种规律。借助这种规律，在模式串与主串匹配的过程中，当模式串和主串某个字符不匹配的时候，能够跳过一些肯定不会匹配的情况，将模式串往后多滑动几位。</p>
+<h2 id="BM算法原理分析"><a href="#BM算法原理分析" class="headerlink" title="BM算法原理分析"></a>BM算法原理分析</h2><p>BM算法包含两部分，分别是<strong>坏字符规则</strong>和<strong>好后缀规则</strong>。</p>
+<h3 id="坏字符规则"><a href="#坏字符规则" class="headerlink" title="坏字符规则"></a>坏字符规则</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/540809418354024206d9989cb6cdd89e.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>BM算法的匹配顺序比较特别，是按照模式串下标从大到小的顺序，倒着匹配的。当发现某个字符没法匹配的时候。把这个没有匹配的字符叫作<strong>坏字符</strong>(主串中的字符)。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/220daef736418df84367215647bca5da.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>拿坏字符c在模式串中查找，发现模式串中并不存在这个字符，也就是说，字符c与模式串中的任何字符都不可能匹配。这个时候，可以将模式串直接往后滑动三位，将模式串滑动到c后面的位置，再从模式串的末尾字符开始比较。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/4e36c4d48d1b6c3b499fb021f03c7f64.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/a8d229aa217a67051fbb31b8aeb2edca.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>然后对于模式串中存在的a，滑动两位，让两个串对齐。</p>
+<p>总结规律为：<br>当发生不匹配的时候，把坏字符对应的模式串中的字符下标记作si。如果坏字符在模式串中存在，把这个坏字符在模式串中的下标记作xi。如果不存在，把xi记作-1。那模式串往后移动的位数就等于si-xi。(注意, 这里都是字符在模式串的下标)。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/8f520fb9d9cec0f6ea641d4181eb432e.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>如果坏字符在模式串里多处出现，在计算xi的时候，选择最靠后的那个，这样不会让模式串滑动过多，导致本来可能匹配的情况被滑动略过。</p>
+<p>单纯使用坏字符规则还是不够的。因为根据si-xi计算出来的移动位数，有可能是负数。所以，BM算法还需要用到“好后缀规则”</p>
+<h3 id="好后缀规则"><a href="#好后缀规则" class="headerlink" title="好后缀规则"></a>好后缀规则</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/d78990dbcb794d1aa2cf4a3c646ae58a.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>把已经匹配的bc叫作好后缀，记作{u}。我们拿它在模式串中查找，如果找到了另一个跟{u}相匹配的子串{u <em> }，那我们就将模式串滑动到子串{u </em> }与主串中{u}对齐的位置。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/b9785be3e91e34bbc23961f67c234b63.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>如果在模式串中找不到另一个等于{u}的子串，就直接将模式串滑动到主串中{u}的后面。此时有可能存在滑动过头的情况，错过匹配字符串。所以不仅要看好后缀在模式串中，是否有另一个匹配的子串，还要考察好后缀的后缀子串，是否存在跟模式串的前缀子串匹配的。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/0544d2997d8bb57c10e13ccac4015e23.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/6caa0f61387fd2b3109fe03d803192f9.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p><strong>分别计算好后缀和坏字符往后滑动的位数，然后取两个数中最大的，作为模式串往后滑动的位数。这种处理方法还可以避免根据坏字符规则，计算得到的往后滑动的位数，有可能是负数的情况。</strong></p>
+<h2 id="BM算法代码实现"><a href="#BM算法代码实现" class="headerlink" title="BM算法代码实现"></a>BM算法代码实现</h2><p>坏字符，在模式串中顺序遍历查找，这样就会比较低效，势必影响这个算法的性能。可以将模式串中的每个字符及其下标都存到散列表中。这样就可以快速找到坏字符在模式串的位置下标。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/bf78f8a0506e069fa318f36c42a95e02.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p><strong>表示模式字串中不同的后缀字串。</strong><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/7742f1d02d0940a1ef3760faf4929ec8.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>suffix数组下标k，表示后缀字串的长度，下标对应的数组值存储的是在模式串中跟好后缀{u}相匹配的字串{u * }的起始下标值。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/99a6cfadf2f9a713401ba8feac2484c2.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>不仅要在模式串中，查找跟好后缀匹配的另一个子串，还要在好后缀的后缀子串中，查找最长的能跟模式串前缀子串匹配的后缀子串。<br>除了suffix数组外，还需要另一个boolean类的prefix数组，来记录模式串的后缀字串能否匹配模式串的前缀字串。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/279be7d64e6254dac1a32d2f6d1a2383.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h2 id="BM算法的性能分析及优化"><a href="#BM算法的性能分析及优化" class="headerlink" title="BM算法的性能分析及优化"></a>BM算法的性能分析及优化</h2><p>BM内存消耗，其中bc数组的大小跟字符集大小有关，suffix 数组和prefix数组的大小跟模式串长度m有关。</p>
+<p>如果处理字符集很大的字符串匹配问题，bc 数组对内存的消耗就会比较多。因为好后缀和坏字符规则是独立的，如果运行的环境对内存要求苛刻，可以只使用好后缀规则，不使用坏字符规则，这样就可以避免bc数组过多的内存消耗。不过，单纯使用好后缀规则的BM算法效率就会下降一些了。</p>
+<p>BM算法核心思想是，利用模式串本身的特点，在模式串中某个字符与主串不能匹配的时候，将模式串往后多滑动几位，以此来减少不必要的字符比较，提高匹配的效率。BM算法构建的规则有两类，<strong>坏字符规则</strong>和<strong>好后缀规则</strong>。好后缀规则可以独立于坏字符规则使用。因为坏字符规则的实现比较耗内存，为了节省内存，可以只用好后缀规则来实现BM算法。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-06-24T02:41:32.385Z" itemprop="dateUpdated">2019-06-24 10:41:32</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/zdkswd">
+            <img src="/img/tmg.jpg" alt="ZDK">
+            ZDK
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2019/06/20/字符串匹配算法 BF RK BM/&title=ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2019/06/20/字符串匹配算法 BF RK BM/&title=ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2019/06/20/字符串匹配算法 BF RK BM/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=ZDK's blog&url=https://github.com/zdkswd/2019/06/20/字符串匹配算法 BF RK BM/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2019/06/20/字符串匹配算法 BF RK BM/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/06/21/Spring MVC/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Spring MVC</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/06/14/图/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">图</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz",
+            appKey: "gkBx5soQkBREmER84PWbNJeM",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ZDK &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2019/06/20/字符串匹配算法 BF RK BM/&title=《No title》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2019/06/20/字符串匹配算法 BF RK BM/&title=《No title》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2019/06/20/字符串匹配算法 BF RK BM/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — ZDK's blog&url=https://github.com/zdkswd/2019/06/20/字符串匹配算法 BF RK BM/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2019/06/20/字符串匹配算法 BF RK BM/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2019/06/20/字符串匹配算法 BF RK BM/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'zdk'blog';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
