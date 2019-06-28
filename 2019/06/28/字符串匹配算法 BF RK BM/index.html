@@ -14,19 +14,20 @@
     
     
     
-    <title>No title | ZDK&#39;s blog</title>
+    <title>字符串匹配算法 BF RK BM | ZDK&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="">
-    <meta name="description" content="title: ‘字符串匹配算法 BF RK BM’date: 2019-06-24 10:40:47tags: [算法] category: 知识总结概述java中的indexOf(),Python中的find()函数，底层依赖的就是字符串匹配算法。 字符串匹匹配算法有BF算法，RK算法，BM算法，KMP算法。 其中BF算法RK算法是单模式匹配算法，即为一个串和另一个串进行匹配。 BF算法Bru">
+    <meta name="keywords" content="算法">
+    <meta name="description" content="概述java中的indexOf(),Python中的find()函数，底层依赖的就是字符串匹配算法。 字符串匹匹配算法有BF算法，RK算法，BM算法，KMP算法。 其中BF算法RK算法是单模式匹配算法，即为一个串和另一个串进行匹配。 BF算法Brute Force，即为暴力匹配算法，比较简单，性能不高。 主串的长度记作n,模式串的长度记作m。因为是在主串中查找模式串,所以n&amp;gt;m。在主串中，检">
+<meta name="keywords" content="算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="No title">
-<meta property="og:url" content="https://github.com/zdkswd/2019/06/20/字符串匹配算法 BF RK BM/index.html">
+<meta property="og:title" content="字符串匹配算法 BF RK BM">
+<meta property="og:url" content="https://github.com/zdkswd/2019/06/28/字符串匹配算法 BF RK BM/index.html">
 <meta property="og:site_name" content="ZDK&#39;s blog">
-<meta property="og:description" content="title: ‘字符串匹配算法 BF RK BM’date: 2019-06-24 10:40:47tags: [算法] category: 知识总结概述java中的indexOf(),Python中的find()函数，底层依赖的就是字符串匹配算法。 字符串匹匹配算法有BF算法，RK算法，BM算法，KMP算法。 其中BF算法RK算法是单模式匹配算法，即为一个串和另一个串进行匹配。 BF算法Bru">
+<meta property="og:description" content="概述java中的indexOf(),Python中的find()函数，底层依赖的就是字符串匹配算法。 字符串匹匹配算法有BF算法，RK算法，BM算法，KMP算法。 其中BF算法RK算法是单模式匹配算法，即为一个串和另一个串进行匹配。 BF算法Brute Force，即为暴力匹配算法，比较简单，性能不高。 主串的长度记作n,模式串的长度记作m。因为是在主串中查找模式串,所以n&amp;gt;m。在主串中，检">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://github.com/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/f36fed972a5bdc75331d59c36eb15aa2.jpg">
 <meta property="og:image" content="https://github.com/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/015c85a9c2a4adc11236f9a40c6d57ee.jpg">
@@ -50,10 +51,10 @@
 <meta property="og:image" content="https://github.com/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/7742f1d02d0940a1ef3760faf4929ec8.jpg">
 <meta property="og:image" content="https://github.com/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/99a6cfadf2f9a713401ba8feac2484c2.jpg">
 <meta property="og:image" content="https://github.com/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/279be7d64e6254dac1a32d2f6d1a2383.jpg">
-<meta property="og:updated_time" content="2019-06-28T01:04:32.821Z">
+<meta property="og:updated_time" content="2019-06-28T02:24:08.524Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="No title">
-<meta name="twitter:description" content="title: ‘字符串匹配算法 BF RK BM’date: 2019-06-24 10:40:47tags: [算法] category: 知识总结概述java中的indexOf(),Python中的find()函数，底层依赖的就是字符串匹配算法。 字符串匹匹配算法有BF算法，RK算法，BM算法，KMP算法。 其中BF算法RK算法是单模式匹配算法，即为一个串和另一个串进行匹配。 BF算法Bru">
+<meta name="twitter:title" content="字符串匹配算法 BF RK BM">
+<meta name="twitter:description" content="概述java中的indexOf(),Python中的find()函数，底层依赖的就是字符串匹配算法。 字符串匹匹配算法有BF算法，RK算法，BM算法，KMP算法。 其中BF算法RK算法是单模式匹配算法，即为一个串和另一个串进行匹配。 BF算法Brute Force，即为暴力匹配算法，比较简单，性能不高。 主串的长度记作n,模式串的长度记作m。因为是在主串中查找模式串,所以n&amp;gt;m。在主串中，检">
 <meta name="twitter:image" content="https://github.com/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/f36fed972a5bdc75331d59c36eb15aa2.jpg">
     
         <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
@@ -135,7 +136,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis"></div>
+        <div class="flex-col header-title ellipsis">字符串匹配算法 BF RK BM</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -157,13 +158,15 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title"></h1>
+        <h1 class="title">字符串匹配算法 BF RK BM</h1>
         <h5 class="subtitle">
             
-                <time datetime="2019-06-20T01:08:39.940Z" itemprop="datePublished" class="page-time">
-  2019-06-20
+                <time datetime="2019-06-28T02:23:56.000Z" itemprop="datePublished" class="page-time">
+  2019-06-28
 </time>
 
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
 
             
         </h5>
@@ -180,7 +183,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#category-知识总结"><span class="post-toc-number">1.</span> <span class="post-toc-text">category: 知识总结</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#概述"><span class="post-toc-number"></span> <span class="post-toc-text">概述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#BF算法"><span class="post-toc-number"></span> <span class="post-toc-text">BF算法</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#RK算法"><span class="post-toc-number"></span> <span class="post-toc-text">RK算法</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二维空间"><span class="post-toc-number"></span> <span class="post-toc-text">二维空间</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#BM算法"><span class="post-toc-number"></span> <span class="post-toc-text">BM算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#BM算法原理分析"><span class="post-toc-number">1.</span> <span class="post-toc-text">BM算法原理分析</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#坏字符规则"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">坏字符规则</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#好后缀规则"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">好后缀规则</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#BM算法代码实现"><span class="post-toc-number">2.</span> <span class="post-toc-text">BM算法代码实现</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#BM算法的性能分析及优化"><span class="post-toc-number">3.</span> <span class="post-toc-text">BM算法的性能分析及优化</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#概述"><span class="post-toc-number">1.</span> <span class="post-toc-text">概述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#BF算法"><span class="post-toc-number">2.</span> <span class="post-toc-text">BF算法</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#RK算法"><span class="post-toc-number">3.</span> <span class="post-toc-text">RK算法</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二维空间"><span class="post-toc-number">4.</span> <span class="post-toc-text">二维空间</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#BM算法"><span class="post-toc-number">5.</span> <span class="post-toc-text">BM算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#BM算法原理分析"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">BM算法原理分析</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#坏字符规则"><span class="post-toc-number">5.1.1.</span> <span class="post-toc-text">坏字符规则</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#好后缀规则"><span class="post-toc-number">5.1.2.</span> <span class="post-toc-text">好后缀规则</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#BM算法代码实现"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">BM算法代码实现</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#BM算法的性能分析及优化"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">BM算法的性能分析及优化</span></a></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -189,11 +192,13 @@
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title"></h1>
+        <h1 class="post-card-title">字符串匹配算法 BF RK BM</h1>
         <div class="post-meta">
-            <time class="post-time" title="2019-06-20 09:08:39" datetime="2019-06-20T01:08:39.940Z"  itemprop="datePublished">2019-06-20</time>
+            <time class="post-time" title="2019-06-28 10:23:56" datetime="2019-06-28T02:23:56.000Z"  itemprop="datePublished">2019-06-28</time>
 
             
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
 
 
             
@@ -204,9 +209,7 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <hr>
-<p>title: ‘字符串匹配算法 BF RK BM’<br>date: 2019-06-24 10:40:47<br>tags: [算法]</p>
-<h2 id="category-知识总结"><a href="#category-知识总结" class="headerlink" title="category: 知识总结"></a>category: 知识总结</h2><h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p><strong>java</strong>中的<strong>indexOf(),Python</strong>中的<strong>find()</strong>函数，底层依赖的就是字符串匹配算法。</p>
+            <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p><strong>java</strong>中的<strong>indexOf(),Python</strong>中的<strong>find()</strong>函数，底层依赖的就是字符串匹配算法。</p>
 <p>字符串匹匹配算法有<strong>BF算法，RK算法，BM算法，KMP算法。</strong></p>
 <p>其中BF算法RK算法是单模式匹配算法，即为一个串和另一个串进行匹配。</p>
 <h1 id="BF算法"><a href="#BF算法" class="headerlink" title="BF算法"></a>BF算法</h1><p>Brute Force，即为暴力匹配算法，比较简单，性能不高。</p>
@@ -373,7 +376,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-06-28T01:04:32.821Z" itemprop="dateUpdated">2019-06-28 09:04:32</time>
+    最后更新时间：<time datetime="2019-06-28T02:24:08.524Z" itemprop="dateUpdated">2019-06-28 10:24:08</time>
 </span><br>
 
 
@@ -393,6 +396,8 @@
 
         <div class="post-footer">
             
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
 
             
 <div class="page-share-wrap">
@@ -401,7 +406,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2019/06/20/字符串匹配算法 BF RK BM/&title=ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2019/06/28/字符串匹配算法 BF RK BM/&title=《字符串匹配算法 BF RK BM》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -411,22 +416,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2019/06/20/字符串匹配算法 BF RK BM/&title=ZDK's blog&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2019/06/28/字符串匹配算法 BF RK BM/&title=《字符串匹配算法 BF RK BM》 — ZDK's blog&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2019/06/20/字符串匹配算法 BF RK BM/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2019/06/28/字符串匹配算法 BF RK BM/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=ZDK's blog&url=https://github.com/zdkswd/2019/06/20/字符串匹配算法 BF RK BM/&via=https://github.com/zdkswd" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《字符串匹配算法 BF RK BM》 — ZDK's blog&url=https://github.com/zdkswd/2019/06/28/字符串匹配算法 BF RK BM/&via=https://github.com/zdkswd" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2019/06/20/字符串匹配算法 BF RK BM/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2019/06/28/字符串匹配算法 BF RK BM/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -449,18 +454,18 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2019/06/21/Spring MVC/" id="post-prev" class="post-nav-link">
+      <a href="/2019/06/28/字符串匹配算法 KMP/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">Spring MVC</h4>
+        <h4 class="title">字符串匹配算法 KMP</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2019/06/14/图/" id="post-next" class="post-nav-link">
+      <a href="/2019/06/24/MyBatis基础/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">图</h4>
+        <h4 class="title">MyBatis基础</h4>
       </a>
     </div>
   
@@ -555,7 +560,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2019/06/20/字符串匹配算法 BF RK BM/&title=《No title》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2019/06/28/字符串匹配算法 BF RK BM/&title=《字符串匹配算法 BF RK BM》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -565,22 +570,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2019/06/20/字符串匹配算法 BF RK BM/&title=《No title》 — ZDK's blog&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2019/06/28/字符串匹配算法 BF RK BM/&title=《字符串匹配算法 BF RK BM》 — ZDK's blog&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2019/06/20/字符串匹配算法 BF RK BM/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2019/06/28/字符串匹配算法 BF RK BM/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — ZDK's blog&url=https://github.com/zdkswd/2019/06/20/字符串匹配算法 BF RK BM/&via=https://github.com/zdkswd" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《字符串匹配算法 BF RK BM》 — ZDK's blog&url=https://github.com/zdkswd/2019/06/28/字符串匹配算法 BF RK BM/&via=https://github.com/zdkswd" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2019/06/20/字符串匹配算法 BF RK BM/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2019/06/28/字符串匹配算法 BF RK BM/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -591,7 +596,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2019/06/20/字符串匹配算法 BF RK BM/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2019/06/28/字符串匹配算法 BF RK BM/" alt="微信分享二维码">
 </div>
 
 

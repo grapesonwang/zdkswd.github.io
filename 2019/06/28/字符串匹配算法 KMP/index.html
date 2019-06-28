@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>字符串匹配算法 KMP | ZDK&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="算法">
+    <meta name="description" content="字符串匹配算法 KMPBM算法是工程中非常常用的一种高效字符串匹配算法，是最高效最常用的字符串匹配算法。在所有字符串匹配算法中，最知名的非KMP算法莫属。 KMP算法基本原理KMP算法的核心思想与BM算法非常相近。在模式串与主串匹配过程中，当遇到不可匹配的字符时，通过找到一些规律将模式串往后多滑动几位，跳过肯定不会匹配的情况。">
+<meta name="keywords" content="算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="字符串匹配算法 KMP">
+<meta property="og:url" content="https://github.com/zdkswd/2019/06/28/字符串匹配算法 KMP/index.html">
+<meta property="og:site_name" content="ZDK&#39;s blog">
+<meta property="og:description" content="字符串匹配算法 KMPBM算法是工程中非常常用的一种高效字符串匹配算法，是最高效最常用的字符串匹配算法。在所有字符串匹配算法中，最知名的非KMP算法莫属。 KMP算法基本原理KMP算法的核心思想与BM算法非常相近。在模式串与主串匹配过程中，当遇到不可匹配的字符时，通过找到一些规律将模式串往后多滑动几位，跳过肯定不会匹配的情况。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20KMP/17ae3d55cf140285d1f34481e173aebe.jpg">
+<meta property="og:image" content="https://github.com/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20KMP/f4ef2c1e6ce5915e1c6460c2e26c9469.jpg">
+<meta property="og:image" content="https://github.com/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20KMP/da99c0349f8fac27e193af8d801dbb8f.jpg">
+<meta property="og:image" content="https://github.com/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20KMP/9e59c0973ffb965abdd3be5eafb492ad.jpg">
+<meta property="og:image" content="https://github.com/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20KMP/1661d37cb190cb83d713749ff9feaea8.jpg">
+<meta property="og:image" content="https://github.com/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20KMP/1ee5bea573abd033a6aa35d15ef0baec.jpg">
+<meta property="og:image" content="https://github.com/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20KMP/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-28%20%E4%B8%8A%E5%8D%8810.07.22.png">
+<meta property="og:updated_time" content="2019-06-28T02:25:15.631Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="字符串匹配算法 KMP">
+<meta name="twitter:description" content="字符串匹配算法 KMPBM算法是工程中非常常用的一种高效字符串匹配算法，是最高效最常用的字符串匹配算法。在所有字符串匹配算法中，最知名的非KMP算法莫属。 KMP算法基本原理KMP算法的核心思想与BM算法非常相近。在模式串与主串匹配过程中，当遇到不可匹配的字符时，通过找到一些规律将模式串往后多滑动几位，跳过肯定不会匹配的情况。">
+<meta name="twitter:image" content="https://github.com/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20KMP/17ae3d55cf140285d1f34481e173aebe.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/tmg.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ZDK</h5>
+          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/zdkswd" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">字符串匹配算法 KMP</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">字符串匹配算法 KMP</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-06-28T02:24:56.000Z" itemprop="datePublished" class="page-time">
+  2019-06-28
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#字符串匹配算法-KMP"><span class="post-toc-number">1.</span> <span class="post-toc-text">字符串匹配算法 KMP</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#KMP算法基本原理"><span class="post-toc-number">2.</span> <span class="post-toc-text">KMP算法基本原理</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#失效函数计算方法"><span class="post-toc-number">3.</span> <span class="post-toc-text">失效函数计算方法</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#KMP算法复杂度分析"><span class="post-toc-number">4.</span> <span class="post-toc-text">KMP算法复杂度分析</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-字符串匹配算法 KMP"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">字符串匹配算法 KMP</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-06-28 10:24:56" datetime="2019-06-28T02:24:56.000Z"  itemprop="datePublished">2019-06-28</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="字符串匹配算法-KMP"><a href="#字符串匹配算法-KMP" class="headerlink" title="字符串匹配算法 KMP"></a>字符串匹配算法 KMP</h1><p>BM算法是工程中非常常用的一种高效字符串匹配算法，是最高效最常用的字符串匹配算法。在所有字符串匹配算法中，最知名的非KMP算法莫属。</p>
+<h1 id="KMP算法基本原理"><a href="#KMP算法基本原理" class="headerlink" title="KMP算法基本原理"></a>KMP算法基本原理</h1><p>KMP算法的核心思想与BM算法非常相近。在模式串与主串匹配过程中，当遇到不可匹配的字符时，通过找到一些规律将模式串往后多滑动几位，跳过肯定不会匹配的情况。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20KMP/17ae3d55cf140285d1f34481e173aebe.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>当遇到坏字符的时候，就要把模式串往后滑动，在滑动的过程中，只要模式串和好前缀有上下重合，前面几个字符的比较，就相当于拿好前缀的后缀子串，跟模式串的前缀子串在比较。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20KMP/f4ef2c1e6ce5915e1c6460c2e26c9469.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>KMP算法就是在试图寻找一种规律: <strong>在模式串和主串匹配的过程中，当遇到坏字符后，对于已经比对过的好前缀，找到一种规律，将模式串一次性滑动很多位。</strong><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20KMP/da99c0349f8fac27e193af8d801dbb8f.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20KMP/9e59c0973ffb965abdd3be5eafb492ad.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>求好前缀的最长可匹配前缀和后缀自串不涉及主串，只需要通过模式串本身就能求解。KMP算法也可以提前构建一个数组，用来存储模式串中每个前缀（有可能是好前缀）的最长可匹配前缀自串的结尾字符下标。把这个数组定义为<strong>next数组</strong>，又叫<strong>失效函数</strong>。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20KMP/1661d37cb190cb83d713749ff9feaea8.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h1 id="失效函数计算方法"><a href="#失效函数计算方法" class="headerlink" title="失效函数计算方法"></a>失效函数计算方法</h1><p>最复杂的部分就是next数组计算。</p>
+<p>最简单也最低效的是像👆一样依次遍历。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20KMP/1ee5bea573abd033a6aa35d15ef0baec.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>如何更好的理解和掌握 KMP 算法? - 逍遥行的回答 - 知乎<br><a href="https://www.zhihu.com/question/21923021/answer/37475572" target="_blank" rel="noopener">https://www.zhihu.com/question/21923021/answer/37475572</a></p>
+<p>在计算next[i]时，前面的next[0],next[1],….,next[i-1]已经计算出来了，利用已经计算出来的next值，可以快速推导出next[i]的值。</p>
+<hr>
+<p>例子：<br>abababzabababa<br>列个表计算一下：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20KMP/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-28%20%E4%B8%8A%E5%8D%8810.07.22.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>对子字符串 abababzababab 来说，前缀有 a, ab, aba, abab, ababa, ababab, abababz, …后缀有 b, ab, bab, abab, babab, ababab, zababab, …所以子字符串 abababzababab 前缀后缀最大匹配了 6 个（ababab），容易看出次大匹配了 4 个（abab），更仔细地观察可以发现，次大匹配的前缀后缀只可能在 ababab 中，所以<strong>次大匹配数就是 ababab 的最大匹配数</strong>。</p>
+<p>来计算 ? 的值：既然末尾字母不是 z，那么就不能直接 6+1=7 了，回退到次大匹配 abab，刚好 abab 之后的 a 与末尾的 a 匹配，所以 ? 处的最大匹配数为 5。</p>
+<hr>
+<h1 id="KMP算法复杂度分析"><a href="#KMP算法复杂度分析" class="headerlink" title="KMP算法复杂度分析"></a>KMP算法复杂度分析</h1><p>空间复杂度：<br>KMP算法只需要一个额外的next数组,数组的大小跟模式串相同。所以空间复杂度是O(m),m表示模式串的长度。</p>
+<p>时间复杂度：<br>时间复杂度包括两部分，第一部分是构建next数组，第二部分是借助next数组匹配。</p>
+<p>时间复杂度为O(m+n)</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-06-28T02:25:15.631Z" itemprop="dateUpdated">2019-06-28 10:25:15</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/zdkswd">
+            <img src="/img/tmg.jpg" alt="ZDK">
+            ZDK
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2019/06/28/字符串匹配算法 KMP/&title=《字符串匹配算法 KMP》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2019/06/28/字符串匹配算法 KMP/&title=《字符串匹配算法 KMP》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2019/06/28/字符串匹配算法 KMP/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《字符串匹配算法 KMP》 — ZDK's blog&url=https://github.com/zdkswd/2019/06/28/字符串匹配算法 KMP/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2019/06/28/字符串匹配算法 KMP/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/06/28/字符串匹配算法 BF RK BM/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">字符串匹配算法 BF RK BM</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz",
+            appKey: "gkBx5soQkBREmER84PWbNJeM",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ZDK &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/2019/06/28/字符串匹配算法 KMP/&title=《字符串匹配算法 KMP》 — ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/2019/06/28/字符串匹配算法 KMP/&title=《字符串匹配算法 KMP》 — ZDK's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/2019/06/28/字符串匹配算法 KMP/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《字符串匹配算法 KMP》 — ZDK's blog&url=https://github.com/zdkswd/2019/06/28/字符串匹配算法 KMP/&via=https://github.com/zdkswd" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/2019/06/28/字符串匹配算法 KMP/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/2019/06/28/字符串匹配算法 KMP/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'zdk'blog';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
