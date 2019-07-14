@@ -121,10 +121,6 @@
         </div>
         
         
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
-            <i class="icon icon-lg icon-share-alt"></i>
-        </a>
-        
     </div>
 </header>
 <header class="content-header tags-header">
@@ -215,19 +211,19 @@
 
         
 
-            <a href="/tags/算法/" style="-webkit-order:22;order:22" class="tags-list-item waves-effect waves-button waves-light">算法</a>
+            <a href="/tags/AndroidStudio/" style="-webkit-order:22;order:22" class="tags-list-item waves-effect waves-button waves-light">AndroidStudio</a>
 
         
 
-            <a href="/tags/AndroidStudio/" style="-webkit-order:23;order:23" class="tags-list-item waves-effect waves-button waves-light">AndroidStudio</a>
+            <a href="/tags/算法/" style="-webkit-order:23;order:23" class="tags-list-item waves-effect waves-button waves-light">算法</a>
 
         
 
-            <a href="/tags/c-c/" style="-webkit-order:24;order:24" class="tags-list-item waves-effect waves-button waves-light">c/c++</a>
+            <a href="/tags/petri网/" style="-webkit-order:24;order:24" class="tags-list-item waves-effect waves-button waves-light">petri网</a>
 
         
 
-            <a href="/tags/petri网/" style="-webkit-order:25;order:25" class="tags-list-item waves-effect waves-button waves-light">petri网</a>
+            <a href="/tags/c-c/" style="-webkit-order:25;order:25" class="tags-list-item waves-effect waves-button waves-light">c/c++</a>
 
         
 
@@ -417,6 +413,11 @@
             </span>
         </p>
     </div>
+    <span id="busuanzi_container_site_uv">
+        本站访客数<span id="busuanzi_value_site_uv"></span>人次
+      </span>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
 </footer>
 
     </main>
@@ -424,55 +425,9 @@
 <a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
 
-
-<div class="global-share" id="globalShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/zdkswd/tags/大数据/&title=ZDK's blog&pic=https://github.com/zdkswd/img/tmg.jpg" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/zdkswd/tags/大数据/&title=ZDK's blog&source=" data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/zdkswd/tags/大数据/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=ZDK's blog&url=https://github.com/zdkswd/tags/大数据/&via=https://github.com/zdkswd" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/zdkswd/tags/大数据/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-<div class="page-modal wx-share" id="wxShare">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/zdkswd/tags/大数据/" alt="微信分享二维码">
-</div>
-
-
-
-
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
 
 
 </script>
@@ -500,6 +455,27 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 <script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
 
 
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
 
 
 
