@@ -1,27 +1,101 @@
 <!DOCTYPE html>
-<html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
-    
-
-    
-
-    
-
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
 
 
-    <meta charset="utf-8">
-    
-    
-    
-    
-    <title> JavaScript标准参考教程 面向对象编程 | ZDK&#39;s blog</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#3F51B5">
-    
-    
-    <meta name="keywords" content="JavaScript">
-    <meta name="description" content="构造函数与 new 命令JavaScript 语言具有很强的面向对象编程能力。 对象是什么构造函数典型的面向对象编程语言（比如 C++ 和 Java），都有“类”（class）这个概念。所谓“类”就是对象的模板，对象就是“类”的实例。但是，JavaScript 语言的对象体系，不是基于“类”的，而是基于构造函数（constructor）和原型链（prototype）。 JavaScript 语言使">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.2.0',
+    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+
+
+  <meta name="description" content="构造函数与 new 命令JavaScript 语言具有很强的面向对象编程能力。 对象是什么构造函数典型的面向对象编程语言（比如 C++ 和 Java），都有“类”（class）这个概念。所谓“类”就是对象的模板，对象就是“类”的实例。但是，JavaScript 语言的对象体系，不是基于“类”的，而是基于构造函数（constructor）和原型链（prototype）。 JavaScript 语言使">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content=" JavaScript标准参考教程 面向对象编程">
@@ -67,197 +141,389 @@
 <meta name="twitter:title" content=" JavaScript标准参考教程 面向对象编程">
 <meta name="twitter:description" content="构造函数与 new 命令JavaScript 语言具有很强的面向对象编程能力。 对象是什么构造函数典型的面向对象编程语言（比如 C++ 和 Java），都有“类”（class）这个概念。所谓“类”就是对象的模板，对象就是“类”的实例。但是，JavaScript 语言的对象体系，不是基于“类”的，而是基于构造函数（constructor）和原型链（prototype）。 JavaScript 语言使">
 <meta name="twitter:image" content="https://github.com/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8B%E5%8D%883.13.40.png">
-    
-        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
-    
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
-    <script>window.lazyScripts=[]</script>
 
-    <!-- custom head -->
-    
+
+
+  <link rel="alternate" href="/atom.xml" title="ZDK's blog" type="application/atom+xml"/>
+
+
+
+  
+  
+  <link rel="canonical" href="https://github.com/zdkswd/2018/08/19/JavaScript标准参考教程 面向对象编程/"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title> JavaScript标准参考教程 面向对象编程 | ZDK's blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
 
 </head>
 
-<body>
-    <div id="loading" class="active"></div>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
-    <aside id="menu" class="hide" >
-  <div class="inner flex-row-vertical">
-    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-        <i class="icon icon-lg icon-close"></i>
-    </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
-      <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/tmg.jpg">
-        </a>
-        <hgroup class="introduce">
-          <h5 class="nickname">ZDK</h5>
-          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
-        </hgroup>
-      </div>
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ZDK's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
-    <div class="scroll-wrap flex-col">
-      <ul class="nav">
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
         
-            <li class="waves-block waves-effect">
-              <a href="/"  >
-                <i class="icon icon-lg icon-home"></i>
-                主页
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                Archives
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/tags"  >
-                <i class="icon icon-lg icon-tags"></i>
-                Tags
-              </a>
-            </li>
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>首页</a>
+
+  </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/categories"  >
-                <i class="icon icon-lg icon-th-list"></i>
-                Categories
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="https://github.com/zdkswd" target="_blank" >
-                <i class="icon icon-lg icon-github"></i>
-                Github
-              </a>
-            </li>
         
-      </ul>
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>归档</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br/>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
     </div>
   </div>
-</aside>
+  <div id="local-search-result"></div>
+</div>
 
-    <main id="main">
-        <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis"> JavaScript标准参考教程 面向对象编程</div>
-        
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
-        </div>
-        
-        
+
+
     </div>
-</header>
-<header class="content-header post-header">
-
-    <div class="container fade-scale">
-        <h1 class="title"> JavaScript标准参考教程 面向对象编程</h1>
-        <h5 class="subtitle">
-            
-                <time datetime="2018-08-19T15:33:56.000Z" itemprop="datePublished" class="page-time">
-  2018-08-19
-</time>
+  
+</nav>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/教程/">教程</a></li></ul>
 
-            
-        </h5>
-    </div>
+</div>
+    </header>
 
     
 
 
-</header>
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
 
+          
+          <div id="content" class="content">
+            
 
-<div class="container body-wrap">
+  <div id="posts" class="posts-expand">
     
-    <aside class="post-widget">
-        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
-            <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#构造函数与-new-命令"><span class="post-toc-number">1.</span> <span class="post-toc-text">构造函数与 new 命令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#对象是什么"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">对象是什么</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#构造函数"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">构造函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#new-命令"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">new 命令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#基本用法"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">基本用法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#new-命令的原理"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">new 命令的原理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#new-target"><span class="post-toc-number">1.3.3.</span> <span class="post-toc-text">new.target</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Object-create-创建实例对象"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">Object.create() 创建实例对象</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#this-关键字"><span class="post-toc-number">2.</span> <span class="post-toc-text">this 关键字</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#涵义"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">涵义</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用场合"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">使用场合</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#全局环境"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">全局环境</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#构造函数-1"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">构造函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#对象的方法"><span class="post-toc-number">2.2.3.</span> <span class="post-toc-text">对象的方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用注意点"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">使用注意点</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#避免多层-this"><span class="post-toc-number">2.3.1.</span> <span class="post-toc-text">避免多层 this</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#避免数组处理方法中的-this"><span class="post-toc-number">2.3.2.</span> <span class="post-toc-text">避免数组处理方法中的 this</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#避免回调函数中的-this"><span class="post-toc-number">2.3.3.</span> <span class="post-toc-text">避免回调函数中的 this</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#绑定this的方法"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">绑定this的方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Function-prototype-call"><span class="post-toc-number">2.4.1.</span> <span class="post-toc-text">Function.prototype.call()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Function-prototype-apply"><span class="post-toc-number">2.4.2.</span> <span class="post-toc-text">Function.prototype.apply()</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#找出数组最大元素"><span class="post-toc-number">2.4.2.1.</span> <span class="post-toc-text">找出数组最大元素</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#将数组的空元素变为undefined"><span class="post-toc-number">2.4.2.2.</span> <span class="post-toc-text">将数组的空元素变为undefined</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#转换类似数组的对象"><span class="post-toc-number">2.4.2.3.</span> <span class="post-toc-text">转换类似数组的对象</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#绑定回调函数的对象"><span class="post-toc-number">2.4.2.4.</span> <span class="post-toc-text">绑定回调函数的对象</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Function-prototype-bind"><span class="post-toc-number">2.4.3.</span> <span class="post-toc-text">Function.prototype.bind()</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#每一次返回一个新函数"><span class="post-toc-number">2.4.3.1.</span> <span class="post-toc-text">每一次返回一个新函数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#结合回调函数使用"><span class="post-toc-number">2.4.3.2.</span> <span class="post-toc-text">结合回调函数使用</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#结合call方法使用"><span class="post-toc-number">2.4.3.3.</span> <span class="post-toc-text">结合call方法使用</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#prototype-对象"><span class="post-toc-number">3.</span> <span class="post-toc-text">prototype 对象</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#原型对象概述"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">原型对象概述</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#构造函数的缺点"><span class="post-toc-number">3.1.1.</span> <span class="post-toc-text">构造函数的缺点</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#prototype-属性的作用"><span class="post-toc-number">3.1.2.</span> <span class="post-toc-text">prototype 属性的作用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#原型链"><span class="post-toc-number">3.1.3.</span> <span class="post-toc-text">原型链</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#constructor-属性"><span class="post-toc-number">3.1.4.</span> <span class="post-toc-text">constructor 属性</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#instanceof-运算符"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">instanceof 运算符</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Object-对象的相关方法"><span class="post-toc-number">4.</span> <span class="post-toc-text">Object 对象的相关方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Object-getPrototypeOf"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">Object.getPrototypeOf()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Object-setPrototypeOf"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">Object.setPrototypeOf()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Object-create"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">Object.create()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Object-prototype-isPrototypeOf"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">Object.prototype.isPrototypeOf()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Object-prototype-proto"><span class="post-toc-number">4.5.</span> <span class="post-toc-text">Object.prototype.proto</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#获取原型对象方法的比较"><span class="post-toc-number">4.6.</span> <span class="post-toc-text">获取原型对象方法的比较</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Object-getOwnPropertyNames"><span class="post-toc-number">4.7.</span> <span class="post-toc-text">Object.getOwnPropertyNames()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Object-prototype-hasOwnProperty"><span class="post-toc-number">4.8.</span> <span class="post-toc-text">Object.prototype.hasOwnProperty()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#in-运算符和-for…in-循环"><span class="post-toc-number">4.9.</span> <span class="post-toc-text">in 运算符和 for…in 循环</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#对象的拷贝"><span class="post-toc-number">4.10.</span> <span class="post-toc-text">对象的拷贝</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#面向对象编程的模式"><span class="post-toc-number">5.</span> <span class="post-toc-text">面向对象编程的模式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#构造函数的继承"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">构造函数的继承</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#多重继承"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">多重继承</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#模块"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">模块</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#基本的实现方法"><span class="post-toc-number">5.3.1.</span> <span class="post-toc-text">基本的实现方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#封装私有变量：构造函数的写法"><span class="post-toc-number">5.3.2.</span> <span class="post-toc-text">封装私有变量：构造函数的写法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#封装私有变量：立即执行函数的写法"><span class="post-toc-number">5.3.3.</span> <span class="post-toc-text">封装私有变量：立即执行函数的写法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#模块的放大模式"><span class="post-toc-number">5.3.4.</span> <span class="post-toc-text">模块的放大模式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#输入全局变量"><span class="post-toc-number">5.3.5.</span> <span class="post-toc-text">输入全局变量</span></a></li></ol></li></ol></li></ol>
-        </nav>
-    </aside>
 
+  
 
-<article id="post-JavaScript标准参考教程 面向对象编程"
-  class="post-article article-type-post fade" itemprop="blogPost">
+  
+  
+  
 
-    <div class="post-card">
-        <h1 class="post-card-title"> JavaScript标准参考教程 面向对象编程</h1>
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2018/08/19/JavaScript标准参考教程 面向对象编程/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZDK"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZDK's blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"> JavaScript标准参考教程 面向对象编程
+
+              
+            
+          </h1>
+        
+
         <div class="post-meta">
-            <time class="post-time" title="2018-08-19 23:33:56" datetime="2018-08-19T15:33:56.000Z"  itemprop="datePublished">2018-08-19</time>
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-08-19 23:33:56 / 修改时间：23:37:10" itemprop="dateCreated datePublished" datetime="2018-08-19T23:33:56+08:00">2018-08-19</time>
+            </span>
+          
+
+          
+            
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/教程/">教程</a></li></ul>
+          
 
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/教程/" itemprop="url" rel="index"><span itemprop="name">教程</span></a></span>
 
+                
+                
+              
+            </span>
+          
 
+          
             
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
-    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
-</span>
+            
+              
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2018/08/19/JavaScript标准参考教程 面向对象编程/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/08/19/JavaScript标准参考教程 面向对象编程/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
 
+          
+          
+            <span id="/2018/08/19/JavaScript标准参考教程 面向对象编程/" class="post-meta-item leancloud_visitors" data-flag-title=" JavaScript标准参考教程 面向对象编程">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          <br/>
+          
+
+          
+
+          
 
         </div>
-        <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="构造函数与-new-命令"><a href="#构造函数与-new-命令" class="headerlink" title="构造函数与 new 命令"></a>构造函数与 new 命令</h1><p>JavaScript 语言具有很强的面向对象编程能力。</p>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="构造函数与-new-命令"><a href="#构造函数与-new-命令" class="headerlink" title="构造函数与 new 命令"></a>构造函数与 new 命令</h1><p>JavaScript 语言具有很强的面向对象编程能力。</p>
 <h2 id="对象是什么"><a href="#对象是什么" class="headerlink" title="对象是什么"></a>对象是什么</h2><h2 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h2><p>典型的面向对象编程语言（比如 C++ 和 Java），都有“类”（class）这个概念。所谓“类”就是对象的模板，对象就是“类”的实例。但是，JavaScript 语言的对象体系，不是基于“类”的，而是基于构造函数（constructor）和原型链（prototype）。</p>
 <p>JavaScript 语言使用构造函数（constructor）作为对象的模板。所谓”构造函数”，就是专门用来生成实例对象的函数。它就是对象的模板，描述实例对象的基本结构。一个构造函数，可以生成多个实例对象，这些实例对象都有相同的结构。</p>
 <p>构造函数就是一个普通的函数，但是有自己的特征和用法。</p>
 <p>为了与普通函数区别，构造函数名字的第一个字母通常大写。</p>
-<p>构造函数的特点有两个。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8B%E5%8D%883.13.40.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<p>构造函数的特点有两个。<br><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8B%E5%8D%883.13.40.png" alt=""></p>
 <h2 id="new-命令"><a href="#new-命令" class="headerlink" title="new 命令"></a>new 命令</h2><h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><p>new命令的作用，就是执行构造函数，返回一个实例对象。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8B%E5%8D%883.14.31.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8B%E5%8D%883.14.31.png" alt=""></p>
 <p>使用new命令时，根据需要，构造函数也可以接受参数。</p>
 <p>new命令本身就可以执行构造函数，所以后面的构造函数可以带括号，也可以不带括号。下面两行代码是等价的，但是为了表示这里是函数调用，推荐使用括号。</p>
 <p>如果忘了使用new命令，构造函数就变成了普通函数，并不会生成实例对象。this这时代表全局对象，将造成一些意想不到的结果。</p>
 <p>因此，应该非常小心，避免不使用new命令、直接调用构造函数。</p>
 <p>为了保证构造函数必须与new命令一起使用，一个解决办法是，构造函数内部使用严格模式，即第一行加上use strict。这样的话，一旦忘了使用new命令，直接调用构造函数就会报错。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8B%E5%8D%883.18.40.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8B%E5%8D%883.18.40.png" alt=""></p>
 <p>另一个解决办法，构造函数内部判断是否使用new命令，如果发现没有使用，则直接返回一个实例对象。</p>
 <p>不管加不加new命令，都会得到同样的结果。</p>
 <h3 id="new-命令的原理"><a href="#new-命令的原理" class="headerlink" title="new 命令的原理"></a>new 命令的原理</h3><p>使用new命令时，它后面的函数依次执行下面的步骤。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8B%E5%8D%883.19.55.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8B%E5%8D%883.19.55.png" alt=""></p>
 <p>也就是说，构造函数内部，this指的是一个新生成的空对象，所有针对this的操作，都会发生在这个空对象上。构造函数之所以叫“构造函数”，就是说这个函数的目的，就是操作一个空对象（即this对象），将其“构造”为需要的样子。</p>
 <p>如果构造函数内部有return语句，而且return后面跟着一个对象，new命令会返回return语句指定的对象；否则，就会不管return语句，返回this对象。这一点需要特别引起<strong>注意</strong>。</p>
 <p>另一方面，如果对普通函数（内部没有this关键字的函数）使用new命令，则会返回一个空对象。</p>
@@ -273,45 +539,15 @@
 <h3 id="构造函数-1"><a href="#构造函数-1" class="headerlink" title="构造函数"></a>构造函数</h3><p>构造函数中的this，指的是实例对象。</p>
 <h3 id="对象的方法"><a href="#对象的方法" class="headerlink" title="对象的方法"></a>对象的方法</h3><p>如果对象的方法里面包含this，this的指向就是方法运行时所在的对象。该方法赋值给另一个对象，就会改变this的指向。</p>
 <p>如果this所在的方法不在对象的第一层，这时this只是指向当前一层的对象，而不会继承更上面的层。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8B%E5%8D%884.20.35.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8B%E5%8D%884.20.35.png" alt=""></p>
 <p>上面代码中，a.b.m方法在a对象的第二层，该方法内部的this不是指向a，而是指向a.b。</p>
-<h2 id="使用注意点"><a href="#使用注意点" class="headerlink" title="使用注意点"></a>使用注意点</h2><h3 id="避免多层-this"><a href="#避免多层-this" class="headerlink" title="避免多层 this"></a>避免多层 this</h3><p>由于this的指向是不确定的，所以切勿在函数中包含多层的this。内层的this直接指向顶层对象<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8B%E5%8D%884.10.26.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<p>因为实际执行的是下面的代码。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8B%E5%8D%884.34.06.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<h2 id="使用注意点"><a href="#使用注意点" class="headerlink" title="使用注意点"></a>使用注意点</h2><h3 id="避免多层-this"><a href="#避免多层-this" class="headerlink" title="避免多层 this"></a>避免多层 this</h3><p>由于this的指向是不确定的，所以切勿在函数中包含多层的this。内层的this直接指向顶层对象<br><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8B%E5%8D%884.10.26.png" alt=""></p>
+<p>因为实际执行的是下面的代码。<br><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8B%E5%8D%884.34.06.png" alt=""></p>
 <p>使用一个变量固定this的值，然后内层函数调用这个变量，是非常常见的做法，请务必掌握。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8B%E5%8D%884.09.52.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8B%E5%8D%884.09.52.png" alt=""></p>
 <p>JavaScript 提供了严格模式，也可以硬性避免这种问题。严格模式下，如果函数内部的this指向顶层对象，就会报错。</p>
 <h3 id="避免数组处理方法中的-this"><a href="#避免数组处理方法中的-this" class="headerlink" title="避免数组处理方法中的 this"></a>避免数组处理方法中的 this</h3><p>数组的map和foreach方法，允许提供一个函数作为参数。这个函数内部不应该使用this。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8B%E5%8D%884.37.33.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8B%E5%8D%884.37.33.png" alt=""></p>
 <p>foreach方法的回调函数中的this，其实是指向window对象，因此取不到o.v的值。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">最主要的问题就是函数表达式的出现，此时变成了全局环境。</span><br></pre></td></tr></table></figure>
 <p>解决这个问题的一种方法，就是前面提到的，使用中间变量固定this。</p>
@@ -319,41 +555,17 @@
 <h3 id="避免回调函数中的-this"><a href="#避免回调函数中的-this" class="headerlink" title="避免回调函数中的 this"></a>避免回调函数中的 this</h3><p>回调函数中的this往往会改变指向，最好避免使用。</p>
 <h2 id="绑定this的方法"><a href="#绑定this的方法" class="headerlink" title="绑定this的方法"></a>绑定this的方法</h2><p>this的动态切换，固然为 JavaScript 创造了巨大的灵活性，但也使得编程变得困难和模糊。有时，需要把this固定下来，避免出现意想不到的情况。JavaScript 提供了call、apply、bind这三个方法，来切换/固定this的指向。</p>
 <h3 id="Function-prototype-call"><a href="#Function-prototype-call" class="headerlink" title="Function.prototype.call()"></a>Function.prototype.call()</h3><p>函数实例的call方法，可以指定函数内部this的指向（即函数执行时所在的作用域），然后在所指定的作用域中，调用该函数。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8B%E5%8D%885.23.10.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8B%E5%8D%885.23.10.png" alt=""></p>
 <p>call方法的参数，应该是一个对象。如果参数为空、null和undefined，则默认传入全局对象。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8B%E5%8D%885.24.09.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8B%E5%8D%885.24.09.png" alt=""></p>
 <p>如果call方法的参数是一个原始值，那么这个原始值会自动转成对应的包装对象，然后传入call方法。</p>
 <p>call方法还可以接受多个参数。</p>
 <p>call的第一个参数就是this所要指向的那个对象，后面的参数则是函数调用时所需的参数。</p>
 <p><strong>call方法的一个应用是调用对象的原生方法。</strong></p>
-<p>继承的方法，如果这个方法一旦被覆盖，就不会得到正确结果。call方法可以解决这个问题，它将方法的原始定义放到obj对象上执行，这样无论obj上有没有同名方法，都不会影响结果。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8B%E5%8D%885.29.26.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<p>继承的方法，如果这个方法一旦被覆盖，就不会得到正确结果。call方法可以解决这个问题，它将方法的原始定义放到obj对象上执行，这样无论obj上有没有同名方法，都不会影响结果。<br><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8B%E5%8D%885.29.26.png" alt=""></p>
 <h3 id="Function-prototype-apply"><a href="#Function-prototype-apply" class="headerlink" title="Function.prototype.apply()"></a>Function.prototype.apply()</h3><p>apply方法的作用与call方法类似，也是改变this指向，然后再调用该函数。唯一的区别就是，它接收一个数组作为函数执行时的参数，使用格式如下。</p>
 <p>apply方法的第一个参数也是this所要指向的那个对象，如果设为null或undefined，则等同于指定全局对象。第二个参数则是一个数组，该数组的所有成员依次作为参数，传入原函数。原函数的参数，在call方法中必须一个个添加，但是在apply方法中，必须以数组形式添加。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8B%E5%8D%885.31.18.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8B%E5%8D%885.31.18.png" alt=""></p>
 <p>利用这一点，可以做一些有趣的应用。</p>
 <h4 id="找出数组最大元素"><a href="#找出数组最大元素" class="headerlink" title="找出数组最大元素"></a>找出数组最大元素</h4><p>JavaScript 不提供找出数组最大元素的函数。结合使用apply方法和Math.max方法，就可以返回数组的最大元素。</p>
 <h4 id="将数组的空元素变为undefined"><a href="#将数组的空元素变为undefined" class="headerlink" title="将数组的空元素变为undefined"></a>将数组的空元素变为undefined</h4><p>通过apply方法，利用Array构造函数将数组的空元素变成undefined。</p>
@@ -368,13 +580,7 @@
 <h4 id="结合call方法使用"><a href="#结合call方法使用" class="headerlink" title="结合call方法使用"></a>结合call方法使用</h4><h1 id="prototype-对象"><a href="#prototype-对象" class="headerlink" title="prototype 对象"></a>prototype 对象</h1><p>面向对象编程很重要的一个方面，就是对象的继承。A 对象通过继承 B 对象，就能直接拥有 B 对象的所有属性和方法。这对于代码的复用是非常有用的。</p>
 <p>大部分面向对象的编程语言，都是通过“类”（class）来实现对象的继承。JavaScript 语言的继承则是通过“原型对象”（prototype）。</p>
 <h2 id="原型对象概述"><a href="#原型对象概述" class="headerlink" title="原型对象概述"></a>原型对象概述</h2><h3 id="构造函数的缺点"><a href="#构造函数的缺点" class="headerlink" title="构造函数的缺点"></a>构造函数的缺点</h3><p>通过构造函数为实例对象定义属性，虽然很方便，但是有一个缺点。同一个构造函数的多个实例之间，无法共享属性，从而造成对系统资源的浪费。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%8812.28.17.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%8812.28.17.png" alt=""></p>
 <p>每新建一个实例，就会新建一个meow方法。这既没有必要，又浪费系统资源，因为所有meow方法都是同样的行为，完全应该共享。</p>
 <p>这个问题的解决方法，就是 JavaScript 的原型对象（prototype）。</p>
 <h3 id="prototype-属性的作用"><a href="#prototype-属性的作用" class="headerlink" title="prototype 属性的作用"></a>prototype 属性的作用</h3><p>JavaScript 继承机制的设计思想就是，原型对象的所有属性和方法，都能被实例对象共享。也就是说，如果属性和方法定义在原型上，那么所有实例对象就能共享，不仅节省了内存，还体现了实例对象之间的联系。</p>
@@ -392,22 +598,10 @@
 <h3 id="constructor-属性"><a href="#constructor-属性" class="headerlink" title="constructor 属性"></a>constructor 属性</h3><p>prototype对象有一个constructor属性，默认指向prototype对象所在的构造函数。</p>
 <p>由于constructor属性定义在prototype对象上面，意味着可以被所有实例对象继承。</p>
 <p>constructor属性的作用是，可以得知某个实例对象，到底是哪一个构造函数产生的。</p>
-<p>constructor属性表示原型对象与构造函数之间的关联关系，如果修改了原型对象，一般会同时修改constructor属性，防止引用的时候出错。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%881.12.24.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<p>constructor属性表示原型对象与构造函数之间的关联关系，如果修改了原型对象，一般会同时修改constructor属性，防止引用的时候出错。<br><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%881.12.24.png" alt=""></p>
 <p>构造函数Person的原型对象改掉了，但是没有修改constructor属性，导致这个属性不再指向Person。由于Person的新原型是一个普通对象，而普通对象的contructor属性指向Object构造函数，导致Person.prototype.constructor变成了Object。</p>
 <p>修改原型对象时，一般要同时修改constructor属性的指向。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%881.12.56.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%881.12.56.png" alt=""></p>
 <p>要么将constructor属性重新指向原来的构造函数，要么只在原型对象上添加方法。</p>
 <p>如果不能确定constructor属性是什么函数，还有一个办法：通过name属性，从实例得到构造函数的名称。</p>
 <h2 id="instanceof-运算符"><a href="#instanceof-运算符" class="headerlink" title="instanceof 运算符"></a>instanceof 运算符</h2><p>instanceof运算符返回一个布尔值，表示对象是否为某个构造函数的实例。</p>
@@ -416,69 +610,27 @@
 <p>instanceof运算符的一个用处，是判断值的类型。</p>
 <p><strong>注意</strong>，instanceof运算符只能用于对象，不适用原始类型的值。</p>
 <p>对于undefined和null，instanceOf运算符总是返回false。</p>
-<p>利用instanceof运算符，还可以巧妙地解决，调用构造函数时，忘了加new命令的问题。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%882.49.58.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<p>利用instanceof运算符，还可以巧妙地解决，调用构造函数时，忘了加new命令的问题。<br><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%882.49.58.png" alt=""></p>
 <h1 id="Object-对象的相关方法"><a href="#Object-对象的相关方法" class="headerlink" title="Object 对象的相关方法"></a>Object 对象的相关方法</h1><h2 id="Object-getPrototypeOf"><a href="#Object-getPrototypeOf" class="headerlink" title="Object.getPrototypeOf()"></a>Object.getPrototypeOf()</h2><p>Object.getPrototypeOf方法返回参数对象的原型。这是获取原型对象的标准方法。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%883.59.25.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%883.07.29.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%883.59.25.png" alt=""></p>
+<p><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%883.07.29.png" alt=""></p>
 <h2 id="Object-setPrototypeOf"><a href="#Object-setPrototypeOf" class="headerlink" title="Object.setPrototypeOf()"></a>Object.setPrototypeOf()</h2><p>Object.setPrototypeOf方法为参数对象设置原型，返回该参数对象。它接受两个参数，第一个是现有对象，第二个是原型对象。</p>
 <p>new命令可以使用Object.setPrototypeOf方法模拟。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%883.15.53.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%883.15.53.png" alt=""></p>
 <p>new命令新建实例对象，其实可以分成两步。第一步，将一个空对象的原型设为构造函数的prototype属性（上例是F.prototype）；第二步，将构造函数内部的this绑定这个空对象，然后执行构造函数，使得定义在this上面的方法和属性（上例是this.foo），都转移到这个空对象上。</p>
 <h2 id="Object-create"><a href="#Object-create" class="headerlink" title="Object.create()"></a>Object.create()</h2><p>JavaScript 提供了Object.create方法，该方法接受一个对象作为参数，然后以它为原型，返回一个实例对象。该实例完全继承原型对象的属性。</p>
-<p>下面三种方式生成的新对象是等价的。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%883.29.43.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<p>下面三种方式生成的新对象是等价的。<br><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%883.29.43.png" alt=""></p>
 <p>如果想要生成一个不继承任何属性（比如没有toString和valueOf方法）的对象，可以将Object.create的参数设为null。</p>
 <p>使用Object.create方法的时候，必须提供对象原型，即参数不能为空，或者不是对象，否则会报错。</p>
 <p>Object.create方法生成的新对象，动态继承了原型。在原型上添加或修改任何方法，会立刻反映在新对象之上。</p>
 <p>除了对象的原型，Object.create方法还可以接受第二个参数。该参数是一个属性描述对象，它所描述的对象属性，会添加到实例对象，作为该对象自身的属性。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%883.31.20.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%883.31.20.png" alt=""></p>
 <p>Object.create方法生成的对象，继承了它的原型对象的构造函数。</p>
 <h2 id="Object-prototype-isPrototypeOf"><a href="#Object-prototype-isPrototypeOf" class="headerlink" title="Object.prototype.isPrototypeOf()"></a>Object.prototype.isPrototypeOf()</h2><p>实例对象的isPrototypeOf方法，用来判断该对象是否为参数对象的原型。</p>
 <p>只要实例对象处在参数对象的原型链上，isPrototypeOf方法都返回true。</p>
 <h2 id="Object-prototype-proto"><a href="#Object-prototype-proto" class="headerlink" title="Object.prototype.proto"></a>Object.prototype.<strong>proto</strong></h2><p>实例对象的<strong>proto</strong>属性（前后各两个下划线），返回该对象的原型。该属性可读写。</p>
 <p>根据语言标准，<strong>proto</strong>属性只有浏览器才需要部署，其他环境可以没有这个属性。它前后的两根下划线，表明它本质是一个内部属性，不应该对使用者暴露。因此，应该尽量少用这个属性，而是用Object.getPrototypeof()和Object.setPrototypeOf()，进行原型对象的读写操作。</p>
-<h2 id="获取原型对象方法的比较"><a href="#获取原型对象方法的比较" class="headerlink" title="获取原型对象方法的比较"></a>获取原型对象方法的比较</h2><p>获取实例对象obj的原型对象，有三种方法。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%883.48.14.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<h2 id="获取原型对象方法的比较"><a href="#获取原型对象方法的比较" class="headerlink" title="获取原型对象方法的比较"></a>获取原型对象方法的比较</h2><p>获取实例对象obj的原型对象，有三种方法。<br><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%883.48.14.png" alt=""></p>
 <p>前两种都不是很可靠。<strong>proto</strong>属性只有浏览器才需要部署，其他环境可以不部署。而obj.constructor.prototype在手动改变原型对象时，可能会失效。</p>
 <p>推荐使用第三种Object.getPrototypeOf方法，获取原型对象。</p>
 <h2 id="Object-getOwnPropertyNames"><a href="#Object-getOwnPropertyNames" class="headerlink" title="Object.getOwnPropertyNames()"></a>Object.getOwnPropertyNames()</h2><p>Object.getOwnPropertyNames方法返回一个数组，成员是参数对象本身的所有属性的键名，不包含继承的属性键名。</p>
@@ -488,56 +640,20 @@
 <h2 id="in-运算符和-for…in-循环"><a href="#in-运算符和-for…in-循环" class="headerlink" title="in 运算符和 for…in 循环"></a>in 运算符和 for…in 循环</h2><p>in运算符返回一个布尔值，表示一个对象是否具有某个属性。它不区分该属性是对象自身的属性，还是继承的属性。</p>
 <p>in运算符常用于检查一个属性是否存在。</p>
 <p>获得对象的所有可遍历属性（不管是自身的还是继承的），可以使用for…in循环。</p>
-<h2 id="对象的拷贝"><a href="#对象的拷贝" class="headerlink" title="对象的拷贝"></a>对象的拷贝</h2><p>如果要拷贝一个对象，需要做到下面两件事情。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%884.08.26.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<h2 id="对象的拷贝"><a href="#对象的拷贝" class="headerlink" title="对象的拷贝"></a>对象的拷贝</h2><p>如果要拷贝一个对象，需要做到下面两件事情。<br><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%884.08.26.png" alt=""></p>
 <h1 id="面向对象编程的模式"><a href="#面向对象编程的模式" class="headerlink" title="面向对象编程的模式"></a>面向对象编程的模式</h1><h2 id="构造函数的继承"><a href="#构造函数的继承" class="headerlink" title="构造函数的继承"></a>构造函数的继承</h2><p>让一个构造函数继承另一个构造函数，是非常常见的需求。</p>
 <p>这可以分成两步实现。第一步是在子类的构造函数中，调用父类的构造函数。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%8810.39.06.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<p>第二步，是让子类的原型指向父类的原型，这样子类就可以继承父类原型。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%8810.41.10.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<p><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%8810.39.06.png" alt=""></p>
+<p>第二步，是让子类的原型指向父类的原型，这样子类就可以继承父类原型。<br><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%8810.41.10.png" alt=""></p>
 <p>上面代码中，Sub.prototype是子类的原型，要将它赋值为Object.create(Super.prototype)，而不是直接等于Super.prototype。否则后面两行对Sub.prototype的操作，会连父类的原型Super.prototype一起修改掉。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> JavaScript 中对象的赋值是默认引用赋值的，如果你想要复制赋值，则必须要重新分配对象</span><br></pre></td></tr></table></figure>
-<p>另外一种写法是Sub.prototype等于一个父类实例。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%8810.50.17.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<p>另外一种写法是Sub.prototype等于一个父类实例。<br><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%8810.50.17.png" alt=""></p>
 <p>上面这种写法也有继承的效果，但是子类会具有父类实例的方法。有时，这可能不是我们需要的，所以不推荐使用这种写法。</p>
 <p>有时只需要单个方法的继承，这时可以采用下面的写法。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%8810.51.22.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%8810.51.22.png" alt=""></p>
 <p>上面代码中，子类B的print方法先调用父类A的print方法，再部署自己的代码。这就等于继承了父类A的print方法。</p>
 <h2 id="多重继承"><a href="#多重继承" class="headerlink" title="多重继承"></a>多重继承</h2><p>JavaScript 不提供多重继承功能，即不允许一个对象同时继承多个对象。但是，可以通过变通方法，实现这个功能。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%8810.52.52.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%8810.52.52.png" alt=""></p>
 <p>这种模式又称为 Mixin（混入）。</p>
 <h2 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h2><p>JavaScript不是一种模块化编程语言，ES5不支持”类”（class），更遑论”模块”（module）了。ES6正式支持”类”和”模块”，但还没有成为主流。</p>
 <h3 id="基本的实现方法"><a href="#基本的实现方法" class="headerlink" title="基本的实现方法"></a>基本的实现方法</h3><p>模块是实现特定功能的一组属性和方法的封装。</p>
@@ -549,265 +665,902 @@
 <h3 id="封装私有变量：构造函数的写法"><a href="#封装私有变量：构造函数的写法" class="headerlink" title="封装私有变量：构造函数的写法"></a>封装私有变量：构造函数的写法</h3><p>我们可以利用构造函数，封装私有变量。</p>
 <p>这种方法将私有变量封装在构造函数中，违反了构造函数与实例对象相分离的原则。并且，非常耗费内存。</p>
 <h3 id="封装私有变量：立即执行函数的写法"><a href="#封装私有变量：立即执行函数的写法" class="headerlink" title="封装私有变量：立即执行函数的写法"></a>封装私有变量：立即执行函数的写法</h3><p>使用“立即执行函数”（Immediately-Invoked Function Expression，IIFE），将相关的属性和方法封装在一个函数作用域里面，可以达到不暴露私有成员的目的。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%8811.03.04.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%8811.03.04.png" alt=""></p>
 <p>上面的module1就是JavaScript模块的基本写法。下面，再对这种写法进行加工。</p>
 <h3 id="模块的放大模式"><a href="#模块的放大模式" class="headerlink" title="模块的放大模式"></a>模块的放大模式</h3><p>如果一个模块很大，必须分成几个部分，或者一个模块需要继承另一个模块，这时就有必要采用“放大模式”（augmentation）。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%8811.28.28.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%8811.28.28.png" alt=""></p>
 <p>上面的代码为module1模块添加了一个新方法m3()，然后返回新的module1模块。</p>
-<p>在浏览器环境中，模块的各个部分通常都是从网上获取的，有时无法知道哪个部分会先加载。如果采用上面的写法，第一个执行的部分有可能加载一个不存在空对象，这时就要采用”宽放大模式”（Loose augmentation）。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%8811.29.00.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<p>在浏览器环境中，模块的各个部分通常都是从网上获取的，有时无法知道哪个部分会先加载。如果采用上面的写法，第一个执行的部分有可能加载一个不存在空对象，这时就要采用”宽放大模式”（Loose augmentation）。<br><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%8811.29.00.png" alt=""></p>
 <p>与”放大模式”相比，“宽放大模式”就是“立即执行函数”的参数可以是空对象。</p>
 <h3 id="输入全局变量"><a href="#输入全局变量" class="headerlink" title="输入全局变量"></a>输入全局变量</h3><p>独立性是模块的重要特点，模块内部最好不与程序的其他部分直接交互。<br>为了在模块内部调用全局变量，必须显式地将其他变量输入模块。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%8811.30.07.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%8811.30.07.png" alt=""></p>
 <p>上面的module1模块需要使用jQuery库和YUI库，就把这两个库（其实是两个模块）当作参数输入module1。这样做除了保证模块的独立性，还使得模块之间的依赖关系变得明显。</p>
 
-        </div>
-
-        <blockquote class="post-copyright">
-    
-    <div class="content">
-        
-<span class="post-time">
-    最后更新时间：<time datetime="2018-08-19T15:37:10.000Z" itemprop="dateUpdated">2018-08-19 23:37:10</time>
-</span><br>
-
-
-        
+      
     </div>
+
     
-    <footer>
-        <a href="https://github.com/zdkswd">
-            <img src="/img/tmg.jpg" alt="ZDK">
-            ZDK
-        </a>
+
+    
+      
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/17/JavaScript 标准参考教程 标准库 下/" rel="next" title="JavaScript 标准参考教程 标准库 下">
+                <i class="fa fa-chevron-left"></i> JavaScript 标准参考教程 标准库 下
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/20/JavaScript标准参考教程 语法专题/" rel="prev" title="JavaScript标准参考教程 语法专题">
+                JavaScript标准参考教程 语法专题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
     </footer>
-</blockquote>
-
-        
-
-
-        <div class="post-footer">
-            
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+  </div>
+  
+  
+  
+  </article>
 
 
-            
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
 
 
         </div>
-    </div>
-
-    
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2018/08/20/JavaScript标准参考教程 语法专题/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">JavaScript标准参考教程 语法专题</h4>
-      </a>
-    </div>
-  
-
-  
-    <div class="waves-block waves-effect next">
-      <a href="/2018/08/17/JavaScript 标准参考教程 标准库 下/" id="post-next" class="post-nav-link">
-        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">JavaScript 标准参考教程 标准库 下</h4>
-      </a>
-    </div>
-  
-</nav>
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Valine Comments -->
-    <div class="comments vcomment" id="comments"></div>
-    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
-    <!-- Valine Comments script -->
-    <script>
-        var GUEST_INFO = ['nick','mail','link'];
-        var guest_info = 'nick,mail'.split(',').filter(function(item){
-          return GUEST_INFO.indexOf(item) > -1
-        });
-        new Valine({
-            el: '#comments',
-            notify: 'true' == 'true',
-            verify: 'false' == 'true',
-            appId: "QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz",
-            appKey: "gkBx5soQkBREmER84PWbNJeM",
-            avatar: "mm",
-            placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
-            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
-            pageSize: "10"
-        })
-    </script>
-    <!-- Valine Comments end -->
-
-
-
-
-
-
-
-</article>
-
-
-
-</div>
-
-        <footer class="footer">
-    <div class="top">
         
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
-
-
-        <p>
-            
-                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-            
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
-        </p>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
     </div>
-    <div class="bottom">
-        <p><span>ZDK &copy; 2017 - 2019</span>
-            <span>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="ZDK"/>
+            
+              <p class="site-author-name" itemprop="name">ZDK</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
                 
-                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
-            </span>
-        </p>
-    </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
-    </script>
-</footer>
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">191</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
 
-    </main>
-    <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">分类</span>
+                  
+                </div>
+              
 
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">48</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
 
-    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
-<script>
-var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
-
-
-</script>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
             </div>
-            <time class="flex-col time">{date}</time>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/zdkswd" title="GitHub &rarr; https://github.com/zdkswd"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:2822464407@qq.com" title="E-Mail &rarr; mailto:2822464407@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/zdkswd" title="https://github.com/zdkswd">Title</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
         </div>
-    </a>
-</li>
-</template>
+      </div>
 
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
 
+            
+            
+            
+            
 
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#构造函数与-new-命令"><span class="nav-number">1.</span> <span class="nav-text">构造函数与 new 命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#对象是什么"><span class="nav-number">1.1.</span> <span class="nav-text">对象是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构造函数"><span class="nav-number">1.2.</span> <span class="nav-text">构造函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#new-命令"><span class="nav-number">1.3.</span> <span class="nav-text">new 命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本用法"><span class="nav-number">1.3.1.</span> <span class="nav-text">基本用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#new-命令的原理"><span class="nav-number">1.3.2.</span> <span class="nav-text">new 命令的原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#new-target"><span class="nav-number">1.3.3.</span> <span class="nav-text">new.target</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Object-create-创建实例对象"><span class="nav-number">1.4.</span> <span class="nav-text">Object.create() 创建实例对象</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#this-关键字"><span class="nav-number">2.</span> <span class="nav-text">this 关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#涵义"><span class="nav-number">2.1.</span> <span class="nav-text">涵义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用场合"><span class="nav-number">2.2.</span> <span class="nav-text">使用场合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#全局环境"><span class="nav-number">2.2.1.</span> <span class="nav-text">全局环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构造函数-1"><span class="nav-number">2.2.2.</span> <span class="nav-text">构造函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象的方法"><span class="nav-number">2.2.3.</span> <span class="nav-text">对象的方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用注意点"><span class="nav-number">2.3.</span> <span class="nav-text">使用注意点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#避免多层-this"><span class="nav-number">2.3.1.</span> <span class="nav-text">避免多层 this</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#避免数组处理方法中的-this"><span class="nav-number">2.3.2.</span> <span class="nav-text">避免数组处理方法中的 this</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#避免回调函数中的-this"><span class="nav-number">2.3.3.</span> <span class="nav-text">避免回调函数中的 this</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绑定this的方法"><span class="nav-number">2.4.</span> <span class="nav-text">绑定this的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Function-prototype-call"><span class="nav-number">2.4.1.</span> <span class="nav-text">Function.prototype.call()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Function-prototype-apply"><span class="nav-number">2.4.2.</span> <span class="nav-text">Function.prototype.apply()</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#找出数组最大元素"><span class="nav-number">2.4.2.1.</span> <span class="nav-text">找出数组最大元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#将数组的空元素变为undefined"><span class="nav-number">2.4.2.2.</span> <span class="nav-text">将数组的空元素变为undefined</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#转换类似数组的对象"><span class="nav-number">2.4.2.3.</span> <span class="nav-text">转换类似数组的对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#绑定回调函数的对象"><span class="nav-number">2.4.2.4.</span> <span class="nav-text">绑定回调函数的对象</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Function-prototype-bind"><span class="nav-number">2.4.3.</span> <span class="nav-text">Function.prototype.bind()</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#每一次返回一个新函数"><span class="nav-number">2.4.3.1.</span> <span class="nav-text">每一次返回一个新函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#结合回调函数使用"><span class="nav-number">2.4.3.2.</span> <span class="nav-text">结合回调函数使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#结合call方法使用"><span class="nav-number">2.4.3.3.</span> <span class="nav-text">结合call方法使用</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#prototype-对象"><span class="nav-number">3.</span> <span class="nav-text">prototype 对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原型对象概述"><span class="nav-number">3.1.</span> <span class="nav-text">原型对象概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#构造函数的缺点"><span class="nav-number">3.1.1.</span> <span class="nav-text">构造函数的缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#prototype-属性的作用"><span class="nav-number">3.1.2.</span> <span class="nav-text">prototype 属性的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原型链"><span class="nav-number">3.1.3.</span> <span class="nav-text">原型链</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#constructor-属性"><span class="nav-number">3.1.4.</span> <span class="nav-text">constructor 属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#instanceof-运算符"><span class="nav-number">3.2.</span> <span class="nav-text">instanceof 运算符</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Object-对象的相关方法"><span class="nav-number">4.</span> <span class="nav-text">Object 对象的相关方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Object-getPrototypeOf"><span class="nav-number">4.1.</span> <span class="nav-text">Object.getPrototypeOf()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Object-setPrototypeOf"><span class="nav-number">4.2.</span> <span class="nav-text">Object.setPrototypeOf()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Object-create"><span class="nav-number">4.3.</span> <span class="nav-text">Object.create()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Object-prototype-isPrototypeOf"><span class="nav-number">4.4.</span> <span class="nav-text">Object.prototype.isPrototypeOf()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Object-prototype-proto"><span class="nav-number">4.5.</span> <span class="nav-text">Object.prototype.proto</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取原型对象方法的比较"><span class="nav-number">4.6.</span> <span class="nav-text">获取原型对象方法的比较</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Object-getOwnPropertyNames"><span class="nav-number">4.7.</span> <span class="nav-text">Object.getOwnPropertyNames()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Object-prototype-hasOwnProperty"><span class="nav-number">4.8.</span> <span class="nav-text">Object.prototype.hasOwnProperty()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#in-运算符和-for…in-循环"><span class="nav-number">4.9.</span> <span class="nav-text">in 运算符和 for…in 循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象的拷贝"><span class="nav-number">4.10.</span> <span class="nav-text">对象的拷贝</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#面向对象编程的模式"><span class="nav-number">5.</span> <span class="nav-text">面向对象编程的模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#构造函数的继承"><span class="nav-number">5.1.</span> <span class="nav-text">构造函数的继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多重继承"><span class="nav-number">5.2.</span> <span class="nav-text">多重继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块"><span class="nav-number">5.3.</span> <span class="nav-text">模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本的实现方法"><span class="nav-number">5.3.1.</span> <span class="nav-text">基本的实现方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#封装私有变量：构造函数的写法"><span class="nav-number">5.3.2.</span> <span class="nav-text">封装私有变量：构造函数的写法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#封装私有变量：立即执行函数的写法"><span class="nav-number">5.3.3.</span> <span class="nav-text">封装私有变量：立即执行函数的写法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模块的放大模式"><span class="nav-number">5.3.4.</span> <span class="nav-text">模块的放大模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入全局变量"><span class="nav-number">5.3.5.</span> <span class="nav-text">输入全局变量</span></a></li></ol></li></ol></li></ol></div>
+            
 
-<!-- mathjax config similar to math.stackexchange -->
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
+      
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
 
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-});
-</script>
-
-<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
-
-
-
-
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
 
 
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZDK</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.2.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+  </div>
+
+  
 
 <script>
-(function() {
-    var OriginTitile = document.title, titleTime;
-    document.addEventListener('visibilitychange', function() {
-        if (document.hidden) {
-            document.title = 'zdk'blog';
-            clearTimeout(titleTime);
-        } else {
-            document.title = '';
-            titleTime = setTimeout(function() {
-                document.title = OriginTitile;
-            },2000);
-        }
-    });
-})();
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
 </script>
 
 
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.2.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz',
+    appKey: 'gkBx5soQkBREmER84PWbNJeM',
+    placeholder: 'have fun',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true,
+    lang: '' || 'zh-cn'
+  });
+</script>
+
+
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('5');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
 
 </body>
 </html>

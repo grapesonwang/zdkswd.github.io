@@ -1,33 +1,107 @@
 <!DOCTYPE html>
-<html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
-    
-
-    
-
-    
-
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
 
 
-    <meta charset="utf-8">
-    
-    
-    
-    
-    <title>JavaScript标准参考教程 DOM模型 实际使用DOM Element节点 | ZDK&#39;s blog</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#3F51B5">
-    
-    
-    <meta name="keywords" content="JavaScript">
-    <meta name="description" content="实战中的使用DOM">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.2.0',
+    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+
+
+  <meta name="description" content="实战中的使用DOM   如果加了括号就会直接执行了。 Element对象Element对象对应网页的 HTML 元素。每一个 HTML 元素，在 DOM 树上都会转化成一个Element节点对象（以下简称元素节点）。 元素节点的nodeType属性都是1。 Element对象继承了Node接口，因此Node的属性和方法在Element对象都存在。此外，不同的 HTML 元素对应的元素节点是不一样的">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript标准参考教程 DOM模型 实际使用DOM Element节点">
 <meta property="og:url" content="https://github.com/zdkswd/2018/10/09/JavaScript标准参考教程 DOM模型 实际使用DOM Element节点/index.html">
 <meta property="og:site_name" content="ZDK&#39;s blog">
-<meta property="og:description" content="实战中的使用DOM">
+<meta property="og:description" content="实战中的使用DOM   如果加了括号就会直接执行了。 Element对象Element对象对应网页的 HTML 元素。每一个 HTML 元素，在 DOM 树上都会转化成一个Element节点对象（以下简称元素节点）。 元素节点的nodeType属性都是1。 Element对象继承了Node接口，因此Node的属性和方法在Element对象都存在。此外，不同的 HTML 元素对应的元素节点是不一样的">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://github.com/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-09%20%E4%B8%8A%E5%8D%8811.44.53.png">
 <meta property="og:image" content="https://github.com/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-09%20%E4%B8%8A%E5%8D%8811.50.54.png">
@@ -49,186 +123,377 @@
 <meta property="og:updated_time" content="2018-10-09T13:19:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript标准参考教程 DOM模型 实际使用DOM Element节点">
-<meta name="twitter:description" content="实战中的使用DOM">
+<meta name="twitter:description" content="实战中的使用DOM   如果加了括号就会直接执行了。 Element对象Element对象对应网页的 HTML 元素。每一个 HTML 元素，在 DOM 树上都会转化成一个Element节点对象（以下简称元素节点）。 元素节点的nodeType属性都是1。 Element对象继承了Node接口，因此Node的属性和方法在Element对象都存在。此外，不同的 HTML 元素对应的元素节点是不一样的">
 <meta name="twitter:image" content="https://github.com/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-09%20%E4%B8%8A%E5%8D%8811.44.53.png">
-    
-        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
-    
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
-    <script>window.lazyScripts=[]</script>
 
-    <!-- custom head -->
-    
+
+
+  <link rel="alternate" href="/atom.xml" title="ZDK's blog" type="application/atom+xml"/>
+
+
+
+  
+  
+  <link rel="canonical" href="https://github.com/zdkswd/2018/10/09/JavaScript标准参考教程 DOM模型 实际使用DOM Element节点/"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>JavaScript标准参考教程 DOM模型 实际使用DOM Element节点 | ZDK's blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
 
 </head>
 
-<body>
-    <div id="loading" class="active"></div>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
-    <aside id="menu" class="hide" >
-  <div class="inner flex-row-vertical">
-    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-        <i class="icon icon-lg icon-close"></i>
-    </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
-      <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/tmg.jpg">
-        </a>
-        <hgroup class="introduce">
-          <h5 class="nickname">ZDK</h5>
-          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
-        </hgroup>
-      </div>
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ZDK's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
-    <div class="scroll-wrap flex-col">
-      <ul class="nav">
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
         
-            <li class="waves-block waves-effect">
-              <a href="/"  >
-                <i class="icon icon-lg icon-home"></i>
-                主页
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                Archives
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/tags"  >
-                <i class="icon icon-lg icon-tags"></i>
-                Tags
-              </a>
-            </li>
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>首页</a>
+
+  </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/categories"  >
-                <i class="icon icon-lg icon-th-list"></i>
-                Categories
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="https://github.com/zdkswd" target="_blank" >
-                <i class="icon icon-lg icon-github"></i>
-                Github
-              </a>
-            </li>
         
-      </ul>
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>归档</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br/>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
     </div>
   </div>
-</aside>
+  <div id="local-search-result"></div>
+</div>
 
-    <main id="main">
-        <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis">JavaScript标准参考教程 DOM模型 实际使用DOM Element节点</div>
-        
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
-        </div>
-        
-        
+
+
     </div>
-</header>
-<header class="content-header post-header">
-
-    <div class="container fade-scale">
-        <h1 class="title">JavaScript标准参考教程 DOM模型 实际使用DOM Element节点</h1>
-        <h5 class="subtitle">
-            
-                <time datetime="2018-10-09T11:42:56.000Z" itemprop="datePublished" class="page-time">
-  2018-10-09
-</time>
+  
+</nav>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/教程/">教程</a></li></ul>
 
-            
-        </h5>
-    </div>
+</div>
+    </header>
 
     
 
 
-</header>
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
 
+          
+          <div id="content" class="content">
+            
 
-<div class="container body-wrap">
+  <div id="posts" class="posts-expand">
     
-    <aside class="post-widget">
-        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
-            <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#实战中的使用DOM"><span class="post-toc-number">1.</span> <span class="post-toc-text">实战中的使用DOM</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Element对象"><span class="post-toc-number">2.</span> <span class="post-toc-text">Element对象</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实例属性"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">实例属性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#元素特性的相关属性"><span class="post-toc-number">2.1.1.</span> <span class="post-toc-text">元素特性的相关属性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Element-id"><span class="post-toc-number">2.1.1.1.</span> <span class="post-toc-text">Element.id</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Element-tagName"><span class="post-toc-number">2.1.1.2.</span> <span class="post-toc-text">Element.tagName</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Element-dir"><span class="post-toc-number">2.1.1.3.</span> <span class="post-toc-text">Element.dir</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Element-accessKey"><span class="post-toc-number">2.1.1.4.</span> <span class="post-toc-text">Element.accessKey</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Element-draggable"><span class="post-toc-number">2.1.1.5.</span> <span class="post-toc-text">Element.draggable</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Element-lang"><span class="post-toc-number">2.1.1.6.</span> <span class="post-toc-text">Element.lang</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Element-tabIndex"><span class="post-toc-number">2.1.1.7.</span> <span class="post-toc-text">Element.tabIndex</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Element-title"><span class="post-toc-number">2.1.1.8.</span> <span class="post-toc-text">Element.title</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#元素状态的相关属性"><span class="post-toc-number">2.1.2.</span> <span class="post-toc-text">元素状态的相关属性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Element-hidden"><span class="post-toc-number">2.1.2.1.</span> <span class="post-toc-text">Element.hidden</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Element-contentEditable，Element-isContentEditable"><span class="post-toc-number">2.1.2.2.</span> <span class="post-toc-text">Element.contentEditable，Element.isContentEditable</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Element-attributes"><span class="post-toc-number">2.1.3.</span> <span class="post-toc-text">Element.attributes</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Element-className，Element-classList"><span class="post-toc-number">2.1.3.1.</span> <span class="post-toc-text">Element.className，Element.classList</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Element-dataset"><span class="post-toc-number">2.1.4.</span> <span class="post-toc-text">Element.dataset</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Element-innerHTML"><span class="post-toc-number">2.1.5.</span> <span class="post-toc-text">Element.innerHTML</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Element-outerHTML"><span class="post-toc-number">2.1.6.</span> <span class="post-toc-text">Element.outerHTML</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Element-clientHeight，Element-clientWidth"><span class="post-toc-number">2.1.7.</span> <span class="post-toc-text">Element.clientHeight，Element.clientWidth</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Element-clientLeft，Element-clientTop"><span class="post-toc-number">2.1.8.</span> <span class="post-toc-text">Element.clientLeft，Element.clientTop</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Element-scrollHeight，Element-scrollWidth"><span class="post-toc-number">2.1.9.</span> <span class="post-toc-text">Element.scrollHeight，Element.scrollWidth</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Element-scrollLeft，Element-scrollTop"><span class="post-toc-number">2.1.10.</span> <span class="post-toc-text">Element.scrollLeft，Element.scrollTop</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Element-offsetParent"><span class="post-toc-number">2.1.11.</span> <span class="post-toc-text">Element.offsetParent</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Element-offsetHeight，Element-offsetWidth"><span class="post-toc-number">2.1.12.</span> <span class="post-toc-text">Element.offsetHeight，Element.offsetWidth</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Element-offsetLeft，Element-offsetTop"><span class="post-toc-number">2.1.13.</span> <span class="post-toc-text">Element.offsetLeft，Element.offsetTop</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Element-style"><span class="post-toc-number">2.1.14.</span> <span class="post-toc-text">Element.style</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Element-children，Element-childElementCount"><span class="post-toc-number">2.1.15.</span> <span class="post-toc-text">Element.children，Element.childElementCount</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Element-firstElementChild，Element-lastElementChild"><span class="post-toc-number">2.1.16.</span> <span class="post-toc-text">Element.firstElementChild，Element.lastElementChild</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Element-nextElementSibling，Element-previousElementSibling"><span class="post-toc-number">2.1.17.</span> <span class="post-toc-text">Element.nextElementSibling，Element.previousElementSibling</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实例方法"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">实例方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#属性相关方法"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">属性相关方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Element-getAttribute"><span class="post-toc-number">2.2.1.1.</span> <span class="post-toc-text">Element.getAttribute()</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Element-getAttributeNames"><span class="post-toc-number">2.2.1.2.</span> <span class="post-toc-text">Element.getAttributeNames()</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Element-setAttribute"><span class="post-toc-number">2.2.1.3.</span> <span class="post-toc-text">Element.setAttribute()</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Element-hasAttribute"><span class="post-toc-number">2.2.1.4.</span> <span class="post-toc-text">Element.hasAttribute()</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Element-hasAttributes"><span class="post-toc-number">2.2.1.5.</span> <span class="post-toc-text">Element.hasAttributes()</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Element-removeAttribute"><span class="post-toc-number">2.2.1.6.</span> <span class="post-toc-text">Element.removeAttribute()</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Element-querySelector"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">Element.querySelector()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Element-querySelectorAll"><span class="post-toc-number">2.2.3.</span> <span class="post-toc-text">Element.querySelectorAll()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Element-getElementsByClassName"><span class="post-toc-number">2.2.4.</span> <span class="post-toc-text">Element.getElementsByClassName()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Element-getElementsByTagName"><span class="post-toc-number">2.2.5.</span> <span class="post-toc-text">Element.getElementsByTagName()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Element-closest"><span class="post-toc-number">2.2.6.</span> <span class="post-toc-text">Element.closest()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Element-matches"><span class="post-toc-number">2.2.7.</span> <span class="post-toc-text">Element.matches()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#事件相关方法"><span class="post-toc-number">2.2.8.</span> <span class="post-toc-text">事件相关方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Element-scrollIntoView"><span class="post-toc-number">2.2.9.</span> <span class="post-toc-text">Element.scrollIntoView()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Element-getBoundingClientRect"><span class="post-toc-number">2.2.10.</span> <span class="post-toc-text">Element.getBoundingClientRect()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Element-getClientRects"><span class="post-toc-number">2.2.11.</span> <span class="post-toc-text">Element.getClientRects()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Element-insertAdjacentElement"><span class="post-toc-number">2.2.12.</span> <span class="post-toc-text">Element.insertAdjacentElement()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Element-insertAdjacentHTML-，Element-insertAdjacentText"><span class="post-toc-number">2.2.13.</span> <span class="post-toc-text">Element.insertAdjacentHTML()，Element.insertAdjacentText()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Element-focus-，Element-blur"><span class="post-toc-number">2.2.14.</span> <span class="post-toc-text">Element.focus()，Element.blur()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Element-click"><span class="post-toc-number">2.2.15.</span> <span class="post-toc-text">Element.click()</span></a></li></ol></li></ol></li></ol>
-        </nav>
-    </aside>
 
+  
 
-<article id="post-JavaScript标准参考教程 DOM模型 实际使用DOM Element节点"
-  class="post-article article-type-post fade" itemprop="blogPost">
+  
+  
+  
 
-    <div class="post-card">
-        <h1 class="post-card-title">JavaScript标准参考教程 DOM模型 实际使用DOM Element节点</h1>
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2018/10/09/JavaScript标准参考教程 DOM模型 实际使用DOM Element节点/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZDK"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZDK's blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JavaScript标准参考教程 DOM模型 实际使用DOM Element节点
+
+              
+            
+          </h1>
+        
+
         <div class="post-meta">
-            <time class="post-time" title="2018-10-09 19:42:56" datetime="2018-10-09T11:42:56.000Z"  itemprop="datePublished">2018-10-09</time>
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-10-09 19:42:56 / 修改时间：21:19:32" itemprop="dateCreated datePublished" datetime="2018-10-09T19:42:56+08:00">2018-10-09</time>
+            </span>
+          
+
+          
+            
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/教程/">教程</a></li></ul>
+          
 
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/教程/" itemprop="url" rel="index"><span itemprop="name">教程</span></a></span>
 
+                
+                
+              
+            </span>
+          
 
+          
             
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
-    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
-</span>
+            
+              
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2018/10/09/JavaScript标准参考教程 DOM模型 实际使用DOM Element节点/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/10/09/JavaScript标准参考教程 DOM模型 实际使用DOM Element节点/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
 
+          
+          
+            <span id="/2018/10/09/JavaScript标准参考教程 DOM模型 实际使用DOM Element节点/" class="post-meta-item leancloud_visitors" data-flag-title="JavaScript标准参考教程 DOM模型 实际使用DOM Element节点">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          <br/>
+          
+
+          
+
+          
 
         </div>
-        <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="实战中的使用DOM"><a href="#实战中的使用DOM" class="headerlink" title="实战中的使用DOM"></a>实战中的使用DOM</h1><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-09%20%E4%B8%8A%E5%8D%8811.44.53.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-09%20%E4%B8%8A%E5%8D%8811.50.54.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-09%20%E4%B8%8B%E5%8D%883.07.00.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-09%20%E4%B8%8B%E5%8D%883.26.06.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<p>如果加了括号就会直接执行了。</p>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="实战中的使用DOM"><a href="#实战中的使用DOM" class="headerlink" title="实战中的使用DOM"></a>实战中的使用DOM</h1><p><img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-09%20%E4%B8%8A%E5%8D%8811.44.53.png" alt=""></p>
+<p><img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-09%20%E4%B8%8A%E5%8D%8811.50.54.png" alt=""></p>
+<p><img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-09%20%E4%B8%8B%E5%8D%883.07.00.png" alt=""></p>
+<p><img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-09%20%E4%B8%8B%E5%8D%883.26.06.png" alt=""><br>如果加了括号就会直接执行了。</p>
 <h1 id="Element对象"><a href="#Element对象" class="headerlink" title="Element对象"></a>Element对象</h1><p>Element对象对应网页的 HTML 元素。每一个 HTML 元素，在 DOM 树上都会转化成一个Element节点对象（以下简称元素节点）。</p>
 <p>元素节点的nodeType属性都是1。</p>
 <p>Element对象继承了Node接口，因此Node的属性和方法在Element对象都存在。此外，不同的 HTML 元素对应的元素节点是不一样的，浏览器使用不同的构造函数，生成不同的元素节点，比如&lt; a&gt;元素的节点对象由HTMLAnchorElement构造函数生成，&lt; button&gt;元素的节点对象由HTMLButtonElement构造函数生成。因此，元素节点不是一种对象，而是一组对象，这些对象除了继承Element的属性和方法，还有各自构造函数的属性和方法。</p>
@@ -236,13 +501,7 @@
 <p>id属性的值是大小写敏感。</p>
 <h4 id="Element-tagName"><a href="#Element-tagName" class="headerlink" title="Element.tagName"></a>Element.tagName</h4><p>Element.tagName属性返回指定元素的大写标签名，与nodeName属性的值相等。</p>
 <h4 id="Element-dir"><a href="#Element-dir" class="headerlink" title="Element.dir"></a>Element.dir</h4><p>Element.dir属性用于读写当前元素的文字方向，可能是从左到右（”ltr”），也可能是从右到左（”rtl”）。</p>
-<h4 id="Element-accessKey"><a href="#Element-accessKey" class="headerlink" title="Element.accessKey"></a>Element.accessKey</h4><p>Element.accessKey属性用于读写分配给当前元素的快捷键。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%882.46.27.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<h4 id="Element-accessKey"><a href="#Element-accessKey" class="headerlink" title="Element.accessKey"></a>Element.accessKey</h4><p>Element.accessKey属性用于读写分配给当前元素的快捷键。<br><img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%882.46.27.png" alt=""></p>
 <p>上面代码中，btn元素的快捷键是h，按下Alt + h就能将焦点转移到它上面。</p>
 <h4 id="Element-draggable"><a href="#Element-draggable" class="headerlink" title="Element.draggable"></a>Element.draggable</h4><p>Element.draggable属性返回一个布尔值，表示当前元素是否可拖动。该属性可读写。</p>
 <h4 id="Element-lang"><a href="#Element-lang" class="headerlink" title="Element.lang"></a>Element.lang</h4><p>Element.lang属性返回当前元素的语言设置。该属性可读写。</p>
@@ -254,70 +513,28 @@
 <p>CSS 的设置高于Element.hidden。如果 CSS 指定了该元素不可见（display: none）或可见（display: hidden），那么Element.hidden并不能改变该元素实际的可见性。换言之，这个属性只在 CSS 没有明确设定当前元素的可见性时才有效。</p>
 <h4 id="Element-contentEditable，Element-isContentEditable"><a href="#Element-contentEditable，Element-isContentEditable" class="headerlink" title="Element.contentEditable，Element.isContentEditable"></a>Element.contentEditable，Element.isContentEditable</h4><p>HTML 元素可以设置contentEditable属性，使得元素的内容可以编辑。</p>
 <p>Element.contentEditable属性返回一个字符串，表示是否设置了contenteditable属性，有三种可能的值。该属性可写。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%882.49.37.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%882.49.37.png" alt=""></p>
 <p>Element.isContentEditable属性返回一个布尔值，同样表示是否设置了contenteditable属性。该属性只读。</p>
 <h3 id="Element-attributes"><a href="#Element-attributes" class="headerlink" title="Element.attributes"></a>Element.attributes</h3><p>Element.attributes属性返回一个类似数组的对象，成员是当前元素节点的所有属性节点。</p>
 <h4 id="Element-className，Element-classList"><a href="#Element-className，Element-classList" class="headerlink" title="Element.className，Element.classList"></a>Element.className，Element.classList</h4><p>className属性用来读写当前元素节点的class属性。它的值是一个字符串，每个class之间用空格分割</p>
 <p>classList属性返回一个类似数组的对象，当前元素节点的每个class就是这个对象的一个成员。</p>
 <p>classList对象有下列方法。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%882.52.15.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%882.52.15.png" alt=""></p>
 <p>toggle方法可以接受一个布尔值，作为第二个参数。如果为true，则添加该属性；如果为false，则去除该属性。</p>
 <h3 id="Element-dataset"><a href="#Element-dataset" class="headerlink" title="Element.dataset"></a>Element.dataset</h3><p>网页元素可以自定义data-属性，用来添加数据。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%882.53.44.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<p>Element.dataset属性返回一个对象，可以从这个对象读写data-属性。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%882.54.24.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<p><img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%882.53.44.png" alt=""></p>
+<p>Element.dataset属性返回一个对象，可以从这个对象读写data-属性。<br><img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%882.54.24.png" alt=""></p>
 <p>注意，dataset上面的各个属性返回都是字符串。</p>
-<p>HTML 代码中，data-属性的属性名，只能包含英文字母、数字、连词线（-）、点（.）、冒号（:）和下划线（_）。它们转成 JavaScript 对应的dataset属性名，规则如下。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%882.54.51.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<p>HTML 代码中，data-属性的属性名，只能包含英文字母、数字、连词线（-）、点（.）、冒号（:）和下划线（_）。它们转成 JavaScript 对应的dataset属性名，规则如下。<br><img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%882.54.51.png" alt=""></p>
 <p>因此，data-abc-def对应dataset.abcDef，data-abc-1对应dataset[“abc-1”]。</p>
 <p>除了使用dataset读写data-属性，也可以使用Element.getAttribute()和Element.setAttribute()，通过完整的属性名读写这些属性。</p>
 <h3 id="Element-innerHTML"><a href="#Element-innerHTML" class="headerlink" title="Element.innerHTML"></a>Element.innerHTML</h3><p>Element.innerHTML属性返回一个字符串，等同于该元素包含的所有 HTML 代码。该属性可读写，常用来设置某个节点的内容。它能改写所有元素节点的内容，包括<html>和<body>元素。</body></html></p>
 <p>如果将innerHTML属性设为空，等于删除所有它包含的所有节点。</p>
-<p>注意，读取属性值的时候，如果文本节点包含 \&amp;、小于号（ &lt;）和大于号（ &gt;），innerHTML属性会将它们转为实体形式 \&amp; amp;、\&amp; lt;、\&amp; gt;。如果想得到原文，建议使用element.textContent属性。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%883.53.56.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<p>注意，读取属性值的时候，如果文本节点包含 \&amp;、小于号（ &lt;）和大于号（ &gt;），innerHTML属性会将它们转为实体形式 \&amp; amp;、\&amp; lt;、\&amp; gt;。如果想得到原文，建议使用element.textContent属性。<br><img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%883.53.56.png" alt=""></p>
 <p>注意，如果文本之中含有&lt; script&gt;标签，虽然可以生成script节点，但是插入的代码不会执行。</p>
 <p>为了安全考虑，如果插入的是文本，最好用textContent属性代替innerHTML。</p>
 <h3 id="Element-outerHTML"><a href="#Element-outerHTML" class="headerlink" title="Element.outerHTML"></a>Element.outerHTML</h3><p>Element.outerHTML属性返回一个字符串，表示当前元素节点的所有 HTML 代码，包括该元素本身和所有子元素。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%883.57.03.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%883.57.03.png" alt=""></p>
 <p>outerHTML属性是可读写的，对它进行赋值，等于替换掉当前元素。</p>
 <p>注意，如果一个节点没有父节点，设置outerHTML属性会报错。</p>
 <h3 id="Element-clientHeight，Element-clientWidth"><a href="#Element-clientHeight，Element-clientWidth" class="headerlink" title="Element.clientHeight，Element.clientWidth"></a>Element.clientHeight，Element.clientWidth</h3><p>Element.clientHeight属性返回一个整数值，表示元素节点的 CSS 高度（单位像素），只对块级元素生效，对于行内元素返回0。如果块级元素没有设置 CSS 高度，则返回实际高度。</p>
@@ -364,36 +581,18 @@
 <p>它也可以接受多个 CSS 选择器，它们之间使用逗号分隔。如果选择器里面有伪元素的选择器，则总是返回一个空的NodeList实例。</p>
 <h3 id="Element-getElementsByClassName"><a href="#Element-getElementsByClassName" class="headerlink" title="Element.getElementsByClassName()"></a>Element.getElementsByClassName()</h3><p>Element.getElementsByClassName方法返回一个HTMLCollection实例，成员是当前元素节点的所有具有指定 class 的子元素节点。该方法与document.getElementsByClassName方法的用法类似，只是搜索范围不是整个文档，而是当前元素节点。</p>
 <p>注意，该方法的参数大小写敏感。</p>
-<p>由于HTMLCollection实例是一个活的集合，document对象的任何变化会立刻反应到实例。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%884.59.41.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<p>由于HTMLCollection实例是一个活的集合，document对象的任何变化会立刻反应到实例。<br><img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%884.59.41.png" alt=""></p>
 <p>上面代码中，matches集合的第一个成员，一旦被拿掉 class 里面的foo，就会立刻从matches里面消失，导致出现上面的结果。</p>
 <h3 id="Element-getElementsByTagName"><a href="#Element-getElementsByTagName" class="headerlink" title="Element.getElementsByTagName()"></a>Element.getElementsByTagName()</h3><p>Element.getElementsByTagName方法返回一个HTMLCollection实例，成员是当前节点的所有匹配指定标签名的子元素节点。该方法与document.getElementsByClassName方法的用法类似，只是搜索范围不是整个文档，而是当前元素节点。</p>
 <p><strong>注意</strong>，该方法的参数是大小写不敏感的。</p>
 <h3 id="Element-closest"><a href="#Element-closest" class="headerlink" title="Element.closest()"></a>Element.closest()</h3><p>Element.closest方法接受一个 CSS 选择器作为参数，返回匹配该选择器的、最接近当前节点的一个祖先节点（包括当前节点本身）。如果没有任何节点匹配 CSS 选择器，则返回null。</p>
 <h3 id="Element-matches"><a href="#Element-matches" class="headerlink" title="Element.matches()"></a>Element.matches()</h3><p>Element.matches方法返回一个布尔值，表示当前元素是否匹配给定的 CSS 选择器。</p>
-<h3 id="事件相关方法"><a href="#事件相关方法" class="headerlink" title="事件相关方法"></a>事件相关方法</h3><p>以下三个方法与Element节点的事件相关。这些方法都继承自EventTarget接口，<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%885.31.11.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<h3 id="事件相关方法"><a href="#事件相关方法" class="headerlink" title="事件相关方法"></a>事件相关方法</h3><p>以下三个方法与Element节点的事件相关。这些方法都继承自EventTarget接口，<br><img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%885.31.11.png" alt=""></p>
 <h3 id="Element-scrollIntoView"><a href="#Element-scrollIntoView" class="headerlink" title="Element.scrollIntoView()"></a>Element.scrollIntoView()</h3><p>Element.scrollIntoView方法滚动当前元素，进入浏览器的可见区域，类似于设置window.location.hash的效果。</p>
 <p>该方法可以接受一个布尔值作为参数。如果为true，表示元素的顶部与当前区域的可见部分的顶部对齐（前提是当前区域可滚动）；如果为false，表示元素的底部与当前区域的可见部分的尾部对齐（前提是当前区域可滚动）。如果没有提供该参数，默认为true。</p>
 <h3 id="Element-getBoundingClientRect"><a href="#Element-getBoundingClientRect" class="headerlink" title="Element.getBoundingClientRect()"></a>Element.getBoundingClientRect()</h3><p>Element.getBoundingClientRect方法返回一个对象，提供当前元素节点的大小、位置等信息，基本上就是 CSS 盒状模型的所有信息。</p>
 <p>只读。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%885.54.41.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%885.54.41.png" alt=""></p>
 <p>注意，getBoundingClientRect方法的所有属性，都把边框（border属性）算作元素的一部分。也就是说，都是从边框外缘的各个点来计算。因此，width和height包括了元素本身 + padding + border。</p>
 <h3 id="Element-getClientRects"><a href="#Element-getClientRects" class="headerlink" title="Element.getClientRects()"></a>Element.getClientRects()</h3><p>Element.getClientRects方法返回一个类似数组的对象，里面是当前元素在页面上形成的所有矩形（所以方法名中的Rect用的是复数）。每个矩形都有bottom、height、left、right、top和width六个属性，表示它们相对于视口的四个坐标，以及本身的高度和宽度。</p>
 <p>对于盒状元素（比如&lt; div&gt;和&lt; p&gt;），该方法返回的对象中只有该元素一个成员。对于行内元素（比如&lt; span&gt;、&lt; a&gt;、&lt; em&gt;），该方法返回的对象有多少个成员，取决于该元素在页面上占据多少行。这是它和Element.getBoundingClientRect()方法的主要区别，后者对于行内元素总是返回一个矩形。</p>
@@ -403,13 +602,7 @@
 <p>注意，beforebegin和afterend这两个值，只在当前节点有父节点时才会生效。如果当前节点是由脚本创建的，没有父节点，那么插入会失败。</p>
 <h3 id="Element-insertAdjacentHTML-，Element-insertAdjacentText"><a href="#Element-insertAdjacentHTML-，Element-insertAdjacentText" class="headerlink" title="Element.insertAdjacentHTML()，Element.insertAdjacentText()"></a>Element.insertAdjacentHTML()，Element.insertAdjacentText()</h3><p>Element.insertAdjacentHTML方法用于将一个 HTML 字符串，解析生成 DOM 结构，插入相对于当前节点的指定位置。</p>
 <p>该方法接受两个参数，第一个是一个表示指定位置的字符串，第二个是待解析的 HTML 字符串。第一个参数只能设置下面四个值之一。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%886.22.41.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%886.22.41.png" alt=""></p>
 <p>该方法只是在现有的 DOM 结构里面插入节点，这使得它的执行速度比innerHTML方法快得多。</p>
 <p>注意，该方法会使 HTML 字符串显示为网页结构，这导致它不能用来插入用户输入的内容，否则会有安全风险。</p>
 <h3 id="Element-focus-，Element-blur"><a href="#Element-focus-，Element-blur" class="headerlink" title="Element.focus()，Element.blur()"></a>Element.focus()，Element.blur()</h3><p>Element.focus方法用于将当前页面的焦点，转移到指定元素上。</p>
@@ -417,230 +610,891 @@
 <p>Element.blur方法用于将焦点从当前元素移除。</p>
 <h3 id="Element-click"><a href="#Element-click" class="headerlink" title="Element.click()"></a>Element.click()</h3><p>Element.click方法用于在当前元素上模拟一次鼠标点击，相当于触发了click事件。</p>
 
-        </div>
-
-        <blockquote class="post-copyright">
-    
-    <div class="content">
-        
-<span class="post-time">
-    最后更新时间：<time datetime="2018-10-09T13:19:32.000Z" itemprop="dateUpdated">2018-10-09 21:19:32</time>
-</span><br>
-
-
-        
+      
     </div>
+
     
-    <footer>
-        <a href="https://github.com/zdkswd">
-            <img src="/img/tmg.jpg" alt="ZDK">
-            ZDK
-        </a>
+
+    
+      
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/06/CSS/" rel="next" title="CSS">
+                <i class="fa fa-chevron-left"></i> CSS
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/11/关于JavaScript的对象的理解/" rel="prev" title="关于JavaScript的对象的理解">
+                关于JavaScript的对象的理解 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
     </footer>
-</blockquote>
-
-        
-
-
-        <div class="post-footer">
-            
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+  </div>
+  
+  
+  
+  </article>
 
 
-            
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
 
 
         </div>
-    </div>
-
-    
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2018/10/11/关于JavaScript的对象的理解/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">关于JavaScript的对象的理解</h4>
-      </a>
-    </div>
-  
-
-  
-    <div class="waves-block waves-effect next">
-      <a href="/2018/10/06/HTML/" id="post-next" class="post-nav-link">
-        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">HTML</h4>
-      </a>
-    </div>
-  
-</nav>
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Valine Comments -->
-    <div class="comments vcomment" id="comments"></div>
-    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
-    <!-- Valine Comments script -->
-    <script>
-        var GUEST_INFO = ['nick','mail','link'];
-        var guest_info = 'nick,mail'.split(',').filter(function(item){
-          return GUEST_INFO.indexOf(item) > -1
-        });
-        new Valine({
-            el: '#comments',
-            notify: 'true' == 'true',
-            verify: 'false' == 'true',
-            appId: "QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz",
-            appKey: "gkBx5soQkBREmER84PWbNJeM",
-            avatar: "mm",
-            placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
-            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
-            pageSize: "10"
-        })
-    </script>
-    <!-- Valine Comments end -->
-
-
-
-
-
-
-
-</article>
-
-
-
-</div>
-
-        <footer class="footer">
-    <div class="top">
         
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
-
-
-        <p>
-            
-                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-            
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
-        </p>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
     </div>
-    <div class="bottom">
-        <p><span>ZDK &copy; 2017 - 2019</span>
-            <span>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="ZDK"/>
+            
+              <p class="site-author-name" itemprop="name">ZDK</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
                 
-                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
-            </span>
-        </p>
-    </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
-    </script>
-</footer>
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">191</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
 
-    </main>
-    <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">分类</span>
+                  
+                </div>
+              
 
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">48</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
 
-    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
-<script>
-var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
-
-
-</script>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
             </div>
-            <time class="flex-col time">{date}</time>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/zdkswd" title="GitHub &rarr; https://github.com/zdkswd"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:2822464407@qq.com" title="E-Mail &rarr; mailto:2822464407@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/zdkswd" title="https://github.com/zdkswd">Title</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
         </div>
-    </a>
-</li>
-</template>
+      </div>
 
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
 
+            
+            
+            
+            
 
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#实战中的使用DOM"><span class="nav-number">1.</span> <span class="nav-text">实战中的使用DOM</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Element对象"><span class="nav-number">2.</span> <span class="nav-text">Element对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#实例属性"><span class="nav-number">2.1.</span> <span class="nav-text">实例属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#元素特性的相关属性"><span class="nav-number">2.1.1.</span> <span class="nav-text">元素特性的相关属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Element-id"><span class="nav-number">2.1.1.1.</span> <span class="nav-text">Element.id</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Element-tagName"><span class="nav-number">2.1.1.2.</span> <span class="nav-text">Element.tagName</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Element-dir"><span class="nav-number">2.1.1.3.</span> <span class="nav-text">Element.dir</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Element-accessKey"><span class="nav-number">2.1.1.4.</span> <span class="nav-text">Element.accessKey</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Element-draggable"><span class="nav-number">2.1.1.5.</span> <span class="nav-text">Element.draggable</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Element-lang"><span class="nav-number">2.1.1.6.</span> <span class="nav-text">Element.lang</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Element-tabIndex"><span class="nav-number">2.1.1.7.</span> <span class="nav-text">Element.tabIndex</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Element-title"><span class="nav-number">2.1.1.8.</span> <span class="nav-text">Element.title</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#元素状态的相关属性"><span class="nav-number">2.1.2.</span> <span class="nav-text">元素状态的相关属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Element-hidden"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">Element.hidden</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Element-contentEditable，Element-isContentEditable"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">Element.contentEditable，Element.isContentEditable</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Element-attributes"><span class="nav-number">2.1.3.</span> <span class="nav-text">Element.attributes</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Element-className，Element-classList"><span class="nav-number">2.1.3.1.</span> <span class="nav-text">Element.className，Element.classList</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Element-dataset"><span class="nav-number">2.1.4.</span> <span class="nav-text">Element.dataset</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Element-innerHTML"><span class="nav-number">2.1.5.</span> <span class="nav-text">Element.innerHTML</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Element-outerHTML"><span class="nav-number">2.1.6.</span> <span class="nav-text">Element.outerHTML</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Element-clientHeight，Element-clientWidth"><span class="nav-number">2.1.7.</span> <span class="nav-text">Element.clientHeight，Element.clientWidth</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Element-clientLeft，Element-clientTop"><span class="nav-number">2.1.8.</span> <span class="nav-text">Element.clientLeft，Element.clientTop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Element-scrollHeight，Element-scrollWidth"><span class="nav-number">2.1.9.</span> <span class="nav-text">Element.scrollHeight，Element.scrollWidth</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Element-scrollLeft，Element-scrollTop"><span class="nav-number">2.1.10.</span> <span class="nav-text">Element.scrollLeft，Element.scrollTop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Element-offsetParent"><span class="nav-number">2.1.11.</span> <span class="nav-text">Element.offsetParent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Element-offsetHeight，Element-offsetWidth"><span class="nav-number">2.1.12.</span> <span class="nav-text">Element.offsetHeight，Element.offsetWidth</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Element-offsetLeft，Element-offsetTop"><span class="nav-number">2.1.13.</span> <span class="nav-text">Element.offsetLeft，Element.offsetTop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Element-style"><span class="nav-number">2.1.14.</span> <span class="nav-text">Element.style</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Element-children，Element-childElementCount"><span class="nav-number">2.1.15.</span> <span class="nav-text">Element.children，Element.childElementCount</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Element-firstElementChild，Element-lastElementChild"><span class="nav-number">2.1.16.</span> <span class="nav-text">Element.firstElementChild，Element.lastElementChild</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Element-nextElementSibling，Element-previousElementSibling"><span class="nav-number">2.1.17.</span> <span class="nav-text">Element.nextElementSibling，Element.previousElementSibling</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例方法"><span class="nav-number">2.2.</span> <span class="nav-text">实例方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#属性相关方法"><span class="nav-number">2.2.1.</span> <span class="nav-text">属性相关方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Element-getAttribute"><span class="nav-number">2.2.1.1.</span> <span class="nav-text">Element.getAttribute()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Element-getAttributeNames"><span class="nav-number">2.2.1.2.</span> <span class="nav-text">Element.getAttributeNames()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Element-setAttribute"><span class="nav-number">2.2.1.3.</span> <span class="nav-text">Element.setAttribute()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Element-hasAttribute"><span class="nav-number">2.2.1.4.</span> <span class="nav-text">Element.hasAttribute()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Element-hasAttributes"><span class="nav-number">2.2.1.5.</span> <span class="nav-text">Element.hasAttributes()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Element-removeAttribute"><span class="nav-number">2.2.1.6.</span> <span class="nav-text">Element.removeAttribute()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Element-querySelector"><span class="nav-number">2.2.2.</span> <span class="nav-text">Element.querySelector()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Element-querySelectorAll"><span class="nav-number">2.2.3.</span> <span class="nav-text">Element.querySelectorAll()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Element-getElementsByClassName"><span class="nav-number">2.2.4.</span> <span class="nav-text">Element.getElementsByClassName()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Element-getElementsByTagName"><span class="nav-number">2.2.5.</span> <span class="nav-text">Element.getElementsByTagName()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Element-closest"><span class="nav-number">2.2.6.</span> <span class="nav-text">Element.closest()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Element-matches"><span class="nav-number">2.2.7.</span> <span class="nav-text">Element.matches()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件相关方法"><span class="nav-number">2.2.8.</span> <span class="nav-text">事件相关方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Element-scrollIntoView"><span class="nav-number">2.2.9.</span> <span class="nav-text">Element.scrollIntoView()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Element-getBoundingClientRect"><span class="nav-number">2.2.10.</span> <span class="nav-text">Element.getBoundingClientRect()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Element-getClientRects"><span class="nav-number">2.2.11.</span> <span class="nav-text">Element.getClientRects()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Element-insertAdjacentElement"><span class="nav-number">2.2.12.</span> <span class="nav-text">Element.insertAdjacentElement()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Element-insertAdjacentHTML-，Element-insertAdjacentText"><span class="nav-number">2.2.13.</span> <span class="nav-text">Element.insertAdjacentHTML()，Element.insertAdjacentText()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Element-focus-，Element-blur"><span class="nav-number">2.2.14.</span> <span class="nav-text">Element.focus()，Element.blur()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Element-click"><span class="nav-number">2.2.15.</span> <span class="nav-text">Element.click()</span></a></li></ol></li></ol></li></ol></div>
+            
 
-<!-- mathjax config similar to math.stackexchange -->
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
+      
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
 
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-});
-</script>
-
-<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
-
-
-
-
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
 
 
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZDK</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.2.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+  </div>
+
+  
 
 <script>
-(function() {
-    var OriginTitile = document.title, titleTime;
-    document.addEventListener('visibilitychange', function() {
-        if (document.hidden) {
-            document.title = 'zdk'blog';
-            clearTimeout(titleTime);
-        } else {
-            document.title = '';
-            titleTime = setTimeout(function() {
-                document.title = OriginTitile;
-            },2000);
-        }
-    });
-})();
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
 </script>
 
 
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.2.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz',
+    appKey: 'gkBx5soQkBREmER84PWbNJeM',
+    placeholder: 'have fun',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true,
+    lang: '' || 'zh-cn'
+  });
+</script>
+
+
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('5');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
 
 </body>
 </html>

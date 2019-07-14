@@ -1,27 +1,101 @@
 <!DOCTYPE html>
-<html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
-    
-
-    
-
-    
-
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
 
 
-    <meta charset="utf-8">
-    
-    
-    
-    
-    <title>感知机 | ZDK&#39;s blog</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#3F51B5">
-    
-    
-    <meta name="keywords" content="机器学习">
-    <meta name="description" content="百面机器学习深度前馈网络是一类网络模型的统称，常见的多层感知机，自编码器，限制玻尔兹曼机，以及卷积神经网络等，都是其中的成员。在人工神经网络领域中，感知机也被认为是单层的人工神经网络。 多层感知机与布尔函数神经网络概念的诞生很大程度上受到了神经科学的启发。生物学研究表明，大脑皮层的感知与计算功能是分层实现的，例如视觉图像，首先光信号进入大脑皮层的V1区，即初级视皮层，之后依次通过V2层和V4层，即">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.2.0',
+    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+
+
+  <meta name="description" content="百面机器学习深度前馈网络是一类网络模型的统称，常见的多层感知机，自编码器，限制玻尔兹曼机，以及卷积神经网络等，都是其中的成员。在人工神经网络领域中，感知机也被认为是单层的人工神经网络。 多层感知机与布尔函数神经网络概念的诞生很大程度上受到了神经科学的启发。生物学研究表明，大脑皮层的感知与计算功能是分层实现的，例如视觉图像，首先光信号进入大脑皮层的V1区，即初级视皮层，之后依次通过V2层和V4层，即">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="感知机">
@@ -43,202 +117,392 @@
 <meta name="twitter:title" content="感知机">
 <meta name="twitter:description" content="百面机器学习深度前馈网络是一类网络模型的统称，常见的多层感知机，自编码器，限制玻尔兹曼机，以及卷积神经网络等，都是其中的成员。在人工神经网络领域中，感知机也被认为是单层的人工神经网络。 多层感知机与布尔函数神经网络概念的诞生很大程度上受到了神经科学的启发。生物学研究表明，大脑皮层的感知与计算功能是分层实现的，例如视觉图像，首先光信号进入大脑皮层的V1区，即初级视皮层，之后依次通过V2层和V4层，即">
 <meta name="twitter:image" content="https://github.com/img/media/%E6%84%9F%E7%9F%A5%E6%9C%BA/WechatIMG5.jpeg">
-    
-        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
-    
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
-    <script>window.lazyScripts=[]</script>
 
-    <!-- custom head -->
-    
+
+
+  <link rel="alternate" href="/atom.xml" title="ZDK's blog" type="application/atom+xml"/>
+
+
+
+  
+  
+  <link rel="canonical" href="https://github.com/zdkswd/2019/02/27/感知机/"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>感知机 | ZDK's blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
 
 </head>
 
-<body>
-    <div id="loading" class="active"></div>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
-    <aside id="menu" class="hide" >
-  <div class="inner flex-row-vertical">
-    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-        <i class="icon icon-lg icon-close"></i>
-    </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
-      <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/tmg.jpg">
-        </a>
-        <hgroup class="introduce">
-          <h5 class="nickname">ZDK</h5>
-          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
-        </hgroup>
-      </div>
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ZDK's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
-    <div class="scroll-wrap flex-col">
-      <ul class="nav">
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
         
-            <li class="waves-block waves-effect">
-              <a href="/"  >
-                <i class="icon icon-lg icon-home"></i>
-                主页
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                Archives
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/tags"  >
-                <i class="icon icon-lg icon-tags"></i>
-                Tags
-              </a>
-            </li>
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>首页</a>
+
+  </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/categories"  >
-                <i class="icon icon-lg icon-th-list"></i>
-                Categories
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="https://github.com/zdkswd" target="_blank" >
-                <i class="icon icon-lg icon-github"></i>
-                Github
-              </a>
-            </li>
         
-      </ul>
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>归档</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br/>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
     </div>
   </div>
-</aside>
+  <div id="local-search-result"></div>
+</div>
 
-    <main id="main">
-        <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis">感知机</div>
-        
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
-        </div>
-        
-        
+
+
     </div>
-</header>
-<header class="content-header post-header">
-
-    <div class="container fade-scale">
-        <h1 class="title">感知机</h1>
-        <h5 class="subtitle">
-            
-                <time datetime="2019-02-27T11:28:47.000Z" itemprop="datePublished" class="page-time">
-  2019-02-27
-</time>
+  
+</nav>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
 
-            
-        </h5>
-    </div>
+</div>
+    </header>
 
     
 
 
-</header>
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
 
+          
+          <div id="content" class="content">
+            
 
-<div class="container body-wrap">
+  <div id="posts" class="posts-expand">
     
-    <aside class="post-widget">
-        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
-            <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#百面机器学习"><span class="post-toc-number">1.</span> <span class="post-toc-text">百面机器学习</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#多层感知机与布尔函数"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">多层感知机与布尔函数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#问题1"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">问题1</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#问题2"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">问题2</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#问题3"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">问题3</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#美团-深度学习技术发展历程"><span class="post-toc-number">2.</span> <span class="post-toc-text">美团 深度学习技术发展历程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第一阶段-1943到1986年"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">第一阶段 1943到1986年</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第二阶段-1986年到2006年"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">第二阶段 1986年到2006年</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第三阶段-2006年至今"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">第三阶段 2006年至今</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#统计学习方法-感知机"><span class="post-toc-number">3.</span> <span class="post-toc-text">统计学习方法  感知机</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#感知机模型"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">感知机模型</span></a></li></ol></li></ol>
-        </nav>
-    </aside>
 
+  
 
-<article id="post-感知机"
-  class="post-article article-type-post fade" itemprop="blogPost">
+  
+  
+  
 
-    <div class="post-card">
-        <h1 class="post-card-title">感知机</h1>
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2019/02/27/感知机/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZDK"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZDK's blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">感知机
+
+              
+            
+          </h1>
+        
+
         <div class="post-meta">
-            <time class="post-time" title="2019-02-27 19:28:47" datetime="2019-02-27T11:28:47.000Z"  itemprop="datePublished">2019-02-27</time>
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-27 19:28:47" itemprop="dateCreated datePublished" datetime="2019-02-27T19:28:47+08:00">2019-02-27</time>
+            </span>
+          
+
+          
+            
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
-
-
-
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-02-28 17:00:10" itemprop="dateModified" datetime="2019-02-28T17:00:10+08:00">2019-02-28</time>
+              </span>
             
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
-    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
-</span>
+          
 
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/知识总结/" itemprop="url" rel="index"><span itemprop="name">知识总结</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/02/27/感知机/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/02/27/感知机/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2019/02/27/感知机/" class="post-meta-item leancloud_visitors" data-flag-title="感知机">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          <br/>
+          
+
+          
+
+          
 
         </div>
-        <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="百面机器学习"><a href="#百面机器学习" class="headerlink" title="百面机器学习"></a>百面机器学习</h1><p>深度前馈网络是一类网络模型的统称，常见的多层感知机，自编码器，限制玻尔兹曼机，以及卷积神经网络等，都是其中的成员。<br>在人工神经网络领域中，感知机也被认为是单层的人工神经网络。</p>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="百面机器学习"><a href="#百面机器学习" class="headerlink" title="百面机器学习"></a>百面机器学习</h1><p>深度前馈网络是一类网络模型的统称，常见的多层感知机，自编码器，限制玻尔兹曼机，以及卷积神经网络等，都是其中的成员。<br>在人工神经网络领域中，感知机也被认为是单层的人工神经网络。</p>
 <h2 id="多层感知机与布尔函数"><a href="#多层感知机与布尔函数" class="headerlink" title="多层感知机与布尔函数"></a>多层感知机与布尔函数</h2><p>神经网络概念的诞生很大程度上受到了神经科学的启发。生物学研究表明，大脑皮层的感知与计算功能是分层实现的，例如视觉图像，首先光信号进入大脑皮层的V1区，即初级视皮层，之后依次通过V2层和V4层，即纹外皮层，进入下叶参与物体识别。深度神经网络，除了模拟人脑功能的多层结构，最大的优势在于能够以紧凑简洁的方式来表达比浅层网络更复杂的函数集合（这里的简洁定义为隐层单元的数目与输入单元的数目呈多项式关系）。</p>
 <h3 id="问题1"><a href="#问题1" class="headerlink" title="问题1"></a>问题1</h3><p>问：多层感知机表示异或逻辑时最少需要几个隐含层（仅考虑二元输入）？</p>
 <p>答：回顾逻辑回归的公式Z=sigmoid(AX+BY+C)，发现如果用表示XY的异或关系，采用逻辑回归（即不带隐藏层的感知机）无法精确学习出一个输出为异或的模型表示。</p>
 <p>考虑有一个隐藏层的情况，通用近似定理表示，一个前馈神经网络如果具有线性输出层和至少一层具有任何一种“挤压”性质的激活函数的隐藏层，当给予网络足够数量的隐藏单元时，可以以任意精度近似任何从一个有限维空间到另一个有限维空间的波莱尔可测函数。可以简单的认为我们常用的激活函数和目标函数是通用近似定理适用的一个子集，因此多层感知机的表达能力是非常强的，关键在于我们是否能够学习到对应此表达的模型参数。</p>
-<p>第一个隐藏单元在X和Y均为1时激活，第二个隐藏单元在X和Y均为0时激活，最后再将两个隐藏单元的输出做一个线性变换即可事先异或操作。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E6%84%9F%E7%9F%A5%E6%9C%BA/WechatIMG5.jpeg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<p>第一个隐藏单元在X和Y均为1时激活，第二个隐藏单元在X和Y均为0时激活，最后再将两个隐藏单元的输出做一个线性变换即可事先异或操作。<br><img src="/img/media/%E6%84%9F%E7%9F%A5%E6%9C%BA/WechatIMG5.jpeg" alt=""></p>
 <h3 id="问题2"><a href="#问题2" class="headerlink" title="问题2"></a>问题2</h3><p>问：如果只使用一个隐层，需要多少隐节点能够实现包含n元输入的任意布尔函数？</p>
-<p>答：包含n元输入的任意布尔函数可以唯一表示为析取范式，当n=5时的简单范例：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E6%84%9F%E7%9F%A5%E6%9C%BA/WechatIMG6.jpeg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>最终的输出Y可以表示成由6个合取范式所组成的析取范式。该函数可由包含6个隐节点的3层感知机实现。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E6%84%9F%E7%9F%A5%E6%9C%BA/WechatIMG7.jpeg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>首先证明单个隐节点可以表示任意合取范式。考虑任意布尔变量假设Xi，若它在合取范式中出现的形式为正（Xi），则设权重为1；若出现的形式为非，则设置权重为-1；若没有在合取范式中出现。设置权重为0；并且偏置设为合取范式中变量的总数取负加1。可以看出，当采用ReLU激活函数之后，当且仅当所有出现的布尔变量均满足条件时，该隐藏单元才会被激活（输出1），否则输出0，这与合取范式的定义的相符。然后，令所有隐藏单元到输出层的参数为1，并设输出单元的偏置为0.这样，当且仅当所有的隐藏单元到输出层的参数为1，并设输出单元的偏置为0.这样，当且仅当所有的隐藏单元都未被激活时才会输出0，否则都将输出一个正数，起到了析取的作用。</p>
-<p>可以使用卡诺图表示析取式，即用网格表示真值表，当输入的合取式值为1时，则填充相应的网格。卡诺图中相邻的填色区域可以进行规约，以达到化简布尔函数的目的。该函数可由包含3个隐节点的3层感知机实现：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E6%84%9F%E7%9F%A5%E6%9C%BA/WechatIMG9.jpeg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>回顾初始的问题：在最差的情况下，需要多少个隐藏结点来表示包含n元输入的布尔函数呢？现在问题可以转化为：寻找“最大不可规约的”n元析取范式，也等价于最大不可规约的卡诺图。直观上，我们只需间隔填充网格即可实现，其表示的布尔函数恰为n元输入的异或操作，如下图，容易看出，在间隔填充的网格上反转任意网格的取值都会引起一次规约，因此，n元布尔函数的析取范式最多包含2^(n-1)个不可规约的合取范式，对于单隐层的感知机，需要2^(n-1)个隐节点来实现。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E6%84%9F%E7%9F%A5%E6%9C%BA/WechatIMG8.jpeg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<p>答：包含n元输入的任意布尔函数可以唯一表示为析取范式，当n=5时的简单范例：<br><img src="/img/media/%E6%84%9F%E7%9F%A5%E6%9C%BA/WechatIMG6.jpeg" alt=""><br>最终的输出Y可以表示成由6个合取范式所组成的析取范式。该函数可由包含6个隐节点的3层感知机实现。<br><img src="/img/media/%E6%84%9F%E7%9F%A5%E6%9C%BA/WechatIMG7.jpeg" alt=""><br>首先证明单个隐节点可以表示任意合取范式。考虑任意布尔变量假设Xi，若它在合取范式中出现的形式为正（Xi），则设权重为1；若出现的形式为非，则设置权重为-1；若没有在合取范式中出现。设置权重为0；并且偏置设为合取范式中变量的总数取负加1。可以看出，当采用ReLU激活函数之后，当且仅当所有出现的布尔变量均满足条件时，该隐藏单元才会被激活（输出1），否则输出0，这与合取范式的定义的相符。然后，令所有隐藏单元到输出层的参数为1，并设输出单元的偏置为0.这样，当且仅当所有的隐藏单元到输出层的参数为1，并设输出单元的偏置为0.这样，当且仅当所有的隐藏单元都未被激活时才会输出0，否则都将输出一个正数，起到了析取的作用。</p>
+<p>可以使用卡诺图表示析取式，即用网格表示真值表，当输入的合取式值为1时，则填充相应的网格。卡诺图中相邻的填色区域可以进行规约，以达到化简布尔函数的目的。该函数可由包含3个隐节点的3层感知机实现：<br><img src="/img/media/%E6%84%9F%E7%9F%A5%E6%9C%BA/WechatIMG9.jpeg" alt=""><br>回顾初始的问题：在最差的情况下，需要多少个隐藏结点来表示包含n元输入的布尔函数呢？现在问题可以转化为：寻找“最大不可规约的”n元析取范式，也等价于最大不可规约的卡诺图。直观上，我们只需间隔填充网格即可实现，其表示的布尔函数恰为n元输入的异或操作，如下图，容易看出，在间隔填充的网格上反转任意网格的取值都会引起一次规约，因此，n元布尔函数的析取范式最多包含2^(n-1)个不可规约的合取范式，对于单隐层的感知机，需要2^(n-1)个隐节点来实现。<br><img src="/img/media/%E6%84%9F%E7%9F%A5%E6%9C%BA/WechatIMG8.jpeg" alt=""></p>
 <h3 id="问题3"><a href="#问题3" class="headerlink" title="问题3"></a>问题3</h3><p>问：考虑多隐层的情况，实现包含n元输入的任意布尔函数最少需要多少个网络节点和网络层？</p>
-<p>答：参考问题1的解答，考虑二元输入的情况，需要3个节点可以完成一次异或操作，其中隐藏层由两个节点构成，输出层需要一个结点，用来输出异或的结果并作为下一个结点的输入。对于四元输入，包含三次异或操作，需要3 * 3=9个节点即可完成。如下图<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E6%84%9F%E7%9F%A5%E6%9C%BA/WechatIMG10.jpeg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>输入W，X，Y，Z四个布尔变量，首先用3个结点计算W异或X；然后再加入3个结点，将W，X的输出与Y进行异或，得到W异或X异或Y，最后与Z进行异或，整个网络总共需要9个结点。以此类推，n元异或函数需要包括3（n-1）个节点（包括最终输出节点）。多隐层结构可以将隐节点的数目从指数级O（2^(n-1)）直接减少至线性级O（3（n-1））。</p>
+<p>答：参考问题1的解答，考虑二元输入的情况，需要3个节点可以完成一次异或操作，其中隐藏层由两个节点构成，输出层需要一个结点，用来输出异或的结果并作为下一个结点的输入。对于四元输入，包含三次异或操作，需要3 * 3=9个节点即可完成。如下图<br><img src="/img/media/%E6%84%9F%E7%9F%A5%E6%9C%BA/WechatIMG10.jpeg" alt=""><br>输入W，X，Y，Z四个布尔变量，首先用3个结点计算W异或X；然后再加入3个结点，将W，X的输出与Y进行异或，得到W异或X异或Y，最后与Z进行异或，整个网络总共需要9个结点。以此类推，n元异或函数需要包括3（n-1）个节点（包括最终输出节点）。多隐层结构可以将隐节点的数目从指数级O（2^(n-1)）直接减少至线性级O（3（n-1））。</p>
 <p>层数还可以进一步减小，如果在同一层中计算W异或X和Y异或Z，再将二者的输出进行异或就能将层数从6变成4，根据二分思想，每层节点两两分组进行异或运算，需要的最少网络层数为2log2N（向上取整）。</p>
 <h1 id="美团-深度学习技术发展历程"><a href="#美团-深度学习技术发展历程" class="headerlink" title="美团 深度学习技术发展历程"></a>美团 深度学习技术发展历程</h1><h2 id="第一阶段-1943到1986年"><a href="#第一阶段-1943到1986年" class="headerlink" title="第一阶段 1943到1986年"></a>第一阶段 1943到1986年</h2><p>1943年，人工神经元模型MCP（作者名字的缩写）的发明可以看做是人工神经网络的起点。MCP模型由多个输入加权求和，二值激活函数组成，通过网络来模拟神经元的过程。</p>
 <p>1957年，感知机算法Perceptron的发明，使用MCP模型对多维输入做二分类，梯度下降法学习权重。感知机算法的思想很简单，即通过样本正确与否调整分类面，使得分类面对样本的分类误差最小。该算法是神经网络和支持向量机的基础，随后被证明能够收敛，其理论和实践效果引发了第一次神经网络浪潮。</p>
@@ -249,254 +513,896 @@
 <p>2012年，ImageNet比赛夺冠AlexNet，引爆深度学习研究热潮。</p>
 <p>2015年至今，各大公司纷纷开源其深度学习框架和模型，极大推进了各领域应用深度学习的进程。</p>
 <h1 id="统计学习方法-感知机"><a href="#统计学习方法-感知机" class="headerlink" title="统计学习方法  感知机"></a>统计学习方法  感知机</h1><p>感知机(perceptron)是二类分类的线性分类模型,其输入为实例的特征向量, 输出为实例的类别,取+1和-1二值.感知机对应于输入空间(特征空间)中将实例划分为正负两类的分离超平面,属于判别模型.感知机学习旨在求出将训练数据进行线性划分的分离超平面,为此,导入基于误分类的损失函数,利用梯度下降法对损失函数进行极小化,求得感知机模型.感知机学习算法具有简单而易于实现的优点,分为原始形式和对偶形式.感知机预测是用学习得到的感知机模型对新的输入实例进行分类.感知机1957年由 Rosenblat提出,是神经网络与支持向量机的基础。</p>
-<h2 id="感知机模型"><a href="#感知机模型" class="headerlink" title="感知机模型"></a>感知机模型</h2><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E6%84%9F%E7%9F%A5%E6%9C%BA/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-27%20%E4%B8%8B%E5%8D%887.14.25.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<p>感知机是一种线性分类模型，属于判别模型。感知机模型的假设空间是定义在特征空间中的所有线性分类模型或线性分类器。</p>
-<p>感知机的几何解释，线性方程wx+b=0，对于特征空间R中的一个超平面S，其中w是超平面的法向量，b是超平面的截距。这个超平面将特征空间划分为两个部分。位于两部分的点（特征向量）分别为正负两类，因此，超平面S被称为分离超平面。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E6%84%9F%E7%9F%A5%E6%9C%BA/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-27%20%E4%B8%8B%E5%8D%887.19.26.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<p>感知机学习的策略是极小化损失函数：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E6%84%9F%E7%9F%A5%E6%9C%BA/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-27%20%E4%B8%8B%E5%8D%887.22.22.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>损失函数对应于误分类点到分离超平面的总距离。</p>
+<h2 id="感知机模型"><a href="#感知机模型" class="headerlink" title="感知机模型"></a>感知机模型</h2><p><img src="/img/media/%E6%84%9F%E7%9F%A5%E6%9C%BA/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-27%20%E4%B8%8B%E5%8D%887.14.25.png" alt=""><br>感知机是一种线性分类模型，属于判别模型。感知机模型的假设空间是定义在特征空间中的所有线性分类模型或线性分类器。</p>
+<p>感知机的几何解释，线性方程wx+b=0，对于特征空间R中的一个超平面S，其中w是超平面的法向量，b是超平面的截距。这个超平面将特征空间划分为两个部分。位于两部分的点（特征向量）分别为正负两类，因此，超平面S被称为分离超平面。<br><img src="/img/media/%E6%84%9F%E7%9F%A5%E6%9C%BA/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-27%20%E4%B8%8B%E5%8D%887.19.26.png" alt=""></p>
+<p>感知机学习的策略是极小化损失函数：<br><img src="/img/media/%E6%84%9F%E7%9F%A5%E6%9C%BA/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-27%20%E4%B8%8B%E5%8D%887.22.22.png" alt=""><br>损失函数对应于误分类点到分离超平面的总距离。</p>
 <p>感知机学习算法是基于随机梯度下降法的对损失函数的最优化算法，有原始形式和对偶形式.算法简单且易于实现.原始形式中，首先任意选取一个超平面，然后用梯度下降法不断极小化目标函数.在这个过程中一次随机选取一个误分类点使其梯度下降。</p>
 
-        </div>
-
-        <blockquote class="post-copyright">
-    
-    <div class="content">
-        
-<span class="post-time">
-    最后更新时间：<time datetime="2019-02-28T09:00:10.000Z" itemprop="dateUpdated">2019-02-28 17:00:10</time>
-</span><br>
-
-
-        
+      
     </div>
+
     
-    <footer>
-        <a href="https://github.com/zdkswd">
-            <img src="/img/tmg.jpg" alt="ZDK">
-            ZDK
-        </a>
+
+    
+      
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/26/FM FFM/" rel="next" title="FM FFM">
+                <i class="fa fa-chevron-left"></i> FM FFM
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/28/激活函数 训练技巧/" rel="prev" title="激活函数 训练技巧">
+                激活函数 训练技巧 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
     </footer>
-</blockquote>
-
-        
-
-
-        <div class="post-footer">
-            
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li></ul>
+  </div>
+  
+  
+  
+  </article>
 
 
-            
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
 
 
         </div>
-    </div>
-
-    
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2019/02/28/激活函数 训练技巧/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">激活函数 训练技巧</h4>
-      </a>
-    </div>
-  
-
-  
-    <div class="waves-block waves-effect next">
-      <a href="/2019/02/26/FM FFM/" id="post-next" class="post-nav-link">
-        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">FM FFM</h4>
-      </a>
-    </div>
-  
-</nav>
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Valine Comments -->
-    <div class="comments vcomment" id="comments"></div>
-    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
-    <!-- Valine Comments script -->
-    <script>
-        var GUEST_INFO = ['nick','mail','link'];
-        var guest_info = 'nick,mail'.split(',').filter(function(item){
-          return GUEST_INFO.indexOf(item) > -1
-        });
-        new Valine({
-            el: '#comments',
-            notify: 'true' == 'true',
-            verify: 'false' == 'true',
-            appId: "QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz",
-            appKey: "gkBx5soQkBREmER84PWbNJeM",
-            avatar: "mm",
-            placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
-            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
-            pageSize: "10"
-        })
-    </script>
-    <!-- Valine Comments end -->
-
-
-
-
-
-
-
-</article>
-
-
-
-</div>
-
-        <footer class="footer">
-    <div class="top">
         
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
-
-
-        <p>
-            
-                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-            
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
-        </p>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
     </div>
-    <div class="bottom">
-        <p><span>ZDK &copy; 2017 - 2019</span>
-            <span>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="ZDK"/>
+            
+              <p class="site-author-name" itemprop="name">ZDK</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
                 
-                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
-            </span>
-        </p>
-    </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
-    </script>
-</footer>
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">191</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
 
-    </main>
-    <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">分类</span>
+                  
+                </div>
+              
 
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">48</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
 
-    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
-<script>
-var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
-
-
-</script>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
             </div>
-            <time class="flex-col time">{date}</time>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/zdkswd" title="GitHub &rarr; https://github.com/zdkswd"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:2822464407@qq.com" title="E-Mail &rarr; mailto:2822464407@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/zdkswd" title="https://github.com/zdkswd">Title</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
         </div>
-    </a>
-</li>
-</template>
+      </div>
 
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
 
+            
+            
+            
+            
 
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#百面机器学习"><span class="nav-number">1.</span> <span class="nav-text">百面机器学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#多层感知机与布尔函数"><span class="nav-number">1.1.</span> <span class="nav-text">多层感知机与布尔函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题1"><span class="nav-number">1.1.1.</span> <span class="nav-text">问题1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题2"><span class="nav-number">1.1.2.</span> <span class="nav-text">问题2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题3"><span class="nav-number">1.1.3.</span> <span class="nav-text">问题3</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#美团-深度学习技术发展历程"><span class="nav-number">2.</span> <span class="nav-text">美团 深度学习技术发展历程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一阶段-1943到1986年"><span class="nav-number">2.1.</span> <span class="nav-text">第一阶段 1943到1986年</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二阶段-1986年到2006年"><span class="nav-number">2.2.</span> <span class="nav-text">第二阶段 1986年到2006年</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三阶段-2006年至今"><span class="nav-number">2.3.</span> <span class="nav-text">第三阶段 2006年至今</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#统计学习方法-感知机"><span class="nav-number">3.</span> <span class="nav-text">统计学习方法  感知机</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#感知机模型"><span class="nav-number">3.1.</span> <span class="nav-text">感知机模型</span></a></li></ol></li></ol></div>
+            
 
-<!-- mathjax config similar to math.stackexchange -->
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
+      
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
 
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-});
-</script>
-
-<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
-
-
-
-
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
 
 
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZDK</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.2.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+  </div>
+
+  
 
 <script>
-(function() {
-    var OriginTitile = document.title, titleTime;
-    document.addEventListener('visibilitychange', function() {
-        if (document.hidden) {
-            document.title = 'zdk'blog';
-            clearTimeout(titleTime);
-        } else {
-            document.title = '';
-            titleTime = setTimeout(function() {
-                document.title = OriginTitile;
-            },2000);
-        }
-    });
-})();
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
 </script>
 
 
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.2.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz',
+    appKey: 'gkBx5soQkBREmER84PWbNJeM',
+    placeholder: 'have fun',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true,
+    lang: '' || 'zh-cn'
+  });
+</script>
+
+
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('5');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
 
 </body>
 </html>

@@ -1,27 +1,101 @@
 <!DOCTYPE html>
-<html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
-    
-
-    
-
-    
-
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
 
 
-    <meta charset="utf-8">
-    
-    
-    
-    
-    <title>字符串匹配算法 BF RK BM | ZDK&#39;s blog</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#3F51B5">
-    
-    
-    <meta name="keywords" content="算法">
-    <meta name="description" content="概述java中的indexOf(),Python中的find()函数，底层依赖的就是字符串匹配算法。 字符串匹匹配算法有BF算法，RK算法，BM算法，KMP算法。 其中BF算法RK算法是单模式匹配算法，即为一个串和另一个串进行匹配。 BF算法Brute Force，即为暴力匹配算法，比较简单，性能不高。 主串的长度记作n,模式串的长度记作m。因为是在主串中查找模式串,所以n&amp;gt;m。在主串中，检">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.2.0',
+    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+
+
+  <meta name="description" content="概述java中的indexOf(),Python中的find()函数，底层依赖的就是字符串匹配算法。 字符串匹匹配算法有BF算法，RK算法，BM算法，KMP算法。 其中BF算法RK算法是单模式匹配算法，即为一个串和另一个串进行匹配。 BF算法Brute Force，即为暴力匹配算法，比较简单，性能不高。 主串的长度记作n,模式串的长度记作m。因为是在主串中查找模式串,所以n&amp;gt;m。在主串中，检">
 <meta name="keywords" content="算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="字符串匹配算法 BF RK BM">
@@ -56,539 +130,1281 @@
 <meta name="twitter:title" content="字符串匹配算法 BF RK BM">
 <meta name="twitter:description" content="概述java中的indexOf(),Python中的find()函数，底层依赖的就是字符串匹配算法。 字符串匹匹配算法有BF算法，RK算法，BM算法，KMP算法。 其中BF算法RK算法是单模式匹配算法，即为一个串和另一个串进行匹配。 BF算法Brute Force，即为暴力匹配算法，比较简单，性能不高。 主串的长度记作n,模式串的长度记作m。因为是在主串中查找模式串,所以n&amp;gt;m。在主串中，检">
 <meta name="twitter:image" content="https://github.com/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/f36fed972a5bdc75331d59c36eb15aa2.jpg">
-    
-        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
-    
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
-    <script>window.lazyScripts=[]</script>
 
-    <!-- custom head -->
-    
+
+
+  <link rel="alternate" href="/atom.xml" title="ZDK's blog" type="application/atom+xml"/>
+
+
+
+  
+  
+  <link rel="canonical" href="https://github.com/zdkswd/2019/06/28/字符串匹配算法 BF RK BM/"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>字符串匹配算法 BF RK BM | ZDK's blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
 
 </head>
 
-<body>
-    <div id="loading" class="active"></div>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
-    <aside id="menu" class="hide" >
-  <div class="inner flex-row-vertical">
-    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-        <i class="icon icon-lg icon-close"></i>
-    </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
-      <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/tmg.jpg">
-        </a>
-        <hgroup class="introduce">
-          <h5 class="nickname">ZDK</h5>
-          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
-        </hgroup>
-      </div>
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ZDK's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
-    <div class="scroll-wrap flex-col">
-      <ul class="nav">
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
         
-            <li class="waves-block waves-effect">
-              <a href="/"  >
-                <i class="icon icon-lg icon-home"></i>
-                主页
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                Archives
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/tags"  >
-                <i class="icon icon-lg icon-tags"></i>
-                Tags
-              </a>
-            </li>
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>首页</a>
+
+  </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/categories"  >
-                <i class="icon icon-lg icon-th-list"></i>
-                Categories
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="https://github.com/zdkswd" target="_blank" >
-                <i class="icon icon-lg icon-github"></i>
-                Github
-              </a>
-            </li>
         
-      </ul>
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>归档</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br/>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
     </div>
   </div>
-</aside>
-
-    <main id="main">
-        <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis">字符串匹配算法 BF RK BM</div>
-        
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
-        </div>
-        
-        
-    </div>
-</header>
-<header class="content-header post-header">
-
-    <div class="container fade-scale">
-        <h1 class="title">字符串匹配算法 BF RK BM</h1>
-        <h5 class="subtitle">
-            
-                <time datetime="2019-06-28T02:23:56.000Z" itemprop="datePublished" class="page-time">
-  2019-06-28
-</time>
-
-
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
-
-            
-        </h5>
-    </div>
-
-    
-
-
-</header>
-
-
-<div class="container body-wrap">
-    
-    <aside class="post-widget">
-        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
-            <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#概述"><span class="post-toc-number">1.</span> <span class="post-toc-text">概述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#BF算法"><span class="post-toc-number">2.</span> <span class="post-toc-text">BF算法</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#RK算法"><span class="post-toc-number">3.</span> <span class="post-toc-text">RK算法</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二维空间"><span class="post-toc-number">4.</span> <span class="post-toc-text">二维空间</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#BM算法"><span class="post-toc-number">5.</span> <span class="post-toc-text">BM算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#BM算法原理分析"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">BM算法原理分析</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#坏字符规则"><span class="post-toc-number">5.1.1.</span> <span class="post-toc-text">坏字符规则</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#好后缀规则"><span class="post-toc-number">5.1.2.</span> <span class="post-toc-text">好后缀规则</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#BM算法代码实现"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">BM算法代码实现</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#BM算法的性能分析及优化"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">BM算法的性能分析及优化</span></a></li></ol></li></ol>
-        </nav>
-    </aside>
-
-
-<article id="post-字符串匹配算法 BF RK BM"
-  class="post-article article-type-post fade" itemprop="blogPost">
-
-    <div class="post-card">
-        <h1 class="post-card-title">字符串匹配算法 BF RK BM</h1>
-        <div class="post-meta">
-            <time class="post-time" title="2019-06-28 10:23:56" datetime="2019-06-28T02:23:56.000Z"  itemprop="datePublished">2019-06-28</time>
-
-            
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+  <div id="local-search-result"></div>
+</div>
 
 
 
-            
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
-    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
-</span>
-
-
-        </div>
-        <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p><strong>java</strong>中的<strong>indexOf(),Python</strong>中的<strong>find()</strong>函数，底层依赖的就是字符串匹配算法。</p>
-<p>字符串匹匹配算法有<strong>BF算法，RK算法，BM算法，KMP算法。</strong></p>
-<p>其中BF算法RK算法是单模式匹配算法，即为一个串和另一个串进行匹配。</p>
-<h1 id="BF算法"><a href="#BF算法" class="headerlink" title="BF算法"></a>BF算法</h1><p>Brute Force，即为暴力匹配算法，比较简单，性能不高。</p>
-<p>主串的长度记作n,模式串的长度记作m。因为是在主串中查找模式串,所以n&gt;m。在主串中，检查起始位置分别是0、1、…n-m且长度为m的n-m+1个子串，看有没有跟模式串匹配的。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/f36fed972a5bdc75331d59c36eb15aa2.jpg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>算法最坏时间复杂度为<strong>O(n * m)</strong></p>
-<p>尽管理论上，BF算法的时间复杂度很高，但在实际的开发中，它却是一个比较常用的字符串匹配算法。<br>第一，实际的软件开发中，大部分情况下，模式串和主串的长度都不会太长。而且每次模式串与主串中的子串匹配的时候，当中途遇到不能匹配的字符的时候，就可以就停止了，不需要把m个字符都比对一下。所以，尽管理论上的最坏情况时间复杂度是O(n * m)，但是，统计意义上，大部分情况下，算法执行效率要比这个高很多。<br>第二，朴素字符串匹配算法思想简单，代码实现也非常简单。简单意味着不容易出错，如果有bug也容易暴露和修复。在工程中，在满足性能要求的前提下，简单是首选。这也是常说的KISS (Keep it Simple and Stupid)设计原则。</p>
-<p>在实际的软件开发中，绝大部分情况下，朴素的字符串匹配算法就够用了。</p>
-<h1 id="RK算法"><a href="#RK算法" class="headerlink" title="RK算法"></a>RK算法</h1><p>RK算法即为BF算法的升级版。</p>
-<p>RK算法的思路为:通过哈希算法对主串中的n-m+1个子串分别求哈希值，然后逐个与模式串的哈希值比较大小。如果某个子串的哈希值与模式串相等，那就说明对应的子串和模式串匹配了。因为哈希值是一个数字，数字之间比较是否相等非常快速的，所以模式串和子串比较的效率就提高了。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/015c85a9c2a4adc11236f9a40c6d57ee.jpg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>为了避免遍历字串中的每一个字符，提高算法的效率，需要对哈希算法进行设计。</p>
-<p>假设要匹配的字符串的字符集中只包含K个字符，可以用一个K进制数来表示一个子串，这个K进制数转化成十进制数，作为子串的哈希值。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/d5c1cb11d9fc97d0b28513ba7495ab04.jpg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>这种哈希算法有一个特点， 在主串中，相邻两个子串的哈希值的计算公式有一定关系。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/f99c16f2f899d19935567102c59661f5.jpg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>规律:相邻两个子串s[i-1]和s[i] (i 表示子串在主串中的起始位置，子串的长度都为m)，对应的哈希值计算公式有交集，可以使用s[i-1]的哈希值很快的计算出s[i]的哈希值。用公式表示:<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/f298f1e5c93b205345b9cd6d9c53fbee.jpg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>26^(m-1)这部分的计算，我们可以通过查表的方法来提高效率。我们事先计算好26^0、26^1、 2……26^(m -1),并且存储在一个长度为m的数组中，公式中的“次方”就对应数组的下标。当我们需要计算26的x次方的时候，就可以从数组的下标为x的位置取值，直接使用，省去了计算的时间。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/224b899c6e82ec54594e2683acc4552f.jpg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>RK算法时间复杂度分析：<br>整个RK算法包含两部分，计算子串哈希值和模式串哈希值与子串哈希值之间的比较。<br>第一部分，可以通过设计特殊的哈希算法，只需要扫描一遍主串就能计算出所有子串的哈希值了，这部分的时间复杂度是O(n)。<br>如果模式串很长，相应的主串中的子串也会很长，通过上面的哈希算法计算得到的哈希值就可能很大，如果超过了计算机中整型数据可以表示的范围，为了能将哈希值落在整型数据范围内，可以牺牲一下， 允许哈希冲突。比如可以将字符串中每个字母对应的数字相加得到哈希值，这样产生的哈希值数据范围就小很多。<br>当存在哈希冲突的时候，有可能存在这样的情况，子串和模式串的哈希值虽然是相同的，但是两者本身并不匹配。解决方法是当发现一个子串的哈希值跟模式串的哈希值相等的时候，只需要再对比一下子串和模式串本身。</p>
-<p>极端情况下，如果存在大量的冲突，每次都要对比字串和模式串本身，时间复杂度会退化为O( n * m)。一般情况下，冲突不会很多，RK算法效率还是比BF算法高。</p>
-<h1 id="二维空间"><a href="#二维空间" class="headerlink" title="二维空间"></a>二维空间</h1><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/00c353326466a8ce4e790e36924704c9.jpg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<p>可以同理看做一个字符串来处理。</p>
-<h1 id="BM算法"><a href="#BM算法" class="headerlink" title="BM算法"></a>BM算法</h1><p>BF，RK算法中遇到不匹配，模式串往后滑动一位，然后从模式串第一个字符开始重新匹配。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/4316dd98eac500a01a0fd632bb5e77f9.jpg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>主串中的c，在模式串中是不存在的，模式串向后滑动的时候，只要c与模式串有重合，肯定无法匹配。所以，可以一次性把模式串往后多滑动几位，把模式串移动到c的后面。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/cf362f9e59c01aaf40a34d2f10e1ef15.jpg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>BM算法，本质上其实就是在寻找这种规律。借助这种规律，在模式串与主串匹配的过程中，当模式串和主串某个字符不匹配的时候，能够跳过一些肯定不会匹配的情况，将模式串往后多滑动几位。</p>
-<h2 id="BM算法原理分析"><a href="#BM算法原理分析" class="headerlink" title="BM算法原理分析"></a>BM算法原理分析</h2><p>BM算法包含两部分，分别是<strong>坏字符规则</strong>和<strong>好后缀规则</strong>。</p>
-<h3 id="坏字符规则"><a href="#坏字符规则" class="headerlink" title="坏字符规则"></a>坏字符规则</h3><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/540809418354024206d9989cb6cdd89e.jpg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<p>BM算法的匹配顺序比较特别，是按照模式串下标从大到小的顺序，倒着匹配的。当发现某个字符没法匹配的时候。把这个没有匹配的字符叫作<strong>坏字符</strong>(主串中的字符)。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/220daef736418df84367215647bca5da.jpg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>拿坏字符c在模式串中查找，发现模式串中并不存在这个字符，也就是说，字符c与模式串中的任何字符都不可能匹配。这个时候，可以将模式串直接往后滑动三位，将模式串滑动到c后面的位置，再从模式串的末尾字符开始比较。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/4e36c4d48d1b6c3b499fb021f03c7f64.jpg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/a8d229aa217a67051fbb31b8aeb2edca.jpg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>然后对于模式串中存在的a，滑动两位，让两个串对齐。</p>
-<p>总结规律为：<br>当发生不匹配的时候，把坏字符对应的模式串中的字符下标记作si。如果坏字符在模式串中存在，把这个坏字符在模式串中的下标记作xi。如果不存在，把xi记作-1。那模式串往后移动的位数就等于si-xi。(注意, 这里都是字符在模式串的下标)。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/8f520fb9d9cec0f6ea641d4181eb432e.jpg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>如果坏字符在模式串里多处出现，在计算xi的时候，选择最靠后的那个，这样不会让模式串滑动过多，导致本来可能匹配的情况被滑动略过。</p>
-<p>单纯使用坏字符规则还是不够的。因为根据si-xi计算出来的移动位数，有可能是负数。所以，BM算法还需要用到“好后缀规则”</p>
-<h3 id="好后缀规则"><a href="#好后缀规则" class="headerlink" title="好后缀规则"></a>好后缀规则</h3><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/d78990dbcb794d1aa2cf4a3c646ae58a.jpg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<p>把已经匹配的bc叫作好后缀，记作{u}。我们拿它在模式串中查找，如果找到了另一个跟{u}相匹配的子串{u <em> }，那我们就将模式串滑动到子串{u </em> }与主串中{u}对齐的位置。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/b9785be3e91e34bbc23961f67c234b63.jpg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>如果在模式串中找不到另一个等于{u}的子串，就直接将模式串滑动到主串中{u}的后面。此时有可能存在滑动过头的情况，错过匹配字符串。所以不仅要看好后缀在模式串中，是否有另一个匹配的子串，还要考察好后缀的后缀子串，是否存在跟模式串的前缀子串匹配的。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/0544d2997d8bb57c10e13ccac4015e23.jpg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/6caa0f61387fd2b3109fe03d803192f9.jpg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<p><strong>分别计算好后缀和坏字符往后滑动的位数，然后取两个数中最大的，作为模式串往后滑动的位数。这种处理方法还可以避免根据坏字符规则，计算得到的往后滑动的位数，有可能是负数的情况。</strong></p>
-<h2 id="BM算法代码实现"><a href="#BM算法代码实现" class="headerlink" title="BM算法代码实现"></a>BM算法代码实现</h2><p>坏字符，在模式串中顺序遍历查找，这样就会比较低效，势必影响这个算法的性能。可以将模式串中的每个字符及其下标都存到散列表中。这样就可以快速找到坏字符在模式串的位置下标。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/bf78f8a0506e069fa318f36c42a95e02.jpg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<p><strong>表示模式字串中不同的后缀字串。</strong><br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/7742f1d02d0940a1ef3760faf4929ec8.jpg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>suffix数组下标k，表示后缀字串的长度，下标对应的数组值存储的是在模式串中跟好后缀{u}相匹配的字串{u * }的起始下标值。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/99a6cfadf2f9a713401ba8feac2484c2.jpg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>不仅要在模式串中，查找跟好后缀匹配的另一个子串，还要在好后缀的后缀子串中，查找最长的能跟模式串前缀子串匹配的后缀子串。<br>除了suffix数组外，还需要另一个boolean类的prefix数组，来记录模式串的后缀字串能否匹配模式串的前缀字串。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/279be7d64e6254dac1a32d2f6d1a2383.jpg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<h2 id="BM算法的性能分析及优化"><a href="#BM算法的性能分析及优化" class="headerlink" title="BM算法的性能分析及优化"></a>BM算法的性能分析及优化</h2><p>BM内存消耗，其中bc数组的大小跟字符集大小有关，suffix 数组和prefix数组的大小跟模式串长度m有关。</p>
-<p>如果处理字符集很大的字符串匹配问题，bc 数组对内存的消耗就会比较多。因为好后缀和坏字符规则是独立的，如果运行的环境对内存要求苛刻，可以只使用好后缀规则，不使用坏字符规则，这样就可以避免bc数组过多的内存消耗。不过，单纯使用好后缀规则的BM算法效率就会下降一些了。</p>
-<p>BM算法核心思想是，利用模式串本身的特点，在模式串中某个字符与主串不能匹配的时候，将模式串往后多滑动几位，以此来减少不必要的字符比较，提高匹配的效率。BM算法构建的规则有两类，<strong>坏字符规则</strong>和<strong>好后缀规则</strong>。好后缀规则可以独立于坏字符规则使用。因为坏字符规则的实现比较耗内存，为了节省内存，可以只用好后缀规则来实现BM算法。</p>
-
-        </div>
-
-        <blockquote class="post-copyright">
-    
-    <div class="content">
-        
-<span class="post-time">
-    最后更新时间：<time datetime="2019-06-28T02:24:08.000Z" itemprop="dateUpdated">2019-06-28 10:24:08</time>
-</span><br>
-
-
-        
-    </div>
-    
-    <footer>
-        <a href="https://github.com/zdkswd">
-            <img src="/img/tmg.jpg" alt="ZDK">
-            ZDK
-        </a>
-    </footer>
-</blockquote>
-
-        
-
-
-        <div class="post-footer">
-            
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-
-
-            
-
-
-        </div>
-    </div>
-
-    
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2019/06/28/字符串匹配算法 KMP/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">字符串匹配算法 KMP</h4>
-      </a>
-    </div>
-  
-
-  
-    <div class="waves-block waves-effect next">
-      <a href="/2019/06/24/MyBatis基础/" id="post-next" class="post-nav-link">
-        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">MyBatis基础</h4>
-      </a>
     </div>
   
 </nav>
 
 
 
+</div>
+    </header>
+
     
 
 
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
 
+          
+          <div id="content" class="content">
+            
 
+  <div id="posts" class="posts-expand">
+    
 
+  
 
+  
+  
+  
 
+  
 
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2019/06/28/字符串匹配算法 BF RK BM/"/>
 
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZDK"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
 
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZDK's blog"/>
+    </span>
 
-    <!-- Valine Comments -->
-    <div class="comments vcomment" id="comments"></div>
-    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
-    <!-- Valine Comments script -->
-    <script>
-        var GUEST_INFO = ['nick','mail','link'];
-        var guest_info = 'nick,mail'.split(',').filter(function(item){
-          return GUEST_INFO.indexOf(item) > -1
-        });
-        new Valine({
-            el: '#comments',
-            notify: 'true' == 'true',
-            verify: 'false' == 'true',
-            appId: "QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz",
-            appKey: "gkBx5soQkBREmER84PWbNJeM",
-            avatar: "mm",
-            placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
-            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
-            pageSize: "10"
-        })
-    </script>
-    <!-- Valine Comments end -->
+    
+      <header class="post-header">
 
-
-
-
-
-
-
-</article>
-
-
-
-</div>
-
-        <footer class="footer">
-    <div class="top">
         
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
+        
+          <h1 class="post-title" itemprop="name headline">字符串匹配算法 BF RK BM
 
+              
+            
+          </h1>
+        
 
-        <p>
-            
-                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-            
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
-        </p>
-    </div>
-    <div class="bottom">
-        <p><span>ZDK &copy; 2017 - 2019</span>
-            <span>
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
                 
-                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+              
+
+              <time title="创建时间：2019-06-28 10:23:56 / 修改时间：10:24:08" itemprop="dateCreated datePublished" datetime="2019-06-28T10:23:56+08:00">2019-06-28</time>
             </span>
-        </p>
-    </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
-    </script>
-</footer>
+          
 
-    </main>
-    <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+          
+            
 
+            
+          
 
-    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
-<script>
-var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/知识总结/" itemprop="url" rel="index"><span itemprop="name">知识总结</span></a></span>
 
+                
+                
+              
+            </span>
+          
 
-</script>
+          
+            
+            
+              
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/06/28/字符串匹配算法 BF RK BM/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/06/28/字符串匹配算法 BF RK BM/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
 
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+          
+          
+            <span id="/2019/06/28/字符串匹配算法 BF RK BM/" class="post-meta-item leancloud_visitors" data-flag-title="字符串匹配算法 BF RK BM">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
 
+          
 
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
-            </div>
-            <time class="flex-col time">{date}</time>
+          
+
+          <br/>
+          
+
+          
+
+          
+
         </div>
-    </a>
-</li>
-</template>
+      </header>
+    
 
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p><strong>java</strong>中的<strong>indexOf(),Python</strong>中的<strong>find()</strong>函数，底层依赖的就是字符串匹配算法。</p>
+<p>字符串匹匹配算法有<strong>BF算法，RK算法，BM算法，KMP算法。</strong></p>
+<p>其中BF算法RK算法是单模式匹配算法，即为一个串和另一个串进行匹配。</p>
+<h1 id="BF算法"><a href="#BF算法" class="headerlink" title="BF算法"></a>BF算法</h1><p>Brute Force，即为暴力匹配算法，比较简单，性能不高。</p>
+<p>主串的长度记作n,模式串的长度记作m。因为是在主串中查找模式串,所以n&gt;m。在主串中，检查起始位置分别是0、1、…n-m且长度为m的n-m+1个子串，看有没有跟模式串匹配的。<br><img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/f36fed972a5bdc75331d59c36eb15aa2.jpg" alt=""><br>算法最坏时间复杂度为<strong>O(n * m)</strong></p>
+<p>尽管理论上，BF算法的时间复杂度很高，但在实际的开发中，它却是一个比较常用的字符串匹配算法。<br>第一，实际的软件开发中，大部分情况下，模式串和主串的长度都不会太长。而且每次模式串与主串中的子串匹配的时候，当中途遇到不能匹配的字符的时候，就可以就停止了，不需要把m个字符都比对一下。所以，尽管理论上的最坏情况时间复杂度是O(n * m)，但是，统计意义上，大部分情况下，算法执行效率要比这个高很多。<br>第二，朴素字符串匹配算法思想简单，代码实现也非常简单。简单意味着不容易出错，如果有bug也容易暴露和修复。在工程中，在满足性能要求的前提下，简单是首选。这也是常说的KISS (Keep it Simple and Stupid)设计原则。</p>
+<p>在实际的软件开发中，绝大部分情况下，朴素的字符串匹配算法就够用了。</p>
+<h1 id="RK算法"><a href="#RK算法" class="headerlink" title="RK算法"></a>RK算法</h1><p>RK算法即为BF算法的升级版。</p>
+<p>RK算法的思路为:通过哈希算法对主串中的n-m+1个子串分别求哈希值，然后逐个与模式串的哈希值比较大小。如果某个子串的哈希值与模式串相等，那就说明对应的子串和模式串匹配了。因为哈希值是一个数字，数字之间比较是否相等非常快速的，所以模式串和子串比较的效率就提高了。<br><img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/015c85a9c2a4adc11236f9a40c6d57ee.jpg" alt=""><br>为了避免遍历字串中的每一个字符，提高算法的效率，需要对哈希算法进行设计。</p>
+<p>假设要匹配的字符串的字符集中只包含K个字符，可以用一个K进制数来表示一个子串，这个K进制数转化成十进制数，作为子串的哈希值。<br><img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/d5c1cb11d9fc97d0b28513ba7495ab04.jpg" alt=""><br>这种哈希算法有一个特点， 在主串中，相邻两个子串的哈希值的计算公式有一定关系。<br><img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/f99c16f2f899d19935567102c59661f5.jpg" alt=""><br>规律:相邻两个子串s[i-1]和s[i] (i 表示子串在主串中的起始位置，子串的长度都为m)，对应的哈希值计算公式有交集，可以使用s[i-1]的哈希值很快的计算出s[i]的哈希值。用公式表示:<br><img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/f298f1e5c93b205345b9cd6d9c53fbee.jpg" alt=""><br>26^(m-1)这部分的计算，我们可以通过查表的方法来提高效率。我们事先计算好26^0、26^1、 2……26^(m -1),并且存储在一个长度为m的数组中，公式中的“次方”就对应数组的下标。当我们需要计算26的x次方的时候，就可以从数组的下标为x的位置取值，直接使用，省去了计算的时间。<br><img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/224b899c6e82ec54594e2683acc4552f.jpg" alt=""><br>RK算法时间复杂度分析：<br>整个RK算法包含两部分，计算子串哈希值和模式串哈希值与子串哈希值之间的比较。<br>第一部分，可以通过设计特殊的哈希算法，只需要扫描一遍主串就能计算出所有子串的哈希值了，这部分的时间复杂度是O(n)。<br>如果模式串很长，相应的主串中的子串也会很长，通过上面的哈希算法计算得到的哈希值就可能很大，如果超过了计算机中整型数据可以表示的范围，为了能将哈希值落在整型数据范围内，可以牺牲一下， 允许哈希冲突。比如可以将字符串中每个字母对应的数字相加得到哈希值，这样产生的哈希值数据范围就小很多。<br>当存在哈希冲突的时候，有可能存在这样的情况，子串和模式串的哈希值虽然是相同的，但是两者本身并不匹配。解决方法是当发现一个子串的哈希值跟模式串的哈希值相等的时候，只需要再对比一下子串和模式串本身。</p>
+<p>极端情况下，如果存在大量的冲突，每次都要对比字串和模式串本身，时间复杂度会退化为O( n * m)。一般情况下，冲突不会很多，RK算法效率还是比BF算法高。</p>
+<h1 id="二维空间"><a href="#二维空间" class="headerlink" title="二维空间"></a>二维空间</h1><p><img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/00c353326466a8ce4e790e36924704c9.jpg" alt=""><br>可以同理看做一个字符串来处理。</p>
+<h1 id="BM算法"><a href="#BM算法" class="headerlink" title="BM算法"></a>BM算法</h1><p>BF，RK算法中遇到不匹配，模式串往后滑动一位，然后从模式串第一个字符开始重新匹配。<br><img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/4316dd98eac500a01a0fd632bb5e77f9.jpg" alt=""><br>主串中的c，在模式串中是不存在的，模式串向后滑动的时候，只要c与模式串有重合，肯定无法匹配。所以，可以一次性把模式串往后多滑动几位，把模式串移动到c的后面。<br><img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/cf362f9e59c01aaf40a34d2f10e1ef15.jpg" alt=""><br>BM算法，本质上其实就是在寻找这种规律。借助这种规律，在模式串与主串匹配的过程中，当模式串和主串某个字符不匹配的时候，能够跳过一些肯定不会匹配的情况，将模式串往后多滑动几位。</p>
+<h2 id="BM算法原理分析"><a href="#BM算法原理分析" class="headerlink" title="BM算法原理分析"></a>BM算法原理分析</h2><p>BM算法包含两部分，分别是<strong>坏字符规则</strong>和<strong>好后缀规则</strong>。</p>
+<h3 id="坏字符规则"><a href="#坏字符规则" class="headerlink" title="坏字符规则"></a>坏字符规则</h3><p><img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/540809418354024206d9989cb6cdd89e.jpg" alt=""><br>BM算法的匹配顺序比较特别，是按照模式串下标从大到小的顺序，倒着匹配的。当发现某个字符没法匹配的时候。把这个没有匹配的字符叫作<strong>坏字符</strong>(主串中的字符)。<br><img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/220daef736418df84367215647bca5da.jpg" alt=""><br>拿坏字符c在模式串中查找，发现模式串中并不存在这个字符，也就是说，字符c与模式串中的任何字符都不可能匹配。这个时候，可以将模式串直接往后滑动三位，将模式串滑动到c后面的位置，再从模式串的末尾字符开始比较。<br><img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/4e36c4d48d1b6c3b499fb021f03c7f64.jpg" alt=""><br><img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/a8d229aa217a67051fbb31b8aeb2edca.jpg" alt=""><br>然后对于模式串中存在的a，滑动两位，让两个串对齐。</p>
+<p>总结规律为：<br>当发生不匹配的时候，把坏字符对应的模式串中的字符下标记作si。如果坏字符在模式串中存在，把这个坏字符在模式串中的下标记作xi。如果不存在，把xi记作-1。那模式串往后移动的位数就等于si-xi。(注意, 这里都是字符在模式串的下标)。<br><img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/8f520fb9d9cec0f6ea641d4181eb432e.jpg" alt=""><br>如果坏字符在模式串里多处出现，在计算xi的时候，选择最靠后的那个，这样不会让模式串滑动过多，导致本来可能匹配的情况被滑动略过。</p>
+<p>单纯使用坏字符规则还是不够的。因为根据si-xi计算出来的移动位数，有可能是负数。所以，BM算法还需要用到“好后缀规则”</p>
+<h3 id="好后缀规则"><a href="#好后缀规则" class="headerlink" title="好后缀规则"></a>好后缀规则</h3><p><img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/d78990dbcb794d1aa2cf4a3c646ae58a.jpg" alt=""><br>把已经匹配的bc叫作好后缀，记作{u}。我们拿它在模式串中查找，如果找到了另一个跟{u}相匹配的子串{u <em> }，那我们就将模式串滑动到子串{u </em> }与主串中{u}对齐的位置。<br><img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/b9785be3e91e34bbc23961f67c234b63.jpg" alt=""><br>如果在模式串中找不到另一个等于{u}的子串，就直接将模式串滑动到主串中{u}的后面。此时有可能存在滑动过头的情况，错过匹配字符串。所以不仅要看好后缀在模式串中，是否有另一个匹配的子串，还要考察好后缀的后缀子串，是否存在跟模式串的前缀子串匹配的。<br><img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/0544d2997d8bb57c10e13ccac4015e23.jpg" alt=""><br><img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/6caa0f61387fd2b3109fe03d803192f9.jpg" alt=""></p>
+<p><strong>分别计算好后缀和坏字符往后滑动的位数，然后取两个数中最大的，作为模式串往后滑动的位数。这种处理方法还可以避免根据坏字符规则，计算得到的往后滑动的位数，有可能是负数的情况。</strong></p>
+<h2 id="BM算法代码实现"><a href="#BM算法代码实现" class="headerlink" title="BM算法代码实现"></a>BM算法代码实现</h2><p>坏字符，在模式串中顺序遍历查找，这样就会比较低效，势必影响这个算法的性能。可以将模式串中的每个字符及其下标都存到散列表中。这样就可以快速找到坏字符在模式串的位置下标。<br><img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/bf78f8a0506e069fa318f36c42a95e02.jpg" alt=""></p>
+<p><strong>表示模式字串中不同的后缀字串。</strong><br><img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/7742f1d02d0940a1ef3760faf4929ec8.jpg" alt=""><br>suffix数组下标k，表示后缀字串的长度，下标对应的数组值存储的是在模式串中跟好后缀{u}相匹配的字串{u * }的起始下标值。<br><img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/99a6cfadf2f9a713401ba8feac2484c2.jpg" alt=""><br>不仅要在模式串中，查找跟好后缀匹配的另一个子串，还要在好后缀的后缀子串中，查找最长的能跟模式串前缀子串匹配的后缀子串。<br>除了suffix数组外，还需要另一个boolean类的prefix数组，来记录模式串的后缀字串能否匹配模式串的前缀字串。<br><img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20BF%20RK%20BM/279be7d64e6254dac1a32d2f6d1a2383.jpg" alt=""></p>
+<h2 id="BM算法的性能分析及优化"><a href="#BM算法的性能分析及优化" class="headerlink" title="BM算法的性能分析及优化"></a>BM算法的性能分析及优化</h2><p>BM内存消耗，其中bc数组的大小跟字符集大小有关，suffix 数组和prefix数组的大小跟模式串长度m有关。</p>
+<p>如果处理字符集很大的字符串匹配问题，bc 数组对内存的消耗就会比较多。因为好后缀和坏字符规则是独立的，如果运行的环境对内存要求苛刻，可以只使用好后缀规则，不使用坏字符规则，这样就可以避免bc数组过多的内存消耗。不过，单纯使用好后缀规则的BM算法效率就会下降一些了。</p>
+<p>BM算法核心思想是，利用模式串本身的特点，在模式串中某个字符与主串不能匹配的时候，将模式串往后多滑动几位，以此来减少不必要的字符比较，提高匹配的效率。BM算法构建的规则有两类，<strong>坏字符规则</strong>和<strong>好后缀规则</strong>。好后缀规则可以独立于坏字符规则使用。因为坏字符规则的实现比较耗内存，为了节省内存，可以只用好后缀规则来实现BM算法。</p>
+
+      
+    </div>
+
+    
+
+    
+      
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/算法/" rel="tag"># 算法</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/24/MyBatis基础/" rel="next" title="MyBatis基础">
+                <i class="fa fa-chevron-left"></i> MyBatis基础
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/28/字符串匹配算法 KMP/" rel="prev" title="字符串匹配算法 KMP">
+                字符串匹配算法 KMP <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
 
 
 
-<!-- mathjax config similar to math.stackexchange -->
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
 
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
 
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-});
-</script>
+      
 
-<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="ZDK"/>
+            
+              <p class="site-author-name" itemprop="name">ZDK</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">191</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">分类</span>
+                  
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">48</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/zdkswd" title="GitHub &rarr; https://github.com/zdkswd"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:2822464407@qq.com" title="E-Mail &rarr; mailto:2822464407@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/zdkswd" title="https://github.com/zdkswd">Title</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#BF算法"><span class="nav-number">2.</span> <span class="nav-text">BF算法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#RK算法"><span class="nav-number">3.</span> <span class="nav-text">RK算法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二维空间"><span class="nav-number">4.</span> <span class="nav-text">二维空间</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#BM算法"><span class="nav-number">5.</span> <span class="nav-text">BM算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#BM算法原理分析"><span class="nav-number">5.1.</span> <span class="nav-text">BM算法原理分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#坏字符规则"><span class="nav-number">5.1.1.</span> <span class="nav-text">坏字符规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#好后缀规则"><span class="nav-number">5.1.2.</span> <span class="nav-text">好后缀规则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BM算法代码实现"><span class="nav-number">5.2.</span> <span class="nav-text">BM算法代码实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BM算法的性能分析及优化"><span class="nav-number">5.3.</span> <span class="nav-text">BM算法的性能分析及优化</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZDK</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.2.0</div>
 
 
 
 
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        
 
 
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+  </div>
+
+  
 
 <script>
-(function() {
-    var OriginTitile = document.title, titleTime;
-    document.addEventListener('visibilitychange', function() {
-        if (document.hidden) {
-            document.title = 'zdk'blog';
-            clearTimeout(titleTime);
-        } else {
-            document.title = '';
-            titleTime = setTimeout(function() {
-                document.title = OriginTitile;
-            },2000);
-        }
-    });
-})();
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
 </script>
 
 
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.2.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz',
+    appKey: 'gkBx5soQkBREmER84PWbNJeM',
+    placeholder: 'have fun',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true,
+    lang: '' || 'zh-cn'
+  });
+</script>
+
+
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('5');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
 
 </body>
 </html>

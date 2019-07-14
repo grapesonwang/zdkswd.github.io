@@ -1,612 +1,3028 @@
 <!DOCTYPE html>
-<html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
-    
-
-    
-
-    
-
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
 
 
-    <meta charset="utf-8">
-    
-    
-    
-    
-    <title>ZDK&#39;s blog</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#3F51B5">
-    
-    
-    <meta name="keywords" content="">
-    <meta property="og:type" content="website">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.2.0',
+    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+
+
+  <meta property="og:type" content="website">
 <meta property="og:title" content="ZDK&#39;s blog">
 <meta property="og:url" content="https://github.com/zdkswd/page/11/index.html">
 <meta property="og:site_name" content="ZDK&#39;s blog">
 <meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ZDK&#39;s blog">
-    
-        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
-    
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
-    <script>window.lazyScripts=[]</script>
 
-    <!-- custom head -->
-    
+
+
+  <link rel="alternate" href="/atom.xml" title="ZDK's blog" type="application/atom+xml"/>
+
+
+
+  
+  
+  <link rel="canonical" href="https://github.com/zdkswd/page/11/"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>ZDK's blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
 
 </head>
 
-<body>
-    <div id="loading" class="active"></div>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
-    <aside id="menu"  >
-  <div class="inner flex-row-vertical">
-    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-        <i class="icon icon-lg icon-close"></i>
-    </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
-      <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/tmg.jpg">
-        </a>
-        <hgroup class="introduce">
-          <h5 class="nickname">ZDK</h5>
-          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
-        </hgroup>
-      </div>
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right 
+  page-home">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ZDK's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
-    <div class="scroll-wrap flex-col">
-      <ul class="nav">
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
         
-            <li class="waves-block waves-effect">
-              <a href="/"  >
-                <i class="icon icon-lg icon-home"></i>
-                主页
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                Archives
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/tags"  >
-                <i class="icon icon-lg icon-tags"></i>
-                Tags
-              </a>
-            </li>
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>首页</a>
+
+  </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/categories"  >
-                <i class="icon icon-lg icon-th-list"></i>
-                Categories
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="https://github.com/zdkswd" target="_blank" >
-                <i class="icon icon-lg icon-github"></i>
-                Github
-              </a>
-            </li>
         
-      </ul>
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>归档</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br/>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
     </div>
   </div>
-</aside>
-
-    <main id="main">
-        <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis">ZDK&#39;s blog</div>
-        
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
-        </div>
-        
-        
-    </div>
-</header>
-<header class="content-header index-header">
-
-    <div class="container fade-scale">
-        <h1 class="title">ZDK&#39;s blog</h1>
-        <h5 class="subtitle">
-            
-                
-            
-        </h5>
-    </div>
-
-    
-
-
-</header>
-
-<div class="container body-wrap">
-
-    <ul class="post-list">
-    
-        <li class="post-list-item fade">
-            <article id="post-鸟哥 Linux账号管理"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-02-04 19:25:32" datetime="2019-02-04T11:25:32.000Z"  itemprop="datePublished">2019-02-04</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
+  <div id="local-search-result"></div>
+</div>
 
 
 
     </div>
-
-    
-
-
   
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/02/04/鸟哥 Linux账号管理/">鸟哥 Linux账号管理</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        鸟哥 Linux账号管理Linux的账号与群组使用者识别码：UID与GID当登录Linux主机时，输入的是账号，Linux 主机并不会直接认识你的帐号，他仅认识 ID，帐号只是为了让人们容易记忆而已，ID 与帐号的 对应就在 / etc /passwd 当中。
-每个登陆的使用者至少都会取得两个 ID ，一个是使用者 ID (User ID ，简称 UID)、一个是群组 ID (Group I...
-    
-
-        <a href="/2019/02/04/鸟哥 Linux账号管理/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-廖雪峰SQL"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-02-03 13:22:32" datetime="2019-02-03T05:22:32.000Z"  itemprop="datePublished">2019-02-03</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/教程/">教程</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/02/03/廖雪峰SQL/">廖雪峰SQL</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        概述NoSQL数据库，也就是非SQL的数据库，包括MongoDB、Cassandra、Dynamo等等，它们都不是关系数据库。有很多人鼓吹现代Web程序已经无需关系数据库了，只需要使用NoSQL就可以。但事实上，SQL数据库从始至终从未被取代过。今天，SQL数据库仍然承担了各种应用程序的核心数据存储，而NoSQL数据库作为SQL数据库的补充，两者不再是二选一的问题，而是主从关系。所以，无论使...
-    
-
-        <a href="/2019/02/03/廖雪峰SQL/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL/">SQL</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Shell Scripts"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-01-30 18:06:32" datetime="2019-01-30T10:06:32.000Z"  itemprop="datePublished">2019-01-30</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/01/30/Shell Scripts/">Shell Scripts</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        Shell Scripts什么是Shell scriptsshell script是利用shell的功能所写的一个程序，这个程序使用纯文本文件，将一些shell的语法与指令（含外部指令）写在里面，搭配正则表达式，管线命令与数据流重导向等功能，以达到我们所想要的处理目的。
-干嘛学习shell scripts自动化管理的重要依据追踪与管理系统的重要工作系统服务启动接口所在的目录下所有文件都是sc...
-    
-
-        <a href="/2019/01/30/Shell Scripts/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-认识与学习BASH"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-01-28 20:55:32" datetime="2019-01-28T12:55:32.000Z"  itemprop="datePublished">2019-01-28</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/01/28/认识与学习BASH/">认识与学习BASH</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        认识与学习BASH认识BASH这个Shell硬件，核心与Shell必须通过shell将我们输入指令与内核沟通，好让内核可以控制硬件来正确无误的工作。操作系统其实是一组软件，这组软件在控制整个硬件与管理系统的活动监测，操作系统管理的就是整个硬件功能。使用者通过应用程序来指挥内核让内核达成我们所需要的硬件任务。壳程序的功能知识提供使用者操作系统的一个接口，因此需要可以调用其他软件，就是很多其他的...
-    
-
-        <a href="/2019/01/28/认识与学习BASH/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-vim程序编辑器"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-01-27 10:19:32" datetime="2019-01-27T02:19:32.000Z"  itemprop="datePublished">2019-01-27</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/01/27/vim程序编辑器/">Vim</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        vim程序编辑器在所有的Linux distributions上都会有一套文书编辑器，即vi，vim是进阶版的vi，vim可以用不同颜色显示文字内容，还可以进行shell script，C program等程序编辑功能，可以将vim视为一种程序编辑器。
-vi与vim在Linux的世界中，绝大部分的配置文件都是以ASCII的纯文本形态存在的，因此利用简单的文字编辑软件就能够修改设置了。
-为何要...
-    
-
-        <a href="/2019/01/27/vim程序编辑器/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-鸟哥Linux Linux文件、目录与磁盘格式"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-01-25 16:27:32" datetime="2019-01-25T08:27:32.000Z"  itemprop="datePublished">2019-01-25</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/01/25/鸟哥Linux Linux文件、目录与磁盘格式/">鸟哥Linux Linux文件、目录与磁盘格式</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        第五章 Linux文件权限与目录配置Linux最优秀的地方之一就在于他的多用户多任务环境。而为了让各个使用者具有较保密的文件数据，因此文件的权限管理就变的很重要了。Linux一般将文件可存取的身份分为三个类别，分别是owner\/ group \/ others，且三种身份各有read \/ write \/execute等权限。
-使用者与群组文件拥有者Linux是个多用户多任务的系统，因此...
-    
-
-        <a href="/2019/01/25/鸟哥Linux Linux文件、目录与磁盘格式/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-鸟哥Linux基础   Linux的规划与安装"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-01-20 20:25:32" datetime="2019-01-20T12:25:32.000Z"  itemprop="datePublished">2019-01-20</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/01/20/鸟哥Linux基础   Linux的规划与安装/">鸟哥Linux基础   Linux的规划与安装</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        第零章、计算机概论CPU实际要处理的数据完全来自于内存（不管是程序还是一般文件数据）。CPU架构精简指令集RISC，如ARM架构。目前世界上使用范围最广的CPU就是ARM架构。复杂指令集CISC。AMD，Intel x86。
-第一章、Linux是什么与如何学习早期的Linux是针对386开发的。Linux提供了一个完整的操作系统当中最底层的硬件控制与资源管理的完整架构，这个架构是沿袭Unix...
-    
-
-        <a href="/2019/01/20/鸟哥Linux基础   Linux的规划与安装/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-    </ul>
-
-    
-<nav id="page-nav">
-    <div class="inner">
-    <a class="extend prev" rel="prev" href="/page/10/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="extend next" rel="next" href="/page/12/">下一页</a>
-    </div>
 </nav>
 
 
-</div>
 
-        <footer class="footer">
-    <div class="top">
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2019/02/04/鸟哥 Linux账号管理/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZDK"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZDK's blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
         
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
-
-
-        <p>
-            
-                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-            
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
-        </p>
-    </div>
-    <div class="bottom">
-        <p><span>ZDK &copy; 2017 - 2019</span>
-            <span>
+        
+          <h1 class="post-title" itemprop="name headline">
                 
-                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+                
+                <a href="/2019/02/04/鸟哥 Linux账号管理/" class="post-title-link" itemprop="url">鸟哥 Linux账号管理</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-04 19:25:32 / 修改时间：19:27:06" itemprop="dateCreated datePublished" datetime="2019-02-04T19:25:32+08:00">2019-02-04</time>
             </span>
-        </p>
-    </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
-    </script>
-</footer>
+          
 
-    </main>
-    <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+          
+            
 
+            
+          
 
-    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
-<script>
-var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/读书笔记/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a></span>
 
+                
+                
+              
+            </span>
+          
 
-</script>
+          
+            
+            
+              
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/02/04/鸟哥 Linux账号管理/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/02/04/鸟哥 Linux账号管理/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
 
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+          
+          
+            <span id="/2019/02/04/鸟哥 Linux账号管理/" class="post-meta-item leancloud_visitors" data-flag-title="鸟哥 Linux账号管理">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
 
+          
 
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
-            </div>
-            <time class="flex-col time">{date}</time>
+          
+
+          <br/>
+          
+
+          
+
+          
+
         </div>
-    </a>
-</li>
-</template>
+      </header>
+    
 
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="鸟哥-Linux账号管理"><a href="#鸟哥-Linux账号管理" class="headerlink" title="鸟哥 Linux账号管理"></a>鸟哥 Linux账号管理</h1><h2 id="Linux的账号与群组"><a href="#Linux的账号与群组" class="headerlink" title="Linux的账号与群组"></a>Linux的账号与群组</h2><h3 id="使用者识别码：UID与GID"><a href="#使用者识别码：UID与GID" class="headerlink" title="使用者识别码：UID与GID"></a>使用者识别码：UID与GID</h3><p>当登录Linux主机时，输入的是账号，Linux 主机并不会直接认识你的帐号，他仅认识 ID，帐号只是为了让人们容易记忆而已，ID 与帐号的 对应就在 / etc /passwd 当中。</p>
+<p>每个登陆的使用者至少都会取得两个 ID ，一个是使用者 ID (User ID ，简称 UID)、一个是群组 ID (Group ID ，简称 GID)。 </p>
+<p>文件是利用UID与GID来判别拥有者与群组。每一个文件都会有所谓的拥有者ID与拥有群组ID，当要显示文件属性时，系统会依据 / etc / passwd 与  / etc /group 的内容， 找到 UID / GID 对应的帐号与群组名称再显示出来。</p>
+<h3 id="使用者账号"><a href="#使用者账号" class="headerlink" title="使用者账号"></a>使用者账号</h3><p>Linux 系统上面的使用者需要登陆主机以取得 shell工作环境，通过网络要使用ssh。输入账号密码后，系统做了工作：</p>
+<ol>
+<li>先找寻 / etc / passwd里面是否有你输入的帐号，如果没有则跳出，如果有的话则将该帐号对应的 UID 与 GID (在 / etc / group 中) 读出来，另外，该帐号的主文件夹与 shell 设置也一并读出。</li>
+<li>来则是核对密码表啦!这时Linux会进入 / etc / shadow里面找出对应的帐号与UID，然后核对一下你刚刚输入的密码与里头的密码是否相符。</li>
+<li>一切都OK的话，就进入Shell控管的阶段 。</li>
+</ol>
+<p>/ etc / passwd 文件结构<br>这个文件的构造是这样的:每一行都代表一个帐号，有几行就代表有几个帐号在你的系统中! 不过需要特别留意的是，里头很多帐号本来就是系统正常运行所必须要的，我们可以简称他为系统帐号， 例如 bin, daemon, adm, nobody 等等，这些帐号请不要随意的杀掉。</p>
+<p>shadow中存储的密码单向运算。</p>
+<p>遗忘密码</p>
+<ol>
+<li>一般用户的密码忘记了:这个最容易解决，请系统管理员帮忙， 他会重新设置好你的密码而不需要知道你的旧密码!利用 root 的身份使用 passwd 指令来处理即可。 </li>
+<li>root密码忘记了，就比较麻烦了，但是可以使用各种可行的方法开机进入Linux再去修改。</li>
+</ol>
+<h3 id="关于群组：有效与初始群组，groups，newgrp"><a href="#关于群组：有效与初始群组，groups，newgrp" class="headerlink" title="关于群组：有效与初始群组，groups，newgrp"></a>关于群组：有效与初始群组，groups，newgrp</h3><p>/ etc / group文件结构<br>这个文件就是在记录GID与群组名称的对应。</p>
+<h4 id="有效群组（effective-group）与初始群组（initial-group）"><a href="#有效群组（effective-group）与初始群组（initial-group）" class="headerlink" title="有效群组（effective group）与初始群组（initial group）"></a>有效群组（effective group）与初始群组（initial group）</h4><p>每个使用者在他的passwd第四栏有所谓的GID，就是所谓的初始群组（initial group），也就是当使用者一登陆系统，立刻就拥有这个群组的相关权限。</p>
+<h4 id="groups有效与支持群组的观察"><a href="#groups有效与支持群组的观察" class="headerlink" title="groups有效与支持群组的观察"></a>groups有效与支持群组的观察</h4><p>知道所有的支持群组：<br><img src="/img/media/%E9%B8%9F%E5%93%A5%20Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-03%20%E4%B8%8B%E5%8D%889.42.28.png" alt=""><br>在这个输出的讯息中，可知道 dmtsai 这个用户同时属于 dmtsai, wheel 及 users 这三个群组，而且，第一个输出的群组即为有效群组 (effective group) 。 通常有效群组的作用在新建文件，确定新建文件所在的群组。</p>
+<h4 id="newgrp：有效群组的切换"><a href="#newgrp：有效群组的切换" class="headerlink" title="newgrp：有效群组的切换"></a>newgrp：有效群组的切换</h4><p>newgrp 是有限制的，那就是你想要 切换的群组必须是你已经有支持的群组。举例来说， dmtsai 可以在 dmtsai / wheel / users 这三 个群组间切换有效群组，但是 dmtsai 无法切换有效群组成为 sshd 。<br><img src="/img/media/%E9%B8%9F%E5%93%A5%20Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-03%20%E4%B8%8B%E5%8D%889.48.30.png" alt=""><br><img src="/img/media/%E9%B8%9F%E5%93%A5%20Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-03%20%E4%B8%8B%E5%8D%889.51.32.png" alt=""></p>
+<p>加入一个群组有两个方式，一是通过系统管理员 (root) 利用 <strong>usermod</strong> 帮你加入，如果 root 太忙了而且你的系统有设置群组管理员，那么还可以通过群组管理员以 <strong>gpasswd</strong> 加入他所管理的群组中 。</p>
+<p>/ etc / gshadow<br>以系统管理员的角度来说，这个 gshadow 最大的功能就是创建群组管理员。root 可能平时太忙碌，所以当有使 用者想要加入某些群组时， root 或许会没有空管理。此时如果能够创建群组管理员的话，那 么该群组管理员就能够将那个帐号加入自己管理的群组中! 可以免去 root 的忙碌啦!不过， 由于目前有类似 sudo 之类的工具， 所以这个群组管理员的功能已经很少使用了。 </p>
+<h2 id="账号管理"><a href="#账号管理" class="headerlink" title="账号管理"></a>账号管理</h2><h3 id="新增与移除使用者：useradd，相关配置文件，passwd，usermod，userdel"><a href="#新增与移除使用者：useradd，相关配置文件，passwd，usermod，userdel" class="headerlink" title="新增与移除使用者：useradd，相关配置文件，passwd，usermod，userdel"></a>新增与移除使用者：useradd，相关配置文件，passwd，usermod，userdel</h3><p>创建一个可用的账号需要账号与密码两个数据，账号可以用useradd来新建使用者，密码则使用passwd。<br><img src="/img/media/%E9%B8%9F%E5%93%A5%20Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-04%20%E4%B8%8B%E5%8D%885.29.15.png" alt=""><br>系统会进行的操作：</p>
+<ol>
+<li>在 / etc / passwd 里面创建一行与帐号相关的数据，包括创建 UID / GID / 主文件夹等 。</li>
+<li>在 / etc / shadow 里面将此帐号的密码相关参数填入，但是尚未有密码。</li>
+<li>在 / etc / group 里面加入一个与帐号名称一模一样的群组名称。</li>
+<li>在 / home 下面创建一个与帐号同名的目录作为使用者主文件夹，且权限为 700。</li>
+</ol>
+<p>由于在 / etc / shadow内仅会有密码参数而不会有加密过的密码数据，因此我们在创建使用者帐 号时， 还需要使用“ passwd 帐号 ”来给 密码才算是完成了使用者创建的流程。<br><img src="/img/media/%E9%B8%9F%E5%93%A5%20Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-04%20%E4%B8%8B%E5%8D%885.53.15.png" alt=""><br>以上是root来设置用户的权限。用户还可以自己来更改自己的密码。<br><img src="/img/media/%E9%B8%9F%E5%93%A5%20Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-04%20%E4%B8%8B%E5%8D%885.55.22.png" alt=""></p>
+<p>使用chage来进行更详细的密码参数显示功能。<br><img src="/img/media/%E9%B8%9F%E5%93%A5%20Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-04%20%E4%B8%8B%E5%8D%886.38.25.png" alt=""></p>
+<p>usermod<br>在使用useradd后，可以利用usermod来对某些地方进行细部修改。<br><img src="/img/media/%E9%B8%9F%E5%93%A5%20Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-04%20%E4%B8%8B%E5%8D%886.51.35.png" alt=""></p>
+<p>userdel<br><img src="/img/media/%E9%B8%9F%E5%93%A5%20Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-04%20%E4%B8%8B%E5%8D%886.52.09.png" alt=""><br>删除使用者的相关数据。</p>
+<h3 id="使用者功能"><a href="#使用者功能" class="headerlink" title="使用者功能"></a>使用者功能</h3><p>一般身份使用者使用的指令。</p>
+<h4 id="id"><a href="#id" class="headerlink" title="id"></a>id</h4><p>id 这个指令则可以查询某人或自己的相关 UID / GID 等等的信息 。<br><img src="/img/media/%E9%B8%9F%E5%93%A5%20Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-04%20%E4%B8%8B%E5%8D%886.58.32.png" alt=""></p>
+<h4 id="chsh"><a href="#chsh" class="headerlink" title="chsh"></a>chsh</h4><p>就是change shell的简写。<br><img src="/img/media/%E9%B8%9F%E5%93%A5%20Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-04%20%E4%B8%8B%E5%8D%887.01.08.png" alt=""></p>
+<h3 id="新增与移除群组"><a href="#新增与移除群组" class="headerlink" title="新增与移除群组"></a>新增与移除群组</h3><h4 id="groupadd"><a href="#groupadd" class="headerlink" title="groupadd"></a>groupadd</h4><p><img src="/img/media/%E9%B8%9F%E5%93%A5%20Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-04%20%E4%B8%8B%E5%8D%887.03.41.png" alt=""></p>
+<h4 id="groupmod"><a href="#groupmod" class="headerlink" title="groupmod"></a>groupmod</h4><p>跟 usermod 类似的，这个指令仅是在进行 group 相关参数的修改而已。<br><img src="/img/media/%E9%B8%9F%E5%93%A5%20Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-04%20%E4%B8%8B%E5%8D%887.04.17.png" alt=""></p>
+<h4 id="groupdel"><a href="#groupdel" class="headerlink" title="groupdel"></a>groupdel</h4><p><img src="/img/media/%E9%B8%9F%E5%93%A5%20Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-04%20%E4%B8%8B%E5%8D%887.05.01.png" alt=""></p>
+<h4 id="gpasswd群组管理员功能"><a href="#gpasswd群组管理员功能" class="headerlink" title="gpasswd群组管理员功能"></a>gpasswd群组管理员功能</h4><p><img src="/img/media/%E9%B8%9F%E5%93%A5%20Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-04%20%E4%B8%8B%E5%8D%887.06.18.png" alt=""></p>
+<h2 id="主机的细部权限规划：ACL的使用"><a href="#主机的细部权限规划：ACL的使用" class="headerlink" title="主机的细部权限规划：ACL的使用"></a>主机的细部权限规划：ACL的使用</h2><h3 id="什么是ACL与如何支持启动ACL"><a href="#什么是ACL与如何支持启动ACL" class="headerlink" title="什么是ACL与如何支持启动ACL"></a>什么是ACL与如何支持启动ACL</h3><p>ACL即Access Control List，传统的 Linux 权限只能针对一个用户、一个群组及非此群组的其他人设置权限而已，无法针对单一用户或个人来设计权限。而 ACL 就是为了要改变这个问题 。</p>
+<h3 id="ACL的设置技巧：getfacl，setfacl"><a href="#ACL的设置技巧：getfacl，setfacl" class="headerlink" title="ACL的设置技巧：getfacl，setfacl"></a>ACL的设置技巧：getfacl，setfacl</h3><h2 id="使用者身份切换"><a href="#使用者身份切换" class="headerlink" title="使用者身份切换"></a>使用者身份切换</h2><h3 id="su"><a href="#su" class="headerlink" title="su"></a>su</h3><p>su 是最简单的身份切换指令了，可以进行任何身份的切换。<br><img src="/img/media/%E9%B8%9F%E5%93%A5%20Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-04%20%E4%B8%8B%E5%8D%887.19.05.png" alt=""></p>
+<h3 id="sudo"><a href="#sudo" class="headerlink" title="sudo"></a>sudo</h3><p>su 需要了解新切换的使用者密码 (常常是需要 root 的密码)， sudo 的执行则仅需要 自己的密码即可! 甚至可以设置不需要密码即可执行 sudo 。由于 sudo可以让你以其他用 户的身份执行指令 (通常是使用 root 的身份来执行指令)，因此并非所有人都能够执行 sudo ， 而是仅有规范到 _etc_sudoers 内的用户才能够执行 sudo 这个指令。</p>
+<p>一般用户能够具有 sudo 的使用权，就是管理员事先审核通过后，才开放sudo 的使用权的!因此，除非是信任用户，否则一般用户默认是不能操作 sudo的。<br><img src="/img/media/%E9%B8%9F%E5%93%A5%20Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-04%20%E4%B8%8B%E5%8D%887.21.49.png" alt=""></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2019/02/03/廖雪峰SQL/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZDK"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZDK's blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/02/03/廖雪峰SQL/" class="post-title-link" itemprop="url">廖雪峰SQL</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-03 13:22:32 / 修改时间：13:25:44" itemprop="dateCreated datePublished" datetime="2019-02-03T13:22:32+08:00">2019-02-03</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/教程/" itemprop="url" rel="index"><span itemprop="name">教程</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/02/03/廖雪峰SQL/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/02/03/廖雪峰SQL/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2019/02/03/廖雪峰SQL/" class="post-meta-item leancloud_visitors" data-flag-title="廖雪峰SQL">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          <br/>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>NoSQL数据库，也就是非SQL的数据库，包括MongoDB、Cassandra、Dynamo等等，它们都不是关系数据库。有很多人鼓吹现代Web程序已经无需关系数据库了，只需要使用NoSQL就可以。但事实上，SQL数据库从始至终从未被取代过。今天，SQL数据库仍然承担了各种应用程序的核心数据存储，而NoSQL数据库作为SQL数据库的补充，两者不再是二选一的问题，而是主从关系。所以，无论使用哪种编程语言，无论是Web开发、游戏开发还是手机开发，掌握SQL，是所有软件开发人员所必须的。</p>
+<p>数据库作为一种专门管理数据的软件就出现了。应用程序不需要自己管理数据，而是通过数据库软件提供的接口来读写数据。至于数据本身如何存储到文件，那是数据库软件的事情，应用程序自己并不关心。</p>
+<p>数据库按照数据结构来组织，存储和管理数据，数据库一共有三种模型。层次模型，网状模型，关系模型。关系模型把数据看作是一个二维表格，任何数据都可以通过行号+列号来唯一确定，它的数据模型看起来就是一个Excel表。</p>
+<p>随着时间的推移和市场竞争，最终，基于关系模型的关系数据库获得了绝对市场份额。因为相比层次模型和网状模型，关系模型理解和使用起来最简单。<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-01%20%E4%B8%8A%E5%8D%8811.01.20.png" alt=""><br>通过给定一个班级名称，可以查到一条班级记录，根据班级ID，又可以查到多条学生记录，这样，二维表之间就通过ID映射建立了“一对多”关系。</p>
+<p>数据类型<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-01%20%E4%B8%8A%E5%8D%8811.02.13.png" alt=""><br>表中列举了最常用的数据类型。很多数据类型还有别名，例如，REAL又可以写成FLOAT(24)。还有一些不常用的数据类型，例如，TINYINT（范围在0~255）。各数据库厂商还会支持特定的数据类型，例如JSON。</p>
+<p>选择数据类型的时候，要根据业务规则选择合适的类型。通常来说，BIGINT能满足整数存储的需求，VARCHAR(N)能满足字符串存储的需求，这两种类型是使用最广泛的。</p>
+<p><strong>主流关系数据库</strong><br>目前主流关系数据库分为：</p>
+<ol>
+<li>商用数据库，例如：Oracle，SQL Server，DB2等；</li>
+<li>开源数据库，例如：MySQL，PostgreSQL等；</li>
+<li>桌面数据库，以微软Access为代表，适合桌面应用程序使用；</li>
+<li>嵌入式数据库，以Sqlite为代表，适合手机应用和桌面程序。</li>
+</ol>
+<p><strong>SQL</strong><br>SQL已经被ANSI组织定义为标准，不幸地是，各个不同的数据库对标准的SQL支持不太一致。并且，大部分数据库都在标准的SQL上做了扩展。也就是说，如果只使用标准SQL，理论上所有数据库都可以支持，但如果使用某个特定数据库的扩展SQL，换一个数据库就不能执行了。例如，Oracle把自己扩展的SQL称为PL/SQL，Microsoft把自己扩展的SQL称为T-SQL。</p>
+<p>SQL语言关键字不区分大小写！！！但是，针对不同的数据库，对于表名和列名，有的数据库区分大小写，有的数据库不区分大小写。同一个数据库，有的在Linux上区分大小写，有的在Windows上不区分大小写。本文做出约定：SQL关键字总是大写，以示突出，表名和列名均使用小写。</p>
+<p><strong>MySQL</strong><br>MySQL是目前应用最广泛的开源关系数据库。MySQL经过几次收购就变成了Oracle旗下的产品。和其他关系数据库有所不同的是，MySQL本身实际上只是一个SQL接口，它的内部还包含了多种数据引擎，常用的包括：</p>
+<ol>
+<li>InnoDB：由Innobase Oy公司开发的一款支持事务的数据库引擎，2006年被Oracle收购；</li>
+<li>MyISAM：MySQL早期集成的默认数据库引擎，不支持事务。</li>
+</ol>
+<p>MySQL接口和数据库引擎的关系就好比某某浏览器和浏览器引擎（IE引擎或Webkit引擎）的关系。对用户而言，切换浏览器引擎不影响浏览器界面，切换MySQL引擎不影响自己写的应用程序使用MySQL的接口。</p>
+<p>使用MySQL时，不同的表还可以使用不同的数据库引擎。如果你不知道应该采用哪种引擎，记住总是选择InnoDB就好了。</p>
+<p>由于MySQL是开源的，所以还有其衍生版本。</p>
+<h1 id="关系模型"><a href="#关系模型" class="headerlink" title="关系模型"></a>关系模型</h1><p>关系数据库是建立在关系模型上的。而关系模型本质上就是若干个存储数据的二维表，可以把它们看作很多Excel表。</p>
+<p>表的每一行称为记录（Record），记录是一个逻辑意义上的数据。表的每一列称为字段（Column），同一个表的每一行记录都拥有相同的若干字段。</p>
+<p>字段定义了数据类型（整型、浮点型、字符串、日期等），以及是否允许为NULL。注意NULL表示字段数据不存在。一个整型字段如果为NULL不表示它的值为0，同样的，一个字符串型字段为NULL也不表示它的值为空串’’。</p>
+<p><strong>通常情况下，字段应该避免允许为NULL。不允许为NULL可以简化查询条件，加快查询速度，也利于应用程序读取数据后无需判断是否为NULL。</strong></p>
+<p>和Excel表有所不同的是，关系数据库的表和表之间需要建立“一对多”，“多对一”和“一对一”的关系，这样才能够按照应用程序的逻辑来组织和存储数据。</p>
+<p>在关系数据库中，关系是通过<strong>主键</strong>和<strong>外键</strong>来维护的。</p>
+<h2 id="主键"><a href="#主键" class="headerlink" title="主键"></a>主键</h2><p>对于关系表，有个很重要的约束，就是任意两条记录不能重复。不能重复不是指两条记录不完全相同，而是指能够通过某个字段唯一区分出不同的记录，这个字段被称为<strong>主键</strong>。</p>
+<p>由于主键的作用十分重要，如何选取主键会对业务开发产生重要影响。如果我们以学生的身份证号作为主键，似乎能唯一定位记录。然而，身份证号也是一种业务场景，如果身份证号升位了，或者需要变更，作为主键，不得不修改的时候，就会对业务产生严重影响。</p>
+<p>所以，选取主键的一个基本原则是：<strong>不使用任何业务相关的字段作为主键</strong>。</p>
+<p>因此，身份证号、手机号、邮箱地址这些看上去可以唯一的字段，均不可用作主键。作为主键最好是完全业务无关的字段，我们一般把这个字段命名为id。常见的可作为id字段的类型有：</p>
+<ol>
+<li>自增整数类型：数据库会在插入数据时自动为每一条记录分配一个自增整数，这样我们就完全不用担心主键重复，也不用自己预先生成主键；</li>
+<li>全局唯一GUID类型：使用一种全局唯一的字符串作为主键，类似8f55d96b-8acc-4636-8cb8-76bf8abc2f57。GUID算法通过网卡MAC地址、时间戳和随机数保证任意计算机在任意时间生成的字符串都是不同的，大部分编程语言都内置了GUID算法，可以自己预算出主键。</li>
+</ol>
+<p>对于大部分应用来说，通常自增类型的主键就能满足需求。我们在students表中定义的主键也是BIGINT NOT NULL AUTO_INCREMENT类型。如果使用INT自增类型，那么当一张表的记录数超过2147483647（约21亿）时，会达到上限而出错。使用BIGINT自增类型则可以最多约922亿亿条记录。</p>
+<h3 id="联合主键"><a href="#联合主键" class="headerlink" title="联合主键"></a>联合主键</h3><p>关系数据库实际上还允许通过多个字段唯一标识记录，即两个或更多的字段都设置为主键，这种主键被称为联合主键。对于联合主键，允许一列有重复，只要不是所有主键列都重复即可：<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-01%20%E4%B8%8A%E5%8D%8811.24.10.png" alt=""><br>id_num和id_type这两列作为联合主键。<strong>没有必要的情况下，我们尽量不使用联合主键，因为它给关系表带来了复杂度的上升。</strong></p>
+<h2 id="外键"><a href="#外键" class="headerlink" title="外键"></a>外键</h2><p>在students表中，通过class_id的字段，可以把数据与另一张表关联起来，这种列称为<strong>外键</strong>。<br>students表：<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-01%20%E4%B8%8B%E5%8D%887.53.44.png" alt=""><br>classes表：<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-01%20%E4%B8%8B%E5%8D%887.54.14.png" alt=""><br>为了表达这种一对多的关系，我们需要在students表中加入一列class_id，让它的值与classes表的某条记录相对应。<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-01%20%E4%B8%8B%E5%8D%887.57.22.png" alt=""><br>在students表中，通过class_id的字段，可以把数据与另一张表关联起来，这种列称为<strong>外键</strong>。外键并不是通过列名实现的，而是通过定义外键约束实现的：<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-01%20%E4%B8%8B%E5%8D%887.59.43.png" alt=""><br>其中，外键约束的名称fk_class_id可以任意，FOREIGN KEY (class_id)指定了class_id作为外键，REFERENCES classes (id)指定了这个外键将关联到classes表的id列（即classes表的主键）。</p>
+<p>通过定义外键约束，关系数据库可以保证无法插入无效的数据。即如果classes表不存在id=99的记录，students表就无法插入class_id=99的记录。</p>
+<p><strong>由于外键约束会降低数据库的性能</strong>，大部分互联网应用程序为了追求速度，并不设置外键约束，而是仅靠应用程序自身来保证逻辑的正确性。这种情况下，class_id仅仅是一个普通的列，只是它起到了外键的作用而已。</p>
+<p>要删除一个外键约束，也是通过ALTER TABLE实现的：<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-01%20%E4%B8%8B%E5%8D%888.02.10.png" alt=""><br>注意：删除外键约束并没有删除外键这一列。删除列是通过DROP COLUMN …实现的。</p>
+<h3 id="多对多"><a href="#多对多" class="headerlink" title="多对多"></a>多对多</h3><p>通过一个表的外键关联到另一个表，我们可以定义出一对多关系。有些时候，还需要定义“多对多”关系。多对多关系实际上是通过两个一对多关系实现的，即通过一个中间表，关联两个一对多关系，就形成了多对多关系。</p>
+<p>多对多关系实际上是通过两个一对多关系实现的，即通过一个中间表，关联两个一对多关系，就形成了多对多关系：<br>teacher表：<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-01%20%E4%B8%8B%E5%8D%888.10.26.png" alt=""><br>classes表：<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-01%20%E4%B8%8B%E5%8D%888.10.49.png" alt=""><br>中间表teacher_class关联两个一对多关系：<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-01%20%E4%B8%8B%E5%8D%888.11.30.png" alt=""><br>通过中间表，我们就定义了一个“多对多”关系。</p>
+<h3 id="一对一"><a href="#一对一" class="headerlink" title="一对一"></a>一对一</h3><p>一对一关系是指，一个表的记录对应到另一个表的唯一一个记录。</p>
+<p>例如，students表的每个学生可以有自己的联系方式，如果把联系方式存入另一个表contacts，我们就可以得到一个“一对一”关系：这里一对一的前提是student_id不重复。<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-01%20%E4%B8%8B%E5%8D%888.21.36.png" alt=""><br>既然是一对一关系，那为啥不给students表增加一个mobile列，来合二为一。</p>
+<p>如果业务允许，完全可以把两个表合为一个表。一对一关系准确地说，是contacts表一对一对应students表。</p>
+<p>还有一些应用会把一个大表拆成两个一对一的表，目的是把经常读取和不经常读取的字段分开，以获得更高的性能。例如，把一个大的用户表分拆为用户基本信息表user_info和用户详细信息表user_profiles，大部分时候，只需要查询user_info表，并不需要查询user_profiles表，这样就提高了查询速度。</p>
+<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><p>在关系数据库中，如果有上万甚至上亿条记录，在查找记录的时候，想要获得非常快的速度，就需要使用索引。</p>
+<p>索引是关系数据库中对某一列或多个列的值进行预排序的数据结构。通过使用索引，可以让数据库系统不必扫描整个表，而是直接定位到符合条件的记录，这样就大大加快了查询速度。</p>
+<p>例如，对于students表：<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-01%20%E4%B8%8B%E5%8D%888.25.58.png" alt=""><br>如果要经常根据score列进行查询，就可以对score列创建索引：<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-01%20%E4%B8%8B%E5%8D%888.26.27.png" alt=""><br>使用ADD INDEX idx_score (score)就创建了一个名称为idx_score，使用列score的索引。索引名称是任意的，索引如果有多列，可以在括号里依次写上，例如：<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-01%20%E4%B8%8B%E5%8D%888.27.45.png" alt=""><br>索引的效率取决于索引列的值是否散列，即该列的值如果越互不相同，那么索引效率越高。反过来，如果记录的列存在大量相同的值，例如gender列，大约一半的记录值是M，另一半是F，因此，对该列创建索引就没有意义。</p>
+<p>可以对一张表创建多个索引。索引的优点是提高了查询效率，缺点是在插入、更新和删除记录时，需要同时修改索引，因此，索引越多，插入、更新和删除记录的速度就越慢。</p>
+<p>对于主键，关系数据库会自动对其创建主键索引。使用主键索引的效率是最高的，因为主键会保证绝对唯一。</p>
+<h3 id="唯一索引"><a href="#唯一索引" class="headerlink" title="唯一索引"></a>唯一索引</h3><p><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-01%20%E4%B8%8B%E5%8D%888.31.30.png" alt=""><br>通过UNIQUE关键字我们就添加了一个唯一索引。也可以只对某一列添加一个唯一约束而不创建唯一索引。<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-01%20%E4%B8%8B%E5%8D%888.32.05.png" alt=""><br>这种情况下，name列没有索引，但仍然具有唯一性保证。</p>
+<p>无论是否创建索引，对于用户和应用程序来说，使用关系数据库不会有任何区别。这里的意思是说，当我们在数据库中查询时，如果有相应的索引可用，数据库系统就会自动使用索引来提高查询效率，如果没有索引，查询也能正常执行，只是速度会变慢。因此，索引可以在使用数据库的过程中逐步优化。</p>
+<h1 id="查询数据"><a href="#查询数据" class="headerlink" title="查询数据"></a>查询数据</h1><h2 id="基本查询"><a href="#基本查询" class="headerlink" title="基本查询"></a>基本查询</h2><p>假设表名是students，要查询students表的所有行，我们用如下SQL语句：</p>
+<blockquote>
+<p>SELECT * FROM students;  </p>
+</blockquote>
+<p>使用SELECT <em> FROM students时，SELECT是关键字，表示将要执行一个查询，</em> 表示“所有列”，FROM表示将要从哪个表查询，本例中是students表。该SQL将查询出students表的所有数据。注意：查询结果也是一个<strong>二维表</strong>，它包含列名和每一行的数据。</p>
+<p>不带FROM子句的SELECT语句有一个有用的用途，就是用来判断当前到数据库的连接是否有效。许多检测工具会执行一条SELECT 1;来测试数据库连接。</p>
+<h2 id="条件查询"><a href="#条件查询" class="headerlink" title="条件查询"></a>条件查询</h2><blockquote>
+<p>SELECT * FROM &lt;表名&gt; WHERE &lt;条件表达式&gt;  </p>
+</blockquote>
+<p>条件表达式可以用&lt;条件1&gt; AND &lt;条件2&gt;表达满足条件1并且满足条件2。例如，符合条件“分数在80分或以上”，并且还符合条件“男生”，把这两个条件写出来：</p>
+<ol>
+<li>根据score列的数据判断：score &gt;= 80</li>
+<li>根据gender列的数据判断：gender = ‘M’，注意gender列存储的是字符串，需要用单引号括起来。</li>
+</ol>
+<p><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-01%20%E4%B8%8B%E5%8D%888.44.03.png" alt=""><br>除了AND以外，还有NOT以及OR。如果不加括号，条件运算按照NOT、AND、OR的优先级进行，即NOT优先级最高，其次是AND，最后是OR。加上括号可以改变优先级。</p>
+<h3 id="常用的条件表达式"><a href="#常用的条件表达式" class="headerlink" title="常用的条件表达式"></a>常用的条件表达式</h3><p><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-01%20%E4%B8%8B%E5%8D%888.46.45.png" alt=""><br>%表示0个到多个，_ 表示1个。</p>
+<h2 id="投影查询"><a href="#投影查询" class="headerlink" title="投影查询"></a>投影查询</h2><p>如果我们只希望返回某些列的数据，而不是所有列的数据，我们可以用SELECT 列1, 列2, 列3 FROM …，让结果集仅包含指定列。这种操作称为投影查询。例如，从students表中返回id、score和name这三列。<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-01%20%E4%B8%8B%E5%8D%888.52.36.png" alt=""><br>这样返回的结果集就只包含了我们指定的列，并且，结果集的列的顺序和原表可以不一样。</p>
+<p>使用SELECT 列1, 列2, 列3 FROM …时，还可以给每一列起个别名，这样，结果集的列名就可以与原表的列名不同。它的语法是SELECT 列1 别名1, 列2 别名2, 列3 别名3 FROM …。</p>
+<p>例如，以下SELECT语句将列名score重命名为points，而id和name列名保持不变：<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-01%20%E4%B8%8B%E5%8D%888.53.54.png" alt=""><br>投影查询同样可以接WHERE条件，实现复杂的查询。</p>
+<h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><p>我们使用SELECT查询时，细心的读者可能注意到，查询结果集通常是按照id排序的，也就是根据主键排序。这也是大部分数据库的做法。如果我们要根据其他条件排序怎么办？可以加上ORDER BY子句。例如按照成绩从低到高进行排序：<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-01%20%E4%B8%8B%E5%8D%889.04.09.png" alt=""><br>如果要反过来，按照成绩从高到底排序，我们可以加上DESC表示“倒序”：<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-01%20%E4%B8%8B%E5%8D%889.04.40.png" alt=""><br>默认的排序规则是ASC：“升序”，即从小到大。ASC可以省略，即ORDER BY score ASC和ORDER BY score效果一样。</p>
+<p>如果有WHERE子句，那么ORDER BY子句要放到WHERE子句后面。例如，查询一班的学生成绩，并按照倒序排序：<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-01%20%E4%B8%8B%E5%8D%889.06.05.png" alt=""></p>
+<h2 id="分页查询"><a href="#分页查询" class="headerlink" title="分页查询"></a>分页查询</h2><p>使用SELECT查询时，如果结果集数据量很大，比如几万行数据，放在一个页面显示的话数据量太大，不如分页显示，每次显示100条。</p>
+<p>要实现分页功能，实际上就是从结果集中显示第1~100条记录作为第1页，显示第101~200条记录作为第2页，以此类推。</p>
+<p>因此，分页实际上就是从结果集中“截取”出第M~N条记录。这个查询可以通过LIMIT <m> OFFSET <n>子句实现。我们先把所有学生按照成绩从高到低进行排序，把结果集分页，每页3条记录。要获取第1页的记录，可以使用LIMIT 3 OFFSET 0：<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-01%20%E4%B8%8B%E5%8D%889.10.24.png" alt=""><br>上述查询LIMIT 3 OFFSET 0表示，对结果集从0号记录开始，最多取3条。注意SQL记录集的索引从0开始。如果要查询第2页，那么我们只需要“跳过”头3条记录，也就是对结果集从3号记录开始查询，把OFFSET设定为3：类似的，查询第3页的时候，OFFSET应该设定为6:由于第4页只有1条记录，因此最终结果集按实际数量1显示。LIMIT 3表示的意思是“最多3条记录”。</n></m></p>
+<p>OFFSET超过了查询的最大数量并不会报错，而是得到一个空的结果集。<br>OFFSET是可选的，如果只写LIMIT 15，那么相当于LIMIT 15 OFFSET 0。</p>
+<p>在MySQL中，LIMIT 15 OFFSET 30还可以简写成LIMIT 30, 15。使用LIMIT <m> OFFSET <n>分页时，随着N越来越大，查询效率也会越来越低。</n></m></p>
+<h2 id="聚合查询"><a href="#聚合查询" class="headerlink" title="聚合查询"></a>聚合查询</h2><p>对于统计总数、平均数这类计算，SQL提供了专门的聚合函数，使用聚合函数进行查询，就是聚合查询，它可以快速获得结果。仍然以查询students表一共有多少条记录为例，我们可以使用SQL内置的COUNT()函数查询。<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-01%20%E4%B8%8B%E5%8D%889.16.03.png" alt=""><br>COUNT( <em> )表示查询所有列的行数，要注意聚合的计算结果虽然是一个数字，但查询的结果仍然是一个二维表，只是这个二维表只有一行一列，并且列名是COUNT( </em> )。</p>
+<p>通常，使用聚合查询时，我们应该给列名设置一个别名，便于处理结果。<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-01%20%E4%B8%8B%E5%8D%889.16.47.png" alt=""></p>
+<p>COUNT(*)和COUNT(id)实际上是一样的效果。另外注意，聚合查询同样可以使用WHERE条件，因此我们可以方便地统计出有多少男生、多少女生、多少80分以上的学生等：<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-01%20%E4%B8%8B%E5%8D%889.17.18.png" alt=""><br>除了COUNT()函数外，SQL还提供了如下聚合函数：<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-01%20%E4%B8%8B%E5%8D%889.19.10.png" alt=""><br>注意，MAX()和MIN()函数并不限于数值类型。如果是字符类型，MAX()和MIN()会返回排序最后和排序最前的字符。</p>
+<p>要统计男生的平均成绩，我们用下面的聚合查询：<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-01%20%E4%B8%8B%E5%8D%889.19.41.png" alt=""></p>
+<p>要特别注意：如果聚合查询的WHERE条件没有匹配到任何行，COUNT()会返回0，而MAX()、MIN()、MAX()和MIN()会返回NULL。</p>
+<h3 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h3><p>对于聚合查询，SQL还提供了“分组聚合”的功能。我们观察下面的聚合查询：<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-01%20%E4%B8%8B%E5%8D%889.25.07.png" alt=""><br>执行这个查询，COUNT()的结果不再是一个，而是3个，这是因为，GROUP BY子句指定了按class_id分组，因此，执行该SELECT语句时，会把class_id相同的列先分组，再分别计算，因此，得到了3行结果。</p>
+<p>但是这3行结果分别是哪三个班级的，不好看出来，所以我们可以把class_id列也放入结果集中：<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-01%20%E4%B8%8B%E5%8D%889.27.18.png" alt=""><br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-01%20%E4%B8%8B%E5%8D%889.27.25.png" alt=""><br><strong>聚合查询的列中，只能放入分组的列。</strong><br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-01%20%E4%B8%8B%E5%8D%889.34.42.png" alt=""><br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-01%20%E4%B8%8B%E5%8D%889.34.57.png" alt=""></p>
+<h2 id="多表查询"><a href="#多表查询" class="headerlink" title="多表查询"></a>多表查询</h2><p>SELECT查询不但可以从一张表查询数据，还可以从多张表同时查询数据。查询多张表的语法是：SELECT * FROM &lt;表1&gt; &lt;表2&gt;。</p>
+<p>同时从students表和classes表的“乘积”，即查询数据，可以这么写：<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-01%20%E4%B8%8B%E5%8D%889.39.42.png" alt=""><br>这种一次查询两个表的数据，查询的结果也是一个二维表，它是students表和classes表的“乘积”，即students表的每一行与classes表的每一行都两两拼在一起返回。结果集的列数是students表和classes表的列数之和，行数是students表和classes表的行数之积。</p>
+<p>这种多表查询又称笛卡尔查询，使用笛卡尔查询时要非常小心，由于结果集是目标表的行数乘积，对两个各自有100行记录的表进行笛卡尔查询将返回1万条记录，对两个各自有1万行记录的表进行笛卡尔查询将返回1亿条记录。<strong>使用多表查询可以获取M x N行记录；多表查询的结果集可能非常巨大，要小心使用。</strong></p>
+<p>查询的结果集有两列id和两列name，两列id是因为其中一列是students表的id，而另一列是classes表的id，但是在结果集中，不好区分。两列name同理</p>
+<p>要解决这个问题，我们仍然可以利用投影查询的“设置列的别名”来给两个表各自的id和name列起别名：<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-01%20%E4%B8%8B%E5%8D%889.41.52.png" alt=""><br>注意，多表查询时，要使用表名.列名这样的方式来引用列和设置别名，这样就避免了结果集的列名重复问题。但是，用表名.列名这种方式列举两个表的所有列实在是很麻烦，所以SQL还允许给表设置一个别名，让我们在投影查询中引用起来稍微简洁一点：<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-01%20%E4%B8%8B%E5%8D%889.43.02.png" alt=""><br>注意到FROM子句给表设置别名的语法是FROM &lt;表名1&gt; &lt;别名1&gt;, &lt;表名2&gt; &lt;别名2&gt;。这样我们用别名s和c分别表示students表和classes表。</p>
+<p>多表查询也是可以添加WHERE条件的。<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-01%20%E4%B8%8B%E5%8D%889.44.42.png" alt=""></p>
+<h2 id="连接查询"><a href="#连接查询" class="headerlink" title="连接查询"></a>连接查询</h2><p>连接查询是另一种类型的多表查询。连接查询对多个表进行JOIN运算，简单地说，就是先确定一个主表作为结果集，然后，把其他表的行有选择性地“连接”在主表结果集上。</p>
+<p>例如，我们想要选出students表的所有学生信息，可以用一条简单的SELECT语句完成，假设我们希望结果集同时包含所在班级的名称，上面的结果集只有class_id列，缺少对应班级的name列。存放班级名称的name列存储在classes表中，只有根据students表的class_id，找到classes表对应的行，再取出name列，就可以获得班级名称。</p>
+<p>连接查询就派上了用场。我们先使用最常用的一种内连接——INNER JOIN来实现。<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-01%20%E4%B8%8B%E5%8D%889.48.40.png" alt=""><br>INNER JOIN查询的写法是：</p>
+<ol>
+<li>先确定主表，仍然使用FROM &lt;表1&gt;的语法；</li>
+<li>再确定需要连接的表，使用INNER JOIN &lt;表2&gt;的语法；</li>
+<li>然后确定连接条件，使用ON &lt;条件…&gt;，这里的条件是s.class_id = c.id，表示students表的class_id列与classes表的id列相同的行需要连接；</li>
+<li>可选：加上WHERE子句、ORDER BY等子句。</li>
+</ol>
+<p>使用别名不是必须的，但可以更好地简化查询语句。有内连接（INNER JOIN）就有外连接（OUTER JOIN）。</p>
+<p>有RIGHT OUTER JOIN，就有LEFT OUTER JOIN，以及FULL OUTER JOIN。它们的区别是：</p>
+<p>INNER JOIN只返回同时存在于两张表的行数据，由于students表的class_id包含1，2，3，classes表的id包含1，2，3，4，所以，INNER JOIN根据条件s.class_id = c.id返回的结果集仅包含1，2，3。</p>
+<p>RIGHT OUTER JOIN返回右表都存在的行。如果某一行仅在右表存在，那么结果集就会以NULL填充剩下的字段。</p>
+<p>LEFT OUTER JOIN则返回左表都存在的行。如果我们给students表增加一列，并添加class_id=5，由于classes表并不存在id=5的列，所以，LEFT OUTER JOIN的结果会增加一列，对应的class_name是NULL。</p>
+<p>inner join<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/l.png" alt=""></p>
+<p>left outer join<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/l%202.png" alt=""></p>
+<p>right outer join<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/l%203.png" alt=""></p>
+<p>full outer join<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/l%204.png" alt=""></p>
+<h1 id="修改数据"><a href="#修改数据" class="headerlink" title="修改数据"></a>修改数据</h1><h2 id="INSERT"><a href="#INSERT" class="headerlink" title="INSERT"></a>INSERT</h2><p>插入数据基本语法：<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-03%20%E4%B8%8A%E5%8D%8811.54.00.png" alt=""></p>
+<p><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-03%20%E4%B8%8A%E5%8D%8811.54.22.png" alt=""><br>如果一个字段有默认值，那么在INSERT语句中也可以不出现。</p>
+<p>要注意，字段顺序不必和数据库表的字段顺序一致，但值的顺序必须和字段顺序一致。也就是说，可以写INSERT INTO students (score, gender, name, class_id) …，但是对应的VALUES就得变成(80, ‘M’, ‘大牛’, 2)。</p>
+<p>还可以一次性添加多条记录，只需要在VALUES子句中指定多个记录值，每个记录是由(…)包含的一组值：<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-03%20%E4%B8%8A%E5%8D%8811.55.57.png" alt=""></p>
+<h2 id="UPDATE"><a href="#UPDATE" class="headerlink" title="UPDATE"></a>UPDATE</h2><p>更新数据库表中的记录，我们就必须使用UPDATE语句。<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-03%20%E4%B8%8A%E5%8D%8811.57.05.png" alt=""><br>例如，我们想更新students表id=1的记录的name和score这两个字段，先写出UPDATE students SET name=’大牛’, score=66，然后在WHERE子句中写出需要更新的行的筛选条件id=1：<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-03%20%E4%B8%8A%E5%8D%8811.58.50.png" alt=""></p>
+<p>UPDATE语句的WHERE条件和SELECT语句的WHERE条件其实是一样的，因此完全可以一次更新多条记录：<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-03%20%E4%B8%8A%E5%8D%8811.59.16.png" alt=""></p>
+<p>在UPDATE语句中，更新字段时可以使用表达式。例如，把所有80分以下的同学的成绩加10分：<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-03%20%E4%B8%8A%E5%8D%8811.59.49.png" alt=""></p>
+<p><strong>如果WHERE条件没有匹配到任何记录，UPDATE语句不会报错，也不会有任何记录被更新。要特别小心的是，UPDATE语句可以没有WHERE条件，这时，整个表的所有记录都会被更新。</strong></p>
+<p><strong>所以，在执行UPDATE语句时要非常小心，最好先用SELECT语句来测试WHERE条件是否筛选出了期望的记录集，然后再用UPDATE更新。</strong></p>
+<p>在使用MySQL这类真正的关系数据库时，UPDATE语句会返回更新的行数以及WHERE条件匹配的行数。</p>
+<h2 id="DELETE"><a href="#DELETE" class="headerlink" title="DELETE"></a>DELETE</h2><p>删除数据库表中的记录，我们可以使用DELETE语句。<br>基本语法是：<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-03%20%E4%B8%8B%E5%8D%8812.03.05.png" alt=""></p>
+<p><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-03%20%E4%B8%8B%E5%8D%8812.04.36.png" alt=""><br>DELETE语句的WHERE条件也是用来筛选需要删除的行，因此和UPDATE类似，DELETE语句也可以一次删除多条记录：<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-03%20%E4%B8%8B%E5%8D%8812.04.58.png" alt=""><br>如果WHERE条件没有匹配到任何记录，DELETE语句不会报错，也不会有任何记录被删除。<strong>要特别小心的是，和UPDATE类似，不带WHERE条件的DELETE语句会删除整个表的数据。</strong></p>
+<p>整个表的所有记录都会被删除。所以，在执行DELETE语句时也要非常小心，最好先用SELECT语句来测试WHERE条件是否筛选出了期望的记录集，然后再用DELETE删除。</p>
+<p>在使用MySQL这类真正的关系数据库时，DELETE语句也会返回删除的行数以及WHERE条件匹配的行数。</p>
+<h1 id="实用SQL语句"><a href="#实用SQL语句" class="headerlink" title="实用SQL语句"></a>实用SQL语句</h1><h2 id="插入或替换"><a href="#插入或替换" class="headerlink" title="插入或替换"></a>插入或替换</h2><p>如果我们希望插入一条新记录（INSERT），但如果记录已经存在，就先删除原记录，再插入新记录。此时，可以使用REPLACE语句，这样就不必先查询，再决定是否先删除再插入。<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-03%20%E4%B8%8B%E5%8D%8812.12.02.png" alt=""><br>若id=1的记录不存在，REPLACE语句将插入新记录，否则，当前id=1的记录将被删除，然后再插入新记录。</p>
+<h2 id="插入或更新"><a href="#插入或更新" class="headerlink" title="插入或更新"></a>插入或更新</h2><p>如果我们希望插入一条新记录（INSERT），但如果记录已经存在，就更新该记录，此时，可以使用INSERT INTO … ON DUPLICATE KEY UPDATE …语句：<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-03%20%E4%B8%8B%E5%8D%8812.12.48.png" alt=""><br>若id=1的记录不存在，INSERT语句将插入新记录，否则，当前id=1的记录将被更新，更新的字段由UPDATE指定。</p>
+<h2 id="插入或忽略"><a href="#插入或忽略" class="headerlink" title="插入或忽略"></a>插入或忽略</h2><p>如果我们希望插入一条新记录（INSERT），但如果记录已经存在，就啥事也不干直接忽略，此时，可以使用INSERT IGNORE INTO …语句。<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-03%20%E4%B8%8B%E5%8D%8812.16.12.png" alt=""><br>若id=1的记录不存在，INSERT语句将插入新记录，否则，不执行任何操作。</p>
+<h2 id="快照"><a href="#快照" class="headerlink" title="快照"></a>快照</h2><p>如果想要对一个表进行快照，即复制一份当前表的数据到一个新表，可以结合CREATE TABLE和SELECT。<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-03%20%E4%B8%8B%E5%8D%8812.18.09.png" alt=""><br>新创建的表结构和SELECT使用的表结构完全一致。</p>
+<h2 id="写入查询结果集"><a href="#写入查询结果集" class="headerlink" title="写入查询结果集"></a>写入查询结果集</h2><p>如果查询结果集需要写入到表中，可以结合INSERT和SELECT，将SELECT语句的结果集直接插入到指定表中。</p>
+<p>例如，创建一个统计成绩的表statistics，记录各班的平均成绩：<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-03%20%E4%B8%8B%E5%8D%8812.22.58.png" alt=""><br>可以用一条语句写入各班的平均成绩：<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-03%20%E4%B8%8B%E5%8D%8812.23.43.png" alt=""><br>确保INSERT语句的列和SELECT语句的列能一一对应，就可以在statistics表中直接保存查询的结果：<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-03%20%E4%B8%8B%E5%8D%8812.24.08.png" alt=""></p>
+<h1 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h1><p>在执行SQL语句的时候，某些业务要求，一系列操作必须全部执行，而不能仅执行一部分。例如，一个转账操作：<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-03%20%E4%B8%8B%E5%8D%8812.25.32.png" alt=""><br>这两条SQL语句必须全部执行，或者，由于某些原因，如果第一条语句成功，第二条语句失败，就必须全部撤销。</p>
+<p>这种把多条语句作为一个整体进行操作的功能，被称为数据库<strong>事务</strong>。数据库事务可以确保该事务范围内的所有操作都可以全部成功或者全部失败。如果事务失败，那么效果就和没有执行这些SQL一样，不会对数据库数据有任何改动。</p>
+<p>数据库事务有ACID这4个特性。</p>
+<ol>
+<li>A：Atomic，原子性，将所有SQL作为原子工作单元执行，要么全部执行，要么全部不执行；</li>
+<li>C：Consistent，一致性，事务完成后，所有数据的状态都是一致的，即A账户只要减去了100，B账户则必定加上了100；</li>
+<li>I：Isolation，隔离性，如果有多个事务并发执行，每个事务作出的修改必须与其他事务隔离；</li>
+<li>D：Duration，持久性，即事务完成后，对数据库数据的修改被持久化存储。</li>
+</ol>
+<p>对于单条SQL语句，数据库系统自动将其作为一个事务执行，这种事务被称为<strong>隐式事务</strong>。</p>
+<p>要手动把多条SQL语句作为一个事务执行，使用<strong>BEGIN</strong>开启一个事务，使用<strong>COMMIT</strong>提交一个事务，这种事务被称为<strong>显式事务</strong>，例如，把上述的转账操作作为一个显式事务：<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-03%20%E4%B8%8B%E5%8D%8812.28.54.png" alt=""><br>很显然多条SQL语句要想作为一个事务执行，就必须使用显式事务。</p>
+<p><strong>COMMIT</strong>是指提交事务，即试图把事务内的所有SQL所做的修改永久保存。如果<strong>COMMIT</strong>语句执行失败了，整个事务也会失败。</p>
+<p>有些时候，我们希望主动让事务失败，这时，可以用ROLLBACK回滚事务，整个事务会失败：<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-03%20%E4%B8%8B%E5%8D%8812.31.28.png" alt=""><br>数据库事务是由数据库系统保证的，我们只需要根据业务逻辑使用它就可以。</p>
+<h2 id="隔离级别"><a href="#隔离级别" class="headerlink" title="隔离级别"></a>隔离级别</h2><p>对于两个并发执行的事务，如果涉及到操作同一条记录的时候，可能会发生问题。因为并发操作会带来数据的不一致性，包括脏读、不可重复读、幻读等。数据库系统提供了隔离级别来让我们有针对性地选择事务的隔离级别，避免数据不一致的问题。</p>
+<p>SQL标准定义了4种隔离级别，分别对应可能出现的数据不一致的情况：<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-03%20%E4%B8%8B%E5%8D%8812.34.20.png" alt=""></p>
+<h2 id="Read-Uncommitted"><a href="#Read-Uncommitted" class="headerlink" title="Read Uncommitted"></a>Read Uncommitted</h2><p>Read Uncommitted是隔离级别最低的一种事务级别。在这种隔离级别下，一个事务会读到另一个事务更新后但未提交的数据，如果另一个事务回滚，那么当前事务读到的数据就是脏数据，这就是脏读（Dirty Read）。<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-03%20%E4%B8%8B%E5%8D%8812.38.40.png" alt=""><br>事务B两次读到的数据不一致。</p>
+<h2 id="Read-Committed"><a href="#Read-Committed" class="headerlink" title="Read Committed"></a>Read Committed</h2><p>在Read Committed隔离级别下，一个事务可能会遇到不可重复读（Non Repeatable Read）的问题。</p>
+<p>不可重复读是指，在一个事务内，多次读同一数据，在这个事务还没有结束时，如果另一个事务恰好修改了这个数据，那么，在第一个事务中，两次读取的数据就可能不一致。</p>
+<p>表中数据现在为Alice。<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-03%20%E4%B8%8B%E5%8D%8812.43.13.png" alt=""></p>
+<h2 id="Repeatable-Read"><a href="#Repeatable-Read" class="headerlink" title="Repeatable Read"></a>Repeatable Read</h2><p>在Repeatable Read隔离级别下，一个事务可能会遇到幻读（Phantom Read）的问题。</p>
+<p>幻读是指，在一个事务中，第一次查询某条记录，发现没有，但是，当试图更新这条不存在的记录时，竟然能成功，并且，再次读取同一条记录，它就神奇地出现了。幻读就是没有读到的记录，以为不存在，但其实是可以更新成功的，并且，更新成功后，再次读取，就出现了。<br><img src="/img/media/%E5%BB%96%E9%9B%AA%E5%B3%B0SQL/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-03%20%E4%B8%8B%E5%8D%8812.56.48.png" alt=""><br>事务B在第3步第一次读取id=99的记录时，读到的记录为空，说明不存在id=99的记录。随后，事务A在第4步插入了一条id=99的记录并提交。事务B在第6步再次读取id=99的记录时，读到的记录仍然为空，但是，事务B在第7步试图更新这条不存在的记录时，竟然成功了，并且，事务B在第8步再次读取id=99的记录时，记录出现了。</p>
+<p>Repeatable Read下在同一个事务内的查询都是与事务开始时刻一致，所以在B事务过程中是不会读到期间A中insert的值的。</p>
+<h2 id="Serializable"><a href="#Serializable" class="headerlink" title="Serializable"></a>Serializable</h2><p>Serializable是最严格的隔离级别。在Serializable隔离级别下，所有事务按照次序依次执行，因此，脏读、不可重复读、幻读都不会出现。</p>
+<p>虽然Serializable隔离级别下的事务具有最高的安全性，但是，由于事务是串行执行，所以效率会大大下降，应用程序的性能会急剧降低。如果没有特别重要的情景，一般都不会使用Serializable隔离级别。</p>
+<h2 id="默认隔离级别"><a href="#默认隔离级别" class="headerlink" title="默认隔离级别"></a>默认隔离级别</h2><p>如果没有指定隔离级别，数据库就会使用默认的隔离级别。在MySQL中，如果使用InnoDB，默认的隔离级别是Repeatable Read。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2019/01/30/Shell Scripts/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZDK"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZDK's blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/01/30/Shell Scripts/" class="post-title-link" itemprop="url">Shell Scripts</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-30 18:06:32" itemprop="dateCreated datePublished" datetime="2019-01-30T18:06:32+08:00">2019-01-30</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-02-05 19:46:36" itemprop="dateModified" datetime="2019-02-05T19:46:36+08:00">2019-02-05</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/读书笔记/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/01/30/Shell Scripts/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/01/30/Shell Scripts/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2019/01/30/Shell Scripts/" class="post-meta-item leancloud_visitors" data-flag-title="Shell Scripts">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          <br/>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Shell-Scripts"><a href="#Shell-Scripts" class="headerlink" title="Shell Scripts"></a>Shell Scripts</h1><h2 id="什么是Shell-scripts"><a href="#什么是Shell-scripts" class="headerlink" title="什么是Shell scripts"></a>什么是Shell scripts</h2><p>shell script是利用shell的功能所写的一个程序，这个程序使用纯文本文件，将一些shell的语法与指令（含外部指令）写在里面，搭配正则表达式，管线命令与数据流重导向等功能，以达到我们所想要的处理目的。</p>
+<h3 id="干嘛学习shell-scripts"><a href="#干嘛学习shell-scripts" class="headerlink" title="干嘛学习shell scripts"></a>干嘛学习shell scripts</h3><h4 id="自动化管理的重要依据"><a href="#自动化管理的重要依据" class="headerlink" title="自动化管理的重要依据"></a>自动化管理的重要依据</h4><h4 id="追踪与管理系统的重要工作"><a href="#追踪与管理系统的重要工作" class="headerlink" title="追踪与管理系统的重要工作"></a>追踪与管理系统的重要工作</h4><p>系统服务启动接口所在的目录下所有文件都是scripts，包括开机（booting）过程也都是利用shell script来帮忙搜寻系统的相关设置数据，然后再代入各个服务的设置参数。</p>
+<h4 id="简单入侵侦测功能"><a href="#简单入侵侦测功能" class="headerlink" title="简单入侵侦测功能"></a>简单入侵侦测功能</h4><h4 id="连续指令单一化"><a href="#连续指令单一化" class="headerlink" title="连续指令单一化"></a>连续指令单一化</h4><h4 id="简易的数据处理"><a href="#简易的数据处理" class="headerlink" title="简易的数据处理"></a>简易的数据处理</h4><h4 id="跨平台支持与学习历程较短"><a href="#跨平台支持与学习历程较短" class="headerlink" title="跨平台支持与学习历程较短"></a>跨平台支持与学习历程较短</h4><h3 id="第一支script的撰写与执行"><a href="#第一支script的撰写与执行" class="headerlink" title="第一支script的撰写与执行"></a>第一支script的撰写与执行</h3><p>shell script其实就是纯文本文件，可以编辑这个文件，然后让这个文件一次执行多个指令。</p>
+<ol>
+<li>指令的执行是从上而下、从左而右的分析与执行。</li>
+<li>指令、选项与参数间的多个空白都会被忽略掉。</li>
+<li>空白行也将被忽略掉，并且[tab]按键所推开的空白同样视为空白键。</li>
+<li>如果读取到一个Enter符号 (CR) ，就尝试开始执行该行 (或该串) 命令。</li>
+<li>至于如果一行的内容太多，则可以使用“ [Enter]”来延伸至下一行。</li>
+<li>#可做为注解!任何加在 #后面的数据将全部被视为注解文字而被忽略!</li>
+</ol>
+<p>假设编写好的文件名为shell.sh。执行方法有。</p>
+<ol>
+<li>直接指令下达：shell.sh文件必须具备可读与可执行（rx）的权限。无论如何到达shell.sh的目录，然后直接输入shell.sh就能执行。</li>
+<li>以bash程序来执行，通过bash shell.sh或sh shell.sh来执行。</li>
+</ol>
+<h4 id="撰写第一支script"><a href="#撰写第一支script" class="headerlink" title="撰写第一支script"></a>撰写第一支script</h4><p><img src="/img/media/Shell%20Scripts/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-30%20%E4%B8%8B%E5%8D%884.17.29.png" alt=""></p>
+<ol>
+<li>第一行# ! / bin / bash在宣告这个script使用的shell名称:因为我们使用的是bash，所以，必须要以“ # ! / bin / bash”来宣告这个文件内的语法使用bash的语法!那么当这个程序被执行时，他就能够载入bash的相关环境配置文件(一般来说就是non-login shell的~/.bashrc)，并且执行bash来使我们下面的指令能够执行!这很重要的! (在很多状况中，如果没有设置好这一行，那么该程序很可能会无法执行，因为系统可能无法判断该程序需要使用什么shell 来执行啊! )</li>
+<li>程序内容的说明: 整个script当中，除了第一行的“ # !”是用来宣告shell的之外，其他的 # 都是“注解”用途! 所以上面的程序当中，第二行以下就是用来说明整个程序的基本数据。一般来说，建议你一定要养成说明该script的:1.内容与功能;2.版本信息; 3.作者与联络方式;4.创建日期;5.历史纪录等等。这将有助于未来程序的改写与debug。</li>
+<li>执行成果告知(定义回传值)，可以利用exit这个指令来让程序中断，并且回传一个数值给系统。利用exit n（n是数字）的功能，可以自订错误讯息，让程序变得更加smart。</li>
+</ol>
+<h3 id="撰写shell-script的良好习惯创建"><a href="#撰写shell-script的良好习惯创建" class="headerlink" title="撰写shell script的良好习惯创建"></a>撰写shell script的良好习惯创建</h3><p>在每个script的文件开始处记录好：</p>
+<ol>
+<li>script的功能</li>
+<li>script的版本信息</li>
+<li>script的作者与联络方式</li>
+<li>script的版权宣告方式</li>
+<li>script的历史记录</li>
+<li>script内教特殊的指令，使用绝对路径的方式来下达</li>
+<li>script运行时需要的环境变量预先宣告与设置</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2019/01/28/认识与学习BASH/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZDK"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZDK's blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/01/28/认识与学习BASH/" class="post-title-link" itemprop="url">认识与学习BASH</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-28 20:55:32 / 修改时间：21:04:20" itemprop="dateCreated datePublished" datetime="2019-01-28T20:55:32+08:00">2019-01-28</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/读书笔记/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/01/28/认识与学习BASH/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/01/28/认识与学习BASH/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2019/01/28/认识与学习BASH/" class="post-meta-item leancloud_visitors" data-flag-title="认识与学习BASH">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          <br/>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="认识与学习BASH"><a href="#认识与学习BASH" class="headerlink" title="认识与学习BASH"></a>认识与学习BASH</h1><h2 id="认识BASH这个Shell"><a href="#认识BASH这个Shell" class="headerlink" title="认识BASH这个Shell"></a>认识BASH这个Shell</h2><h3 id="硬件，核心与Shell"><a href="#硬件，核心与Shell" class="headerlink" title="硬件，核心与Shell"></a>硬件，核心与Shell</h3><p>必须通过shell将我们输入指令与内核沟通，好让内核可以控制硬件来正确无误的工作。操作系统其实是一组软件，这组软件在控制整个硬件与管理系统的活动监测，操作系统管理的就是整个硬件功能。使用者通过应用程序来指挥内核让内核达成我们所需要的硬件任务。壳程序的功能知识提供使用者操作系统的一个接口，因此需要可以调用其他软件，就是很多其他的指令，我们可以通过壳程序（就是命令行界面）来操作这些应用程序，让这些应用程序调用核心来运行所需的工作。只要能够操作应用程序的接口都能称为壳程序，狭义的壳程序指的是命令行包括bash，广义的壳程序包括图形接口软件。</p>
+<h3 id="为何要学命令行shell"><a href="#为何要学命令行shell" class="headerlink" title="为何要学命令行shell"></a>为何要学命令行shell</h3><h4 id="命令行shell：大家都一样"><a href="#命令行shell：大家都一样" class="headerlink" title="命令行shell：大家都一样"></a>命令行shell：大家都一样</h4><p>几乎各家distribution使用的bash都是一样的。</p>
+<h4 id="远端管理：命令行就是比较快"><a href="#远端管理：命令行就是比较快" class="headerlink" title="远端管理：命令行就是比较快"></a>远端管理：命令行就是比较快</h4><p>Linux的管理常常需要通过远端连线，而连线时命令行的传速度一定比较快，而且不容易出现断线或者是信息外流的问题。</p>
+<h4 id="Linux的任督二脉：shell"><a href="#Linux的任督二脉：shell" class="headerlink" title="Linux的任督二脉：shell"></a>Linux的任督二脉：shell</h4><h3 id="系统的合法shell与-etc-shells功能"><a href="#系统的合法shell与-etc-shells功能" class="headerlink" title="系统的合法shell与/etc/shells功能"></a>系统的合法shell与/etc/shells功能</h3><p>shell有众多版本，Linux的叫bash，也是基于GNU架构下发展出来的。shell还包括sh，csh。在/ etc / shells这个文件中至少就有几个可以用的shells。<br><img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-27%20%E4%B8%8B%E5%8D%889.36.47.png" alt=""><br>我们系统合法的shell要写入/ etc / shells这个文件，系统某些服务在运行过程中，会去检查使用者能够使用的shells，检查的文件就是 / etc / shells这个文件。</p>
+<h3 id="Bash-shell的功能"><a href="#Bash-shell的功能" class="headerlink" title="Bash shell的功能"></a>Bash shell的功能</h3><p>bash是Linux distributions的标准shell。bash主要相容于sh。bash的主要优点：</p>
+<h4 id="命令编修能力（history）"><a href="#命令编修能力（history）" class="headerlink" title="命令编修能力（history）"></a>命令编修能力（history）</h4><p>bash可以使用上下键找到前后一个输入的指令，在很多distribution中，默认的指令记忆功能可以达到1000个，指令记录放在主文件夹内的.bash_history中，不过~/ .bash_history记录的是前一次登录以前所执行的指令，这一次登录的指令都被暂存在内存中，当成功登出系统后，指令记忆才会记录到.bash_history中。</p>
+<h4 id="命令与文件补全功能（【tab】键的好处）"><a href="#命令与文件补全功能（【tab】键的好处）" class="headerlink" title="命令与文件补全功能（【tab】键的好处）"></a>命令与文件补全功能（【tab】键的好处）</h4><h4 id="命令别名设置功能：（alias）"><a href="#命令别名设置功能：（alias）" class="headerlink" title="命令别名设置功能：（alias）"></a>命令别名设置功能：（alias）</h4><p>在命令行输入alias就可以知道目前的命令别名有哪些了。<br><img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%888.52.23.png" alt=""><br>就可以用alias来替代ls -al命令了。</p>
+<h4 id="工作控制，前景背景控制（job-control-foreground-background）"><a href="#工作控制，前景背景控制（job-control-foreground-background）" class="headerlink" title="工作控制，前景背景控制（job control,foreground,background）"></a>工作控制，前景背景控制（job control,foreground,background）</h4><h4 id="程序化脚本（shell-scripts）"><a href="#程序化脚本（shell-scripts）" class="headerlink" title="程序化脚本（shell scripts）"></a>程序化脚本（shell scripts）</h4><p>将管理系统需要下达的连续指令写成一个文件，该文件可以通过对谈互动式的方式来进行主机的侦测工作，也可以借由shell提供的环境变量及相关指令来进行设计。</p>
+<h4 id="万用字符（wildcard）"><a href="#万用字符（wildcard）" class="headerlink" title="万用字符（wildcard）"></a>万用字符（wildcard）</h4><p>bash还支持许多的万用字符来帮助使用者查询与指令下达，比如想知道有多少以X为开头的文件，就可使用 X * 来查看。</p>
+<h3 id="查询指令是否是Bash-shell的内置命令：type"><a href="#查询指令是否是Bash-shell的内置命令：type" class="headerlink" title="查询指令是否是Bash shell的内置命令：type"></a>查询指令是否是Bash shell的内置命令：type</h3><p>通过type指令来知道指令是来自于外部指令（其他非bash所提供的指令）或是内置在bash当中的指令。<br><img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%889.14.46.png" alt=""></p>
+<h3 id="指令的下达与快速编辑按钮"><a href="#指令的下达与快速编辑按钮" class="headerlink" title="指令的下达与快速编辑按钮"></a>指令的下达与快速编辑按钮</h3><p>使用反斜杠加回车键，可以进行多行的输入。</p>
+<h2 id="Shell的变量功能"><a href="#Shell的变量功能" class="headerlink" title="Shell的变量功能"></a>Shell的变量功能</h2><h3 id="什么是变量"><a href="#什么是变量" class="headerlink" title="什么是变量"></a>什么是变量</h3><h4 id="变量的可变性与方便性"><a href="#变量的可变性与方便性" class="headerlink" title="变量的可变性与方便性"></a>变量的可变性与方便性</h4><p><img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%889.43.02.png" alt=""><br>小写的mail是指令，大写的MAIL是变量名称。</p>
+<h4 id="影响bash环境操作的变量"><a href="#影响bash环境操作的变量" class="headerlink" title="影响bash环境操作的变量"></a>影响bash环境操作的变量</h4><p>系统通过PATH这个变量里面的内容记录的路径顺序来搜寻指令。环境变量如PATH，HOME，MAIL，SHELL等等，都是很重要的，为了区别与自订变量的不同，环境变量通常以大写字符表示。</p>
+<h4 id="脚本程序设计（shell-script）的好帮手"><a href="#脚本程序设计（shell-script）的好帮手" class="headerlink" title="脚本程序设计（shell script）的好帮手"></a>脚本程序设计（shell script）的好帮手</h4><p><img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%889.49.21.png" alt=""></p>
+<h3 id="变量的取用与设置：echo，变量设置规则，unset"><a href="#变量的取用与设置：echo，变量设置规则，unset" class="headerlink" title="变量的取用与设置：echo，变量设置规则，unset"></a>变量的取用与设置：echo，变量设置规则，unset</h3><h4 id="变量的取用：echo"><a href="#变量的取用：echo" class="headerlink" title="变量的取用：echo"></a>变量的取用：echo</h4><p>变量前面要加上$符号才行。<br><img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%889.59.21.png" alt=""><br>设置和修改变量内容，用等号连接变量与他的内容就好了。<br><img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%8810.02.06.png" alt=""><br>当一个变量名称尚未被设置时，默认的内容是空，变量在设置时也要符合一些规则，否则设置失败。<br><img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%8810.09.13.png" alt=""><br><img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%8810.11.34.png" alt=""><br>子程序就是在目前这个shell的情况下，去启用另一个新的shell，新的shell就是子程序，在一般状态下，父程序的自订变量是无法在子程序中使用的，但是通过export将变量变成环境变量后，就能够在子程序下面应用了。</p>
+<h3 id="环境变量的功能"><a href="#环境变量的功能" class="headerlink" title="环境变量的功能"></a>环境变量的功能</h3><h4 id="用env观察环境变量与常见环境变量说明"><a href="#用env观察环境变量与常见环境变量说明" class="headerlink" title="用env观察环境变量与常见环境变量说明"></a>用env观察环境变量与常见环境变量说明</h4><p><img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%8810.46.33.png" alt=""><br>MAIL当我们使用mail这个指令收信时，系统会去读取的邮件信箱文件（mailbox）。</p>
+<h4 id="用set观察所有变量（含环境变量与自订变量）"><a href="#用set观察所有变量（含环境变量与自订变量）" class="headerlink" title="用set观察所有变量（含环境变量与自订变量）"></a>用set观察所有变量（含环境变量与自订变量）</h4><p><img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%8810.51.50.png" alt=""></p>
+<h3 id="影响显示结果的语系变量（locale）"><a href="#影响显示结果的语系变量（locale）" class="headerlink" title="影响显示结果的语系变量（locale）"></a>影响显示结果的语系变量（locale）</h3><p>利用locale指令查询Linux支持了多少语系。<br><img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%8811.15.04.png" alt=""><br><img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%8811.15.29.png" alt=""></p>
+<h3 id="变量键盘读取，数组与声明：read，array，declare"><a href="#变量键盘读取，数组与声明：read，array，declare" class="headerlink" title="变量键盘读取，数组与声明：read，array，declare"></a>变量键盘读取，数组与声明：read，array，declare</h3><h4 id="read"><a href="#read" class="headerlink" title="read"></a>read</h4><p>要读取来自键盘输入的变量，就是用read这个指令。<br><img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%8811.23.09.png" alt=""></p>
+<h4 id="declare，typeset"><a href="#declare，typeset" class="headerlink" title="declare，typeset"></a>declare，typeset</h4><p>declare与typeset是一样都是声明变量的类型。<br><img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%8811.24.50.png" alt=""><br>变量的默认类型是字符串，所以若是不指定变量类型，则1+2为一个字符串而不是计算式，bash环境中的数值计算默认最多能达到整数形态，所以1 / 3结果是0。<br><img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%8811.29.49.png" alt=""></p>
+<h4 id="array变量类型"><a href="#array变量类型" class="headerlink" title="array变量类型"></a>array变量类型</h4><p><img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%8811.31.10.png" alt=""></p>
+<p><img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%8811.30.57.png" alt=""><br><img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%8811.31.39.png" alt=""></p>
+<h3 id="与文件系统及程序的限制关系：ulimit"><a href="#与文件系统及程序的限制关系：ulimit" class="headerlink" title="与文件系统及程序的限制关系：ulimit"></a>与文件系统及程序的限制关系：ulimit</h3><p>由于Linux主机是多用户多任务操作系统，防止资源超过限制，bash可以限制使用者的某些系统资源，包括可以打开的文件数量，可以使用的CPU时间，可以使用的内存总量。用ulimit来实现。<br><img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%8811.34.41.png" alt=""><br>一般身份使用者如果以ulimit设置了-f的文件大小，那么只能继续减小文件的大小，不能增加文件的大小。</p>
+<h3 id="变量内容的删除，取代与替换（optional）"><a href="#变量内容的删除，取代与替换（optional）" class="headerlink" title="变量内容的删除，取代与替换（optional）"></a>变量内容的删除，取代与替换（optional）</h3><h4 id="变量内容的删除与取代"><a href="#变量内容的删除与取代" class="headerlink" title="变量内容的删除与取代"></a>变量内容的删除与取代</h4><p><img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8A%E5%8D%8811.59.58.png" alt=""><br><img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%8812.03.26.png" alt=""></p>
+<h4 id="变量的测试与内容替换"><a href="#变量的测试与内容替换" class="headerlink" title="变量的测试与内容替换"></a>变量的测试与内容替换</h4><p><img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%8812.06.33.png" alt=""></p>
+<h2 id="命令别名与历史命令"><a href="#命令别名与历史命令" class="headerlink" title="命令别名与历史命令"></a>命令别名与历史命令</h2><h3 id="命令别名设置：alias，unalias"><a href="#命令别名设置：alias，unalias" class="headerlink" title="命令别名设置：alias，unalias"></a>命令别名设置：alias，unalias</h3><p><img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%884.22.35.png" alt=""></p>
+<h3 id="历史命令：history"><a href="#历史命令：history" class="headerlink" title="历史命令：history"></a>历史命令：history</h3><p><img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%884.24.13.png" alt=""><br>当以bash登陆Linux主机之后，系统会主动由主文件夹的~ / .bash_history读取以前曾经下过的指令，记录的条数与bash的HISTFILESIZE这个变量设置值有关。<br><img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%884.35.22.png" alt=""></p>
+<h2 id="Bash-Shell的操作环境"><a href="#Bash-Shell的操作环境" class="headerlink" title="Bash Shell的操作环境"></a>Bash Shell的操作环境</h2><h3 id="路径与指令搜寻顺序"><a href="#路径与指令搜寻顺序" class="headerlink" title="路径与指令搜寻顺序"></a>路径与指令搜寻顺序</h3><p>指令运行的顺序：</p>
+<ol>
+<li>以相对/ 绝对路径执行指令，例如/ bin / ls 或 . / ls。</li>
+<li>由alias找到该指令来执行。</li>
+<li>由bash内置的（builtin）指令来执行。</li>
+<li>通过$PATH这个变量的顺序搜寻到的第一个指令来执行。</li>
+</ol>
+<h3 id="bash的进站与欢迎讯息：-etc-issue-etc-motd"><a href="#bash的进站与欢迎讯息：-etc-issue-etc-motd" class="headerlink" title="bash的进站与欢迎讯息：/ etc / issue,/ etc / motd"></a>bash的进站与欢迎讯息：/ etc / issue,/ etc / motd</h3><p>登陆时的提示字串。<br><img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%884.46.01.png" alt=""></p>
+<p>登陆后取得一些讯息，可以将讯息加入到/ etc / motd中，一定要root的身份才能修改。<br><img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%884.48.58.png" alt=""></p>
+<h3 id="bash的环境配置文件"><a href="#bash的环境配置文件" class="headerlink" title="bash的环境配置文件"></a>bash的环境配置文件</h3><h4 id="login与non-login-shell"><a href="#login与non-login-shell" class="headerlink" title="login与non-login shell"></a>login与non-login shell</h4><p>区别在于取得bash用不用登陆（login）。这两个取得bash的情况中，读取的配置文件数据并不一致。<br>login shell会读取下列文件：</p>
+<ol>
+<li>/ etc / profile:这是系统整体的设置，最好不要修改这个文件。</li>
+<li>~ / .bash_profile 或 ~ / .bash_login 或 ~ / .profile :属于使用者个人设置，要改自己的数据，就写入这里。</li>
+</ol>
+<p>non-login shell仅会读取：~ / .bashrc 而已。</p>
+<h3 id="终端机的环境设置：stty，set"><a href="#终端机的环境设置：stty，set" class="headerlink" title="终端机的环境设置：stty，set"></a>终端机的环境设置：stty，set</h3><p><img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%885.26.55.png" alt=""><br>bash默认组合键。<br><img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%885.27.38.png" alt=""></p>
+<h3 id="万用字符与特殊符号"><a href="#万用字符与特殊符号" class="headerlink" title="万用字符与特殊符号"></a>万用字符与特殊符号</h3><p>万用字符：<br><img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%885.28.58.png" alt=""></p>
+<p>特殊符号：<br><img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%885.31.20.png" alt=""></p>
+<h2 id="数据流重导向"><a href="#数据流重导向" class="headerlink" title="数据流重导向"></a>数据流重导向</h2><p>数据流重导向就是将某个指令执行后应该要出现在屏幕上的数据，给它传输到其他的地方，例如文件或者是设备，在Linux文字模式下很重要，尤其是如果想要将某些数据存储下来。</p>
+<h3 id="什么是数据流重导向"><a href="#什么是数据流重导向" class="headerlink" title="什么是数据流重导向"></a>什么是数据流重导向</h3><p><img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%885.46.36.png" alt=""></p>
+<h3 id="命令执行的判断依据：；，-amp-amp-，‖"><a href="#命令执行的判断依据：；，-amp-amp-，‖" class="headerlink" title="命令执行的判断依据：；，&amp;&amp;，‖"></a>命令执行的判断依据：；，&amp;&amp;，‖</h3><h2 id="管线命令（pipe）"><a href="#管线命令（pipe）" class="headerlink" title="管线命令（pipe）"></a>管线命令（pipe）</h2><p>管线命令使用的是“|”界定符号，管线命令与连续下达命令式不一样的。管线命令“|”仅能处理经由前面一个指令传来的正确信息，也就是standard output信息，对于stdandard error并没有直接处理的能力。<br><img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%888.06.01.png" alt=""></p>
+<ol>
+<li>管线命令仅会处理standard output，对于standard error output会予以忽略</li>
+<li>管线命令必须能够接受来自前一个指令的数据成为standard input继续处理才行。</li>
+</ol>
+<h3 id="选取命令：cut，grep"><a href="#选取命令：cut，grep" class="headerlink" title="选取命令：cut，grep"></a>选取命令：cut，grep</h3><h4 id="cut"><a href="#cut" class="headerlink" title="cut"></a>cut</h4><p><img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%888.11.46.png" alt=""><br>cut主要用途是在于将同一行里面的数据进行分解。</p>
+<h4 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h4><p>grep是分析一行讯息，若当中有我们所需要的信息，就将该行拿出来。<br><img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%888.17.03.png" alt=""></p>
+<h3 id="排序命令：sort，wc，uniq"><a href="#排序命令：sort，wc，uniq" class="headerlink" title="排序命令：sort，wc，uniq"></a>排序命令：sort，wc，uniq</h3><h4 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h4><p><img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%888.18.38.png" alt=""></p>
+<h4 id="uniq"><a href="#uniq" class="headerlink" title="uniq"></a>uniq</h4><p>想要将重复的数据仅列出一个显示。<br><img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%888.21.09.png" alt=""></p>
+<h4 id="wc"><a href="#wc" class="headerlink" title="wc"></a>wc</h4><p>wc指令可以帮我们计算输出讯息的整体数据。<br><img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%888.22.56.png" alt=""></p>
+<h3 id="双向重导向：tee"><a href="#双向重导向：tee" class="headerlink" title="双向重导向：tee"></a>双向重导向：tee</h3><h3 id="字符转换命令：tr，col，join，paste，expand"><a href="#字符转换命令：tr，col，join，paste，expand" class="headerlink" title="字符转换命令：tr，col，join，paste，expand"></a>字符转换命令：tr，col，join，paste，expand</h3><h4 id="tr"><a href="#tr" class="headerlink" title="tr"></a>tr</h4><p>tr可以用来删除一段讯息中文字，或者是进行文字讯息的替换。<br><img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%888.36.44.png" alt=""></p>
+<h4 id="col"><a href="#col" class="headerlink" title="col"></a>col</h4><p><img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%888.37.38.png" alt=""><br>col键可以用来简单的处理将tab按键取代为空格键。</p>
+<h4 id="join"><a href="#join" class="headerlink" title="join"></a>join</h4><p><img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%888.42.06.png" alt=""></p>
+<h4 id="paste"><a href="#paste" class="headerlink" title="paste"></a>paste</h4><p>相对于join要对比两个文件的数据相关性，paste就是直接将两行粘在一起，中间以tab隔开。<br><img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%888.45.25.png" alt=""></p>
+<h4 id="expand"><a href="#expand" class="headerlink" title="expand"></a>expand</h4><h3 id="分区命令：split"><a href="#分区命令：split" class="headerlink" title="分区命令：split"></a>分区命令：split</h3><p>如果有文件太大，找split就对了，可以将一个大文件依据文件大小或行数来分区，就可以将大文件分区为小文件了。<br><img src="/img/media/%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0BASH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%888.47.51.png" alt=""></p>
+<h3 id="参数代换：xargs"><a href="#参数代换：xargs" class="headerlink" title="参数代换：xargs"></a>参数代换：xargs</h3><h3 id="关于减号-的用途"><a href="#关于减号-的用途" class="headerlink" title="关于减号-的用途"></a>关于减号-的用途</h3>
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2019/01/27/vim程序编辑器/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZDK"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZDK's blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/01/27/vim程序编辑器/" class="post-title-link" itemprop="url">Vim</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-27 10:19:32 / 修改时间：10:20:46" itemprop="dateCreated datePublished" datetime="2019-01-27T10:19:32+08:00">2019-01-27</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/读书笔记/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/01/27/vim程序编辑器/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/01/27/vim程序编辑器/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2019/01/27/vim程序编辑器/" class="post-meta-item leancloud_visitors" data-flag-title="Vim">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          <br/>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="vim程序编辑器"><a href="#vim程序编辑器" class="headerlink" title="vim程序编辑器"></a>vim程序编辑器</h1><p>在所有的Linux distributions上都会有一套文书编辑器，即vi，vim是进阶版的vi，vim可以用不同颜色显示文字内容，还可以进行shell script，C program等程序编辑功能，可以将vim视为一种程序编辑器。</p>
+<h2 id="vi与vim"><a href="#vi与vim" class="headerlink" title="vi与vim"></a>vi与vim</h2><p>在Linux的世界中，绝大部分的配置文件都是以ASCII的纯文本形态存在的，因此利用简单的文字编辑软件就能够修改设置了。</p>
+<h3 id="为何要学vim"><a href="#为何要学vim" class="headerlink" title="为何要学vim"></a>为何要学vim</h3><ol>
+<li>所有的Unⅸ Like系统都会内置ⅵ文书编辑器，其他的文书编辑器则不一定会存在。</li>
+<li>很多个别软件的编辑借口都会主动调用vi</li>
+<li>vim具有程序编辑的能力，可以主动的以字体颜色辨别语法的正确性，方便程序设计。</li>
+<li>因为程序简单，编辑速度相当快速。</li>
+</ol>
+<p>重点是第二点，因为有太多的Linux上面的指令都默认使用vi作为数据编辑的接口，所以必须一定要学会vi，否则很多指令根本无法操作。</p>
+<p>简单来说vi是老式的文本处理器，不过功能已经很齐全了，但是还是有可以进步的地方，vim则可以说是程序开发者的一项很好用的工具。</p>
+<h2 id="vi的使用"><a href="#vi的使用" class="headerlink" title="vi的使用"></a>vi的使用</h2><h3 id="一般指令模式（command-mode）"><a href="#一般指令模式（command-mode）" class="headerlink" title="一般指令模式（command mode）"></a>一般指令模式（command mode）</h3><p>以ⅵ打开一个文件就直接进入一般指令模式了(这是默认的模式，也简称为一般模式)。在这个模式中，可以使用“上下左右”按键来移动光标，可以使用“删除字符”或”删除整列”来处理文件内容,也可以使用“复制,粘贴”来处理你的文件数据。</p>
+<h3 id="编辑模式（insert-mode）"><a href="#编辑模式（insert-mode）" class="headerlink" title="编辑模式（insert mode）"></a>编辑模式（insert mode）</h3><p>在一般指令模式中可以进行删除丶复制丶贴上等等的动作’但是却无法编辑文件内容的!要等到你按下i,l,o,O,a,A,r,R等任何一个字母之后才会进入编辑模式。注意了!通常在Linux中按下这些按键时,在画面的左下方会出现” INSERT或REPLACE”的字样,此时才可以进行编辑。而如釆要回到一般指令模式时，则必须要按下”Esc”这个按键即可退岀编辑模式。</p>
+<h3 id="命令行命令模式（command-line-mode）"><a href="#命令行命令模式（command-line-mode）" class="headerlink" title="命令行命令模式（command-line mode）"></a>命令行命令模式（command-line mode）</h3><p>在一般模式中，输入：/?三个中的任何一个按钮，就可以将光标移动到最下面的那一列。在这个模式中可以提供你搜寻数据的动作，而读取、存盘、大量取代字符、离开vi、显示行号等等则是在此模式中达成的。<br><img src="/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-26%20%E4%B8%8A%E5%8D%8811.19.54.png" alt=""></p>
+<h3 id="简易执行范例"><a href="#简易执行范例" class="headerlink" title="简易执行范例"></a>简易执行范例</h3><h4 id="使用vi-filename进入一般指令模式"><a href="#使用vi-filename进入一般指令模式" class="headerlink" title="使用vi filename进入一般指令模式"></a>使用vi filename进入一般指令模式</h4><h4 id="按下i进入编辑模式，开始编辑文字"><a href="#按下i进入编辑模式，开始编辑文字" class="headerlink" title="按下i进入编辑模式，开始编辑文字"></a>按下i进入编辑模式，开始编辑文字</h4><h4 id="按下esc按钮回到一般指令模式"><a href="#按下esc按钮回到一般指令模式" class="headerlink" title="按下esc按钮回到一般指令模式"></a>按下esc按钮回到一般指令模式</h4><h4 id="进入命令行界面，文件存储并离开vi环境"><a href="#进入命令行界面，文件存储并离开vi环境" class="headerlink" title="进入命令行界面，文件存储并离开vi环境"></a>进入命令行界面，文件存储并离开vi环境</h4><p>存盘（write）并离开（quit）的指令很简单，输入<strong>：wq</strong>（冒号要输入）即可存盘离开。（注意，按下后该光标就会移动到最后面一列）。如果文件权限不对，可能无法写入，此时可以使用强制写入，使用<strong>：wq！</strong>（冒号要输入）多加一个惊叹号。</p>
+<h3 id="按键说明"><a href="#按键说明" class="headerlink" title="按键说明"></a>按键说明</h3><p>编辑模式与命令行界面之间并不能切换。</p>
+<h4 id="一般指令模式可用的按钮说明，光标移动，复制贴上，搜寻取代"><a href="#一般指令模式可用的按钮说明，光标移动，复制贴上，搜寻取代" class="headerlink" title="一般指令模式可用的按钮说明，光标移动，复制贴上，搜寻取代"></a>一般指令模式可用的按钮说明，光标移动，复制贴上，搜寻取代</h4><p><img src="/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-26%20%E4%B8%8A%E5%8D%8811.56.38.png" alt=""><br><img src="/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-26%20%E4%B8%8A%E5%8D%8811.57.59.png" alt=""><br><img src="/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-26%20%E4%B8%8A%E5%8D%8811.58.26.png" alt=""></p>
+<h4 id="一般指令模式切换到编辑模式的可用的按钮说明"><a href="#一般指令模式切换到编辑模式的可用的按钮说明" class="headerlink" title="一般指令模式切换到编辑模式的可用的按钮说明"></a>一般指令模式切换到编辑模式的可用的按钮说明</h4><p><img src="/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-26%20%E4%B8%8B%E5%8D%8812.02.51.png" alt=""></p>
+<h4 id="一般指令切换到命令行界面可用按钮说明"><a href="#一般指令切换到命令行界面可用按钮说明" class="headerlink" title="一般指令切换到命令行界面可用按钮说明"></a>一般指令切换到命令行界面可用按钮说明</h4><p><img src="/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-26%20%E4%B8%8B%E5%8D%8812.04.19.png" alt=""></p>
+<h3 id="vim的暂存盘，救援恢复与打开时的警告讯息"><a href="#vim的暂存盘，救援恢复与打开时的警告讯息" class="headerlink" title="vim的暂存盘，救援恢复与打开时的警告讯息"></a>vim的暂存盘，救援恢复与打开时的警告讯息</h3><p>vim是通过暂存盘来进行救援恢复的。当使用vim编辑时，vim会在同一目录下再创建一个名为.filename.swap的文件。对文件做的动作会被记录到swp当中，如果系统由于某些原因断掉，编辑的文件还没有储存，swp就能发挥救援作用。</p>
+<h2 id="vim的额外功能"><a href="#vim的额外功能" class="headerlink" title="vim的额外功能"></a>vim的额外功能</h2><p>目前大部分的distribution都以vim取代vi了。vim还可以直接进行debug。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">debug和release的区别</span><br><span class="line">Debug：调试版本，包含调试信息，所以容量比Release大很多，并且不进行任何优化（优化会使调试复杂化，因为源代码和生成的指令间关系会更复杂），便于程序员调试。</span><br><span class="line">Release：发布版本，不对源代码进行调试，编译时对应用程序的速度进行优化，使得程序在代码大小和运行速度上都是最优的。</span><br></pre></td></tr></table></figure></p>
+<h3 id="区块选择（Visual-Block）"><a href="#区块选择（Visual-Block）" class="headerlink" title="区块选择（Visual Block）"></a>区块选择（Visual Block）</h3><p><img src="/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-27%20%E4%B8%8A%E5%8D%888.03.09.png" alt=""></p>
+<h3 id="多文件编辑"><a href="#多文件编辑" class="headerlink" title="多文件编辑"></a>多文件编辑</h3><p>可以使用vim后面同时接好几个文件同时打开。<br><img src="/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-27%20%E4%B8%8A%E5%8D%888.04.47.png" alt=""><br>利用多文件编辑的功能’可以让你很快速的就将需要的数据复制到正确的文件内。当然这个功能也可以利用窗口接口来达到，那就是多窗口功能。</p>
+<h3 id="多窗口功能"><a href="#多窗口功能" class="headerlink" title="多窗口功能"></a>多窗口功能</h3><p>vim也可以实现分区窗口的功能。在命令行界面输入<strong>:sp {filename}</strong>即可，filename可有可无，如果想要在新窗口启动另一个文件，就加入文件名，否则仅输入<strong>:sp</strong>，出现的是同一个文件在两个窗口间。<br><img src="/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-27%20%E4%B8%8A%E5%8D%888.25.48.png" alt=""></p>
+<h3 id="vim的补全功能"><a href="#vim的补全功能" class="headerlink" title="vim的补全功能"></a>vim的补全功能</h3><p>程序编辑器都可以进行语法检验以及根据输入来挑字进行补全。<br><img src="/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-27%20%E4%B8%8A%E5%8D%888.29.26.png" alt=""><br>先输入前者再输入后者。</p>
+<h3 id="vim环境设置与记录：-vimrc，-viminfo"><a href="#vim环境设置与记录：-vimrc，-viminfo" class="headerlink" title="vim环境设置与记录： ~/.vimrc，~/.viminfo"></a>vim环境设置与记录： ~/.vimrc，~/.viminfo</h3><p>以vim软件来搜寻一个文件内部的字串时，字串会被反白。再次vim编辑这个文件时，泛白的情况还是存在的。当重复编辑同一个文件第二次进入该文件时，光标还在上次离开的那一列上头。这是因为vim会主动的将做过的行为记录下来，记录的文件就是：~/.viminfo，该文件是自动生成的，不必自行创建，在vim里所做过的动作都可以在这个文件内部查询到。vim的环境参数有很多，如果想要知道目前的设置值，可以在一般指令模式时输入<strong>：set all</strong>来查阅。<br><img src="/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-27%20%E4%B8%8A%E5%8D%889.02.27.png" alt=""><br>每次使用vim都要重新设置一次各个参数值貌似不太合理，所以可以通过配置文件直接规定习惯的vim操作环境。整体的vim设置一般放在/ etc / vimrc 这个文件，不过不建议修改，可以修改 ~ / .vimrc这个文件（默认不存在，要手动创建）。<br><img src="/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-27%20%E4%B8%8A%E5%8D%889.06.13.png" alt=""></p>
+<h3 id="vim常用指令示意图"><a href="#vim常用指令示意图" class="headerlink" title="vim常用指令示意图"></a>vim常用指令示意图</h3><p><img src="/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-27%20%E4%B8%8A%E5%8D%889.07.15.png" alt=""></p>
+<h2 id="vim使用注意事项"><a href="#vim使用注意事项" class="headerlink" title="vim使用注意事项"></a>vim使用注意事项</h2><h3 id="中文编码问题"><a href="#中文编码问题" class="headerlink" title="中文编码问题"></a>中文编码问题</h3><h3 id="DOS与Linux的断行字符"><a href="#DOS与Linux的断行字符" class="headerlink" title="DOS与Linux的断行字符"></a>DOS与Linux的断行字符</h3><h3 id="语系编码转换"><a href="#语系编码转换" class="headerlink" title="语系编码转换"></a>语系编码转换</h3>
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2019/01/25/鸟哥Linux Linux文件、目录与磁盘格式/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZDK"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZDK's blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/01/25/鸟哥Linux Linux文件、目录与磁盘格式/" class="post-title-link" itemprop="url">鸟哥Linux Linux文件、目录与磁盘格式</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-25 16:27:32 / 修改时间：16:31:12" itemprop="dateCreated datePublished" datetime="2019-01-25T16:27:32+08:00">2019-01-25</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/读书笔记/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/01/25/鸟哥Linux Linux文件、目录与磁盘格式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/01/25/鸟哥Linux Linux文件、目录与磁盘格式/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2019/01/25/鸟哥Linux Linux文件、目录与磁盘格式/" class="post-meta-item leancloud_visitors" data-flag-title="鸟哥Linux Linux文件、目录与磁盘格式">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          <br/>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="第五章-Linux文件权限与目录配置"><a href="#第五章-Linux文件权限与目录配置" class="headerlink" title="第五章 Linux文件权限与目录配置"></a>第五章 Linux文件权限与目录配置</h1><p>Linux最优秀的地方之一就在于他的多用户多任务环境。而为了让各个使用者具有较保密的文件数据，因此文件的权限管理就变的很重要了。Linux一般将文件可存取的身份分为三个类别，分别是owner\/ group \/ others，且三种身份各有read \/ write \/execute等权限。</p>
+<h2 id="使用者与群组"><a href="#使用者与群组" class="headerlink" title="使用者与群组"></a>使用者与群组</h2><h3 id="文件拥有者"><a href="#文件拥有者" class="headerlink" title="文件拥有者"></a>文件拥有者</h3><p>Linux是个多用户多任务的系统，因此可能常常会有多人同时使用这部主机来进行工作。考虑到每个人的隐私权与喜好的工作环境，文件拥有者就相当重要。可以设置适当的权限，让一些隐私的文件只有自己才能访问。</p>
+<h3 id="群组概念"><a href="#群组概念" class="headerlink" title="群组概念"></a>群组概念</h3><p>经由简易的文件权限设置，就能限制非自己团队（亦即群组）的其他人不能够阅览内容，也可以让自己团队成员可以修改我所创建的文件。同时自己还有私人隐密文件，仍然可以设置让自己团队成员也看不到自己的文件数据。</p>
+<h3 id="其他人的概念"><a href="#其他人的概念" class="headerlink" title="其他人的概念"></a>其他人的概念</h3><p>就是不属于群组的其他人喽。</p>
+<h3 id="root"><a href="#root" class="headerlink" title="root"></a>root</h3><p>想访问谁就访问谁。</p>
+<h3 id="Linux使用者身份与群组记录的文件"><a href="#Linux使用者身份与群组记录的文件" class="headerlink" title="Linux使用者身份与群组记录的文件"></a>Linux使用者身份与群组记录的文件</h3><p>在我们Linux系统当中，默认的情况下，所有的系统上的帐号与一般身份使用者，还有那个root的相关信息，都是记录在\/ etc\/ passwd这个文件内的。至于个人的密码则是记录在\/ etc \/ shadow这个文件下。此外，Linux所有的群组名称都纪录在\/ etc \/ group内!这三个文件可以说是Linux系统里面帐号、密码、群组信息的集中地。</p>
+<h2 id="Linux文件权限概念"><a href="#Linux文件权限概念" class="headerlink" title="Linux文件权限概念"></a>Linux文件权限概念</h2><h3 id="Linux文件属性"><a href="#Linux文件属性" class="headerlink" title="Linux文件属性"></a>Linux文件属性</h3><p>先登录系统，使用su - 切换身份成为root，下达ls -al。 ls是list的意思，重点在显示文件的文件名与相关属性。选项“-al”则表示列出所有的文件详细的权限与属性（包含隐藏文件，就是第一个字符为“.”的文件）。不建议直接使用root登录系统，建议使用su - 来切换身份，离开su - 则使用exit回到登录时的身份即可。运行结果如下：<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-20%20%E4%B8%8B%E5%8D%889.26.41.png" alt=""><br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-20%20%E4%B8%8B%E5%8D%889.27.31.png" alt=""></p>
+<h4 id="档案类型"><a href="#档案类型" class="headerlink" title="档案类型"></a>档案类型</h4><p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-20%20%E4%B8%8B%E5%8D%889.28.11.png" alt=""></p>
+<h4 id="i-node"><a href="#i-node" class="headerlink" title="i-node"></a>i-node</h4><p>每个文件都会将他的权限与属性记录到文件系统的i-node中，我们使用的目录树是使用文件名来记录，因此每个文件名就会链接到一个i-node，这个属性记录的，就是有多少不同的文件名连接到同一个i-node号码。</p>
+<h4 id="容量大小"><a href="#容量大小" class="headerlink" title="容量大小"></a>容量大小</h4><p>默认单位为Bytes。</p>
+<h3 id="如何改变文件属性与权限"><a href="#如何改变文件属性与权限" class="headerlink" title="如何改变文件属性与权限"></a>如何改变文件属性与权限</h3><h4 id="改变所属群组，chgrp"><a href="#改变所属群组，chgrp" class="headerlink" title="改变所属群组，chgrp"></a>改变所属群组，chgrp</h4><p>要被改变的群组名称必须要在\/ etc \/group文件中存在才行，否则就会显示错误。<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8A%E5%8D%8810.30.02.png" alt=""></p>
+<h4 id="改变文件拥有者，chown"><a href="#改变文件拥有者，chown" class="headerlink" title="改变文件拥有者，chown"></a>改变文件拥有者，chown</h4><p>使用者必须是已经存在系统中的账号，也就是在\/ etc \/ passwd这个文件中有记录的使用者名称才能改变。chown还可以顺便直接修改群组的名称，如果要连目录下的所有次目录或文件同时更改文件拥有者的话，直接加上-R选项即可。<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8A%E5%8D%8810.29.07.png" alt=""><br>由于复制行为（cp）会复制执行者的属性和权限，把自己的文件复制给使用者，那他仍然无法修改。所以就有必要将这个文件的拥有者与群组修改一下。</p>
+<h4 id="改变权限，chmod"><a href="#改变权限，chmod" class="headerlink" title="改变权限，chmod"></a>改变权限，chmod</h4><p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8A%E5%8D%8810.37.45.png" alt=""><br>等我们设置权限变更时，该文件的权限数字就是770啦，变更权限的指令chmod的语法：<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8A%E5%8D%8810.38.59.png" alt=""></p>
+<p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8A%E5%8D%8810.39.35.png" alt=""><br>也可以使用符号类型改变文件权限。<br>user（u）具有可读、可写、可执行的权限。<br>group与others（g/o）具有可读与执行的权限。<br>a代表上面三个身份<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8A%E5%8D%8810.50.24.png" alt=""><br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8A%E5%8D%8810.48.52.png" alt=""></p>
+<p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8A%E5%8D%8810.52.24.png" alt=""></p>
+<p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8A%E5%8D%8810.52.42.png" alt=""></p>
+<h3 id="目录与文件之权限意义"><a href="#目录与文件之权限意义" class="headerlink" title="目录与文件之权限意义"></a>目录与文件之权限意义</h3><p>文件是实际含有数据的地方，包括一般文本文件、数据库内容档、二进制可执行文件(binary program)等等。因此，权限对于文件来说，他的意义是这样的:</p>
+<ol>
+<li>r(read):可读取此一文件的实际内容，如读取文本文件的文字内容。</li>
+<li>w(write):可以编辑、新增或者是修改该文件的内容（但不含删除该文件);</li>
+<li>x(eXecute):该文件具有可以被系统执行的权限。</li>
+</ol>
+<p>可执行x，在Windows下是借由扩展名来判断的，例如.exe,.bat,.com等等，但是在Linux下，我们的文件是否能被执行，则是由是否具有x这个权限来决定的，跟文件名没有绝对的关系。对一个文件具有w权限时，可以具有写入、编辑、新增、修改文件的内容的权限，但并不具备删除该文件本身的权限。<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8B%E5%8D%881.38.47.png" alt=""></p>
+<h3 id="Linux文件种类与扩展名"><a href="#Linux文件种类与扩展名" class="headerlink" title="Linux文件种类与扩展名"></a>Linux文件种类与扩展名</h3><h4 id="正规文件（regular-file）"><a href="#正规文件（regular-file）" class="headerlink" title="正规文件（regular file）"></a>正规文件（regular file）</h4><p>第一个字符为【-】。又大略分为：</p>
+<ol>
+<li>纯文本文件（ASCII）</li>
+<li>二进制档（binary）</li>
+<li>数据格式文件（data）<h4 id="目录-directory"><a href="#目录-directory" class="headerlink" title="目录(directory)"></a>目录(directory)</h4>第一个属性为[d]。<h4 id="链接文件（link）"><a href="#链接文件（link）" class="headerlink" title="链接文件（link）"></a>链接文件（link）</h4>就是类似Windows系统下的捷径，第一个属性为[l]。<h4 id="设备与设备文件"><a href="#设备与设备文件" class="headerlink" title="设备与设备文件"></a>设备与设备文件</h4>与系统周边及存储相关的一些文件，通常都集中在/dev这个目录下。</li>
+<li>区块（block）设备文件：就是一些储存数据，以提供系统随机存取的周边设备，比如硬盘,可查看/ dev / sda，会发现第一个属性为[b]。</li>
+<li>字符(character)设备文件:即一些序列的周边设备，如键盘鼠标，特点是一次性读取不能够截断输出。如不可能让鼠标调到另一个画面，而是连续滑到另一个地方，第一个属性为[c]。</li>
+<li>数据接口文件(sockets):这类文件通常被用在网络上的数据承接，我们可以启动一个程序来监听用户端的要求，而用户端就可以通过这个socket来进行数据的沟通了。第一个属性为【s】，最常在\/ run或\/ tmp这些目录中看到这种文件类型。</li>
+<li>数据输送档(FIFO,pipe):FIFO也是一种特殊的文件类型，主要目的在解决多个程序同时存取一个文件所造成的错误问题。FIFO是first-in-first-out的缩写。第一个属性为[p]。</li>
+</ol>
+<p>Linux链接文件就可以简单的视为文件或目录的快捷方式。x只是代表这个文件具有可以执行的权限，并不一定能执行成功，还得看文件的内容。Linux系统的文件名只是了解该文件可能的用途而已，真正的执行与否仍需权限的规范才行。</p>
+<p>Linux文件长度的限制。单一文件或目录最大容许文件名为255Bytes，以一个ASCII英文占用一个Bytes来说，则可达255个字符长度，若是以每个中文字2Bytes来说，最大文件名就是在128个中文字符。Linux文件是相当长的文件名，我们希望Linux文件名称可以一看就知道该文件在干嘛，所以文件名通常是很长很长。文件名最好可以避免一些特殊字符。<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8B%E5%8D%882.41.17.png" alt=""></p>
+<h2 id="Linux目录配置"><a href="#Linux目录配置" class="headerlink" title="Linux目录配置"></a>Linux目录配置</h2><h3 id="Linux目录配置的依据—FHS"><a href="#Linux目录配置的依据—FHS" class="headerlink" title="Linux目录配置的依据—FHS"></a>Linux目录配置的依据—FHS</h3><p>Linux目录配置的标准Filesystem Hierachy Standard(FHS)。</p>
+<p>根据FHS[2]的标准文件指出，他们的主要目的是希望让使用者可以了解到已安装软件通常放置于那个目录下，所以他们希望独立的软件开发商、操作系统制作者 、以及想要维护 系统的使用者，都能够遵循FHS的标准。也就是说，FHS的重点在于规范每个特定的目录下应该要放置什么样子的数据而已。这样做好处非常多，因为Linux操作系统就能够在既有的面貌下(目录架构不变)发展出开发者想要的独特风格。<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8B%E5%8D%882.54.44.png" alt=""><br>上表右移。</p>
+<p>FHS针对目录树架构仅定义了三层目录。</p>
+<ol>
+<li>\/ (root,根目录)：与开机系统有关。</li>
+<li>\/ usr (unix software resource):与软件安装/ 执行有关。</li>
+<li>/var(variable):与系统运行过程有关。<h4 id="根目录（-）的意义与内容"><a href="#根目录（-）的意义与内容" class="headerlink" title="根目录（/）的意义与内容"></a>根目录（/）的意义与内容</h4>根目录是整个系统最重要的一个目录，因为不但所有的目录都是由根目录衍生出来的，同时根目录也与开机/ 还原 / 系统修复等动作有关。由于系统开机时需要特定的开机软件、核心文件、开机所需程序、函数库等等文件数据，若系统出现错误时，根目录也必须要包含有能够修复文件系统的程序才行。因为根目录是这么的重要，所以在FHS的要求方面，他希望根目录不要放在非常大的分区内，因为越大的分区你会放入越多的数据，如此一来根目录所在分区就可能会有较多发生错误的机会。因此FHS标准建议:根目录所在分区应该越小越好，且应用程序所安装的软件最好不要与根目录放在同一个分区内，保持根目录越小越好。如此不但性能较佳，根目录所在的文件系统也较不容易发生问题。<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8B%E5%8D%886.26.00.png" alt=""><br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8B%E5%8D%886.26.56.png" alt=""><h4 id="usr的意义与内容"><a href="#usr的意义与内容" class="headerlink" title="usr的意义与内容"></a>usr的意义与内容</h4><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8B%E5%8D%882.58.13.png" alt=""><br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8B%E5%8D%886.41.58.png" alt=""><h4 id="var的意义与内容"><a href="#var的意义与内容" class="headerlink" title="var的意义与内容"></a>var的意义与内容</h4>如果_usr是安装时会占用较大硬盘容量的目录，那么_var就是在系统运行后才会渐渐占用硬盘容量的目录。因为Ivar目录主要针对常态性变动的文件，包括高速缓存 (cache)、登录文件(log file)以及某些软件运行所产生的文件，包括程序文件(lock file, run file)，或者例如MySQL数据库的文件等等。常见的次目录有:<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8B%E5%8D%886.44.29.png" alt=""><h3 id="目录树"><a href="#目录树" class="headerlink" title="目录树"></a>目录树</h3><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8B%E5%8D%887.00.14.png" alt=""><h3 id="绝对路径与相对路径"><a href="#绝对路径与相对路径" class="headerlink" title="绝对路径与相对路径"></a>绝对路径与相对路径</h3><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8B%E5%8D%887.01.15.png" alt=""><br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8B%E5%8D%887.01.31.png" alt=""><h1 id="Linux文件与目录管理"><a href="#Linux文件与目录管理" class="headerlink" title="Linux文件与目录管理"></a>Linux文件与目录管理</h1><h2 id="目录与路径"><a href="#目录与路径" class="headerlink" title="目录与路径"></a>目录与路径</h2><h3 id="目录的相关操作"><a href="#目录的相关操作" class="headerlink" title="目录的相关操作"></a>目录的相关操作</h3><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8B%E5%8D%887.20.53.png" alt=""><h4 id="cd（change-directory-变换目录）"><a href="#cd（change-directory-变换目录）" class="headerlink" title="cd（change directory,变换目录）"></a>cd（change directory,变换目录）</h4><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8B%E5%8D%887.22.13.png" alt=""><h4 id="pwd（显示目前所在的目录）"><a href="#pwd（显示目前所在的目录）" class="headerlink" title="pwd（显示目前所在的目录）"></a>pwd（显示目前所在的目录）</h4><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8B%E5%8D%887.33.11.png" alt=""><br><strong>pwd是Print Working Directory的缩写，也就是显示目前所在目录的指令。</strong><h4 id="mkdir-创建新目录"><a href="#mkdir-创建新目录" class="headerlink" title="mkdir(创建新目录)"></a>mkdir(创建新目录)</h4><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8B%E5%8D%887.36.46.png" alt=""><h4 id="rmdir（删除“空”的目录）"><a href="#rmdir（删除“空”的目录）" class="headerlink" title="rmdir（删除“空”的目录）"></a>rmdir（删除“空”的目录）</h4><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8B%E5%8D%887.48.27.png" alt=""><br>如果想要删除旧有的目录时，就使用rmdir，例如将刚刚创建的test杀掉，使用“rmdir test”即可。<strong>目录需要一层一层的删除才行，而且被删除的目录里面必定不能存在其他的目录或文件!这也是所谓的空的目录(empty directory)的意思</strong>。如果要将所有目录下的东西都杀掉，这个时候就必须使用“rm -r test”。不过，还是使用rmdir比较不危险，你也可以尝试以-p的选项加入，来删除上层的目录。<h3 id="关于可执行文件路径的变量：-PATH"><a href="#关于可执行文件路径的变量：-PATH" class="headerlink" title="关于可执行文件路径的变量：$PATH"></a>关于可执行文件路径的变量：$PATH</h3>当我们在执行一个指令的时候，如”Is”，系统会依照PATH的设置去每个PATH定义的目录下搜寻文件名为Is的可可执行文件，如果在PATH定义的目 录中含有多个文件名为ls的可可执行文件，那么先搜寻到的同名指令先被执行。</li>
+</ol>
+<p>echo有显示、印出的意思，而PATH前面的$表示后面接的是变量。<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8B%E5%8D%887.58.18.png" alt=""><br>PATH(一定是大写)这个变量的内容是由一堆目录所组成的，每个目录中由冒号来隔开，每个目录是有顺序之分的。</p>
+<ol>
+<li>不同身份使用者默认的PATH不同，默认能够随意执行的指令也不同（如root与dmtsai）；</li>
+<li>PATH是可以修改的；</li>
+<li>使用绝对路径或是相对路径直接指定某个指令的文件名来执行会比搜寻PATH来的正确；</li>
+<li>指令应该放置到正确的目录下执行才会比较方便；</li>
+<li>本目录（.）最好不要放到PATH中。</li>
+</ol>
+<h2 id="文件与目录管理"><a href="#文件与目录管理" class="headerlink" title="文件与目录管理"></a>文件与目录管理</h2><h3 id="文件与目录的检视-ls"><a href="#文件与目录的检视-ls" class="headerlink" title="文件与目录的检视 ls"></a>文件与目录的检视 ls</h3><p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8A%E5%8D%888.34.14.png" alt=""></p>
+<p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8A%E5%8D%888.54.28.png" alt=""></p>
+<h3 id="复制，删除与移动：cp-rm-mv"><a href="#复制，删除与移动：cp-rm-mv" class="headerlink" title="复制，删除与移动：cp,rm,mv"></a>复制，删除与移动：cp,rm,mv</h3><h4 id="cp（复制文件或目录）"><a href="#cp（复制文件或目录）" class="headerlink" title="cp（复制文件或目录）"></a>cp（复制文件或目录）</h4><p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8A%E5%8D%888.58.15.png" alt=""><br>复制（cp）这个指令是非常重要的，不同身份者执行这个指令会有不同的结果产生，尤其是-a-p选项对于不同身份差别非常大。<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8A%E5%8D%889.05.17.png" alt=""><br>在默认中，cp的来源文件与目的文件的权限是不同的，目的文件的拥有者通常会是指令操作者本身。由于这个特性，我们在进行备份时，某些需要特别注意的特殊权限文件，例如密码档以及配置文件就不能直接以cp复制，而必须加-a<br>或者是-p等等可以完整复制文件权限的选项才行。如果想要复制文件给其他的使用者，也必须要注意到文件的权限（包含读写执行以及文件拥有者等等）否则其他人还是无法针对你给予的文件进行修订动作。<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8A%E5%8D%889.22.35.png" alt=""><br>-l -s都会创建所谓的链接文件（link file）,但是这两种链接文件却有不一样的情况， -s是符号链接， -l是实体链接。<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8A%E5%8D%889.28.18.png" alt=""><br>在复制时，需要清楚的了解到</p>
+<ol>
+<li>是否完整的保留来源文件信息</li>
+<li>来源文件是否为链接文件</li>
+<li>来源文件是否为特殊文件，例如FIFO，socket</li>
+<li>来源文件是否为目录</li>
+</ol>
+<h4 id="rm（移除文件或目录）"><a href="#rm（移除文件或目录）" class="headerlink" title="rm（移除文件或目录）"></a>rm（移除文件或目录）</h4><p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8A%E5%8D%889.41.37.png" alt=""><br>这是移除的指令(remove) ， 要注意的是，通常在Linux系统下，为了怕文件被root误杀，所以很多distributions都已经默认加入i这个选项了!而如果要连目录下的东西都一起杀掉的话，例如子目录里面还有子目录时，那就要使用一这个选项了!不过，使用”rm-r”这个指令之前，请千万注意了，因为该目录或文件“肯定”会被root杀掉!因为系统不会再次询问你是否要砍掉呦!所以那是个超级严重的指令下达呦!得特别注意!不过，如果你确定该目录不要了，那么使用rm-r来循环杀掉是不错的方式!</p>
+<h4 id="mv（移动文件与目录，或更名）"><a href="#mv（移动文件与目录，或更名）" class="headerlink" title="mv（移动文件与目录，或更名）"></a>mv（移动文件与目录，或更名）</h4><p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8A%E5%8D%889.47.30.png" alt=""><br>这是搬运（move）的意思，当要移动文件或目录时这个指令就很重要了，还有一个用途就是更改文件名，这是Linux才有的指令，还有个rename指令可以用来更改大量文件的文件名。</p>
+<h3 id="取得路径的文件名称与目录名称"><a href="#取得路径的文件名称与目录名称" class="headerlink" title="取得路径的文件名称与目录名称"></a>取得路径的文件名称与目录名称</h3><p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8A%E5%8D%8810.01.24.png" alt=""><br>basename与dirname的用途。</p>
+<h2 id="文件内容查阅"><a href="#文件内容查阅" class="headerlink" title="文件内容查阅"></a>文件内容查阅</h2><ol>
+<li>cat由第一行开始显示文件内容</li>
+<li>tac从最后一行开始显示，可以看出tac是cat的倒着写</li>
+<li>nl显示的时候，顺便输出行号</li>
+<li>more一页一页的显示文件内容</li>
+<li>less与more类似，但是比more更好的是可以往前翻页</li>
+<li>head只看头几行</li>
+<li>tail只看尾巴几行</li>
+<li>od以二进制的方式读取文件内容</li>
+</ol>
+<h3 id="直接检视文件内容"><a href="#直接检视文件内容" class="headerlink" title="直接检视文件内容"></a>直接检视文件内容</h3><h4 id="cat（concatenate）"><a href="#cat（concatenate）" class="headerlink" title="cat（concatenate）"></a>cat（concatenate）</h4><p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8A%E5%8D%8810.09.20.png" alt=""></p>
+<h3 id="数据选择"><a href="#数据选择" class="headerlink" title="数据选择"></a>数据选择</h3><h4 id="head（取出前面几行）"><a href="#head（取出前面几行）" class="headerlink" title="head（取出前面几行）"></a>head（取出前面几行）</h4><p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8A%E5%8D%8810.23.48.png" alt=""></p>
+<h4 id="tail（取出后面几行）"><a href="#tail（取出后面几行）" class="headerlink" title="tail（取出后面几行）"></a>tail（取出后面几行）</h4><p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8A%E5%8D%8810.25.37.png" alt=""></p>
+<h3 id="非纯文本文件od"><a href="#非纯文本文件od" class="headerlink" title="非纯文本文件od"></a>非纯文本文件od</h3><p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8A%E5%8D%8810.28.25.png" alt=""></p>
+<h3 id="修改文件时间或创建新文件：touch"><a href="#修改文件时间或创建新文件：touch" class="headerlink" title="修改文件时间或创建新文件：touch"></a>修改文件时间或创建新文件：touch</h3><ol>
+<li>modification time(mtime):当该文件的内容数据变更时，就会更新这个时间，内容数据指的是文件的内容，而不是文件的属性或权限。</li>
+<li>status time（ctime）：当该文件的状态改变时就会更新这个时间，比如权限与属性被改变了，就会更新这个时间。</li>
+<li>access time（atime）：当该文件的内容被取用时就会更新这个读取时间。如使用cat去读取，就会更新该文件的atime。</li>
+</ol>
+<p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8A%E5%8D%8810.50.43.png" alt=""></p>
+<h2 id="文件与目录的默认权限与隐藏权限"><a href="#文件与目录的默认权限与隐藏权限" class="headerlink" title="文件与目录的默认权限与隐藏权限"></a>文件与目录的默认权限与隐藏权限</h2><h3 id="文件默认权限：umask"><a href="#文件默认权限：umask" class="headerlink" title="文件默认权限：umask"></a>文件默认权限：umask</h3><p>umask就是指定目前使用者在创建文件或目录时候的权限默认值。<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8A%E5%8D%8811.53.49.png" alt=""></p>
+<h3 id="文件隐藏属性"><a href="#文件隐藏属性" class="headerlink" title="文件隐藏属性"></a>文件隐藏属性</h3><h4 id="chattr（设置文件隐藏属性）"><a href="#chattr（设置文件隐藏属性）" class="headerlink" title="chattr（设置文件隐藏属性）"></a>chattr（设置文件隐藏属性）</h4><p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8A%E5%8D%8811.59.07.png" alt=""><br>这些指令是很重要的，尤其是在系统数据安全上面。</p>
+<h4 id="lsattr（显示文件隐藏属性）"><a href="#lsattr（显示文件隐藏属性）" class="headerlink" title="lsattr（显示文件隐藏属性）"></a>lsattr（显示文件隐藏属性）</h4><p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8B%E5%8D%8812.00.36.png" alt=""><br>使用chattr设置后，可以使用lsattr来查阅隐藏的属性。</p>
+<h3 id="文件特殊权限：SUID，SGID，SBIT"><a href="#文件特殊权限：SUID，SGID，SBIT" class="headerlink" title="文件特殊权限：SUID，SGID，SBIT"></a>文件特殊权限：SUID，SGID，SBIT</h3><h4 id="Set-UID"><a href="#Set-UID" class="headerlink" title="Set UID"></a>Set UID</h4><p>当s这个标志出现在文件拥有者的x权限上时，如- rwsr - xr - x就称为Set UID，简称为SUID。SUID的限制与功能：</p>
+<ol>
+<li>SUID权限仅对二进制程序有效</li>
+<li>执行者对于该程序需要有x的可执行权限</li>
+<li>本权限仅在执行该程序的过程中有效</li>
+<li>执行者将具有该程序拥有者的权限。</li>
+</ol>
+<p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8B%E5%8D%8810.35.08.png" alt=""><br>SUID仅可以用在binary program上，不能用在shell script上，这是因为shell script知识将很多binary可执行文件加进来执行而已。所以SUID的权限部分，还是得看shell script调用进来的程序设置，SUID对于目录也是无效的。</p>
+<h4 id="Set-GID"><a href="#Set-GID" class="headerlink" title="Set GID"></a>Set GID</h4><p>与SUID不同的是，SGID可以针对文件或目录来设置。对于文件，SGID有如下的功能：</p>
+<ol>
+<li>SGID对二进制程序有用</li>
+<li>程序执行着对于该程序来说，需具备x的权限</li>
+<li>执行者在执行的过程中将会获得该程序群组的支持!</li>
+</ol>
+<h4 id="Sticky-Bit"><a href="#Sticky-Bit" class="headerlink" title="Sticky Bit"></a>Sticky Bit</h4><p>SBIT目前只针对目录有效，对于文件已经没有效果了。SBIT对于目录的作用是：</p>
+<ol>
+<li>当使用者对于此目录具有w,x权限，亦即具有写入的权限时。</li>
+<li>当使用者在该目录下创建文件或目录时，仅有自己与root才有权力删除该文件。</li>
+</ol>
+<h3 id="观察文件类型：file"><a href="#观察文件类型：file" class="headerlink" title="观察文件类型：file"></a>观察文件类型：file</h3><p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8B%E5%8D%8810.46.35.png" alt=""></p>
+<h2 id="指令与文件的搜寻"><a href="#指令与文件的搜寻" class="headerlink" title="指令与文件的搜寻"></a>指令与文件的搜寻</h2><h3 id="指令文件名的搜寻"><a href="#指令文件名的搜寻" class="headerlink" title="指令文件名的搜寻"></a>指令文件名的搜寻</h3><h4 id="which（寻找可执行文件）"><a href="#which（寻找可执行文件）" class="headerlink" title="which（寻找可执行文件）"></a>which（寻找可执行文件）</h4><p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8B%E5%8D%8810.53.58.png" alt=""><br>这个指令是根据”PAT}这个环境变量所规范的路径’去搜寻“可执行文件”的文件名。</p>
+<h3 id="文件文件名的搜寻"><a href="#文件文件名的搜寻" class="headerlink" title="文件文件名的搜寻"></a>文件文件名的搜寻</h3><h4 id="whereis（由一些特定的目录中寻找文件文件名）"><a href="#whereis（由一些特定的目录中寻找文件文件名）" class="headerlink" title="whereis（由一些特定的目录中寻找文件文件名）"></a>whereis（由一些特定的目录中寻找文件文件名）</h4><p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-24%20%E4%B8%8A%E5%8D%8810.15.15.png" alt=""><br>find是很强大的搜寻指令，但时间花费很大，因为find是直接搜寻硬盘。whereis只招几个特定的目录，并没有全系统去查询。whereis主要针对的是/ bin / sbin下面的可执行文件，以及/ usr / share / man下面的man page文件跟几个比较特定的目录来处理。</p>
+<h4 id="locate、updatedb"><a href="#locate、updatedb" class="headerlink" title="locate、updatedb"></a>locate、updatedb</h4><p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-24%20%E4%B8%8A%E5%8D%8810.19.35.png" alt=""><br>使用locate 来寻找数据的时候特别的快，这是因为locate寻找的数据是由“已创建的数据库/ var / lib / mlocate /  “里面的数据所搜寻到的，所以不用直接在去硬盘当中存取数据，当然是很快速的。但是有限制条件，他是由数据库来搜寻的，而数据库每天执行一次，若在数据库更新之前搜寻文件则搜寻不到。</p>
+<h4 id="updatedb"><a href="#updatedb" class="headerlink" title="updatedb"></a>updatedb</h4><p>根据 / etc / updatedb.conf的设置去搜寻系统硬盘内的文件名，并更新/ rar / lib / mlocate内的数据库文件。</p>
+<h4 id="locate"><a href="#locate" class="headerlink" title="locate"></a>locate</h4><p>依据 / var / lib / mlocate内的数据库记载,找出使用者输入的关键字文件名。</p>
+<h4 id="find"><a href="#find" class="headerlink" title="find"></a>find</h4><p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-24%20%E4%B8%8A%E5%8D%8810.31.44.png" alt=""><br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-24%20%E4%B8%8A%E5%8D%8810.33.44.png" alt=""><br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-24%20%E4%B8%8A%E5%8D%8810.35.09.png" alt=""></p>
+<h1 id="Linux磁盘与文件系统管理"><a href="#Linux磁盘与文件系统管理" class="headerlink" title="Linux磁盘与文件系统管理"></a>Linux磁盘与文件系统管理</h1><h2 id="认识Linux文件系统"><a href="#认识Linux文件系统" class="headerlink" title="认识Linux文件系统"></a>认识Linux文件系统</h2><h3 id="磁盘组成与分区"><a href="#磁盘组成与分区" class="headerlink" title="磁盘组成与分区"></a>磁盘组成与分区</h3><h3 id="文件系统特性"><a href="#文件系统特性" class="headerlink" title="文件系统特性"></a>文件系统特性</h3><p>每种操作系统能够使用的文件系统并不相同。举例来说，windows 98以前的微软操作系统主要利用的文件系统是FAT (或FAT16) ， windows 2000以后的版本有所谓的NTFS文件系统，至于Linux的正统文件系统则为Ext2 (Linux second extended file system, ext2fs)这一个。此外，在默认的情况下,windows 操作系统是不会认识Linux的Ext2的。</p>
+<p>文件系统是如何运行与操作系统的文件数据有关。较新的操作系统的文件数据<br>除了文件实际内容外，通常含有非常多的属性，例如Linux操作系统的文件权限(rwx)与文件属性(拥有者、群组、时间参数等)。文件系统通常会将这两部份的数据分别存放在不同的区块，权限与属性放置到inode中，至于实际数据则放置到data block区块中。另外，还有一个超级区块 (superblock)会记录整个文件系统的整体信息 ，包括inode与block的总量、使用量、剩余量等。</p>
+<p>每个inode与block都有编号，至于这三个数据的意义可以简略说明如下:</p>
+<ol>
+<li>superblock :记录此filesystem的整体信息，包括inode/block的总量、使用量、剩余量，以及文件系统的格式与相关信息等;</li>
+<li>inode:记录文件的属性，一个文件占用一个inode，同时记录此文件的数据所在的block号码;</li>
+<li>block :实际记录文件的内容，若文件太大时，会占用多个block。</li>
+</ol>
+<p>由于每个 inode与 block都有编号而每个文件都会占用一个 inode, inode内有文件数据置的 block号码。因此我们可以知道的是,如果能够找到文件的 inode的话那么自然会知道这个文件所放置数据的 block号码,当然也就能够读出该文件的实际数据了。这是个比较有效率的作法，因此我们的磁盘就能够在短时间内读取出全部的数据,读写的性能比较好。文件系统先格式化出inode与block的区块。inode中记录了4个区块的位置，此乃索引式文件系统。<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-24%20%E4%B8%8A%E5%8D%8811.40.31.png" alt=""><br>还有一种文件系统比如FAT格式，就是我们惯用的U盘，这种格式是没有inode存在的所以是顺序读取的。<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-24%20%E4%B8%8A%E5%8D%8811.42.57.png" alt=""></p>
+<h3 id="Linux的EXT2文件系统（inode）"><a href="#Linux的EXT2文件系统（inode）" class="headerlink" title="Linux的EXT2文件系统（inode）"></a>Linux的EXT2文件系统（inode）</h3><p>inode的内容在记录文件的权展与相关属性,至于bock区块则是在记录文件的实际内容。而且文件系统一开始就将 inode与 block规划好了,除非重新格式化<br>(或者利用 resize2is等指令变更文件系统大小),否则 inode与 block固定后就不再变动但是如果仔细考虑一下,如果我的文件系统高达数百GB时,那么将所有的 inode与 block通通放置在一起将是很不智的决定,因为 inode与 block的数量太庞大,不容易管理。</p>
+<p>为此Ext2文件系统在格式化的时候基本上是区分为多个区块群组，每个区块群组都有独立的inode，block，superblock系统。<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-24%20%E4%B8%8A%E5%8D%8811.56.50.png" alt=""><br>在整体的规划当中，文件系统最前面有一个开机扇区 ( boot sector)，这个开机扇区可以安装开机管理程序，这是个非常重要的设计，因为如此一来我们就能够将不同的开机管理程序安装到个别的文件系统最前端，而不用覆盖整颗磁盘唯一的MBR，这样也才能够制作出多重开机的环境啊。</p>
+<h4 id="data-block-数据区块"><a href="#data-block-数据区块" class="headerlink" title="data block(数据区块)"></a>data block(数据区块)</h4><p>由于block大小的差异，会导致该文件系统能够支持的最大磁盘容量与最大但以文件大小并不相同。<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-24%20%E4%B8%8B%E5%8D%8812.00.50.png" alt=""><br>block基本限制如下：</p>
+<ol>
+<li>原则上，block的大小与数量在格式化完就不能再改变了（除非重新格式化）</li>
+<li>每个block内最多只能够放置一个文件的数据;</li>
+<li>承上，如果文件大于block的大小，则一个文件会占用多个block数量;</li>
+<li>承上，若文件小于block ，则该block的剩余容量就不能够再被使用了(磁盘空间会浪费)</li>
+</ol>
+<p>block大小选择所造成的不同问题。选在大的block在存取大量小文件时可能造成浪费。选小的block在存取大文件时索引的数量更多，可能导致文件系统不良的读写性能。事实上，现在的磁盘容量都太大了，所以大家都只会选在4K的block大小。</p>
+<h4 id="inode-table（inode表格）"><a href="#inode-table（inode表格）" class="headerlink" title="inode table（inode表格）"></a>inode table（inode表格）</h4><p>inode记录的文件数据至少有下面这些：</p>
+<ol>
+<li>该文件的存取模式(read / write / excute)</li>
+<li>该文件的拥有者与群组(owner / group)</li>
+<li>该文件的容量。</li>
+<li>该文件创建或状态改变的时间( ctime)</li>
+<li>最近一次的读取时间( atime)</li>
+<li>最近修改的时间( mtime)</li>
+<li>定义文件特性的旗标(fag),如 SetUID</li>
+<li>该文件真正内容的指向（pointer）</li>
+</ol>
+<p>inode的数量与大小也是在格式化时就已经固定了。</p>
+<ol>
+<li>每个 inode大小均固定为128 Bytes(新的ext4与xfs可设置到256 Bytes）；</li>
+<li>每个文件都仅会占用一个 inode而已;</li>
+<li>承上,因此文件系统能够创建的文件数量与 inode的数量有关;</li>
+<li>系统读取文件时需要先找到 inode,并分析 inode所记录的权限与使用者是否符合,若符合才能够开始实际读取 block的内容。</li>
+</ol>
+<p>inode要记录的数据非常多，偏偏又只有128Bytes，而inode记录一个block要花掉4Byte，所以有一个巧妙的办法。将inode记录block号码的区域定义为12个直接1个间接一个双间接一个三间接记录区。直接就是直接可以通过号码来取得block，间接就是再拿一个block来当作记录block号码的记录区，如果文件太大，就会使用间接的block来记录号码。</p>
+<h4 id="superblock（超级区块）"><a href="#superblock（超级区块）" class="headerlink" title="superblock（超级区块）"></a>superblock（超级区块）</h4><p>superblock是记录整个filesystem相关信息的地方，没有superblock就没有filesystem了。记录的信息有：</p>
+<ol>
+<li>block与inode的总量</li>
+<li>未使用与已使用的inode，block数量</li>
+<li>block与inode的大小</li>
+<li>filesystem的挂载时间，最近一次写入数据的时间，最近一次检验磁盘的时间等文件系统的相关信息。</li>
+<li>一个valid bit数值，若此文件系统已被挂载，则valid bit为0，若未被挂载，则valid bit为1。</li>
+</ol>
+<p>superblock是非常重要的，因为文件系统的基本信息都在，如果superblock死掉了，文件系统要花费很多时间去挽救。一般来说，superblock的大小为1024Bytes，一个文件系统应该仅有一个superblock，除了第一个block group内会含有superblock后续的block group不一定含有superblock。若含有superblock也是为第一个block group内的superblock做备份。</p>
+<h4 id="Filesystem-Description-文件系统描述说明"><a href="#Filesystem-Description-文件系统描述说明" class="headerlink" title="Filesystem Description(文件系统描述说明)"></a>Filesystem Description(文件系统描述说明)</h4><p>这个区段可以描述每个block group的开始与结束的block号码，以及说明每个区段(superblock, bitmap, inodemap, data block) 分别介于哪一个block号码之间。</p>
+<h4 id="block-bitmap（区块对照表）"><a href="#block-bitmap（区块对照表）" class="headerlink" title="block bitmap（区块对照表）"></a>block bitmap（区块对照表）</h4><p>记录使用与未使用block的号码。</p>
+<h4 id="inode-bitmap（inode对照表）"><a href="#inode-bitmap（inode对照表）" class="headerlink" title="inode bitmap（inode对照表）"></a>inode bitmap（inode对照表）</h4><p>inode bitmap则是记录使用与未使用的inode号码。</p>
+<h4 id="dumpe2fs"><a href="#dumpe2fs" class="headerlink" title="dumpe2fs"></a>dumpe2fs</h4><h3 id="与目录树的关系"><a href="#与目录树的关系" class="headerlink" title="与目录树的关系"></a>与目录树的关系</h3><h4 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h4><p>在Linux下的文件系统创建一个目录，文件系统会分配一个inode与至少一块block给该目录。其中inode与至少一块block给该目录。其中inode记录该目录的相关权限与属性，并可记录分配到的那块block号码。而block则是记录在这个目录下的文件名与该文件名占用的inode号码数据。也就是说目录所占用的block内容在记录如下的信息。<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-24%20%E4%B8%8B%E5%8D%886.32.35.png" alt=""><br>在目录下面的文件数如果太多而导致一个block无法容纳的下所有的文件名与inode对照表，Linux会给予该目录多一个block来继续记录相关的数据。</p>
+<h4 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h4><h4 id="目录树读取"><a href="#目录树读取" class="headerlink" title="目录树读取"></a>目录树读取</h4><p>inode本身并不记录文件名，文件名的记录是在目录的block当中。当我们要读取某个文件时，就务必会经过目录的inode与block然后才能找到那个待读取文件的inode号码，最终才会督导正确的文件的block内的数据。</p>
+<p>由于目录树是由根目录开始读起，因此系统通过挂载的信息可以找到挂载点的inode号码，挂载点实际上就是linux中的磁盘文件系统的入口目录。此时就能够得到根目录的inode内容，并依据该inode读取根目录的block内的文件名数据，再一层一层的往下读到正确的文件名。比如读取/ etc / passwd这个文件时的过程。</p>
+<ol>
+<li>/ 的inode :通过挂载点的信息找到inode号码为128的根目录inode，且inode规范的权限让我们可以读取该block的内容(有r与x)。</li>
+<li>/ 的block: 经过上个步骤取得block的号码，并找到该内容有etc/ 目录的inode号码( 33595521)。</li>
+<li>etc/ 的inode :读取33595521号inode得知dmtsai具有r与x的权限，因此可以读取etc/ 的block内容;</li>
+<li>etc/ 的block :经过上个步骤取得block号码，并找到该内容有passwd文件的inode号码 ( 36628004)</li>
+<li>passwd的inode : 读取36628004号inode得知dmtsai具有r的权限，因此可以读取passwd的block内容;</li>
+<li>passwd的block :最后将该block内容的数据读出来。</li>
+</ol>
+<h3 id="EXT2-EXT3-EXT4文件的存取与日志式文件系统的功能"><a href="#EXT2-EXT3-EXT4文件的存取与日志式文件系统的功能" class="headerlink" title="EXT2/ EXT3/ EXT4文件的存取与日志式文件系统的功能"></a>EXT2/ EXT3/ EXT4文件的存取与日志式文件系统的功能</h3><p>若是想要新增一个文件，文件系统的行为是。</p>
+<ol>
+<li>先确定使用者对于欲新增文件的目录是否具有w与x的权限，若有的话才能新增;</li>
+<li>根据inode bitmap找到没有使用的inode号码，并将新文件的权限/ 属性写入。</li>
+<li>根据block bitmap找到没有使用中的block号码，并将实际的数据写入block中，且更新inode的block指向数据;</li>
+<li>将刚刚写入的inode与block数据同步更新inode bitmap与block bitmap，并更新superblock的内容。</li>
+</ol>
+<p>一般来说，我们将inode table与data block称为数据存放区域，至于其他例如superblock、block bitmap与inode bitmap等区段就被称为metadata (中介数据)，因为superblock,inode bitmap及block bitmap的数据是经常变动的，每次新增、移除、编辑时都可能会影响到这三个部分的数据，因此才被称为中介数据的啦。</p>
+<h4 id="数据的不一致（inconsistent）状态"><a href="#数据的不一致（inconsistent）状态" class="headerlink" title="数据的不一致（inconsistent）状态"></a>数据的不一致（inconsistent）状态</h4><p>由于不知名的原因可能导致metadata的内容与实际数据存放区产生不一致（inconsistent）的情况。传统的解决方法会在开机时皆有superblock当中记录的valid bit与filesystem state等状态来判断是否强制进行数据一致性的检查。这样的检查是很费时的。非常麻烦，造成了后来日志式文件系统的兴起。</p>
+<h4 id="日志式文件系统（Journaling-filesystem）"><a href="#日志式文件系统（Journaling-filesystem）" class="headerlink" title="日志式文件系统（Journaling filesystem）"></a>日志式文件系统（Journaling filesystem）</h4><p>为了避免文件系统不一致的发生，在filesystem中规划一个区块，该区块专门记录写入或修订文件的步骤，就可以简化一致性检查的步骤。</p>
+<ol>
+<li>预备：当系统要写入一个文件时，会先在日志记录区块中纪录某个文件准备要写入的信息;</li>
+<li>实际写入：开始写入文件的权限与数据，开始更新metadata的数据。</li>
+<li>结束：完成数据与metadata的更新后，在日志记录块当中完成该文件的记录。</li>
+</ol>
+<p>万一数据的纪录过程当中发生了问题，那么我们的系统只要去检查日志记录区块，就可以知道哪个文件发生了问题，针对该问题来做一致性的检查即可，而不必针对整块filesystem去检查，这样就可以达到快速修复filesystem的能力。</p>
+<h3 id="Linux文件系统的运行"><a href="#Linux文件系统的运行" class="headerlink" title="Linux文件系统的运行"></a>Linux文件系统的运行</h3><p>编辑一个好大的文件，在编辑的过程中又频繁的要系统来写入到磁盘中，由于磁盘写入的速度要比内存慢很多， 因此你会常常耗在等待磁盘的写入/读取上，很没效率。为解决效率问题，Linux使用的方式是通过一个非同步处理（asynchronously）的方式。</p>
+<p>当系统载入一个文件到内存后，如果该文件没有被更动过，则在内存区段的文件数据会被设置为干净(clean) 的。但如果内存中的文件数据被更改过了(例如你用nano去编辑过这个文件)，此时该内存中的数据会被设置为脏的 (Dirty) 。此时所有的动作都还在内存中执行，并没有写入到磁盘中!系统会不定时的将内存中设置为”Dirty”的数据写回磁盘，以保持磁盘与内存数据的一致性。</p>
+<p>内存的速度要比磁盘快的多,因此如果能够将常用的文件放置到内存当中，就会增加系统性能。因此我们Linux系统上面文件系统与内存有非常大的关系。</p>
+<ol>
+<li>系统会将常用的文件数据放置到内存的缓冲区，以加速文件系统的读/ 写;</li>
+<li>承上，因此Linux的实体内存最后都会被用光!这是正常的情况!可加速系统性能;</li>
+<li>可以手动使用sync来强迫内存中设置为Dirty的文件回写到磁盘中;</li>
+<li>若正常关机时，关机指令会主动调用sync来将内存的数据回写入磁盘内;</li>
+<li>但若不正常关机(如跳电、死机或其他不明原因)，由于数据尚未回写到磁盘内, 因此重新开机后可能会花很多时间在进行磁盘检验，甚至可能导致文件系统的损毁(非磁盘损毁)。</li>
+</ol>
+<h3 id="挂载点的意义（mount-point）"><a href="#挂载点的意义（mount-point）" class="headerlink" title="挂载点的意义（mount point）"></a>挂载点的意义（mount point）</h3><p>将文件系统与目录树结合的动作我们称为<strong>挂载</strong>。重点是挂载点一定是目录，该目录为进入该文件系统的入口，因此并不是有任何文件系统都能使用的，必须挂载到目录树的某个目录后，才能够使用该文件系统。</p>
+<h3 id="其他Linux支持的文件系统与VFS"><a href="#其他Linux支持的文件系统与VFS" class="headerlink" title="其他Linux支持的文件系统与VFS"></a>其他Linux支持的文件系统与VFS</h3><p>Linux的标准文件系统是ext2，且还有增加了日志功能的ext3/ext4，事实上，Linux还有支持很多文件系统格式的，尤其是最近这几年推出了好几种速度很快的日志式文件系统，包括SGI的XFS文件系统， 可以适用更小型文件的Reiserfs 文件系统，以及Windows的FAT文件系统等等，都能够被Linux所支持。</p>
+<h4 id="Linux-VFS（Virtual-Filesystem-Switch）"><a href="#Linux-VFS（Virtual-Filesystem-Switch）" class="headerlink" title="Linux VFS（Virtual Filesystem Switch）"></a>Linux VFS（Virtual Filesystem Switch）</h4><p>Linux的系统都是通过一个名为Virtual Filesystem Switch 的核心功能去读取filesystem的。也就是说， 整个Linux 认识的filesystem 其实都是VFS在进行<br>管理，我们使用者并不需要知道每个partition上头的filesystem是什么。VFS会主动的帮我们做好读取的动作。<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-25%20%E4%B8%8A%E5%8D%889.46.49.png" alt=""></p>
+<h3 id="XFS文件系统简介"><a href="#XFS文件系统简介" class="headerlink" title="XFS文件系统简介"></a>XFS文件系统简介</h3><p>EXT家族当前较伤脑筋的地方：支持度最广，但格式化超慢。基本上xfs就是一个日志式文件系统。xfs文件系统在数据的分布上主要规划为三个部分，一个是数据区，一个文件系统活动登录区，以及一个实时运行区。</p>
+<h2 id="文件系统的简单操作"><a href="#文件系统的简单操作" class="headerlink" title="文件系统的简单操作"></a>文件系统的简单操作</h2><h3 id="磁盘与目录的容量"><a href="#磁盘与目录的容量" class="headerlink" title="磁盘与目录的容量"></a>磁盘与目录的容量</h3><h4 id="df-列出文件系统的整体磁盘使用量"><a href="#df-列出文件系统的整体磁盘使用量" class="headerlink" title="df:列出文件系统的整体磁盘使用量"></a>df:列出文件系统的整体磁盘使用量</h4><p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-25%20%E4%B8%8A%E5%8D%8810.30.33.png" alt=""></p>
+<ol>
+<li>Filesystem：代表该文件系统是在哪个partition，所以列出设备名称。</li>
+<li>1k-blocks :说明下面的数字单位是1KB，可利用-h或-m来改变容量。</li>
+<li>Used:顾名思义，就是使用掉的磁盘空间。</li>
+<li>Available :也就是剩下的磁盘空间大小。</li>
+<li>Use% :就是磁盘的使用率。</li>
+<li>Mounted on：就是磁盘挂载的目录所在（挂载点）。</li>
+</ol>
+<p>由于df主要读取的数据几乎都是针对一整个文件系统，因此读取的范围主要是在Superblock内的信息，所以这个指令显示结果的速度非常的快速。</p>
+<h4 id="du"><a href="#du" class="headerlink" title="du"></a>du</h4><p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-25%20%E4%B8%8B%E5%8D%881.45.19.png" alt=""><br>与df不一样的是，du这个指令其实会到文件系统去搜寻所有的文件数据，所以上述指令运行会执行一小段时间。</p>
+<h3 id="实体链接与符号链接：ln"><a href="#实体链接与符号链接：ln" class="headerlink" title="实体链接与符号链接：ln"></a>实体链接与符号链接：ln</h3><h4 id="Hard-Link（实体链接，硬式链接或实际链接）"><a href="#Hard-Link（实体链接，硬式链接或实际链接）" class="headerlink" title="Hard Link（实体链接，硬式链接或实际链接）"></a>Hard Link（实体链接，硬式链接或实际链接）</h4><p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-25%20%E4%B8%8B%E5%8D%882.02.57.png" alt=""><br>hard link只是在某个目录下新增一笔文件名链接到某inode号码的关联记录而已。<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-25%20%E4%B8%8B%E5%8D%881.55.55.png" alt=""><br>hard link的限制：</p>
+<ol>
+<li>不能跨Filesystem。</li>
+<li>不能link目录。链接到目录时，链接的数据需要连同被链接目录下面的所有数据都创建链接。</li>
+</ol>
+<h4 id="Sysbolic-Link（符号链接，亦是捷径）"><a href="#Sysbolic-Link（符号链接，亦是捷径）" class="headerlink" title="Sysbolic Link（符号链接，亦是捷径）"></a>Sysbolic Link（符号链接，亦是捷径）</h4><p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-25%20%E4%B8%8B%E5%8D%882.03.16.png" alt=""><br>Sysbolic link就是在创建一个独立的文件，而这个文件会让数据的读取指向他link的那个文件的文件名。<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-25%20%E4%B8%8B%E5%8D%882.04.20.png" alt=""><br>hard link比较安全。但hard link的限制太多了，包括无法做目录的link，用途上还是比较受限的，反而是Symbolic Link的使用较广。</p>
+<p>删除动作，如删除/ etc / crontab文件，删除动作只是将 / etc目录下关于crontab的关连数据拿掉而已，crontab所在的inode与block其实都没有被变动。</p>
+<h2 id="磁盘的分区，格式化，检验与挂载"><a href="#磁盘的分区，格式化，检验与挂载" class="headerlink" title="磁盘的分区，格式化，检验与挂载"></a>磁盘的分区，格式化，检验与挂载</h2><p>若是想在系统中新增一个磁盘，需要：</p>
+<ol>
+<li>对磁盘进行分区，以创建可用的partition。</li>
+<li>对该partition进行格式化 (format)， 以创建系统可用的filesystem</li>
+<li>若想要仔细一点，则可对刚刚创建好的filesystem进行检验。</li>
+<li>在Linux系统上，需要创建挂载点 (亦即是目录) ，并将他挂载上来。</li>
+</ol>
+<h3 id="观察磁盘分区状态"><a href="#观察磁盘分区状态" class="headerlink" title="观察磁盘分区状态"></a>观察磁盘分区状态</h3><h4 id="lsblk列出系统上所有磁盘列表"><a href="#lsblk列出系统上所有磁盘列表" class="headerlink" title="lsblk列出系统上所有磁盘列表"></a>lsblk列出系统上所有磁盘列表</h4><p>Isblk可以看成” list block device”的缩写， 就是列出所有储存设备的意思。<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-25%20%E4%B8%8B%E5%8D%882.23.27.png" alt=""></p>
+<h4 id="blikid列出设备的UUID等参数"><a href="#blikid列出设备的UUID等参数" class="headerlink" title="blikid列出设备的UUID等参数"></a>blikid列出设备的UUID等参数</h4><p>UUID是全域单一识别码（universally unique identifier），Linux会将系统内所有设备都给予一个独一无二的识别码。这个识别码就可以拿来作为挂载或是使用这个设备、文件系统之用了。<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-25%20%E4%B8%8B%E5%8D%882.24.29.png" alt=""></p>
+<h4 id="parted列出磁盘的分区表类型与分区信息"><a href="#parted列出磁盘的分区表类型与分区信息" class="headerlink" title="parted列出磁盘的分区表类型与分区信息"></a>parted列出磁盘的分区表类型与分区信息</h4><p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-25%20%E4%B8%8B%E5%8D%882.28.04.png" alt=""></p>
+<h3 id="磁盘分区：gdisk-fdisk"><a href="#磁盘分区：gdisk-fdisk" class="headerlink" title="磁盘分区：gdisk/ fdisk"></a>磁盘分区：gdisk/ fdisk</h3><h4 id="用gdisk新增分区"><a href="#用gdisk新增分区" class="headerlink" title="用gdisk新增分区"></a>用gdisk新增分区</h4><h4 id="partprobe更新Linux核心的分区表信息"><a href="#partprobe更新Linux核心的分区表信息" class="headerlink" title="partprobe更新Linux核心的分区表信息"></a>partprobe更新Linux核心的分区表信息</h4><h4 id="用gdisk删除一个分区"><a href="#用gdisk删除一个分区" class="headerlink" title="用gdisk删除一个分区"></a>用gdisk删除一个分区</h4><h4 id="fdisk"><a href="#fdisk" class="headerlink" title="fdisk"></a>fdisk</h4><h3 id="文件系统检验"><a href="#文件系统检验" class="headerlink" title="文件系统检验"></a>文件系统检验</h3><h3 id="文件系统挂载与卸载"><a href="#文件系统挂载与卸载" class="headerlink" title="文件系统挂载与卸载"></a>文件系统挂载与卸载</h3><h3 id="磁盘、文件系统参数修订"><a href="#磁盘、文件系统参数修订" class="headerlink" title="磁盘、文件系统参数修订"></a>磁盘、文件系统参数修订</h3><h4 id="mknod"><a href="#mknod" class="headerlink" title="mknod"></a>mknod</h4><h4 id="xfs-admin修改XFS文件系统的UUID与Label-name"><a href="#xfs-admin修改XFS文件系统的UUID与Label-name" class="headerlink" title="xfs-admin修改XFS文件系统的UUID与Label name"></a>xfs-admin修改XFS文件系统的UUID与Label name</h4><h2 id="设置开机挂载"><a href="#设置开机挂载" class="headerlink" title="设置开机挂载"></a>设置开机挂载</h2><h3 id="开机挂载-etc-fstab及-etc-mtab"><a href="#开机挂载-etc-fstab及-etc-mtab" class="headerlink" title="开机挂载/etc/fstab及/etc/mtab"></a>开机挂载/etc/fstab及/etc/mtab</h3><h3 id="特殊设备loop挂载"><a href="#特殊设备loop挂载" class="headerlink" title="特殊设备loop挂载"></a>特殊设备loop挂载</h3><h2 id="内存交换空间（swap）之创建"><a href="#内存交换空间（swap）之创建" class="headerlink" title="内存交换空间（swap）之创建"></a>内存交换空间（swap）之创建</h2><p>如果硬件的配备资源足够的话’那么swap应该不会被我们的系统所使用到swaρ会被利用到的时刻通常就是实体内存不足的情况。目前在个人使用上内存已经足够大，不用设置swap也不会有太大的问题，但是服务器就不一定了，由于不知道何时会有大量来自网络的请求，因此最好还是能够预留一些swap来缓冲一下系统的内存用量。有备无患。</p>
+<h3 id="使用实体分区创建swap"><a href="#使用实体分区创建swap" class="headerlink" title="使用实体分区创建swap"></a>使用实体分区创建swap</h3><ol>
+<li>分区:先使用gdik在你的磁盘中分区出一个分区给系统作为swap。由于Linux的gdisk默认会将分区的ID设置为 Linux的文件系统，所以你可能还得要设置一下system ID就是了。</li>
+<li>格式化∶利用创建swap格式的” mkswap设备文件名”就能够格式化该分区成为swap格式。</li>
+<li>使用:最后将该swap设备启动,方法为:” swapon设备文件名”。</li>
+<li>观察:最终通过free与 swapon-s这个指令来观察一下内存的用量。</li>
+</ol>
+<h3 id="使用文件创建swap"><a href="#使用文件创建swap" class="headerlink" title="使用文件创建swap"></a>使用文件创建swap</h3><h1 id="文件与文件系统的压缩，打包与备份"><a href="#文件与文件系统的压缩，打包与备份" class="headerlink" title="文件与文件系统的压缩，打包与备份"></a>文件与文件系统的压缩，打包与备份</h1><h2 id="压缩文件的用途与技术"><a href="#压缩文件的用途与技术" class="headerlink" title="压缩文件的用途与技术"></a>压缩文件的用途与技术</h2><h2 id="Linux系统常见的压缩指令"><a href="#Linux系统常见的压缩指令" class="headerlink" title="Linux系统常见的压缩指令"></a>Linux系统常见的压缩指令</h2><p>虽然Linux文件的属性基本上是与文件名没有绝对关系的，为了帮助人类，适当的扩展名还是必要的。<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-25%20%E4%B8%8B%E5%8D%883.51.34.png" alt=""><br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-25%20%E4%B8%8B%E5%8D%884.20.34.png" alt=""></p>
+<h3 id="bzip2，bzcat-bzmore-bzless-bzgrep"><a href="#bzip2，bzcat-bzmore-bzless-bzgrep" class="headerlink" title="bzip2，bzcat,bzmore,bzless,bzgrep"></a>bzip2，bzcat,bzmore,bzless,bzgrep</h3><p>gzip是为了取代 compress并提供更好的压缩比而成立的,那么bzip2则是为了取代gzip并提供更佳的压缩比而来的。</p>
+<h3 id="xz-xzcat-xzmore-xzless-xzgrep"><a href="#xz-xzcat-xzmore-xzless-xzgrep" class="headerlink" title="xz,xzcat,xzmore,xzless,xzgrep"></a>xz,xzcat,xzmore,xzless,xzgrep</h3><p>xz的压缩比好很多，但是xz最大的问题就是时间花太久了。运算时间要比gzip久很多。</p>
+<h2 id="打包指令：tar"><a href="#打包指令：tar" class="headerlink" title="打包指令：tar"></a>打包指令：tar</h2><h3 id="tar"><a href="#tar" class="headerlink" title="tar"></a>tar</h3><p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-25%20%E4%B8%8B%E5%8D%884.24.30.png" alt=""></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2019/01/20/鸟哥Linux基础   Linux的规划与安装/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZDK"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZDK's blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/01/20/鸟哥Linux基础   Linux的规划与安装/" class="post-title-link" itemprop="url">鸟哥Linux基础   Linux的规划与安装</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-20 20:25:32" itemprop="dateCreated datePublished" datetime="2019-01-20T20:25:32+08:00">2019-01-20</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-01-21 18:55:50" itemprop="dateModified" datetime="2019-01-21T18:55:50+08:00">2019-01-21</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/读书笔记/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/01/20/鸟哥Linux基础   Linux的规划与安装/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/01/20/鸟哥Linux基础   Linux的规划与安装/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2019/01/20/鸟哥Linux基础   Linux的规划与安装/" class="post-meta-item leancloud_visitors" data-flag-title="鸟哥Linux基础   Linux的规划与安装">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          <br/>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="第零章、计算机概论"><a href="#第零章、计算机概论" class="headerlink" title="第零章、计算机概论"></a>第零章、计算机概论</h1><p>CPU实际要处理的数据完全来自于内存（不管是程序还是一般文件数据）。<br>CPU架构<br>精简指令集RISC，如ARM架构。目前世界上使用范围最广的CPU就是ARM架构。<br>复杂指令集CISC。AMD，Intel x86。</p>
+<h1 id="第一章、Linux是什么与如何学习"><a href="#第一章、Linux是什么与如何学习" class="headerlink" title="第一章、Linux是什么与如何学习"></a>第一章、Linux是什么与如何学习</h1><p>早期的Linux是针对386开发的。Linux提供了一个完整的操作系统当中最底层的硬件控制与资源管理的完整架构，这个架构是沿袭Unix良好的传统来的，所以相当的稳定而功能强大！</p>
+<p>Linux参考了标准的POSIX规范。POSIX是可携式操作系统接口的缩写，重点在规范核心与应用程序之间的接口，这是由美国电器与电子工程师学会（IEEE）所发布的一项标准。</p>
+<p>Linux其实就是一个操作系统最底层的核心及其提供的核心工具。它是GNU GPL授权模式，所以任何人均可取得源代码与可执行这个核心程序，并且可以修改。此外，因为Linux参考POSIX设计规范，于是相容于Unix操作系统，亦可称为Unix Like的一种。</p>
+<p>Linux distributions就是Kernel+Softwares+Tools+可完整安装程序。一般称为可完整安装套件或Linux发布商套件。<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%E5%9F%BA%E7%A1%80%20%20%20Linux%E7%9A%84%E8%A7%84%E5%88%92%E4%B8%8E%E5%AE%89%E8%A3%85/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-18%20%E4%B8%8A%E5%8D%889.33.47.png" alt=""></p>
+<p>由于Linux核心是由工程师写得，由源代码安装到x86计算机上面成为可以执行的binary文件这个过程不是人人都会的，所以早期确实只有工程师对Linux感兴趣。一直到一些社群与商业公司将Linux核心配合自由软件，并提供完整的安装程序且制成光盘，对于一般人来说，Linux才越来越有吸引力。</p>
+<p>每个distributions差异性并不大，主要是套件管理方式上的区分为dpkg和RPM。<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%E5%9F%BA%E7%A1%80%20%20%20Linux%E7%9A%84%E8%A7%84%E5%88%92%E4%B8%8E%E5%AE%89%E8%A3%85/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-18%20%E4%B8%8A%E5%8D%889.42.34.png" alt=""></p>
+<p>到底是要买商业版还是社群版的Linux distribution呢?如果是要装在个人计算机上面做为桌面电脑用的， 建议使用社群版，包括Fedora, Ubuntu, OpenSuSE等等。如果是用在服务器上面的， 建议使用商业版本，包括Red Hat, SuSE等。这是因为社群版通常开发者会加入最新的软件，这些软件可能会有一些bug存在。至于商业版则是经过一段时间的磨合后，才将稳定的软件放进去。</p>
+<p>Linux的运用场景<br>企业环境的利用：<br><strong>网络服务器:</strong><br>这是Linux当前最热门的应用了!承袭了Unix高稳定性的良好传统，Linux.上面的网络功能特别的稳定与强大!此外，由于GNU计划与Linux的GPL授权模式，让很多优秀的软件都在Linux上面发展，且这些在Linux上面的服务器软件几乎都是自由软件!因此，做为一部网络服务器，例如WWW, Mail Server, File Server等等， Linux绝对是上上之选!当然，这也是Linux的强项!由于Linux server的需求强烈，因此许多硬件厂商推出产品时，还得要特别说明有支持的Linux distributions呢!</p>
+<p><strong>关键任务的应用（金融数据库、大型企业网管环境）</strong><br>由于个人计算机的性能大幅提升且价格便宜，所以金融业与大型企业的环境为了要精实自己机房的机器设备，因此很多企业渐渐的走向Intel相容的x86主机环境。而这些企业所使用的软件大多使用Unix操作系统平台的软件，总不能连过去发展的软件都一口气全部换掉吧!所以，这个时候符合Unix操作系统标准并且可以在x86.上运行的Linux就渐渐崭露头角了!</p>
+<p><strong>学术机构的高性能运算任务：</strong><br>学术机构的研究常常需要自行开发软件，所以对于可作为开发环境的操作系统需求非常的迫切!举例来说，非常多技职体系的科技大学就很需要这方面的环境，好进行一些毕业专题的制作呢!又例如工程界流体力学的数值模式运算、娱乐事业的特效功能处理、软件开发者的工作平台等等。由于Linux的创造者本身就是个计算机性能癖，所以Linux有强大的运算能力;并且Linux具有支持度相当广泛的GCC编译软件，因此Linux在这方面的优势可是相当明显的!</p>
+<p>个人使用：<br><strong>个人电脑：</strong><br>为了要强化桌面电脑的使用率，Linux与X Window System结合了!要注意的是，X Window System仅只是Linux上面的一套软件，而不是核心喔!所以即使X Window挂了，对Linux也可能不会有直接的影响。</p>
+<p><strong>手持系统（PDA、手机）:</strong><br>Android就是Linux核心的一支，专门用来针对手机/平板这类ARM机器所设计的。</p>
+<p><strong>嵌入式系统：</strong><br>包括路由器、防火墙、手机、IP分享器、交换器、机器人控制芯片、家电用品的微计算机控制器等等，都可以是Linux操作系统喔!</p>
+<p>云端运用：<br><strong>云程序</strong><br><strong>端设备</strong></p>
+<p>以服务器或者是嵌入式系统的应用来说，X Window是非必备的软件，因为服务器是要提供用户端来连线的，X Window通常会吃掉很多系统资源。</p>
+<h1 id="第二章-主机规划与磁盘划分"><a href="#第二章-主机规划与磁盘划分" class="headerlink" title="第二章 主机规划与磁盘划分"></a>第二章 主机规划与磁盘划分</h1><p>并非所有的产品都会支持特定的操作系统，这牵涉到硬件开发商是否有意愿提供适当的驱动程序之故。因此，当我们想要购买或者是升级某些计算机元件时，应该要特别注意该硬件是否有针对您的操作系统提供适当的驱动程序，否则可能买了无法使用。</p>
+<p>在Linux系统中，每个设备被当成一个文件来对待，几乎所有的硬件设备文件都在/dev这个目录内。</p>
+<h2 id="磁盘分区"><a href="#磁盘分区" class="headerlink" title="磁盘分区"></a>磁盘分区</h2><p>整个磁盘的第一个扇区特别的重要，因为他记录了整个磁盘的重要信息。早期磁盘第一个扇区里面含有重要的信息称为MBR格式，但是由于磁盘的容量不断扩大，造成读写上的一些困扰，甚至有些大于2TB以上的磁盘分区已经让某些操作系统无法存取。因此后来又多了一个新的磁盘分区格式，称为GPT。</p>
+<h3 id="MSDOS（MBR）与GPT"><a href="#MSDOS（MBR）与GPT" class="headerlink" title="MSDOS（MBR）与GPT"></a>MSDOS（MBR）与GPT</h3><p>MSDOS（MBR）分区表格式与限制：<br>早期的Linux系统为了相容于Windows的磁盘，因此使用的是支持Windows的<br>MBR (Master Boot Record,主要开机纪录区)的方式来处理开机管理程序与分区表!而开机管理程序纪录区与分区表则通通放在磁盘的第一个扇区，这个扇区通常是512Bytes的大小(旧的磁盘扇区都是512Bytes喔!)，所以说，第一个扇区512Bytes会有这两个数据:</p>
+<ol>
+<li>主要开机记录区（Masrer Boot Record,MBR）：可以安装开机管理程序的地方，有446Bytes</li>
+<li>分区表（partition table）:记录整颗硬盘分区的状态，有64Bytes</li>
+</ol>
+<h3 id="Linux安装模式下，磁盘分区的选择（极重要）"><a href="#Linux安装模式下，磁盘分区的选择（极重要）" class="headerlink" title="Linux安装模式下，磁盘分区的选择（极重要）"></a>Linux安装模式下，磁盘分区的选择（极重要）</h3><h4 id="目录树结构"><a href="#目录树结构" class="headerlink" title="目录树结构"></a>目录树结构</h4><p>Linux内所有的数据都是以文件形态来呈现的，Linux系统最重要的地方就是在于目录树架构。就是以根目录为主，然后向下呈现分支状的目录结构的一种文件架构。<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%E5%9F%BA%E7%A1%80%20%20%20Linux%E7%9A%84%E8%A7%84%E5%88%92%E4%B8%8E%E5%AE%89%E8%A3%85/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-20%20%E4%B8%8B%E5%8D%887.55.08.png" alt=""><br>所有的文件都是由根目录（_）衍生来的，当要取得mydata那个文件时，系统就由根目录开始找，最终的文件名为: _home_dmtsai_mydata的意思。</p>
+<h4 id="文件系统与目录树的关系（挂载）"><a href="#文件系统与目录树的关系（挂载）" class="headerlink" title="文件系统与目录树的关系（挂载）"></a>文件系统与目录树的关系（挂载）</h4><p>挂载就是利用一个目录当成进入点，将磁盘分区的数据放置在该目录下，也就是说，进入该目录就可以读取该分区的意思。<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%E5%9F%BA%E7%A1%80%20%20%20Linux%E7%9A%84%E8%A7%84%E5%88%92%E4%B8%8E%E5%AE%89%E8%A3%85/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-20%20%E4%B8%8B%E5%8D%888.11.25.png" alt=""><br>假设硬盘分为两个分区 partition1是挂载到根目录,至于 partition2则是挂载到/ home这个目录。这也就是说当我的数据放置在 home 内的各次目录时,数据是放置到partition2的如果不是放在/home下面的目录,那么数据就会被放置到 partition1。</p>
+<h4 id="至少两个分区"><a href="#至少两个分区" class="headerlink" title="至少两个分区"></a>至少两个分区</h4><p>但记住至少要有两个分区，一个swap分区，一个/分区。swap分区是linux暂时存储数据的交换分区，它主要是把主内存上暂时不用得数据存起来，在需要的时候再调进内存内，且作为swap使用的分区不用指定“mout point”（载入点），既然它作为交换分区，我们理所当然应给它指定大小，它至少要等于系统上实际内存的量，一般来说它的大小是内存的两倍，如果你是16mb的内存，那么swap分区的大小是32mb左右，以此类推。但必须还要注意一点，swap分区不要大于128mb，因为系统不需要太大的交换分区。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/10/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="extend next" rel="next" href="/page/12/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
 
 
 
-<!-- mathjax config similar to math.stackexchange -->
+          </div>
+          
 
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
 
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-});
-</script>
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
 
-<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+      
+
+      
+
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="ZDK"/>
+            
+              <p class="site-author-name" itemprop="name">ZDK</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">191</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">分类</span>
+                  
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">48</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/zdkswd" title="GitHub &rarr; https://github.com/zdkswd"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:2822464407@qq.com" title="E-Mail &rarr; mailto:2822464407@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/zdkswd" title="https://github.com/zdkswd">Title</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+        </div>
+      </div>
+
+      
+
+      
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZDK</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.2.0</div>
 
 
 
 
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        
 
 
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+  </div>
+
+  
 
 <script>
-(function() {
-    var OriginTitile = document.title, titleTime;
-    document.addEventListener('visibilitychange', function() {
-        if (document.hidden) {
-            document.title = 'zdk'blog';
-            clearTimeout(titleTime);
-        } else {
-            document.title = '';
-            titleTime = setTimeout(function() {
-                document.title = OriginTitile;
-            },2000);
-        }
-    });
-})();
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
 </script>
 
 
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.2.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
+
+
+
+
+  
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz',
+    appKey: 'gkBx5soQkBREmER84PWbNJeM',
+    placeholder: 'have fun',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true,
+    lang: '' || 'zh-cn'
+  });
+</script>
+
+
+
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('5');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
 
 </body>
 </html>

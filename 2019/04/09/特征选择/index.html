@@ -1,33 +1,107 @@
 <!DOCTYPE html>
-<html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
-    
-
-    
-
-    
-
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
 
 
-    <meta charset="utf-8">
-    
-    
-    
-    
-    <title>特征选择 | ZDK&#39;s blog</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#3F51B5">
-    
-    
-    <meta name="keywords" content="机器学习">
-    <meta name="description" content="特征选择特征选择是特征工程里的一个重要问题，其目标是寻找最优特征子集。特征选择的目的有如下三个：  简化模型，使模型更易于研究人员和用户理解。 改善性能。节省存储和计算开销。 改善通用性，降低过拟合的风险。  特征选择的一般流程">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.2.0',
+    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+
+
+  <meta name="description" content="特征选择特征选择是特征工程里的一个重要问题，其目标是寻找最优特征子集。特征选择的目的有如下三个：  简化模型，使模型更易于研究人员和用户理解。 改善性能。节省存储和计算开销。 改善通用性，降低过拟合的风险。  特征选择的一般流程主要分为产生过程，评估过程，停止条件和验证过程。 当特征数量很大的时候， 这个搜索空间会很大，如何找最优特征还是需要一些经验结论。 具体特征选择方法分为三大类：  Filt">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="特征选择">
 <meta property="og:url" content="https://github.com/zdkswd/2019/04/09/特征选择/index.html">
 <meta property="og:site_name" content="ZDK&#39;s blog">
-<meta property="og:description" content="特征选择特征选择是特征工程里的一个重要问题，其目标是寻找最优特征子集。特征选择的目的有如下三个：  简化模型，使模型更易于研究人员和用户理解。 改善性能。节省存储和计算开销。 改善通用性，降低过拟合的风险。  特征选择的一般流程">
+<meta property="og:description" content="特征选择特征选择是特征工程里的一个重要问题，其目标是寻找最优特征子集。特征选择的目的有如下三个：  简化模型，使模型更易于研究人员和用户理解。 改善性能。节省存储和计算开销。 改善通用性，降低过拟合的风险。  特征选择的一般流程主要分为产生过程，评估过程，停止条件和验证过程。 当特征数量很大的时候， 这个搜索空间会很大，如何找最优特征还是需要一些经验结论。 具体特征选择方法分为三大类：  Filt">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://github.com/img/media/%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9/v2-a69a37aaa14a8040b4d867d7058aafe9_hd.jpg">
 <meta property="og:image" content="https://github.com/img/media/%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-08%20%E4%B8%8A%E5%8D%8810.03.30.png">
@@ -48,170 +122,380 @@
 <meta property="og:updated_time" content="2019-04-09T02:10:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="特征选择">
-<meta name="twitter:description" content="特征选择特征选择是特征工程里的一个重要问题，其目标是寻找最优特征子集。特征选择的目的有如下三个：  简化模型，使模型更易于研究人员和用户理解。 改善性能。节省存储和计算开销。 改善通用性，降低过拟合的风险。  特征选择的一般流程">
+<meta name="twitter:description" content="特征选择特征选择是特征工程里的一个重要问题，其目标是寻找最优特征子集。特征选择的目的有如下三个：  简化模型，使模型更易于研究人员和用户理解。 改善性能。节省存储和计算开销。 改善通用性，降低过拟合的风险。  特征选择的一般流程主要分为产生过程，评估过程，停止条件和验证过程。 当特征数量很大的时候， 这个搜索空间会很大，如何找最优特征还是需要一些经验结论。 具体特征选择方法分为三大类：  Filt">
 <meta name="twitter:image" content="https://github.com/img/media/%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9/v2-a69a37aaa14a8040b4d867d7058aafe9_hd.jpg">
-    
-        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
-    
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
-    <script>window.lazyScripts=[]</script>
 
-    <!-- custom head -->
-    
+
+
+  <link rel="alternate" href="/atom.xml" title="ZDK's blog" type="application/atom+xml"/>
+
+
+
+  
+  
+  <link rel="canonical" href="https://github.com/zdkswd/2019/04/09/特征选择/"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>特征选择 | ZDK's blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
 
 </head>
 
-<body>
-    <div id="loading" class="active"></div>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
-    <aside id="menu" class="hide" >
-  <div class="inner flex-row-vertical">
-    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-        <i class="icon icon-lg icon-close"></i>
-    </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
-      <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/tmg.jpg">
-        </a>
-        <hgroup class="introduce">
-          <h5 class="nickname">ZDK</h5>
-          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
-        </hgroup>
-      </div>
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ZDK's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
-    <div class="scroll-wrap flex-col">
-      <ul class="nav">
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
         
-            <li class="waves-block waves-effect">
-              <a href="/"  >
-                <i class="icon icon-lg icon-home"></i>
-                主页
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                Archives
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/tags"  >
-                <i class="icon icon-lg icon-tags"></i>
-                Tags
-              </a>
-            </li>
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>首页</a>
+
+  </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/categories"  >
-                <i class="icon icon-lg icon-th-list"></i>
-                Categories
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="https://github.com/zdkswd" target="_blank" >
-                <i class="icon icon-lg icon-github"></i>
-                Github
-              </a>
-            </li>
         
-      </ul>
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>归档</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br/>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
     </div>
   </div>
-</aside>
+  <div id="local-search-result"></div>
+</div>
 
-    <main id="main">
-        <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis">特征选择</div>
-        
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
-        </div>
-        
-        
+
+
     </div>
-</header>
-<header class="content-header post-header">
-
-    <div class="container fade-scale">
-        <h1 class="title">特征选择</h1>
-        <h5 class="subtitle">
-            
-                <time datetime="2019-04-09T02:09:47.000Z" itemprop="datePublished" class="page-time">
-  2019-04-09
-</time>
+  
+</nav>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
 
-            
-        </h5>
-    </div>
+</div>
+    </header>
 
     
 
 
-</header>
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
 
+          
+          <div id="content" class="content">
+            
 
-<div class="container body-wrap">
+  <div id="posts" class="posts-expand">
     
-    <aside class="post-widget">
-        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
-            <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#特征选择"><span class="post-toc-number">1.</span> <span class="post-toc-text">特征选择</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#具体特征选择方法"><span class="post-toc-number">2.</span> <span class="post-toc-text">具体特征选择方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#过滤特征选择"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">过滤特征选择</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Pearson相关系数"><span class="post-toc-number">2.1.1.</span> <span class="post-toc-text">Pearson相关系数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#卡方验证"><span class="post-toc-number">2.1.2.</span> <span class="post-toc-text">卡方验证</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#互信息和最大信息系数"><span class="post-toc-number">2.1.3.</span> <span class="post-toc-text">互信息和最大信息系数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#距离相关系数"><span class="post-toc-number">2.1.4.</span> <span class="post-toc-text">距离相关系数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方差选择法"><span class="post-toc-number">2.1.5.</span> <span class="post-toc-text">方差选择法</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#包装-wrapper-特征选择"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">包装(wrapper)特征选择</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#前向搜索"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">前向搜索</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#后向搜索"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">后向搜索</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#递归特征消除法"><span class="post-toc-number">2.2.3.</span> <span class="post-toc-text">递归特征消除法</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#嵌入-Embedded-特征选择"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">嵌入(Embedded)特征选择</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#基于惩罚项的特征选择法"><span class="post-toc-number">2.3.1.</span> <span class="post-toc-text">基于惩罚项的特征选择法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#基于学习模型的特征排序"><span class="post-toc-number">2.3.2.</span> <span class="post-toc-text">基于学习模型的特征排序</span></a></li></ol></li></ol></li></ol>
-        </nav>
-    </aside>
 
+  
 
-<article id="post-特征选择"
-  class="post-article article-type-post fade" itemprop="blogPost">
+  
+  
+  
 
-    <div class="post-card">
-        <h1 class="post-card-title">特征选择</h1>
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2019/04/09/特征选择/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZDK"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZDK's blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">特征选择
+
+              
+            
+          </h1>
+        
+
         <div class="post-meta">
-            <time class="post-time" title="2019-04-09 10:09:47" datetime="2019-04-09T02:09:47.000Z"  itemprop="datePublished">2019-04-09</time>
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-09 10:09:47 / 修改时间：10:10:16" itemprop="dateCreated datePublished" datetime="2019-04-09T10:09:47+08:00">2019-04-09</time>
+            </span>
+          
+
+          
+            
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+          
 
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/知识总结/" itemprop="url" rel="index"><span itemprop="name">知识总结</span></a></span>
 
+                
+                
+              
+            </span>
+          
 
+          
             
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
-    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
-</span>
+            
+              
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/04/09/特征选择/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/09/特征选择/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
 
+          
+          
+            <span id="/2019/04/09/特征选择/" class="post-meta-item leancloud_visitors" data-flag-title="特征选择">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          <br/>
+          
+
+          
+
+          
 
         </div>
-        <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="特征选择"><a href="#特征选择" class="headerlink" title="特征选择"></a>特征选择</h1><p>特征选择是特征工程里的一个重要问题，其目标是寻找最优特征子集。特征选择的目的有如下三个：</p>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="特征选择"><a href="#特征选择" class="headerlink" title="特征选择"></a>特征选择</h1><p>特征选择是特征工程里的一个重要问题，其目标是寻找最优特征子集。特征选择的目的有如下三个：</p>
 <ol>
 <li>简化模型，使模型更易于研究人员和用户理解。</li>
 <li>改善性能。节省存储和计算开销。</li>
 <li>改善通用性，降低过拟合的风险。</li>
 </ol>
-<p>特征选择的一般流程<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9/v2-a69a37aaa14a8040b4d867d7058aafe9_hd.jpg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>主要分为产生过程，评估过程，停止条件和验证过程。</p>
+<p>特征选择的一般流程<br><img src="/img/media/%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9/v2-a69a37aaa14a8040b4d867d7058aafe9_hd.jpg" alt=""><br>主要分为产生过程，评估过程，停止条件和验证过程。</p>
 <p><strong>当特征数量很大的时候， 这个搜索空间会很大，如何找最优特征还是需要一些经验结论。</strong></p>
 <h1 id="具体特征选择方法"><a href="#具体特征选择方法" class="headerlink" title="具体特征选择方法"></a>具体特征选择方法</h1><p>分为三大类：</p>
 <ol>
@@ -220,100 +504,20 @@
 <li>Embedded：嵌入法，先使用某些机器学习的算法和模型进行训练，得到各个特征的权值系数，根据系数从大到小排序选择特征。类似于Filter方法，但是是通过训练来确定特征的优劣。</li>
 </ol>
 <h2 id="过滤特征选择"><a href="#过滤特征选择" class="headerlink" title="过滤特征选择"></a>过滤特征选择</h2><p>过滤特征选择法的想法是针对每个特征 x_i ，i 从 1 到 n ，计算 x_i 相对于类别标签 y 的信息量 S(i) ，得到 n 个结果，然后将 n 个 S(i) 按照从大到小排序，输出前 k  个特征。显然，这样复杂度大大降低。那么关键的问题就是使用什么样的方法来度量 S(i) ，我们的目标是选取与 y 关联最密切的一些 特征x_i 。</p>
-<h3 id="Pearson相关系数"><a href="#Pearson相关系数" class="headerlink" title="Pearson相关系数"></a>Pearson相关系数</h3><p>皮尔森相关系数是一种最简单的，能帮助理解特征和响应变量之间关系的方法，该方法衡量的是变量之间的线性相关性，结果的取值区间为 [-1,1] ， -1 表示完全的负相关(这个变量下降，那个就会上升)， +1 表示完全的正相关， 0 表示没有线性相关。Pearson Correlation速度快、易于计算，经常在拿到数据(经过清洗和特征提取之后的)之后第一时间就执行。Scipy的pearsonr方法能够同时计算相关系数和p-value，<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-08%20%E4%B8%8A%E5%8D%8810.03.30.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>Pearson相关系数的一个<strong>明显缺陷</strong>是，作为特征排序机制，他只对<strong>线性关系敏感</strong>。如果关系是非线性的，即便两个变量具有一一对应的关系，Pearson相关性也可能会接近 0 。</p>
+<h3 id="Pearson相关系数"><a href="#Pearson相关系数" class="headerlink" title="Pearson相关系数"></a>Pearson相关系数</h3><p>皮尔森相关系数是一种最简单的，能帮助理解特征和响应变量之间关系的方法，该方法衡量的是变量之间的线性相关性，结果的取值区间为 [-1,1] ， -1 表示完全的负相关(这个变量下降，那个就会上升)， +1 表示完全的正相关， 0 表示没有线性相关。Pearson Correlation速度快、易于计算，经常在拿到数据(经过清洗和特征提取之后的)之后第一时间就执行。Scipy的pearsonr方法能够同时计算相关系数和p-value，<br><img src="/img/media/%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-08%20%E4%B8%8A%E5%8D%8810.03.30.png" alt=""><br>Pearson相关系数的一个<strong>明显缺陷</strong>是，作为特征排序机制，他只对<strong>线性关系敏感</strong>。如果关系是非线性的，即便两个变量具有一一对应的关系，Pearson相关性也可能会接近 0 。</p>
 <h3 id="卡方验证"><a href="#卡方验证" class="headerlink" title="卡方验证"></a>卡方验证</h3><p>什么是卡方检验：<br>卡方检验就是检验两个变量之间有没有关系。<br>以运营为例:<br>卡方检验可以检验男性或者女性对线上买生鲜食品有没有区别；<br>不同城市级别的消费者对买SUV车有没有什么区别；<br>如果有显著区别的话，我们会考虑把这些变量放到模型或者分析里去。</p>
 <p>注意：<strong>卡方检验针对分类变量。</strong></p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-08%20%E4%B8%8A%E5%8D%8810.42.27.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-08%20%E4%B8%8A%E5%8D%8810.42.41.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<p>置信度的话，我们按照我们自己意愿挑选，一般我们会挑90％或者95%。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-08%20%E4%B8%8A%E5%8D%8810.47.39.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-08%20%E4%B8%8A%E5%8D%8810.48.01.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-08%20%E4%B8%8A%E5%8D%8811.00.32.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>卡方检验就是统计样本的实际观测值与理论推断值之间的偏离程度，实际观测值与理论推断值之间的偏离程度就决定卡方值的大小，如果卡方值越大，二者偏差程度越大；反之，二者偏差越小；若两个值完全相等时，卡方值就为0，表明理论值完全符合。</p>
-<p>不难发现，这个统计量的含义简而言之就是自变量对因变量的相关性。用sklearn中feature_selection库的SelectKBest类结合卡方检验来选择特征的代码如下：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-08%20%E4%B8%8A%E5%8D%8810.31.35.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>sklearn.feature_selection模块中的类可以用于样本集中的特征选择/维数降低，以提高估计器的准确度分数或提高其在非常高维数据集上的性能</p>
-<h3 id="互信息和最大信息系数"><a href="#互信息和最大信息系数" class="headerlink" title="互信息和最大信息系数"></a>互信息和最大信息系数</h3><p>经典的互信息也是评价定性自变量对定性因变量的相关性的，互信息公式如下：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-08%20%E4%B8%8B%E5%8D%8812.39.16.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>当 x_i 是0/1离散值的时候，这个公式如上。很容易推广到 x_i 是多个离散值的情况。这里的 p(x_i,y) , p(x_i) 和 p(y) 都是从训练集上得到的。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-08%20%E4%B8%8B%E5%8D%8812.40.00.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>MI 衡量的是 x_i 和 y 的独立性。如果它俩独立 P(x_i,y)=p(x_i)p(y) ，那么 KL 距离值为0，也就是 x_i 和 y 不相关了，可以去除 x_i 。相反，<strong>如果两者密切相关，那么 MI 值会很大。</strong></p>
+<p><img src="/img/media/%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-08%20%E4%B8%8A%E5%8D%8810.42.27.png" alt=""><br><img src="/img/media/%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-08%20%E4%B8%8A%E5%8D%8810.42.41.png" alt=""><br>置信度的话，我们按照我们自己意愿挑选，一般我们会挑90％或者95%。<br><img src="/img/media/%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-08%20%E4%B8%8A%E5%8D%8810.47.39.png" alt=""><br><img src="/img/media/%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-08%20%E4%B8%8A%E5%8D%8810.48.01.png" alt=""><br><img src="/img/media/%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-08%20%E4%B8%8A%E5%8D%8811.00.32.png" alt=""><br>卡方检验就是统计样本的实际观测值与理论推断值之间的偏离程度，实际观测值与理论推断值之间的偏离程度就决定卡方值的大小，如果卡方值越大，二者偏差程度越大；反之，二者偏差越小；若两个值完全相等时，卡方值就为0，表明理论值完全符合。</p>
+<p>不难发现，这个统计量的含义简而言之就是自变量对因变量的相关性。用sklearn中feature_selection库的SelectKBest类结合卡方检验来选择特征的代码如下：<br><img src="/img/media/%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-08%20%E4%B8%8A%E5%8D%8810.31.35.png" alt=""><br>sklearn.feature_selection模块中的类可以用于样本集中的特征选择/维数降低，以提高估计器的准确度分数或提高其在非常高维数据集上的性能</p>
+<h3 id="互信息和最大信息系数"><a href="#互信息和最大信息系数" class="headerlink" title="互信息和最大信息系数"></a>互信息和最大信息系数</h3><p>经典的互信息也是评价定性自变量对定性因变量的相关性的，互信息公式如下：<br><img src="/img/media/%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-08%20%E4%B8%8B%E5%8D%8812.39.16.png" alt=""><br>当 x_i 是0/1离散值的时候，这个公式如上。很容易推广到 x_i 是多个离散值的情况。这里的 p(x_i,y) , p(x_i) 和 p(y) 都是从训练集上得到的。<br><img src="/img/media/%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-08%20%E4%B8%8B%E5%8D%8812.40.00.png" alt=""><br>MI 衡量的是 x_i 和 y 的独立性。如果它俩独立 P(x_i,y)=p(x_i)p(y) ，那么 KL 距离值为0，也就是 x_i 和 y 不相关了，可以去除 x_i 。相反，<strong>如果两者密切相关，那么 MI 值会很大。</strong></p>
 <p>在对 MI 进行排名后，最后剩余的问题就是如何选择 k 个值（前 k 个 x_i ）。我们继续使用交叉验证的方法，将 k 从 1 扫描到 n ，取最大的 F 。</p>
 <p>想把互信息直接用于特征选择其实不是太方便：1、它不属于度量方式，也没有办法归一化，在不同数据及上的结果无法做比较；2、对于连续变量的计算不是很方便（ X 和 Y 都是集合, x_i, y 都是离散的取值），通常变量需要先离散化，而互信息的结果对离散化的方式很敏感。</p>
 <p>最大信息系数克服了这两个问题。它首先寻找一种最优的离散化方式，然后把互信息取值转换成一种度量方式，取值区间在 [0,1] 。minepy提供了MIC功能。</p>
-<p> 如y=x^2 这个例子，MIC算出来的互信息值为1(最大的取值)。代码如下：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-08%20%E4%B8%8B%E5%8D%8812.50.37.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<p> 如y=x^2 这个例子，MIC算出来的互信息值为1(最大的取值)。代码如下：<br><img src="/img/media/%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-08%20%E4%B8%8B%E5%8D%8812.50.37.png" alt=""></p>
 <h3 id="距离相关系数"><a href="#距离相关系数" class="headerlink" title="距离相关系数"></a>距离相关系数</h3><p>距离相关系数是为了克服Pearson相关系数的弱点而生的。在 x 和 x^2 这个例子中，即便Pearson相关系数是 0 ，我们也不能断定这两个变量是独立的（<strong>有可能是非线性相关</strong>）；但如果距离相关系数是 0 ，那么我们就可以说这两个变量是独立的。</p>
 <p>尽管有MIC和距离相关系数在了，但当变量之间的关系接近线性相关的时候，Pearson相关系数仍然是不可替代的。第一、Pearson相关系数计算速度快，这在处理大规模数据的时候很重要。第二、Pearson相关系数的取值区间是[-1，1]，而MIC和距离相关系数都是[0，1]。这个特点使得Pearson相关系数能够表征更丰富的关系，符号表示关系的正负，绝对值能够表示强度。当然，Pearson相关性有效的前提是两个变量的变化关系是单调的。</p>
 <h3 id="方差选择法"><a href="#方差选择法" class="headerlink" title="方差选择法"></a>方差选择法</h3><p>过滤特征选择法还有一种方法不需要度量特征 x_i 和类别标签 y 的信息量。这种方法先要计算各个特征的方差，然后根据阈值，选择方差大于阈值的特征。</p>
-<p>例如，假设我们有一个具有布尔特征的数据集，并且我们要删所有01特征中出现0的概率超过80%的特征。布尔特征是伯努利随机变量，这些变量的方差由下式给出:<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-09%20%E4%B8%8A%E5%8D%889.06.28.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>VarianceThreshold是特征选择的简单基线方法。它删除方差不符合某个阈值的所有特征。默认情况下，它会删除所有零差异特征，即所有样本中具有相同值的特征。代码如下：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-09%20%E4%B8%8A%E5%8D%889.08.42.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>输出结果：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-09%20%E4%B8%8A%E5%8D%889.09.21.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>如预期的那样，VarianceThreshold已经删除了第一列，其具有 p=5/6&gt;0.8 包含零的概率。</p>
+<p>例如，假设我们有一个具有布尔特征的数据集，并且我们要删所有01特征中出现0的概率超过80%的特征。布尔特征是伯努利随机变量，这些变量的方差由下式给出:<br><img src="/img/media/%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-09%20%E4%B8%8A%E5%8D%889.06.28.png" alt=""><br>VarianceThreshold是特征选择的简单基线方法。它删除方差不符合某个阈值的所有特征。默认情况下，它会删除所有零差异特征，即所有样本中具有相同值的特征。代码如下：<br><img src="/img/media/%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-09%20%E4%B8%8A%E5%8D%889.08.42.png" alt=""><br>输出结果：<br><img src="/img/media/%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-09%20%E4%B8%8A%E5%8D%889.09.21.png" alt=""><br>如预期的那样，VarianceThreshold已经删除了第一列，其具有 p=5/6&gt;0.8 包含零的概率。</p>
 <h2 id="包装-wrapper-特征选择"><a href="#包装-wrapper-特征选择" class="headerlink" title="包装(wrapper)特征选择"></a>包装(wrapper)特征选择</h2><p>Wrapper这里指不断地使用不同的特征组合来测试学习算法进行特征选择。先选定特定算法， 一般会选用普遍效果较好的算法， 例如Random Forest， SVM， kNN等等。</p>
 <h3 id="前向搜索"><a href="#前向搜索" class="headerlink" title="前向搜索"></a>前向搜索</h3><p>前向搜索说白了就是每次增量地从剩余未选中的特征选出一个加入特征集中，待达到阈值或者 n 时，从所有的 F 中选出错误率最小的。过程如下：</p>
 <ol>
@@ -324,247 +528,896 @@
 </ol>
 <h3 id="后向搜索"><a href="#后向搜索" class="headerlink" title="后向搜索"></a>后向搜索</h3><p>既然有增量加，那么也会有增量减，后者称为后向搜索。先将 F 设置为 {1,2,…,n} ，然后每次删除一个特征，并评价，直到达到阈值或者为空，然后选择最佳的 F 。</p>
 <p><strong>这两种算法都可以工作，但是计算复杂度比较大。</strong>时间复杂度为<br>O(n+(n-1)+(n-2)+…+1)=O(n^2)</p>
-<h3 id="递归特征消除法"><a href="#递归特征消除法" class="headerlink" title="递归特征消除法"></a>递归特征消除法</h3><p>递归消除特征法使用一个基模型来进行多轮训练，每轮训练后，消除若干权值系数的特征，再基于新的特征集进行下一轮训练。使用feature_selection库的RFE类来选择特征的代码如下：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-09%20%E4%B8%8A%E5%8D%889.30.05.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<h3 id="递归特征消除法"><a href="#递归特征消除法" class="headerlink" title="递归特征消除法"></a>递归特征消除法</h3><p>递归消除特征法使用一个基模型来进行多轮训练，每轮训练后，消除若干权值系数的特征，再基于新的特征集进行下一轮训练。使用feature_selection库的RFE类来选择特征的代码如下：<br><img src="/img/media/%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-09%20%E4%B8%8A%E5%8D%889.30.05.png" alt=""></p>
 <h2 id="嵌入-Embedded-特征选择"><a href="#嵌入-Embedded-特征选择" class="headerlink" title="嵌入(Embedded)特征选择"></a>嵌入(Embedded)特征选择</h2><h3 id="基于惩罚项的特征选择法"><a href="#基于惩罚项的特征选择法" class="headerlink" title="基于惩罚项的特征选择法"></a>基于惩罚项的特征选择法</h3><p>通过L1正则项来选择特征：L1正则方法具有稀疏解的特性，因此天然具备特征选择的特性，但是要注意，L1没有选到的特征不代表不重要，原因是两个具有高相关性的特征可能只保留了一个，如果要确定哪个特征重要应再通过L2正则方法交叉检验。</p>
 <h3 id="基于学习模型的特征排序"><a href="#基于学习模型的特征排序" class="headerlink" title="基于学习模型的特征排序"></a>基于学习模型的特征排序</h3><p>这种方法的思路是直接使用你要用的机器学习算法，针对每个单独的特征和响应变量建立预测模型。假如某个特征和响应变量之间的关系是非线性的，可以用基于树的方法（决策树、随机森林）、或者扩展的线性模型等。基于树的方法比较易于使用，因为他们对非线性关系的建模比较好，并且不需要太多的调试。但要注意过拟合问题，因此树的深度最好不要太大，再就是运用交叉验证。通过这种训练对特征进行打分获得相关性后再训练最终模型。</p>
-<p>在波士顿房价数据集上使用sklearn的随机森林回归给出一个单变量选择的例子：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-09%20%E4%B8%8A%E5%8D%889.52.18.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<p>在波士顿房价数据集上使用sklearn的随机森林回归给出一个单变量选择的例子：<br><img src="/img/media/%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-09%20%E4%B8%8A%E5%8D%889.52.18.png" alt=""></p>
 
-        </div>
-
-        <blockquote class="post-copyright">
-    
-    <div class="content">
-        
-<span class="post-time">
-    最后更新时间：<time datetime="2019-04-09T02:10:16.000Z" itemprop="dateUpdated">2019-04-09 10:10:16</time>
-</span><br>
-
-
-        
+      
     </div>
+
     
-    <footer>
-        <a href="https://github.com/zdkswd">
-            <img src="/img/tmg.jpg" alt="ZDK">
-            ZDK
-        </a>
+
+    
+      
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/04/百面  特征工程/" rel="next" title="百面  特征工程">
+                <i class="fa fa-chevron-left"></i> 百面  特征工程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/14/XGBoost调参/" rel="prev" title="XGBoost调参">
+                XGBoost调参 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
     </footer>
-</blockquote>
-
-        
-
-
-        <div class="post-footer">
-            
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li></ul>
+  </div>
+  
+  
+  
+  </article>
 
 
-            
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
 
 
         </div>
-    </div>
-
-    
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2019/04/14/XGBoost调参/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">XGBoost调参</h4>
-      </a>
-    </div>
-  
-
-  
-    <div class="waves-block waves-effect next">
-      <a href="/2019/04/04/百面  特征工程/" id="post-next" class="post-nav-link">
-        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">百面  特征工程</h4>
-      </a>
-    </div>
-  
-</nav>
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Valine Comments -->
-    <div class="comments vcomment" id="comments"></div>
-    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
-    <!-- Valine Comments script -->
-    <script>
-        var GUEST_INFO = ['nick','mail','link'];
-        var guest_info = 'nick,mail'.split(',').filter(function(item){
-          return GUEST_INFO.indexOf(item) > -1
-        });
-        new Valine({
-            el: '#comments',
-            notify: 'true' == 'true',
-            verify: 'false' == 'true',
-            appId: "QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz",
-            appKey: "gkBx5soQkBREmER84PWbNJeM",
-            avatar: "mm",
-            placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
-            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
-            pageSize: "10"
-        })
-    </script>
-    <!-- Valine Comments end -->
-
-
-
-
-
-
-
-</article>
-
-
-
-</div>
-
-        <footer class="footer">
-    <div class="top">
         
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
-
-
-        <p>
-            
-                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-            
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
-        </p>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
     </div>
-    <div class="bottom">
-        <p><span>ZDK &copy; 2017 - 2019</span>
-            <span>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="ZDK"/>
+            
+              <p class="site-author-name" itemprop="name">ZDK</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
                 
-                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
-            </span>
-        </p>
-    </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
-    </script>
-</footer>
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">191</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
 
-    </main>
-    <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">分类</span>
+                  
+                </div>
+              
 
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">48</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
 
-    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
-<script>
-var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
-
-
-</script>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
             </div>
-            <time class="flex-col time">{date}</time>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/zdkswd" title="GitHub &rarr; https://github.com/zdkswd"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:2822464407@qq.com" title="E-Mail &rarr; mailto:2822464407@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/zdkswd" title="https://github.com/zdkswd">Title</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
         </div>
-    </a>
-</li>
-</template>
+      </div>
 
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
 
+            
+            
+            
+            
 
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#特征选择"><span class="nav-number">1.</span> <span class="nav-text">特征选择</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#具体特征选择方法"><span class="nav-number">2.</span> <span class="nav-text">具体特征选择方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#过滤特征选择"><span class="nav-number">2.1.</span> <span class="nav-text">过滤特征选择</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Pearson相关系数"><span class="nav-number">2.1.1.</span> <span class="nav-text">Pearson相关系数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#卡方验证"><span class="nav-number">2.1.2.</span> <span class="nav-text">卡方验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#互信息和最大信息系数"><span class="nav-number">2.1.3.</span> <span class="nav-text">互信息和最大信息系数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#距离相关系数"><span class="nav-number">2.1.4.</span> <span class="nav-text">距离相关系数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方差选择法"><span class="nav-number">2.1.5.</span> <span class="nav-text">方差选择法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#包装-wrapper-特征选择"><span class="nav-number">2.2.</span> <span class="nav-text">包装(wrapper)特征选择</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#前向搜索"><span class="nav-number">2.2.1.</span> <span class="nav-text">前向搜索</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后向搜索"><span class="nav-number">2.2.2.</span> <span class="nav-text">后向搜索</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#递归特征消除法"><span class="nav-number">2.2.3.</span> <span class="nav-text">递归特征消除法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#嵌入-Embedded-特征选择"><span class="nav-number">2.3.</span> <span class="nav-text">嵌入(Embedded)特征选择</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基于惩罚项的特征选择法"><span class="nav-number">2.3.1.</span> <span class="nav-text">基于惩罚项的特征选择法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于学习模型的特征排序"><span class="nav-number">2.3.2.</span> <span class="nav-text">基于学习模型的特征排序</span></a></li></ol></li></ol></li></ol></div>
+            
 
-<!-- mathjax config similar to math.stackexchange -->
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
+      
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
 
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-});
-</script>
-
-<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
-
-
-
-
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
 
 
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZDK</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.2.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+  </div>
+
+  
 
 <script>
-(function() {
-    var OriginTitile = document.title, titleTime;
-    document.addEventListener('visibilitychange', function() {
-        if (document.hidden) {
-            document.title = 'zdk'blog';
-            clearTimeout(titleTime);
-        } else {
-            document.title = '';
-            titleTime = setTimeout(function() {
-                document.title = OriginTitile;
-            },2000);
-        }
-    });
-})();
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
 </script>
 
 
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.2.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz',
+    appKey: 'gkBx5soQkBREmER84PWbNJeM',
+    placeholder: 'have fun',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true,
+    lang: '' || 'zh-cn'
+  });
+</script>
+
+
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('5');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
 
 </body>
 </html>

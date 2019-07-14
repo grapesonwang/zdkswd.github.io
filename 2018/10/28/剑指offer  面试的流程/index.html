@@ -1,33 +1,107 @@
 <!DOCTYPE html>
-<html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
-    
-
-    
-
-    
-
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
 
 
-    <meta charset="utf-8">
-    
-    
-    
-    
-    <title>剑指offer  面试的流程 | ZDK&#39;s blog</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#3F51B5">
-    
-    
-    <meta name="keywords" content="offer">
-    <meta name="description" content="面试的三种形式                                                                                                           电话面试与现场面试最大的区别就是应聘者见不到面试官，双方的沟通只能依靠声音。很多外企在电话面试时都会加上英语面试的环节，甚至有些公司全部面试都会用英语进行。对应聘者的听力提">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.2.0',
+    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+
+
+  <meta name="description" content="面试的三种形式 电话面试与现场面试最大的区别就是应聘者见不到面试官，双方的沟通只能依靠声音。很多外企在电话面试时都会加上英语面试的环节，甚至有些公司全部面试都会用英语进行。对应聘者的听力提出了更高的要求。如果在面试的时候没有听清楚或听懂面试官的问题，千万不要不懂装懂答非所问，这是面试的大忌。当不确定面试官的问题时，一定要大胆的多提问，直到弄清楚面试官的意图为止。 共享桌面远程面试目前只有为数不多的">
 <meta name="keywords" content="offer">
 <meta property="og:type" content="article">
 <meta property="og:title" content="剑指offer  面试的流程">
 <meta property="og:url" content="https://github.com/zdkswd/2018/10/28/剑指offer  面试的流程/index.html">
 <meta property="og:site_name" content="ZDK&#39;s blog">
-<meta property="og:description" content="面试的三种形式                                                                                                           电话面试与现场面试最大的区别就是应聘者见不到面试官，双方的沟通只能依靠声音。很多外企在电话面试时都会加上英语面试的环节，甚至有些公司全部面试都会用英语进行。对应聘者的听力提">
+<meta property="og:description" content="面试的三种形式 电话面试与现场面试最大的区别就是应聘者见不到面试官，双方的沟通只能依靠声音。很多外企在电话面试时都会加上英语面试的环节，甚至有些公司全部面试都会用英语进行。对应聘者的听力提出了更高的要求。如果在面试的时候没有听清楚或听懂面试官的问题，千万不要不懂装懂答非所问，这是面试的大忌。当不确定面试官的问题时，一定要大胆的多提问，直到弄清楚面试官的意图为止。 共享桌面远程面试目前只有为数不多的">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://github.com/img/media/%E5%89%91%E6%8C%87offer%20%20%E9%9D%A2%E8%AF%95%E7%9A%84%E6%B5%81%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-24%20%E4%B8%8B%E5%8D%885.49.55.png">
 <meta property="og:image" content="https://github.com/img/media/%E5%89%91%E6%8C%87offer%20%20%E9%9D%A2%E8%AF%95%E7%9A%84%E6%B5%81%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-24%20%E4%B8%8B%E5%8D%885.55.10.png">
@@ -52,184 +126,382 @@
 <meta property="og:updated_time" content="2018-10-28T08:17:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="剑指offer  面试的流程">
-<meta name="twitter:description" content="面试的三种形式                                                                                                           电话面试与现场面试最大的区别就是应聘者见不到面试官，双方的沟通只能依靠声音。很多外企在电话面试时都会加上英语面试的环节，甚至有些公司全部面试都会用英语进行。对应聘者的听力提">
+<meta name="twitter:description" content="面试的三种形式 电话面试与现场面试最大的区别就是应聘者见不到面试官，双方的沟通只能依靠声音。很多外企在电话面试时都会加上英语面试的环节，甚至有些公司全部面试都会用英语进行。对应聘者的听力提出了更高的要求。如果在面试的时候没有听清楚或听懂面试官的问题，千万不要不懂装懂答非所问，这是面试的大忌。当不确定面试官的问题时，一定要大胆的多提问，直到弄清楚面试官的意图为止。 共享桌面远程面试目前只有为数不多的">
 <meta name="twitter:image" content="https://github.com/img/media/%E5%89%91%E6%8C%87offer%20%20%E9%9D%A2%E8%AF%95%E7%9A%84%E6%B5%81%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-24%20%E4%B8%8B%E5%8D%885.49.55.png">
-    
-        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
-    
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
-    <script>window.lazyScripts=[]</script>
 
-    <!-- custom head -->
-    
+
+
+  <link rel="alternate" href="/atom.xml" title="ZDK's blog" type="application/atom+xml"/>
+
+
+
+  
+  
+  <link rel="canonical" href="https://github.com/zdkswd/2018/10/28/剑指offer  面试的流程/"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>剑指offer  面试的流程 | ZDK's blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
 
 </head>
 
-<body>
-    <div id="loading" class="active"></div>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
-    <aside id="menu" class="hide" >
-  <div class="inner flex-row-vertical">
-    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-        <i class="icon icon-lg icon-close"></i>
-    </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
-      <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/tmg.jpg">
-        </a>
-        <hgroup class="introduce">
-          <h5 class="nickname">ZDK</h5>
-          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
-        </hgroup>
-      </div>
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ZDK's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
-    <div class="scroll-wrap flex-col">
-      <ul class="nav">
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
         
-            <li class="waves-block waves-effect">
-              <a href="/"  >
-                <i class="icon icon-lg icon-home"></i>
-                主页
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                Archives
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/tags"  >
-                <i class="icon icon-lg icon-tags"></i>
-                Tags
-              </a>
-            </li>
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>首页</a>
+
+  </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/categories"  >
-                <i class="icon icon-lg icon-th-list"></i>
-                Categories
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="https://github.com/zdkswd" target="_blank" >
-                <i class="icon icon-lg icon-github"></i>
-                Github
-              </a>
-            </li>
         
-      </ul>
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>归档</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br/>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
     </div>
   </div>
-</aside>
+  <div id="local-search-result"></div>
+</div>
 
-    <main id="main">
-        <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis">剑指offer  面试的流程</div>
-        
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
-        </div>
-        
-        
+
+
     </div>
-</header>
-<header class="content-header post-header">
-
-    <div class="container fade-scale">
-        <h1 class="title">剑指offer  面试的流程</h1>
-        <h5 class="subtitle">
-            
-                <time datetime="2018-10-28T08:16:12.000Z" itemprop="datePublished" class="page-time">
-  2018-10-28
-</time>
+  
+</nav>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
 
-            
-        </h5>
-    </div>
+</div>
+    </header>
 
     
 
 
-</header>
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
 
+          
+          <div id="content" class="content">
+            
 
-<div class="container body-wrap">
+  <div id="posts" class="posts-expand">
     
-    <aside class="post-widget">
-        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
-            <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#面试的三种形式"><span class="post-toc-number">1.</span> <span class="post-toc-text">面试的三种形式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#电话面试"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">电话面试</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#共享桌面远程面试"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">共享桌面远程面试</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#现场面试"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">现场面试</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#现场面试的三个环节"><span class="post-toc-number">2.</span> <span class="post-toc-text">现场面试的三个环节</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#行为面试环节"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">行为面试环节</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#简历中应聘者的项目经验"><span class="post-toc-number">2.1.1.</span> <span class="post-toc-text">简历中应聘者的项目经验</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#应聘者掌握的技能，了解，熟悉，精通"><span class="post-toc-number">2.1.2.</span> <span class="post-toc-text">应聘者掌握的技能，了解，熟悉，精通</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#回答“为什么跳槽”"><span class="post-toc-number">2.1.3.</span> <span class="post-toc-text">回答“为什么跳槽”</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#技术面试环节"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">技术面试环节</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#扎实的基础知识"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">扎实的基础知识</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#高质量的代码"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">高质量的代码</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#清晰的思路"><span class="post-toc-number">2.2.3.</span> <span class="post-toc-text">清晰的思路</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#优化效率的能力"><span class="post-toc-number">2.2.4.</span> <span class="post-toc-text">优化效率的能力</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#优秀的综合能力"><span class="post-toc-number">2.2.5.</span> <span class="post-toc-text">优秀的综合能力</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#应聘者提问环节"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">应聘者提问环节</span></a></li></ol></li></ol>
-        </nav>
-    </aside>
 
+  
 
-<article id="post-剑指offer  面试的流程"
-  class="post-article article-type-post fade" itemprop="blogPost">
+  
+  
+  
 
-    <div class="post-card">
-        <h1 class="post-card-title">剑指offer  面试的流程</h1>
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2018/10/28/剑指offer  面试的流程/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZDK"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZDK's blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">剑指offer  面试的流程
+
+              
+            
+          </h1>
+        
+
         <div class="post-meta">
-            <time class="post-time" title="2018-10-28 16:16:12" datetime="2018-10-28T08:16:12.000Z"  itemprop="datePublished">2018-10-28</time>
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-10-28 16:16:12 / 修改时间：16:17:08" itemprop="dateCreated datePublished" datetime="2018-10-28T16:16:12+08:00">2018-10-28</time>
+            </span>
+          
+
+          
+            
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
+          
 
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/读书笔记/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a></span>
 
+                
+                
+              
+            </span>
+          
 
+          
             
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
-    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
-</span>
+            
+              
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2018/10/28/剑指offer  面试的流程/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/10/28/剑指offer  面试的流程/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
 
+          
+          
+            <span id="/2018/10/28/剑指offer  面试的流程/" class="post-meta-item leancloud_visitors" data-flag-title="剑指offer  面试的流程">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          <br/>
+          
+
+          
+
+          
 
         </div>
-        <div class="post-content" id="post-content" itemprop="postContent">
-            <h2 id="面试的三种形式"><a href="#面试的三种形式" class="headerlink" title="面试的三种形式"></a>面试的三种形式</h2><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%89%91%E6%8C%87offer%20%20%E9%9D%A2%E8%AF%95%E7%9A%84%E6%B5%81%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-24%20%E4%B8%8B%E5%8D%885.49.55.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<h3 id="电话面试"><a href="#电话面试" class="headerlink" title="电话面试"></a>电话面试</h3><p>与现场面试最大的区别就是应聘者见不到面试官，双方的沟通只能依靠声音。很多外企在电话面试时都会加上英语面试的环节，甚至有些公司全部面试都会用英语进行。对应聘者的听力提出了更高的要求。如果在面试的时候没有听清楚或听懂面试官的问题，千万不要不懂装懂答非所问，这是面试的大忌。当不确定面试官的问题时，一定要大胆的多提问，直到弄清楚面试官的意图为止。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%89%91%E6%8C%87offer%20%20%E9%9D%A2%E8%AF%95%E7%9A%84%E6%B5%81%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-24%20%E4%B8%8B%E5%8D%885.55.10.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="面试的三种形式"><a href="#面试的三种形式" class="headerlink" title="面试的三种形式"></a>面试的三种形式</h2><p><img src="/img/media/%E5%89%91%E6%8C%87offer%20%20%E9%9D%A2%E8%AF%95%E7%9A%84%E6%B5%81%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-24%20%E4%B8%8B%E5%8D%885.49.55.png" alt=""></p>
+<h3 id="电话面试"><a href="#电话面试" class="headerlink" title="电话面试"></a>电话面试</h3><p>与现场面试最大的区别就是应聘者见不到面试官，双方的沟通只能依靠声音。很多外企在电话面试时都会加上英语面试的环节，甚至有些公司全部面试都会用英语进行。对应聘者的听力提出了更高的要求。如果在面试的时候没有听清楚或听懂面试官的问题，千万不要不懂装懂答非所问，这是面试的大忌。当不确定面试官的问题时，一定要大胆的多提问，直到弄清楚面试官的意图为止。<br><img src="/img/media/%E5%89%91%E6%8C%87offer%20%20%E9%9D%A2%E8%AF%95%E7%9A%84%E6%B5%81%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-24%20%E4%B8%8B%E5%8D%885.55.10.png" alt=""></p>
 <h3 id="共享桌面远程面试"><a href="#共享桌面远程面试" class="headerlink" title="共享桌面远程面试"></a>共享桌面远程面试</h3><p>目前只有为数不多的几家大公司会在邀请应聘者到公司参加现场面试前，先进行一两轮共享桌面的远程面试。面试最关心的是应聘者的编程习惯及调试能力。通常面试官认可的习惯：</p>
 <ol>
 <li>思考清楚再开始编程。</li>
 <li>良好的代码命名和缩进对齐习惯。</li>
 <li>更够<strong>单元测试</strong>。通常面试官出的题目都是要求写函数解决某一问题,如果应聘者能够在定义函数之后,立即对该函数进行全面的单元测试,那就相当于向面试官证明了自己有着专业的软件开发经验。如果应聘者是<strong>先写单元测试用例</strong>,再写解决问题的函数,我相信面试官定会对你刮目相看,因为能做到测试在前、开发在后的程序员实在是太稀缺了,他会毫不犹豫地抛出绿色的橄榄枝。</li>
 </ol>
-<p>通常我们在写代码的时候都会遇到问题。当应聘者运行代码发现结果不对之后的表现,也是面试官关注的重点,因为应聘者此时的反应、采取的措施都能体现出他的<strong>调试功底</strong>。如果应聘者能够熟练地<strong>设置断点</strong>、<strong>单步跟踪</strong>、<strong>查看内存</strong>、<strong>分析调用栈</strong>,能很快发现问题的根源并最终解决问题,那么面试官将会觉得他的开发经验很丰富。调试能力是在书本上学不到的只有通过大量的软件开发实践才能积累出调试技巧。当面试官发现一个应聘者的调试功底很扎实的时候,他在写面试报告的时候是不会吝啬赞美之词的。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%89%91%E6%8C%87offer%20%20%E9%9D%A2%E8%AF%95%E7%9A%84%E6%B5%81%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-24%20%E4%B8%8B%E5%8D%886.04.36.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<p>通常我们在写代码的时候都会遇到问题。当应聘者运行代码发现结果不对之后的表现,也是面试官关注的重点,因为应聘者此时的反应、采取的措施都能体现出他的<strong>调试功底</strong>。如果应聘者能够熟练地<strong>设置断点</strong>、<strong>单步跟踪</strong>、<strong>查看内存</strong>、<strong>分析调用栈</strong>,能很快发现问题的根源并最终解决问题,那么面试官将会觉得他的开发经验很丰富。调试能力是在书本上学不到的只有通过大量的软件开发实践才能积累出调试技巧。当面试官发现一个应聘者的调试功底很扎实的时候,他在写面试报告的时候是不会吝啬赞美之词的。<br><img src="/img/media/%E5%89%91%E6%8C%87offer%20%20%E9%9D%A2%E8%AF%95%E7%9A%84%E6%B5%81%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-24%20%E4%B8%8B%E5%8D%886.04.36.png" alt=""></p>
 <h3 id="现场面试"><a href="#现场面试" class="headerlink" title="现场面试"></a>现场面试</h3><p>在通过上述两个面试后，就会进行现场面试，应当做好以下准备：</p>
 <ol>
 <li>规划好路线并估算出行时间，不迟到。</li>
@@ -238,131 +510,33 @@
 <li>准备几个问题。每一轮面试的最后，面试官都会让应聘者问几个问题，应聘者可以提前准备好问题。</li>
 </ol>
 <p>现场面试时整个面试流程中的重头戏。由于是坐在面试官的对面，应聘者的一举一动都看在面试官的眼力。面试官通过应聘者的语言和行动，考查他的<strong>沟通能力</strong>、<strong>学习能力</strong>、<strong>编程能力</strong>等综合实力。</p>
-<h2 id="现场面试的三个环节"><a href="#现场面试的三个环节" class="headerlink" title="现场面试的三个环节"></a>现场面试的三个环节</h2><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%89%91%E6%8C%87offer%20%20%E9%9D%A2%E8%AF%95%E7%9A%84%E6%B5%81%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-24%20%E4%B8%8B%E5%8D%886.19.40.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<h2 id="现场面试的三个环节"><a href="#现场面试的三个环节" class="headerlink" title="现场面试的三个环节"></a>现场面试的三个环节</h2><p><img src="/img/media/%E5%89%91%E6%8C%87offer%20%20%E9%9D%A2%E8%AF%95%E7%9A%84%E6%B5%81%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-24%20%E4%B8%8B%E5%8D%886.19.40.png" alt=""></p>
 <h3 id="行为面试环节"><a href="#行为面试环节" class="headerlink" title="行为面试环节"></a>行为面试环节</h3><p>面试开始的5~10分钟通常是行为面试的时间。在行为面试这个环节里,面试官会注意应聘者的性格特点,深入地了解简历中列举的项目经历。由于这一环节一般不会问技术难题,因此也是一个暖场的过程,应聘者可以利用这几分钟时间调整自己的情绪,进入面试的状态。</p>
 <p>不少面试官会让应聘者做一个简短的自我介绍。由于面试官手中拿着应聘者的简历,而那里有应聘者的详细信息,因此此时的自我介绍不用花很多时间,用30秒到1分钟的时间介绍自己的主要学习、工作经历就即可如果面试官对你的某一段经历或者参与的某一个项目很感兴趣,他会有针对性地提几个问题详细了解。</p>
-<h4 id="简历中应聘者的项目经验"><a href="#简历中应聘者的项目经验" class="headerlink" title="简历中应聘者的项目经验"></a>简历中应聘者的项目经验</h4><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%89%91%E6%8C%87offer%20%20%E9%9D%A2%E8%AF%95%E7%9A%84%E6%B5%81%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-24%20%E4%B8%8B%E5%8D%886.26.46.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<h4 id="简历中应聘者的项目经验"><a href="#简历中应聘者的项目经验" class="headerlink" title="简历中应聘者的项目经验"></a>简历中应聘者的项目经验</h4><p><img src="/img/media/%E5%89%91%E6%8C%87offer%20%20%E9%9D%A2%E8%AF%95%E7%9A%84%E6%B5%81%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-24%20%E4%B8%8B%E5%8D%886.26.46.png" alt=""></p>
 <ol>
 <li><strong>Situation:简短的项目背景</strong>，比如项目的规模，开发的软件的功能、目标用户等。</li>
 <li><strong>Task：自己完成的任务</strong>。这个要写<strong>详细</strong>，要让面试官对自己的工作一目了然。在用词上要注意区分“参与”和“负责”:如果只是加入某一个开发团队写了几行代码就用“负责”,那就很危险。面试官看到简历上应聘者“负责”了某个项目,他可能就会问项目的总体框架设计、核心算法、团队合作等问题。这些问题对于只是简单参与”的人来说,是很难回答的,会让面试官认为你不诚实,印象分会减去很多。</li>
 <li><strong>Action：为了完成任务自己做了哪些工作，是怎么做的。</strong>这里可以<strong>详细</strong>介绍。做系统设计的,可以介绍系统架构的特点;做软件开发的,可以写基于什么工具在哪个平台下应用了哪些技术;做软件测试的,可以写是手工测试还是自动化测试,是白盒测试还是黑盒测试等。</li>
 <li><strong>Result：自己的贡献。</strong>这些方面信息可以写得具体些，最好能用数字加以说明。如果是参与功能开发,可以说按时完成了多少功能;如果做优化,可以说性能提高的百分比是多少;如果是维护,可以说修改了多少个Bug。</li>
 </ol>
-<p>举例：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%89%91%E6%8C%87offer%20%20%E9%9D%A2%E8%AF%95%E7%9A%84%E6%B5%81%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-24%20%E4%B8%8B%E5%8D%886.36.49.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%89%91%E6%8C%87offer%20%20%E9%9D%A2%E8%AF%95%E7%9A%84%E6%B5%81%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-24%20%E4%B8%8B%E5%8D%886.37.15.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%89%91%E6%8C%87offer%20%20%E9%9D%A2%E8%AF%95%E7%9A%84%E6%B5%81%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-24%20%E4%B8%8B%E5%8D%886.37.54.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<h4 id="应聘者掌握的技能，了解，熟悉，精通"><a href="#应聘者掌握的技能，了解，熟悉，精通" class="headerlink" title="应聘者掌握的技能，了解，熟悉，精通"></a>应聘者掌握的技能，了解，熟悉，精通</h4><p><strong>了解</strong>：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%89%91%E6%8C%87offer%20%20%E9%9D%A2%E8%AF%95%E7%9A%84%E6%B5%81%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-24%20%E4%B8%8B%E5%8D%886.41.29.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br><strong>熟悉：</strong><br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%89%91%E6%8C%87offer%20%20%E9%9D%A2%E8%AF%95%E7%9A%84%E6%B5%81%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-24%20%E4%B8%8B%E5%8D%886.43.08.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br><strong>精通：</strong><br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%89%91%E6%8C%87offer%20%20%E9%9D%A2%E8%AF%95%E7%9A%84%E6%B5%81%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-24%20%E4%B8%8B%E5%8D%886.43.32.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<p>举例：<br><img src="/img/media/%E5%89%91%E6%8C%87offer%20%20%E9%9D%A2%E8%AF%95%E7%9A%84%E6%B5%81%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-24%20%E4%B8%8B%E5%8D%886.36.49.png" alt=""><br><img src="/img/media/%E5%89%91%E6%8C%87offer%20%20%E9%9D%A2%E8%AF%95%E7%9A%84%E6%B5%81%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-24%20%E4%B8%8B%E5%8D%886.37.15.png" alt=""><br><img src="/img/media/%E5%89%91%E6%8C%87offer%20%20%E9%9D%A2%E8%AF%95%E7%9A%84%E6%B5%81%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-24%20%E4%B8%8B%E5%8D%886.37.54.png" alt=""></p>
+<h4 id="应聘者掌握的技能，了解，熟悉，精通"><a href="#应聘者掌握的技能，了解，熟悉，精通" class="headerlink" title="应聘者掌握的技能，了解，熟悉，精通"></a>应聘者掌握的技能，了解，熟悉，精通</h4><p><strong>了解</strong>：<br><img src="/img/media/%E5%89%91%E6%8C%87offer%20%20%E9%9D%A2%E8%AF%95%E7%9A%84%E6%B5%81%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-24%20%E4%B8%8B%E5%8D%886.41.29.png" alt=""><br><strong>熟悉：</strong><br><img src="/img/media/%E5%89%91%E6%8C%87offer%20%20%E9%9D%A2%E8%AF%95%E7%9A%84%E6%B5%81%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-24%20%E4%B8%8B%E5%8D%886.43.08.png" alt=""><br><strong>精通：</strong><br><img src="/img/media/%E5%89%91%E6%8C%87offer%20%20%E9%9D%A2%E8%AF%95%E7%9A%84%E6%B5%81%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-24%20%E4%B8%8B%E5%8D%886.43.32.png" alt=""></p>
 <h4 id="回答“为什么跳槽”"><a href="#回答“为什么跳槽”" class="headerlink" title="回答“为什么跳槽”"></a>回答“为什么跳槽”</h4><p>面试官只是想通过这个问题来了解应聘者的性格，可以根据自己的真实想法来回答这个问题但也不能想说什么就说什么，回答这个问题时不要抱怨，也不要流露出负面的情绪。应当尽量避免以下4个原因：</p>
 <ol>
 <li><strong>老板太苛刻。</strong></li>
 <li><strong>同事太难相处。</strong>面试官可能会觉得这个人本身就很难相处。</li>
 <li><strong>加班太频繁。</strong>对于大部分IT企业来说，加班是家常便饭。这么说等于不想进这家公司。</li>
-<li><strong>工资太低。</strong>不建议在面试的时候对面试官抱怨，等完成技术面试之后谈offer时，再和HR谈工资也不迟。通过面试后我们就掌握主动了，想怎么谈就怎么谈，如果工资真的开高了HR会和你很客气地商量的。<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%89%91%E6%8C%87offer%20%20%E9%9D%A2%E8%AF%95%E7%9A%84%E6%B5%81%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-24%20%E4%B8%8B%E5%8D%887.04.17.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="%E5%89%91%E6%8C%87offer%20%20%E9%9D%A2%E8%AF%95%E7%9A%84%E6%B5%81%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-24%20%E4%B8%8B%E5%8D%887.04.26.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-</li>
+<li><strong>工资太低。</strong>不建议在面试的时候对面试官抱怨，等完成技术面试之后谈offer时，再和HR谈工资也不迟。通过面试后我们就掌握主动了，想怎么谈就怎么谈，如果工资真的开高了HR会和你很客气地商量的。<br><img src="/img/media/%E5%89%91%E6%8C%87offer%20%20%E9%9D%A2%E8%AF%95%E7%9A%84%E6%B5%81%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-24%20%E4%B8%8B%E5%8D%887.04.17.png" alt=""><br><img src="%E5%89%91%E6%8C%87offer%20%20%E9%9D%A2%E8%AF%95%E7%9A%84%E6%B5%81%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-24%20%E4%B8%8B%E5%8D%887.04.26.png" alt=""></li>
 </ol>
-<h3 id="技术面试环节"><a href="#技术面试环节" class="headerlink" title="技术面试环节"></a>技术面试环节</h3><p>面试官在通过简历及行为面试大致了解应聘者的背景之后，接下来就要开始技术面试了。一轮1小时的面试，通常技术面试会占40-50分钟，这是面试的重头戏，对面试的结果起决定性作用。总体面试官会关注应聘者5种素质：<strong>扎实的基础知识、能写高质量的代码、分析问题思路清晰、能优化时间和空间效率，以及学习沟通等各方面的能力。</strong><br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%89%91%E6%8C%87offer%20%20%E9%9D%A2%E8%AF%95%E7%9A%84%E6%B5%81%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-24%20%E4%B8%8B%E5%8D%887.08.42.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<h4 id="扎实的基础知识"><a href="#扎实的基础知识" class="headerlink" title="扎实的基础知识"></a>扎实的基础知识</h4><p>基本功在编程面试环节体现在三个方面：编程语言、数据结构和算法。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%89%91%E6%8C%87offer%20%20%E9%9D%A2%E8%AF%95%E7%9A%84%E6%B5%81%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-24%20%E4%B8%8B%E5%8D%887.11.18.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%89%91%E6%8C%87offer%20%20%E9%9D%A2%E8%AF%95%E7%9A%84%E6%B5%81%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-24%20%E4%B8%8B%E5%8D%887.11.43.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%89%91%E6%8C%87offer%20%20%E9%9D%A2%E8%AF%95%E7%9A%84%E6%B5%81%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-24%20%E4%B8%8B%E5%8D%887.12.35.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<h3 id="技术面试环节"><a href="#技术面试环节" class="headerlink" title="技术面试环节"></a>技术面试环节</h3><p>面试官在通过简历及行为面试大致了解应聘者的背景之后，接下来就要开始技术面试了。一轮1小时的面试，通常技术面试会占40-50分钟，这是面试的重头戏，对面试的结果起决定性作用。总体面试官会关注应聘者5种素质：<strong>扎实的基础知识、能写高质量的代码、分析问题思路清晰、能优化时间和空间效率，以及学习沟通等各方面的能力。</strong><br><img src="/img/media/%E5%89%91%E6%8C%87offer%20%20%E9%9D%A2%E8%AF%95%E7%9A%84%E6%B5%81%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-24%20%E4%B8%8B%E5%8D%887.08.42.png" alt=""></p>
+<h4 id="扎实的基础知识"><a href="#扎实的基础知识" class="headerlink" title="扎实的基础知识"></a>扎实的基础知识</h4><p>基本功在编程面试环节体现在三个方面：编程语言、数据结构和算法。<br><img src="/img/media/%E5%89%91%E6%8C%87offer%20%20%E9%9D%A2%E8%AF%95%E7%9A%84%E6%B5%81%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-24%20%E4%B8%8B%E5%8D%887.11.18.png" alt=""><br><img src="/img/media/%E5%89%91%E6%8C%87offer%20%20%E9%9D%A2%E8%AF%95%E7%9A%84%E6%B5%81%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-24%20%E4%B8%8B%E5%8D%887.11.43.png" alt=""><br><img src="/img/media/%E5%89%91%E6%8C%87offer%20%20%E9%9D%A2%E8%AF%95%E7%9A%84%E6%B5%81%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-24%20%E4%B8%8B%E5%8D%887.12.35.png" alt=""></p>
 <h4 id="高质量的代码"><a href="#高质量的代码" class="headerlink" title="高质量的代码"></a>高质量的代码</h4><p>只有注重质量的程序员,才能写出鲁棒稳定的大型软件。在面试过程中,面试官总会格外关注<strong>边界条件</strong>、<strong>特殊输入</strong>等看似细枝末节但实质至关重要的地方,以考查应聘者是否注重代码质量。很多时候,面试官发现应聘者写出来的代码只能完成最基本的功能,一旦输入特殊的边界条件参数就会错误百出甚至程序崩溃。</p>
 <p>总有些应聘者很困惑:面试的时候觉得题目很简单,感觉自己都做出来了,可最后为什么被拒了呢?在技术面试过程中,技术面试的面试官一般都是程序员,他们只认一个理:题目做对、做完整了,就让你通过面试;否则失败。所以遇到简单题目却被拒的情况,应聘者应认真反思在思路或者代码中存在哪些漏洞。</p>
 <p>通常越是简单的问题，面试官的期望值就会越高。如果题目很简单，面试官会期待应聘者能够很<strong>完整</strong>的解决问题。除了完成基本功能以外，还要考虑到边界条件、错误处理等各个方面。还要考虑程序是否足够鲁棒。</p>
-<p>要想很好地解决前面的问题,最好的办法是在动手写代码之后想好<strong>测试用例</strong>。只有把各种可能的输入事先都想好了,才能在写代码的时候把各种情况都做相应的处理。写完代码之后,也不要立刻给面试官检查,而是先在心里默默地运行。当输入之前想好的所有测试用例都能得到合理的输出时,再把代码交给面试官。做到了这一步,offer就很简单了。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%89%91%E6%8C%87offer%20%20%E9%9D%A2%E8%AF%95%E7%9A%84%E6%B5%81%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-24%20%E4%B8%8B%E5%8D%887.39.44.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<p>要想很好地解决前面的问题,最好的办法是在动手写代码之后想好<strong>测试用例</strong>。只有把各种可能的输入事先都想好了,才能在写代码的时候把各种情况都做相应的处理。写完代码之后,也不要立刻给面试官检查,而是先在心里默默地运行。当输入之前想好的所有测试用例都能得到合理的输出时,再把代码交给面试官。做到了这一步,offer就很简单了。<br><img src="/img/media/%E5%89%91%E6%8C%87offer%20%20%E9%9D%A2%E8%AF%95%E7%9A%84%E6%B5%81%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-24%20%E4%B8%8B%E5%8D%887.39.44.png" alt=""></p>
 <h4 id="清晰的思路"><a href="#清晰的思路" class="headerlink" title="清晰的思路"></a>清晰的思路</h4><p>对于确实很复杂的问题，面试官甚至不期待应聘者能在面试不到一个小时的时间里给出完整的答案，更看重的可能还是应聘者是否有清晰的思路。面试官通常不喜欢应聘者在没有形成清晰思路之前就草率地开始写代码，这样写出来的代码容易逻辑混乱、错误百出。</p>
-<p>应聘者可以用几个简单的方法帮助自己形成清晰的思路。<br>首先是举几个简单的具体例子让自己理解问题。当我们一眼看不出问题中隐藏的规律的时候,可以试着用一两个具体的例子模拟操作的过程,这样说不定就能通过具体的例子找到抽象的规律。<br>其次可以试着用图形表示抽象的数据结构。像分析与链表、二叉树相关的题目,我们都可以画出它们的结构来简化题目。<br>最后可以试着把复杂的问题分解成若干个简单的子问题,再解决。很多基于递归的思路,包括分治法和动态规划,都是把复杂的问题分解成一个或者多个简单的子问题。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%89%91%E6%8C%87offer%20%20%E9%9D%A2%E8%AF%95%E7%9A%84%E6%B5%81%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-24%20%E4%B8%8B%E5%8D%887.47.34.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<p>应聘者可以用几个简单的方法帮助自己形成清晰的思路。<br>首先是举几个简单的具体例子让自己理解问题。当我们一眼看不出问题中隐藏的规律的时候,可以试着用一两个具体的例子模拟操作的过程,这样说不定就能通过具体的例子找到抽象的规律。<br>其次可以试着用图形表示抽象的数据结构。像分析与链表、二叉树相关的题目,我们都可以画出它们的结构来简化题目。<br>最后可以试着把复杂的问题分解成若干个简单的子问题,再解决。很多基于递归的思路,包括分治法和动态规划,都是把复杂的问题分解成一个或者多个简单的子问题。<br><img src="/img/media/%E5%89%91%E6%8C%87offer%20%20%E9%9D%A2%E8%AF%95%E7%9A%84%E6%B5%81%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-24%20%E4%B8%8B%E5%8D%887.47.34.png" alt=""></p>
 <h4 id="优化效率的能力"><a href="#优化效率的能力" class="headerlink" title="优化效率的能力"></a>优化效率的能力</h4><p>优秀的程序员对时间和内存的消耗锱铢必较,他们很有激情地不断优化自己的代码。当面试官出的题目有多种解法的时候,通常他会期待应聘者最终能够找到最优解。当面试官提示还有更好的解法的时候,应聘者不能放弃思考,而应该努力寻找在时间消耗或者空间消耗上可以优化的地方。</p>
 <p>要想优化时间或者空间效率,首先要知道如何分析效率。即使是同一个算法,用不同方法实现的效率可能也会大不相同,我们要能够分析出算法及其代码实现的效率。</p>
 <p>要想优化代码的效率,我们还要熟知各种数据结构的优缺点,并能选择合适的数据结构解决问题。</p>
@@ -370,238 +544,893 @@
 <h4 id="优秀的综合能力"><a href="#优秀的综合能力" class="headerlink" title="优秀的综合能力"></a>优秀的综合能力</h4><p>除了展示自己的编程能力和技术功底之外，还需要展示自己的软能力，诸如自己的<strong>沟通能力</strong>和<strong>学习能力</strong>。软件开发已经告别了单打独斗的年代，程序员与他人的沟通变得越来越重要。<strong>知识迁移</strong>能力是一种特殊的学习能力。如果我们能够把已经掌握的知识迁移到其他领域，那么学习新技术或者解决新问题就会变得容易。还有些面试官喜欢考察应聘者的抽象建模能力和发散思维能力。</p>
 <h3 id="应聘者提问环节"><a href="#应聘者提问环节" class="headerlink" title="应聘者提问环节"></a>应聘者提问环节</h3><p>在结束面试前的5-10分钟，面试官会给应聘者机会提几个问题，应聘者的问题质量也会对面试的结果有一定的影响。面试官让应聘者问几个问题，主要是想了解他最关心的问题有哪些，因此应聘者至少要问一两个问题。问得问题合适，是加分项，问的问题不合适，那就是减分项。</p>
 <p>有些问题是不适合在技术面试这个环节问的。首先，不要问和自己职位没有关系的问题。比如面试职位是一线的开发问公司五年的发展战略。其次是不要问薪水，技术面试不是谈薪水的时候，要谈工资要等通过面试后和HR谈。再次是不要立即打听面试结果，现在大部分公司面试都有好几轮，最终决定应聘者能不能通过面试，是要把面试官的评价综合起来的，问这个等于白问。还会让人觉得没有自我评价的能力。</p>
-<p>推荐问的问题是与招聘的职位或者与项目相关的问题，如果这种类的问题问的很好，就加分。不过要问好这类的问题首先应聘者应对应聘的职位或项目的背景有一定的了解。可以从两方面去了解。一是面试前做足功课，到网上去搜集相关的信息，做到对公司成立时间、主要业务、职位要求都了解。二是在面试过程中留意面试官说过的话。有不少面试官在面试前会简单介绍与招聘职位相关的项目，其中会包含其他渠道无法获得的信息，比如项目的进展情况等，可以从中找出一两个点，然后向面试官提问。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%89%91%E6%8C%87offer%20%20%E9%9D%A2%E8%AF%95%E7%9A%84%E6%B5%81%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-24%20%E4%B8%8B%E5%8D%888.20.03.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<p>推荐问的问题是与招聘的职位或者与项目相关的问题，如果这种类的问题问的很好，就加分。不过要问好这类的问题首先应聘者应对应聘的职位或项目的背景有一定的了解。可以从两方面去了解。一是面试前做足功课，到网上去搜集相关的信息，做到对公司成立时间、主要业务、职位要求都了解。二是在面试过程中留意面试官说过的话。有不少面试官在面试前会简单介绍与招聘职位相关的项目，其中会包含其他渠道无法获得的信息，比如项目的进展情况等，可以从中找出一两个点，然后向面试官提问。<br><img src="/img/media/%E5%89%91%E6%8C%87offer%20%20%E9%9D%A2%E8%AF%95%E7%9A%84%E6%B5%81%E7%A8%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-24%20%E4%B8%8B%E5%8D%888.20.03.png" alt=""></p>
 
-        </div>
-
-        <blockquote class="post-copyright">
-    
-    <div class="content">
-        
-<span class="post-time">
-    最后更新时间：<time datetime="2018-10-28T08:17:08.000Z" itemprop="dateUpdated">2018-10-28 16:17:08</time>
-</span><br>
-
-
-        
+      
     </div>
+
     
-    <footer>
-        <a href="https://github.com/zdkswd">
-            <img src="/img/tmg.jpg" alt="ZDK">
-            ZDK
-        </a>
+
+    
+      
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/offer/" rel="tag"># offer</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/28/Python数据科学手册/" rel="next" title="Python数据科学手册 NumPy入门">
+                <i class="fa fa-chevron-left"></i> Python数据科学手册 NumPy入门
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/31/Python数据科学手册 Pandas数据处理/" rel="prev" title="Python数据科学手册 Pandas数据处理">
+                Python数据科学手册 Pandas数据处理 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
     </footer>
-</blockquote>
-
-        
-
-
-        <div class="post-footer">
-            
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/offer/">offer</a></li></ul>
+  </div>
+  
+  
+  
+  </article>
 
 
-            
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
 
 
         </div>
-    </div>
-
-    
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2018/10/31/Python数据科学手册 Pandas数据处理/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">Python数据科学手册 Pandas数据处理</h4>
-      </a>
-    </div>
-  
-
-  
-    <div class="waves-block waves-effect next">
-      <a href="/2018/10/28/Python数据科学手册/" id="post-next" class="post-nav-link">
-        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">Python数据科学手册 NumPy入门</h4>
-      </a>
-    </div>
-  
-</nav>
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Valine Comments -->
-    <div class="comments vcomment" id="comments"></div>
-    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
-    <!-- Valine Comments script -->
-    <script>
-        var GUEST_INFO = ['nick','mail','link'];
-        var guest_info = 'nick,mail'.split(',').filter(function(item){
-          return GUEST_INFO.indexOf(item) > -1
-        });
-        new Valine({
-            el: '#comments',
-            notify: 'true' == 'true',
-            verify: 'false' == 'true',
-            appId: "QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz",
-            appKey: "gkBx5soQkBREmER84PWbNJeM",
-            avatar: "mm",
-            placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
-            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
-            pageSize: "10"
-        })
-    </script>
-    <!-- Valine Comments end -->
-
-
-
-
-
-
-
-</article>
-
-
-
-</div>
-
-        <footer class="footer">
-    <div class="top">
         
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
-
-
-        <p>
-            
-                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-            
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
-        </p>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
     </div>
-    <div class="bottom">
-        <p><span>ZDK &copy; 2017 - 2019</span>
-            <span>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="ZDK"/>
+            
+              <p class="site-author-name" itemprop="name">ZDK</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
                 
-                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
-            </span>
-        </p>
-    </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
-    </script>
-</footer>
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">191</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
 
-    </main>
-    <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">分类</span>
+                  
+                </div>
+              
 
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">48</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
 
-    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
-<script>
-var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
-
-
-</script>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
             </div>
-            <time class="flex-col time">{date}</time>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/zdkswd" title="GitHub &rarr; https://github.com/zdkswd"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:2822464407@qq.com" title="E-Mail &rarr; mailto:2822464407@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/zdkswd" title="https://github.com/zdkswd">Title</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
         </div>
-    </a>
-</li>
-</template>
+      </div>
 
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
 
+            
+            
+            
+            
 
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#面试的三种形式"><span class="nav-number">1.</span> <span class="nav-text">面试的三种形式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#电话面试"><span class="nav-number">1.1.</span> <span class="nav-text">电话面试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#共享桌面远程面试"><span class="nav-number">1.2.</span> <span class="nav-text">共享桌面远程面试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#现场面试"><span class="nav-number">1.3.</span> <span class="nav-text">现场面试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#现场面试的三个环节"><span class="nav-number">2.</span> <span class="nav-text">现场面试的三个环节</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#行为面试环节"><span class="nav-number">2.1.</span> <span class="nav-text">行为面试环节</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#简历中应聘者的项目经验"><span class="nav-number">2.1.1.</span> <span class="nav-text">简历中应聘者的项目经验</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#应聘者掌握的技能，了解，熟悉，精通"><span class="nav-number">2.1.2.</span> <span class="nav-text">应聘者掌握的技能，了解，熟悉，精通</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#回答“为什么跳槽”"><span class="nav-number">2.1.3.</span> <span class="nav-text">回答“为什么跳槽”</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#技术面试环节"><span class="nav-number">2.2.</span> <span class="nav-text">技术面试环节</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#扎实的基础知识"><span class="nav-number">2.2.1.</span> <span class="nav-text">扎实的基础知识</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#高质量的代码"><span class="nav-number">2.2.2.</span> <span class="nav-text">高质量的代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#清晰的思路"><span class="nav-number">2.2.3.</span> <span class="nav-text">清晰的思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优化效率的能力"><span class="nav-number">2.2.4.</span> <span class="nav-text">优化效率的能力</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优秀的综合能力"><span class="nav-number">2.2.5.</span> <span class="nav-text">优秀的综合能力</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应聘者提问环节"><span class="nav-number">2.3.</span> <span class="nav-text">应聘者提问环节</span></a></li></ol></li></ol></div>
+            
 
-<!-- mathjax config similar to math.stackexchange -->
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
+      
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
 
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-});
-</script>
-
-<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
-
-
-
-
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
 
 
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZDK</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.2.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+  </div>
+
+  
 
 <script>
-(function() {
-    var OriginTitile = document.title, titleTime;
-    document.addEventListener('visibilitychange', function() {
-        if (document.hidden) {
-            document.title = 'zdk'blog';
-            clearTimeout(titleTime);
-        } else {
-            document.title = '';
-            titleTime = setTimeout(function() {
-                document.title = OriginTitile;
-            },2000);
-        }
-    });
-})();
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
 </script>
 
 
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.2.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz',
+    appKey: 'gkBx5soQkBREmER84PWbNJeM',
+    placeholder: 'have fun',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true,
+    lang: '' || 'zh-cn'
+  });
+</script>
+
+
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('5');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
 
 </body>
 </html>

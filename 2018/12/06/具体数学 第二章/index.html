@@ -1,33 +1,107 @@
 <!DOCTYPE html>
-<html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
-    
-
-    
-
-    
-
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
 
 
-    <meta charset="utf-8">
-    
-    
-    
-    
-    <title>具体数学 第二章 | ZDK&#39;s blog</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#3F51B5">
-    
-    
-    <meta name="keywords" content="数学">
-    <meta name="description" content="求递推式本身的表达式将递归式转化为求和再求出递推式本身的表达式。考虑如下递归式：                                                                                                          两边同时乘以sn得到：">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.2.0',
+    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+
+
+  <meta name="description" content="求递推式本身的表达式将递归式转化为求和再求出递推式本身的表达式。考虑如下递归式：两边同时乘以sn得到：观察Tn项和Tn-1项之前的系数，要想转化为可以求和的递归式，必须有：即此时令得到：此时再求和可得：所以 例题1设n个数快速排序的操作次数为Cn，那么有用n-1取代n可以得到两式相减可以得到观察形式，由上面方法可以得到所以得进而带入公式。可以求得其中调和级数为：所以最后结果为 求和三大定律结合律、">
 <meta name="keywords" content="数学">
 <meta property="og:type" content="article">
 <meta property="og:title" content="具体数学 第二章">
 <meta property="og:url" content="https://github.com/zdkswd/2018/12/06/具体数学 第二章/index.html">
 <meta property="og:site_name" content="ZDK&#39;s blog">
-<meta property="og:description" content="求递推式本身的表达式将递归式转化为求和再求出递推式本身的表达式。考虑如下递归式：                                                                                                          两边同时乘以sn得到：">
+<meta property="og:description" content="求递推式本身的表达式将递归式转化为求和再求出递推式本身的表达式。考虑如下递归式：两边同时乘以sn得到：观察Tn项和Tn-1项之前的系数，要想转化为可以求和的递归式，必须有：即此时令得到：此时再求和可得：所以 例题1设n个数快速排序的操作次数为Cn，那么有用n-1取代n可以得到两式相减可以得到观察形式，由上面方法可以得到所以得进而带入公式。可以求得其中调和级数为：所以最后结果为 求和三大定律结合律、">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://github.com/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%8812.59.06.png">
 <meta property="og:image" content="https://github.com/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%8812.59.33.png">
@@ -133,1016 +207,1286 @@
 <meta property="og:updated_time" content="2018-12-06T05:28:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="具体数学 第二章">
-<meta name="twitter:description" content="求递推式本身的表达式将递归式转化为求和再求出递推式本身的表达式。考虑如下递归式：                                                                                                          两边同时乘以sn得到：">
+<meta name="twitter:description" content="求递推式本身的表达式将递归式转化为求和再求出递推式本身的表达式。考虑如下递归式：两边同时乘以sn得到：观察Tn项和Tn-1项之前的系数，要想转化为可以求和的递归式，必须有：即此时令得到：此时再求和可得：所以 例题1设n个数快速排序的操作次数为Cn，那么有用n-1取代n可以得到两式相减可以得到观察形式，由上面方法可以得到所以得进而带入公式。可以求得其中调和级数为：所以最后结果为 求和三大定律结合律、">
 <meta name="twitter:image" content="https://github.com/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%8812.59.06.png">
-    
-        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
-    
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
-    <script>window.lazyScripts=[]</script>
 
-    <!-- custom head -->
-    
+
+
+  <link rel="alternate" href="/atom.xml" title="ZDK's blog" type="application/atom+xml"/>
+
+
+
+  
+  
+  <link rel="canonical" href="https://github.com/zdkswd/2018/12/06/具体数学 第二章/"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>具体数学 第二章 | ZDK's blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
 
 </head>
 
-<body>
-    <div id="loading" class="active"></div>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
-    <aside id="menu" class="hide" >
-  <div class="inner flex-row-vertical">
-    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-        <i class="icon icon-lg icon-close"></i>
-    </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
-      <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/tmg.jpg">
-        </a>
-        <hgroup class="introduce">
-          <h5 class="nickname">ZDK</h5>
-          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
-        </hgroup>
-      </div>
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ZDK's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
-    <div class="scroll-wrap flex-col">
-      <ul class="nav">
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
         
-            <li class="waves-block waves-effect">
-              <a href="/"  >
-                <i class="icon icon-lg icon-home"></i>
-                主页
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                Archives
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/tags"  >
-                <i class="icon icon-lg icon-tags"></i>
-                Tags
-              </a>
-            </li>
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>首页</a>
+
+  </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/categories"  >
-                <i class="icon icon-lg icon-th-list"></i>
-                Categories
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="https://github.com/zdkswd" target="_blank" >
-                <i class="icon icon-lg icon-github"></i>
-                Github
-              </a>
-            </li>
         
-      </ul>
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>归档</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br/>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
     </div>
   </div>
-</aside>
-
-    <main id="main">
-        <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis">具体数学 第二章</div>
-        
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
-        </div>
-        
-        
-    </div>
-</header>
-<header class="content-header post-header">
-
-    <div class="container fade-scale">
-        <h1 class="title">具体数学 第二章</h1>
-        <h5 class="subtitle">
-            
-                <time datetime="2018-12-06T05:24:32.000Z" itemprop="datePublished" class="page-time">
-  2018-12-06
-</time>
-
-
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
-
-            
-        </h5>
-    </div>
-
-    
-
-
-</header>
-
-
-<div class="container body-wrap">
-    
-    <aside class="post-widget">
-        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
-            <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#求递推式本身的表达式"><span class="post-toc-number">1.</span> <span class="post-toc-text">求递推式本身的表达式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#例题1"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">例题1</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#求和三大定律"><span class="post-toc-number">2.</span> <span class="post-toc-text">求和三大定律</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#例题2"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">例题2</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#例题3"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">例题3</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#多重求和"><span class="post-toc-number">3.</span> <span class="post-toc-text">多重求和</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#例题1-1"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">例题1</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#例题2-1"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">例题2</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#例题3-1"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">例题3</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#调和级数"><span class="post-toc-number">3.3.1.</span> <span class="post-toc-text">调和级数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方法一"><span class="post-toc-number">3.3.2.</span> <span class="post-toc-text">方法一</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方法二"><span class="post-toc-number">3.3.3.</span> <span class="post-toc-text">方法二</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方法三"><span class="post-toc-number">3.3.4.</span> <span class="post-toc-text">方法三</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#几种求和方法"><span class="post-toc-number">4.</span> <span class="post-toc-text">几种求和方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#扰动法"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">扰动法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#扩展成二重指标求和"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">扩展成二重指标求和</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#用有限微分求和"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">用有限微分求和</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#下降阶乘幂"><span class="post-toc-number">5.</span> <span class="post-toc-text">下降阶乘幂</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#性质一"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">性质一</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#性质二"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">性质二</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#性质三"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">性质三</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#性质四"><span class="post-toc-number">5.4.</span> <span class="post-toc-text">性质四</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#性质五"><span class="post-toc-number">5.5.</span> <span class="post-toc-text">性质五</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#性质六"><span class="post-toc-number">5.6.</span> <span class="post-toc-text">性质六</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#性质七"><span class="post-toc-number">5.7.</span> <span class="post-toc-text">性质七</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#例一"><span class="post-toc-number">5.7.1.</span> <span class="post-toc-text">例一</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#例二"><span class="post-toc-number">5.7.2.</span> <span class="post-toc-text">例二</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#无限求和"><span class="post-toc-number">6.</span> <span class="post-toc-text">无限求和</span></a></li></ol>
-        </nav>
-    </aside>
-
-
-<article id="post-具体数学 第二章"
-  class="post-article article-type-post fade" itemprop="blogPost">
-
-    <div class="post-card">
-        <h1 class="post-card-title">具体数学 第二章</h1>
-        <div class="post-meta">
-            <time class="post-time" title="2018-12-06 13:24:32" datetime="2018-12-06T05:24:32.000Z"  itemprop="datePublished">2018-12-06</time>
-
-            
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+  <div id="local-search-result"></div>
+</div>
 
 
 
-            
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
-    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
-</span>
-
-
-        </div>
-        <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="求递推式本身的表达式"><a href="#求递推式本身的表达式" class="headerlink" title="求递推式本身的表达式"></a>求递推式本身的表达式</h1><p>将递归式转化为求和再求出递推式本身的表达式。<br>考虑如下递归式：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%8812.59.06.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>两边同时乘以sn得到：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%8812.59.33.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>观察Tn项和Tn-1项之前的系数，要想转化为可以求和的递归式，必须有：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%881.09.54.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>即<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%881.10.27.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>此时令<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%881.12.42.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>得到：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%881.13.12.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>此时再求和可得：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%881.14.25.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>所以<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%884.35.38.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<h2 id="例题1"><a href="#例题1" class="headerlink" title="例题1"></a>例题1</h2><p>设n个数快速排序的操作次数为Cn，那么有<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%884.49.49.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>用n-1取代n可以得到<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%884.50.11.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>两式相减可以得到<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%884.50.35.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>观察形式，由上面方法可以得到<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%884.53.39.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>所以得<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%884.54.54.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>进而带入公式。可以求得<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%884.57.32.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>其中调和级数为：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%884.58.06.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>所以最后结果为<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%884.58.46.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<h1 id="求和三大定律"><a href="#求和三大定律" class="headerlink" title="求和三大定律"></a>求和三大定律</h1><p>结合律、分配率、交换律。</p>
-<h2 id="例题2"><a href="#例题2" class="headerlink" title="例题2"></a>例题2</h2><p>求<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%885.03.12.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>这里使用求和定律来做<br>用n-k取代k,得到<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%885.06.06.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>即<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%885.06.17.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>两式相加得<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%885.06.53.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>所以<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%885.08.05.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<h2 id="例题3"><a href="#例题3" class="headerlink" title="例题3"></a>例题3</h2><p>求<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%887.00.17.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>这里用到另一种求和的方法。<br>两边同时加上第n+1项，得到<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%887.00.51.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>所以<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%887.05.25.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>还可以这样求解：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%887.08.31.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>求导得到：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%887.10.12.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>所以<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%887.11.10.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>同样可以得到<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%887.11.27.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<h1 id="多重求和"><a href="#多重求和" class="headerlink" title="多重求和"></a>多重求和</h1><p>多重求和，也就是一个和式由多个下标来指定。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%884.00.16.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<h2 id="例题1-1"><a href="#例题1-1" class="headerlink" title="例题1"></a>例题1</h2><p>一个对称矩阵<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%887.27.03.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>求：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%887.27.16.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>这是这个矩阵的上三角加对角线求和，因为是对称的嘛，可以补全下三角，加上对角线就行了。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%887.34.13.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>所以<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%887.34.27.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<h2 id="例题2-1"><a href="#例题2-1" class="headerlink" title="例题2"></a>例题2</h2><p>有如下式子，<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%887.46.45.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>调换j,k位置，得到：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%887.48.31.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>所以<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%888.03.06.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>至此解完，可以推出一个著名不等式—-切比雪夫不等式：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%888.04.04.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<h2 id="例题3-1"><a href="#例题3-1" class="headerlink" title="例题3"></a>例题3</h2><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%888.19.56.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<p>使用三种方法解这个式子：</p>
-<h3 id="调和级数"><a href="#调和级数" class="headerlink" title="调和级数"></a>调和级数</h3><p>调和级数：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%889.59.57.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>首先将j和k分开，首先计算对j求和：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%888.20.39.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><p>先计算对k求和：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%888.21.11.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<h3 id="方法三"><a href="#方法三" class="headerlink" title="方法三"></a>方法三</h3><p>按对角线求和：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%888.21.40.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>由此得到了一个完全不同的表示形式，所以得到了：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%888.27.12.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<h1 id="几种求和方法"><a href="#几种求和方法" class="headerlink" title="几种求和方法"></a>几种求和方法</h1><p>针对以下求和式，使用八种方法来求解：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%888.55.16.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>它的答案为：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%888.55.43.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<h2 id="扰动法"><a href="#扰动法" class="headerlink" title="扰动法"></a>扰动法</h2><p>令<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%888.57.39.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>所以<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%888.57.54.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>解出<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%888.58.15.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>最终得到<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%888.58.34.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>可以看出，我们本来是要对k的二次方求和的，但是只要对k的三次方用扰动法求和即可，因为求和过程中k的三次方项会被抵消掉。</p>
-<h2 id="扩展成二重指标求和"><a href="#扩展成二重指标求和" class="headerlink" title="扩展成二重指标求和"></a>扩展成二重指标求和</h2><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%889.35.15.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<h2 id="用有限微分求和"><a href="#用有限微分求和" class="headerlink" title="用有限微分求和"></a>用有限微分求和</h2><p>微分的形式为<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.55.14.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>如果定义<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.55.39.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>则有<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.55.54.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>似乎不能和导数形式统一起来，用起来也不方便，定义一个新的函数，叫<strong>下降阶乘幂</strong>：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.57.26.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>这个函数有一个很好的性质，那就是<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%881.09.46.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>令<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%881.12.02.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>和积分类似，有<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%881.13.20.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>所以<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%881.13.46.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>因为有<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%881.14.11.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>所以有<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%881.14.33.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>同样可以得到<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%881.14.53.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<h1 id="下降阶乘幂"><a href="#下降阶乘幂" class="headerlink" title="下降阶乘幂"></a>下降阶乘幂</h1><h2 id="性质一"><a href="#性质一" class="headerlink" title="性质一"></a>性质一</h2><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%889.26.04.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<h2 id="性质二"><a href="#性质二" class="headerlink" title="性质二"></a>性质二</h2><p>给出下降阶乘幂为负数的定义：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%889.27.20.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<h2 id="性质三"><a href="#性质三" class="headerlink" title="性质三"></a>性质三</h2><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%889.33.18.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<h2 id="性质四"><a href="#性质四" class="headerlink" title="性质四"></a>性质四</h2><p>定义下降阶乘幂的好处就是为了求差分方便，下降阶乘幂的差分为：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%889.35.51.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>类比不定积分，不定和为：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%889.37.33.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>但是这里m≠−1，若是m=−1，直接运用差分定义可以求出：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.01.19.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>所以<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.06.13.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<h2 id="性质五"><a href="#性质五" class="headerlink" title="性质五"></a>性质五</h2><p>什么函数的差分是自身。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.24.45.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>进一步推广可得：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.25.11.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>所以得到一种新的等比数列计算方法：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.26.10.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<h2 id="性质六"><a href="#性质六" class="headerlink" title="性质六"></a>性质六</h2><p>结合律和分配率在差分运算中也适用。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.31.09.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<h2 id="性质七"><a href="#性质七" class="headerlink" title="性质七"></a>性质七</h2><p>类似分部积分，这里也可以分部来求差分。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.36.25.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>给出一个新的记号移位运算：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.37.14.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>所以得到了差分的分部运算法则：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.37.44.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>对两边求和，又可以得到不定求和的分布运算法则：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.38.30.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<h3 id="例一"><a href="#例一" class="headerlink" title="例一"></a>例一</h3><p>计算<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.40.57.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>首先计算<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.41.40.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>这里可以令<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.41.54.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>所以<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.42.06.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>求和式就可以转化为不定求和来算了：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.42.39.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<h3 id="例二"><a href="#例二" class="headerlink" title="例二"></a>例二</h3><p>计算<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.43.12.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>首先计算<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.43.24.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>这里注意要令<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.44.13.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>不能倒过来，因为Hx的不定和很难求出来。所以<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.44.51.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>所以<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.45.25.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<h1 id="无限求和"><a href="#无限求和" class="headerlink" title="无限求和"></a>无限求和</h1><p>之前求和式。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.14.29.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>两边同时乘2，得：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.14.51.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>解得：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.15.16.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>但是同样的方式计算式子：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.15.55.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>两边同时乘2，得：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.16.18.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>解出：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.16.32.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>显然是不可能的，因为这里T是发散的，所以不能这么求。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.19.42.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.22.15.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>比如<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.22.48.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>再如：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.23.06.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>求有正有负的和式。<br>可以考虑用不同的配对，将正负组合在一起，从而相消求和。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.34.22.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>我们可以将正数和负数分开求和，因为正数求和已经解决了。定义：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.35.23.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>其中<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.37.57.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>求和式对两部分分别求和：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.38.28.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>最后可以推广到二重求和。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.39.24.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-
-        </div>
-
-        <blockquote class="post-copyright">
-    
-    <div class="content">
-        
-<span class="post-time">
-    最后更新时间：<time datetime="2018-12-06T05:28:00.000Z" itemprop="dateUpdated">2018-12-06 13:28:00</time>
-</span><br>
-
-
-        
-    </div>
-    
-    <footer>
-        <a href="https://github.com/zdkswd">
-            <img src="/img/tmg.jpg" alt="ZDK">
-            ZDK
-        </a>
-    </footer>
-</blockquote>
-
-        
-
-
-        <div class="post-footer">
-            
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数学/">数学</a></li></ul>
-
-
-            
-
-
-        </div>
-    </div>
-
-    
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2018/12/07/具体数学 Interger Functions/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">具体数学 Interger Functions</h4>
-      </a>
-    </div>
-  
-
-  
-    <div class="waves-block waves-effect next">
-      <a href="/2018/12/04/具体数学 第一章/" id="post-next" class="post-nav-link">
-        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">具体数学 第一章</h4>
-      </a>
     </div>
   
 </nav>
 
 
 
+</div>
+    </header>
+
     
 
 
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
 
+          
+          <div id="content" class="content">
+            
 
+  <div id="posts" class="posts-expand">
+    
 
+  
 
+  
+  
+  
 
+  
 
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2018/12/06/具体数学 第二章/"/>
 
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZDK"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
 
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZDK's blog"/>
+    </span>
 
-    <!-- Valine Comments -->
-    <div class="comments vcomment" id="comments"></div>
-    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
-    <!-- Valine Comments script -->
-    <script>
-        var GUEST_INFO = ['nick','mail','link'];
-        var guest_info = 'nick,mail'.split(',').filter(function(item){
-          return GUEST_INFO.indexOf(item) > -1
-        });
-        new Valine({
-            el: '#comments',
-            notify: 'true' == 'true',
-            verify: 'false' == 'true',
-            appId: "QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz",
-            appKey: "gkBx5soQkBREmER84PWbNJeM",
-            avatar: "mm",
-            placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
-            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
-            pageSize: "10"
-        })
-    </script>
-    <!-- Valine Comments end -->
+    
+      <header class="post-header">
 
-
-
-
-
-
-
-</article>
-
-
-
-</div>
-
-        <footer class="footer">
-    <div class="top">
         
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
+        
+          <h1 class="post-title" itemprop="name headline">具体数学 第二章
 
+              
+            
+          </h1>
+        
 
-        <p>
-            
-                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-            
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
-        </p>
-    </div>
-    <div class="bottom">
-        <p><span>ZDK &copy; 2017 - 2019</span>
-            <span>
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
                 
-                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+              
+
+              <time title="创建时间：2018-12-06 13:24:32 / 修改时间：13:28:00" itemprop="dateCreated datePublished" datetime="2018-12-06T13:24:32+08:00">2018-12-06</time>
             </span>
-        </p>
-    </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
-    </script>
-</footer>
+          
 
-    </main>
-    <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+          
+            
 
+            
+          
 
-    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
-<script>
-var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/知识总结/" itemprop="url" rel="index"><span itemprop="name">知识总结</span></a></span>
 
+                
+                
+              
+            </span>
+          
 
-</script>
+          
+            
+            
+              
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2018/12/06/具体数学 第二章/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/12/06/具体数学 第二章/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
 
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+          
+          
+            <span id="/2018/12/06/具体数学 第二章/" class="post-meta-item leancloud_visitors" data-flag-title="具体数学 第二章">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
 
+          
 
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
-            </div>
-            <time class="flex-col time">{date}</time>
+          
+
+          <br/>
+          
+
+          
+
+          
+
         </div>
-    </a>
-</li>
-</template>
+      </header>
+    
 
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="求递推式本身的表达式"><a href="#求递推式本身的表达式" class="headerlink" title="求递推式本身的表达式"></a>求递推式本身的表达式</h1><p>将递归式转化为求和再求出递推式本身的表达式。<br>考虑如下递归式：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%8812.59.06.png" alt=""><br>两边同时乘以sn得到：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%8812.59.33.png" alt=""><br>观察Tn项和Tn-1项之前的系数，要想转化为可以求和的递归式，必须有：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%881.09.54.png" alt=""><br>即<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%881.10.27.png" alt=""><br>此时令<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%881.12.42.png" alt=""><br>得到：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%881.13.12.png" alt=""><br>此时再求和可得：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%881.14.25.png" alt=""><br>所以<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%884.35.38.png" alt=""></p>
+<h2 id="例题1"><a href="#例题1" class="headerlink" title="例题1"></a>例题1</h2><p>设n个数快速排序的操作次数为Cn，那么有<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%884.49.49.png" alt=""><br>用n-1取代n可以得到<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%884.50.11.png" alt=""><br>两式相减可以得到<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%884.50.35.png" alt=""><br>观察形式，由上面方法可以得到<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%884.53.39.png" alt=""><br>所以得<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%884.54.54.png" alt=""><br>进而带入公式。可以求得<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%884.57.32.png" alt=""><br>其中调和级数为：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%884.58.06.png" alt=""><br>所以最后结果为<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%884.58.46.png" alt=""></p>
+<h1 id="求和三大定律"><a href="#求和三大定律" class="headerlink" title="求和三大定律"></a>求和三大定律</h1><p>结合律、分配率、交换律。</p>
+<h2 id="例题2"><a href="#例题2" class="headerlink" title="例题2"></a>例题2</h2><p>求<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%885.03.12.png" alt=""><br>这里使用求和定律来做<br>用n-k取代k,得到<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%885.06.06.png" alt=""><br>即<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%885.06.17.png" alt=""><br>两式相加得<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%885.06.53.png" alt=""><br>所以<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%885.08.05.png" alt=""></p>
+<h2 id="例题3"><a href="#例题3" class="headerlink" title="例题3"></a>例题3</h2><p>求<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%887.00.17.png" alt=""><br>这里用到另一种求和的方法。<br>两边同时加上第n+1项，得到<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%887.00.51.png" alt=""><br>所以<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%887.05.25.png" alt=""><br>还可以这样求解：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%887.08.31.png" alt=""><br>求导得到：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%887.10.12.png" alt=""><br>所以<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%887.11.10.png" alt=""><br>同样可以得到<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%887.11.27.png" alt=""></p>
+<h1 id="多重求和"><a href="#多重求和" class="headerlink" title="多重求和"></a>多重求和</h1><p>多重求和，也就是一个和式由多个下标来指定。<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%884.00.16.png" alt=""></p>
+<h2 id="例题1-1"><a href="#例题1-1" class="headerlink" title="例题1"></a>例题1</h2><p>一个对称矩阵<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%887.27.03.png" alt=""><br>求：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%887.27.16.png" alt=""><br>这是这个矩阵的上三角加对角线求和，因为是对称的嘛，可以补全下三角，加上对角线就行了。<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%887.34.13.png" alt=""><br>所以<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%887.34.27.png" alt=""></p>
+<h2 id="例题2-1"><a href="#例题2-1" class="headerlink" title="例题2"></a>例题2</h2><p>有如下式子，<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%887.46.45.png" alt=""><br>调换j,k位置，得到：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%887.48.31.png" alt=""><br>所以<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%888.03.06.png" alt=""><br>至此解完，可以推出一个著名不等式—-切比雪夫不等式：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%888.04.04.png" alt=""></p>
+<h2 id="例题3-1"><a href="#例题3-1" class="headerlink" title="例题3"></a>例题3</h2><p><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%888.19.56.png" alt=""><br>使用三种方法解这个式子：</p>
+<h3 id="调和级数"><a href="#调和级数" class="headerlink" title="调和级数"></a>调和级数</h3><p>调和级数：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%889.59.57.png" alt=""></p>
+<h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>首先将j和k分开，首先计算对j求和：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%888.20.39.png" alt=""></p>
+<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><p>先计算对k求和：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%888.21.11.png" alt=""></p>
+<h3 id="方法三"><a href="#方法三" class="headerlink" title="方法三"></a>方法三</h3><p>按对角线求和：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%888.21.40.png" alt=""><br>由此得到了一个完全不同的表示形式，所以得到了：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%888.27.12.png" alt=""></p>
+<h1 id="几种求和方法"><a href="#几种求和方法" class="headerlink" title="几种求和方法"></a>几种求和方法</h1><p>针对以下求和式，使用八种方法来求解：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%888.55.16.png" alt=""><br>它的答案为：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%888.55.43.png" alt=""></p>
+<h2 id="扰动法"><a href="#扰动法" class="headerlink" title="扰动法"></a>扰动法</h2><p>令<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%888.57.39.png" alt=""><br>所以<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%888.57.54.png" alt=""><br>解出<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%888.58.15.png" alt=""><br>最终得到<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%888.58.34.png" alt=""><br>可以看出，我们本来是要对k的二次方求和的，但是只要对k的三次方用扰动法求和即可，因为求和过程中k的三次方项会被抵消掉。</p>
+<h2 id="扩展成二重指标求和"><a href="#扩展成二重指标求和" class="headerlink" title="扩展成二重指标求和"></a>扩展成二重指标求和</h2><p><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%889.35.15.png" alt=""></p>
+<h2 id="用有限微分求和"><a href="#用有限微分求和" class="headerlink" title="用有限微分求和"></a>用有限微分求和</h2><p>微分的形式为<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.55.14.png" alt=""><br>如果定义<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.55.39.png" alt=""><br>则有<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.55.54.png" alt=""><br>似乎不能和导数形式统一起来，用起来也不方便，定义一个新的函数，叫<strong>下降阶乘幂</strong>：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.57.26.png" alt=""><br>这个函数有一个很好的性质，那就是<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%881.09.46.png" alt=""><br>令<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%881.12.02.png" alt=""><br>和积分类似，有<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%881.13.20.png" alt=""><br>所以<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%881.13.46.png" alt=""><br>因为有<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%881.14.11.png" alt=""><br>所以有<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%881.14.33.png" alt=""><br>同样可以得到<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%881.14.53.png" alt=""></p>
+<h1 id="下降阶乘幂"><a href="#下降阶乘幂" class="headerlink" title="下降阶乘幂"></a>下降阶乘幂</h1><h2 id="性质一"><a href="#性质一" class="headerlink" title="性质一"></a>性质一</h2><p><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%889.26.04.png" alt=""></p>
+<h2 id="性质二"><a href="#性质二" class="headerlink" title="性质二"></a>性质二</h2><p>给出下降阶乘幂为负数的定义：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%889.27.20.png" alt=""></p>
+<h2 id="性质三"><a href="#性质三" class="headerlink" title="性质三"></a>性质三</h2><p><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%889.33.18.png" alt=""></p>
+<h2 id="性质四"><a href="#性质四" class="headerlink" title="性质四"></a>性质四</h2><p>定义下降阶乘幂的好处就是为了求差分方便，下降阶乘幂的差分为：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%889.35.51.png" alt=""><br>类比不定积分，不定和为：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%889.37.33.png" alt=""><br>但是这里m≠−1，若是m=−1，直接运用差分定义可以求出：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.01.19.png" alt=""><br>所以<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.06.13.png" alt=""></p>
+<h2 id="性质五"><a href="#性质五" class="headerlink" title="性质五"></a>性质五</h2><p>什么函数的差分是自身。<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.24.45.png" alt=""><br>进一步推广可得：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.25.11.png" alt=""><br>所以得到一种新的等比数列计算方法：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.26.10.png" alt=""></p>
+<h2 id="性质六"><a href="#性质六" class="headerlink" title="性质六"></a>性质六</h2><p>结合律和分配率在差分运算中也适用。<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.31.09.png" alt=""></p>
+<h2 id="性质七"><a href="#性质七" class="headerlink" title="性质七"></a>性质七</h2><p>类似分部积分，这里也可以分部来求差分。<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.36.25.png" alt=""><br>给出一个新的记号移位运算：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.37.14.png" alt=""><br>所以得到了差分的分部运算法则：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.37.44.png" alt=""><br>对两边求和，又可以得到不定求和的分布运算法则：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.38.30.png" alt=""></p>
+<h3 id="例一"><a href="#例一" class="headerlink" title="例一"></a>例一</h3><p>计算<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.40.57.png" alt=""><br>首先计算<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.41.40.png" alt=""><br>这里可以令<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.41.54.png" alt=""><br>所以<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.42.06.png" alt=""><br>求和式就可以转化为不定求和来算了：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.42.39.png" alt=""></p>
+<h3 id="例二"><a href="#例二" class="headerlink" title="例二"></a>例二</h3><p>计算<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.43.12.png" alt=""><br>首先计算<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.43.24.png" alt=""><br>这里注意要令<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.44.13.png" alt=""><br>不能倒过来，因为Hx的不定和很难求出来。所以<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.44.51.png" alt=""><br>所以<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.45.25.png" alt=""></p>
+<h1 id="无限求和"><a href="#无限求和" class="headerlink" title="无限求和"></a>无限求和</h1><p>之前求和式。<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.14.29.png" alt=""><br>两边同时乘2，得：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.14.51.png" alt=""><br>解得：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.15.16.png" alt=""><br>但是同样的方式计算式子：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.15.55.png" alt=""><br>两边同时乘2，得：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.16.18.png" alt=""><br>解出：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.16.32.png" alt=""><br>显然是不可能的，因为这里T是发散的，所以不能这么求。<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.19.42.png" alt=""><br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.22.15.png" alt=""><br>比如<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.22.48.png" alt=""><br>再如：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.23.06.png" alt=""><br>求有正有负的和式。<br>可以考虑用不同的配对，将正负组合在一起，从而相消求和。<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.34.22.png" alt=""><br>我们可以将正数和负数分开求和，因为正数求和已经解决了。定义：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.35.23.png" alt=""><br>其中<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.37.57.png" alt=""><br>求和式对两部分分别求和：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.38.28.png" alt=""><br>最后可以推广到二重求和。<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.39.24.png" alt=""></p>
+
+      
+    </div>
+
+    
+
+    
+      
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/数学/" rel="tag"># 数学</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/04/具体数学 第一章/" rel="next" title="具体数学 第一章">
+                <i class="fa fa-chevron-left"></i> 具体数学 第一章
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/07/具体数学 Interger Functions/" rel="prev" title="具体数学 Interger Functions">
+                具体数学 Interger Functions <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
 
 
 
-<!-- mathjax config similar to math.stackexchange -->
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
 
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
 
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-});
-</script>
+      
 
-<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="ZDK"/>
+            
+              <p class="site-author-name" itemprop="name">ZDK</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">191</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">分类</span>
+                  
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">48</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/zdkswd" title="GitHub &rarr; https://github.com/zdkswd"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:2822464407@qq.com" title="E-Mail &rarr; mailto:2822464407@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/zdkswd" title="https://github.com/zdkswd">Title</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#求递推式本身的表达式"><span class="nav-number">1.</span> <span class="nav-text">求递推式本身的表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#例题1"><span class="nav-number">1.1.</span> <span class="nav-text">例题1</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#求和三大定律"><span class="nav-number">2.</span> <span class="nav-text">求和三大定律</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#例题2"><span class="nav-number">2.1.</span> <span class="nav-text">例题2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#例题3"><span class="nav-number">2.2.</span> <span class="nav-text">例题3</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多重求和"><span class="nav-number">3.</span> <span class="nav-text">多重求和</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#例题1-1"><span class="nav-number">3.1.</span> <span class="nav-text">例题1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#例题2-1"><span class="nav-number">3.2.</span> <span class="nav-text">例题2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#例题3-1"><span class="nav-number">3.3.</span> <span class="nav-text">例题3</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#调和级数"><span class="nav-number">3.3.1.</span> <span class="nav-text">调和级数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法一"><span class="nav-number">3.3.2.</span> <span class="nav-text">方法一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法二"><span class="nav-number">3.3.3.</span> <span class="nav-text">方法二</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法三"><span class="nav-number">3.3.4.</span> <span class="nav-text">方法三</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#几种求和方法"><span class="nav-number">4.</span> <span class="nav-text">几种求和方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#扰动法"><span class="nav-number">4.1.</span> <span class="nav-text">扰动法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扩展成二重指标求和"><span class="nav-number">4.2.</span> <span class="nav-text">扩展成二重指标求和</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用有限微分求和"><span class="nav-number">4.3.</span> <span class="nav-text">用有限微分求和</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#下降阶乘幂"><span class="nav-number">5.</span> <span class="nav-text">下降阶乘幂</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#性质一"><span class="nav-number">5.1.</span> <span class="nav-text">性质一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#性质二"><span class="nav-number">5.2.</span> <span class="nav-text">性质二</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#性质三"><span class="nav-number">5.3.</span> <span class="nav-text">性质三</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#性质四"><span class="nav-number">5.4.</span> <span class="nav-text">性质四</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#性质五"><span class="nav-number">5.5.</span> <span class="nav-text">性质五</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#性质六"><span class="nav-number">5.6.</span> <span class="nav-text">性质六</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#性质七"><span class="nav-number">5.7.</span> <span class="nav-text">性质七</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#例一"><span class="nav-number">5.7.1.</span> <span class="nav-text">例一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#例二"><span class="nav-number">5.7.2.</span> <span class="nav-text">例二</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#无限求和"><span class="nav-number">6.</span> <span class="nav-text">无限求和</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZDK</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.2.0</div>
 
 
 
 
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        
 
 
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+  </div>
+
+  
 
 <script>
-(function() {
-    var OriginTitile = document.title, titleTime;
-    document.addEventListener('visibilitychange', function() {
-        if (document.hidden) {
-            document.title = 'zdk'blog';
-            clearTimeout(titleTime);
-        } else {
-            document.title = '';
-            titleTime = setTimeout(function() {
-                document.title = OriginTitile;
-            },2000);
-        }
-    });
-})();
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
 </script>
 
 
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.2.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz',
+    appKey: 'gkBx5soQkBREmER84PWbNJeM',
+    placeholder: 'have fun',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true,
+    lang: '' || 'zh-cn'
+  });
+</script>
+
+
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('5');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
 
 </body>
 </html>

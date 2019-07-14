@@ -1,635 +1,2773 @@
 <!DOCTYPE html>
-<html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
-    
-
-    
-
-    
-
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
 
 
-    <meta charset="utf-8">
-    
-    
-    
-    
-    <title>ZDK&#39;s blog</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#3F51B5">
-    
-    
-    <meta name="keywords" content="">
-    <meta property="og:type" content="website">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.2.0',
+    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+
+
+  <meta property="og:type" content="website">
 <meta property="og:title" content="ZDK&#39;s blog">
 <meta property="og:url" content="https://github.com/zdkswd/page/10/index.html">
 <meta property="og:site_name" content="ZDK&#39;s blog">
 <meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ZDK&#39;s blog">
-    
-        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
-    
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
-    <script>window.lazyScripts=[]</script>
 
-    <!-- custom head -->
-    
+
+
+  <link rel="alternate" href="/atom.xml" title="ZDK's blog" type="application/atom+xml"/>
+
+
+
+  
+  
+  <link rel="canonical" href="https://github.com/zdkswd/page/10/"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>ZDK's blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
 
 </head>
 
-<body>
-    <div id="loading" class="active"></div>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
-    <aside id="menu"  >
-  <div class="inner flex-row-vertical">
-    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-        <i class="icon icon-lg icon-close"></i>
-    </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
-      <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/tmg.jpg">
-        </a>
-        <hgroup class="introduce">
-          <h5 class="nickname">ZDK</h5>
-          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
-        </hgroup>
-      </div>
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right 
+  page-home">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ZDK's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
-    <div class="scroll-wrap flex-col">
-      <ul class="nav">
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
         
-            <li class="waves-block waves-effect">
-              <a href="/"  >
-                <i class="icon icon-lg icon-home"></i>
-                主页
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                Archives
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/tags"  >
-                <i class="icon icon-lg icon-tags"></i>
-                Tags
-              </a>
-            </li>
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>首页</a>
+
+  </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/categories"  >
-                <i class="icon icon-lg icon-th-list"></i>
-                Categories
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="https://github.com/zdkswd" target="_blank" >
-                <i class="icon icon-lg icon-github"></i>
-                Github
-              </a>
-            </li>
         
-      </ul>
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>归档</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br/>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
     </div>
   </div>
-</aside>
-
-    <main id="main">
-        <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis">ZDK&#39;s blog</div>
-        
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
-        </div>
-        
-        
-    </div>
-</header>
-<header class="content-header index-header">
-
-    <div class="container fade-scale">
-        <h1 class="title">ZDK&#39;s blog</h1>
-        <h5 class="subtitle">
-            
-                
-            
-        </h5>
-    </div>
-
-    
-
-
-</header>
-
-<div class="container body-wrap">
-
-    <ul class="post-list">
-    
-        <li class="post-list-item fade">
-            <article id="post-XGBoost"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-02-25 13:56:47" datetime="2019-02-25T05:56:47.000Z"  itemprop="datePublished">2019-02-25</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+  <div id="local-search-result"></div>
+</div>
 
 
 
     </div>
-
-    
-
-
   
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/02/25/XGBoost/">XGBoost</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        XGBoost参考https://mp.weixin.qq.com/s/AnENu0i3i5CdUQkZscMKgQXGBoost是boosting算法的其中一种。Boosting算法的思想是将许多弱分类器集成在一起形成一个强分类器。因为XGBoost是一种提升树模型，所以它是将许多树模型集成在一起，形成一个很强的分类器。而所用到的树模型则是CART回归树模型。讲解其原理前，先讲解一下CAR...
-    
-
-        <a href="/2019/02/25/XGBoost/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-百面机器学习 集成学习"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-02-23 20:46:47" datetime="2019-02-23T12:46:47.000Z"  itemprop="datePublished">2019-02-23</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/02/23/百面机器学习 集成学习/">百面机器学习 集成学习</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        集成学习有几种？有何异同？BoostingBoosting方法训练基分类器时采用串行的方式，各个基分类器之间有依赖。
-它的基本思想是将基分类器层层叠加，在每一层训练时，对前一层基分类器分错的样本给予更高的权重，测试时，根据各层分类器的结果的加权得到最终结果。
-Boosting的过程很类似于人类学习的过程，我们学习新知识的过程往往是迭代的，第一遍学习时，我们会记住一部分知识，但往往也会犯一些错...
-    
-
-        <a href="/2019/02/23/百面机器学习 集成学习/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Scrapy"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-02-08 20:50:32" datetime="2019-02-08T12:50:32.000Z"  itemprop="datePublished">2019-02-08</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/02/08/Scrapy/">Scrapy</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        Scrapy安装
-pip install scrapy  
-
-创建项目首先创建一个新的Scrapy项目。
-
-scrapy startproject tutorial  
-
-创建的tutorial 目录：
-                
-                    
-                    
-                
-                
-  ...
-    
-
-        <a href="/2019/02/08/Scrapy/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/爬虫/">爬虫</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-让爬虫程序更像人类用户的行为"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-02-08 14:27:32" datetime="2019-02-08T06:27:32.000Z"  itemprop="datePublished">2019-02-08</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/02/08/让爬虫程序更像人类用户的行为/">让爬虫程序更像人类用户的行为</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        让爬虫程序更像人类用户的行为Python3网络爬虫(十一)：爬虫黑科技之让你的爬虫程序更像人类用户的行为(代理IP池等) - Jack-Cui - CSDN博客
-黑科技一些简单的方法让爬虫更像人类访问用户。
-构造合理的HTTP请求头设置Cookie的学问虽然 cookie 是一把双刃剑，但正确地处理 cookie 可以避免许多采集问题。网站会用 cookie 跟踪你的访问过程，如果发现了爬虫...
-    
-
-        <a href="/2019/02/08/让爬虫程序更像人类用户的行为/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/爬虫/">爬虫</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-再议Python数据可视化技术"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-02-08 11:28:56" datetime="2019-02-08T03:28:56.000Z"  itemprop="datePublished">2019-02-08</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/02/08/再议Python数据可视化技术/">再议Python数据可视化技术</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        再议Python数据可视化技术可视化视图分类可视化视图可分为4类，比较，联系，构成和分布。
-
-比较：比较数据间各类别的关系，或者是它们随着时间的变化趋势，比如折线图。
-联系：查看两个或两个以上变量的关系，比如散点图。
-构成：每个部分占整体的百分比，或者是随着时间的百分比变化，比如饼图。
-分布：关注单个变量，或者多个变量的分布情况，比如直方图。
-
-
-                
-     ...
-    
-
-        <a href="/2019/02/08/再议Python数据可视化技术/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-数据分析小总结"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-02-07 21:58:56" datetime="2019-02-07T13:58:56.000Z"  itemprop="datePublished">2019-02-07</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/02/07/数据分析小总结/">数据分析小总结</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        数据分析小总结数据挖掘的十大算法分类算法C4.5，朴素贝叶斯（Naive Bayes），SVM，KNN，Adaboost，CART
-聚类算法K-Means，EM
-关连分析Apriori [‘eɪprɪ’ɔ:rɪ] 先验的Aprion是一种挖掘关联规则( association rules)的算法,它通过挖掘频繁项集( frequent item sets)来揭示物品之间的关联关系,被广泛应用...
-    
-
-        <a href="/2019/02/07/数据分析小总结/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Linux命令行"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-02-05 19:33:32" datetime="2019-02-05T11:33:32.000Z"  itemprop="datePublished">2019-02-05</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/02/05/Linux命令行/">Linux命令行</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        Linux命令行为了更好的使用实验室的服务器，特此来进行总结。
-后台运行在当前终端运行一个脚本时，该终端会不占用而无法进行其他工作。比如在训练模型是想要查看GPU的使用情况，或者断开与远程服务器的连接但保持训练的进行。这时我们就需要借助 tmux 这个工具。tmux 是一个终端选择器（terminal multiplexer），它可以让用户在一个终端窗口中控制多个终端。对于连接远程服务器的工...
-    
-
-        <a href="/2019/02/05/Linux命令行/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-    </ul>
-
-    
-<nav id="page-nav">
-    <div class="inner">
-    <a class="extend prev" rel="prev" href="/page/9/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="extend next" rel="next" href="/page/11/">下一页</a>
-    </div>
 </nav>
 
 
-</div>
 
-        <footer class="footer">
-    <div class="top">
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2019/02/25/XGBoost/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZDK"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZDK's blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
         
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
-
-
-        <p>
-            
-                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-            
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
-        </p>
-    </div>
-    <div class="bottom">
-        <p><span>ZDK &copy; 2017 - 2019</span>
-            <span>
+        
+          <h1 class="post-title" itemprop="name headline">
                 
-                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+                
+                <a href="/2019/02/25/XGBoost/" class="post-title-link" itemprop="url">XGBoost</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-25 13:56:47" itemprop="dateCreated datePublished" datetime="2019-02-25T13:56:47+08:00">2019-02-25</time>
             </span>
-        </p>
-    </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
-    </script>
-</footer>
+          
 
-    </main>
-    <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+          
+            
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-03-08 08:58:40" itemprop="dateModified" datetime="2019-03-08T08:58:40+08:00">2019-03-08</time>
+              </span>
+            
+          
 
-    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
-<script>
-var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/知识总结/" itemprop="url" rel="index"><span itemprop="name">知识总结</span></a></span>
 
+                
+                
+              
+            </span>
+          
 
-</script>
+          
+            
+            
+              
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/02/25/XGBoost/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/02/25/XGBoost/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
 
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+          
+          
+            <span id="/2019/02/25/XGBoost/" class="post-meta-item leancloud_visitors" data-flag-title="XGBoost">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
 
+          
 
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
-            </div>
-            <time class="flex-col time">{date}</time>
+          
+
+          <br/>
+          
+
+          
+
+          
+
         </div>
-    </a>
-</li>
-</template>
+      </header>
+    
 
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="XGBoost"><a href="#XGBoost" class="headerlink" title="XGBoost"></a>XGBoost</h1><p>参考<a href="https://mp.weixin.qq.com/s/AnENu0i3i5CdUQkZscMKgQ" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/AnENu0i3i5CdUQkZscMKgQ</a><br>XGBoost是boosting算法的其中一种。Boosting算法的思想是将许多弱分类器集成在一起形成一个强分类器。因为XGBoost是一种提升树模型，所以它是将许多树模型集成在一起，形成一个很强的分类器。而所用到的树模型则是CART回归树模型。讲解其原理前，先讲解一下CART回归树。</p>
+<h2 id="CART回归树"><a href="#CART回归树" class="headerlink" title="CART回归树"></a>CART回归树</h2><p>CART回归树是假设树为二叉树，通过不断将特征进行分裂。比如当前树结点是基于第j个特征值进行分裂的，设该特征值小于s的样本划分为左子树，大于s的样本划分为右子树。<br><img src="/img/media/XGBoost/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-25%20%E4%B8%8A%E5%8D%8810.23.19.png" alt=""><br>而CART回归树实质上就是在该特征维度对样本空间进行划分，而这种空间划分的优化是一种NP难问题，因此，在决策树模型中是使用启发式方法解决。典型CART回归树产生的目标函数为：<br><img src="/img/media/XGBoost/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-25%20%E4%B8%8A%E5%8D%8810.23.46.png" alt=""><br>因此，当我们为了求解最优的切分特征j和最优的切分点s，就转化为求解这么一个目标函数：<br><img src="/img/media/XGBoost/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-25%20%E4%B8%8A%E5%8D%8810.28.25.png" alt=""><br>所以我们只要遍历所有特征的的所有切分点，就能找到最优的切分特征和切分点。最终得到一棵回归树。</p>
+<h2 id="XGBoost算法思想"><a href="#XGBoost算法思想" class="headerlink" title="XGBoost算法思想"></a>XGBoost算法思想</h2><p>该算法思想就是不断地添加树，不断地进行特征分裂来生长一棵树，每次添加一个树，其实是学习一个新函数，去拟合上次预测的残差。当我们训练完成得到k棵树，我们要预测一个样本的分数，其实就是根据这个样本的特征，在每棵树中会落到对应的一个叶子节点，每个叶子节点就对应一个分数，最后只需要将每棵树对应的分数加起来就是该样本的预测值。<br><img src="/img/media/XGBoost/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-25%20%E4%B8%8A%E5%8D%8810.29.31.png" alt=""><br>注：w_q(x)为叶子节点q的分数，f(x)为其中一棵回归树</p>
+<p>如下图例子，训练出了2棵决策树，小孩的预测分数就是两棵树中小孩所落到的结点的分数相加。爷爷的预测分数同理。<br><img src="/img/media/XGBoost/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-25%20%E4%B8%8A%E5%8D%8810.30.02.png" alt=""></p>
+<h2 id="XGBoost原理"><a href="#XGBoost原理" class="headerlink" title="XGBoost原理"></a>XGBoost原理</h2><p>XGBoost目标函数定义为：<br><img src="/img/media/XGBoost/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-25%20%E4%B8%8A%E5%8D%8810.31.54.png" alt=""><br>目标函数由两部分构成，第一部分用来衡量预测分数和真实分数的差距，另一部分则是正则化项。正则化项同样包含两部分，T表示叶子结点的个数，w表示叶子节点的分数。γ可以控制叶子结点的个数，λ可以控制叶子节点的分数不会过大，防止过拟合。yi即为真实值，yi hat为预测值。</p>
+<p>正如上文所说，新生成的树是要拟合上次预测的残差的，即当生成t棵树后，预测分数可以写成：<br><img src="/img/media/XGBoost/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-25%20%E4%B8%8A%E5%8D%8810.36.35.png" alt=""><br>同时，可以将目标函数改写成：<br><img src="/img/media/XGBoost/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-25%20%E4%B8%8A%E5%8D%8810.39.13.png" alt=""><br>很明显，我们接下来就是要去找到一个f_t能够最小化目标函数。XGBoost的想法是利用其在f_t=0处的泰勒二阶展开近似它。所以，目标函数近似为：<br><img src="/img/media/XGBoost/20160421102838944.png" alt=""><br><img src="/img/media/XGBoost/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-25%20%E4%B8%8A%E5%8D%8810.49.32.png" alt=""><br>其中g_i为一阶导数，h_i为二阶导数：<br><img src="/img/media/XGBoost/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-25%20%E4%B8%8A%E5%8D%8810.54.27.png" alt=""><br>由于前t-1棵树的预测分数与y的残差对目标函数优化不影响，可以直接去掉。简化目标函数为：<br><img src="/img/media/XGBoost/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-25%20%E4%B8%8B%E5%8D%8812.15.48.png" alt=""><br>上式是将每个样本的损失函数值加起来，我们知道，每个样本都最终会落到一个叶子结点中，所以我们可以将所以同一个叶子结点的样本重组起来，过程如下图：<br><img src="/img/media/XGBoost/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-25%20%E4%B8%8B%E5%8D%8812.21.37.png" alt=""><br>因此通过上式的改写，我们可以将目标函数改写成关于叶子结点分数w的一个一元二次函数，求解最优的w和目标函数值就变得很简单了，直接使用顶点公式即可。因此，最优的w和目标函数公式为<br><img src="/img/media/XGBoost/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-25%20%E4%B8%8B%E5%8D%8812.28.52.png" alt=""></p>
+<h2 id="分裂结点算法"><a href="#分裂结点算法" class="headerlink" title="分裂结点算法"></a>分裂结点算法</h2><p>在上面的推导中，我们知道了如果我们一棵树的结构确定了，如何求得每个叶子结点的分数。但我们还没介绍如何确定树结构，即每次特征分裂怎么寻找最佳特征，怎么寻找最佳分裂点。</p>
+<p>正如上文说到，基于空间切分去构造一颗决策树是一个NP难问题，我们不可能去遍历所有树结构，因此，XGBoost使用了和CART回归树一样的想法，利用贪婪算法，遍历所有特征的所有特征划分点，不同的是使用上式目标函数值作为评价函数。具体做法就是对比分裂后的目标函数值与单子叶子节点的目标函数增益，同时为了限制树生长过深，还加了个阈值，只有当增益大于该阈值才进行分裂。</p>
+<p>同时可以设置树的最大深度、当样本权重和小于设定阈值时停止生长去防止过拟合。</p>
+<h2 id="Shrinkage-and-Column-Subsampling"><a href="#Shrinkage-and-Column-Subsampling" class="headerlink" title="Shrinkage and Column Subsampling"></a>Shrinkage and Column Subsampling</h2><p>XGBoost还提出了两种防止过拟合的方法：Shrinkage and Column Subsampling。</p>
+<p>Shrinkage方法就是在每次迭代中对树的每个叶子结点的分数乘上一个缩减权重η，这可以使得每一棵树的影响力不会太大，留下更大的空间给后面生成的树去优化模型。Column Subsampling类似于随机森林中的选取部分特征进行建树。其可分为两种，一种是按层随机采样，在对同一层内每个结点分裂之前，先随机选择一部分特征，然后只需要遍历这部分的特征，来确定最优的分割点。另一种是随机选择特征，建树前随机选择一部分特征然后分裂就只遍历这些特征。一般情况下前者效果更好。</p>
+<h2 id="近似算法"><a href="#近似算法" class="headerlink" title="近似算法"></a>近似算法</h2><p>对于连续型特征值，当样本数量非常大，该特征取值过多时，遍历所有取值会花费很多时间，且容易过拟合。因此XGBoost思想是对特征进行分桶，即找到l个划分点，将位于相邻分位点之间的样本分在一个桶中。在遍历该特征的时候，只需要遍历各个分位点，从而计算最优划分。从算法伪代码中该流程还可以分为两种，全局的近似是在新生成一棵树之前就对各个特征计算分位点并划分样本，之后在每次分裂过程中都采用近似划分，而局部近似就是在具体的某一次分裂节点的过程中采用近似算法。<br><img src="/img/media/XGBoost/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-25%20%E4%B8%8B%E5%8D%881.01.02.png" alt=""></p>
+<h2 id="针对稀疏矩阵的算法（缺失值处理）"><a href="#针对稀疏矩阵的算法（缺失值处理）" class="headerlink" title="针对稀疏矩阵的算法（缺失值处理）"></a>针对稀疏矩阵的算法（缺失值处理）</h2><p>当样本的第i个特征值缺失时，无法利用该特征进行划分时，XGBoost的想法是将该样本分别划分到左结点和右结点，然后计算其增益，哪个大就划分到哪边。</p>
+<h2 id="XGBoost的优点"><a href="#XGBoost的优点" class="headerlink" title="XGBoost的优点"></a>XGBoost的优点</h2><p>之所以XGBoost可以成为机器学习的大杀器，广泛用于数据科学竞赛和工业界，是因为它有许多优点：</p>
+<ol>
+<li>使用许多策略去防止过拟合，如：正则化项、Shrinkage and Column Subsampling等。</li>
+<li>目标函数优化利用了损失函数关于待求函数的二阶导数</li>
+<li>支持并行化，这是XGBoost的闪光点，虽然树与树之间是串行关系，但是同层级节点可并行。具体的对于某个节点，节点内选择最佳分裂点，候选分裂点计算增益用多线程并行。训练速度快。</li>
+<li>添加了对稀疏数据的处理。</li>
+<li>交叉验证，early stop，当预测结果已经很好的时候可以提前停止建树，加快训练速度。</li>
+<li>支持设置样本权重，该权重体现在一阶导数g和二阶导数h，通过调整权重可以去更加关注一些样本。</li>
+</ol>
+<h1 id="百面机器学习的补充-XGBoost的构建过程"><a href="#百面机器学习的补充-XGBoost的构建过程" class="headerlink" title="百面机器学习的补充  XGBoost的构建过程"></a>百面机器学习的补充  XGBoost的构建过程</h1><p>假设决策树的结构已知，通过令损失函数相对于wj的导数为0可以求出在最小化损失函数的情况下各个叶子节点上的预测值<br><img src="/img/media/XGBoost/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-25%20%E4%B8%8B%E5%8D%881.15.25.png" alt=""><br>然而从所有的树结构中寻找最优树结构是一个NP-hard问题，因此在实际中往往采用贪心法来构建一个次优的树结构，基本思想是从根结点开始，每次对一个叶子节点进行分裂，针对每一种可能的分裂，根据特定的准则选取最优的分裂。XGBoost有特定的准则来选取最优分裂。</p>
+<p>将预测值带入到损失函数中可求得损失函数的最小值。<br><img src="/img/media/XGBoost/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-25%20%E4%B8%8B%E5%8D%881.27.16.png" alt=""><br>容易计算出分裂前后损失函数的差值。XGBoost采用最大化这个差值作为准则来进行决策树的构建，通过遍历所有特征的所有取值，寻找使得损失函数前后相差最大时对应的分裂方式。此外，由于损失函数前后存在差值一定为正的限制，此时y起到了一定的预剪枝效果。</p>
+<h1 id="美团机器学习实践"><a href="#美团机器学习实践" class="headerlink" title="美团机器学习实践"></a>美团机器学习实践</h1><p>梯度提升树算法与其他算法的对比如下：</p>
+<h2 id="梯度提升树算法与线性模型"><a href="#梯度提升树算法与线性模型" class="headerlink" title="梯度提升树算法与线性模型"></a>梯度提升树算法与线性模型</h2><p>梯度提升树可以更好的处理缺失特征和不在同一个区间的特征（年龄特征取值范围为【0，150】，星期几特征取值范围为【0，6】，而转化率特征取值范围为【0，1】），梯度提升树算法也可以更好地应对异常点，更好处理特征间的相关性，处理非线性决策边界的问题。</p>
+<h2 id="梯度提升树算法与随机森林"><a href="#梯度提升树算法与随机森林" class="headerlink" title="梯度提升树算法与随机森林"></a>梯度提升树算法与随机森林</h2><p>随机森林可以并行训练，较不容易过拟合。梯度提升树可以学习更复杂的决策边界，效果往往会更好。</p>
+<h2 id="梯度提升树算法与神经网络"><a href="#梯度提升树算法与神经网络" class="headerlink" title="梯度提升树算法与神经网络"></a>梯度提升树算法与神经网络</h2><p>神经网络作为单模型时，参数较多时VC维数也较高，训练较为困难。在中小数据集上，XGBoost可以取得很不错的效果。但是在数据集较大，且选取合适神经网络结构时，神经网络得到的结果往往是更完美的。</p>
+<h1 id="XGBoost-VS-深度学习"><a href="#XGBoost-VS-深度学习" class="headerlink" title="XGBoost VS 深度学习"></a>XGBoost VS 深度学习</h1><p>观点1：XGBoost要比深度学习更重要。2016年Kaggle大赛29个获奖方案中，17个用了XGBoost。因为它好用，在很多情况下都更为可靠、灵活，而且准确；在绝大多数的回归和分类问题上，XGBoost的实际表现都是顶尖的.<br>观点2：针对非常要求准确度的那些问题，XGBoost确实很有优势，同时它的计算特性也很不错。然而，相对于支持向量机、随机森林或深度学习，XGBoost的优势倒也没到那种夸张的程度。特别是当你拥有足够的训练数据，并能找到合适的深度神经网络时，深度学习的效果就明显能好上一大截。<br>观点3：深度学习和XGBoost并不截然对立（XGBoost发起人-陈天奇博士）。两种方法在其各自擅长领域的性能表现都非常好：<br>XGBoost专注于模型的可解释性，而基于人工神经网络的深度学习，则更关注模型的准确度。<br>XGBoost更适用于变量数较少的表格数据，而深度学习则更适用于图像或其他拥有海量变量的数据。</p>
+<p>不同的机器学习模型适用于不同类型的任务：<br>深度神经网络通过对时空位置建模，能够很好地捕获图像、语音、文本等高维数据。<br>基于树模型的XGBoost则能很好地处理表格数据，同时还拥有一些深度神经网络所没有的特性（如：模型的可解释性、输入数据的不变性、更易于调参等）。<br>这两类模型都很重要，并广泛用于数据科学竞赛和工业界。我们需要全面理解每一种模型，并能选出最适合你当前任务的那个。XGBoost、深度神经网络与其他经常要用的机器学习算法（如因子分解机、logistic回归分析等），值得机器学习行业的每一位从业者关注。这里没有一药能解百病的说法。</p>
+<h1 id="XGBoost为什么要展到二次项"><a href="#XGBoost为什么要展到二次项" class="headerlink" title="XGBoost为什么要展到二次项"></a>XGBoost为什么要展到二次项</h1><p>为了可以设置任何可以二阶求导的损失函数，只要该损失函数二阶可导，都可以用泰勒展开式进行近似替代，实现形式上的”统一”</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2019/02/23/百面机器学习 集成学习/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZDK"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZDK's blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/02/23/百面机器学习 集成学习/" class="post-title-link" itemprop="url">百面机器学习 集成学习</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-23 20:46:47" itemprop="dateCreated datePublished" datetime="2019-02-23T20:46:47+08:00">2019-02-23</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-03-08 09:28:48" itemprop="dateModified" datetime="2019-03-08T09:28:48+08:00">2019-03-08</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/知识总结/" itemprop="url" rel="index"><span itemprop="name">知识总结</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/02/23/百面机器学习 集成学习/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/02/23/百面机器学习 集成学习/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2019/02/23/百面机器学习 集成学习/" class="post-meta-item leancloud_visitors" data-flag-title="百面机器学习 集成学习">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          <br/>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="集成学习有几种？有何异同？"><a href="#集成学习有几种？有何异同？" class="headerlink" title="集成学习有几种？有何异同？"></a>集成学习有几种？有何异同？</h1><h2 id="Boosting"><a href="#Boosting" class="headerlink" title="Boosting"></a>Boosting</h2><p>Boosting方法训练基分类器时采用串行的方式，各个基分类器之间有依赖。</p>
+<p>它的基本思想是将基分类器层层叠加，在每一层训练时，对前一层基分类器分错的样本给予更高的权重，测试时，根据各层分类器的结果的加权得到最终结果。</p>
+<p>Boosting的过程很类似于人类学习的过程，我们学习新知识的过程往往是迭代的，第一遍学习时，我们会记住一部分知识，但往往也会犯一些错误，对于这些错误，我们的印象会很深。第二遍学习时，就会针对犯过错误的知识加强学习，以减少类似的错误发生。不断循环往复，直到犯错误的次数减少到很低的程度。</p>
+<p>Boosting的主要思想：迭代式学习。</p>
+<p>AdaBoost，GBDT，XGBoost都属于Boosting思想。</p>
+<h2 id="Bagging"><a href="#Bagging" class="headerlink" title="Bagging"></a>Bagging</h2><p>Bagging与Boosting的串行训练方式不同，Bagging方法在训练过程中，各基分类器之间无强依赖，可以进行并行训练。其中很著名的算法之一就是基于决策树基分类器的随机森林。为了让基分类器之间相互独立，将训练集分为若干子集（当训练样本数量较少时，子集之间可能有交叠）。Bagging方法更像是一个集体决策的过程，每个个体都进行单独学习，学习的内容可以相同，也可以不同，也可以部分重叠。但由于个体之间存在差异性，最终做出的判断不会完全一致。在最终做决策时，每个个体单独做出判断，再通过投票的方式做出最后的集体决策。</p>
+<p>Bagging主要思想：集体投票决策</p>
+<p>从消除基分类器的偏差和方差的角度来理解Boosting和Bagging方法的差异。基分类器又称为弱分类器，基分类器的错误率要大于集成分类器，是偏差与方差两种错误之和。偏差主要是由于分类器的表达能力有限导致的系统性错误，表现在训练误差不收敛。方差是由于分类器对于样本分布过于敏感，导致在训练样本数较少时，产生过拟合。</p>
+<p>用训练集的子集训练出来的决策边界很曲折，有过拟合的趋向。集成之后的模型的决策边界就比各个独立的模型平滑了，这是由于集成的加权投票方法，减小了方差。</p>
+<h1 id="集成学习的步骤和例子"><a href="#集成学习的步骤和例子" class="headerlink" title="集成学习的步骤和例子"></a>集成学习的步骤和例子</h1><p>虽然集成学习的具体算法和策略各不相同，但都共享同样的基本步骤。</p>
+<h2 id="问题1"><a href="#问题1" class="headerlink" title="问题1"></a>问题1</h2><p>问：集成学习有哪些基本步骤？请举几个集成学习的例子</p>
+<p>答：集成学习一般分为3个步骤。</p>
+<ol>
+<li>找到误差相互独立的基分类器。</li>
+<li>训练基分类器</li>
+<li>合并基分类器的结果</li>
+</ol>
+<p>合并基分类器的方法有voting和stacking两种。前者是用投票的方式，将获得最多选票的结果作为最终的结果。后者是用串行的方式，把前一个基分类器的结果输出到下一个分类器，将所有基分类器的输出结果相加（或者使用更复杂的算法融合，比如把各基分类器的输出作为特征，使用逻辑回归作为融合模型进行最后的结果预测）作为最终的输出。</p>
+<p>以AdaBoost为例看到Boosting思想，对分类正确的样本降低了权重，对分类错误的样本升高或者保持权重不变。在最后进行模型融合的过程中，也根据错误率对基分类器进行加权融合。错误率低的分类器拥有更大的话语权。</p>
+<p>另一个非常流行的模型是梯度提升决策树（GBDT），其核心思想是，每一颗树学的是之前所有树结论和的残差，这个残差就是一个加预测值后能得真实值的累加量。</p>
+<p>以视频网站的用户画像为例，为了将广告定向投放给指定年龄的用户，视频网站需要对每个用户的年龄做出预测。在这个问题中，每个样本是一个已知性别年龄的用户，而特征则包括这个人访问的时长，时段，观看的视频的类型等。</p>
+<p>例如用户A的真实年龄是25岁，但第一棵决策树的预测年龄是22岁，差了3岁，即残差是3，那么第二颗树我们把A的年龄设为3岁去学习，如果第二颗树能把A分到3岁的叶子节点，那两颗树的结果相加就可以得到A的真实年龄，如果第二棵树的结论是5岁，则A仍然存在-2岁的残差，第三棵树里A的年龄就变成-2岁，继续学。这里使用残差继续学习。</p>
+<h1 id="基分类器"><a href="#基分类器" class="headerlink" title="基分类器"></a>基分类器</h1><p>基分类器的选择是集成学习主要步骤中的第一步，也是非常重要的一步，到底选择什么样的基分类器，为什么很多集成学习模型都选择决策树作为基分类器，这些都是需要明确的问题，做到知其然知其所以然。</p>
+<h2 id="问题1-1"><a href="#问题1-1" class="headerlink" title="问题1"></a>问题1</h2><p>问：常用的基分类器是什么？</p>
+<p>答：最常用的基分类器是决策树。有三个原因</p>
+<ol>
+<li>决策树可以较为方便地将样本的权重整合到训练过程中，而不需要使用过采样的方法来调整样本权重。</li>
+<li>决策树的表达能力和泛化能力，可以通过调节树的层数来做折中。</li>
+<li>数据样本的扰动对于决策树的影响较大，因此不同子样本集合生成的决策树基分类器随机性较大，这样的不稳定学习器更适合作为基分类器。此外，在决策树节点分裂时，随机选择一个特征子集，从中找出最优分裂属性，很好地引入了随机性。</li>
+</ol>
+<p>除了决策树外，神经网络模型也适合作为基分类器，主要由于神经网络模型也比较不稳定，而且还可以通过调整神经元数量，连接方式，网络层数，初始权值等方式引入随机性。</p>
+<h2 id="问题2"><a href="#问题2" class="headerlink" title="问题2"></a>问题2</h2><p>问：可否将随机森林中的基分类器，由决策树替换为线性分类器或K-近邻？请解释为什么？</p>
+<p>答：随机森林属于Bagging类的集成学习。Bagging的主要好处是集成后的分类器的方差比基分类器的方差小。Bagging所采用的基分类器，最好是本身对样本分布较为敏感的（即所谓不稳定的分类器），这样Bagging才能有用武之地。线性分类器或K-近邻都是较为稳定的分类器，本身方差就不大，所以以它们为基分类器使用Bagging并不能在原有基分类器的基础上获得更好的表现，甚至可能因为Bagging的采样，而导致它们在训练中更难收敛，从而增大了集成分类器的偏差。</p>
+<h1 id="偏差与方差"><a href="#偏差与方差" class="headerlink" title="偏差与方差"></a>偏差与方差</h1><p>我们经常用过拟合，欠拟合来定性的描述模型是否很好地解决了特定的问题。从定量的角度来说，可以用模型的偏差（Bias）与方差（Variance）来描述模型的性能。集成学习往往能够“神奇”地提升弱分类器的性能。可以从偏差与方差的角度去解释着背后的机理。</p>
+<h2 id="问题1-2"><a href="#问题1-2" class="headerlink" title="问题1"></a>问题1</h2><p>问：什么是偏差和方差？</p>
+<p>答：在有监督学习中，模型泛化误差来源于两个方面-偏差和方差。</p>
+<p>偏差指的是由所有采样得到的大小为m的训练数据集训练出的所有模型的输出的平均值和真实模型输出之间的偏差。<strong>偏差通常是由于我们对学习算法做了错误的假设所导致的</strong>，比如真实模型是某个二次函数，但我们假设模型是一次函数。由偏差带来的误差通常在训练误差上就能体现出来。</p>
+<p>方差指的是由所有采样得到的大小为m的训练数据集训练出的所有模型输出的方差。<strong>方差通常是由于模型的复杂度相对于训练样本数m过高导致的</strong>，比如一共有100个训练样本，而我们假设模型是阶数不大于200的多项式函数。由方差带来的误差通常体现在测试误差相对于训练误差的增量上。<br><img src="/img/media/%E7%99%BE%E9%9D%A2%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%20%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0/20180401130516184.png" alt=""></p>
+<h2 id="问题2-1"><a href="#问题2-1" class="headerlink" title="问题2"></a>问题2</h2><p>问：如何从减小方差和偏差的角度解释Boosting和Bagging的原理？</p>
+<p>答：简单回答就是，Bagging能够提高弱分类器性能的原因是降低了方差，Boosting能够提升弱分类器性能的原因是降低了偏差。</p>
+<p>首先，Bagging是Bootstrap Aggregating的简称，意思是再抽样，然后在每个样本上训练出来的模型取平均。假设有n个随机变量，方差记为ρ方，在随机变量完全独立的情况下，n个随机变量的方差为ρ方 / n，也就是方差减小到了原来的1 / n。记得在数理统计中提到过这么回事。</p>
+<p>再从模型的角度理解这个问题，对n个独立不相关的模型的预测结果取平均，方差是原来单个模型的1/ n。这个描述不甚严谨，但原理已经讲得很清楚了。当然，模型之间不可能完全独立。为了追求模型的独立性，诸多Bagging的方法做了不同的改进。比如在随机森林算法中，每次选取节点分裂属性时，会随机抽取一个属性子集，而不是从所有属性中选取最优属性，这就是为了避免弱分类器之间过强的相关性。通过训练集的重采样也能够带来弱分类器之间的一定独立性，从而降低Bagging后模型的方差。</p>
+<p>再看Boosting，大家应该还记得Boosting的训练过程。在训练好一个弱分类器后，我们需要计算弱分类器的错误或者残差，作为下一个分类器的输入。这个过程本身就是在不断减小损失函数，来使模型不断逼近靶心，使得模型偏差不断降低。但Boosting的过程并不会显著降低方差，这是因为Boosting的训练过程使得各弱分类器之间是强相关的，缺乏独立性，所以不会对降低方差有作用。<br><img src="/img/media/%E7%99%BE%E9%9D%A2%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%20%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0/606386-20180722194316424-288674381.png" alt=""><br>不难看出，方差和偏差是相辅相成，矛盾又统一的，二者并不能完全独立的存在。对于给定的学习任务和训练数据集，我们需要对模型的复杂度做合理的假设。如果模型复杂度过低，虽然方差很小，但是偏差会很高，如果模型复杂度高，虽然偏差降低了，但是方差会很高。所以需要综合考虑偏差和方差选择合适复杂度的模型进行训练。</p>
+<h1 id="梯度提升决策树的基本原理"><a href="#梯度提升决策树的基本原理" class="headerlink" title="梯度提升决策树的基本原理"></a>梯度提升决策树的基本原理</h1><p>GBDT非常好的体现了从错误中学习的理念，基于决策树预测的残差进行迭代的学习。GBDT几乎是算法工程师的必备技能。</p>
+<h2 id="问题1-3"><a href="#问题1-3" class="headerlink" title="问题1"></a>问题1</h2><p>问：GBDT的基本原理是什么？</p>
+<p>答：相比于Bagging中各个弱分类器可以独立地进行训练，Boosting中的弱分类器需要依次生成。在每一轮迭代中，基于已生成的弱分类器集合（即当前模型）的预测结果，新的弱分类器会重点关注那些还没有被正确预测的样本。</p>
+<p>Gradient Boosting是Boosting中的一大类算法，其基本思想是根据当前模型损失函数的负梯度信息来训练新加入的弱分类器，然后将训练好的弱分类器以累加的形式结合到现有模型中。<br><img src="/img/media/%E7%99%BE%E9%9D%A2%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%20%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0/20180128125923199.png" alt=""><br>算法1描述了Gradient Boosting算法的基本流程，在每一轮迭代中，首先计算出当前模型在所有样本上的负梯度，然后以该值为目标训练一个新的弱分类器进行拟合并计算出该弱分类器的权重，最终实现对模型的更新。</p>
+<p>采用决策树作为弱分类器的Gradient Boosting算法被称为GBDT，有时又被称为MART（Multiple Additive Regression Tree）。GBDT中使用的决策树通常为CART。</p>
+<p>用一个很简单的例子来解释GBDT训练的过程。模型任务是预测一个人的年龄，训练集有ABCD 4个人，他们的年龄分别是14，16，24，26，特征包括了购物金额，上网时长，上网历史等。下面开始训练第一棵树，训练的过程和传统的决策树相同，简单起见，我们只进行一次分枝。训练好第一棵树后，求得每个样本预测值与真实值之间的残差。可以看到A，B，C，D的残差分别是-1，1，-1，1。这时我们就用每个样本的残差训练下一棵树，直到残差收敛到某个阈值以下，或者树的总数达到某个上限为止。<br><img src="/img/media/%E7%99%BE%E9%9D%A2%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%20%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0/WechatIMG2.jpeg" alt=""><br>由于GBDT是利用残差训练的，在预测的过程中，我们也需要把所有树的预测值加起来，得到最终的预测结果。</p>
+<p>GBDT使用梯度提升作为训练方法，而在逻辑回归或者神经网络的训练过程中往往采用梯度下降（Gradient Descent）作为训练方法，两者有什么联系与区别吗？</p>
+<h2 id="问题二"><a href="#问题二" class="headerlink" title="问题二"></a>问题二</h2><p>问：梯度提升和梯度下降的区别和联系是什么？</p>
+<p>答： 两者都是在每一轮迭代中，利用损失函数相对于模型的负梯度方向的信息来对当前模型进行更新，只不过在梯度下降中，模型是以参数化形式表示，从而模型的更新等价于参数的更新。在梯度提升中，模型并不需要进行参数化表示，而是直接定义在函数空间中，从而大大扩展了可以使用的模型种类。<br><img src="/img/media/%E7%99%BE%E9%9D%A2%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%20%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0/WechatIMG3.jpeg" alt=""></p>
+<h2 id="问题三"><a href="#问题三" class="headerlink" title="问题三"></a>问题三</h2><p>问：GBDT的优点和局限性有哪些？</p>
+<p>答：优点：</p>
+<ol>
+<li>预测阶段计算速度快，树与树之间可并行化计算。</li>
+<li>在分布稠密的数据集上，泛化能力和表达能力都很好，这使得GBDT在Kaggle的众多竞赛中，经常名列前茅。</li>
+<li>采用决策树作为弱分类器使得GBDT模型具有较好的解释性和鲁棒性，能够自动发现特征间的高阶关系，并且也不需要对数据进行特殊的预处理如归一化等。</li>
+</ol>
+<p>局限性：</p>
+<ol>
+<li>GBDT在高维稀疏的数据集上，表现不如支持向量机或者神经网络。</li>
+<li>GBDT在处理文本分类特征问题上，相对其他模型的优势不如它在处理数值特征时明显。</li>
+<li>训练过程需要串行训练，只能在决策树内部采用一些局部并行的手段提高训练速度。</li>
+</ol>
+<h2 id="自己的一些思考"><a href="#自己的一些思考" class="headerlink" title="自己的一些思考"></a>自己的一些思考</h2><p>在GBDT中每棵树不是分类树，是回归树，对于上面的例子来说，回归树的每一个节点都会得一个预测值，这个预测值一般为该节点中所有样本的均值。然后我们分枝时穷举每一个feature的每个阈值找最好的分割点，但衡量最好的标准不再是最大熵，而是最小化均方差。最小化均方差就是每个样本的（真实值-预测值）^2 的总和 / N，均方差越小，说明错的越不离谱，那均方差最小时使用的那个特征就是分枝应选择的最佳特征。<br><img src="/img/media/%E7%99%BE%E9%9D%A2%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%20%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0/v2-a7a81cfe1abe8bfb5e5839d90ad1c0d8_b.jpg" alt=""><br>提升树其实即使不断迭代、不断构造回归树进行决策，而且每一个回归的样本数据均来自上一个回归树所产生的残差。残差就是真实值 - 预测值。<br><img src="/img/media/%E7%99%BE%E9%9D%A2%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%20%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0/v2-a7dbc7661bf3e3e3ed98b446f4aab0e4_b.jpg" alt=""><br>提升树的过程如下：<br>1.计算第一个节点的均值：20<br>2.穷举每个特征进行首次分枝，选取均方差最小的那个特征作为首次分枝依据，<br>3.计算每个节点的均值：15，25<br>4.计算每个节点的中每个样本的残差-1，1，-1，1<br>5.以残差为训练样本进行下一轮回归树的训练……..<br>6.累加每棵回归树的结论，得出最终的预测值。</p>
+<p>梯度提升决策树，它和提升树的主要区别在于梯度提升决策树是利用最速下降的近似方法，即利用损失函数的负梯度在当前模型的值，作为回归问题中提升树算法的残差的近似值来拟合一个回归树。梯度提升背后的主要思想是合并许多简单的模型，比如深度较小的树，每棵树只能对部分数据做出好的预测。因此，添加的树越来越多，可以不断迭代提高性能。</p>
+<p>关于损失函数：对于回归算法，最常见的损失函数是均方差，<br><img src="/img/media/%E7%99%BE%E9%9D%A2%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%20%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-23%20%E4%B8%8B%E5%8D%888.01.41.png" alt=""></p>
+<h1 id="XGBoost与GBDT的联系和区别"><a href="#XGBoost与GBDT的联系和区别" class="headerlink" title="XGBoost与GBDT的联系和区别"></a>XGBoost与GBDT的联系和区别</h1><h2 id="问题1-4"><a href="#问题1-4" class="headerlink" title="问题1"></a>问题1</h2><p>问：XGBoost与GBDT的联系和区别有哪些？</p>
+<p>答：原始的GBDT算法基于经验损失函数来构造新的决策树，只是在决策树构建完成后再剪枝，而XGBoost在决策树构建阶段就加入了正则项。</p>
+<p>除了算法上与传统的GBDT有一些不同外，XGBoost还在工程实现上做了大量的优化。总的来说，两者之间的区别和联系可以总结成以下几个方面。</p>
+<ol>
+<li>GBDT是机器学习算法，XGBoost是该算法的工程实现。</li>
+<li>在使用CART作为基分类器时，XGBoost显式地加入了正则项来控制模型的复杂度，有利于防止过拟合，从而提高模型的泛化能力。</li>
+<li>GBDT在模型训练时只使用了代价函数的一阶导数信息，XGBoost对代价函数进行二阶泰勒展开，可以同时使用一阶和二阶导数。</li>
+<li>传统的GBDT采用CART作为基分类器，XGBoost支持多种类型的基分类器，比如线性分类器。</li>
+<li>传统的GBDT在每轮迭代时使用全部的数据，XGBoost则采用了与随机森林相似的策略，支持对数据进行采样。</li>
+<li>传统的GBDT没有设计对缺失值进行处理，XGBoost能够自动学习出缺失值的处理策略。</li>
+<li>节点分裂的方式不同，gbdt是用的gini系数，xgboost是经过优化推导后的</li>
+<li>Xgboost工具支持并行。boosting不是一种串行的结构吗?怎么并行的？注意xgboost的并行不是tree粒度的并行，xgboost也是一次迭代完才能进行下一次迭代的（第t次迭代的代价函数里包含了前面t-1次迭代的预测值）。xgboost的并行是在特征粒度上的。我们知道，决策树的学习最耗时的一个步骤就是对特征的值进行排序（因为要确定最佳分割点），xgboost在训练之前，预先对数据进行了排序，然后保存为block结构，后面的迭代中重复地使用这个结构，大大减小计算量。这个block结构也使得并行成为了可能，在进行节点的分裂时，需要计算每个特征的增益，最终选增益最大的那个特征去做分裂，那么各个特征的增益计算就可以开多线程进行</li>
+</ol>
+<h1 id="N问GBDT"><a href="#N问GBDT" class="headerlink" title="N问GBDT"></a>N问GBDT</h1><p>怎样设置单棵树的停止生长条件？</p>
+<p>(1)怎样设置单棵树的停止生长条件？<br>答：A. 节点分裂时的最小样本数<br>B. 最大深度<br>C. 最多叶子节点数<br>D. loss满足约束条件<br>(2)如何评估特征的权重大小？<br>答：a. 通过计算每个特征在训练集下的信息增益，最后计算每个特征信息增益与所有特征信息增益之和的比例为权重值。<br>b. 借鉴投票机制。用相同的gbdt参数对w每个特征训练出一个模型，然后在该模型下计算每个特征正确分类的个数，最后计算每个特征正确分类的个数与所有正确分类个数之和的比例为权重值。<br>(3)当增加样本数量时，训练时长是线性增加吗？<br>答：不是。因为生成单棵决策树时，对于损失函数极小值<br>与样本数量N不是线性相关<br>(4)当增加树的棵树时，训练时长是线性增加吗？<br>答：不是。因为每棵树的生成的时间复杂度不一样。<br>(5)当增加一个棵树叶子节点数目时，训练时长是线性增加吗？<br>答：不是。叶子节点数和每棵树的生成的时间复杂度不成正比。<br>(6)每个节点上都保存什么信息？<br>答：中间节点保存某个特征的分割值，叶结点保存预测是某个类别的概率。<br>(7)如何防止过拟合？<br>答：a. 增加样本（data bias or small data的缘故），移除噪声。<br>b. 减少特征，保留重要的特征（可以用PCA等对特征进行降维）。<br>c. 对样本进行采样（类似bagging）。就是建树的时候，不是把所有的样本都作为输入，而是选择一个子集。<br>d. 对特征进行采样。类似样本采样一样, 每次建树的时候，只对部分的特征进行切分。<br>(8) gbdt在训练和预测的时候都用到了步长，这两个步长一样么？都有什么用，如果不一样，为什么？怎么设步长的大小？（太小？太大？）在预测时，设太大对排序结果有什么影响？跟shrinking里面的步长一样么这两个步长一样么？<br>答：训练跟预测时，两个步长是一样的，也就是预测时的步长为训练时的步长，从训练的过程可以得知（更新当前迭代模型的时候）。<br>都有什么用，如果不一样，为什么？答：它的作用就是使得每次更新模型的时候，使得loss能够平稳地沿着负梯度的方向下降，不至于发生震荡。<br>那么怎么设步长的大小?<br>答：有两种方法，一种就是按策略来决定步长，另一种就是在训练模型的同时，学习步长。<br>A. 策略：<br>a 每个树步长恒定且相等，一般设较小的值；<br>b 开始的时候给步长设一个较小值，随着迭代次数动态改变，或者说衰减。<br>B. 学习：<br>因为在训练第k棵树的时候，前k-1棵树时已知的，而且求梯度的时候是利用前k-1棵树来获得。所以这个时候，就可以把步长当作一个变量来学习。<br>（太小？太大？）在预测时，对排序结果有什么影响？<br>答：如果步长过大，在训练的时候容易发生震荡，使得模型学不好，或者完全没有学好，从而导致模型精度不好。<br>而步长过小，导致训练时间过长，即迭代次数较大，从而生成较多的树，使得模型变得复杂，容易造成过拟合以及增加计算量。<br>不过步长较小的话，使训练比较稳定，总能找到一个稳定的局部最优解。<br>个人觉得过大过小的话，模型的预测值都会偏离真实情况（可能比较严重），从而导致模型精度不好。<br>跟shrinking里面的步长一样么？答：这里的步长跟shrinking里面的步长是一致的。<br>(10)gbdt中哪些部分可以并行？<br>答：A. 计算每个样本的负梯度<br>B. 分裂挑选最佳特征及其分割点时，对特征计算相应的误差及均值时<br>C. 更新每个样本的负梯度时<br>D. 最后预测过程中，每个样本将之前的所有树的结果累加的时候<br>(11) 树生长成畸形树，会带来哪些危害，如何预防？<br>答：在生成树的过程中，加入树不平衡的约束条件。这种约束条件可以是用户自定义的。<br>例如对样本集中分到某个节点，而另一个节点的样本很少的情况进行惩罚</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2019/02/08/Scrapy/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZDK"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZDK's blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/02/08/Scrapy/" class="post-title-link" itemprop="url">Scrapy</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-08 20:50:32 / 修改时间：20:51:20" itemprop="dateCreated datePublished" datetime="2019-02-08T20:50:32+08:00">2019-02-08</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/知识总结/" itemprop="url" rel="index"><span itemprop="name">知识总结</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/02/08/Scrapy/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/02/08/Scrapy/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2019/02/08/Scrapy/" class="post-meta-item leancloud_visitors" data-flag-title="Scrapy">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          <br/>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Scrapy"><a href="#Scrapy" class="headerlink" title="Scrapy"></a>Scrapy</h1><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><blockquote>
+<p>pip install scrapy  </p>
+</blockquote>
+<h1 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h1><p>首先创建一个新的Scrapy项目。</p>
+<blockquote>
+<p>scrapy startproject tutorial  </p>
+</blockquote>
+<p>创建的tutorial 目录：<br><img src="/img/media/Scrapy/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-08%20%E4%B8%8B%E5%8D%885.31.25.png" alt=""><br>这些文件是：<br>scrapy.cfg: 项目的配置文件<br>tutorial/ : 该项目的python模块。之后您将在此加入代码。<br>tutorial/ items.py: 项目中的item文件.<br>tutorial/ pipelines.py: 项目中的pipelines文件.<br>tutorial/ settings.py: 项目的设置文件.<br>tutorial/ spiders /: 放置spider代码的目录.</p>
+<h1 id="简单流程"><a href="#简单流程" class="headerlink" title="简单流程"></a>简单流程</h1><ol>
+<li>创建一个Scrapy项目；</li>
+<li>定义提取的Item；</li>
+<li>编写爬取网站的 spider 并提取 Item；</li>
+<li>编写 Item Pipeline 来存储提取到的Item(即数据)。<h1 id="定义Item"><a href="#定义Item" class="headerlink" title="定义Item"></a>定义Item</h1>Item 是保存爬取到的数据的容器；其使用方法和python字典类似， 并且提供了额外保护机制来避免拼写错误导致的未定义字段错误。</li>
+</ol>
+<p>可以通过创建一个 scrapy.Item 类， 并且定义类型为 scrapy.Field 的类属性来定义一个Item。<br><img src="/img/media/Scrapy/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-08%20%E4%B8%8B%E5%8D%885.43.48.png" alt=""><br>通过定义item， 可以很方便的使用Scrapy的其他方法。而这些方法需要知道item的定义。</p>
+<h1 id="编写第一个爬虫-Spider"><a href="#编写第一个爬虫-Spider" class="headerlink" title="编写第一个爬虫(Spider)"></a>编写第一个爬虫(Spider)</h1><p>Spider是用户编写用于从单个网站(或者一些网站)爬取数据的类。</p>
+<p>其包含了一个用于下载的初始URL，如何跟进网页中的链接以及如何分析页面中的内容， 提取生成 item 的方法。</p>
+<p>为了创建一个Spider，您必须继承 scrapy.Spider 类， 且定义以下三个属性:</p>
+<ol>
+<li>name: 用于区别Spider。 该名字必须是唯一的，您不可以为不同的Spider设定相同的名字。</li>
+<li>start_urls: 包含了Spider在启动时进行爬取的url列表。 因此，第一个被获取到的页面将是其中之一。 后续的URL则从初始的URL获取到的数据中提取。</li>
+<li>parse() 是spider的一个方法。 被调用时，每个初始URL完成下载后生成的 Response 对象将会作为唯一的参数传递给该函数。 该方法负责解析返回的数据(response data)，提取数据(生成item)以及生成需要进一步处理的URL的 Request 对象。</li>
+</ol>
+<p>以下为我们的第一个Spider代码，保存在 tutorial/spiders 目录下的 dmoz_spider.py 文件中:<br><img src="/img/media/Scrapy/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-08%20%E4%B8%8B%E5%8D%885.50.34.png" alt=""></p>
+<h2 id="爬取"><a href="#爬取" class="headerlink" title="爬取"></a>爬取</h2><p>进入项目的根目录，执行下列命令启动spider</p>
+<blockquote>
+<p>scrapy crawl dmoz  </p>
+</blockquote>
+<h2 id="刚才发生了什么"><a href="#刚才发生了什么" class="headerlink" title="刚才发生了什么"></a>刚才发生了什么</h2><p>Scrapy为Spider的 start_urls 属性中的每个URL创建了 scrapy.Request 对象，并将 parse 方法作为回调函数(callback)赋值给了Request。</p>
+<p>Request对象经过调度，执行生成 scrapy.http.Response 对象并送回给spider parse() 方法。</p>
+<h1 id="提取Item"><a href="#提取Item" class="headerlink" title="提取Item"></a>提取Item</h1><h2 id="Selectors选择器简介"><a href="#Selectors选择器简介" class="headerlink" title="Selectors选择器简介"></a>Selectors选择器简介</h2><p>从网页中提取数据有很多方法。Scrapy使用了一种基于 XPath 和 CSS 表达式机制: Scrapy Selectors 。 </p>
+<p>这里给出XPath表达式的例子及对应的含义:<br>/ html/ head/ title: 选择HTML文档中 <head> 标签内的 <title> 元素<br>/ html/ head/ title/ text(): 选择上面提到的 <title> 元素的文字<br>/ / td: 选择所有的 <td> 元素<br>/ / div[@class=”mine”]: 选择所有具有 class=”mine” 属性的 div 元素</td></title></title></head></p>
+<p>为了配合XPath，Scrapy除了提供了 Selector 之外，还提供了方法来避免每次从response中提取数据时生成selector的麻烦。</p>
+<p>Selector有四个基本的方法：<br>xpath(): 传入xpath表达式，返回该表达式所对应的所有节点的selector list列表 。<br>css(): 传入CSS表达式，返回该表达式所对应的所有节点的selector list列表.<br>extract(): 序列化该节点为unicode字符串并返回list。<br>re(): 根据传入的正则表达式对数据进行提取，返回unicode字符串list列表。</p>
+<p>进入项目的根目录，启动shell：<br><img src="/img/media/Scrapy/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-08%20%E4%B8%8B%E5%8D%886.42.54.png" alt=""></p>
+<p>shell的类似输出：<br><img src="/img/media/Scrapy/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-08%20%E4%B8%8B%E5%8D%886.44.12.png" alt=""><br>当shell载入后，您将得到一个包含response数据的本地 response 变量。输入 response.body 将输出response的包体， 输出 response.headers 可以看到response的包头。</p>
+<p>更为重要的是，当输入 response.selector 时， 您将获取到一个可以用于查询返回数据的selector(选择器)， 以及映射到 response.selector.xpath() 、 response.selector.css() 的 快捷方法(shortcut): response.xpath() 和 response.css() 。</p>
+<p>同时，shell根据response提前初始化了变量 sel 。该selector根据response的类型自动选择最合适的分析规则(XML vs HTML)。<br><img src="/img/media/Scrapy/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-08%20%E4%B8%8B%E5%8D%886.45.17.png" alt=""></p>
+<h2 id="提取数据"><a href="#提取数据" class="headerlink" title="提取数据"></a>提取数据</h2><p>在我们的spider中加入这段代码:<br><img src="/img/media/Scrapy/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-08%20%E4%B8%8B%E5%8D%886.47.13.png" alt=""></p>
+<h2 id="使用Item"><a href="#使用Item" class="headerlink" title="使用Item"></a>使用Item</h2><p>Item 对象是自定义的python字典。 您可以使用标准的字典语法来获取到其每个字段的值。(字段即是我们之前用Field赋值的属性):<br><img src="/img/media/Scrapy/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-08%20%E4%B8%8B%E5%8D%886.56.31.png" alt=""><br>一般来说，Spider将会将爬取到的数据以 Item 对象返回。所以为了将爬取的数据返回，我们最终的代码将是:<br><img src="/img/media/Scrapy/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-08%20%E4%B8%8B%E5%8D%886.56.49.png" alt=""><br>现在对dmoz.org进行爬取将会产生 DmozItem 对象:<br><img src="/img/media/Scrapy/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-08%20%E4%B8%8B%E5%8D%886.59.34.png" alt=""></p>
+<h1 id="保存爬取到的数据"><a href="#保存爬取到的数据" class="headerlink" title="保存爬取到的数据"></a>保存爬取到的数据</h1><p>最简单存储爬取的数据是使用<br><img src="/img/media/Scrapy/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-08%20%E4%B8%8B%E5%8D%887.26.04.png" alt=""><br>该命令将采用 JSON 格式对爬取的数据进行序列化，生成 items.json 文件。</p>
+<p>小规模的项目中，这种存储方式已经足够。 如果需要对爬取到的item做更多更为复杂的操作，您可以编写 Item Pipeline 。 </p>
+<h1 id="一个例子"><a href="#一个例子" class="headerlink" title="一个例子"></a>一个例子</h1><p><a href="https://github.com/Jack-Cherish/python-spider/tree/master/cartoon">https://github.com/Jack-Cherish/python-spider/tree/master/cartoon</a></p>
+<h1 id="scrapy进行分布式爬虫"><a href="#scrapy进行分布式爬虫" class="headerlink" title="scrapy进行分布式爬虫"></a>scrapy进行分布式爬虫</h1><h2 id="分布式爬虫原理"><a href="#分布式爬虫原理" class="headerlink" title="分布式爬虫原理"></a>分布式爬虫原理</h2><p>scrapy的单机架构：<br><img src="/img/media/Scrapy/4155986-5fa2c59efa050ac4.png" alt=""><br>可以看到，scrapy单机模式，通过一个scrapy引擎通过一个调度器，将Requests队列中的request请求发给下载器，进行页面的爬取。多台主机协作的关键是共享一个爬取队列。</p>
+<p>分布式爬虫的关键是共享一个requests队列，维护该队列的主机称为master，而从机则负责数据的抓取，数据处理和数据存储，所以分布式爬虫架构如下图所示：<br><img src="/img/media/Scrapy/4155986-52592bfa491e1573.png" alt=""><br>选用Redis队列进行存储，Redis是一种高效的非关系型数据库，以key-value的形式存储，结构灵活，它是内存中的数据结构存储系统，处理速度快，性能好，同时，提供了队列，集合等多种存储结构，方便队列维护。</p>
+<p>另外一个问题，如何去重？这个的意思就是如何避免多台主机访问的request都不同，即让Reques队列中的请求都是不同的，那么就需要用到Redis提供的队列结构。Redis提供集合数据结构，在Redis集合中存储每个Request的指纹，在向Request队列中加入Request时首先验证指纹是否存在。如果存在，则不加入，如果不存在，则加入。</p>
+<h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><p>目前已经有专门的python库实现了分布式架构。Scrapy-Redis库改写了Scrapy的调度器，队列等组件，可以方便的实现Scrapy分布式架构。</p>
+<p>Scrapy-Redis链接：<a href="https://github.com/rolando/scrapy-redis">https://github.com/rolando/scrapy-redis</a></p>
+<p>由于暂时只有单机环境，所以接下来：<br><a href="https://www.cnblogs.com/hd-zg/p/6960955.html?utm_source=itdadao&amp;utm_medium=referral" target="_blank" rel="noopener">scrapy进行分布式爬虫 - thinker1017 - 博客园</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2019/02/08/让爬虫程序更像人类用户的行为/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZDK"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZDK's blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/02/08/让爬虫程序更像人类用户的行为/" class="post-title-link" itemprop="url">让爬虫程序更像人类用户的行为</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-08 14:27:32 / 修改时间：14:27:26" itemprop="dateCreated datePublished" datetime="2019-02-08T14:27:32+08:00">2019-02-08</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/知识总结/" itemprop="url" rel="index"><span itemprop="name">知识总结</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/02/08/让爬虫程序更像人类用户的行为/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/02/08/让爬虫程序更像人类用户的行为/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2019/02/08/让爬虫程序更像人类用户的行为/" class="post-meta-item leancloud_visitors" data-flag-title="让爬虫程序更像人类用户的行为">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          <br/>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="让爬虫程序更像人类用户的行为"><a href="#让爬虫程序更像人类用户的行为" class="headerlink" title="让爬虫程序更像人类用户的行为"></a>让爬虫程序更像人类用户的行为</h1><p><a href="https://blog.csdn.net/c406495762/article/details/72793480" target="_blank" rel="noopener">Python3网络爬虫(十一)：爬虫黑科技之让你的爬虫程序更像人类用户的行为(代理IP池等) - Jack-Cui - CSDN博客</a></p>
+<h1 id="黑科技"><a href="#黑科技" class="headerlink" title="黑科技"></a>黑科技</h1><p>一些简单的方法让爬虫更像人类访问用户。</p>
+<h2 id="构造合理的HTTP请求头"><a href="#构造合理的HTTP请求头" class="headerlink" title="构造合理的HTTP请求头"></a>构造合理的HTTP请求头</h2><h2 id="设置Cookie的学问"><a href="#设置Cookie的学问" class="headerlink" title="设置Cookie的学问"></a>设置Cookie的学问</h2><p>虽然 cookie 是一把双刃剑，但正确地处理 cookie 可以避免许多采集问题。网站会用 cookie 跟踪你的访问过程，如果发现了爬虫异常行为就会中断你的访问，比如特别快速地填写表单，或者浏览大量页面。虽然这些行为可以通过关闭并重新连接或者改变 IP 地址来伪装，但是如果 cookie 暴露了你的身份，再多努力也是白费。</p>
+<p>在采集一些网站时 cookie 是不可或缺的。要在一个网站上持续保持登录状态，需要在多个页面中保存一个 cookie。有些网站不要求在每次登录时都获得一个新 cookie，只要保存一个旧的“已登录”的 cookie 就可以访问。</p>
+<p> Cookie信息，也可以更具实际情况填写。不过requests已经封装好了很多操作，自动管理cookie，session保持连接。我们可以先访问某个目标网站，建立一个session连接之后，获取cookie。代码如下：<br><img src="/img/media/%E8%AE%A9%E7%88%AC%E8%99%AB%E7%A8%8B%E5%BA%8F%E6%9B%B4%E5%83%8F%E4%BA%BA%E7%B1%BB%E7%94%A8%E6%88%B7%E7%9A%84%E8%A1%8C%E4%B8%BA/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-08%20%E4%B8%8B%E5%8D%8812.54.51.png" alt=""><br>使用 requests.Session 会话对象让你能够跨请求保持某些参数，它也会在同一个 Session 实例发出的所有请求之间保持 cookie， 期间使用 urllib3 的 connection pooling 功能。</p>
+<p>因为 requests 模块不能执行 JavaScript，所以它不能处理很多新式的跟踪软件生成的 cookie，比如 Google Analytics，只有当客户端脚本执行后才设置 cookie（或者在用户浏览页面时基于网页事件产生 cookie，比如点击按钮）。要处理这些动作，需要用 Selenium 和 PhantomJS 包。</p>
+<p>PhantomJS 是一个“无头”（headless）浏览器。它会把网站加载到内存并执行页面上的 JavaScript，但不会向用户展示网页的图形界面。将 Selenium 和 PhantomJS 结合在一起，就可以运行一个非常强大的网络爬虫了，可以处理 cookie、JavaScript、headers，以及任何你需要做的事情。</p>
+<p>还可以调用 delete_cookie()、add_cookie() 和 delete_all_cookies() 方法来处理 cookie。另外，还可以保存 cookie 以备其他网络爬虫使用。</p>
+<p>通过Selenium和PhantomJS，我们可以很好的处理一些需要事件执行后才能获得的cookie。</p>
+<h2 id="正常的访问速度"><a href="#正常的访问速度" class="headerlink" title="正常的访问速度"></a>正常的访问速度</h2><p>有一些防护措施完备的网站可能会阻止你快速地提交表单，或者快速地与网站进行交互。即使没有这些安全措施，用一个比普通人快很多的速度从一个网站下载大量信息也可能让自己被网站封杀。</p>
+<p>因此，虽然多进程程序可能是一个快速加载页面的好办法——在一个进程中处理数据，另一个进程中加载页面——但是这对编写好的爬虫来说是恐怖的策略。还是应该尽量保证一次加载页面加载且数据请求最小化。如果条件允许，尽量为每个页面访问增加一点儿时间间隔，即使你要增加两行代码：<br><img src="/img/media/%E8%AE%A9%E7%88%AC%E8%99%AB%E7%A8%8B%E5%BA%8F%E6%9B%B4%E5%83%8F%E4%BA%BA%E7%B1%BB%E7%94%A8%E6%88%B7%E7%9A%84%E8%A1%8C%E4%B8%BA/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-08%20%E4%B8%8B%E5%8D%881.07.52.png" alt=""><br>合理控制速度是你不应该破坏的规则。过度消耗别人的服务器资源会让你置身于非法境地，更严重的是这么做可能会把一个小型网站拖垮甚至下线。拖垮网站是不道德的，是彻头彻尾的错误。所以请控制采集速度！</p>
+<h2 id="注意隐含输入字段"><a href="#注意隐含输入字段" class="headerlink" title="注意隐含输入字段"></a>注意隐含输入字段</h2><p><img src="/img/media/%E8%AE%A9%E7%88%AC%E8%99%AB%E7%A8%8B%E5%BA%8F%E6%9B%B4%E5%83%8F%E4%BA%BA%E7%B1%BB%E7%94%A8%E6%88%B7%E7%9A%84%E8%A1%8C%E4%B8%BA/20170528154851498.png" alt=""><br>用隐含字段阻止网络数据采集的方式主要有两种。</p>
+<p>第一种是表单页面上的一个字段可以用服务器生成的随机变量表示。如果提交时这个值不在表单处理页面上，服务器就有理由认为这个提交不是从原始表单页面上提交的，而是由一个网络机器人直接提交到表单处理页面的。绕开这个问题的最佳方法就是，首先采集表单所在页面上生成的随机变量，然后再提交到表单处理页面。</p>
+<p>第二种方式是“蜜罐”（honey pot）。如果表单里包含一个具有普通名称的隐含字段（设置蜜罐圈套），比如“用户名”（username）或“邮箱地址”（email address），设计不太好的网络机器人往往不管这个字段是不是对用户可见，直接填写这个字段并向服务器提交，这样就会中服务器的蜜罐圈套。服务器会把所有隐含字段的真实值（或者与表单提交页面的默认值不同的值）都忽略，而且填写隐含字段的访问用户也可能被网站封杀。</p>
+<p>总之，有时检查表单所在的页面十分必要，看看有没有遗漏或弄错一些服务器预先设定好的隐含字段（蜜罐圈套）。如果你看到一些隐含字段，通常带有较大的随机字符串变量，那么很可能网络服务器会在表单提交的时候检查它们。另外，还有其他一些检查，用来保证这些当前生成的表单变量只被使用一次或是最近生成的（这样可以避免变量被简单地存储到一个程序中反复使用）。</p>
+<h2 id="爬虫如何避开蜜罐"><a href="#爬虫如何避开蜜罐" class="headerlink" title="爬虫如何避开蜜罐"></a>爬虫如何避开蜜罐</h2><p>虽然在进行网络数据采集时用 CSS 属性区分有用信息和无用信息会很容易（比如，通过读取 id和 class 标签获取信息），但这么做有时也会出问题。如果网络表单的一个字段通过 CSS 设置成对用户不可见，那么可以认为普通用户访问网站的时候不能填写这个字段，因为它没有显示在浏览器上。如果这个字段被填写了，就可能是机器人干的，因此这个提交会失效。</p>
+<p>这种手段不仅可以应用在网站的表单上，还可以应用在链接、图片、文件，以及一些可以被机器人读取，但普通用户在浏览器上却看不到的任何内容上面。访问者如果访问了网站上的一个“隐含”内容，就会触发服务器脚本封杀这个用户的 IP 地址，把这个用户踢出网站，或者采取其他措施禁止这个用户接入网站。实际上，许多商业模式就是在干这些事情。</p>
+<p>通常元素可以通过三种不同的方式对用户进行隐藏。</p>
+<ol>
+<li>第一个链接是通过简单的 CSS 属性设置 display:none 进行隐藏；</li>
+<li>电话号码字段 name=”phone” 是一个隐含的输入字段；</li>
+<li>邮箱地址字段 name=”email” 是将元素向右移动 50 000 像素（应该会超出电脑显示器的边界）并隐藏滚动条。</li>
+</ol>
+<p>因为 Selenium 可以获取访问页面的内容，所以它可以区分页面上的可见元素与隐含元素。通过 is_displayed() 可以判断元素在页面上是否可见。<br><img src="/img/media/%E8%AE%A9%E7%88%AC%E8%99%AB%E7%A8%8B%E5%BA%8F%E6%9B%B4%E5%83%8F%E4%BA%BA%E7%B1%BB%E7%94%A8%E6%88%B7%E7%9A%84%E8%A1%8C%E4%B8%BA/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-08%20%E4%B8%8B%E5%8D%881.41.18.png" alt=""></p>
+<h2 id="创建自己的代理IP池"><a href="#创建自己的代理IP池" class="headerlink" title="创建自己的代理IP池"></a>创建自己的代理IP池</h2><p>启用远程平台的人通常有两个目的：对更大计算能力和灵活性的需求，以及对可变 IP 地址的需求。</p>
+<p>有一些网站会设置访问阈值，也就是说，如果一个IP访问速度超过这个阈值，那么网站就会认为，这是一个爬虫程序，而不是用户行为。为了避免远程服务器封锁IP，或者想加快爬取速度，一个可行的方法就是使用代理IP，我们需要做的就是创建一个自己的代理IP池。</p>
+<p>思路：通过免费IP代理网站爬取IP，构建一个容量为100的代理IP池。从代理IP池中随机选取IP，在使用IP之前，检查IP是否可用。如果可用，使用该IP访问目标页面，如果不可用，舍弃该IP。当代理IP池中IP的数量小于20的时候，更新整个代理IP池，即重新从免费IP代理网站爬取IP，构建一个新的容量为100的代理IP池。</p>
+<h1 id="检查列表"><a href="#检查列表" class="headerlink" title="检查列表"></a>检查列表</h1><p>如果一直被网站封杀找不到原因，可以从以下方面来检查。</p>
+<h2 id="检查-JavaScript"><a href="#检查-JavaScript" class="headerlink" title="检查 JavaScript"></a>检查 JavaScript</h2><p>如果你从网络服务器收到的页面是空白的，缺少信息，或其遇到他不符合你预期的情况（或者不是你在浏览器上看到的内容），有可能是因为网站创建页面的 JavaScript 执行有问题。</p>
+<h2 id="检查正常浏览器提交的参数"><a href="#检查正常浏览器提交的参数" class="headerlink" title="检查正常浏览器提交的参数"></a>检查正常浏览器提交的参数</h2><p>如果你准备向网站提交表单或发出 POST 请求，记得检查一下页面的内容，看看你想提交的每个字段是不是都已经填好，而且格式也正确。用 Chrome 浏览器的网络面板（快捷键 F12 打开开发者控制台，然后点击“Network”即可看到）查看发送到网站的 POST 命令，确认你的每个参数都是正确的。</p>
+<h2 id="是否有合法的-Cookie？"><a href="#是否有合法的-Cookie？" class="headerlink" title="是否有合法的 Cookie？"></a>是否有合法的 Cookie？</h2><p>如果你已经登录网站却不能保持登录状态，或者网站上出现了其他的“登录状态”异常，请检查你的 cookie。确认在加载每个页面时 cookie 都被正确调用，而且你的 cookie 在每次发起请求时都发送到了网站上。</p>
+<h2 id="IP-被封禁"><a href="#IP-被封禁" class="headerlink" title="IP 被封禁"></a>IP 被封禁</h2><p>如果你在客户端遇到了 HTTP 错误，尤其是 403 禁止访问错误，这可能说明网站已经把你的 IP 当作机器人了，不再接受你的任何请求。你要么等待你的 IP 地址从网站黑名单里移除，要么就换个 IP 地址。如果你确定自己并没有被封杀，那么再检查下面的内容： </p>
+<ol>
+<li>确认你的爬虫在网站上的速度不是特别快。快速采集是一种恶习，会对网管的服务器造成沉重的负担，还会让你陷入违法境地，也是 IP 被网站列入黑名单的首要原因。给你的爬虫增加延迟，让它们在夜深人静的时候运行。切记：匆匆忙忙写程序或收集数据都是拙劣项目管理的表现；应该提前做好计划，避免临阵慌乱。</li>
+<li>还有一件必须做的事情：修改你的请求头！有些网站会封杀任何声称自己是爬虫的访问者。如果你不确定请求头的值怎样才算合适，就用你自己浏览器的请求头吧。</li>
+<li>确认你没有点击或访问任何人类用户通常不能点击或接入的信息。</li>
+<li>如果你用了一大堆复杂的手段才接入网站，考虑联系一下网管吧，告诉他们你的目的。试试发邮件到 webmaster@&lt; 域名 &gt; 或 admin@&lt; 域名 &gt;，请求网管允许你使用爬虫采集数据。管理员也是人嘛！</li>
+</ol>
+<p>使用免费的代理IP也是有局限的，就是不稳定。更好的方法是，花钱买一个可以动态切换IP的阿里云服务器，这样IP就可以无限动态变化了！</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2019/02/08/再议Python数据可视化技术/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZDK"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZDK's blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/02/08/再议Python数据可视化技术/" class="post-title-link" itemprop="url">再议Python数据可视化技术</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-08 11:28:56 / 修改时间：11:28:28" itemprop="dateCreated datePublished" datetime="2019-02-08T11:28:56+08:00">2019-02-08</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/知识总结/" itemprop="url" rel="index"><span itemprop="name">知识总结</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/02/08/再议Python数据可视化技术/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/02/08/再议Python数据可视化技术/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2019/02/08/再议Python数据可视化技术/" class="post-meta-item leancloud_visitors" data-flag-title="再议Python数据可视化技术">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          <br/>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="再议Python数据可视化技术"><a href="#再议Python数据可视化技术" class="headerlink" title="再议Python数据可视化技术"></a>再议Python数据可视化技术</h1><h1 id="可视化视图分类"><a href="#可视化视图分类" class="headerlink" title="可视化视图分类"></a>可视化视图分类</h1><p>可视化视图可分为4类，比较，联系，构成和分布。</p>
+<ol>
+<li>比较：比较数据间各类别的关系，或者是它们随着时间的变化趋势，比如折线图。</li>
+<li>联系：查看两个或两个以上变量的关系，比如散点图。</li>
+<li>构成：每个部分占整体的百分比，或者是随着时间的百分比变化，比如饼图。</li>
+<li>分布：关注单个变量，或者多个变量的分布情况，比如直方图。</li>
+</ol>
+<p><img src="/img/media/%E5%86%8D%E8%AE%AEPython%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8A%80%E6%9C%AF/4673a17085302cfe9177f8ee687ac675.png" alt=""></p>
+<p><img src="/img/media/%E5%86%8D%E8%AE%AEPython%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8A%80%E6%9C%AF/8ed2addb00a4329dd63bba669f427fd2.png" alt=""></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2019/02/07/数据分析小总结/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZDK"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZDK's blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/02/07/数据分析小总结/" class="post-title-link" itemprop="url">数据分析小总结</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-07 21:58:56 / 修改时间：22:00:32" itemprop="dateCreated datePublished" datetime="2019-02-07T21:58:56+08:00">2019-02-07</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/知识总结/" itemprop="url" rel="index"><span itemprop="name">知识总结</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/02/07/数据分析小总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/02/07/数据分析小总结/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2019/02/07/数据分析小总结/" class="post-meta-item leancloud_visitors" data-flag-title="数据分析小总结">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          <br/>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="数据分析小总结"><a href="#数据分析小总结" class="headerlink" title="数据分析小总结"></a>数据分析小总结</h1><h1 id="数据挖掘的十大算法"><a href="#数据挖掘的十大算法" class="headerlink" title="数据挖掘的十大算法"></a>数据挖掘的十大算法</h1><h2 id="分类算法"><a href="#分类算法" class="headerlink" title="分类算法"></a>分类算法</h2><p>C4.5，朴素贝叶斯（Naive Bayes），SVM，KNN，Adaboost，CART</p>
+<h2 id="聚类算法"><a href="#聚类算法" class="headerlink" title="聚类算法"></a>聚类算法</h2><p>K-Means，EM</p>
+<h2 id="关连分析"><a href="#关连分析" class="headerlink" title="关连分析"></a>关连分析</h2><p>Apriori<br> [‘eɪprɪ’ɔ:rɪ] 先验的<br>Aprion是一种挖掘关联规则( association rules)的算法,它通过挖掘频繁项集( frequent item sets)来揭示物品之间的关联关系,被广泛应用到商业挖掘和网络安全等领域中。频繁项集是指经常岀现在一起的物品的集合,关联规则暗示着两种物品之间可能存在很强的关系。</p>
+<h2 id="连接分析"><a href="#连接分析" class="headerlink" title="连接分析"></a>连接分析</h2><p>PageRank<br>PageRank起源于论文影响力的计算方式,如果一篇文论被引入的次数越多,就代表这篇论文的影响力越强。同样 PageRank被 Google创造性地应用到了网页权重的计算中:当一个页面链岀的页面越多,说明这个页面的“参考文献”越多,当这个页面被链入的频率越高,说明这个页面被引用的次数越高。基于这个原理,我们可以得到网站的权重划分。</p>
+<h1 id="Numpy之再回首"><a href="#Numpy之再回首" class="headerlink" title="Numpy之再回首"></a>Numpy之再回首</h1><p><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/7ba74ca7776ac29a5dc94c272d72ff66.jpg" alt=""></p>
+<h2 id="使用NumPy让Python科学计算更高效"><a href="#使用NumPy让Python科学计算更高效" class="headerlink" title="使用NumPy让Python科学计算更高效"></a>使用NumPy让Python科学计算更高效</h2><p>列表list的元素在系统内存中是分散存储的,而 NumPy数组存储在一个均匀连续的内存块中。这样数组计算遍历所有的元素,不像列表list还需要对內存地址进行査找,从而节省了计算资源。由之前的NumPy博客可得知详情。<br><a href="https://zdkswd.github.io/2018/10/28/Python%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E6%89%8B%E5%86%8C/" target="_blank" rel="noopener">Python数据科学手册 NumPy入门 | ZDK’s blog</a><br>然而一旦确定下来numpy数组后，就不能在增加元素了。</p>
+<p>另外在内存访问模式中,缓存会直接把字节块从RAM加载到CPU寄存器中。因为数据连续的存储在内存中, NumPy直接利用现代CPU的矢量化指令计算,加载寄存器中的多个连续浮点数。</p>
+<p>NumPy中的矩阵计算可以采用多线程的方式,充分利用多核CPU计算资源,大大提升了计算效率。python因为有GIL锁，因此多线程也只能使用一个处理器，但是numpy是例外，因为numpy内部是用C写的，不经过python解释器，因此它本身的矩阵运算(array operations)都可以使用多核。</p>
+<p>除了使用 NumPy外,你还需要一些技巧来提升内存和提高计算资源的利用率。一个重要的规则就是:<strong>避免采用隐式拷贝,而是采用就地操作的方式</strong>。举个例子,如果我想让一个数值x是原来的两倍,可以直接写成x <em> =2,而不要写成y=x </em> 2。这样速度能快2倍甚至更多。</p>
+<p>NumPy里有两个重要的对象：ndarray（N-dimensional array object）解决了多维数组问题。ufunc（universal function object）则是解决对数组进行处理的函数。</p>
+<h3 id="ndarray对象"><a href="#ndarray对象" class="headerlink" title="ndarray对象"></a>ndarray对象</h3><p>axis为0是跨行（纵向），axis为1是跨列（横向）。</p>
+<h3 id="创建数组"><a href="#创建数组" class="headerlink" title="创建数组"></a>创建数组</h3><p><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-06%20%E4%B8%8B%E5%8D%885.15.05.png" alt=""><br>运行结果<br><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-06%20%E4%B8%8B%E5%8D%885.15.21.png" alt=""></p>
+<h3 id="结构数组"><a href="#结构数组" class="headerlink" title="结构数组"></a>结构数组</h3><p>如果想统计一个班级里面学生的姓名，年龄，以及语文数学英语成绩，可以用数组的下标来代表不同的字段，但是这样不显性，可以自己定义一个数据结构。<br><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-06%20%E4%B8%8B%E5%8D%885.34.17.png" alt=""><br>运行结果<br><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-06%20%E4%B8%8B%E5%8D%885.34.30.png" alt=""><br>注意在定义数组时，用array中指定了结构数组的类型dtype=persontype</p>
+<h3 id="ufunc运算"><a href="#ufunc运算" class="headerlink" title="ufunc运算"></a>ufunc运算</h3><p>它能对数组中<strong>每个元素</strong>进行函数操作，NumPy中很多ufunc函数计算速度非常快，因为都是采用C语言实现的。</p>
+<h3 id="连续数组的创建"><a href="#连续数组的创建" class="headerlink" title="连续数组的创建"></a>连续数组的创建</h3><p><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-06%20%E4%B8%8B%E5%8D%885.56.36.png" alt=""><br>np. arange和np.linspace起到的作用是一样的,都是创建等差数组。这两个数组的结果x1,x2都是[1 3 5 7 9]。结果相同,但是创建的方式是不同的。</p>
+<p>arange（）类似内置函数 range（）,通过指定<strong>初始值、终值、步长</strong>来创建等差数列的一维数组,默认是不包括终值的。</p>
+<p>linspace是 linear space的缩写,代表线性等分向量的含义。 linspace（）通过指定<strong>初始值，终值、元素个数</strong>来创建等差数列的一维数组,默认是包括终值的。</p>
+<h3 id="算术运算"><a href="#算术运算" class="headerlink" title="算术运算"></a>算术运算</h3><p><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-06%20%E4%B8%8B%E5%8D%886.22.30.png" alt=""><br>运行结果<br><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-06%20%E4%B8%8B%E5%8D%886.22.45.png" alt=""><br>取余函数里，既可以用remainder，也可以用mod，结果是一样的。</p>
+<h3 id="统计函数"><a href="#统计函数" class="headerlink" title="统计函数"></a>统计函数</h3><p>统计数组矩阵的最大值函数amax（），最小值函数amin（）<br><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-06%20%E4%B8%8B%E5%8D%886.55.53.png" alt=""><br>运行结果<br><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-06%20%E4%B8%8B%E5%8D%886.56.10.png" alt=""></p>
+<p>统计最大值与最小值之差ptp（）<br><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-06%20%E4%B8%8B%E5%8D%886.59.14.png" alt=""><br>运行结果<br><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-06%20%E4%B8%8B%E5%8D%886.59.30.png" alt=""></p>
+<h3 id="统计数组的百分位数percentile（）"><a href="#统计数组的百分位数percentile（）" class="headerlink" title="统计数组的百分位数percentile（）"></a>统计数组的百分位数percentile（）</h3><p><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-06%20%E4%B8%8B%E5%8D%887.00.54.png" alt=""><br>运行结果<br><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-06%20%E4%B8%8B%E5%8D%887.01.09.png" alt=""><br>percentile（）代表着第p个百分位数,这里p的取值范围是0-100,如果p=0,那么就是求最小值,如果p=50就是求平均值,如果p=100就是求最大值。同样你也可以求得在axs=0和axis=1两个轴上的p%的百分位数。</p>
+<h3 id="统计数组中的中位数median（），平均数mean（）"><a href="#统计数组中的中位数median（），平均数mean（）" class="headerlink" title="统计数组中的中位数median（），平均数mean（）"></a>统计数组中的中位数median（），平均数mean（）</h3><p><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-06%20%E4%B8%8B%E5%8D%887.03.35.png" alt=""><br>运行结果<br><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-06%20%E4%B8%8B%E5%8D%887.03.52.png" alt=""></p>
+<h3 id="统计数组中的加权平均值average（）"><a href="#统计数组中的加权平均值average（）" class="headerlink" title="统计数组中的加权平均值average（）"></a>统计数组中的加权平均值average（）</h3><p><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-06%20%E4%B8%8B%E5%8D%887.05.59.png" alt=""><br>运行结果<br><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-06%20%E4%B8%8B%E5%8D%887.06.17.png" alt=""></p>
+<h3 id="统计数组中的标准差std（），方差var（）"><a href="#统计数组中的标准差std（），方差var（）" class="headerlink" title="统计数组中的标准差std（），方差var（）"></a>统计数组中的标准差std（），方差var（）</h3><p><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-06%20%E4%B8%8B%E5%8D%887.09.33.png" alt=""><br>运行结果<br><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-06%20%E4%B8%8B%E5%8D%887.09.55.png" alt=""></p>
+<h3 id="NumPy排序"><a href="#NumPy排序" class="headerlink" title="NumPy排序"></a>NumPy排序</h3><p>这些排序算法在NumPy中实现起来其实非常简单,一条语句就可以搞定。这里你可以使用sort函数,sort(a,axis=-1,kind= quicksort, order=None),默认情况下使用的是快速排序;在kind里,可以指定 quicksort、 mergesort、 heapsort分别表示快速排序、合并排序、堆排序。同样axis默认是-1,即沿着数组的最后一个轴迸行排序,也可以取不同的axis轴,或者axis=None代表采用扁平化的方式作为一个向量进行排序。另外 <strong>order</strong>字段对于结构化的数组可以指定按照某个字段进行排序。<br><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-06%20%E4%B8%8B%E5%8D%887.18.49.png" alt=""><br>运行结果<br><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-06%20%E4%B8%8B%E5%8D%887.19.07.png" alt=""></p>
+<h2 id="练习题"><a href="#练习题" class="headerlink" title="练习题"></a>练习题</h2><p>统计全班的成绩<br>假设一个团队里有5名学员,成绩如下表所示。你可以用 NumPy统计下这些人在语文、英语、数学中的平均成绩、最小成绩、最大成绩、方差、标准差。然后把这些人的总成绩排序,得出名次进行成绩输出。<br><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-06%20%E4%B8%8B%E5%8D%887.21.38.png" alt=""><br><a href="https://github.com/zdkswd/PythonCode/blob/master/%E7%BB%9F%E8%AE%A1%E5%85%A8%E7%8F%AD%E7%9A%84%E6%88%90%E7%BB%A9.py">PythonCode/统计全班的成绩.py at master · zdkswd/PythonCode · GitHub</a></p>
+<h1 id="Pandas之再回首"><a href="#Pandas之再回首" class="headerlink" title="Pandas之再回首"></a>Pandas之再回首</h1><p><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/74884960677548b08acdc919c13460cd.jpg" alt=""><br>在NumPy中数据结构是围绕ndarray展开的，在Pandas中，核心数据结构是Series和DataFrame。Pandas的基础是NumPy。</p>
+<h2 id="数据结构：Series和DataFrame"><a href="#数据结构：Series和DataFrame" class="headerlink" title="数据结构：Series和DataFrame"></a>数据结构：Series和DataFrame</h2><p><strong>Series是个定长的字典序列</strong>，说是定长是因为在存储时，相当于两个ndarray，这也是和字典结构最大的不同，因为在字典结构中元素的个数是不固定的。</p>
+<p>Series有两个基本属性，Index和values。在Series结构中，index默认是0，1，2递增的整数序列，当然也可以自己来指定索引，index=[‘a’, ‘b’, ‘c’, ‘d’]。<br><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-07%20%E4%B8%8A%E5%8D%8810.47.12.png" alt=""><br>运行结果<br><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-07%20%E4%B8%8A%E5%8D%8810.47.49.png" alt=""></p>
+<p>还可以用字典方式来创建Series。<br><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-07%20%E4%B8%8A%E5%8D%8810.52.37.png" alt=""><br>运行结果<br><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-07%20%E4%B8%8A%E5%8D%8810.52.55.png" alt=""></p>
+<h3 id="DataFrame类型数据结构类似数据库表"><a href="#DataFrame类型数据结构类似数据库表" class="headerlink" title="DataFrame类型数据结构类似数据库表"></a>DataFrame类型数据结构类似数据库表</h3><p>数据库表<br>DataFrame是由相同索引的Series组成的字典类型。</p>
+<blockquote>
+<p>import pandas as pd<br>from pandas import Series, DataFrame<br>data = {‘Chinese’: [66, 95, 93, 90,80],’English’: [65, 85, 92, 88, 90],’Math’: [30, 98, 96, 77, 90]}<br>df1= DataFrame(data)<br>df2 = DataFrame(data, index=[‘ZhangFei’, ‘GuanYu’, ‘ZhaoYun’, ‘HuangZhong’, ‘DianWei’], columns=[‘English’, ‘Math’, ‘Chinese’])<br>print df1<br>print df2  </p>
+</blockquote>
+<p>df1的输出：<br><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-07%20%E4%B8%8A%E5%8D%8811.39.55.png" alt=""><br>df2的输出：<br><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-07%20%E4%B8%8A%E5%8D%8811.40.22.png" alt=""></p>
+<h3 id="数据导入和输出"><a href="#数据导入和输出" class="headerlink" title="数据导入和输出"></a>数据导入和输出</h3><p>xlsx,csv</p>
+<h2 id="数据清洗"><a href="#数据清洗" class="headerlink" title="数据清洗"></a>数据清洗</h2><p>数据清洗是数据准备中必不可少的环节，Pandas也为我们提供了数据清洗的工具。</p>
+<h3 id="删除DataFrame中不必要的行或列"><a href="#删除DataFrame中不必要的行或列" class="headerlink" title="删除DataFrame中不必要的行或列"></a>删除DataFrame中不必要的行或列</h3><p>Pandas中drop（）方法来删除我们不想要的列或行。<br>将语文这列删掉<br><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-07%20%E4%B8%8A%E5%8D%8811.49.14.png" alt=""><br>将张飞这行删掉<br><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-07%20%E4%B8%8A%E5%8D%8811.49.33.png" alt=""></p>
+<h3 id="重命名列名columns，让列表名更容易识别"><a href="#重命名列名columns，让列表名更容易识别" class="headerlink" title="重命名列名columns，让列表名更容易识别"></a>重命名列名columns，让列表名更容易识别</h3><p>例如把列名Chinese改为YuWen，English改为YingYu。<br><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-07%20%E4%B8%8A%E5%8D%8811.51.35.png" alt=""></p>
+<h3 id="去重复的值"><a href="#去重复的值" class="headerlink" title="去重复的值"></a>去重复的值</h3><p>数据采集可能存在重复的行,这时只要使用 drop_duplicates就会自动把重复的行去掉。<br><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-07%20%E4%B8%8A%E5%8D%8811.52.28.png" alt=""></p>
+<h3 id="格式问题"><a href="#格式问题" class="headerlink" title="格式问题"></a>格式问题</h3><h4 id="更改数据格式"><a href="#更改数据格式" class="headerlink" title="更改数据格式"></a>更改数据格式</h4><p>这是个比较常用的操作,因为很多时候数据格式不规范,我们可以使用 astype函数来规范数据格式,比如我们把 Chinese字段的值改成str类型,或者int64可以这么写。<br><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-07%20%E4%B8%8A%E5%8D%8811.55.14.png" alt=""></p>
+<h4 id="数据间的空格"><a href="#数据间的空格" class="headerlink" title="数据间的空格"></a>数据间的空格</h4><p>有时候我们先把格式转成了str类型,是为了方便对数据进行操作,这时想要删除数据间的空格,我们就可以使用strip函数。<br><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-07%20%E4%B8%8B%E5%8D%8812.06.53.png" alt=""><br>想要删除特殊符号，同样可以使用strip函数，比如删除美元符号。<br><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-07%20%E4%B8%8B%E5%8D%8812.18.49.png" alt=""></p>
+<h4 id="大小写转换"><a href="#大小写转换" class="headerlink" title="大小写转换"></a>大小写转换</h4><p><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-07%20%E4%B8%8B%E5%8D%8812.19.29.png" alt=""></p>
+<h4 id="查找空值"><a href="#查找空值" class="headerlink" title="查找空值"></a>查找空值</h4><p>数据量大的情况下，有些字段存在空值NaN的可能，这时需要Pandas中的isnull函数进行查找。<br><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-07%20%E4%B8%8B%E5%8D%8812.21.17.png" alt=""><br>如果想看哪些地方存在空值NaN，可以针对数据表df进行df.isnull()<br><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/5b52bca4eb6f00d51f72dcc5c6ce2afe.png" alt=""><br>如果想要知道哪列存在空值，可以使用df.isnull().any()<br><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/89cb71afc4f54a11ce1d4d05cd46bb03.png" alt=""></p>
+<h2 id="使用apply函数对数据进行清洗"><a href="#使用apply函数对数据进行清洗" class="headerlink" title="使用apply函数对数据进行清洗"></a>使用apply函数对数据进行清洗</h2><p>apply是Pandas中<strong>自由度非常高的函数</strong>，使用频率也非常高。<br>比如想对name列的数值都进行大写转化：<br><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-07%20%E4%B8%8B%E5%8D%8812.59.06.png" alt=""><br>可以定义个函数，在apply中进行使用。<br><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-07%20%E4%B8%8B%E5%8D%881.00.06.png" alt=""><br>还可以定义更复杂的函数<br><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-07%20%E4%B8%8B%E5%8D%881.07.27.png" alt=""><br>其中axis=1代表按照列为轴进行操作,axis=0代表按照行为轴进行操作,args是传递的两个参数,即n=2,m=3,在plus函数中使用到了n和m,从而生成新的df。</p>
+<h2 id="数据统计"><a href="#数据统计" class="headerlink" title="数据统计"></a>数据统计</h2><p>在数据清洗后，就要对数据进行统计了。Pandas和NumPy一样都有常用的统计函数，如果遇到空值NaN，会自动排除。<br><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/343ba98c1322dc0c013e07c87b157a00.jpg" alt=""></p>
+<p><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-07%20%E4%B8%8B%E5%8D%889.39.43.png" alt=""></p>
+<p><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/e4a7a208a11d60dbcda6f3dbaff9a583.png" alt=""></p>
+<h2 id="数据表合并"><a href="#数据表合并" class="headerlink" title="数据表合并"></a>数据表合并</h2><p>创建两个DataFrame。<br><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-07%20%E4%B8%8B%E5%8D%889.41.32.png" alt=""><br>使用的是merge（）函数，有五种形式。</p>
+<h3 id="基于指定列进行连接"><a href="#基于指定列进行连接" class="headerlink" title="基于指定列进行连接"></a>基于指定列进行连接</h3><p><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-07%20%E4%B8%8B%E5%8D%889.42.44.png" alt=""></p>
+<p><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/220ce1ea19c8f6f2668d3a8122989c2f.png" alt=""></p>
+<h3 id="inner内连接"><a href="#inner内连接" class="headerlink" title="inner内连接"></a>inner内连接</h3><p><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-07%20%E4%B8%8B%E5%8D%889.44.50.png" alt=""></p>
+<p><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/220ce1ea19c8f6f2668d3a8122989c2f%202.png" alt=""></p>
+<h3 id="left左连接"><a href="#left左连接" class="headerlink" title="left左连接"></a>left左连接</h3><p>左连接是第一个DataFrame为主进行连接，第二个DataFrame作为补充。<br><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-07%20%E4%B8%8B%E5%8D%889.46.05.png" alt=""></p>
+<p><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/9091a7406d5aa7a2980328d587fb42ac.png" alt=""></p>
+<h3 id="right右连接"><a href="#right右连接" class="headerlink" title="right右连接"></a>right右连接</h3><p>右连接是以第二个DataFrame为主进行的连接，第一个DataFrame作为补充。<br><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-07%20%E4%B8%8B%E5%8D%889.47.34.png" alt=""></p>
+<p><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/10f9f22f66f3745381d85d760f857baf.png" alt=""></p>
+<h3 id="outer外连接"><a href="#outer外连接" class="headerlink" title="outer外连接"></a>outer外连接</h3><p>外连接相当于求两个DataFrame的并集。<br><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-07%20%E4%B8%8B%E5%8D%889.48.28.png" alt=""></p>
+<p><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/6737f6d4d66af0d75734cd140b5d198c.png" alt=""></p>
+<h2 id="用SQL方式打开Pandas"><a href="#用SQL方式打开Pandas" class="headerlink" title="用SQL方式打开Pandas"></a>用SQL方式打开Pandas</h2><p>pandasql。<br>pandas中的主要函数是sqdf,它接收两个参数:一个SQL查询语句,还有一组环境变量globals（）或 locals（）。这样我们就可以在 Python里,直接用SQL语句中对 Data Frame进行操作,举个例子。<br><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-07%20%E4%B8%8B%E5%8D%889.50.22.png" alt=""><br>运行结果<br><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-07%20%E4%B8%8B%E5%8D%889.51.58.png" alt=""><br>其中lambda是用来定义一个匿名函数的。具体形式为：<br><img src="/img/media/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E6%80%BB%E7%BB%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-07%20%E4%B8%8B%E5%8D%889.53.16.png" alt=""><br>argument_list 是参数列表，expression是关于参数的表达式，会根据expression表达式计算结果进行输出返回。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2019/02/05/Linux命令行/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZDK"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZDK's blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/02/05/Linux命令行/" class="post-title-link" itemprop="url">Linux命令行</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-05 19:33:32 / 修改时间：21:20:50" itemprop="dateCreated datePublished" datetime="2019-02-05T19:33:32+08:00">2019-02-05</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/知识总结/" itemprop="url" rel="index"><span itemprop="name">知识总结</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/02/05/Linux命令行/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/02/05/Linux命令行/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2019/02/05/Linux命令行/" class="post-meta-item leancloud_visitors" data-flag-title="Linux命令行">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          <br/>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Linux命令行"><a href="#Linux命令行" class="headerlink" title="Linux命令行"></a>Linux命令行</h1><p>为了更好的使用实验室的服务器，特此来进行总结。</p>
+<h2 id="后台运行"><a href="#后台运行" class="headerlink" title="后台运行"></a>后台运行</h2><p>在当前终端运行一个脚本时，该终端会不占用而无法进行其他工作。比如在训练模型是想要查看GPU的使用情况，或者断开与远程服务器的连接但保持训练的进行。这时我们就需要借助 tmux 这个工具。tmux 是一个终端选择器（terminal multiplexer），它可以让用户在一个终端窗口中控制多个终端。对于连接远程服务器的工作有很大的帮助。</p>
+<blockquote>
+<pre><code>$ tmux                      # create a new terminal session  
+</code></pre></blockquote>
+<p>在创建了新的 terminal session 之后，窗口会显示新的终端界面。想要退出新的终端界面，则可以在使用 ctrl+b 前缀之后再按 d （表示detached），这样就返回最初的终端。现在可以查看一共创建过多少个 terminal session：</p>
+<blockquote>
+<pre><code>$ tmux ls                   # list all terminal sessions  
+</code></pre></blockquote>
+<p>键入以上的命令之后就可以看到下面的一段显示。</p>
+<blockquote>
+<p>0: 1 windows (created Mon Apr  2 17:19:35 2018) [100x34]<br>1: 1 windows (created Mon Apr  2 19:01:14 2018) [100x34]  </p>
+</blockquote>
+<p>每一行就是一个 terminal session， 最前面的就是它们的索引。我们可以通过这些索引来进入我们想要的 session。</p>
+<blockquote>
+<p>$ tmux attach -t 0  </p>
+</blockquote>
+<p>这样就可以进入上面编号为0的 session 查看程序的执行进度或者执行其他操作。运用 tmux 能够保证进程在断开与服务器连接之后依然正常运行。</p>
+<h2 id="GPU使用"><a href="#GPU使用" class="headerlink" title="GPU使用"></a>GPU使用</h2><blockquote>
+<p>nvidia-smi 可以查看GPU使用情况<br>export CUDA_VISIBLE_DEVICES=0 指定可用的GPU资源，防止占用所有GPU<br>的显存  </p>
+</blockquote>
+<h2 id="远程查看server端的log"><a href="#远程查看server端的log" class="headerlink" title="远程查看server端的log"></a>远程查看server端的log</h2><p>tensorboard的log输出的位置。</p>
+<blockquote>
+<p>$ tensorboard –log path_to_log_files  </p>
+</blockquote>
+<p>然后在本地的浏览器中输入server的地址再加上port的编号即可。</p>
+<h2 id="screen"><a href="#screen" class="headerlink" title="screen"></a>screen</h2><p>在SSH远程连接被断开或者关闭的时候，系统里面的下载程序还能继续运行。<br>解决方法：<br>1.安装screen<br>实验室服务器已安装此步跳过。<br>2 创建screen会话，自定义screen虚拟终端的名称，test可以改为想要的名称</p>
+<blockquote>
+<p>screen -S  test</p>
+</blockquote>
+<p>3 查看之前的会话虚拟终端</p>
+<blockquote>
+<p>screen -r test</p>
+</blockquote>
+<p>查看所有screen会话</p>
+<blockquote>
+<p>screen -ls</p>
+</blockquote>
+<p>保存当前的screen会话<br>按键盘上的ctrl＋a，然后再按d</p>
+<p>退出screen</p>
+<blockquote>
+<p>exit</p>
+</blockquote>
+<p>删除会话</p>
+<blockquote>
+<p>screen -wipe test</p>
+</blockquote>
+<h2 id="Linux查看物理CPU个数、核数、逻辑CPU个数"><a href="#Linux查看物理CPU个数、核数、逻辑CPU个数" class="headerlink" title="Linux查看物理CPU个数、核数、逻辑CPU个数"></a>Linux查看物理CPU个数、核数、逻辑CPU个数</h2><p>查看物理CPU个数</p>
+<blockquote>
+<p>cat /proc/cpuinfo| grep “physical id”| sort| uniq| wc -l</p>
+</blockquote>
+<p>查看每个物理CPU中core的个数(即核数)</p>
+<blockquote>
+<p>cat /proc/cpuinfo| grep “cpu cores”| uniq</p>
+</blockquote>
+<p>查看逻辑CPU的个数</p>
+<blockquote>
+<p>cat /proc/cpuinfo| grep “processor”| wc -l</p>
+</blockquote>
+<p>查看CPU信息（型号）</p>
+<blockquote>
+<p>cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c</p>
+</blockquote>
+<p>注，根据之前博客中提到的，/proc目录本身是一个虚拟文件系统，放置的数据都是在内存当中，例如系统核心，进程信息，周边设备的状态及网络状态。这个目录下的数据都在内存当中。</p>
+<p>物理cpu个数、核数、逻辑cpu数的概念<br><strong>物理cpu数</strong>：主板上实际插入的cpu数量，可以数不重复的 physical id 有几个（physical id）。<br><strong>cpu核数</strong>：单块CPU上面能处理数据的芯片组的数量，如双核、四核等。（cpu cores）<br><strong>逻辑cpu数</strong>：一般情况下，逻辑cpu=物理CPU个数×每颗核数，如果不相等的话，则表示服务器的CPU支持超线程技术（HT：简单来说，它可使处理器中的1 颗内核如2 颗内核那样在操作系统中发挥作用。这样一来，操作系统可使用的执行资源扩大了一倍，大幅提高了系统的整体性能，此时逻辑cpu=物理CPU个数×每颗核数x2）</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="extend next" rel="next" href="/page/11/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
 
 
 
-<!-- mathjax config similar to math.stackexchange -->
+          </div>
+          
 
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
 
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-});
-</script>
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
 
-<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+      
+
+      
+
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="ZDK"/>
+            
+              <p class="site-author-name" itemprop="name">ZDK</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">191</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">分类</span>
+                  
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">48</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/zdkswd" title="GitHub &rarr; https://github.com/zdkswd"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:2822464407@qq.com" title="E-Mail &rarr; mailto:2822464407@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/zdkswd" title="https://github.com/zdkswd">Title</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+        </div>
+      </div>
+
+      
+
+      
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZDK</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.2.0</div>
 
 
 
 
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        
 
 
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+  </div>
+
+  
 
 <script>
-(function() {
-    var OriginTitile = document.title, titleTime;
-    document.addEventListener('visibilitychange', function() {
-        if (document.hidden) {
-            document.title = 'zdk'blog';
-            clearTimeout(titleTime);
-        } else {
-            document.title = '';
-            titleTime = setTimeout(function() {
-                document.title = OriginTitile;
-            },2000);
-        }
-    });
-})();
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
 </script>
 
 
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.2.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
+
+
+
+
+  
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz',
+    appKey: 'gkBx5soQkBREmER84PWbNJeM',
+    placeholder: 'have fun',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true,
+    lang: '' || 'zh-cn'
+  });
+</script>
+
+
+
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('5');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
 
 </body>
 </html>

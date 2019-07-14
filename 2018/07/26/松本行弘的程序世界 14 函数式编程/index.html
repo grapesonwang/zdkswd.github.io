@@ -1,27 +1,101 @@
 <!DOCTYPE html>
-<html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
-    
-
-    
-
-    
-
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
 
 
-    <meta charset="utf-8">
-    
-    
-    
-    
-    <title>松本行弘的程序世界 14 函数式编程 | ZDK&#39;s blog</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#3F51B5">
-    
-    
-    <meta name="keywords" content="电子书笔记,程序语言">
-    <meta name="description" content="松本行弘的程序世界 14 函数式编程新范型–函数式编程函数式编程是全部使用函数来编写程序代码的编程方法。这是可以与一般的结构化编程及面向对象编程相提并论的编程方法。 以函数为中心的函数式编程具有特征：  函数本身也作为数据来处理（第一级函数） 以函数为参数的高阶函数 参数相同即可保证结果相同的引用透明性。 为实现引用透明性，禁止产生副作用的处理。  函数式编程的最大优点在于，程序可以按照数学的形式">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.2.0',
+    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+
+
+  <meta name="description" content="松本行弘的程序世界 14 函数式编程新范型–函数式编程函数式编程是全部使用函数来编写程序代码的编程方法。这是可以与一般的结构化编程及面向对象编程相提并论的编程方法。 以函数为中心的函数式编程具有特征：  函数本身也作为数据来处理（第一级函数） 以函数为参数的高阶函数 参数相同即可保证结果相同的引用透明性。 为实现引用透明性，禁止产生副作用的处理。  函数式编程的最大优点在于，程序可以按照数学的形式">
 <meta name="keywords" content="电子书笔记,程序语言">
 <meta property="og:type" content="article">
 <meta property="og:title" content="松本行弘的程序世界 14 函数式编程">
@@ -45,156 +119,382 @@
 <meta name="twitter:title" content="松本行弘的程序世界 14 函数式编程">
 <meta name="twitter:description" content="松本行弘的程序世界 14 函数式编程新范型–函数式编程函数式编程是全部使用函数来编写程序代码的编程方法。这是可以与一般的结构化编程及面向对象编程相提并论的编程方法。 以函数为中心的函数式编程具有特征：  函数本身也作为数据来处理（第一级函数） 以函数为参数的高阶函数 参数相同即可保证结果相同的引用透明性。 为实现引用透明性，禁止产生副作用的处理。  函数式编程的最大优点在于，程序可以按照数学的形式">
 <meta name="twitter:image" content="https://github.com/img/media/15324825297704/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-25%20%E4%B8%8A%E5%8D%8810.02.29.png">
-    
-        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
-    
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
-    <script>window.lazyScripts=[]</script>
 
-    <!-- custom head -->
-    
+
+
+  <link rel="alternate" href="/atom.xml" title="ZDK's blog" type="application/atom+xml"/>
+
+
+
+  
+  
+  <link rel="canonical" href="https://github.com/zdkswd/2018/07/26/松本行弘的程序世界 14 函数式编程/"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>松本行弘的程序世界 14 函数式编程 | ZDK's blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
 
 </head>
 
-<body>
-    <div id="loading" class="active"></div>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
-    <aside id="menu" class="hide" >
-  <div class="inner flex-row-vertical">
-    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-        <i class="icon icon-lg icon-close"></i>
-    </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
-      <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/tmg.jpg">
-        </a>
-        <hgroup class="introduce">
-          <h5 class="nickname">ZDK</h5>
-          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
-        </hgroup>
-      </div>
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ZDK's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
-    <div class="scroll-wrap flex-col">
-      <ul class="nav">
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
         
-            <li class="waves-block waves-effect">
-              <a href="/"  >
-                <i class="icon icon-lg icon-home"></i>
-                主页
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                Archives
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/tags"  >
-                <i class="icon icon-lg icon-tags"></i>
-                Tags
-              </a>
-            </li>
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>首页</a>
+
+  </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/categories"  >
-                <i class="icon icon-lg icon-th-list"></i>
-                Categories
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="https://github.com/zdkswd" target="_blank" >
-                <i class="icon icon-lg icon-github"></i>
-                Github
-              </a>
-            </li>
         
-      </ul>
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>归档</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br/>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
     </div>
   </div>
-</aside>
+  <div id="local-search-result"></div>
+</div>
 
-    <main id="main">
-        <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis">松本行弘的程序世界 14 函数式编程</div>
-        
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
-        </div>
-        
-        
+
+
     </div>
-</header>
-<header class="content-header post-header">
-
-    <div class="container fade-scale">
-        <h1 class="title">松本行弘的程序世界 14 函数式编程</h1>
-        <h5 class="subtitle">
-            
-                <time datetime="2018-07-26T13:00:32.000Z" itemprop="datePublished" class="page-time">
-  2018-07-26
-</time>
+  
+</nav>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
 
-            
-        </h5>
-    </div>
+</div>
+    </header>
 
     
 
 
-</header>
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
 
+          
+          <div id="content" class="content">
+            
 
-<div class="container body-wrap">
+  <div id="posts" class="posts-expand">
     
-    <aside class="post-widget">
-        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
-            <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#松本行弘的程序世界-14-函数式编程"><span class="post-toc-number">1.</span> <span class="post-toc-text">松本行弘的程序世界 14 函数式编程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#新范型–函数式编程"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">新范型–函数式编程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#具有多种函数式性质的Lisp"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">具有多种函数式性质的Lisp</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#彻底的函数式编程语言Haskell"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">彻底的函数式编程语言Haskell</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#没有副作用"><span class="post-toc-number">1.1.2.1.</span> <span class="post-toc-text">没有副作用</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#高阶函数"><span class="post-toc-number">1.1.2.2.</span> <span class="post-toc-text">高阶函数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#延迟计算：不必要的处理就不做"><span class="post-toc-number">1.1.2.3.</span> <span class="post-toc-text">延迟计算：不必要的处理就不做</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#灵活的“静态多态性”类型系统"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">灵活的“静态多态性”类型系统</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#近代函数式语言之父OCaml"><span class="post-toc-number">1.1.4.</span> <span class="post-toc-text">近代函数式语言之父OCaml</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#强于并行计算的Erlang"><span class="post-toc-number">1.1.5.</span> <span class="post-toc-text">强于并行计算的Erlang</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#用Ruby进行函数式编程"><span class="post-toc-number">1.1.6.</span> <span class="post-toc-text">用Ruby进行函数式编程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Proc对象（lambda）"><span class="post-toc-number">1.1.6.1.</span> <span class="post-toc-text">Proc对象（lambda）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#程序块"><span class="post-toc-number">1.1.6.2.</span> <span class="post-toc-text">程序块</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#枚举器"><span class="post-toc-number">1.1.6.3.</span> <span class="post-toc-text">枚举器</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#避免副作用"><span class="post-toc-number">1.1.6.4.</span> <span class="post-toc-text">避免副作用</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#用枚举器来实现延迟计算"><span class="post-toc-number">1.1.7.</span> <span class="post-toc-text">用枚举器来实现延迟计算</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#自动生成代码"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">自动生成代码</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#在商业中利用Ruby"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">在商业中利用Ruby</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用Ruby自动生成代码"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">使用Ruby自动生成代码</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#消除重复代码"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">消除重复代码</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码生成的应用"><span class="post-toc-number">1.2.4.</span> <span class="post-toc-text">代码生成的应用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#数据库访问"><span class="post-toc-number">1.2.4.1.</span> <span class="post-toc-text">数据库访问</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#用户接口"><span class="post-toc-number">1.2.4.2.</span> <span class="post-toc-text">用户接口</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#单元测试"><span class="post-toc-number">1.2.4.3.</span> <span class="post-toc-text">单元测试</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#客户界面"><span class="post-toc-number">1.2.4.4.</span> <span class="post-toc-text">客户界面</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#文档化"><span class="post-toc-number">1.2.4.5.</span> <span class="post-toc-text">文档化</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码生成的效果"><span class="post-toc-number">1.2.5.</span> <span class="post-toc-text">代码生成的效果</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#编写代码生成器"><span class="post-toc-number">1.2.6.</span> <span class="post-toc-text">编写代码生成器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#也可以使用XML"><span class="post-toc-number">1.2.7.</span> <span class="post-toc-text">也可以使用XML</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#在EJB中使用代码生成"><span class="post-toc-number">1.2.8.</span> <span class="post-toc-text">在EJB中使用代码生成</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#内存管理与垃圾收集"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">内存管理与垃圾收集</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#内存管理的困难"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">内存管理的困难</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#悬挂指针"><span class="post-toc-number">1.3.1.1.</span> <span class="post-toc-text">悬挂指针</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#内存泄漏"><span class="post-toc-number">1.3.1.2.</span> <span class="post-toc-text">内存泄漏</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#二重释放"><span class="post-toc-number">1.3.1.3.</span> <span class="post-toc-text">二重释放</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#垃圾收集亮相之前"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">垃圾收集亮相之前</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#垃圾收集慢"><span class="post-toc-number">1.3.2.1.</span> <span class="post-toc-text">垃圾收集慢</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#垃圾收集可靠性低"><span class="post-toc-number">1.3.2.2.</span> <span class="post-toc-text">垃圾收集可靠性低</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#评价垃圾收集的两个指标"><span class="post-toc-number">1.3.3.</span> <span class="post-toc-text">评价垃圾收集的两个指标</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#吞吐量"><span class="post-toc-number">1.3.3.1.</span> <span class="post-toc-text">吞吐量</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#暂停时间"><span class="post-toc-number">1.3.3.2.</span> <span class="post-toc-text">暂停时间</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#垃圾收集算法"><span class="post-toc-number">1.3.4.</span> <span class="post-toc-text">垃圾收集算法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#引用计数方式"><span class="post-toc-number">1.3.5.</span> <span class="post-toc-text">引用计数方式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#标记和扫除方式"><span class="post-toc-number">1.3.6.</span> <span class="post-toc-text">标记和扫除方式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#标记和紧缩方式"><span class="post-toc-number">1.3.7.</span> <span class="post-toc-text">标记和紧缩方式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#复制方式"><span class="post-toc-number">1.3.8.</span> <span class="post-toc-text">复制方式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#多种多样的垃圾收集算法"><span class="post-toc-number">1.3.9.</span> <span class="post-toc-text">多种多样的垃圾收集算法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#分代垃圾收集"><span class="post-toc-number">1.3.10.</span> <span class="post-toc-text">分代垃圾收集</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#保守垃圾收集"><span class="post-toc-number">1.3.11.</span> <span class="post-toc-text">保守垃圾收集</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#增量垃圾收集"><span class="post-toc-number">1.3.12.</span> <span class="post-toc-text">增量垃圾收集</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#并行垃圾收集"><span class="post-toc-number">1.3.13.</span> <span class="post-toc-text">并行垃圾收集</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#位图标记"><span class="post-toc-number">1.3.14.</span> <span class="post-toc-text">位图标记</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#用C语言来扩展Ruby"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">用C语言来扩展Ruby</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#开发与执行速度的取舍"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">开发与执行速度的取舍</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#扩展库"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">扩展库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#扩展库的编译"><span class="post-toc-number">1.4.3.</span> <span class="post-toc-text">扩展库的编译</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#扩展库之外的工具"><span class="post-toc-number">1.4.4.</span> <span class="post-toc-text">扩展库之外的工具</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#RubyInline"><span class="post-toc-number">1.4.4.1.</span> <span class="post-toc-text">RubyInline</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#dl"><span class="post-toc-number">1.4.4.2.</span> <span class="post-toc-text">dl</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#ffi"><span class="post-toc-number">1.4.4.3.</span> <span class="post-toc-text">ffi</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#为什么要开源"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">为什么要开源</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#自由软件的思想"><span class="post-toc-number">1.5.1.</span> <span class="post-toc-text">自由软件的思想</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#自由软件的历史"><span class="post-toc-number">1.5.2.</span> <span class="post-toc-text">自由软件的历史</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Emacs事件的发生"><span class="post-toc-number">1.5.3.</span> <span class="post-toc-text">Emacs事件的发生</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#开源的诞生"><span class="post-toc-number">1.5.4.</span> <span class="post-toc-text">开源的诞生</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#OSS许可证"><span class="post-toc-number">1.5.5.</span> <span class="post-toc-text">OSS许可证</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#GPL"><span class="post-toc-number">1.5.5.1.</span> <span class="post-toc-text">GPL</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#LGPL"><span class="post-toc-number">1.5.5.2.</span> <span class="post-toc-text">LGPL</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#BSD许可证"><span class="post-toc-number">1.5.5.3.</span> <span class="post-toc-text">BSD许可证</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#APL和CPL"><span class="post-toc-number">1.5.5.4.</span> <span class="post-toc-text">APL和CPL</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#开源的背景"><span class="post-toc-number">1.5.6.</span> <span class="post-toc-text">开源的背景</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#企业关注开源的理由"><span class="post-toc-number">1.5.7.</span> <span class="post-toc-text">企业关注开源的理由</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Ruby与开源"><span class="post-toc-number">1.5.8.</span> <span class="post-toc-text">Ruby与开源</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#选择许可证的方法"><span class="post-toc-number">1.5.9.</span> <span class="post-toc-text">选择许可证的方法</span></a></li></ol></li></ol></li></ol>
-        </nav>
-    </aside>
 
+  
 
-<article id="post-松本行弘的程序世界 14 函数式编程"
-  class="post-article article-type-post fade" itemprop="blogPost">
+  
+  
+  
 
-    <div class="post-card">
-        <h1 class="post-card-title">松本行弘的程序世界 14 函数式编程</h1>
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2018/07/26/松本行弘的程序世界 14 函数式编程/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZDK"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZDK's blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">松本行弘的程序世界 14 函数式编程
+
+              
+            
+          </h1>
+        
+
         <div class="post-meta">
-            <time class="post-time" title="2018-07-26 21:00:32" datetime="2018-07-26T13:00:32.000Z"  itemprop="datePublished">2018-07-26</time>
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-07-26 21:00:32" itemprop="dateCreated datePublished" datetime="2018-07-26T21:00:32+08:00">2018-07-26</time>
+            </span>
+          
+
+          
+            
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
-
-
-
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-07-27 11:20:34" itemprop="dateModified" datetime="2018-07-27T11:20:34+08:00">2018-07-27</time>
+              </span>
             
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
-    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
-</span>
+          
 
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/读书笔记/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2018/07/26/松本行弘的程序世界 14 函数式编程/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/07/26/松本行弘的程序世界 14 函数式编程/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2018/07/26/松本行弘的程序世界 14 函数式编程/" class="post-meta-item leancloud_visitors" data-flag-title="松本行弘的程序世界 14 函数式编程">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          <br/>
+          
+
+          
+
+          
 
         </div>
-        <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="松本行弘的程序世界-14-函数式编程"><a href="#松本行弘的程序世界-14-函数式编程" class="headerlink" title="松本行弘的程序世界 14 函数式编程"></a>松本行弘的程序世界 14 函数式编程</h1><h2 id="新范型–函数式编程"><a href="#新范型–函数式编程" class="headerlink" title="新范型–函数式编程"></a>新范型–函数式编程</h2><p>函数式编程是全部使用函数来编写程序代码的编程方法。这是可以与一般的结构化编程及面向对象编程相提并论的编程方法。</p>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="松本行弘的程序世界-14-函数式编程"><a href="#松本行弘的程序世界-14-函数式编程" class="headerlink" title="松本行弘的程序世界 14 函数式编程"></a>松本行弘的程序世界 14 函数式编程</h1><h2 id="新范型–函数式编程"><a href="#新范型–函数式编程" class="headerlink" title="新范型–函数式编程"></a>新范型–函数式编程</h2><p>函数式编程是全部使用函数来编写程序代码的编程方法。这是可以与一般的结构化编程及面向对象编程相提并论的编程方法。</p>
 <p>以函数为中心的函数式编程具有特征：</p>
 <ol>
 <li>函数本身也作为数据来处理（第一级函数）</li>
@@ -208,13 +508,7 @@
 <p>这种不是描述动作而是描述性质的编程方式称为<strong>声明式编程</strong>。声明式描述是函数式编程的一大优点。</p>
 <h3 id="具有多种函数式性质的Lisp"><a href="#具有多种函数式性质的Lisp" class="headerlink" title="具有多种函数式性质的Lisp"></a>具有多种函数式性质的Lisp</h3><p>之前，Lisp被认为是函数式编程的代表。Lisp具备函数式语言的很多性质。</p>
 <p>Lisp最大的特征是S式记法。S式是括号很多的Lisp的记法。S式无与伦比的优点是它彻底的统一性。对Lisp而言，不管什么都可以同一成单一形式。</p>
-<p>第二个重要之处在于链这种数据结构。Lisp语言本名是List Processor（链表处理器），从侧面说明了链的重要性。链是一种构成树结构数据的通用数据结构，构成数据结构的节点分别包含两个引用。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15324825297704/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-25%20%E4%B8%8A%E5%8D%8810.02.29.png" alt="屏幕快照 2018-07-25 上午10.02.29" title="">
-                </div>
-                <div class="image-caption">屏幕快照 2018-07-25 上午10.02.29</div>
-            </figure></p>
+<p>第二个重要之处在于链这种数据结构。Lisp语言本名是List Processor（链表处理器），从侧面说明了链的重要性。链是一种构成树结构数据的通用数据结构，构成数据结构的节点分别包含两个引用。<br><img src="/img/media/15324825297704/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-25%20%E4%B8%8A%E5%8D%8810.02.29.png" alt="屏幕快照 2018-07-25 上午10.02.29"></p>
 <p>总之，Lisp具备了函数编程语言的基本特征。但是Lisp不直接支持多数纯粹的函数式编程语言所拥有的副作用如回避以及延迟计算等功能。对变量的赋值没有任何限制。且编程风格为很多很多括号。比较难适应。</p>
 <p>近年来，由于像Haskell这样的彻底的函数式编程语言的兴起，Lisp作为函数式编程语言在人们心中的印象越来越淡薄。</p>
 <h3 id="彻底的函数式编程语言Haskell"><a href="#彻底的函数式编程语言Haskell" class="headerlink" title="彻底的函数式编程语言Haskell"></a>彻底的函数式编程语言Haskell</h3><p>Haskell可以说是纯粹的函数式编程语言。<br>Haskell语言特征：</p>
@@ -295,49 +589,19 @@
 <li>标记和紧缩方式</li>
 <li>复制方式</li>
 </ol>
-<h3 id="引用计数方式"><a href="#引用计数方式" class="headerlink" title="引用计数方式"></a>引用计数方式</h3><p>引用计数方式在垃圾收集算法中具有最简单最容易实现的特征。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15324825297704/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-25%20%E4%B8%8B%E5%8D%885.25.46.png" alt="屏幕快照 2018-07-25 下午5.25.46" title="">
-                </div>
-                <div class="image-caption">屏幕快照 2018-07-25 下午5.25.46</div>
-            </figure><br>引用计数器最大的优点就是容易实现。这种方式得到广泛的使用。暂停时间短也是它的优点。</p>
-<p>最大的缺点是不能释放有循环引用关系的对象群。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15324825297704/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-25%20%E4%B8%8B%E5%8D%885.28.21.png" alt="屏幕快照 2018-07-25 下午5.28.21" title="">
-                </div>
-                <div class="image-caption">屏幕快照 2018-07-25 下午5.28.21</div>
-            </figure><br>与生俱来的缺点，因为在引用增减的时候有必要同时正确维护引用计数器的增减，忘了这一点就会带来悬挂指针或内存泄露问题。</p>
+<h3 id="引用计数方式"><a href="#引用计数方式" class="headerlink" title="引用计数方式"></a>引用计数方式</h3><p>引用计数方式在垃圾收集算法中具有最简单最容易实现的特征。<br><img src="/img/media/15324825297704/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-25%20%E4%B8%8B%E5%8D%885.25.46.png" alt="屏幕快照 2018-07-25 下午5.25.46"><br>引用计数器最大的优点就是容易实现。这种方式得到广泛的使用。暂停时间短也是它的优点。</p>
+<p>最大的缺点是不能释放有循环引用关系的对象群。<br><img src="/img/media/15324825297704/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-25%20%E4%B8%8B%E5%8D%885.28.21.png" alt="屏幕快照 2018-07-25 下午5.28.21"><br>与生俱来的缺点，因为在引用增减的时候有必要同时正确维护引用计数器的增减，忘了这一点就会带来悬挂指针或内存泄露问题。</p>
 <p>最后一个缺点是，引用计数器的管理与并行处理不相容。如果多个进程同时增减一个引用计数器的话，就会发生引用计数器的值不一致的现象。为避免这一个问题，需要在操作引用计数器的时候进行排他处理，但在频繁发生引用操作的同时进行排他处理的话，会带来巨大的时间开销。</p>
 <p>总之，这种原理简单实现也简单的引用计数器方式，缺点很多，最近已经不怎么用了。</p>
 <p>采用引用计数器方式的主要语言处理系统有Perl和Python。为了回避循环引用的问题，它们都组合了其他垃圾收集方式。这些语言基本上以引用计数器方式来进行垃圾收集，只有在极个别的情况下，才通过别的垃圾收集算法来处理引用计数器不能回收的对象。</p>
 <h3 id="标记和扫除方式"><a href="#标记和扫除方式" class="headerlink" title="标记和扫除方式"></a>标记和扫除方式</h3><p>标记和扫除方式也是古老的垃圾收集算法。<br>标记和扫除方式从有可能成为对象引用元的变数（根）开始，给被引用的对象加上标记，表明其“活着”。然后再给标记对象所引用的对象还有其再引用的对象，也都递归地加上引用标记。</p>
-<p>这样从根开始不管是直接还是间接，只要把所有引用的对象都加上标记的话，那么没有标记的对象就是没有被引用的，也就是“已经死了”。然后在所有的对象中找出没有标记的对象，把它们作为垃圾扫除出去。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15324825297704/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-25%20%E4%B8%8B%E5%8D%885.50.20.png" alt="屏幕快照 2018-07-25 下午5.50.20" title="">
-                </div>
-                <div class="image-caption">屏幕快照 2018-07-25 下午5.50.20</div>
-            </figure><br>此法虽然古老，但是非常优秀，现在也还被多种处理系统所采用。</p>
+<p>这样从根开始不管是直接还是间接，只要把所有引用的对象都加上标记的话，那么没有标记的对象就是没有被引用的，也就是“已经死了”。然后在所有的对象中找出没有标记的对象，把它们作为垃圾扫除出去。<br><img src="/img/media/15324825297704/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-25%20%E4%B8%8B%E5%8D%885.50.20.png" alt="屏幕快照 2018-07-25 下午5.50.20"><br>此法虽然古老，但是非常优秀，现在也还被多种处理系统所采用。</p>
 <p>但是当对象数目较多时，性能容易恶化。在标记的时候要访问生存的所有对象，在回收时按顺序访问所有的对象，找出”已经死了“的对象。在寻找垃圾和扫除过程中，基本不能进行其他处理，垃圾收集时间长的话，会影响到本来的处理工作。</p>
-<h3 id="标记和紧缩方式"><a href="#标记和紧缩方式" class="headerlink" title="标记和紧缩方式"></a>标记和紧缩方式</h3><p>标记和紧缩方式是标记和扫除的变形。标记处理是一样的，后阶段有所不同。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15324825297704/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-26%20%E4%B8%8B%E5%8D%8812.01.29.png" alt="屏幕快照 2018-07-26 下午12.01.29" title="">
-                </div>
-                <div class="image-caption">屏幕快照 2018-07-26 下午12.01.29</div>
-            </figure><br>标记和紧缩方式最大的特征也是他的优越之处，是把空间集中起来（紧缩）。紧缩的结果是把没有释放而活下来的对象都集中到一个地方。这样，内存访问就集中到一个局部区域，这可以提高缓存功能的效率。对象的分配也只是把指针移动一下就完成了，降低了对象分配的开销。</p>
+<h3 id="标记和紧缩方式"><a href="#标记和紧缩方式" class="headerlink" title="标记和紧缩方式"></a>标记和紧缩方式</h3><p>标记和紧缩方式是标记和扫除的变形。标记处理是一样的，后阶段有所不同。<br><img src="/img/media/15324825297704/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-26%20%E4%B8%8B%E5%8D%8812.01.29.png" alt="屏幕快照 2018-07-26 下午12.01.29"><br>标记和紧缩方式最大的特征也是他的优越之处，是把空间集中起来（紧缩）。紧缩的结果是把没有释放而活下来的对象都集中到一个地方。这样，内存访问就集中到一个局部区域，这可以提高缓存功能的效率。对象的分配也只是把指针移动一下就完成了，降低了对象分配的开销。</p>
 <p>缺点是，把生存着的对象全部复制的紧缩开销，容易比标记和扫除方式中执行的开销还要大。因为对象被移动位置了。</p>
 <p>一部分Lisp处理系统采用的是标记和紧缩方式，Java处理系统（作为多个垃圾收集算法中的一个）也有标记和紧缩方式。</p>
 <h3 id="复制方式"><a href="#复制方式" class="headerlink" title="复制方式"></a>复制方式</h3><p>像标记和扫除方式、标记和紧缩方式这样“标记之后释放死了的对象”的算法，标记时间与活着的对象数成比例，扫除时间与总对象数成比例。所以在分配有很多的对象，其中几乎所有对象都要被释放的场合，扫除的开销会变高，在性能方面很不利。</p>
-<p>复制方式与标记和扫除方式一样，从根开始扫描所有的对象，但他不仅仅是加标记，还执行复制。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15324825297704/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-26%20%E4%B8%8B%E5%8D%8812.11.58.png" alt="屏幕快照 2018-07-26 下午12.11.58" title="">
-                </div>
-                <div class="image-caption">屏幕快照 2018-07-26 下午12.11.58</div>
-            </figure><br>复制方式把内存空间分成旧空间和新空间两大块，总是在旧空间中分配对象。旧空间爆满时，从根开始扫描对象，把对象复制到新空间。这时，复制后的引用也要随之更新。</p>
+<p>复制方式与标记和扫除方式一样，从根开始扫描所有的对象，但他不仅仅是加标记，还执行复制。<br><img src="/img/media/15324825297704/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-26%20%E4%B8%8B%E5%8D%8812.11.58.png" alt="屏幕快照 2018-07-26 下午12.11.58"><br>复制方式把内存空间分成旧空间和新空间两大块，总是在旧空间中分配对象。旧空间爆满时，从根开始扫描对象，把对象复制到新空间。这时，复制后的引用也要随之更新。</p>
 <p>递归的执行从旧空间到新空间的复制，结束时就会把所有活着的对象都移动到新空间。不再被引用的对象都遗留到旧空间，旧空间就可以整个弃之不用，就避免了扫除的开销，从此再把新空间作为旧空间再进行同样的处理。</p>
 <p>最大的优点是，垃圾回收的开销只和活着的对象数成比例。对象分配的开销也低。还有“局部性”的优点。复制方式按顺序把引用的对象复制到新空间，关系近的对象会被分配到相近的内存空间，称为局部性。关系近的对象被访问的可能性也高。计算机因为有缓存，内存空间相接近的访问可能具有较好的性能，局部性高的程序具有提高性能的优势。</p>
 <p>缺点：复制方式要复制所有活着的对象，几乎具有和标记和紧缩方式一样的缺点。</p>
@@ -355,13 +619,7 @@
 <p>分代垃圾收集把对象的内存空间分成两个，新代和旧代，也有分成3个的。</p>
 <p>只扫描新代区域的回收称为轻垃圾收集，但没有检查旧代区域对新代的引用，被引用的对象可能误判死亡，就会带来内存问题。</p>
 <p>解决这一问题的方法是，监视对象的更新。在旧代区域引用新代区域的同时，就把这一引用的记录例程以及对象的更新场所全都记录下来，这个检查例程叫做<strong>写屏障</strong>，记录旧代区域对新代区域的引用叫<strong>记录集</strong>。</p>
-<p>以所有区域对象的垃圾收集称为全垃圾收集或重垃圾收集。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15324825297704/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-26%20%E4%B8%8B%E5%8D%8812.33.58.png" alt="屏幕快照 2018-07-26 下午12.33.58" title="">
-                </div>
-                <div class="image-caption">屏幕快照 2018-07-26 下午12.33.58</div>
-            </figure><br>分代垃圾收集减少了扫描对象的个数，有缩短平均暂停时间的效果。但是，因为要执行全垃圾收集，最大暂停时间不会得到明显的改善。</p>
+<p>以所有区域对象的垃圾收集称为全垃圾收集或重垃圾收集。<br><img src="/img/media/15324825297704/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-26%20%E4%B8%8B%E5%8D%8812.33.58.png" alt="屏幕快照 2018-07-26 下午12.33.58"><br>分代垃圾收集减少了扫描对象的个数，有缩短平均暂停时间的效果。但是，因为要执行全垃圾收集，最大暂停时间不会得到明显的改善。</p>
 <p>最近几乎所有的Java都实现有分代垃圾收集。另外，函数型语言OCaml也采用了分代垃圾收集。</p>
 <h3 id="保守垃圾收集"><a href="#保守垃圾收集" class="headerlink" title="保守垃圾收集"></a>保守垃圾收集</h3><p>像C这种本来没有垃圾收集的语言，编译之后没有保留区别整数和指针的信息，因为CPU对两者不加区分，所以也就没这个必要。通常，垃圾收集的实现需要明确区分引用（指针），而C和C++没有这样的功能，在这样的环境下实现垃圾收集的技巧之一称为保守垃圾收集。</p>
 <p>其基本思想就是如果碰巧有整数的值与引用相同的话，该对象就有可能被引用，就当它是活着的。保守就是倾向于安全的意思。与此相对，能够明确区别所用的环境下的垃圾收集称为精确垃圾收集。</p>
@@ -389,14 +647,7 @@
 <li>C语言运行系统调用，速度高</li>
 <li>用面向对象语言来实现别的面向对象语言的话，容易混淆对象的概念。</li>
 </ol>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15324825297704/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-26%20%E4%B8%8B%E5%8D%885.36.05.png" alt="屏幕快照 2018-07-26 下午5.36.05" title="">
-                </div>
-                <div class="image-caption">屏幕快照 2018-07-26 下午5.36.05</div>
-            </figure>
-<p><strong>引擎</strong>是解释内部表现，并实际上执行程序的部分。1.9版本的引擎解释的字节码，可以说是近似于虚拟计算机的机器语言。所以1.9版本的引擎也可以成为VM。</p>
+<p><img src="/img/media/15324825297704/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-26%20%E4%B8%8B%E5%8D%885.36.05.png" alt="屏幕快照 2018-07-26 下午5.36.05"><br><strong>引擎</strong>是解释内部表现，并实际上执行程序的部分。1.9版本的引擎解释的字节码，可以说是近似于虚拟计算机的机器语言。所以1.9版本的引擎也可以成为VM。</p>
 <p><strong>引擎</strong>在解释内部表现是，需要其他组件的帮助。内存和对象的管理，变量访问和方法调用的实现等，都要依靠底层称为<strong>运行库</strong>的组件来完成。<strong>运行库</strong>提供底层强有力的支持，是程序执行时不可或缺的部分。</p>
 <p>Ruby利用的各种类是<strong>类库</strong>提供的。Ruby的这一部分也是用C编写的。像Ruby这样的解释型语言，因为是经过C编写的引擎来间接执行程序，与一般的编译语言相比，执行速度明显慢得多（100 倍或者 1000 倍）。但是，实际上程序的执行时间大部分都花在 C 編写的类库方法内部，因此在执行速度上很少会产生那么巨大的差距。</p>
 <h3 id="扩展库"><a href="#扩展库" class="headerlink" title="扩展库"></a>扩展库</h3><p>扩展库是指利用Ruby运行库的API,用C定义的类库。Ruby的API使用C几乎可以实现Ruby所有的功能。使用这些API可以很简单地实现如下的功能：</p>
@@ -415,26 +666,14 @@
 <p>前面已经说过,Ruby是解释型语言,它的执行速度不如像C这样的编译型语言。如果是绝对需要改善速度的程序,用C扩展库来实现其中成为瓶颈的部分的话,有可能显著改善程序的<br>执行速度。</p>
 <p>UNX系列操作系统的大多数功能都是通过C可以访问的库来提供的。Ruby要想利用这些功能的话,就需要有一种从Ruby调用C的API的方法,这最简单的方法就是利用扩展库。</p>
 <h3 id="扩展库的编译"><a href="#扩展库的编译" class="headerlink" title="扩展库的编译"></a>扩展库的编译</h3><p>首先按照以上的顺序编写源代码。若C程序的文件名后<br>约定为c的话,后续步骤会自动识别出来C程序文件。</p>
-<p>为生成编译所需要的文件,需要准备必要的<br>Ruby文件。这个文件通常命名为 extconf.rb<br>minitab的 extconf.rb的内容如图所示<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15324825297704/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-26%20%E4%B8%8B%E5%8D%887.09.31.png" alt="屏幕快照 2018-07-26 下午7.09.31" title="">
-                </div>
-                <div class="image-caption">屏幕快照 2018-07-26 下午7.09.31</div>
-            </figure></p>
+<p>为生成编译所需要的文件,需要准备必要的<br>Ruby文件。这个文件通常命名为 extconf.rb<br>minitab的 extconf.rb的内容如图所示<br><img src="/img/media/15324825297704/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-26%20%E4%B8%8B%E5%8D%887.09.31.png" alt="屏幕快照 2018-07-26 下午7.09.31"></p>
 <p>extons,xb是由以下几个部分构成的:</p>
 <ol>
 <li>调用 require’mkmf’;   </li>
 <li>用have_1 ibrary和 hava header检<br>查必要的库和头文件是否存在；  </li>
 <li>用 create makefile来生成必要的<br>Makefile. create makefile的参数<br>是库的名字。</li>
 </ol>
-<p>照图14-34执行 extconfrb,就可以生成<br>Makefi1e。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15324825297704/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-26%20%E4%B8%8B%E5%8D%887.13.48.png" alt="屏幕快照 2018-07-26 下午7.13.48" title="">
-                </div>
-                <div class="image-caption">屏幕快照 2018-07-26 下午7.13.48</div>
-            </figure></p>
+<p>照图14-34执行 extconfrb,就可以生成<br>Makefi1e。<br><img src="/img/media/15324825297704/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-26%20%E4%B8%8B%E5%8D%887.13.48.png" alt="屏幕快照 2018-07-26 下午7.13.48"></p>
 <p>用make命令来编译,尔后可以用 make insta11命令来安装编译后的库。</p>
 <h3 id="扩展库之外的工具"><a href="#扩展库之外的工具" class="headerlink" title="扩展库之外的工具"></a>扩展库之外的工具</h3><h4 id="RubyInline"><a href="#RubyInline" class="headerlink" title="RubyInline"></a>RubyInline</h4><p>Rubylnline可以在Ruby的源代码中直接嵌入C的程序。不用每次准备 exton,rb文件,也不需要明确的编译步骤,非常便利,但它也有不少约束,比如在执行环境中需要有编译器,与外部库的链接也有些麻烦等。</p>
 <h4 id="dl"><a href="#dl" class="headerlink" title="dl"></a>dl</h4><p>有了d1,仅用Ruby也能实现与 minitab同样动作的库。把图1435的程序保存成 inial,rb文件,没有扩展库也可以使用 minitab。al的优点是在没有安装编译器和头文件的环境下也可以运行。</p>
@@ -443,13 +682,7 @@
 <h3 id="自由软件的历史"><a href="#自由软件的历史" class="headerlink" title="自由软件的历史"></a>自由软件的历史</h3><p>曾几何时,在计算机的黎明期,软件完全是硬件的附属物。买了计算机,附带操作系统等源代码,根本就不是什么稀罕的事。那时,或者在更早一些的时候,甚至有这样的情况,从生<br>产厂家买来的计算机连操作系统也没有,需要用户自己来开发各种软件。买了同样计算机的用户互相交换自己开发的软件,互助合作。虽然不够精致,但与如今开源软件的情况很有些相似之处。</p>
 <h3 id="Emacs事件的发生"><a href="#Emacs事件的发生" class="headerlink" title="Emacs事件的发生"></a>Emacs事件的发生</h3><p>但是,戈斯林把 Gosmacs的专利卖给了 Unipress公司,斯托曼就不能够在 Gosmacs的基础上开发新的 Emacs了。结果,斯托曼从零开始开发了自己的UNIX版的Emacs。</p>
 <p>他们的最终目标是，创造一个从上到下完全自由的操作系统环境。</p>
-<h3 id="开源的诞生"><a href="#开源的诞生" class="headerlink" title="开源的诞生"></a>开源的诞生</h3><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15324825297704/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-26%20%E4%B8%8B%E5%8D%888.52.32.png" alt="屏幕快照 2018-07-26 下午8.52.32" title="">
-                </div>
-                <div class="image-caption">屏幕快照 2018-07-26 下午8.52.32</div>
-            </figure>
+<h3 id="开源的诞生"><a href="#开源的诞生" class="headerlink" title="开源的诞生"></a>开源的诞生</h3><p><img src="/img/media/15324825297704/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-26%20%E4%B8%8B%E5%8D%888.52.32.png" alt="屏幕快照 2018-07-26 下午8.52.32"></p>
 <h3 id="OSS许可证"><a href="#OSS许可证" class="headerlink" title="OSS许可证"></a>OSS许可证</h3><h4 id="GPL"><a href="#GPL" class="headerlink" title="GPL"></a>GPL</h4><p>GPL( GNU General Public license)应该可以说是自由软件许可证的鼻祖,它具有如下特征:</p>
 <ol>
 <li>没有保证;</li>
@@ -471,230 +704,893 @@
 <p>对于不太在乎版权保留的人来说,可以选择GPL以外的许可证。这里的要点是,该软件是否需要与其他软件进行链接。如果预想到将来可能以某种方式与GPL许可证的软件链接在一起的话,那么与GPL的互换性就变得很重要。拥有插件功能的软件或库特别要注意这一点。作为与GPL不相矛盾的许可证,有修正BSD许可证和MIT许可证等。</p>
 <p>另一个应该考虑的要点是,与相关软件和许可证是否一致。比如 Eclipse插件就应该选择Eclipse许可证(即使不与GPL互换)。另外,PHP关联软件选择与PHP一致的许可证也是安全的。用Ruby编写的软件与Ruby本身的许可证本来是相互独立的,但好像也大都选择Rby许可证。</p>
 
-        </div>
-
-        <blockquote class="post-copyright">
-    
-    <div class="content">
-        
-<span class="post-time">
-    最后更新时间：<time datetime="2018-07-27T03:20:34.000Z" itemprop="dateUpdated">2018-07-27 11:20:34</time>
-</span><br>
-
-
-        
+      
     </div>
+
     
-    <footer>
-        <a href="https://github.com/zdkswd">
-            <img src="/img/tmg.jpg" alt="ZDK">
-            ZDK
-        </a>
+
+    
+      
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/电子书笔记/" rel="tag"># 电子书笔记</a>
+          
+            <a href="/tags/程序语言/" rel="tag"># 程序语言</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/24/松本行弘的程序世界 13 关于数据的持久化/" rel="next" title="松本行弘的程序世界 13 关于数据的持久化">
+                <i class="fa fa-chevron-left"></i> 松本行弘的程序世界 13 关于数据的持久化
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/29/《深度学习》 1 引言/" rel="prev" title="《深度学习》 1 引言">
+                《深度学习》 1 引言 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
     </footer>
-</blockquote>
-
-        
-
-
-        <div class="post-footer">
-            
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/电子书笔记/">电子书笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/程序语言/">程序语言</a></li></ul>
+  </div>
+  
+  
+  
+  </article>
 
 
-            
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
 
 
         </div>
-    </div>
-
-    
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2018/07/29/《深度学习》 1 引言/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">《深度学习》 1 引言</h4>
-      </a>
-    </div>
-  
-
-  
-    <div class="waves-block waves-effect next">
-      <a href="/2018/07/24/松本行弘的程序世界 13 关于数据的持久化/" id="post-next" class="post-nav-link">
-        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">松本行弘的程序世界 13 关于数据的持久化</h4>
-      </a>
-    </div>
-  
-</nav>
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Valine Comments -->
-    <div class="comments vcomment" id="comments"></div>
-    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
-    <!-- Valine Comments script -->
-    <script>
-        var GUEST_INFO = ['nick','mail','link'];
-        var guest_info = 'nick,mail'.split(',').filter(function(item){
-          return GUEST_INFO.indexOf(item) > -1
-        });
-        new Valine({
-            el: '#comments',
-            notify: 'true' == 'true',
-            verify: 'false' == 'true',
-            appId: "QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz",
-            appKey: "gkBx5soQkBREmER84PWbNJeM",
-            avatar: "mm",
-            placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
-            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
-            pageSize: "10"
-        })
-    </script>
-    <!-- Valine Comments end -->
-
-
-
-
-
-
-
-</article>
-
-
-
-</div>
-
-        <footer class="footer">
-    <div class="top">
         
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
-
-
-        <p>
-            
-                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-            
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
-        </p>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
     </div>
-    <div class="bottom">
-        <p><span>ZDK &copy; 2017 - 2019</span>
-            <span>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="ZDK"/>
+            
+              <p class="site-author-name" itemprop="name">ZDK</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
                 
-                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
-            </span>
-        </p>
-    </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
-    </script>
-</footer>
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">191</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
 
-    </main>
-    <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">分类</span>
+                  
+                </div>
+              
 
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">48</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
 
-    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
-<script>
-var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
-
-
-</script>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
             </div>
-            <time class="flex-col time">{date}</time>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/zdkswd" title="GitHub &rarr; https://github.com/zdkswd"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:2822464407@qq.com" title="E-Mail &rarr; mailto:2822464407@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/zdkswd" title="https://github.com/zdkswd">Title</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
         </div>
-    </a>
-</li>
-</template>
+      </div>
 
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
 
+            
+            
+            
+            
 
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#松本行弘的程序世界-14-函数式编程"><span class="nav-number">1.</span> <span class="nav-text">松本行弘的程序世界 14 函数式编程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#新范型–函数式编程"><span class="nav-number">1.1.</span> <span class="nav-text">新范型–函数式编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#具有多种函数式性质的Lisp"><span class="nav-number">1.1.1.</span> <span class="nav-text">具有多种函数式性质的Lisp</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#彻底的函数式编程语言Haskell"><span class="nav-number">1.1.2.</span> <span class="nav-text">彻底的函数式编程语言Haskell</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#没有副作用"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">没有副作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#高阶函数"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">高阶函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#延迟计算：不必要的处理就不做"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">延迟计算：不必要的处理就不做</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#灵活的“静态多态性”类型系统"><span class="nav-number">1.1.3.</span> <span class="nav-text">灵活的“静态多态性”类型系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#近代函数式语言之父OCaml"><span class="nav-number">1.1.4.</span> <span class="nav-text">近代函数式语言之父OCaml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#强于并行计算的Erlang"><span class="nav-number">1.1.5.</span> <span class="nav-text">强于并行计算的Erlang</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用Ruby进行函数式编程"><span class="nav-number">1.1.6.</span> <span class="nav-text">用Ruby进行函数式编程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Proc对象（lambda）"><span class="nav-number">1.1.6.1.</span> <span class="nav-text">Proc对象（lambda）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#程序块"><span class="nav-number">1.1.6.2.</span> <span class="nav-text">程序块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#枚举器"><span class="nav-number">1.1.6.3.</span> <span class="nav-text">枚举器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#避免副作用"><span class="nav-number">1.1.6.4.</span> <span class="nav-text">避免副作用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用枚举器来实现延迟计算"><span class="nav-number">1.1.7.</span> <span class="nav-text">用枚举器来实现延迟计算</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自动生成代码"><span class="nav-number">1.2.</span> <span class="nav-text">自动生成代码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在商业中利用Ruby"><span class="nav-number">1.2.1.</span> <span class="nav-text">在商业中利用Ruby</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用Ruby自动生成代码"><span class="nav-number">1.2.2.</span> <span class="nav-text">使用Ruby自动生成代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#消除重复代码"><span class="nav-number">1.2.3.</span> <span class="nav-text">消除重复代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码生成的应用"><span class="nav-number">1.2.4.</span> <span class="nav-text">代码生成的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库访问"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">数据库访问</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#用户接口"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">用户接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单元测试"><span class="nav-number">1.2.4.3.</span> <span class="nav-text">单元测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#客户界面"><span class="nav-number">1.2.4.4.</span> <span class="nav-text">客户界面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文档化"><span class="nav-number">1.2.4.5.</span> <span class="nav-text">文档化</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码生成的效果"><span class="nav-number">1.2.5.</span> <span class="nav-text">代码生成的效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编写代码生成器"><span class="nav-number">1.2.6.</span> <span class="nav-text">编写代码生成器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#也可以使用XML"><span class="nav-number">1.2.7.</span> <span class="nav-text">也可以使用XML</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在EJB中使用代码生成"><span class="nav-number">1.2.8.</span> <span class="nav-text">在EJB中使用代码生成</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内存管理与垃圾收集"><span class="nav-number">1.3.</span> <span class="nav-text">内存管理与垃圾收集</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#内存管理的困难"><span class="nav-number">1.3.1.</span> <span class="nav-text">内存管理的困难</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#悬挂指针"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">悬挂指针</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#内存泄漏"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">内存泄漏</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二重释放"><span class="nav-number">1.3.1.3.</span> <span class="nav-text">二重释放</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#垃圾收集亮相之前"><span class="nav-number">1.3.2.</span> <span class="nav-text">垃圾收集亮相之前</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#垃圾收集慢"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">垃圾收集慢</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#垃圾收集可靠性低"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">垃圾收集可靠性低</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#评价垃圾收集的两个指标"><span class="nav-number">1.3.3.</span> <span class="nav-text">评价垃圾收集的两个指标</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#吞吐量"><span class="nav-number">1.3.3.1.</span> <span class="nav-text">吞吐量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#暂停时间"><span class="nav-number">1.3.3.2.</span> <span class="nav-text">暂停时间</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#垃圾收集算法"><span class="nav-number">1.3.4.</span> <span class="nav-text">垃圾收集算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用计数方式"><span class="nav-number">1.3.5.</span> <span class="nav-text">引用计数方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标记和扫除方式"><span class="nav-number">1.3.6.</span> <span class="nav-text">标记和扫除方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标记和紧缩方式"><span class="nav-number">1.3.7.</span> <span class="nav-text">标记和紧缩方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复制方式"><span class="nav-number">1.3.8.</span> <span class="nav-text">复制方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多种多样的垃圾收集算法"><span class="nav-number">1.3.9.</span> <span class="nav-text">多种多样的垃圾收集算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分代垃圾收集"><span class="nav-number">1.3.10.</span> <span class="nav-text">分代垃圾收集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#保守垃圾收集"><span class="nav-number">1.3.11.</span> <span class="nav-text">保守垃圾收集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#增量垃圾收集"><span class="nav-number">1.3.12.</span> <span class="nav-text">增量垃圾收集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#并行垃圾收集"><span class="nav-number">1.3.13.</span> <span class="nav-text">并行垃圾收集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#位图标记"><span class="nav-number">1.3.14.</span> <span class="nav-text">位图标记</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用C语言来扩展Ruby"><span class="nav-number">1.4.</span> <span class="nav-text">用C语言来扩展Ruby</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#开发与执行速度的取舍"><span class="nav-number">1.4.1.</span> <span class="nav-text">开发与执行速度的取舍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展库"><span class="nav-number">1.4.2.</span> <span class="nav-text">扩展库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展库的编译"><span class="nav-number">1.4.3.</span> <span class="nav-text">扩展库的编译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展库之外的工具"><span class="nav-number">1.4.4.</span> <span class="nav-text">扩展库之外的工具</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#RubyInline"><span class="nav-number">1.4.4.1.</span> <span class="nav-text">RubyInline</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dl"><span class="nav-number">1.4.4.2.</span> <span class="nav-text">dl</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ffi"><span class="nav-number">1.4.4.3.</span> <span class="nav-text">ffi</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要开源"><span class="nav-number">1.5.</span> <span class="nav-text">为什么要开源</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自由软件的思想"><span class="nav-number">1.5.1.</span> <span class="nav-text">自由软件的思想</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自由软件的历史"><span class="nav-number">1.5.2.</span> <span class="nav-text">自由软件的历史</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Emacs事件的发生"><span class="nav-number">1.5.3.</span> <span class="nav-text">Emacs事件的发生</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开源的诞生"><span class="nav-number">1.5.4.</span> <span class="nav-text">开源的诞生</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OSS许可证"><span class="nav-number">1.5.5.</span> <span class="nav-text">OSS许可证</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#GPL"><span class="nav-number">1.5.5.1.</span> <span class="nav-text">GPL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#LGPL"><span class="nav-number">1.5.5.2.</span> <span class="nav-text">LGPL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BSD许可证"><span class="nav-number">1.5.5.3.</span> <span class="nav-text">BSD许可证</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#APL和CPL"><span class="nav-number">1.5.5.4.</span> <span class="nav-text">APL和CPL</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开源的背景"><span class="nav-number">1.5.6.</span> <span class="nav-text">开源的背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#企业关注开源的理由"><span class="nav-number">1.5.7.</span> <span class="nav-text">企业关注开源的理由</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ruby与开源"><span class="nav-number">1.5.8.</span> <span class="nav-text">Ruby与开源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择许可证的方法"><span class="nav-number">1.5.9.</span> <span class="nav-text">选择许可证的方法</span></a></li></ol></li></ol></li></ol></div>
+            
 
-<!-- mathjax config similar to math.stackexchange -->
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
+      
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
 
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-});
-</script>
-
-<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
-
-
-
-
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
 
 
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZDK</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.2.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+  </div>
+
+  
 
 <script>
-(function() {
-    var OriginTitile = document.title, titleTime;
-    document.addEventListener('visibilitychange', function() {
-        if (document.hidden) {
-            document.title = 'zdk'blog';
-            clearTimeout(titleTime);
-        } else {
-            document.title = '';
-            titleTime = setTimeout(function() {
-                document.title = OriginTitile;
-            },2000);
-        }
-    });
-})();
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
 </script>
 
 
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.2.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz',
+    appKey: 'gkBx5soQkBREmER84PWbNJeM',
+    placeholder: 'have fun',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true,
+    lang: '' || 'zh-cn'
+  });
+</script>
+
+
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('5');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
 
 </body>
 </html>

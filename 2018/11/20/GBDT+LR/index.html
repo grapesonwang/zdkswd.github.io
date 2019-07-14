@@ -1,27 +1,101 @@
 <!DOCTYPE html>
-<html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
-    
-
-    
-
-    
-
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
 
 
-    <meta charset="utf-8">
-    
-    
-    
-    
-    <title>GBDT+LR | ZDK&#39;s blog</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#3F51B5">
-    
-    
-    <meta name="keywords" content="机器学习">
-    <meta name="description" content="GBDTgbdt在各种竞赛是大放异彩。原因大概有几个，一是效果确实挺不错。二是即可以用于分类也可以用于回归。三是可以筛选特征。 GBDT如何选择特征gbdt选择特征的细节其实是想问你CART Tree生成的过程。这里有一个前提，gbdt的弱分类器默认选择的是CART TREE。其实也可以选择其他弱分类器的，选择的前提是低方差和高偏差。框架服从boosting 框架即可。 GBDT如何构建特征其实说">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.2.0',
+    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+
+
+  <meta name="description" content="GBDTgbdt在各种竞赛是大放异彩。原因大概有几个，一是效果确实挺不错。二是即可以用于分类也可以用于回归。三是可以筛选特征。 GBDT如何选择特征gbdt选择特征的细节其实是想问你CART Tree生成的过程。这里有一个前提，gbdt的弱分类器默认选择的是CART TREE。其实也可以选择其他弱分类器的，选择的前提是低方差和高偏差。框架服从boosting 框架即可。 GBDT如何构建特征其实说">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="GBDT+LR">
@@ -60,330 +134,386 @@
 <meta name="twitter:title" content="GBDT+LR">
 <meta name="twitter:description" content="GBDTgbdt在各种竞赛是大放异彩。原因大概有几个，一是效果确实挺不错。二是即可以用于分类也可以用于回归。三是可以筛选特征。 GBDT如何选择特征gbdt选择特征的细节其实是想问你CART Tree生成的过程。这里有一个前提，gbdt的弱分类器默认选择的是CART TREE。其实也可以选择其他弱分类器的，选择的前提是低方差和高偏差。框架服从boosting 框架即可。 GBDT如何构建特征其实说">
 <meta name="twitter:image" content="https://github.com/img/media/GBDT+LR/20180128125923199.png">
-    
-        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
-    
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
-    <script>window.lazyScripts=[]</script>
 
-    <!-- custom head -->
-    
+
+
+  <link rel="alternate" href="/atom.xml" title="ZDK's blog" type="application/atom+xml"/>
+
+
+
+  
+  
+  <link rel="canonical" href="https://github.com/zdkswd/2018/11/20/GBDT+LR/"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>GBDT+LR | ZDK's blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
 
 </head>
 
-<body>
-    <div id="loading" class="active"></div>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
-    <aside id="menu" class="hide" >
-  <div class="inner flex-row-vertical">
-    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-        <i class="icon icon-lg icon-close"></i>
-    </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
-      <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/tmg.jpg">
-        </a>
-        <hgroup class="introduce">
-          <h5 class="nickname">ZDK</h5>
-          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
-        </hgroup>
-      </div>
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ZDK's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
-    <div class="scroll-wrap flex-col">
-      <ul class="nav">
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
         
-            <li class="waves-block waves-effect">
-              <a href="/"  >
-                <i class="icon icon-lg icon-home"></i>
-                主页
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                Archives
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/tags"  >
-                <i class="icon icon-lg icon-tags"></i>
-                Tags
-              </a>
-            </li>
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>首页</a>
+
+  </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/categories"  >
-                <i class="icon icon-lg icon-th-list"></i>
-                Categories
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="https://github.com/zdkswd" target="_blank" >
-                <i class="icon icon-lg icon-github"></i>
-                Github
-              </a>
-            </li>
         
-      </ul>
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>归档</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br/>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
     </div>
   </div>
-</aside>
+  <div id="local-search-result"></div>
+</div>
 
-    <main id="main">
-        <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis">GBDT+LR</div>
-        
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
-        </div>
-        
-        
+
+
     </div>
-</header>
-<header class="content-header post-header">
-
-    <div class="container fade-scale">
-        <h1 class="title">GBDT+LR</h1>
-        <h5 class="subtitle">
-            
-                <time datetime="2018-11-20T07:56:56.000Z" itemprop="datePublished" class="page-time">
-  2018-11-20
-</time>
+  
+</nav>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
 
-            
-        </h5>
-    </div>
+</div>
+    </header>
 
     
 
 
-</header>
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
 
+          
+          <div id="content" class="content">
+            
 
-<div class="container body-wrap">
+  <div id="posts" class="posts-expand">
     
-    <aside class="post-widget">
-        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
-            <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#GBDT"><span class="post-toc-number">1.</span> <span class="post-toc-text">GBDT</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GBDT如何选择特征"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">GBDT如何选择特征</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GBDT如何构建特征"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">GBDT如何构建特征</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GBDT如何用于分类"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">GBDT如何用于分类</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GB训练强学习器的思路"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">GB训练强学习器的思路</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GBDT原理"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">GBDT原理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GBDT例"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">GBDT例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GDBT分类篇"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">GDBT分类篇</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#分类例"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">分类例</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#GBDT-LR"><span class="post-toc-number">2.</span> <span class="post-toc-text">GBDT+LR</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#背景"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">背景</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GBDT-LR的结构"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">GBDT+LR的结构</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#RF-LR-Xgb-LR"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">RF + LR ? Xgb + LR?</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GBDT与LR融合具体方案"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">GBDT与LR融合具体方案</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#如何使用得到的特征？"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">如何使用得到的特征？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#总结"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">总结</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#GBDT-LR-代码"><span class="post-toc-number">3.</span> <span class="post-toc-text">GBDT + LR 代码</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#sklearn多种模型ROC比较"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">sklearn多种模型ROC比较</span></a></li></ol></li></ol>
-        </nav>
-    </aside>
 
+  
 
-<article id="post-GBDT+LR"
-  class="post-article article-type-post fade" itemprop="blogPost">
+  
+  
+  
 
-    <div class="post-card">
-        <h1 class="post-card-title">GBDT+LR</h1>
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2018/11/20/GBDT+LR/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZDK"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZDK's blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">GBDT+LR
+
+              
+            
+          </h1>
+        
+
         <div class="post-meta">
-            <time class="post-time" title="2018-11-20 15:56:56" datetime="2018-11-20T07:56:56.000Z"  itemprop="datePublished">2018-11-20</time>
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-11-20 15:56:56 / 修改时间：20:03:32" itemprop="dateCreated datePublished" datetime="2018-11-20T15:56:56+08:00">2018-11-20</time>
+            </span>
+          
+
+          
+            
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+          
 
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/知识总结/" itemprop="url" rel="index"><span itemprop="name">知识总结</span></a></span>
 
+                
+                
+              
+            </span>
+          
 
+          
             
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
-    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
-</span>
+            
+              
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2018/11/20/GBDT+LR/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/11/20/GBDT+LR/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
 
+          
+          
+            <span id="/2018/11/20/GBDT+LR/" class="post-meta-item leancloud_visitors" data-flag-title="GBDT+LR">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          <br/>
+          
+
+          
+
+          
 
         </div>
-        <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="GBDT"><a href="#GBDT" class="headerlink" title="GBDT"></a>GBDT</h1><p>gbdt在各种竞赛是大放异彩。原因大概有几个，一是效果确实挺不错。二是即可以用于分类也可以用于回归。三是可以筛选特征。</p>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="GBDT"><a href="#GBDT" class="headerlink" title="GBDT"></a>GBDT</h1><p>gbdt在各种竞赛是大放异彩。原因大概有几个，一是效果确实挺不错。二是即可以用于分类也可以用于回归。三是可以筛选特征。</p>
 <h2 id="GBDT如何选择特征"><a href="#GBDT如何选择特征" class="headerlink" title="GBDT如何选择特征"></a>GBDT如何选择特征</h2><p>gbdt选择特征的细节其实是想问你CART Tree生成的过程。这里有一个前提，gbdt的弱分类器默认选择的是CART TREE。其实也可以选择其他弱分类器的，选择的前提是低方差和高偏差。框架服从boosting 框架即可。</p>
 <h2 id="GBDT如何构建特征"><a href="#GBDT如何构建特征" class="headerlink" title="GBDT如何构建特征"></a>GBDT如何构建特征</h2><p>其实说gbdt 能够构建特征并非很准确，gbdt 本身是不能产生特征的，但是我们可以利用gbdt去产生特征的组合。逻辑回归本身是适合处理线性可分的数据，如果我们想让逻辑回归处理非线性的数据，其中一种方式便是组合不同特征，增强逻辑回归对非线性分布的拟合能力。</p>
 <h2 id="GBDT如何用于分类"><a href="#GBDT如何用于分类" class="headerlink" title="GBDT如何用于分类"></a>GBDT如何用于分类</h2><p>GBDT 无论用于分类还是回归一直都是使用的CART <strong>回归树</strong>。不会因为我们所选择的任务是分类任务就选用分类树。</p>
-<h2 id="GB训练强学习器的思路"><a href="#GB训练强学习器的思路" class="headerlink" title="GB训练强学习器的思路"></a>GB训练强学习器的思路</h2><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/GBDT+LR/20180128125923199.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%887.49.46.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%887.50.37.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%887.51.41.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<h2 id="GB训练强学习器的思路"><a href="#GB训练强学习器的思路" class="headerlink" title="GB训练强学习器的思路"></a>GB训练强学习器的思路</h2><p><img src="/img/media/GBDT+LR/20180128125923199.png" alt=""><br><img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%887.49.46.png" alt=""><br><img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%887.50.37.png" alt=""><br><img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%887.51.41.png" alt=""></p>
 <h2 id="GBDT原理"><a href="#GBDT原理" class="headerlink" title="GBDT原理"></a>GBDT原理</h2><p>对于任意的基分类器都可以利用GB的思想训练一个强分类器。而把基分类器选为决策树（DT)时，就是我们常用的GBDT。 </p>
-<p>对于回归任务，当选择的loss function为Least-square。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%887.53.47.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>伪代码为：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%887.54.12.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%887.54.38.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<h2 id="GBDT例"><a href="#GBDT例" class="headerlink" title="GBDT例"></a>GBDT例</h2><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%887.57.53.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.07.14.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.07.26.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.07.41.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.07.59.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.08.19.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<h2 id="GDBT分类篇"><a href="#GDBT分类篇" class="headerlink" title="GDBT分类篇"></a>GDBT分类篇</h2><p>对于回归和分类，其实GBDT过程简直就是一模一样的。如果说最大的不同的话，那就是在于由于loss function不同而引起的初始化不同、叶子节点取值不同。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.12.08.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<h2 id="分类例"><a href="#分类例" class="headerlink" title="分类例"></a>分类例</h2><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.13.52.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.14.09.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.16.19.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.17.24.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.18.13.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.18.24.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.18.57.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.19.42.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.21.16.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p>对于回归任务，当选择的loss function为Least-square。<br><img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%887.53.47.png" alt=""><br>伪代码为：<br><img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%887.54.12.png" alt=""><br><img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%887.54.38.png" alt=""></p>
+<h2 id="GBDT例"><a href="#GBDT例" class="headerlink" title="GBDT例"></a>GBDT例</h2><p><img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%887.57.53.png" alt=""><br><img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.07.14.png" alt=""><br><img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.07.26.png" alt=""><br><img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.07.41.png" alt=""><br><img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.07.59.png" alt=""><br><img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.08.19.png" alt=""></p>
+<h2 id="GDBT分类篇"><a href="#GDBT分类篇" class="headerlink" title="GDBT分类篇"></a>GDBT分类篇</h2><p>对于回归和分类，其实GBDT过程简直就是一模一样的。如果说最大的不同的话，那就是在于由于loss function不同而引起的初始化不同、叶子节点取值不同。<br><img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.12.08.png" alt=""></p>
+<h2 id="分类例"><a href="#分类例" class="headerlink" title="分类例"></a>分类例</h2><p><img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.13.52.png" alt=""><br><img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.14.09.png" alt=""><br><img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.16.19.png" alt=""><br><img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.17.24.png" alt=""><br><img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.18.13.png" alt=""><br><img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.18.24.png" alt=""><br><img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.18.57.png" alt=""><br><img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.19.42.png" alt=""><br><img src="/img/media/GBDT+LR/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-16%20%E4%B8%8B%E5%8D%888.21.16.png" alt=""></p>
 <p>多分类：<a href="https://blog.csdn.net/qq_22238533/article/details/79199605" target="_blank" rel="noopener">GBDT原理与实践-多分类篇 - SCUT_Sam - CSDN博客</a></p>
 <h1 id="GBDT-LR"><a href="#GBDT-LR" class="headerlink" title="GBDT+LR"></a>GBDT+LR</h1><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>CTR预估（Click-Through Rate Prediction）是互联网计算广告中的关键环节，预估准确性直接影响公司广告收入。CTR预估中用的最多的模型是LR（Logistic Regression），LR是广义线性模型，与传统线性模型相比，LR使用了Logit变换将函数值映射到0~1区间，映射后的函数值就是CTR的预估值。LR这种线性模型很容易并行化，处理上亿条训练样本不是问题，但线性模型学习能力有限，需要大量特征工程预先分析出有效的特征、特征组合，从而去间接增强LR的非线性学习能力。</p>
 <p>LR模型中的特征组合很关键， 但又无法直接通过特征笛卡尔积解决，只能依靠人工经验，耗时耗力同时并不一定会带来效果提升。如何自动发现有效的特征、特征组合，弥补人工经验不足，缩短LR特征实验周期，是亟需解决的问题。Facebook 2014年的文章介绍了通过GBDT（Gradient Boost Decision Tree）解决LR的特征组合问题，随后Kaggle竞赛也有实践此思路，GBDT与LR融合开始引起了业界关注。</p>
 <p>GBDT（Gradient Boost Decision Tree）是一种常用的非线性模型，它基于集成学习中的boosting思想，每次迭代都在减少残差的梯度方向新建立一颗决策树，迭代多少次就会生成多少颗决策树。GBDT的思想使其具有天然优势可以发现多种有区分性的特征以及特征组合，决策树的路径可以直接作为LR输入特征使用，省去了人工寻找特征、特征组合的步骤。这种通过GBDT生成LR特征的方式（GBDT+LR），业界已有实践（Facebook，Kaggle-2014），且效果不错，是非常值得尝试的思路。</p>
-<p>融合前人工寻找有区分性特征（raw feature）、特征组合、融合后直接通过黑盒子（Tree模型GBDT）进行特征、特种组合的自动发现。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/GBDT+LR/2127249-a81329ce18881864.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<p>融合前人工寻找有区分性特征（raw feature）、特征组合、融合后直接通过黑盒子（Tree模型GBDT）进行特征、特种组合的自动发现。<br><img src="/img/media/GBDT+LR/2127249-a81329ce18881864.png" alt=""></p>
 <p>在介绍这个模型之前，我们先来介绍两个问题：</p>
 <ol>
 <li>为什么要使用集成的决策树模型而不是单颗的决策树模型：<br>一棵树的表达能力很弱，不足以表达多个有区分性的特征组合，多棵树的表达能力更强一些。GBDT每棵树都在学习前面棵树尚存的不足，迭代多少次就会生成多少颗树。按paper以及Kaggle竞赛中的GBDT+LR融合方式，多棵树正好满足LR每条训练样本可以通过GBDT映射成多个特征的需求。</li>
@@ -396,13 +526,7 @@
 <li>与通常做法不同的是，当GBDT训练好做预测的时候，输出的并不是最终的二分类概率值，而是要把模型中的每棵树计算得到的预测概率值所属的叶子结点位置记为1，这样，就构造出了新的训练数据。在用GBDT构造新的训练数据时，采用的正是One-hot方法。并且由于每一弱分类器有且只有一个叶子节点输出预测结果，所以在一个具有n个弱分类器、共计m个叶子结点的GBDT中，每一条训练数据都会被转换为1*m维稀疏向量，且有n个元素为1，其余m-n 个元素全为0。</li>
 <li>新的训练数据构造完成后，下一步就要与原始的训练数据中的label(输出)数据一并输入到Logistic Regression分类器中进行最终分类器的训练。思考一下，在对原始数据进行GBDT提取为新的数据这一操作之后，数据不仅变得稀疏，而且由于弱分类器个数，叶子结点个数的影响，可能会导致新的训练数据特征维度过大的问题，因此，在Logistic Regression这一层中，可使用正则化来减少过拟合的风险，在Facebook的论文中采用的是L1正则化。</li>
 </ol>
-<p>GBDT与LR的融合方式，Facebook的paper有个例子如下图2所示，图中Tree1、Tree2为通过GBDT模型学出来的两颗树，x为一条输入样本，遍历两棵树后，x样本分别落到两颗树的叶子节点上，每个叶子节点对应LR一维特征，那么通过遍历树，就得到了该样本对应的所有LR特征。由于树的每条路径，是通过最小化均方差等方法最终分割出来的有区分性路径，根据该路径得到的特征、特征组合都相对有区分性，效果理论上不会亚于人工经验的处理方式。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/GBDT+LR/1473228-20180917183111311-2021770645.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>论文中GBDT的参数，树的数量最多500颗（500以上就没有提升了），每棵树的节点不多于12。</p>
+<p>GBDT与LR的融合方式，Facebook的paper有个例子如下图2所示，图中Tree1、Tree2为通过GBDT模型学出来的两颗树，x为一条输入样本，遍历两棵树后，x样本分别落到两颗树的叶子节点上，每个叶子节点对应LR一维特征，那么通过遍历树，就得到了该样本对应的所有LR特征。由于树的每条路径，是通过最小化均方差等方法最终分割出来的有区分性路径，根据该路径得到的特征、特征组合都相对有区分性，效果理论上不会亚于人工经验的处理方式。<br><img src="/img/media/GBDT+LR/1473228-20180917183111311-2021770645.png" alt=""><br>论文中GBDT的参数，树的数量最多500颗（500以上就没有提升了），每棵树的节点不多于12。</p>
 <p>GBDT模型的特点，非常适合用来挖掘有效的特征、特征组合。业界不仅GBDT+LR融合有实践，GBDT+FM也有实践，2014 Kaggle CTR竞赛冠军就是使用GBDT+FM（因子分解机），可见，使用GBDT融合其它模型是非常值得尝试的思路。</p>
 <h2 id="RF-LR-Xgb-LR"><a href="#RF-LR-Xgb-LR" class="headerlink" title="RF + LR ? Xgb + LR?"></a>RF + LR ? Xgb + LR?</h2><p>例如Random Forest以及Xgboost等是并不是也可以按类似的方式来构造新的训练样本呢？没错，所有这些基于树的模型都可以和Logistic Regression分类器组合。</p>
 <p>RF也是多棵树，但从效果上有实践证明不如GBDT。且GBDT前面的树，特征分裂主要体现对多数样本有区分度的特征；后面的树，主要体现的是经过前N颗树，残差仍然较大的少数样本。优先选用在整体上有区分度的特征，再选用针对少数样本有区分度的特征，思路更加合理，这应该也是用GBDT的原因。</p>
@@ -413,242 +537,896 @@
 <li>ID类树：<br>以细粒度 的ID建一类树（每个ID构建GBDT），用于发现曝光充分的ID对应有区分性的特征、特征组合。</li>
 </ol>
 <p>如何根据GBDT建的两类树，对原始特征进行映射？当一条样本x进来之后，遍历两类树到叶子节点，得到的特征作为LR的输入。当AD曝光不充分不足以训练树时，其它树恰好作为补充。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/GBDT+LR/GBDT%E5%8E%9F%E7%90%86%E5%8F%8A%E5%88%A9%E7%94%A8GBDT%E6%9E%84%E9%80%A0%E6%96%B0%E7%9A%84%E7%89%B9%E5%BE%814.jpg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<p>通过GBDT转换得到特征空间相比于原始ID低了很多。</p>
+<p><img src="/img/media/GBDT+LR/GBDT%E5%8E%9F%E7%90%86%E5%8F%8A%E5%88%A9%E7%94%A8GBDT%E6%9E%84%E9%80%A0%E6%96%B0%E7%9A%84%E7%89%B9%E5%BE%814.jpg" alt=""><br>通过GBDT转换得到特征空间相比于原始ID低了很多。</p>
 <h2 id="如何使用得到的特征？"><a href="#如何使用得到的特征？" class="headerlink" title="如何使用得到的特征？"></a>如何使用得到的特征？</h2><p>通过GBDT生成的特征，可直接作为LR的特征使用，省去人工处理分析特征的环节，LR的输入特征完全依赖于通过GBDT得到的特征。此思路已尝试，通过实验发现GBDT+LR在曝光充分的广告上确实有效果，但整体效果需要权衡优化各类树的使用。同时，也可考虑将GBDT生成特征与LR原有特征结合起来使用，待尝试。</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>对于样本量大的数据，线性模型具有训练速度快的特点，但线性模型学习能力限于线性可分数据，所以就需要特征工程将数据尽可能地从输入空间转换到线性可分的特征空间。GBDT与LR的融合模型，其实使用GBDT来发掘有区分度的特征以及组合特征，来替代人工组合特征</p>
 <h1 id="GBDT-LR-代码"><a href="#GBDT-LR-代码" class="headerlink" title="GBDT + LR 代码"></a>GBDT + LR 代码</h1><h2 id="sklearn多种模型ROC比较"><a href="#sklearn多种模型ROC比较" class="headerlink" title="sklearn多种模型ROC比较"></a>sklearn多种模型ROC比较</h2><p><a href="https://github.com/zdkswd/MLcode/blob/master/scikit-learn-code/sklearn-gbdt%2Blr.py">MLcode/sklearn-gbdt+lr.py at master · zdkswd/MLcode · GitHub</a></p>
 
-        </div>
-
-        <blockquote class="post-copyright">
-    
-    <div class="content">
-        
-<span class="post-time">
-    最后更新时间：<time datetime="2018-11-20T12:03:32.000Z" itemprop="dateUpdated">2018-11-20 20:03:32</time>
-</span><br>
-
-
-        
+      
     </div>
+
     
-    <footer>
-        <a href="https://github.com/zdkswd">
-            <img src="/img/tmg.jpg" alt="ZDK">
-            ZDK
-        </a>
+
+    
+      
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/16/提升 boosting/" rel="next" title="提升 boosting">
+                <i class="fa fa-chevron-left"></i> 提升 boosting
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/20/精确率、召回率、真正类率（TPR）、假正类率（FPR）ROC曲线/" rel="prev" title="精确率、召回率、真正类率（TPR）、假正类率（FPR）ROC曲线">
+                精确率、召回率、真正类率（TPR）、假正类率（FPR）ROC曲线 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
     </footer>
-</blockquote>
-
-        
-
-
-        <div class="post-footer">
-            
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li></ul>
+  </div>
+  
+  
+  
+  </article>
 
 
-            
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
 
 
         </div>
-    </div>
-
-    
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2018/11/20/精确率、召回率、真正类率（TPR）、假正类率（FPR）ROC曲线/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">精确率、召回率、真正类率（TPR）、假正类率（FPR）ROC曲线</h4>
-      </a>
-    </div>
-  
-
-  
-    <div class="waves-block waves-effect next">
-      <a href="/2018/11/16/提升 boosting/" id="post-next" class="post-nav-link">
-        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">提升 boosting</h4>
-      </a>
-    </div>
-  
-</nav>
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Valine Comments -->
-    <div class="comments vcomment" id="comments"></div>
-    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
-    <!-- Valine Comments script -->
-    <script>
-        var GUEST_INFO = ['nick','mail','link'];
-        var guest_info = 'nick,mail'.split(',').filter(function(item){
-          return GUEST_INFO.indexOf(item) > -1
-        });
-        new Valine({
-            el: '#comments',
-            notify: 'true' == 'true',
-            verify: 'false' == 'true',
-            appId: "QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz",
-            appKey: "gkBx5soQkBREmER84PWbNJeM",
-            avatar: "mm",
-            placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
-            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
-            pageSize: "10"
-        })
-    </script>
-    <!-- Valine Comments end -->
-
-
-
-
-
-
-
-</article>
-
-
-
-</div>
-
-        <footer class="footer">
-    <div class="top">
         
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
-
-
-        <p>
-            
-                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-            
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
-        </p>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
     </div>
-    <div class="bottom">
-        <p><span>ZDK &copy; 2017 - 2019</span>
-            <span>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="ZDK"/>
+            
+              <p class="site-author-name" itemprop="name">ZDK</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
                 
-                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
-            </span>
-        </p>
-    </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
-    </script>
-</footer>
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">191</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
 
-    </main>
-    <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">分类</span>
+                  
+                </div>
+              
 
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">48</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
 
-    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
-<script>
-var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
-
-
-</script>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
             </div>
-            <time class="flex-col time">{date}</time>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/zdkswd" title="GitHub &rarr; https://github.com/zdkswd"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:2822464407@qq.com" title="E-Mail &rarr; mailto:2822464407@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/zdkswd" title="https://github.com/zdkswd">Title</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
         </div>
-    </a>
-</li>
-</template>
+      </div>
 
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
 
+            
+            
+            
+            
 
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#GBDT"><span class="nav-number">1.</span> <span class="nav-text">GBDT</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#GBDT如何选择特征"><span class="nav-number">1.1.</span> <span class="nav-text">GBDT如何选择特征</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GBDT如何构建特征"><span class="nav-number">1.2.</span> <span class="nav-text">GBDT如何构建特征</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GBDT如何用于分类"><span class="nav-number">1.3.</span> <span class="nav-text">GBDT如何用于分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GB训练强学习器的思路"><span class="nav-number">1.4.</span> <span class="nav-text">GB训练强学习器的思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GBDT原理"><span class="nav-number">1.5.</span> <span class="nav-text">GBDT原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GBDT例"><span class="nav-number">1.6.</span> <span class="nav-text">GBDT例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GDBT分类篇"><span class="nav-number">1.7.</span> <span class="nav-text">GDBT分类篇</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分类例"><span class="nav-number">1.8.</span> <span class="nav-text">分类例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#GBDT-LR"><span class="nav-number">2.</span> <span class="nav-text">GBDT+LR</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">2.1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GBDT-LR的结构"><span class="nav-number">2.2.</span> <span class="nav-text">GBDT+LR的结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RF-LR-Xgb-LR"><span class="nav-number">2.3.</span> <span class="nav-text">RF + LR ? Xgb + LR?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GBDT与LR融合具体方案"><span class="nav-number">2.4.</span> <span class="nav-text">GBDT与LR融合具体方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何使用得到的特征？"><span class="nav-number">2.5.</span> <span class="nav-text">如何使用得到的特征？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">2.6.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#GBDT-LR-代码"><span class="nav-number">3.</span> <span class="nav-text">GBDT + LR 代码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#sklearn多种模型ROC比较"><span class="nav-number">3.1.</span> <span class="nav-text">sklearn多种模型ROC比较</span></a></li></ol></li></ol></div>
+            
 
-<!-- mathjax config similar to math.stackexchange -->
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
+      
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
 
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-});
-</script>
-
-<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
-
-
-
-
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
 
 
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZDK</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.2.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+  </div>
+
+  
 
 <script>
-(function() {
-    var OriginTitile = document.title, titleTime;
-    document.addEventListener('visibilitychange', function() {
-        if (document.hidden) {
-            document.title = 'zdk'blog';
-            clearTimeout(titleTime);
-        } else {
-            document.title = '';
-            titleTime = setTimeout(function() {
-                document.title = OriginTitile;
-            },2000);
-        }
-    });
-})();
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
 </script>
 
 
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.2.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz',
+    appKey: 'gkBx5soQkBREmER84PWbNJeM',
+    placeholder: 'have fun',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true,
+    lang: '' || 'zh-cn'
+  });
+</script>
+
+
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('5');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
 
 </body>
 </html>

@@ -1,27 +1,101 @@
 <!DOCTYPE html>
-<html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
-    
-
-    
-
-    
-
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
 
 
-    <meta charset="utf-8">
-    
-    
-    
-    
-    <title>百面 优化算法 | ZDK&#39;s blog</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#3F51B5">
-    
-    
-    <meta name="keywords" content="机器学习">
-    <meta name="description" content="百面 优化算法机器学习算法=模型表征+模型评估+优化算法优化算法所做的事情就是在模型表征空间中找到模型评估指标最好的模型。经典的支持向量机对应的模型表征和评估指标分别为线性分类模型和最大间隔，逻辑回归对应的模型表征和评估指标则分别为线性分类模型和交叉熵。 有监督学习的损失函数问：有监督学习涉及的损失函数有哪些？请列举并简述它们的特点。 答：在有监督学习中，损失函数刻画了模型和训练样本的匹配程度。对">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.2.0',
+    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+
+
+  <meta name="description" content="百面 优化算法机器学习算法=模型表征+模型评估+优化算法优化算法所做的事情就是在模型表征空间中找到模型评估指标最好的模型。经典的支持向量机对应的模型表征和评估指标分别为线性分类模型和最大间隔，逻辑回归对应的模型表征和评估指标则分别为线性分类模型和交叉熵。 有监督学习的损失函数问：有监督学习涉及的损失函数有哪些？请列举并简述它们的特点。 答：在有监督学习中，损失函数刻画了模型和训练样本的匹配程度。对">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="百面 优化算法">
@@ -74,317 +148,383 @@
 <meta name="twitter:title" content="百面 优化算法">
 <meta name="twitter:description" content="百面 优化算法机器学习算法=模型表征+模型评估+优化算法优化算法所做的事情就是在模型表征空间中找到模型评估指标最好的模型。经典的支持向量机对应的模型表征和评估指标分别为线性分类模型和最大间隔，逻辑回归对应的模型表征和评估指标则分别为线性分类模型和交叉熵。 有监督学习的损失函数问：有监督学习涉及的损失函数有哪些？请列举并简述它们的特点。 答：在有监督学习中，损失函数刻画了模型和训练样本的匹配程度。对">
 <meta name="twitter:image" content="https://github.com/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%888.33.40.png">
-    
-        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
-    
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
-    <script>window.lazyScripts=[]</script>
 
-    <!-- custom head -->
-    
+
+
+  <link rel="alternate" href="/atom.xml" title="ZDK's blog" type="application/atom+xml"/>
+
+
+
+  
+  
+  <link rel="canonical" href="https://github.com/zdkswd/2019/05/14/百面 优化算法/"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>百面 优化算法 | ZDK's blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
 
 </head>
 
-<body>
-    <div id="loading" class="active"></div>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
-    <aside id="menu" class="hide" >
-  <div class="inner flex-row-vertical">
-    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-        <i class="icon icon-lg icon-close"></i>
-    </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
-      <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/tmg.jpg">
-        </a>
-        <hgroup class="introduce">
-          <h5 class="nickname">ZDK</h5>
-          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
-        </hgroup>
-      </div>
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ZDK's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
-    <div class="scroll-wrap flex-col">
-      <ul class="nav">
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
         
-            <li class="waves-block waves-effect">
-              <a href="/"  >
-                <i class="icon icon-lg icon-home"></i>
-                主页
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                Archives
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/tags"  >
-                <i class="icon icon-lg icon-tags"></i>
-                Tags
-              </a>
-            </li>
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>首页</a>
+
+  </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/categories"  >
-                <i class="icon icon-lg icon-th-list"></i>
-                Categories
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="https://github.com/zdkswd" target="_blank" >
-                <i class="icon icon-lg icon-github"></i>
-                Github
-              </a>
-            </li>
         
-      </ul>
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>归档</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br/>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
     </div>
   </div>
-</aside>
+  <div id="local-search-result"></div>
+</div>
 
-    <main id="main">
-        <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis">百面 优化算法</div>
-        
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
-        </div>
-        
-        
+
+
     </div>
-</header>
-<header class="content-header post-header">
-
-    <div class="container fade-scale">
-        <h1 class="title">百面 优化算法</h1>
-        <h5 class="subtitle">
-            
-                <time datetime="2019-05-14T01:45:47.000Z" itemprop="datePublished" class="page-time">
-  2019-05-14
-</time>
+  
+</nav>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
 
-            
-        </h5>
-    </div>
+</div>
+    </header>
 
     
 
 
-</header>
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
 
+          
+          <div id="content" class="content">
+            
 
-<div class="container body-wrap">
+  <div id="posts" class="posts-expand">
     
-    <aside class="post-widget">
-        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
-            <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#百面-优化算法"><span class="post-toc-number">1.</span> <span class="post-toc-text">百面 优化算法</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#有监督学习的损失函数"><span class="post-toc-number">2.</span> <span class="post-toc-text">有监督学习的损失函数</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#机器学习中的优化问题"><span class="post-toc-number">3.</span> <span class="post-toc-text">机器学习中的优化问题</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#经典优化算法"><span class="post-toc-number">4.</span> <span class="post-toc-text">经典优化算法</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#梯度验证"><span class="post-toc-number">5.</span> <span class="post-toc-text">梯度验证</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#随机梯度下降法"><span class="post-toc-number">6.</span> <span class="post-toc-text">随机梯度下降法</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#随机梯度下降法的加速"><span class="post-toc-number">7.</span> <span class="post-toc-text">随机梯度下降法的加速</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#L1正则化与稀疏性"><span class="post-toc-number">8.</span> <span class="post-toc-text">L1正则化与稀疏性</span></a></li></ol>
-        </nav>
-    </aside>
 
+  
 
-<article id="post-百面 优化算法"
-  class="post-article article-type-post fade" itemprop="blogPost">
+  
+  
+  
 
-    <div class="post-card">
-        <h1 class="post-card-title">百面 优化算法</h1>
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2019/05/14/百面 优化算法/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZDK"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZDK's blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">百面 优化算法
+
+              
+            
+          </h1>
+        
+
         <div class="post-meta">
-            <time class="post-time" title="2019-05-14 09:45:47" datetime="2019-05-14T01:45:47.000Z"  itemprop="datePublished">2019-05-14</time>
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-14 09:45:47 / 修改时间：09:47:10" itemprop="dateCreated datePublished" datetime="2019-05-14T09:45:47+08:00">2019-05-14</time>
+            </span>
+          
+
+          
+            
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+          
 
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/知识总结/" itemprop="url" rel="index"><span itemprop="name">知识总结</span></a></span>
 
+                
+                
+              
+            </span>
+          
 
+          
             
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
-    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
-</span>
+            
+              
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/05/14/百面 优化算法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/14/百面 优化算法/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
 
+          
+          
+            <span id="/2019/05/14/百面 优化算法/" class="post-meta-item leancloud_visitors" data-flag-title="百面 优化算法">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          <br/>
+          
+
+          
+
+          
 
         </div>
-        <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="百面-优化算法"><a href="#百面-优化算法" class="headerlink" title="百面 优化算法"></a>百面 优化算法</h1><p>机器学习算法=模型表征+模型评估+优化算法<br>优化算法所做的事情就是在模型表征空间中找到模型评估指标最好的模型。<br>经典的支持向量机对应的模型表征和评估指标分别为线性分类模型和最大间隔，逻辑回归对应的模型表征和评估指标则分别为线性分类模型和交叉熵。</p>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="百面-优化算法"><a href="#百面-优化算法" class="headerlink" title="百面 优化算法"></a>百面 优化算法</h1><p>机器学习算法=模型表征+模型评估+优化算法<br>优化算法所做的事情就是在模型表征空间中找到模型评估指标最好的模型。<br>经典的支持向量机对应的模型表征和评估指标分别为线性分类模型和最大间隔，逻辑回归对应的模型表征和评估指标则分别为线性分类模型和交叉熵。</p>
 <h1 id="有监督学习的损失函数"><a href="#有监督学习的损失函数" class="headerlink" title="有监督学习的损失函数"></a>有监督学习的损失函数</h1><p><strong>问：有监督学习涉及的损失函数有哪些？请列举并简述它们的特点。</strong></p>
-<p>答：在有监督学习中，损失函数刻画了模型和训练样本的匹配程度。<br>对于二分类问题，最自然地损失函数是0-1损失。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%888.33.40.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>其中1p是指示函数，当且仅当p为真时取值为1，否则取值为0。该损失函数能够直观地刻画分类的错误率，但是由于其非凸非光滑的特点，使得算法很难直接对其进行优化。<br>0-1损失的一个代理损失函数是hinge损失函数。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%888.35.50.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>hinge损失函数是0-1损失函数相对紧的凸上界，且当fy&gt;=1时，该函数不对其做任何惩罚。hinge损失在fy=1处不可导，因此不能用梯度下降法进行优化，而是用<strong>次梯度下降法</strong>。<br>0-1损失的另一个代理损失函数是logistic损失函数：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%888.38.32.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>logistic损失函数也是0-1损失函数的凸上界，且该函数处处光滑，因此可以用梯度下降法进行优化。但是，该损失函数对所有样本点都有所惩罚，因此对异常值相对更敏感一些。<br>当预测值f属于[-1,1]时，另一个代理损失函数就是交叉熵损失函数。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%888.56.54.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>交叉熵损失函数也是0-1损失函数的光滑凸上界。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%888.57.28.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<p>对于回归问题，最常用的损失函数是平方损失函数。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%888.58.48.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>平方损失函数是光滑函数，能够用梯度下降法进行优化。当预测值距离真实值越远时，平方损失函数的惩罚力度越大，因为它对异常点比较敏感。可以采用绝对损失函数来解决这个问题。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%889.02.05.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>绝对损失对异常点更鲁棒一些，但是绝对损失函数在f=y处无法求导数。综合考虑可导性和对异常点的鲁棒性，可以采用huber损失函数。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%889.18.43.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br> huber损失函数在|f-y|较小时为平方损失，在|f-y|较大时为线性损失，处处可导，且对异常点鲁棒。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%889.21.47.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<p>答：在有监督学习中，损失函数刻画了模型和训练样本的匹配程度。<br>对于二分类问题，最自然地损失函数是0-1损失。<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%888.33.40.png" alt=""><br>其中1p是指示函数，当且仅当p为真时取值为1，否则取值为0。该损失函数能够直观地刻画分类的错误率，但是由于其非凸非光滑的特点，使得算法很难直接对其进行优化。<br>0-1损失的一个代理损失函数是hinge损失函数。<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%888.35.50.png" alt=""><br>hinge损失函数是0-1损失函数相对紧的凸上界，且当fy&gt;=1时，该函数不对其做任何惩罚。hinge损失在fy=1处不可导，因此不能用梯度下降法进行优化，而是用<strong>次梯度下降法</strong>。<br>0-1损失的另一个代理损失函数是logistic损失函数：<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%888.38.32.png" alt=""><br>logistic损失函数也是0-1损失函数的凸上界，且该函数处处光滑，因此可以用梯度下降法进行优化。但是，该损失函数对所有样本点都有所惩罚，因此对异常值相对更敏感一些。<br>当预测值f属于[-1,1]时，另一个代理损失函数就是交叉熵损失函数。<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%888.56.54.png" alt=""><br>交叉熵损失函数也是0-1损失函数的光滑凸上界。<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%888.57.28.png" alt=""></p>
+<p>对于回归问题，最常用的损失函数是平方损失函数。<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%888.58.48.png" alt=""><br>平方损失函数是光滑函数，能够用梯度下降法进行优化。当预测值距离真实值越远时，平方损失函数的惩罚力度越大，因为它对异常点比较敏感。可以采用绝对损失函数来解决这个问题。<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%889.02.05.png" alt=""><br>绝对损失对异常点更鲁棒一些，但是绝对损失函数在f=y处无法求导数。综合考虑可导性和对异常点的鲁棒性，可以采用huber损失函数。<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%889.18.43.png" alt=""><br> huber损失函数在|f-y|较小时为平方损失，在|f-y|较大时为线性损失，处处可导，且对异常点鲁棒。<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%889.21.47.png" alt=""></p>
 <h1 id="机器学习中的优化问题"><a href="#机器学习中的优化问题" class="headerlink" title="机器学习中的优化问题"></a>机器学习中的优化问题</h1><p><strong>问： 机器学习中优化问题，哪些是凸优化问题，哪些是非凸优化问题？</strong></p>
-<p>答：凸函数，函数L是凸函数当且仅当对定义域中的任意两点x，y和任意实数λ∈[0,1]总有<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%889.25.15.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%889.25.42.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>逻辑回归对应的就是凸优化问题，对于二分类问题，Y={1,-1},假设模型参数为θ，则逻辑回归的优化问题为。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%889.27.51.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>可以通过计算目标函数的二阶Hessian矩阵来验证凸性。令<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%889.37.57.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>对该函数求一阶导，得到：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%889.38.29.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>继续求导，得到函数的Hessian矩阵<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%889.39.18.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>该矩阵满足半正定的性质。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%889.40.51.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>因此<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%889.41.05.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>函数L为凸函数。对于凸优化问题，所有的局部极小值都是全局极小值，因此这类问题一般认为是比较容易求解的问题。</p>
+<p>答：凸函数，函数L是凸函数当且仅当对定义域中的任意两点x，y和任意实数λ∈[0,1]总有<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%889.25.15.png" alt=""><br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%889.25.42.png" alt=""><br>逻辑回归对应的就是凸优化问题，对于二分类问题，Y={1,-1},假设模型参数为θ，则逻辑回归的优化问题为。<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%889.27.51.png" alt=""><br>可以通过计算目标函数的二阶Hessian矩阵来验证凸性。令<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%889.37.57.png" alt=""><br>对该函数求一阶导，得到：<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%889.38.29.png" alt=""><br>继续求导，得到函数的Hessian矩阵<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%889.39.18.png" alt=""><br>该矩阵满足半正定的性质。<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%889.40.51.png" alt=""><br>因此<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%889.41.05.png" alt=""><br>函数L为凸函数。对于凸优化问题，所有的局部极小值都是全局极小值，因此这类问题一般认为是比较容易求解的问题。</p>
 <p>主成分分析的优化问题为非凸优化问题。一般来说，非凸优化问题被认为是比较南求解的问题，但主成分分析是一个特例，我们可以借助SVD直接得到主成分分析的全局极小值。</p>
 <p><strong>总结与扩展：</strong>其他凸优化的例子包括支持向量机，线性回归等线性模型，非凸优化问题的例子包括低秩模型(如矩阵分解),深度神经网络模型。</p>
-<h1 id="经典优化算法"><a href="#经典优化算法" class="headerlink" title="经典优化算法"></a>经典优化算法</h1><p><strong>问题：无约束优化问题的优化方法有哪些？</strong>对于无约束优化问题：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%889.54.49.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>其中目标函数L是光滑的，求解该问题的优化算法有哪些，适用场景是什么。</p>
-<p>答：优化算法分为<strong>直接法</strong>和<strong>迭代法</strong>。<br>直接法，就是能够直接给出优化问题的最优解。直接法不是万能的。直接法要求目标函数需要满足两个条件，第一个是，L是凸函数。二，若L是凸函数，那么θ是最优解的充分必要条件是L在θ处的梯度为0。<br>即<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%8810.00.16.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>经典的例子是岭回归，其最优解为：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%8810.04.11.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>直接法要满足的这两个条件限制了它的应用范围。因此，在很多实际问题中，会采用迭代法。迭代法就是迭代地修正对最优解得估计。迭代法又分为一阶法和二阶法两类。<br>一阶法的迭代公式为：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%8810.20.55.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>其中α称为学习率，一阶法也称为梯度下降法，梯度就是目标函数的一阶信息。<br>二阶法的迭代公式<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%8810.22.05.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>二阶法也称为牛顿法，Hessian矩阵就是目标函数的二阶信息，二阶法的收敛速度一般要远快于一阶法，但是在高维情况下，Hessian矩阵求逆的计算复杂度很大，而且当目标函数非凸时，二阶法有可能会收敛到鞍点。</p>
+<h1 id="经典优化算法"><a href="#经典优化算法" class="headerlink" title="经典优化算法"></a>经典优化算法</h1><p><strong>问题：无约束优化问题的优化方法有哪些？</strong>对于无约束优化问题：<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%889.54.49.png" alt=""><br>其中目标函数L是光滑的，求解该问题的优化算法有哪些，适用场景是什么。</p>
+<p>答：优化算法分为<strong>直接法</strong>和<strong>迭代法</strong>。<br>直接法，就是能够直接给出优化问题的最优解。直接法不是万能的。直接法要求目标函数需要满足两个条件，第一个是，L是凸函数。二，若L是凸函数，那么θ是最优解的充分必要条件是L在θ处的梯度为0。<br>即<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%8810.00.16.png" alt=""><br>经典的例子是岭回归，其最优解为：<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%8810.04.11.png" alt=""><br>直接法要满足的这两个条件限制了它的应用范围。因此，在很多实际问题中，会采用迭代法。迭代法就是迭代地修正对最优解得估计。迭代法又分为一阶法和二阶法两类。<br>一阶法的迭代公式为：<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%8810.20.55.png" alt=""><br>其中α称为学习率，一阶法也称为梯度下降法，梯度就是目标函数的一阶信息。<br>二阶法的迭代公式<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%8810.22.05.png" alt=""><br>二阶法也称为牛顿法，Hessian矩阵就是目标函数的二阶信息，二阶法的收敛速度一般要远快于一阶法，但是在高维情况下，Hessian矩阵求逆的计算复杂度很大，而且当目标函数非凸时，二阶法有可能会收敛到鞍点。</p>
 <h1 id="梯度验证"><a href="#梯度验证" class="headerlink" title="梯度验证"></a>梯度验证</h1><p>在实际应用中，写出计算梯度的代码后，通常需要验证自己写的代码是否正确。<br><strong>问：如何验证求目标函数梯度功能的正确性？</strong></p>
-<p>答：ei是单位向量，维度与θ相同，仅在第i个位置取值为1，其余位置取值为0。可以取h为一个比较小的数(例如10的-7次方)，则有<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%8811.00.14.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%8811.03.09.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>在实际应用中，随机初始化θ，取h为较小的数(例如10的-7次方)，并对i=1,2,…,n,依次验证<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%8811.01.00.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>是否成立。如果对于某个下标i，该不等式不成立，则有以下两种可能。<br>1 该下标对应的M过大<br>2 该梯度分量计算不正确</p>
+<p>答：ei是单位向量，维度与θ相同，仅在第i个位置取值为1，其余位置取值为0。可以取h为一个比较小的数(例如10的-7次方)，则有<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%8811.00.14.png" alt=""><br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%8811.03.09.png" alt=""><br>在实际应用中，随机初始化θ，取h为较小的数(例如10的-7次方)，并对i=1,2,…,n,依次验证<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%8811.01.00.png" alt=""><br>是否成立。如果对于某个下标i，该不等式不成立，则有以下两种可能。<br>1 该下标对应的M过大<br>2 该梯度分量计算不正确</p>
 <p>此时可以固定θ，减小h为原来的十分之一，并再次计算下标i对应的近似误差，若近似误差越减小为原来的百分之一，则对应第一种可能，我们应该采用更小的h重新做一次梯度验证，否则对应第二种可能，应检查梯度的代码是否有错误。</p>
 <h1 id="随机梯度下降法"><a href="#随机梯度下降法" class="headerlink" title="随机梯度下降法"></a>随机梯度下降法</h1><p><strong>问：当训练数据量特别大时，经典的梯度下降法存在什么问题，需要做如何改进？</strong></p>
 <p>答：经典的梯度下降法在每次对模型参数进行更新时，需要遍历所有的训练数据。当M很大时，这需要很大的计算量，耗费很长的计算时间，在实际应用中基本不可行。为了解决该问题，随机梯度下降法(SGD)用单个训练样本的损失来近似平均损失，即随机梯度下降法用单个训练数据即可对模型参数进行一次更新，大大加快了收敛速率。该方法也非常适用于数据源源不断到来的在线更新场景。</p>
@@ -394,339 +534,910 @@
 <p><strong>问：随机梯度下降法偶尔也会失效，无法给出满意的训练结果，这是为什么？</strong></p>
 <p>答：随机梯度下降法放弃了对梯度准确性的追求，每步仅仅随机采样一个或少量样本来估计当前梯度，计算速度快，内存开销小。但由于每步接受的信息量有限，随机梯度下降法对梯度的估计常常出现偏差，造成目标函数曲线收敛得很不稳定，伴有剧烈波动，有时甚至出现不收敛的情况。</p>
 <p>深度学习中的优化问题本身就很难，有太多局部最优点的陷阱。这些陷阱对随机梯度下降法和批量梯度下降法都是普遍存在的。但对随机梯度下降法来说，可怕的不是局部最优点，而是<strong>山谷</strong>和<strong>鞍点</strong>两类地形。</p>
-<p>山谷顾名思义就是狭长的山间小道，左右两边是峭璧;鞍点的形状像是一个马鞍，一个方向上两头翘，另一个方向上两头垂，而中心区域是一片近乎水平的平地。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/f08834008016f4c23a67e931d2f5a281_b.jpg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>山谷地形</p>
+<p>山谷顾名思义就是狭长的山间小道，左右两边是峭璧;鞍点的形状像是一个马鞍，一个方向上两头翘，另一个方向上两头垂，而中心区域是一片近乎水平的平地。<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/f08834008016f4c23a67e931d2f5a281_b.jpg" alt=""><br>山谷地形</p>
 <p>在山谷中，准确的梯度方向是沿山道向下，稍有偏离就会撞向山壁，而粗糙的梯度估计使得它在两山壁间来回反弹震荡，不能沿山道方向迅速下降，导致收敛不稳定和收敛速度慢。在鞍点处，随机梯度下降法会走入一片平坦之地，结果就停滞下来。</p>
 <p><strong>问：解决之道—惯性保持和环境感知。</strong></p>
-<p>答：1.动量(<strong>Momentum</strong>)方法。<br>随机梯度下降法更新公式为：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-13%20%E4%B8%8B%E5%8D%887.56.04.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>动量方法模型参数迭代公式为：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-13%20%E4%B8%8B%E5%8D%887.56.40.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>具体来说，前进步伐-v,由两部分组成。一是学习速率乘以当前估计的梯度g;二是带衰减的前一次步伐v。这里，惯性就体现在对前一次步伐信息的重利用上。类比中学物理知识，当前梯度就好比当前时刻受力产生的加速度，前一次步伐好比前一时刻的速度，当前步伐好比当前时刻的速度。为了计算当前时刻的速度，应当考虑前一时刻速度和当前加速度共同作用的结果，因此vt直接依赖于vt-1 和gt, 而不仅仅是gt。另外，衰减系数y扮演了阻力的作用。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/3e0e36c25cfc4dccb28e651aa7a47b01_b.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/a1a5fe431b8ab803d778337c8be2f275_b.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/20180515233015431.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<p><strong>AdaGrad方法</strong><br>随机梯度下降法对环境的感知是指在参数空间中，根据不同参数的一些经验性判断，自适应地确定参数的学习速率，不同参数的更新步幅是不同的。例如，在文本处理中训练词嵌入模型的参数时，有的词或词组频繁出现，有的词或词组则极少出现。数据的稀疏性导致相应参数的梯度的稀疏性，不频繁出现的词或词组的参数的梯度在大多数情况下为零，从而这些参数被更新的频率很低。在应用中，我们希望更新频率低的参数可以拥有较大的更新步幅，而更新频率高的参数的步幅可以减小。<strong>AdaGrad方法采用“历史梯度平方和”来衡量不同参数的梯度的稀疏性，取值越小表明越稀疏</strong>，具体的更新公式表示为<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-13%20%E4%B8%8B%E5%8D%889.09.19.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>分母求和的形式实现了退火过程，这是很多优化技术中常见的策略，意味着随着时间推移，学习速率越来越小，从而保证了算法的最终收敛。</p>
+<p>答：1.动量(<strong>Momentum</strong>)方法。<br>随机梯度下降法更新公式为：<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-13%20%E4%B8%8B%E5%8D%887.56.04.png" alt=""><br>动量方法模型参数迭代公式为：<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-13%20%E4%B8%8B%E5%8D%887.56.40.png" alt=""><br>具体来说，前进步伐-v,由两部分组成。一是学习速率乘以当前估计的梯度g;二是带衰减的前一次步伐v。这里，惯性就体现在对前一次步伐信息的重利用上。类比中学物理知识，当前梯度就好比当前时刻受力产生的加速度，前一次步伐好比前一时刻的速度，当前步伐好比当前时刻的速度。为了计算当前时刻的速度，应当考虑前一时刻速度和当前加速度共同作用的结果，因此vt直接依赖于vt-1 和gt, 而不仅仅是gt。另外，衰减系数y扮演了阻力的作用。<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/3e0e36c25cfc4dccb28e651aa7a47b01_b.png" alt=""><br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/a1a5fe431b8ab803d778337c8be2f275_b.png" alt=""><br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/20180515233015431.png" alt=""></p>
+<p><strong>AdaGrad方法</strong><br>随机梯度下降法对环境的感知是指在参数空间中，根据不同参数的一些经验性判断，自适应地确定参数的学习速率，不同参数的更新步幅是不同的。例如，在文本处理中训练词嵌入模型的参数时，有的词或词组频繁出现，有的词或词组则极少出现。数据的稀疏性导致相应参数的梯度的稀疏性，不频繁出现的词或词组的参数的梯度在大多数情况下为零，从而这些参数被更新的频率很低。在应用中，我们希望更新频率低的参数可以拥有较大的更新步幅，而更新频率高的参数的步幅可以减小。<strong>AdaGrad方法采用“历史梯度平方和”来衡量不同参数的梯度的稀疏性，取值越小表明越稀疏</strong>，具体的更新公式表示为<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-13%20%E4%B8%8B%E5%8D%889.09.19.png" alt=""><br>分母求和的形式实现了退火过程，这是很多优化技术中常见的策略，意味着随着时间推移，学习速率越来越小，从而保证了算法的最终收敛。</p>
 <p><strong>Adam方法</strong><br>Adam方法将惯性保持和环境感知这两个优点集于一身。一方面，Adam记录梯度的一阶矩(first moment) ，即过往梯度与当前梯度的平均，这体现了惯性保持;另一方面，Adam还记录梯度的二阶矩(second moment)，即过往梯度平方与当前梯度平方的平均，这类似AdaGrad方法，体现了环境感知能力，为不同参数产生自适应的学习速率。</p>
-<p>一阶矩和二阶矩采用类似于滑动窗口内求平均的思想进行融合，即当前梯度和近一段时间内梯度的平均值，时间久远的梯度对当前平均值的贡献呈指数衰减。具体来说，一阶矩和二阶矩采用指数衰退平均(exponentialdecay average)技术，计算公式<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-13%20%E4%B8%8B%E5%8D%889.16.48.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>其中β，β2为衰减系数，m是一阶矩，v是二阶矩。</p>
-<p> 一阶矩相当于估计E[g]:由于当下梯度g,是随机采样得到的估计结果，因此更关注它在统计意义上的期望;二阶矩相当于估计E[g2]，这点与AdaGrad方法不同，不是g2从开始到现在的加和，而是它的期望。它们的物理意义是，当|m|大且v大时， 梯度大且稳定，这表明遇到一个明显的大坡，前进方向明确;当|m|趋于零 且v,大时，梯度不稳定，表明可能遇到一个峡谷，容易引起反弹震荡;当lm|大 且v,趋于零时，这种情况不可能出现;当|m|趋于零且v趋于零时，梯度趋于零，可能到达局部最低点，也可能走到一片坡度极缓的平地，此时要避免陷入平原(plateau) 。另外，Adam方法还考虑了m， v,在零初始值情况下的偏置矫正。具体来说，Adam的更新公式为<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-13%20%E4%B8%8B%E5%8D%889.23.22.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>其中<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-13%20%E4%B8%8B%E5%8D%889.24.33.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<p>一阶矩和二阶矩采用类似于滑动窗口内求平均的思想进行融合，即当前梯度和近一段时间内梯度的平均值，时间久远的梯度对当前平均值的贡献呈指数衰减。具体来说，一阶矩和二阶矩采用指数衰退平均(exponentialdecay average)技术，计算公式<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-13%20%E4%B8%8B%E5%8D%889.16.48.png" alt=""><br>其中β，β2为衰减系数，m是一阶矩，v是二阶矩。</p>
+<p> 一阶矩相当于估计E[g]:由于当下梯度g,是随机采样得到的估计结果，因此更关注它在统计意义上的期望;二阶矩相当于估计E[g2]，这点与AdaGrad方法不同，不是g2从开始到现在的加和，而是它的期望。它们的物理意义是，当|m|大且v大时， 梯度大且稳定，这表明遇到一个明显的大坡，前进方向明确;当|m|趋于零 且v,大时，梯度不稳定，表明可能遇到一个峡谷，容易引起反弹震荡;当lm|大 且v,趋于零时，这种情况不可能出现;当|m|趋于零且v趋于零时，梯度趋于零，可能到达局部最低点，也可能走到一片坡度极缓的平地，此时要避免陷入平原(plateau) 。另外，Adam方法还考虑了m， v,在零初始值情况下的偏置矫正。具体来说，Adam的更新公式为<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-13%20%E4%B8%8B%E5%8D%889.23.22.png" alt=""><br>其中<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-13%20%E4%B8%8B%E5%8D%889.24.33.png" alt=""></p>
 <h1 id="L1正则化与稀疏性"><a href="#L1正则化与稀疏性" class="headerlink" title="L1正则化与稀疏性"></a>L1正则化与稀疏性</h1><p><strong>问：L1正则化使得模型参数具有稀疏性的原理是什么？</strong></p>
-<p>角度1：解空间形状。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-13%20%E4%B8%8B%E5%8D%889.27.24.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>在二维的情况下，黄色的部分是L2和L1正则项约束后的解空间，绿色的等高线是凸优化问题中目标函数的等高线。由图可知，L2正则项约束后的解空间是圆形，而L1正则项约束的解空间是多边形。显然，多边形的解空间更容易在尖角处与等高线碰撞出稀疏解。</p>
-<p>事实上，带正则项和带约束条件是等价的。为了约束w的可能取值空间从而防止过拟合，我们为该最优化问题加上一个约束，就是w的L2范数的平方不能大于m:<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-13%20%E4%B8%8B%E5%8D%889.54.41.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>为了求解带约束条件的凸优化问题，写出拉格朗日函数。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-13%20%E4%B8%8B%E5%8D%889.56.48.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>若w <em>  和λ </em> 分别是原问题和对偶问题的最优解，根据KKT条件，它们应满足<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-14%20%E4%B8%8A%E5%8D%888.48.09.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>L2正则化相当于为参数定义了一个圆形的解空间(因为必须保证L2范数不能大于m),而L1正则化相当于为参数定义了个棱形的解空间。如果原问题目标函数的最优解不是恰好落在解空间内,那么约束条件下的最优解一定是在解空间的边界上,而L1“棱角分明”的解空间显然更容易与目标函数等高线在角点碰撞,从而产生稀疏解。</p>
+<p>角度1：解空间形状。<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-13%20%E4%B8%8B%E5%8D%889.27.24.png" alt=""><br>在二维的情况下，黄色的部分是L2和L1正则项约束后的解空间，绿色的等高线是凸优化问题中目标函数的等高线。由图可知，L2正则项约束后的解空间是圆形，而L1正则项约束的解空间是多边形。显然，多边形的解空间更容易在尖角处与等高线碰撞出稀疏解。</p>
+<p>事实上，带正则项和带约束条件是等价的。为了约束w的可能取值空间从而防止过拟合，我们为该最优化问题加上一个约束，就是w的L2范数的平方不能大于m:<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-13%20%E4%B8%8B%E5%8D%889.54.41.png" alt=""><br>为了求解带约束条件的凸优化问题，写出拉格朗日函数。<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-13%20%E4%B8%8B%E5%8D%889.56.48.png" alt=""><br>若w <em>  和λ </em> 分别是原问题和对偶问题的最优解，根据KKT条件，它们应满足<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-14%20%E4%B8%8A%E5%8D%888.48.09.png" alt=""><br>L2正则化相当于为参数定义了一个圆形的解空间(因为必须保证L2范数不能大于m),而L1正则化相当于为参数定义了个棱形的解空间。如果原问题目标函数的最优解不是恰好落在解空间内,那么约束条件下的最优解一定是在解空间的边界上,而L1“棱角分明”的解空间显然更容易与目标函数等高线在角点碰撞,从而产生稀疏解。</p>
 <p>L2的切点只有一个点，L1的话，一个尖尖可以和无数个圆连着。</p>
-<p><strong>角度2：函数叠加</strong><br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-14%20%E4%B8%8A%E5%8D%888.55.34.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>棕线是原始目标函数L(w)的曲线图，最小值点在蓝点处，且对应w * 值非0。</p>
+<p><strong>角度2：函数叠加</strong><br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-14%20%E4%B8%8A%E5%8D%888.55.34.png" alt=""><br>棕线是原始目标函数L(w)的曲线图，最小值点在蓝点处，且对应w * 值非0。</p>
 <p>考虑加上L2正则化项，目标函数变成L(w)+Cw2,其函数曲线为黄色。此时，最小值点在黄点处，对应w * 的绝对值减小了，但仍然非0.</p>
 <p>考虑加上L1正则化项，目标函数变成L(w)+C|w|,其函数曲线为绿色，最小值点在红色处，对应的w是0，产生了稀疏性。</p>
 <p>原因很直观，加入L1正则化后，对带正则项的目标函数求导，正则项部分产生的导数在原点左边部分是-C，在原点右边部分是C，因此，只要原目标函数的导数绝对值小于C，那么带正则项的目标函数在原点左边部分始终是递减的，在原点右边部分始终是递增的，最小值点自然在原点处。相反，L2正则项在原点处的导数是0，只要原目标函数在原点处的导数不为0，那么最小值点就不会在原点，所以L2只有减小w绝对值的作用，对解空间的稀疏性没有贡献。</p>
 <p>在一些在线梯度下降算法中，往往会采用截断梯度法来产生稀疏性，这同L1正则项产生稀疏性的原理是类似的。<br><strong>由上可以看出，L1产生稀疏性的概率比L2大很多，L2只有原目标函数导数为0这一种情况，L1则是原目标函数的导数绝对值小于C即可。</strong></p>
 <p><strong>角度3：贝叶斯先验</strong><br>从贝叶斯的角度来理解L1正则化和L2正则化，简单的解释是，L1正则化相当于对模型参数w引入了拉普拉斯先验，L2正 则化相当于引入了高斯先验，而拉普拉斯先验使参数为0的可能性更大。</p>
 
-        </div>
-
-        <blockquote class="post-copyright">
-    
-    <div class="content">
-        
-<span class="post-time">
-    最后更新时间：<time datetime="2019-05-14T01:47:10.000Z" itemprop="dateUpdated">2019-05-14 09:47:10</time>
-</span><br>
-
-
-        
+      
     </div>
+
     
-    <footer>
-        <a href="https://github.com/zdkswd">
-            <img src="/img/tmg.jpg" alt="ZDK">
-            ZDK
-        </a>
+
+    
+      
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/07/leetcode分类练习/" rel="next" title="leetcode分类练习">
+                <i class="fa fa-chevron-left"></i> leetcode分类练习
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/27/Spring Boot实战 入门/" rel="prev" title="Spring Boot实战 入门">
+                Spring Boot实战 入门 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
     </footer>
-</blockquote>
-
-        
-
-
-        <div class="post-footer">
-            
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li></ul>
+  </div>
+  
+  
+  
+  </article>
 
 
-            
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
 
 
         </div>
-    </div>
-
-    
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2019/05/27/Spring Boot实战 入门/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">Spring Boot实战 入门</h4>
-      </a>
-    </div>
-  
-
-  
-    <div class="waves-block waves-effect next">
-      <a href="/2019/05/07/leetcode分类练习/" id="post-next" class="post-nav-link">
-        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">leetcode分类练习</h4>
-      </a>
-    </div>
-  
-</nav>
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Valine Comments -->
-    <div class="comments vcomment" id="comments"></div>
-    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
-    <!-- Valine Comments script -->
-    <script>
-        var GUEST_INFO = ['nick','mail','link'];
-        var guest_info = 'nick,mail'.split(',').filter(function(item){
-          return GUEST_INFO.indexOf(item) > -1
-        });
-        new Valine({
-            el: '#comments',
-            notify: 'true' == 'true',
-            verify: 'false' == 'true',
-            appId: "QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz",
-            appKey: "gkBx5soQkBREmER84PWbNJeM",
-            avatar: "mm",
-            placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
-            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
-            pageSize: "10"
-        })
-    </script>
-    <!-- Valine Comments end -->
-
-
-
-
-
-
-
-</article>
-
-
-
-</div>
-
-        <footer class="footer">
-    <div class="top">
         
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
-
-
-        <p>
-            
-                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-            
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
-        </p>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
     </div>
-    <div class="bottom">
-        <p><span>ZDK &copy; 2017 - 2019</span>
-            <span>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="ZDK"/>
+            
+              <p class="site-author-name" itemprop="name">ZDK</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
                 
-                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
-            </span>
-        </p>
-    </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
-    </script>
-</footer>
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">191</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
 
-    </main>
-    <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">分类</span>
+                  
+                </div>
+              
 
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">48</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
 
-    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
-<script>
-var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
-
-
-</script>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
             </div>
-            <time class="flex-col time">{date}</time>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/zdkswd" title="GitHub &rarr; https://github.com/zdkswd"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:2822464407@qq.com" title="E-Mail &rarr; mailto:2822464407@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/zdkswd" title="https://github.com/zdkswd">Title</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
         </div>
-    </a>
-</li>
-</template>
+      </div>
 
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
 
+            
+            
+            
+            
 
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#百面-优化算法"><span class="nav-number">1.</span> <span class="nav-text">百面 优化算法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#有监督学习的损失函数"><span class="nav-number">2.</span> <span class="nav-text">有监督学习的损失函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#机器学习中的优化问题"><span class="nav-number">3.</span> <span class="nav-text">机器学习中的优化问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#经典优化算法"><span class="nav-number">4.</span> <span class="nav-text">经典优化算法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#梯度验证"><span class="nav-number">5.</span> <span class="nav-text">梯度验证</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#随机梯度下降法"><span class="nav-number">6.</span> <span class="nav-text">随机梯度下降法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#随机梯度下降法的加速"><span class="nav-number">7.</span> <span class="nav-text">随机梯度下降法的加速</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#L1正则化与稀疏性"><span class="nav-number">8.</span> <span class="nav-text">L1正则化与稀疏性</span></a></li></ol></div>
+            
 
-<!-- mathjax config similar to math.stackexchange -->
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
+      
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
 
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-});
-</script>
-
-<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
-
-
-
-
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
 
 
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZDK</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.2.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+  </div>
+
+  
 
 <script>
-(function() {
-    var OriginTitile = document.title, titleTime;
-    document.addEventListener('visibilitychange', function() {
-        if (document.hidden) {
-            document.title = 'zdk'blog';
-            clearTimeout(titleTime);
-        } else {
-            document.title = '';
-            titleTime = setTimeout(function() {
-                document.title = OriginTitile;
-            },2000);
-        }
-    });
-})();
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
 </script>
 
 
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.2.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz',
+    appKey: 'gkBx5soQkBREmER84PWbNJeM',
+    placeholder: 'have fun',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true,
+    lang: '' || 'zh-cn'
+  });
+</script>
+
+
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('5');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
 
 </body>
 </html>

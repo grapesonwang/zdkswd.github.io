@@ -1,33 +1,107 @@
 <!DOCTYPE html>
-<html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
-    
-
-    
-
-    
-
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
 
 
-    <meta charset="utf-8">
-    
-    
-    
-    
-    <title>JavaScript 标准参考教程 标准库 下 | ZDK&#39;s blog</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#3F51B5">
-    
-    
-    <meta name="keywords" content="JavaScript">
-    <meta name="description" content="RegExp对象概述JavaScript 的正则表达式体系是参照 Perl 5 建立的。 新建正则表达式有两种方法。一种是使用字面量，以斜杠表示开始和结束。                                                                                                           另一种是使用RegExp构造函">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.2.0',
+    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+
+
+  <meta name="description" content="RegExp对象概述JavaScript 的正则表达式体系是参照 Perl 5 建立的。 新建正则表达式有两种方法。一种是使用字面量，以斜杠表示开始和结束。 另一种是使用RegExp构造函数。 区别是，第一种方法在引擎编译代码时，就会新建正则表达式，第二种方法在运行时新建正则表达式，所以前者的效率较高。而且，前者比较便利和直观，所以实际应用中，基本上都采用字面量定义正则表达式。 RegExp构造函">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript 标准参考教程 标准库 下">
 <meta property="og:url" content="https://github.com/zdkswd/2018/08/17/JavaScript 标准参考教程 标准库 下/index.html">
 <meta property="og:site_name" content="ZDK&#39;s blog">
-<meta property="og:description" content="RegExp对象概述JavaScript 的正则表达式体系是参照 Perl 5 建立的。 新建正则表达式有两种方法。一种是使用字面量，以斜杠表示开始和结束。                                                                                                           另一种是使用RegExp构造函">
+<meta property="og:description" content="RegExp对象概述JavaScript 的正则表达式体系是参照 Perl 5 建立的。 新建正则表达式有两种方法。一种是使用字面量，以斜杠表示开始和结束。 另一种是使用RegExp构造函数。 区别是，第一种方法在引擎编译代码时，就会新建正则表达式，第二种方法在运行时新建正则表达式，所以前者的效率较高。而且，前者比较便利和直观，所以实际应用中，基本上都采用字面量定义正则表达式。 RegExp构造函">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://github.com/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8A%E5%8D%889.52.25.png">
 <meta property="og:image" content="https://github.com/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8A%E5%8D%889.52.46.png">
@@ -59,212 +133,402 @@
 <meta property="og:updated_time" content="2018-09-01T03:58:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript 标准参考教程 标准库 下">
-<meta name="twitter:description" content="RegExp对象概述JavaScript 的正则表达式体系是参照 Perl 5 建立的。 新建正则表达式有两种方法。一种是使用字面量，以斜杠表示开始和结束。                                                                                                           另一种是使用RegExp构造函">
+<meta name="twitter:description" content="RegExp对象概述JavaScript 的正则表达式体系是参照 Perl 5 建立的。 新建正则表达式有两种方法。一种是使用字面量，以斜杠表示开始和结束。 另一种是使用RegExp构造函数。 区别是，第一种方法在引擎编译代码时，就会新建正则表达式，第二种方法在运行时新建正则表达式，所以前者的效率较高。而且，前者比较便利和直观，所以实际应用中，基本上都采用字面量定义正则表达式。 RegExp构造函">
 <meta name="twitter:image" content="https://github.com/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8A%E5%8D%889.52.25.png">
-    
-        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
-    
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
-    <script>window.lazyScripts=[]</script>
 
-    <!-- custom head -->
-    
+
+
+  <link rel="alternate" href="/atom.xml" title="ZDK's blog" type="application/atom+xml"/>
+
+
+
+  
+  
+  <link rel="canonical" href="https://github.com/zdkswd/2018/08/17/JavaScript 标准参考教程 标准库 下/"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>JavaScript 标准参考教程 标准库 下 | ZDK's blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
 
 </head>
 
-<body>
-    <div id="loading" class="active"></div>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
-    <aside id="menu" class="hide" >
-  <div class="inner flex-row-vertical">
-    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-        <i class="icon icon-lg icon-close"></i>
-    </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
-      <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/tmg.jpg">
-        </a>
-        <hgroup class="introduce">
-          <h5 class="nickname">ZDK</h5>
-          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
-        </hgroup>
-      </div>
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ZDK's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
-    <div class="scroll-wrap flex-col">
-      <ul class="nav">
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
         
-            <li class="waves-block waves-effect">
-              <a href="/"  >
-                <i class="icon icon-lg icon-home"></i>
-                主页
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                Archives
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/tags"  >
-                <i class="icon icon-lg icon-tags"></i>
-                Tags
-              </a>
-            </li>
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>首页</a>
+
+  </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/categories"  >
-                <i class="icon icon-lg icon-th-list"></i>
-                Categories
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="https://github.com/zdkswd" target="_blank" >
-                <i class="icon icon-lg icon-github"></i>
-                Github
-              </a>
-            </li>
         
-      </ul>
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>归档</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br/>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
     </div>
   </div>
-</aside>
+  <div id="local-search-result"></div>
+</div>
 
-    <main id="main">
-        <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis">JavaScript 标准参考教程 标准库 下</div>
-        
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
-        </div>
-        
-        
+
+
     </div>
-</header>
-<header class="content-header post-header">
-
-    <div class="container fade-scale">
-        <h1 class="title">JavaScript 标准参考教程 标准库 下</h1>
-        <h5 class="subtitle">
-            
-                <time datetime="2018-08-17T04:03:56.000Z" itemprop="datePublished" class="page-time">
-  2018-08-17
-</time>
+  
+</nav>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/教程/">教程</a></li></ul>
 
-            
-        </h5>
-    </div>
+</div>
+    </header>
 
     
 
 
-</header>
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
 
+          
+          <div id="content" class="content">
+            
 
-<div class="container body-wrap">
+  <div id="posts" class="posts-expand">
     
-    <aside class="post-widget">
-        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
-            <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#RegExp对象"><span class="post-toc-number">1.</span> <span class="post-toc-text">RegExp对象</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#概述"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">概述</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实例属性"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">实例属性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实例方法"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">实例方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#RegExp-prototype-test"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">RegExp.prototype.test()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#RegExp-prototype-exec"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">RegExp.prototype.exec()</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#字符串的实例方法"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">字符串的实例方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#String-prototype-match"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">String.prototype.match()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#String-prototype-search"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">String.prototype.search()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#String-prototype-replace"><span class="post-toc-number">1.4.3.</span> <span class="post-toc-text">String.prototype.replace()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#String-prototype-split"><span class="post-toc-number">1.4.4.</span> <span class="post-toc-text">String.prototype.split()</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#匹配规则"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">匹配规则</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#字面量字符和元字符"><span class="post-toc-number">1.5.1.</span> <span class="post-toc-text">字面量字符和元字符</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#点字符（-）"><span class="post-toc-number">1.5.1.1.</span> <span class="post-toc-text">点字符（.）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#位置字符"><span class="post-toc-number">1.5.1.2.</span> <span class="post-toc-text">位置字符</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#选择符（-）"><span class="post-toc-number">1.5.1.3.</span> <span class="post-toc-text">选择符（|）</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#转义符"><span class="post-toc-number">1.5.2.</span> <span class="post-toc-text">转义符</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#特殊字符"><span class="post-toc-number">1.5.3.</span> <span class="post-toc-text">特殊字符</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#字符类"><span class="post-toc-number">1.5.4.</span> <span class="post-toc-text">字符类</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#脱字符（-）"><span class="post-toc-number">1.5.4.1.</span> <span class="post-toc-text">脱字符（ ^ ）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#连字符（-）"><span class="post-toc-number">1.5.4.2.</span> <span class="post-toc-text">连字符（-）</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#预定义模式"><span class="post-toc-number">1.5.5.</span> <span class="post-toc-text">预定义模式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#重复类"><span class="post-toc-number">1.5.6.</span> <span class="post-toc-text">重复类</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#量词符"><span class="post-toc-number">1.5.7.</span> <span class="post-toc-text">量词符</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#贪婪模式"><span class="post-toc-number">1.5.8.</span> <span class="post-toc-text">贪婪模式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#修饰符"><span class="post-toc-number">1.5.9.</span> <span class="post-toc-text">修饰符</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#g-修饰符"><span class="post-toc-number">1.5.9.1.</span> <span class="post-toc-text">g 修饰符</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#i-修饰符"><span class="post-toc-number">1.5.9.2.</span> <span class="post-toc-text">i 修饰符</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#组匹配"><span class="post-toc-number">1.5.10.</span> <span class="post-toc-text">组匹配</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#概述-1"><span class="post-toc-number">1.5.10.1.</span> <span class="post-toc-text">概述</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#非捕获组"><span class="post-toc-number">1.5.10.2.</span> <span class="post-toc-text">非捕获组</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#先行断言"><span class="post-toc-number">1.5.10.3.</span> <span class="post-toc-text">先行断言</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#先行否定断言"><span class="post-toc-number">1.5.10.4.</span> <span class="post-toc-text">先行否定断言</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#JSON对象"><span class="post-toc-number">2.</span> <span class="post-toc-text">JSON对象</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JSON-格式"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">JSON 格式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JSON-对象"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">JSON 对象</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JSON-stringify"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">JSON.stringify()</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#基本用法"><span class="post-toc-number">2.3.1.</span> <span class="post-toc-text">基本用法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第二个参数"><span class="post-toc-number">2.3.2.</span> <span class="post-toc-text">第二个参数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第三个参数"><span class="post-toc-number">2.3.3.</span> <span class="post-toc-text">第三个参数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参数对象的-toJSON-方法"><span class="post-toc-number">2.3.4.</span> <span class="post-toc-text">参数对象的 toJSON 方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JSON-parse"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">JSON.parse()</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#console对象"><span class="post-toc-number">3.</span> <span class="post-toc-text">console对象</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#浏览器实现"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">浏览器实现</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#console-对象的静态方法"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">console 对象的静态方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#console-log-，console-info-，console-debug"><span class="post-toc-number">3.2.1.</span> <span class="post-toc-text">console.log()，console.info()，console.debug()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#console-warn-，console-error"><span class="post-toc-number">3.2.2.</span> <span class="post-toc-text">console.warn()，console.error()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#console-table"><span class="post-toc-number">3.2.3.</span> <span class="post-toc-text">console.table()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#console-count"><span class="post-toc-number">3.2.4.</span> <span class="post-toc-text">console.count()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#console-dir-，console-dirxml"><span class="post-toc-number">3.2.5.</span> <span class="post-toc-text">console.dir()，console.dirxml()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#console-assert"><span class="post-toc-number">3.2.6.</span> <span class="post-toc-text">console.assert()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#console-time-，console-timeEnd"><span class="post-toc-number">3.2.7.</span> <span class="post-toc-text">console.time()，console.timeEnd()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#console-group-，console-groupEnd-，console-groupCollapsed"><span class="post-toc-number">3.2.8.</span> <span class="post-toc-text">console.group()，console.groupEnd()，console.groupCollapsed()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#console-trace-，console-clear"><span class="post-toc-number">3.2.9.</span> <span class="post-toc-text">console.trace()，console.clear()</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#命令行API"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">命令行API</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#"><span class="post-toc-number">3.3.1.</span> <span class="post-toc-text">$_</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#0-4"><span class="post-toc-number">3.3.2.</span> <span class="post-toc-text">\$0 - \$4</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#selector"><span class="post-toc-number">3.3.3.</span> <span class="post-toc-text">$(selector)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#selector-1"><span class="post-toc-number">3.3.4.</span> <span class="post-toc-text">$$(selector)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#x-path"><span class="post-toc-number">3.3.5.</span> <span class="post-toc-text">$x(path)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#inspect-object"><span class="post-toc-number">3.3.6.</span> <span class="post-toc-text">inspect(object)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#getEventListeners-object"><span class="post-toc-number">3.3.7.</span> <span class="post-toc-text">getEventListeners(object)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#keys-object-，values-object"><span class="post-toc-number">3.3.8.</span> <span class="post-toc-text">keys(object)，values(object)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#monitorEvents-object-events-，unmonitorEvents-object-events"><span class="post-toc-number">3.3.9.</span> <span class="post-toc-text">monitorEvents(object[, events]) ，unmonitorEvents(object[, events])</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#其他方法"><span class="post-toc-number">3.3.10.</span> <span class="post-toc-text">其他方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#debugger-语句"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">debugger 语句</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#属性描述对象"><span class="post-toc-number">4.</span> <span class="post-toc-text">属性描述对象</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#概述-2"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">概述</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#value"><span class="post-toc-number">4.1.1.</span> <span class="post-toc-text">value</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#writable"><span class="post-toc-number">4.1.2.</span> <span class="post-toc-text">writable</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#enumerable"><span class="post-toc-number">4.1.3.</span> <span class="post-toc-text">enumerable</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#configurable"><span class="post-toc-number">4.1.4.</span> <span class="post-toc-text">configurable</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#get"><span class="post-toc-number">4.1.5.</span> <span class="post-toc-text">get</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#set"><span class="post-toc-number">4.1.6.</span> <span class="post-toc-text">set</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Object-getOwnPropertyDescriptor"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">Object.getOwnPropertyDescriptor()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Object-getOwnPropertyNames"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">Object.getOwnPropertyNames()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Object-defineProperty-，Object-defineProperties"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">Object.defineProperty()，Object.defineProperties()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Object-prototype-propertyIsEnumerable"><span class="post-toc-number">4.5.</span> <span class="post-toc-text">Object.prototype.propertyIsEnumerable()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#元属性"><span class="post-toc-number">4.6.</span> <span class="post-toc-text">元属性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#value-1"><span class="post-toc-number">4.6.1.</span> <span class="post-toc-text">value</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#writable-1"><span class="post-toc-number">4.6.2.</span> <span class="post-toc-text">writable</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#enumerable-1"><span class="post-toc-number">4.6.3.</span> <span class="post-toc-text">enumerable</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#configurable-1"><span class="post-toc-number">4.6.4.</span> <span class="post-toc-text">configurable</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#存取器"><span class="post-toc-number">4.7.</span> <span class="post-toc-text">存取器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#对象的拷贝"><span class="post-toc-number">4.8.</span> <span class="post-toc-text">对象的拷贝</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#控制对象状态"><span class="post-toc-number">4.9.</span> <span class="post-toc-text">控制对象状态</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Object-preventExtensions"><span class="post-toc-number">4.9.1.</span> <span class="post-toc-text">Object.preventExtensions()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Object-isExtensible"><span class="post-toc-number">4.9.2.</span> <span class="post-toc-text">Object.isExtensible()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Object-seal"><span class="post-toc-number">4.9.3.</span> <span class="post-toc-text">Object.seal()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Object-isSealed"><span class="post-toc-number">4.9.4.</span> <span class="post-toc-text">Object.isSealed()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Object-freeze"><span class="post-toc-number">4.9.5.</span> <span class="post-toc-text">Object.freeze()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Object-isFrozen"><span class="post-toc-number">4.9.6.</span> <span class="post-toc-text">Object.isFrozen()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#局限性"><span class="post-toc-number">4.9.7.</span> <span class="post-toc-text">局限性</span></a></li></ol></li></ol></li></ol>
-        </nav>
-    </aside>
 
+  
 
-<article id="post-JavaScript 标准参考教程 标准库 下"
-  class="post-article article-type-post fade" itemprop="blogPost">
+  
+  
+  
 
-    <div class="post-card">
-        <h1 class="post-card-title">JavaScript 标准参考教程 标准库 下</h1>
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2018/08/17/JavaScript 标准参考教程 标准库 下/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZDK"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZDK's blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JavaScript 标准参考教程 标准库 下
+
+              
+            
+          </h1>
+        
+
         <div class="post-meta">
-            <time class="post-time" title="2018-08-17 12:03:56" datetime="2018-08-17T04:03:56.000Z"  itemprop="datePublished">2018-08-17</time>
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-08-17 12:03:56" itemprop="dateCreated datePublished" datetime="2018-08-17T12:03:56+08:00">2018-08-17</time>
+            </span>
+          
+
+          
+            
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/教程/">教程</a></li></ul>
-
-
-
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-09-01 11:58:36" itemprop="dateModified" datetime="2018-09-01T11:58:36+08:00">2018-09-01</time>
+              </span>
             
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
-    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
-</span>
+          
 
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/教程/" itemprop="url" rel="index"><span itemprop="name">教程</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2018/08/17/JavaScript 标准参考教程 标准库 下/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/08/17/JavaScript 标准参考教程 标准库 下/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2018/08/17/JavaScript 标准参考教程 标准库 下/" class="post-meta-item leancloud_visitors" data-flag-title="JavaScript 标准参考教程 标准库 下">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          <br/>
+          
+
+          
+
+          
 
         </div>
-        <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="RegExp对象"><a href="#RegExp对象" class="headerlink" title="RegExp对象"></a>RegExp对象</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>JavaScript 的正则表达式体系是参照 Perl 5 建立的。</p>
-<p>新建正则表达式有两种方法。一种是使用字面量，以斜杠表示开始和结束。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8A%E5%8D%889.52.25.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<p>另一种是使用RegExp构造函数。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8A%E5%8D%889.52.46.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="RegExp对象"><a href="#RegExp对象" class="headerlink" title="RegExp对象"></a>RegExp对象</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>JavaScript 的正则表达式体系是参照 Perl 5 建立的。</p>
+<p>新建正则表达式有两种方法。一种是使用字面量，以斜杠表示开始和结束。<br><img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8A%E5%8D%889.52.25.png" alt=""></p>
+<p>另一种是使用RegExp构造函数。<br><img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8A%E5%8D%889.52.46.png" alt=""></p>
 <p>区别是，第一种方法在引擎编译代码时，就会新建正则表达式，第二种方法在运行时新建正则表达式，所以前者的效率较高。而且，前者比较便利和直观，所以实际应用中，基本上都采用字面量定义正则表达式。</p>
 <p>RegExp构造函数还可以接受第二个参数，表示修饰符。</p>
 <h2 id="实例属性"><a href="#实例属性" class="headerlink" title="实例属性"></a>实例属性</h2><p>正则对象的实例属性分成两类。</p>
-<p>一类是修饰符相关，返回一个布尔值，表示对应的修饰符是否设置。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8A%E5%8D%8810.14.58.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<p>一类是修饰符相关，返回一个布尔值，表示对应的修饰符是否设置。<br><img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8A%E5%8D%8810.14.58.png" alt=""></p>
 <p>三个属性都是只读的。</p>
-<p>另一类是与修饰符无关的属性，主要是下面两个。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8A%E5%8D%8810.15.55.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<p>另一类是与修饰符无关的属性，主要是下面两个。<br><img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8A%E5%8D%8810.15.55.png" alt=""></p>
 <h2 id="实例方法"><a href="#实例方法" class="headerlink" title="实例方法"></a>实例方法</h2><h3 id="RegExp-prototype-test"><a href="#RegExp-prototype-test" class="headerlink" title="RegExp.prototype.test()"></a>RegExp.prototype.test()</h3><p>正则实例对象的test方法返回一个布尔值，表示当前模式是否能匹配参数字符串。</p>
 <p>如果正则表达式带有g修饰符，则每一次test方法都从上一次结束的位置开始向后匹配。</p>
 <p>带有g修饰符时，可以通过正则对象的lastIndex属性指定开始搜索的位置。</p>
 <p>lastIndex属性只对同一个正则表达式有效。</p>
 <p>如果正则模式是一个空字符串，则匹配所有字符串。</p>
 <h3 id="RegExp-prototype-exec"><a href="#RegExp-prototype-exec" class="headerlink" title="RegExp.prototype.exec()"></a>RegExp.prototype.exec()</h3><p>正则实例对象的exec方法，用来返回匹配结果。如果发现匹配，就返回一个数组，成员是匹配成功的子字符串，否则返回null。</p>
-<p>exec方法的返回数组还包含以下两个属性：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8A%E5%8D%8810.26.09.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<p>exec方法的返回数组还包含以下两个属性：<br><img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8A%E5%8D%8810.26.09.png" alt=""></p>
 <p>如果正则表达式加上g修饰符，则可以使用多次exec方法，下一次搜索的位置从上一次匹配成功结束的位置开始。</p>
 <p>正则实例对象的lastIndex属性不仅可读，还可写。设置了g修饰符的时候，只要手动设置了lastIndex的值，就会从指定位置开始匹配。</p>
-<h2 id="字符串的实例方法"><a href="#字符串的实例方法" class="headerlink" title="字符串的实例方法"></a>字符串的实例方法</h2><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8A%E5%8D%8810.28.35.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<h2 id="字符串的实例方法"><a href="#字符串的实例方法" class="headerlink" title="字符串的实例方法"></a>字符串的实例方法</h2><p><img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8A%E5%8D%8810.28.35.png" alt=""></p>
 <h3 id="String-prototype-match"><a href="#String-prototype-match" class="headerlink" title="String.prototype.match()"></a>String.prototype.match()</h3><p>字符串实例对象的match方法对字符串进行正则匹配，返回匹配结果。</p>
 <p>字符串的match方法与正则对象的exec方法非常类似：匹配成功返回一个数组，匹配失败返回null。</p>
 <p>如果正则表达式带有g修饰符，则该方法与正则对象的exec方法行为不同，会一次性返回所有匹配成功的结果。</p>
@@ -273,13 +537,7 @@
 <h3 id="String-prototype-search"><a href="#String-prototype-search" class="headerlink" title="String.prototype.search()"></a>String.prototype.search()</h3><p>字符串对象的search方法，返回第一个满足条件的匹配结果在整个字符串中的位置。如果没有任何匹配，则返回-1。</p>
 <h3 id="String-prototype-replace"><a href="#String-prototype-replace" class="headerlink" title="String.prototype.replace()"></a>String.prototype.replace()</h3><p>字符串对象的replace方法可以替换匹配的值。它接受两个参数，第一个是正则表达式，表示搜索模式，第二个是替换的内容。</p>
 <p>正则表达式如果不加g修饰符，就替换第一个匹配成功的值，否则替换所有匹配成功的值。</p>
-<p>replace方法的第二个参数可以使用美元符号$，用来指代所替换的内容。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8A%E5%8D%8810.34.20.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<p>replace方法的第二个参数可以使用美元符号$，用来指代所替换的内容。<br><img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8A%E5%8D%8810.34.20.png" alt=""></p>
 <p>replace方法的第二个参数还可以是一个函数，将每一个匹配内容替换为函数返回值。</p>
 <h3 id="String-prototype-split"><a href="#String-prototype-split" class="headerlink" title="String.prototype.split()"></a>String.prototype.split()</h3><p>字符串对象的split方法按照正则规则分割字符串，返回一个由分割后的各个部分组成的数组。</p>
 <p>该方法接受两个参数，第一个参数是正则表达式，表示分隔规则，第二个参数是返回数组的最大成员数。</p>
@@ -288,23 +546,11 @@
 <p>除了字面量字符以外，还有一部分字符有特殊含义，不代表字面的意思。它们叫做“元字符”（metacharacters），主要有以下几个。</p>
 <h4 id="点字符（-）"><a href="#点字符（-）" class="headerlink" title="点字符（.）"></a>点字符（.）</h4><p>点字符（.）匹配除回车（\r）、换行(\n) 、行分隔符（\u2028）和段分隔符（\u2029）以外的所有字符。注意，对于码点大于0xFFFF的 Unicode 字符，点字符不能正确匹配，会认为这是两个字符。</p>
 <h4 id="位置字符"><a href="#位置字符" class="headerlink" title="位置字符"></a>位置字符</h4><p>位置字符用来提示字符所处的位置，主要有两个字符。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8A%E5%8D%8810.40.35.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8A%E5%8D%8810.40.35.png" alt=""></p>
 <h4 id="选择符（-）"><a href="#选择符（-）" class="headerlink" title="选择符（|）"></a>选择符（|）</h4><p>竖线符号（|）在正则表达式中表示“或关系”（OR），即cat|dog表示匹配cat或dog。</p>
 <h3 id="转义符"><a href="#转义符" class="headerlink" title="转义符"></a>转义符</h3><p>正则表达式中那些有特殊含义的元字符，如果要匹配它们本身，就需要在它们前面要加上反斜杠。比如要匹配+，就要写成\ +。</p>
 <p>正则表达式中，需要反斜杠转义的，一共有12个字符：^、.、[、$、(、)、|、*、+、?、{和\。需要特别注意的是，如果使用RegExp方法生成正则对象，转义需要使用两个斜杠，因为字符串内部会先转义一次。</p>
-<h3 id="特殊字符"><a href="#特殊字符" class="headerlink" title="特殊字符"></a>特殊字符</h3><p>正则表达式对一些不能打印的特殊字符，提供了表达方法。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8A%E5%8D%8810.43.57.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<h3 id="特殊字符"><a href="#特殊字符" class="headerlink" title="特殊字符"></a>特殊字符</h3><p>正则表达式对一些不能打印的特殊字符，提供了表达方法。<br><img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8A%E5%8D%8810.43.57.png" alt=""></p>
 <h3 id="字符类"><a href="#字符类" class="headerlink" title="字符类"></a>字符类</h3><p>字符类（class）表示有一系列字符可供选择，只要匹配其中一个就可以了。所有可供选择的字符都放在方括号内，比如[xyz] 表示x、y、z之中任选一个匹配。</p>
 <h4 id="脱字符（-）"><a href="#脱字符（-）" class="headerlink" title="脱字符（ ^ ）"></a>脱字符（ ^ ）</h4><p>如果方括号内的第一个字符是[^ ]，则表示除了字符类之中的字符，其他字符都可以匹配。比如，[^ xyz]表示除了x、y、z之外都可以匹配。</p>
 <p>如果方括号内没有其他字符，即只有[^]，就表示匹配一切字符，其中包括换行符。相比之下，点号作为元字符（.）是不包括换行符的。</p>
@@ -312,22 +558,10 @@
 <h4 id="连字符（-）"><a href="#连字符（-）" class="headerlink" title="连字符（-）"></a>连字符（-）</h4><p>某些情况下，对于连续序列的字符，连字符（-）用来提供简写形式，表示字符的连续范围。比如，[abc]可以写成[a-c]，[0123456789]可以写成[0-9]，同理[A-Z]表示26个大写字母。</p>
 <p>[1-31]，不代表1到31，只代表1到3。</p>
 <p>连字符还可以用来指定 Unicode 字符的范围。</p>
-<h3 id="预定义模式"><a href="#预定义模式" class="headerlink" title="预定义模式"></a>预定义模式</h3><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8A%E5%8D%8810.51.09.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<h3 id="预定义模式"><a href="#预定义模式" class="headerlink" title="预定义模式"></a>预定义模式</h3><p><img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8A%E5%8D%8810.51.09.png" alt=""></p>
 <h3 id="重复类"><a href="#重复类" class="headerlink" title="重复类"></a>重复类</h3><p>模式的精确匹配次数，使用大括号（{}）表示。{n}表示恰好重复n次，{n,}表示至少重复n次，{n,m}表示重复不少于n次，不多于m次。</p>
 <h3 id="量词符"><a href="#量词符" class="headerlink" title="量词符"></a>量词符</h3><p>量词符用来设定某个模式出现的次数。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8A%E5%8D%8810.53.06.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8A%E5%8D%8810.53.06.png" alt=""></p>
 <h3 id="贪婪模式"><a href="#贪婪模式" class="headerlink" title="贪婪模式"></a>贪婪模式</h3><p>三个量词符，默认情况下都是最大可能匹配，即匹配直到下一个字符不满足匹配规则为止。这被称为贪婪模式。</p>
 <p>如果想将贪婪模式改为非贪婪模式，可以在量词符后面加一个问号。</p>
 <p>模式结尾添加了一个问号/a+?/，这时就改为非贪婪模式，一旦条件满足，就不再往下匹配。</p>
@@ -341,25 +575,13 @@
 <p>这时必须使用正则表达式的exec方法，配合循环，才能读到每一轮匹配的组捕获。</p>
 <p>正则表达式内部，还可以用\n引用括号匹配的内容，n是从1开始的自然数，表示对应顺序的括号。</p>
 <h4 id="非捕获组"><a href="#非捕获组" class="headerlink" title="非捕获组"></a>非捕获组</h4><p>(?:x)称为非捕获组（Non-capturing group），表示不返回该组匹配的内容，即匹配的结果中不计入这个括号。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8A%E5%8D%8811.51.45.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8A%E5%8D%8811.51.45.png" alt=""></p>
 <h4 id="先行断言"><a href="#先行断言" class="headerlink" title="先行断言"></a>先行断言</h4><p>x(?=y)称为先行断言（Positive look-ahead），x只有在y前面才匹配，y不会被计入返回结果。比如，要匹配后面跟着百分号的数字，可以写成/\d+(?=%)/。</p>
 <h4 id="先行否定断言"><a href="#先行否定断言" class="headerlink" title="先行否定断言"></a>先行否定断言</h4><p>x(?!y)称为先行否定断言（Negative look-ahead），x只有不在y前面才匹配，y不会被计入返回结果。比如，要匹配后面跟的不是百分号的数字，就要写成/\d+(?!%)/。</p>
 <h1 id="JSON对象"><a href="#JSON对象" class="headerlink" title="JSON对象"></a>JSON对象</h1><h2 id="JSON-格式"><a href="#JSON-格式" class="headerlink" title="JSON 格式"></a>JSON 格式</h2><p>JSON 格式（JavaScript Object Notation 的缩写）是一种用于数据交换的文本格式。</p>
 <p>相比 XML 格式，JSON 格式有两个显著的优点：书写简单，一目了然；符合 JavaScript 原生语法，可以由解释引擎直接处理，不用另外添加解析代码。所以，JSON 迅速被接受，已经成为各大网站交换数据的标准格式，并被写入标准。</p>
 <p>每个 JSON 对象就是一个值，可能是一个数组或对象，也可能是一个原始类型的值。总之，只能是一个值，不能是两个或更多的值。</p>
-<p>JSON 对值的类型和格式有严格的规定。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8B%E5%8D%882.02.44.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<p>JSON 对值的类型和格式有严格的规定。<br><img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8B%E5%8D%882.02.44.png" alt=""></p>
 <h2 id="JSON-对象"><a href="#JSON-对象" class="headerlink" title="JSON 对象"></a>JSON 对象</h2><p>JSON对象是 JavaScript 的原生对象，用来处理 JSON 格式数据。它有两个静态方法：JSON.stringify()和JSON.parse()。</p>
 <h2 id="JSON-stringify"><a href="#JSON-stringify" class="headerlink" title="JSON.stringify()"></a>JSON.stringify()</h2><h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><p>JSON.stringify方法用于将一个值转为 JSON 字符串。该字符串符合 JSON 格式，并且可以被JSON.parse方法还原。</p>
 <p><strong>注意</strong>，对于原始类型的字符串，转换结果会带双引号。</p>
@@ -381,40 +603,16 @@
 <p>JSON.parse方法可以接受一个处理函数，作为第二个参数，用法与JSON.stringify方法类似。</p>
 <h1 id="console对象"><a href="#console对象" class="headerlink" title="console对象"></a>console对象</h1><p>console对象是 JavaScript 的原生对象，它有点像 Unix 系统的标准输出stdout和标准错误stderr，可以输出各种信息到控制台，并且还提供了很多有用的辅助方法。</p>
 <p>console的常见用途有两个。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8B%E5%8D%882.24.58.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8B%E5%8D%882.24.58.png" alt=""></p>
 <h2 id="浏览器实现"><a href="#浏览器实现" class="headerlink" title="浏览器实现"></a>浏览器实现</h2><p>可以使用下面三种方法的打开它。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8B%E5%8D%882.27.48.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<p>面板。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8B%E5%8D%882.29.01.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<p><img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8B%E5%8D%882.27.48.png" alt=""></p>
+<p>面板。<br><img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8B%E5%8D%882.29.01.png" alt=""></p>
 <p>Console面板基本上就是一个命令行窗口，你可以在提示符下，键入各种命令。</p>
 <h2 id="console-对象的静态方法"><a href="#console-对象的静态方法" class="headerlink" title="console 对象的静态方法"></a>console 对象的静态方法</h2><p>console对象提供的各种静态方法，用来与控制台窗口互动。</p>
 <h3 id="console-log-，console-info-，console-debug"><a href="#console-log-，console-info-，console-debug" class="headerlink" title="console.log()，console.info()，console.debug()"></a>console.log()，console.info()，console.debug()</h3><p>console.log方法用于在控制台输出信息。它可以接受一个或多个参数，将它们连接起来输出。</p>
 <p>console.log方法会自动在每次输出的结尾，添加换行符。</p>
 <p>如果第一个参数是格式字符串（使用了格式占位符），console.log方法将依次用后面的参数替换占位符，然后再进行输出。</p>
-<p>不同类型的数据必须使用对应的占位符。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8B%E5%8D%882.30.50.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<p>不同类型的数据必须使用对应的占位符。<br><img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8B%E5%8D%882.30.50.png" alt=""></p>
 <p>console.info是console.log方法的别名，用法完全一样。只不过console.info方法会在输出信息的前面，加上一个蓝色图标。</p>
 <p>console.debug方法与console.log方法类似，会在控制台输出调试信息。但是，默认情况下，console.debug输出的信息不会显示，只有在打开显示级别在verbose的情况下，才会显示。</p>
 <p>console对象的所有方法，都可以被覆盖。因此，可以按照自己的需要，定义console.log方法。</p>
@@ -447,28 +645,10 @@
 <h3 id="keys-object-，values-object"><a href="#keys-object-，values-object" class="headerlink" title="keys(object)，values(object)"></a>keys(object)，values(object)</h3><p>keys(object)方法返回一个数组，包含object的所有键名。<br>values(object)方法返回一个数组，包含object的所有键值。</p>
 <h3 id="monitorEvents-object-events-，unmonitorEvents-object-events"><a href="#monitorEvents-object-events-，unmonitorEvents-object-events" class="headerlink" title="monitorEvents(object[, events]) ，unmonitorEvents(object[, events])"></a>monitorEvents(object[, events]) ，unmonitorEvents(object[, events])</h3><p>monitorEvents(object[, events])方法监听特定对象上发生的特定事件。事件发生时，会返回一个Event对象，包含该事件的相关信息。unmonitorEvents方法用于停止监听。</p>
 <p>monitorEvents允许监听同一大类的事件。所有事件可以分成四个大类。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8B%E5%8D%884.52.33.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<h3 id="其他方法"><a href="#其他方法" class="headerlink" title="其他方法"></a>其他方法</h3><p>命令行 API 还提供以下方法。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8B%E5%8D%884.53.16.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<p><img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8B%E5%8D%884.52.33.png" alt=""></p>
+<h3 id="其他方法"><a href="#其他方法" class="headerlink" title="其他方法"></a>其他方法</h3><p>命令行 API 还提供以下方法。<br><img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8B%E5%8D%884.53.16.png" alt=""></p>
 <h2 id="debugger-语句"><a href="#debugger-语句" class="headerlink" title="debugger 语句"></a>debugger 语句</h2><p>debugger语句主要用于除错，作用是设置断点。如果有正在运行的除错工具，程序运行到debugger语句时会自动停下。如果没有除错工具，debugger语句不会产生任何结果，JavaScript 引擎自动跳过这一句。</p>
-<p>Chrome 浏览器中，当代码运行到debugger语句时，就会暂停运行，自动打开脚本源码界面。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8B%E5%8D%884.54.16.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<p>Chrome 浏览器中，当代码运行到debugger语句时，就会暂停运行，自动打开脚本源码界面。<br><img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8B%E5%8D%884.54.16.png" alt=""></p>
 <h1 id="属性描述对象"><a href="#属性描述对象" class="headerlink" title="属性描述对象"></a>属性描述对象</h1><h2 id="概述-2"><a href="#概述-2" class="headerlink" title="概述"></a>概述</h2><p>JavaScript 提供了一个内部数据结构，用来描述对象的属性，控制它的行为，比如该属性是否可写、可遍历等等。这个内部数据结构称为“属性描述对象”（attributes object）。每个属性都有自己对应的属性描述对象，保存该属性的一些元信息。</p>
 <p>属性描述对象提供6个元属性。</p>
 <h3 id="value"><a href="#value" class="headerlink" title="value"></a>value</h3><p>value是该属性的属性值，默认为undefined。</p>
@@ -481,29 +661,11 @@
 <p><strong>注意</strong>，Object.getOwnPropertyDescriptor方法只能用于对象自身的属性，不能用于继承的属性。</p>
 <h2 id="Object-getOwnPropertyNames"><a href="#Object-getOwnPropertyNames" class="headerlink" title="Object.getOwnPropertyNames()"></a>Object.getOwnPropertyNames()</h2><p>Object.getOwnPropertyNames方法返回一个数组，成员是参数对象自身的全部属性的属性名，不管该属性是否可遍历。</p>
 <p>这跟Object.keys的行为不同，Object.keys只返回对象自身的可遍历属性的全部属性名。</p>
-<h2 id="Object-defineProperty-，Object-defineProperties"><a href="#Object-defineProperty-，Object-defineProperties" class="headerlink" title="Object.defineProperty()，Object.defineProperties()"></a>Object.defineProperty()，Object.defineProperties()</h2><p>Object.defineProperty方法允许通过属性描述对象，定义或修改一个属性，然后返回修改后的对象，它的用法如下。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8A%E5%8D%889.34.13.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<h2 id="Object-defineProperty-，Object-defineProperties"><a href="#Object-defineProperty-，Object-defineProperties" class="headerlink" title="Object.defineProperty()，Object.defineProperties()"></a>Object.defineProperty()，Object.defineProperties()</h2><p>Object.defineProperty方法允许通过属性描述对象，定义或修改一个属性，然后返回修改后的对象，它的用法如下。<br><img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8A%E5%8D%889.34.13.png" alt=""></p>
 <p>Object.defineProperty方法接受三个参数，依次如下。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8A%E5%8D%889.34.59.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8A%E5%8D%889.34.59.png" alt=""></p>
 <p>如果一次性定义或修改多个属性，可以使用Object.defineProperties方法。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8A%E5%8D%889.37.39.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8A%E5%8D%889.37.39.png" alt=""></p>
 <p><strong>注意</strong>，一旦定义了取值函数get（或存值函数set），就不能将writable属性设为true，或者同时定义value属性，否则会报错。</p>
 <p>Object.defineProperty()和Object.defineProperties()的第三个参数，是一个属性对象。它的writable、configurable、enumerable这三个属性的默认值都为false。</p>
 <h2 id="Object-prototype-propertyIsEnumerable"><a href="#Object-prototype-propertyIsEnumerable" class="headerlink" title="Object.prototype.propertyIsEnumerable()"></a>Object.prototype.propertyIsEnumerable()</h2><p>实例对象的propertyIsEnumerable方法返回一个布尔值，用来判断某个属性是否可遍历。</p>
@@ -511,45 +673,21 @@
 <h3 id="value-1"><a href="#value-1" class="headerlink" title="value"></a>value</h3><p>value属性是目标属性的值。</p>
 <h3 id="writable-1"><a href="#writable-1" class="headerlink" title="writable"></a>writable</h3><h3 id="enumerable-1"><a href="#enumerable-1" class="headerlink" title="enumerable"></a>enumerable</h3><h3 id="configurable-1"><a href="#configurable-1" class="headerlink" title="configurable"></a>configurable</h3><h2 id="存取器"><a href="#存取器" class="headerlink" title="存取器"></a>存取器</h2><p>除了直接定义以外，属性还可以用存取器（accessor）定义。其中，存值函数称为setter，使用属性描述对象的set属性；取值函数称为getter，使用属性描述对象的get属性。</p>
 <p>一旦对目标属性定义了存取器，那么存取的时候，都将执行对应的函数。利用这个功能，可以实现许多高级特性，比如某个属性禁止赋值。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8A%E5%8D%8810.09.50.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8A%E5%8D%8810.09.50.png" alt=""></p>
 <p><strong>注意</strong>，取值函数get不能接受参数，存值函数set只能接受一个参数（即属性的值）。</p>
 <p>存取器往往用于，属性的值依赖对象内部数据的场合。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8A%E5%8D%8810.20.53.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8A%E5%8D%8810.20.53.png" alt=""></p>
 <p>next属性的存值函数和取值函数，都依赖于内部属性$n。</p>
 <h2 id="对象的拷贝"><a href="#对象的拷贝" class="headerlink" title="对象的拷贝"></a>对象的拷贝</h2><p>有时，我们需要将一个对象的所有属性，拷贝到另一个对象。</p>
 <p>可以通过Object.defineProperty方法来拷贝属性。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8A%E5%8D%8810.23.47.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8A%E5%8D%8810.23.47.png" alt=""></p>
 <p>hasOwnProperty那一行用来过滤掉继承的属性，否则会报错，因为Object.getOwnPropertyDescriptor读不到继承属性的属性描述对象。</p>
 <h2 id="控制对象状态"><a href="#控制对象状态" class="headerlink" title="控制对象状态"></a>控制对象状态</h2><p>有时需要冻结对象的读写状态，防止对象被改变。JavaScript 提供了三种冻结方法，最弱的一种是Object.preventExtensions，其次是Object.seal，最强的是Object.freeze。</p>
 <h3 id="Object-preventExtensions"><a href="#Object-preventExtensions" class="headerlink" title="Object.preventExtensions()"></a>Object.preventExtensions()</h3><p>Object.preventExtensions方法可以使得一个对象无法再添加新的属性。</p>
 <h3 id="Object-isExtensible"><a href="#Object-isExtensible" class="headerlink" title="Object.isExtensible()"></a>Object.isExtensible()</h3><p>Object.isExtensible方法用于检查一个对象是否使用了Object.preventExtensions方法。也就是说，检查是否可以为一个对象添加属性。</p>
 <h3 id="Object-seal"><a href="#Object-seal" class="headerlink" title="Object.seal()"></a>Object.seal()</h3><p>Object.seal方法使得一个对象既无法添加新属性，也无法删除旧属性。</p>
 <p>Object.seal实质是把属性描述对象的configurable属性设为false，因此属性描述对象不再能改变了。</p>
-<p>Object.seal只是禁止新增或删除属性，并不影响修改某个属性的值。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8A%E5%8D%8810.29.30.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<p>Object.seal只是禁止新增或删除属性，并不影响修改某个属性的值。<br><img src="/img/media/15342338033089/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8A%E5%8D%8810.29.30.png" alt=""></p>
 <h3 id="Object-isSealed"><a href="#Object-isSealed" class="headerlink" title="Object.isSealed()"></a>Object.isSealed()</h3><p>Object.isSealed方法用于检查一个对象是否使用了Object.seal方法。</p>
 <p>这时，Object.isExtensible方法也返回false。</p>
 <h3 id="Object-freeze"><a href="#Object-freeze" class="headerlink" title="Object.freeze()"></a>Object.freeze()</h3><p>Object.freeze方法可以使得一个对象无法添加新属性、无法删除旧属性、也无法改变属性的值，使得这个对象实际上变成了常量。</p>
@@ -561,230 +699,891 @@
 <p>另外一个局限是，如果属性值是对象，上面这些方法只能冻结属性指向的对象，而不能冻结对象本身的内容。</p>
 <p>obj.bar属性指向一个数组，obj对象被冻结以后，这个指向无法改变，即无法指向其他值，但是所指向的数组是可以改变的。</p>
 
-        </div>
-
-        <blockquote class="post-copyright">
-    
-    <div class="content">
-        
-<span class="post-time">
-    最后更新时间：<time datetime="2018-09-01T03:58:36.000Z" itemprop="dateUpdated">2018-09-01 11:58:36</time>
-</span><br>
-
-
-        
+      
     </div>
+
     
-    <footer>
-        <a href="https://github.com/zdkswd">
-            <img src="/img/tmg.jpg" alt="ZDK">
-            ZDK
-        </a>
+
+    
+      
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/17/JavaScript 标准参考教程 标准库 上/" rel="next" title="JavaScript 标准参考教程 标准库 上">
+                <i class="fa fa-chevron-left"></i> JavaScript 标准参考教程 标准库 上
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/19/JavaScript标准参考教程 面向对象编程/" rel="prev" title=" JavaScript标准参考教程 面向对象编程">
+                 JavaScript标准参考教程 面向对象编程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
     </footer>
-</blockquote>
-
-        
-
-
-        <div class="post-footer">
-            
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+  </div>
+  
+  
+  
+  </article>
 
 
-            
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
 
 
         </div>
-    </div>
-
-    
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2018/08/19/JavaScript标准参考教程 面向对象编程/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title"> JavaScript标准参考教程 面向对象编程</h4>
-      </a>
-    </div>
-  
-
-  
-    <div class="waves-block waves-effect next">
-      <a href="/2018/08/17/JavaScript 标准参考教程 标准库 上/" id="post-next" class="post-nav-link">
-        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">JavaScript 标准参考教程 标准库 上</h4>
-      </a>
-    </div>
-  
-</nav>
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Valine Comments -->
-    <div class="comments vcomment" id="comments"></div>
-    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
-    <!-- Valine Comments script -->
-    <script>
-        var GUEST_INFO = ['nick','mail','link'];
-        var guest_info = 'nick,mail'.split(',').filter(function(item){
-          return GUEST_INFO.indexOf(item) > -1
-        });
-        new Valine({
-            el: '#comments',
-            notify: 'true' == 'true',
-            verify: 'false' == 'true',
-            appId: "QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz",
-            appKey: "gkBx5soQkBREmER84PWbNJeM",
-            avatar: "mm",
-            placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
-            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
-            pageSize: "10"
-        })
-    </script>
-    <!-- Valine Comments end -->
-
-
-
-
-
-
-
-</article>
-
-
-
-</div>
-
-        <footer class="footer">
-    <div class="top">
         
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
-
-
-        <p>
-            
-                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-            
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
-        </p>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
     </div>
-    <div class="bottom">
-        <p><span>ZDK &copy; 2017 - 2019</span>
-            <span>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="ZDK"/>
+            
+              <p class="site-author-name" itemprop="name">ZDK</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
                 
-                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
-            </span>
-        </p>
-    </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
-    </script>
-</footer>
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">191</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
 
-    </main>
-    <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">分类</span>
+                  
+                </div>
+              
 
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">48</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
 
-    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
-<script>
-var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
-
-
-</script>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
             </div>
-            <time class="flex-col time">{date}</time>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/zdkswd" title="GitHub &rarr; https://github.com/zdkswd"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:2822464407@qq.com" title="E-Mail &rarr; mailto:2822464407@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/zdkswd" title="https://github.com/zdkswd">Title</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
         </div>
-    </a>
-</li>
-</template>
+      </div>
 
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
 
+            
+            
+            
+            
 
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RegExp对象"><span class="nav-number">1.</span> <span class="nav-text">RegExp对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例属性"><span class="nav-number">1.2.</span> <span class="nav-text">实例属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例方法"><span class="nav-number">1.3.</span> <span class="nav-text">实例方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#RegExp-prototype-test"><span class="nav-number">1.3.1.</span> <span class="nav-text">RegExp.prototype.test()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RegExp-prototype-exec"><span class="nav-number">1.3.2.</span> <span class="nav-text">RegExp.prototype.exec()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串的实例方法"><span class="nav-number">1.4.</span> <span class="nav-text">字符串的实例方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#String-prototype-match"><span class="nav-number">1.4.1.</span> <span class="nav-text">String.prototype.match()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-prototype-search"><span class="nav-number">1.4.2.</span> <span class="nav-text">String.prototype.search()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-prototype-replace"><span class="nav-number">1.4.3.</span> <span class="nav-text">String.prototype.replace()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-prototype-split"><span class="nav-number">1.4.4.</span> <span class="nav-text">String.prototype.split()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#匹配规则"><span class="nav-number">1.5.</span> <span class="nav-text">匹配规则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字面量字符和元字符"><span class="nav-number">1.5.1.</span> <span class="nav-text">字面量字符和元字符</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#点字符（-）"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">点字符（.）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#位置字符"><span class="nav-number">1.5.1.2.</span> <span class="nav-text">位置字符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#选择符（-）"><span class="nav-number">1.5.1.3.</span> <span class="nav-text">选择符（|）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转义符"><span class="nav-number">1.5.2.</span> <span class="nav-text">转义符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特殊字符"><span class="nav-number">1.5.3.</span> <span class="nav-text">特殊字符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符类"><span class="nav-number">1.5.4.</span> <span class="nav-text">字符类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#脱字符（-）"><span class="nav-number">1.5.4.1.</span> <span class="nav-text">脱字符（ ^ ）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#连字符（-）"><span class="nav-number">1.5.4.2.</span> <span class="nav-text">连字符（-）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#预定义模式"><span class="nav-number">1.5.5.</span> <span class="nav-text">预定义模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重复类"><span class="nav-number">1.5.6.</span> <span class="nav-text">重复类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#量词符"><span class="nav-number">1.5.7.</span> <span class="nav-text">量词符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#贪婪模式"><span class="nav-number">1.5.8.</span> <span class="nav-text">贪婪模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修饰符"><span class="nav-number">1.5.9.</span> <span class="nav-text">修饰符</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#g-修饰符"><span class="nav-number">1.5.9.1.</span> <span class="nav-text">g 修饰符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#i-修饰符"><span class="nav-number">1.5.9.2.</span> <span class="nav-text">i 修饰符</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组匹配"><span class="nav-number">1.5.10.</span> <span class="nav-text">组匹配</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#概述-1"><span class="nav-number">1.5.10.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#非捕获组"><span class="nav-number">1.5.10.2.</span> <span class="nav-text">非捕获组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#先行断言"><span class="nav-number">1.5.10.3.</span> <span class="nav-text">先行断言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#先行否定断言"><span class="nav-number">1.5.10.4.</span> <span class="nav-text">先行否定断言</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JSON对象"><span class="nav-number">2.</span> <span class="nav-text">JSON对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#JSON-格式"><span class="nav-number">2.1.</span> <span class="nav-text">JSON 格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSON-对象"><span class="nav-number">2.2.</span> <span class="nav-text">JSON 对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSON-stringify"><span class="nav-number">2.3.</span> <span class="nav-text">JSON.stringify()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本用法"><span class="nav-number">2.3.1.</span> <span class="nav-text">基本用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二个参数"><span class="nav-number">2.3.2.</span> <span class="nav-text">第二个参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三个参数"><span class="nav-number">2.3.3.</span> <span class="nav-text">第三个参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参数对象的-toJSON-方法"><span class="nav-number">2.3.4.</span> <span class="nav-text">参数对象的 toJSON 方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSON-parse"><span class="nav-number">2.4.</span> <span class="nav-text">JSON.parse()</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#console对象"><span class="nav-number">3.</span> <span class="nav-text">console对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器实现"><span class="nav-number">3.1.</span> <span class="nav-text">浏览器实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#console-对象的静态方法"><span class="nav-number">3.2.</span> <span class="nav-text">console 对象的静态方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#console-log-，console-info-，console-debug"><span class="nav-number">3.2.1.</span> <span class="nav-text">console.log()，console.info()，console.debug()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#console-warn-，console-error"><span class="nav-number">3.2.2.</span> <span class="nav-text">console.warn()，console.error()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#console-table"><span class="nav-number">3.2.3.</span> <span class="nav-text">console.table()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#console-count"><span class="nav-number">3.2.4.</span> <span class="nav-text">console.count()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#console-dir-，console-dirxml"><span class="nav-number">3.2.5.</span> <span class="nav-text">console.dir()，console.dirxml()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#console-assert"><span class="nav-number">3.2.6.</span> <span class="nav-text">console.assert()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#console-time-，console-timeEnd"><span class="nav-number">3.2.7.</span> <span class="nav-text">console.time()，console.timeEnd()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#console-group-，console-groupEnd-，console-groupCollapsed"><span class="nav-number">3.2.8.</span> <span class="nav-text">console.group()，console.groupEnd()，console.groupCollapsed()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#console-trace-，console-clear"><span class="nav-number">3.2.9.</span> <span class="nav-text">console.trace()，console.clear()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命令行API"><span class="nav-number">3.3.</span> <span class="nav-text">命令行API</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#"><span class="nav-number">3.3.1.</span> <span class="nav-text">$_</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0-4"><span class="nav-number">3.3.2.</span> <span class="nav-text">\$0 - \$4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#selector"><span class="nav-number">3.3.3.</span> <span class="nav-text">$(selector)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#selector-1"><span class="nav-number">3.3.4.</span> <span class="nav-text">$$(selector)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#x-path"><span class="nav-number">3.3.5.</span> <span class="nav-text">$x(path)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#inspect-object"><span class="nav-number">3.3.6.</span> <span class="nav-text">inspect(object)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#getEventListeners-object"><span class="nav-number">3.3.7.</span> <span class="nav-text">getEventListeners(object)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#keys-object-，values-object"><span class="nav-number">3.3.8.</span> <span class="nav-text">keys(object)，values(object)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#monitorEvents-object-events-，unmonitorEvents-object-events"><span class="nav-number">3.3.9.</span> <span class="nav-text">monitorEvents(object[, events]) ，unmonitorEvents(object[, events])</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他方法"><span class="nav-number">3.3.10.</span> <span class="nav-text">其他方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#debugger-语句"><span class="nav-number">3.4.</span> <span class="nav-text">debugger 语句</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#属性描述对象"><span class="nav-number">4.</span> <span class="nav-text">属性描述对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述-2"><span class="nav-number">4.1.</span> <span class="nav-text">概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#value"><span class="nav-number">4.1.1.</span> <span class="nav-text">value</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#writable"><span class="nav-number">4.1.2.</span> <span class="nav-text">writable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#enumerable"><span class="nav-number">4.1.3.</span> <span class="nav-text">enumerable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#configurable"><span class="nav-number">4.1.4.</span> <span class="nav-text">configurable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#get"><span class="nav-number">4.1.5.</span> <span class="nav-text">get</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#set"><span class="nav-number">4.1.6.</span> <span class="nav-text">set</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Object-getOwnPropertyDescriptor"><span class="nav-number">4.2.</span> <span class="nav-text">Object.getOwnPropertyDescriptor()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Object-getOwnPropertyNames"><span class="nav-number">4.3.</span> <span class="nav-text">Object.getOwnPropertyNames()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Object-defineProperty-，Object-defineProperties"><span class="nav-number">4.4.</span> <span class="nav-text">Object.defineProperty()，Object.defineProperties()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Object-prototype-propertyIsEnumerable"><span class="nav-number">4.5.</span> <span class="nav-text">Object.prototype.propertyIsEnumerable()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#元属性"><span class="nav-number">4.6.</span> <span class="nav-text">元属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#value-1"><span class="nav-number">4.6.1.</span> <span class="nav-text">value</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#writable-1"><span class="nav-number">4.6.2.</span> <span class="nav-text">writable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#enumerable-1"><span class="nav-number">4.6.3.</span> <span class="nav-text">enumerable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#configurable-1"><span class="nav-number">4.6.4.</span> <span class="nav-text">configurable</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存取器"><span class="nav-number">4.7.</span> <span class="nav-text">存取器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象的拷贝"><span class="nav-number">4.8.</span> <span class="nav-text">对象的拷贝</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#控制对象状态"><span class="nav-number">4.9.</span> <span class="nav-text">控制对象状态</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-preventExtensions"><span class="nav-number">4.9.1.</span> <span class="nav-text">Object.preventExtensions()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-isExtensible"><span class="nav-number">4.9.2.</span> <span class="nav-text">Object.isExtensible()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-seal"><span class="nav-number">4.9.3.</span> <span class="nav-text">Object.seal()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-isSealed"><span class="nav-number">4.9.4.</span> <span class="nav-text">Object.isSealed()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-freeze"><span class="nav-number">4.9.5.</span> <span class="nav-text">Object.freeze()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-isFrozen"><span class="nav-number">4.9.6.</span> <span class="nav-text">Object.isFrozen()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#局限性"><span class="nav-number">4.9.7.</span> <span class="nav-text">局限性</span></a></li></ol></li></ol></li></ol></div>
+            
 
-<!-- mathjax config similar to math.stackexchange -->
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
+      
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
 
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-});
-</script>
-
-<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
-
-
-
-
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
 
 
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZDK</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.2.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+  </div>
+
+  
 
 <script>
-(function() {
-    var OriginTitile = document.title, titleTime;
-    document.addEventListener('visibilitychange', function() {
-        if (document.hidden) {
-            document.title = 'zdk'blog';
-            clearTimeout(titleTime);
-        } else {
-            document.title = '';
-            titleTime = setTimeout(function() {
-                document.title = OriginTitile;
-            },2000);
-        }
-    });
-})();
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
 </script>
 
 
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.2.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz',
+    appKey: 'gkBx5soQkBREmER84PWbNJeM',
+    placeholder: 'have fun',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true,
+    lang: '' || 'zh-cn'
+  });
+</script>
+
+
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('5');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
 
 </body>
 </html>

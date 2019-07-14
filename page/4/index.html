@@ -1,656 +1,2575 @@
 <!DOCTYPE html>
-<html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
-    
-
-    
-
-    
-
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
 
 
-    <meta charset="utf-8">
-    
-    
-    
-    
-    <title>ZDK&#39;s blog</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#3F51B5">
-    
-    
-    <meta name="keywords" content="">
-    <meta property="og:type" content="website">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.2.0',
+    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+
+
+  <meta property="og:type" content="website">
 <meta property="og:title" content="ZDK&#39;s blog">
 <meta property="og:url" content="https://github.com/zdkswd/page/4/index.html">
 <meta property="og:site_name" content="ZDK&#39;s blog">
 <meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ZDK&#39;s blog">
-    
-        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
-    
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
-    <script>window.lazyScripts=[]</script>
 
-    <!-- custom head -->
-    
+
+
+  <link rel="alternate" href="/atom.xml" title="ZDK's blog" type="application/atom+xml"/>
+
+
+
+  
+  
+  <link rel="canonical" href="https://github.com/zdkswd/page/4/"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>ZDK's blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
 
 </head>
 
-<body>
-    <div id="loading" class="active"></div>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
-    <aside id="menu"  >
-  <div class="inner flex-row-vertical">
-    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-        <i class="icon icon-lg icon-close"></i>
-    </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
-      <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/tmg.jpg">
-        </a>
-        <hgroup class="introduce">
-          <h5 class="nickname">ZDK</h5>
-          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
-        </hgroup>
-      </div>
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right 
+  page-home">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ZDK's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
-    <div class="scroll-wrap flex-col">
-      <ul class="nav">
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
         
-            <li class="waves-block waves-effect">
-              <a href="/"  >
-                <i class="icon icon-lg icon-home"></i>
-                主页
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                Archives
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/tags"  >
-                <i class="icon icon-lg icon-tags"></i>
-                Tags
-              </a>
-            </li>
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>首页</a>
+
+  </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/categories"  >
-                <i class="icon icon-lg icon-th-list"></i>
-                Categories
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="https://github.com/zdkswd" target="_blank" >
-                <i class="icon icon-lg icon-github"></i>
-                Github
-              </a>
-            </li>
         
-      </ul>
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>归档</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br/>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
     </div>
   </div>
-</aside>
-
-    <main id="main">
-        <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis">ZDK&#39;s blog</div>
-        
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
-        </div>
-        
-        
-    </div>
-</header>
-<header class="content-header index-header">
-
-    <div class="container fade-scale">
-        <h1 class="title">ZDK&#39;s blog</h1>
-        <h5 class="subtitle">
-            
-                
-            
-        </h5>
-    </div>
-
-    
-
-
-</header>
-
-<div class="container body-wrap">
-
-    <ul class="post-list">
-    
-        <li class="post-list-item fade">
-            <article id="post-二分查找"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-05-07 16:53:47" datetime="2019-05-07T08:53:47.000Z"  itemprop="datePublished">2019-05-07</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+  <div id="local-search-result"></div>
+</div>
 
 
 
     </div>
-
-    
-
-
   
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/05/07/二分查找/">二分查找</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        二分查找
-                
-                    
-                    
-                
-                
-            
-
-                
-                    
-                    
-                
-         ...
-    
-
-        <a href="/2019/05/07/二分查找/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-线性排序 O(n)  排序优化"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-05-07 14:32:32" datetime="2019-05-07T06:32:32.000Z"  itemprop="datePublished">2019-05-07</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/05/07/线性排序 O(n)  排序优化/">线性排序 O(n)  排序优化</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        线性排序 O(n)  排序优化桶排序，计数排序，基数排序的时间复杂度是线性的，之所以能做到线性的时间复杂度主要是因为这些算法是非基于比较的排序算法，都不涉及元素之间的比较操作。
-桶排序核心思想是将要排序的数据分到几个有序的桶中，每个桶里的数据再单独进行排序。桶内排完序后，再将每个桶里的数据按照顺序依次取出，组成的序列就是有序的了。
-                
-             ...
-    
-
-        <a href="/2019/05/07/线性排序 O(n)  排序优化/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-极客时间 排序算法O(n^2) O(nlogn)"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-04-30 20:05:47" datetime="2019-04-30T12:05:47.000Z"  itemprop="datePublished">2019-04-30</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/04/30/极客时间 排序算法O(n^2) O(nlogn)/">极客时间 排序算法O(n^2) O(nlogn)</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        极客时间 排序算法O(n^2) O(nlogn)
-                
-                    
-                    
-                
-                
-            
-所谓的算法稳定性就是
-                
-                    
-                 ...
-    
-
-        <a href="/2019/04/30/极客时间 排序算法O(n^2) O(nlogn)/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-LightGBM_ A Highly Efficient Gradient Boosting Decision Tree"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-04-29 12:31:32" datetime="2019-04-29T04:31:32.000Z"  itemprop="datePublished">2019-04-29</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/论文/">论文</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/04/29/LightGBM_ A Highly Efficient Gradient Boosting Decision Tree/">LightGBM: A Highly Efficient Gradient Boosting Decision Tree </a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        要点介绍了两种能让gbdt加速训练的方法。
-Abstract Conventional implementations of GBDT need to, for every feature, scan all the data instances to estimate the information gain of all the possible split points.The eff...
-    
-
-        <a href="/2019/04/29/LightGBM_ A Highly Efficient Gradient Boosting Decision Tree/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-极客时间 算法与数据结构 一"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-04-25 20:56:47" datetime="2019-04-25T12:56:47.000Z"  itemprop="datePublished">2019-04-25</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/04/25/极客时间 算法与数据结构 一/">极客时间 数据结构</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        极客时间 算法与数据结构 一
-                
-                    
-                    
-                
-                
-            
-
-                
-                    
-                    
-                ...
-    
-
-        <a href="/2019/04/25/极客时间 算法与数据结构 一/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Keras.Embedding"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-04-25 20:51:47" datetime="2019-04-25T12:51:47.000Z"  itemprop="datePublished">2019-04-25</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/04/25/Keras.Embedding/">Keras.Embedding</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        Keras.Embedding
-                
-                    
-                    
-                
-                
-            
-
-                
-                    
-                    
-               ...
-    
-
-        <a href="/2019/04/25/Keras.Embedding/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-RS Embedding Papers"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-04-18 13:56:47" datetime="2019-04-18T05:56:47.000Z"  itemprop="datePublished">2019-04-18</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/论文/">论文</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/04/18/RS Embedding Papers/">RS Embedding Papers</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        Item2Vec  MicrosoftITEM2VEC: NEURAL ITEM EMBEDDING FOR COLLABORATIVE FILTERING
-ABSTRACTThe method is capable of inferring item-item relations even when user information is not available. 
-INTRODUCT...
-    
-
-        <a href="/2019/04/18/RS Embedding Papers/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-    </ul>
-
-    
-<nav id="page-nav">
-    <div class="inner">
-    <a class="extend prev" rel="prev" href="/page/3/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="extend next" rel="next" href="/page/5/">下一页</a>
-    </div>
 </nav>
 
 
-</div>
 
-        <footer class="footer">
-    <div class="top">
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2019/05/07/二分查找/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZDK"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZDK's blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
         
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
-
-
-        <p>
-            
-                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-            
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
-        </p>
-    </div>
-    <div class="bottom">
-        <p><span>ZDK &copy; 2017 - 2019</span>
-            <span>
+        
+          <h1 class="post-title" itemprop="name headline">
                 
-                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+                
+                <a href="/2019/05/07/二分查找/" class="post-title-link" itemprop="url">二分查找</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-07 16:53:47 / 修改时间：16:54:04" itemprop="dateCreated datePublished" datetime="2019-05-07T16:53:47+08:00">2019-05-07</time>
             </span>
-        </p>
-    </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
-    </script>
-</footer>
+          
 
-    </main>
-    <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+          
+            
 
+            
+          
 
-    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
-<script>
-var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/知识总结/" itemprop="url" rel="index"><span itemprop="name">知识总结</span></a></span>
 
+                
+                
+              
+            </span>
+          
 
-</script>
+          
+            
+            
+              
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/05/07/二分查找/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/07/二分查找/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
 
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+          
+          
+            <span id="/2019/05/07/二分查找/" class="post-meta-item leancloud_visitors" data-flag-title="二分查找">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
 
+          
 
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
-            </div>
-            <time class="flex-col time">{date}</time>
+          
+
+          <br/>
+          
+
+          
+
+          
+
         </div>
-    </a>
-</li>
-</template>
+      </header>
+    
 
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h1><p><img src="/img/media/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/9dadf04cdfa7b3724e0df91da7cacd9b.jpg" alt=""></p>
+<p><img src="/img/media/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/8bce81259abf0e9a06f115e22586b829.jpg" alt=""><br>二分查找针对的是一个有序的数据集合,查找思想有点类似分治思想。每次都通过跟区间的中间元素对比,将待查找的区间缩小为之前的一半,直到找到要查找的元素,或者区间被缩小为0。</p>
+<p><strong>惊人的查找速度O(logn)。</strong>比如n等于2的32次方，大约是32亿，但是在42亿个数据中用二分查找一个数据，最多需要比较32次。常量级时间复杂度的算法有时候可能还没有O(logn)的算法执行效率高。</p>
+<h1 id="二分查找的递归与非递归实现"><a href="#二分查找的递归与非递归实现" class="headerlink" title="二分查找的递归与非递归实现"></a>二分查找的递归与非递归实现</h1><p>对于最简单的情况，即不存在重复数据的情况。<br><img src="/img/media/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-07%20%E4%B8%8B%E5%8D%883.33.19.png" alt=""><br>三个容易出错的地方：<br>1.循环退出条件<br>是low&lt;=high,而不是low&lt;high。<br>2.mid的取值<br>实际上,mid=(ow+high)/2这种写法是有问题的。因为如果low和high比较大的话,两者之和就有可能会溢出。改进的方法是将md的计算方式写成low+(high-low)/2。更进一步,如果要将性能优化到极致的话,我们可以将这里的除以2操作转化成位运算low+(high-low)&gt;&gt;1)。因为相比除法运算来说,计算机处理位运算要快得多。<br>3.low和hign的更新<br>low=md+1,high=mid-1。注意这里的+1和-1,如果直接写成low=mid或者high=mid,就可能会发生死循环。比如,当high=3,low=3时,如果a3]不等于value,就会导致一直循环不退出。</p>
+<p>二分查找除了用循环来实现，还可以用递归来实现。<br><img src="/img/media/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-07%20%E4%B8%8B%E5%8D%883.45.20.png" alt=""></p>
+<h1 id="二分查找应用场景的局限性"><a href="#二分查找应用场景的局限性" class="headerlink" title="二分查找应用场景的局限性"></a>二分查找应用场景的局限性</h1><p><strong>首先，二分查找依赖的是顺序表结构，简单说就是数组。</strong><br><strong>其次，二分查找针对的是有序数据。</strong>如果数据没有序，我们需要先排序。二分查找只能用在插入、删除操作不频繁，一次排序多次查找的场景中。针对动态变化的数据集合，二分查找将不再适用。<br><strong>再次，数据量太小不适合二分查找。</strong>如果要处理的数据量很小，完全没有必要用二分查找，顺序遍历就足够了。只有数据量比较大时，二分查找的优势才会比较明显。如果数据之间的比较操作非常耗时，不管数据量大小，都推荐使用二分查找。<br><strong>最后，数据量太大也不适合二分查找。</strong>二分查找的底层需要依赖数组，需要有大量的连续的内存空间，对于1gb的数据，需要有1gb<strong>连续</strong>内存空间。</p>
+<p>虽然大部分情况下，用二分查找可以解决的问题，用散列表、二叉树都可以解决，但是不论是散列表还是二叉树都会需要比较多的额外的内存空间。二分查找底层依赖的是数组，除了数据本身之外，不需要额外存储其他信息，是最省内存空间的存储方式。</p>
+<h1 id="二分查找简单情况的变形"><a href="#二分查找简单情况的变形" class="headerlink" title="二分查找简单情况的变形"></a>二分查找简单情况的变形</h1><p><img src="/img/media/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/4221d02a2e88e9053085920f13f9ce36.jpg" alt=""></p>
+<h2 id="查找第一个值等于给定值的元素"><a href="#查找第一个值等于给定值的元素" class="headerlink" title="查找第一个值等于给定值的元素"></a>查找第一个值等于给定值的元素</h2><p><img src="/img/media/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/503c572dd0f9d734b55f1bd12765c4f8.jpg" alt=""><br>对于之前简单情况的代码进行一些变形。<br><img src="/img/media/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-07%20%E4%B8%8B%E5%8D%884.30.51.png" alt=""><br>查找的是任意一个值等于给定值的元素，当a[mid]等于要查找的值时，a[mid]就是我们要找的元素，此时需要确认是否是第一个值等于给定值的元素。经检查发现a[mid]前面一个元素a[mid-1]也等于value，那么说明此时的a[mid]肯定不是第一个值等于给定值的元素，就更新high=mid-1。</p>
+<h2 id="变体二-查找最后一个值等于给定值的元素"><a href="#变体二-查找最后一个值等于给定值的元素" class="headerlink" title="变体二 查找最后一个值等于给定值的元素"></a>变体二 查找最后一个值等于给定值的元素</h2><p>同理可得</p>
+<h2 id="变体三-查找第一个大于等于给定值的元素"><a href="#变体三-查找第一个大于等于给定值的元素" class="headerlink" title="变体三 查找第一个大于等于给定值的元素"></a>变体三 查找第一个大于等于给定值的元素</h2><p><img src="/img/media/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-07%20%E4%B8%8B%E5%8D%884.40.19.png" alt=""><br>思路类似</p>
+<h2 id="变体四-查找最后一个小于等于给定值的元素"><a href="#变体四-查找最后一个小于等于给定值的元素" class="headerlink" title="变体四 查找最后一个小于等于给定值的元素"></a>变体四 查找最后一个小于等于给定值的元素</h2><p>类似</p>
+<h1 id="快速定位出一个ip地址归属地"><a href="#快速定位出一个ip地址归属地" class="headerlink" title="快速定位出一个ip地址归属地"></a>快速定位出一个ip地址归属地</h1><p>首先将ip地址排序，将问题转化为在有序数组中，查找最后一个小于等于某个给定值的元素。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2019/05/07/线性排序 O(n)  排序优化/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZDK"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZDK's blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/05/07/线性排序 O(n)  排序优化/" class="post-title-link" itemprop="url">线性排序 O(n)  排序优化</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-07 14:32:32 / 修改时间：14:33:46" itemprop="dateCreated datePublished" datetime="2019-05-07T14:32:32+08:00">2019-05-07</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/知识总结/" itemprop="url" rel="index"><span itemprop="name">知识总结</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/05/07/线性排序 O(n)  排序优化/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/07/线性排序 O(n)  排序优化/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2019/05/07/线性排序 O(n)  排序优化/" class="post-meta-item leancloud_visitors" data-flag-title="线性排序 O(n)  排序优化">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          <br/>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="线性排序-O-n-排序优化"><a href="#线性排序-O-n-排序优化" class="headerlink" title="线性排序 O(n)  排序优化"></a>线性排序 O(n)  排序优化</h1><p>桶排序，计数排序，基数排序的时间复杂度是线性的，之所以能做到线性的时间复杂度主要是因为这些算法是非基于比较的排序算法，都不涉及元素之间的比较操作。</p>
+<h1 id="桶排序"><a href="#桶排序" class="headerlink" title="桶排序"></a>桶排序</h1><p>核心思想是将要排序的数据分到几个有序的桶中，每个桶里的数据再单独进行排序。桶内排完序后，再将每个桶里的数据按照顺序依次取出，组成的序列就是有序的了。<br><img src="/img/media/%E7%BA%BF%E6%80%A7%E6%8E%92%E5%BA%8F%20O(n" alt="">%20%20%E6%8E%92%E5%BA%8F%E4%BC%98%E5%8C%96/987564607b864255f81686829503abae.jpg)<br><strong>时间复杂度分析：</strong>如果要排序的数据有n个，把它们均匀地划分到m个桶内，每个桶里就有k=n / m个元素。每个桶内部使用快速排序，时间复杂度为O(k <em> logk)。m个桶排序的时间复杂度就是O(m </em> k <em> logk),因为k=n / m,所以整个桶排序的时间复杂度就是O(n </em> log(n / m))。当桶的个数m接近数据个数n时，log(n / m)就是一个非常小的常量，这个时候桶排序的时间复杂度接近O(n)。</p>
+<p>桶排序对要排序数据的要求是非常苛刻的：<strong>首先</strong>要排序的数据需要很容易能划分成m个桶，并且桶与桶之间有着天然的大小顺序。这样每个桶内数据都排序完之后，桶与桶之间的数据不需要进行排序。<strong>其次</strong>，数据在各个桶之间的分布是比较均匀的。如果数据经过桶的划分之后，有些桶里的数据非常多，有些非常少，很不平均，那桶内数据排序的时间复杂度就不是常量级了。在极端情况下，如果数据都被划分到一个桶里，那就退化为O(nlogn)的排序算法了。</p>
+<p><strong>桶排序比较适合用在外部排序中。</strong></p>
+<h1 id="计数排序"><a href="#计数排序" class="headerlink" title="计数排序"></a>计数排序</h1><p><strong>计数排序其实是桶排序的一种特殊情况。</strong>当要排序的n个数据，所处的范围并不大时，比如最大值为k，就可以将数据划分为k个桶，每个桶内的数据值都是相同的，省掉了桶内排序的时间。</p>
+<p>比如高考成绩排序，考生的满分是750，最小是0，就可以分为751个桶，根据考生成绩，将50万考生划分到751个桶中，桶内的数据都是分数相同的学生，所以并不需要再进行排序，只需要依次扫描每个桶，将桶内的考生依次输出到一个数组中，就实现了50万考生的排序，因为只涉及扫描遍历操作，所以时间复杂度是O(n)。</p>
+<p>计数排序的名字计数有何而来呢？比如8个考生分数在0-5之间。<br><img src="/img/media/%E7%BA%BF%E6%80%A7%E6%8E%92%E5%BA%8F%20O(n" alt="">%20%20%E6%8E%92%E5%BA%8F%E4%BC%98%E5%8C%96/adc75672ef33fa54b023a040834fcbc9.jpg)<br>C[6]内存储的不是考生，而是对应的考生的个数。将C[6]数组顺序求和。<br><img src="/img/media/%E7%BA%BF%E6%80%A7%E6%8E%92%E5%BA%8F%20O(n" alt="">%20%20%E6%8E%92%E5%BA%8F%E4%BC%98%E5%8C%96/dd6c62b12b0dc1b3a294af0fa1ce371f.jpg)<br>C[k]里存储小于等于分数k的考生个数。<br><img src="/img/media/%E7%BA%BF%E6%80%A7%E6%8E%92%E5%BA%8F%20O(n" alt="">%20%20%E6%8E%92%E5%BA%8F%E4%BC%98%E5%8C%96/1d730cb17249f8e92ef5cab53ae65784.jpg)<br>这种利用另外一个数组来计数的实现方式非常巧妙，这也是为什么这种排序算法叫计数排序的原因。</p>
+<p><strong>计数排序只能用在数据范围不大的场景中，</strong>如果数据范围k比要排序的数据n大很多，就不适合用计数排序了。而且，计数排序只能给非负整数排序，如果要排序的数据是其他类型的，要在其不改变相对大小的情况下，转化为非负整数。</p>
+<h1 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h1><p><img src="/img/media/%E7%BA%BF%E6%80%A7%E6%8E%92%E5%BA%8F%20O(n" alt="">%20%20%E6%8E%92%E5%BA%8F%E4%BC%98%E5%8C%96/df0cdbb73bd19a2d69a52c54d8b9fc0c.jpg)<br>对于每一位的排序的算法需要是稳定的。可以使用桶排序或者计数排序，其中桶排序中每个桶不能用快排而要用归并排序。</p>
+<p><strong>基数排序对要排序的数据是有要求的，需要可以分割出独立的‘位’来比较，而且位之间有递进的关系，如果a数据的高位比b数据大，那剩下的低位就不用比较了。除此之外，每一位的数据范围不能太大，要可以用线性排序算法来排序，否则，基数排序的时间复杂度就无法做到O(n)了。</strong></p>
+<h1 id="选择合适的排序算法"><a href="#选择合适的排序算法" class="headerlink" title="选择合适的排序算法"></a>选择合适的排序算法</h1><p><img src="/img/media/%E7%BA%BF%E6%80%A7%E6%8E%92%E5%BA%8F%20O(n" alt="">%20%20%E6%8E%92%E5%BA%8F%E4%BC%98%E5%8C%96/1f6ef7e0a5365d6e9d68f0ccc71755fd.jpg)<br>其中默认桶排序是不稳定的。</p>
+<h1 id="排序优化，实现高性能的排序函数"><a href="#排序优化，实现高性能的排序函数" class="headerlink" title="排序优化，实现高性能的排序函数"></a>排序优化，实现高性能的排序函数</h1><p>线性排序算法的时间复杂度较低，但是适用场景比较特殊。所以如果要写一个通用的排序函数,不能选择线性排序算法。</p>
+<p>如果对小规模数据进行排序,可以选择时间复杂度是o(n2)的算法;如果对大规模数据进行排序,时间复杂度是 o(nlogn)的算法更加高效。所以,为了兼顾任意规模数据的排序,一般都会首选时间复杂度是o( nlogn)的排序算法来实现排序函数。</p>
+<p>然而归并排序使用的并不多，虽然其稳定O(nlogn)，但是由于其不是原地排序算法，空间复杂度是O(n)，所以并没有得到很多的使用。</p>
+<h1 id="优化快速排序"><a href="#优化快速排序" class="headerlink" title="优化快速排序"></a>优化快速排序</h1><p>最坏的情况下快排的时间复杂度是O(n2),如果数据原来就是有序或者接近有序的，每次分区点都选择最后一个数据，那么快速排序算法就会变得非常糟糕，时间复杂度就会退化为O(n2)，出现的主要原因是我们分区点选的不够合理。理想的分区点是，<strong>被分区点分开的两个分区中，数据的数量差不多。</strong>为了提高排序算法的性能，要尽可能地让每次分区都比较平均。</p>
+<h2 id="三数取中法"><a href="#三数取中法" class="headerlink" title="三数取中法"></a>三数取中法</h2><p>我们从区间的首、尾、中间,分别取出一个数,然后对比大小,取这3个数的中间值作为分区点。这样每间隔某个固定的长度,取数据岀来比较,将中间值作为分区点的分区算法,肯定要比单纯取某一个数据更好。但是,如果要排序的数组比较大,那“三数取中”可能就不够了,可能要“五数取中”或者“十数取中”。</p>
+<h2 id="随机法"><a href="#随机法" class="headerlink" title="随机法"></a>随机法</h2><p>随机法就是每次从要排序的区间中,随机选择一个元素作为分区点。这种方法并不能保证每次分区点都选的比较好,但是从概率的角度来看,也不大可能会出现每次分区点都选的很差的情况,所以平均情况下,这样选的分区点是比较好的。时间复杂度退化为最糟糕的O(n2)的情况,出现的可能性不大。</p>
+<p>快速排序是用递归来实现的。我们在递归那一节讲过,递归要警惕堆栈溢出。为了避免快速排序里,递归过深而堆栈过小,导致堆栈溢岀,我们有两种解决办法:第一种是限制递归深度。一旦递归过深,超过了我们事先设定的阈值,就停止递归。第二种是通过在堆上模拟实现一个函数调用栈,手动模拟递归压栈、岀栈的过程,这样就没有了系统栈大小的限制。</p>
+<h1 id="举例分析排序函数"><a href="#举例分析排序函数" class="headerlink" title="举例分析排序函数"></a>举例分析排序函数</h1><p>比如<strong>qsort()函数</strong>，会优先使用归并排序来处理小数据量的排序。使用空间来换时间，当数据量太大，就会改用快速排序算法来排序。选取分区点的方法便是三数取中法。对于递归太深导致堆栈溢出的问题，是通过自己实现一个堆上的栈，手动模拟递归来解决的。qsort()并不仅仅用到了归并排序和快速排序，还用到了插入排序。在快速排序的过程中，当要排序的区间中，元素的个数小于等于4时，qsort()就退化为插入排序，在小规模数据前，O(n2)时间复杂度的算法并不一定比O(nlogn)的算法执行时间长。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2019/04/30/极客时间 排序算法O(n^2) O(nlogn)/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZDK"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZDK's blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/04/30/极客时间 排序算法O(n^2) O(nlogn)/" class="post-title-link" itemprop="url">极客时间 排序算法O(n^2) O(nlogn)</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-30 20:05:47" itemprop="dateCreated datePublished" datetime="2019-04-30T20:05:47+08:00">2019-04-30</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-05-07 20:10:22" itemprop="dateModified" datetime="2019-05-07T20:10:22+08:00">2019-05-07</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/知识总结/" itemprop="url" rel="index"><span itemprop="name">知识总结</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/04/30/极客时间 排序算法O(n^2) O(nlogn)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/30/极客时间 排序算法O(n^2) O(nlogn)/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2019/04/30/极客时间 排序算法O(n^2) O(nlogn)/" class="post-meta-item leancloud_visitors" data-flag-title="极客时间 排序算法O(n^2) O(nlogn)">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          <br/>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="极客时间-排序算法O-n-2-O-nlogn"><a href="#极客时间-排序算法O-n-2-O-nlogn" class="headerlink" title="极客时间 排序算法O(n^2) O(nlogn)"></a>极客时间 排序算法O(n^2) O(nlogn)</h1><p><img src="/img/media/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%20%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95O(n%5E2" alt="">%20O(nlogn)/WechatIMG92.jpeg)<br>所谓的算法稳定性就是<br><img src="/img/media/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%20%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95O(n%5E2" alt="">%20O(nlogn)/1381c1f3f7819ae61ab17455ed7f0b59.jpg)</p>
+<h1 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h1><p>比如对于4，5，6，3，2，1<br><img src="/img/media/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%20%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95O(n%5E2" alt="">%20O(nlogn)/4038f64f47975ab9f519e4f739e464e9.jpg)</p>
+<p><img src="/img/media/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%20%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95O(n%5E2" alt="">%20O(nlogn)/9246f12cca22e5d872cbfce302ef4d09.jpg)</p>
+<p>冒泡的过程可以优化，当某次操作没有数据交换时，说明已经到达完全有序。<br><img src="/img/media/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%20%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95O(n%5E2" alt="">%20O(nlogn)/a9783a3b13c11a5e064c5306c261e8e6.jpg)<br>一，冒泡排序的过程只涉及相邻数据的交换操作，只需要常量级的临时空间，所以空间复杂度为O(1)，是一个<strong>原地排序</strong>算法。<br>二，为保证冒泡排序算法的稳定性，当有相邻的两个元素大小相等的时候，不做交换。所以冒泡排序是<strong>稳定</strong>的。<br>三，最好情况，要排序的数据已经是有序的，只需进行一次冒泡操作即可结束，<strong>最好</strong>时间复杂度是<strong>O(n)</strong>。最坏要排序的数据是倒序的，需要进行n次冒泡，<strong>最坏</strong>为<strong>O(n^2)</strong><br>在最坏情况下，进行n <em> (n-1) / 2次交换，最好情况下不需要进行交换，取中间值为n </em> (n-1) / 4来表示平均，所以<strong>平均</strong>复杂度为<strong>O(n^2)</strong></p>
+<h1 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h1><p><img src="/img/media/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%20%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95O(n%5E2" alt="">%20O(nlogn)/7b257e179787c633d2bd171a764171a6.jpg)<br><img src="/img/media/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%20%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95O(n%5E2" alt="">%20O(nlogn)/b60f61ec487358ac037bf2b6974d2de1.jpg)<br>插入排序包括元素的比较与元素的移动两种操作。<br>一，插入排序不需要额外的存储空间，所以空间复杂度是O(1)，所以是一个<strong>原地排序</strong>算法。<br>二，对于值相同的元素，通过选择后面出现的元素，就可以保持原有的前后顺序不变，所以插入排序是<strong>稳定</strong>的排序算法。<br>三，<strong>最好</strong>情况是有序，即为从头到尾遍历一遍为<strong>O(n)</strong>。最坏为倒序，每次要插到第一个位置，并且需要大量的移动数据，<strong>最坏</strong>情况时间复杂度为<strong>O(n^2)</strong>。<br>在数组中插入一个数据的平均时间复杂度是O(n)，对于插入排序来说，每次插入操作都相当于在数组中插入一个数据，循环n次，所以平均时间复杂度为O(n^2)。</p>
+<h1 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h1><p><img src="/img/media/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%20%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95O(n%5E2" alt="">%20O(nlogn)/32371475a0b08f0db9861d102474181d.jpg)<br>选择排序算法的实现思路有点类似插入排序，但是选择排序每次会从未排序区间中找到最小的元素，将其放到已排序区间的末尾。</p>
+<p>选择排序空间复杂度为O(1)，是一种原地排序算法，最好最坏和平均时间复杂度都是O(n^2)。选择排序每次都要找到剩余未排序元素中的最小值，并和前面的元素交换位置，破坏了稳定性，所以选择排序是一种不稳定的排序算法。</p>
+<p><img src="/img/media/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%20%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95O(n%5E2" alt="">%20O(nlogn)/348604caaf0a1b1d7fee0512822f0e50.jpg)</p>
+<h1 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h1><p><img src="/img/media/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%20%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95O(n%5E2" alt="">%20O(nlogn)/db7f892d3355ef74da9cd64aa926dc2b.jpg)<br>归并排序使用的就是<strong>分治思想</strong>。<strong>分治是一种解决问题的处理思想，递归是一种编程技巧。</strong>分治算法一般都是用递归来实现的。<br>归并排序的递推公式：<br><img src="/img/media/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%20%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95O(n%5E2" alt="">%20O(nlogn)/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-30%20%E4%B8%8B%E5%8D%885.00.35.png)</p>
+<p><img src="/img/media/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%20%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95O(n%5E2" alt="">%20O(nlogn)/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-30%20%E4%B8%8B%E5%8D%885.01.35.png)<br>merge函数的具体操作。需要借助一个临时数组tmp<br><img src="/img/media/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%20%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95O(n%5E2" alt="">%20O(nlogn)/95897ade4f7ad5d10af057b1d144a22f.jpg)<br>一，对于A[p…q]和A[q+1…r]之间值相同的元素，可以将A[p…q]中的元素放入tmp数组中，就保证了值相同的元素合并前后顺序不变，所以归并排序是个<strong>稳定</strong>的排序。<br>二，由图中可以看出过程不论是最好最坏还是平均情况，<strong>时间复杂度</strong>都是<strong>O(nlogn)</strong><br>三，显而易见，归并排序不是原地排序，递归代码的空间复杂度并不能像时间复杂度那样累加，所以<strong>空间复杂度</strong>是<strong>O(n)</strong>。</p>
+<h1 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h1><p>快排主要思想：如果要排序数组中下标为p到r之间的一组数据，选择p到r之间任意一个数据作为pivot(分区点)。遍历p到r之间的数据，将小于pivot的放到左边，将大于pivot的放到右边，将pivot放到中间，至此，p到r就被分为了三部分。<br><img src="/img/media/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%20%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95O(n%5E2" alt="">%20O(nlogn)/4d892c3a2e08a17f16097d07ea088a81.jpg)<br>根据分治、递归的处理思想，可以用递归排序下标从p到q-1之间的数据和下标从q+1到r之间的数据，直到区间缩小为1，就说明所有的数据都有序了。<br><img src="/img/media/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%20%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95O(n%5E2" alt="">%20O(nlogn)/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-30%20%E4%B8%8B%E5%8D%885.58.03.png)<br><img src="%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%20%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95O(n%5E2" alt="">%20O(nlogn)/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-30%20%E4%B8%8B%E5%8D%886.00.40.png)<br>partition()分区函数就是随机选择一个元素作为pivot(一般情况下，可以选择p到r区间的最后一个元素)，然后对A[p…r]分区，函数返回pivot的下标。我们希望快排是个<strong>原地排序</strong>算法。<br><img src="/img/media/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%20%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95O(n%5E2" alt="">%20O(nlogn)/640.gif)</p>
+<p><img src="/img/media/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%20%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95O(n%5E2" alt="">%20O(nlogn)/aa03ae570dace416127c9ccf9db8ac05.jpg)<br>可以发现归并排序的处理是<strong>由下向上</strong>的，快排是<strong>由上到下</strong>的。</p>
+<p>性能分析：快排是一种<strong>原地</strong>、<strong>不稳定</strong>的排序算法。由图中可见，有交换的过程，所以是不稳定的，一般来说快排的时间复杂度是O(nlogn)，最差情况是数组中的数据原来已经是有序的，选择最后一个元素作为pivot，分区就是极度不均衡的，那么复杂度就从O(nlogn)退化到O(n^2)，最佳情况就是分区极度均衡，为O(nlogn)，平均来看在大部分时间里，时间复杂度可以做到O(nlohn)，只有在极端情况下，会退化到O(n^2)，但是也有很多方法将这个概率降到很低。</p>
+<p>问题:O(n)时间复杂度内求无序数组的第K大元素。<br><img src="/img/media/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%20%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95O(n%5E2" alt="">%20O(nlogn)/898d94fc32e0a795fd65897293b98791.jpg)<br>选择A[0…n-1]的最后一个元素A[n-1]作为pivot,对数组原地分区，这样数组就分为了三部分,A[0…p-1],A[p],A[p+1…n-1]。</p>
+<p>如果p+1=K，那么A[p]就是要求解的元素；如果K&gt;p+1,说明在右侧，然后同样思路在右边区间去找。</p>
+<h1 id="O-n-时间找到一组数据第K大元素"><a href="#O-n-时间找到一组数据第K大元素" class="headerlink" title="O(n)时间找到一组数据第K大元素"></a>O(n)时间找到一组数据第K大元素</h1><p>解题思路:利用快排中分区的思想,选择数组区间A[0…n-1]的左右一个元素A[n-1]作为pivot,对数组A[0…n-1]原地分区,这样数组就分成了三部分,A[0…p-1],A[p],A[p+1…n-1],如果p+1=k那么A[p]就是要求解的元素,如果K&gt;p+1,则说明第K大的元素在A[p+1…n-1]这个区间,否则在A[0…p-1]这个区间,递归的查找第K大的元素。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2019/04/29/LightGBM_ A Highly Efficient Gradient Boosting Decision Tree/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZDK"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZDK's blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/04/29/LightGBM_ A Highly Efficient Gradient Boosting Decision Tree/" class="post-title-link" itemprop="url">LightGBM: A Highly Efficient Gradient Boosting Decision Tree </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-29 12:31:32 / 修改时间：12:32:06" itemprop="dateCreated datePublished" datetime="2019-04-29T12:31:32+08:00">2019-04-29</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/论文/" itemprop="url" rel="index"><span itemprop="name">论文</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/04/29/LightGBM_ A Highly Efficient Gradient Boosting Decision Tree/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/29/LightGBM_ A Highly Efficient Gradient Boosting Decision Tree/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2019/04/29/LightGBM_ A Highly Efficient Gradient Boosting Decision Tree/" class="post-meta-item leancloud_visitors" data-flag-title="LightGBM: A Highly Efficient Gradient Boosting Decision Tree ">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          <br/>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><p>介绍了两种能让gbdt加速训练的方法。</p>
+<h1 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h1><p> Conventional implementations of GBDT need to, for every feature, scan all the data instances to estimate the information gain of all the possible split points.<br>The efficiency and scalability of XGBoost are still unsatisfactory when the feature dimension is high and data size is large.<br>A major reason is that for each feature, they need to scan all the data instances to estimate the information gain of all possible split points, which is very time consuming. </p>
+<p>LightGBM use <strong>Gradient-based One-Side Sampling(GOSS)</strong> and <strong>Exclusive Feature Bundling(EFB)</strong>  to solve this problem.</p>
+<p><strong>GOSS:</strong>exclude a significant proportion of data instances with small gradients, and only use the rest to estimate the information gain. </p>
+<p><strong>EFB:</strong>bundle mutually exclusive features .This is NP-hard,but a greedy algorithm can achieve quite good approximation ratio.</p>
+<p>They call new GBDT implementation with GOSS and EFB <strong>LightGBM</strong>. </p>
+<h1 id="About-GBDT"><a href="#About-GBDT" class="headerlink" title="About GBDT"></a>About GBDT</h1><p>In each iteration, GBDT learns the decision trees by fitting the negative gradients (also known as <strong>residual errors</strong>). </p>
+<p>The main cost in GBDT lies in learning the decision trees, and the most time-consuming part in learning a decision tree is to find the best split points. </p>
+<p>Another popular algorithm is the histogram-based algorithm.Instead of finding the split points on the sorted feature values, histogram-based algorithm buckets continuous feature values into discrete bins and uses these bins to construct feature histograms during training. </p>
+<p>Since the histogram-based algorithm is more efficient in both memory consumption and training speed, they develop work on its basis.</p>
+<h1 id="Gradient-based-One-Side-Sampling-GOSS"><a href="#Gradient-based-One-Side-Sampling-GOSS" class="headerlink" title="Gradient-based One-Side Sampling(GOSS)"></a>Gradient-based One-Side Sampling(GOSS)</h1><p>notice that data instances with different gradients play different roles in the computation of information gain. In particular, according to the definition of information gain, those instances with larger gradients(<strong>i.e., under-trained instances</strong>) will contribute more to the information gain. </p>
+<p>Therefore, when down sampling the data instances, in order to retain the accuracy of information gain estimation, should better keep those instances with large gradients (e.g., larger than a pre-defined threshold, or among the top percentiles), and only randomly drop those instances with small gradients. </p>
+<p>They prove that such a treatment can lead to a more accurate gain estimation than uniformly random sampling, with the same target sampling rate, especially when the value of information gain has a large range. </p>
+<h2 id="Algorithm-Description"><a href="#Algorithm-Description" class="headerlink" title="Algorithm Description"></a>Algorithm Description</h2><p>In AdaBoost, the sample weight serves as a good indicator for the importance of data instances. gradient for each data instance in GBDT provides us with useful information for data sampling. That is, if an instance is associated with a small gradient, the training error for this instance is small and it is already well-trained. </p>
+<p>A straightforward idea is to discard those data instances with small gradients. However, the data distribution will be changed by doing so, which will hurt the accuracy of the learned model. To avoid this problem, they propose a new method called Gradient-based One-Side Sampling (GOSS). </p>
+<p>GOSS keeps all the instances with large gradients(large <strong>residual errors</strong>) and performs random sampling on the instances with small gradients. </p>
+<p>GOSS firstly sorts the data instances according to the absolute value of their gradients and selects the (top a) × 100% instances. Then it randomly samples b × 100% instances from the rest of the data. After that, GOSS amplifies the sampled data with small gradients by a constant<br>(1−a / b) when calculating the information gain.<br><img src="/img/media/LightGBM:%20A%20Highly%20Efficient%20Gradient%20Boosting%20Decision%20Tree/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-29%20%E4%B8%8B%E5%8D%8812.25.17.png" alt=""></p>
+<h1 id="Exclusive-Feature-Bundling-EFB"><a href="#Exclusive-Feature-Bundling-EFB" class="headerlink" title="Exclusive Feature Bundling(EFB)"></a>Exclusive Feature Bundling(EFB)</h1><p>in a sparse feature space, many features are (almost) exclusive, i.e., they rarely take nonzero values simultaneously. Examples include the one-hot features.They can safely bundle such exclusive features.</p>
+<p>To this end, They design an efficient algorithm by reducing the optimal bundling problem to a graph coloring problem (by taking features as vertices and adding edges for every two features if they are not mutually exclusive), and solving it by a greedy algorithm with a constant approximation ratio. </p>
+<p>There are two issues to be addressed. The <strong>first</strong> one is to determine which features should be bundled together. The <strong>second</strong> is how to construct the bundle. </p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2019/04/25/极客时间 算法与数据结构 一/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZDK"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZDK's blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/04/25/极客时间 算法与数据结构 一/" class="post-title-link" itemprop="url">极客时间 数据结构</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-25 20:56:47" itemprop="dateCreated datePublished" datetime="2019-04-25T20:56:47+08:00">2019-04-25</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-05-07 20:05:18" itemprop="dateModified" datetime="2019-05-07T20:05:18+08:00">2019-05-07</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/知识总结/" itemprop="url" rel="index"><span itemprop="name">知识总结</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/04/25/极客时间 算法与数据结构 一/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/25/极客时间 算法与数据结构 一/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2019/04/25/极客时间 算法与数据结构 一/" class="post-meta-item leancloud_visitors" data-flag-title="极客时间 数据结构">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          <br/>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="极客时间-算法与数据结构-一"><a href="#极客时间-算法与数据结构-一" class="headerlink" title="极客时间 算法与数据结构 一"></a>极客时间 算法与数据结构 一</h1><p><img src="/img/media/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%20%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%20%E4%B8%80/861556196039_.pic.jpg" alt=""><br><img src="/img/media/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%20%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%20%E4%B8%80/901556196041_.pic.jpg" alt=""><br><img src="/img/media/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%20%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%20%E4%B8%80/911556196043_.pic.jpg" alt=""><br><img src="/img/media/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%20%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%20%E4%B8%80/871556196040_.pic.jpg" alt=""><br><img src="/img/media/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%20%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%20%E4%B8%80/881556196041_.pic.jpg" alt=""><br><img src="/img/media/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4%20%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%20%E4%B8%80/891556196042_.pic.jpg" alt=""></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2019/04/25/Keras.Embedding/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZDK"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZDK's blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/04/25/Keras.Embedding/" class="post-title-link" itemprop="url">Keras.Embedding</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-25 20:51:47 / 修改时间：20:51:42" itemprop="dateCreated datePublished" datetime="2019-04-25T20:51:47+08:00">2019-04-25</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/知识总结/" itemprop="url" rel="index"><span itemprop="name">知识总结</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/04/25/Keras.Embedding/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/25/Keras.Embedding/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2019/04/25/Keras.Embedding/" class="post-meta-item leancloud_visitors" data-flag-title="Keras.Embedding">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          <br/>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Keras-Embedding"><a href="#Keras-Embedding" class="headerlink" title="Keras.Embedding"></a>Keras.Embedding</h1><p><img src="/img/media/Keras.Embedding/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-25%20%E4%B8%8B%E5%8D%886.13.17.png" alt=""><br><img src="/img/media/Keras.Embedding/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-25%20%E4%B8%8B%E5%8D%886.13.33.png" alt=""><br><img src="/img/media/Keras.Embedding/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-25%20%E4%B8%8B%E5%8D%886.14.32.png" alt=""><br><img src="/img/media/Keras.Embedding/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-25%20%E4%B8%8B%E5%8D%886.14.51.png" alt=""></p>
+<p>对于一个类别变量的embedding层，input_length=1.input_dim为labelEncoder后的最大值。将label的一个值转化为out_dim的向量的多个值表示。实验如下：<br><img src="/img/media/Keras.Embedding/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-25%20%E4%B8%8B%E5%8D%888.14.15.png" alt=""><br><img src="/img/media/Keras.Embedding/WechatIMG85.jpeg" alt=""></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2019/04/18/RS Embedding Papers/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZDK"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZDK's blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/04/18/RS Embedding Papers/" class="post-title-link" itemprop="url">RS Embedding Papers</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-18 13:56:47 / 修改时间：15:55:06" itemprop="dateCreated datePublished" datetime="2019-04-18T13:56:47+08:00">2019-04-18</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/论文/" itemprop="url" rel="index"><span itemprop="name">论文</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/04/18/RS Embedding Papers/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/18/RS Embedding Papers/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2019/04/18/RS Embedding Papers/" class="post-meta-item leancloud_visitors" data-flag-title="RS Embedding Papers">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          <br/>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Item2Vec-Microsoft"><a href="#Item2Vec-Microsoft" class="headerlink" title="Item2Vec  Microsoft"></a>Item2Vec  Microsoft</h1><p><strong>ITEM2VEC: NEURAL ITEM EMBEDDING FOR COLLABORATIVE FILTERING</strong></p>
+<h2 id="ABSTRACT"><a href="#ABSTRACT" class="headerlink" title="ABSTRACT"></a>ABSTRACT</h2><p>The method is capable of inferring item-item relations even when user information is not available. </p>
+<h2 id="INTRODUCTION-AND-RELATED-WORK"><a href="#INTRODUCTION-AND-RELATED-WORK" class="headerlink" title="INTRODUCTION AND RELATED WORK"></a>INTRODUCTION AND RELATED WORK</h2><p>many recommendation algorithms are focused on learning a low dimensional embedding of users and items simultaneously ,computing item similarities is an end in itself .</p>
+<p>The single item recommendations are different than the more “traditional” user-to-item recommendations because they are usually shown in the context of an explicit user interest in a specific item and in the context of an explicit user intent to purchase. Therefore, single item recommendations based on item similarities often have higher Click-Through Rates (CTR) than user-to-item recommendations and consequently responsible for a larger share of sales or revenue. </p>
+<p>item similarities are used in online stores for better exploration and discovery and improve the overall user experience. </p>
+<h2 id="ITEM2VEC-–-SGNS-FOR-ITEM-SIMILARITY"><a href="#ITEM2VEC-–-SGNS-FOR-ITEM-SIMILARITY" class="headerlink" title="ITEM2VEC – SGNS FOR ITEM SIMILARITY"></a>ITEM2VEC – SGNS FOR ITEM SIMILARITY</h2><p>Since some scenarios could not provide information about multiple sets of items might belong to the same user .user-item CF may not work well.</p>
+<p>By moving from sequences to sets, the spatial / time information is lost. We choose to discard this information, since in this paper, we assume a static environment where items that share the same set are considered similar, no matter in what order / time they were generated by the user. </p>
+<p>Since we ignore the spatial information, we treat each pair of items that share the same set as a positive example. <strong>This implies a window size that is determined from the set size.</strong> 这里意思是在训练时，窗口不像w2v中是定长的，而是一个变长的窗口，根据一个订单中物品的大小来动态确定。Specifically, for a given set of items, the objective from Eq. (1) is modified as follows:<br><img src="/img/media/RS%20Embedding%20Papers/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-18%20%E4%B8%8A%E5%8D%8810.09.42.png" alt=""><br>Another option is to keep the objective in w2v as is, and shuffle each set of items during runtime. In our experiments we observed that both options perform the same.<br><img src="/img/media/RS%20Embedding%20Papers/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-18%20%E4%B8%8A%E5%8D%8810.10.49.png" alt=""><br>In this work, we used u_i_ as the final representation for the i-th item and the affinity between a pair of items is computed by the cosine similarity. </p>
+<h2 id="EXPERIMENTAL"><a href="#EXPERIMENTAL" class="headerlink" title="EXPERIMENTAL"></a>EXPERIMENTAL</h2><h3 id="Datasets"><a href="#Datasets" class="headerlink" title="Datasets"></a>Datasets</h3><p>The first dataset is user-artist data that is retrieved from the Microsoft Xbox Music service. This dataset consist of 9M events. Each event consists of a <strong>user-artist</strong> relation, which means the user played a song by the specific artist. The dataset contains 732K users and 49K distinct artists. </p>
+<p>The second dataset contains orders of products from Microsoft Store. An order is given by a basket of items without any information about the user that made it. Therefore, the information in this dataset is weaker in the sense that we <strong>cannot bind between users and items</strong>. The dataset consist of 379K orders (that contains more than a single item) and 1706 distinct items. </p>
+<h3 id="Systems-and-parameters"><a href="#Systems-and-parameters" class="headerlink" title="Systems and parameters"></a>Systems and parameters</h3><p>We applied item2vec to both datasets. The optimization is done by stochastic gradient decent. We ran the algorithm for 20 epochs. We set the negative sampling value to N=15 for both datasets. The dimension parameter m was set to 100 and 40 for the Music and Store datasets, respectively. We further applied subsampling with ρ values of 10−5 and 10−3 to the Music and Store datasets, respectively. The reason we set different parameter values is due to different sizes of the datasets. </p>
+<h2 id="论文解读"><a href="#论文解读" class="headerlink" title="论文解读"></a>论文解读</h2><p>一个物品集合被视作自然语言中的一个段落，物品集合的基本元素－物品等价于段落中的单词。因此在论文中，一个音乐物品集合是用户对某歌手歌曲的播放行为，一个商品集合是一个订单中包含的所有商品。</p>
+<p>从自然语言序列迁移到物品集合，丢失了空间／时间信息，还无法对用户行为程度建模（喜欢和购买是不同程度的强行为）。好处是可以忽略用户－物品关系，即便获得的订单不包含用户信息，也可以生成物品集合。而论文的结论证明，在一些场景下序列信息的丢失是可忍受的。</p>
+<h2 id="知乎上的实践思路"><a href="#知乎上的实践思路" class="headerlink" title="知乎上的实践思路"></a>知乎上的实践思路</h2><p><a href="https://zhuanlan.zhihu.com/p/28491088" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/28491088</a><br>爬取的训练数据是豆瓣网友的电影收藏夹（类比于网易云的歌单）。<br><img src="/img/media/RS%20Embedding%20Papers/v2-4a91dea97a4b64bc2a72a28765188754_b.jpg" alt=""><br>从结果中可以观察出一些有意思的结论。战狼2是最近刚出的电影(此文作于2017/08)，包含战狼2的大多是“暑期国产电影合集”，“2017年不得不看的国产电影“这类豆列；美国往事属于经典老片，训练语料足够多，skipgram和cbow的推荐结果各有千秋；小时代在豆瓣中属于不受待见的一类电影，包含小时代的豆列较少，skipgram的推荐结果优于cbow。</p>
+<h1 id="Youtube"><a href="#Youtube" class="headerlink" title="Youtube"></a>Youtube</h1><p><strong>Deep Neural Networks for YouTube Recommendations</strong></p>
+<h2 id="ABSTRACT-1"><a href="#ABSTRACT-1" class="headerlink" title="ABSTRACT"></a>ABSTRACT</h2><p>Three major changllenging :(1)Scale,(2)Freshness,(3)Noise.</p>
+<h2 id="SYSTEM-OVERVIEW"><a href="#SYSTEM-OVERVIEW" class="headerlink" title="SYSTEM OVERVIEW"></a>SYSTEM OVERVIEW</h2><p><img src="/img/media/RS%20Embedding%20Papers/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-18%20%E4%B8%8B%E5%8D%881.48.07.png" alt=""></p>
+<h2 id="CANDIDATE-GENERATION"><a href="#CANDIDATE-GENERATION" class="headerlink" title="CANDIDATE GENERATION"></a>CANDIDATE GENERATION</h2><p>During candidate generation, the enormous YouTube corpus is winnowed down to hundreds of videos that may be relevant to the user .</p>
+<h3 id="Recommendation-as-Classification"><a href="#Recommendation-as-Classification" class="headerlink" title="Recommendation as Classification"></a>Recommendation as Classification</h3><p><img src="/img/media/RS%20Embedding%20Papers/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-18%20%E4%B8%8B%E5%8D%882.03.50.png" alt=""><br>compared to w2v<br><img src="/img/media/RS%20Embedding%20Papers/v2-4557472f61cfec30352942afea2b829b_hd.jpg" alt=""><br>you can see Youtube have two embeddings.</p>
+<p>Although explicit feedback mechanisms exist on YouTube (thumbs up/down, in-product surveys, etc.) <strong>They use the implicit feedback</strong>  of watches to train the model, where a user completing a video is a positive example. This choice is based on the orders of magnitude more implicit user history available, allowing They to produce recommendations deep in the tail where explicit feedback is extremely sparse. </p>
+<h3 id="Efficient-Extreme-Multiclass"><a href="#Efficient-Extreme-Multiclass" class="headerlink" title="Efficient Extreme Multiclass"></a>Efficient Extreme Multiclass</h3><p>To efficiently train such a model with millions of classes, they rely on a technique to sample negative classes from the background distribution (“candidate sampling”) and then correct for this sampling via importance weighting ,For each example the cross-entropy loss is minimized for the true label and the sampled negative classes. </p>
+<blockquote>
+<p>negative sample?  </p>
+</blockquote>
+<p>In <strong>practice</strong> several thou- sand negatives are sampled, corresponding to more than <strong>100 times speedup</strong> over traditional softmax. </p>
+<p>At serving time they need to compute the most likely N classes (videos) in order to choose the top N to present to the user. Scoring millions of items under a strict serving latency of tens of milliseconds requires an approximate scoring scheme sublinear in the number of classes. </p>
+<p>The classifier described here uses a similar approach. the scoring problem reduces to <strong>a nearest neighbor search</strong> in the dot product space for which general purpose libraries can be used .</p>
+<h3 id="Model-Architecture"><a href="#Model-Architecture" class="headerlink" title="Model Architecture"></a>Model Architecture</h3><p><strong>A user’s watch history</strong> is represented by a variable-length sequence of sparse <strong>video IDs</strong> which is mapped to a dense vector representation via the <strong>embeddings</strong>.<br><img src="/img/media/RS%20Embedding%20Papers/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-18%20%E4%B8%8B%E5%8D%882.24.03.png" alt=""></p>
+<h3 id="Heterogeneous-Signals"><a href="#Heterogeneous-Signals" class="headerlink" title="Heterogeneous Signals"></a>Heterogeneous Signals</h3><p>Search history is treated similarly to watch history - each query is tokenized into unigrams and bigrams and each token is embedded. Once averaged, the user’s tokenized, em- bedded queries represent a summarized dense search history. </p>
+<p>Demographic features are important for providing priors so that the recommendations behave reasonably for new users. </p>
+<p>The user’s geographic region and device are embedded and concatenated. Simple binary and continuous features such as the user’s gender, logged-in state and age are input directly into the network as real values normalized to [0, 1]. </p>
+<p><strong>“Example Age” Feature</strong><br>Many hours worth of videos are uploaded each second to YouTube. Recommending this recently uploaded (“fresh”) content is extremely important for YouTube as a product. We consistently observe that users prefer fresh content, though not at the expense of relevance. </p>
+<p>Machine learning systems often exhibit an implicit bias towards the past because they are trained to predict future behavior from historical examples. To correct for this, we feed the age of the training example as a feature during training.<br><img src="/img/media/RS%20Embedding%20Papers/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-18%20%E4%B8%8B%E5%8D%882.39.10.png" alt=""></p>
+<h3 id="Label-and-Context-Selection"><a href="#Label-and-Context-Selection" class="headerlink" title="Label and Context Selection"></a>Label and Context Selection</h3><h2 id="王喆知乎"><a href="#王喆知乎" class="headerlink" title="王喆知乎"></a>王喆知乎</h2><ul>
+<li style="list-style: none"><input type="checkbox"> 除了文中的单独对embedding层进行训练，还可以加上一个embedding层后跟DNN一起训练。优劣？</li>
+</ul>
+<p>本文字字珠玑适合之后细读。</p>
+<h1 id="Airbnb"><a href="#Airbnb" class="headerlink" title="Airbnb"></a>Airbnb</h1><p><strong>Real-time Personalization using Embeddings for Search Ranking at Airbnb</strong> </p>
+<h2 id="ABSTRACT-2"><a href="#ABSTRACT-2" class="headerlink" title="ABSTRACT"></a>ABSTRACT</h2><p>capture guest’s short-term and long-term interests, delivering effective home listing recommendations. </p>
+<h2 id="INTRODUCTION"><a href="#INTRODUCTION" class="headerlink" title="INTRODUCTION"></a>INTRODUCTION</h2><p>Since guests typically conduct multiple searches before booking, i.e. click on more than one listing and contact more than one host during their search session, we can use these in-session signals, i.e. clicks, host contacts, etc. for Real-time Personalization where the aim is to show to the guest more of the listings similar to the ones we think they liked since staring the search session. </p>
+<p>At the same time we can use the negative signal, e.g. skips of high ranked listings, to show to the guest less of the listings similar to the ones we think<br>they did not like .</p>
+<p>use <strong>listing embeddings</strong>, low-dimensional vector representations learned from search sessions. </p>
+<p>In addition to Real-time Personalization using immediate user actions, such as clicks, that can be used as proxy signal for <strong>short- term user interest,</strong> we introduce another type of embeddings trained on bookings to be able to capture user’s <strong>long-term interest</strong>. </p>
+<p>Due to the nature of travel business, where users travel 1-2 times per year on average, bookings are a sparse signal, with a long tail of users with a single booking. To tackle this we propose to train embeddings at a level of user type, instead of a particular user id, where type is determined using many-to-one rule-based mapping that leverages known user attributes. </p>
+<p>At the same time we learn listing type embeddings in the same vector space as user type embeddings. This enables us to calculate similarities between user type embedding of the user who is conducting a search and listing type embeddings of candidate listings that need to be ranked. </p>
+<p>For short-term interest personalization they trained listing embeddings using more than 800 million search clicks sessions, resulting in high quality listing representations. </p>
+<p>For long-term interest personalization we trained user type and listing type embeddings using sequences of booked listings by 50 million users. Both user and listing type embeddings were learned in the same vector space, such that we can calculate similarities between user type and listing types of listings that need to be ranked. </p>
+<h2 id="王喆知乎-1"><a href="#王喆知乎-1" class="headerlink" title="王喆知乎"></a>王喆知乎</h2><p>具体到embedding上，文章通过两种方式生成了两种不同的embedding分别capture用户的short term和long term的兴趣。</p>
+<ol>
+<li>一是通过click session数据生成listing的embedding，生成这个embedding的目的是为了进行listing的相似推荐，以及对用户进行session内的实时个性化推荐。</li>
+<li>二是通过booking session生成user-type和listing-type的embedding，目的是捕捉不同user-type的long term喜好。由于booking signal过于稀疏，Airbnb对同属性的user和listing进行了聚合，形成了user-type和listing-type这两个embedding的对象。</li>
+</ol>
+<p>第一个对listing进行embedding的方法：<br>Airbnb采用了click session数据对listing进行embedding，其中click session指的是一个用户在一次搜索过程中，点击的listing的序列，这个序列需要满足两个条件，一个是只有停留时间超过30s的listing page才被算作序列中的一个数据点，二是如果用户超过30分钟没有动作，那么这个序列会断掉，不再是一个序列。这么做的目的无可厚非，一是清洗噪声点和负反馈信号，二是避免非相关序列的产生。</p>
+<p>有了由clicked listings组成的sequence，我们可以把这个sequence当作一个“句子”样本，开始embedding的过程。Airbnb不出意外的选择了word2vec的skip-gram model作为embedding方法的框架。通过修改word2vec的objective使其靠近Airbnb的业务目标。<br><img src="/img/media/RS%20Embedding%20Papers/v2-98bd1b08041a3f247c184b1a2207c044_hd.jpg" alt=""><br>正样本很自然的取自click session sliding window里的两个listing，负样本则是在确定central listing后随机从语料库（这里就是listing的集合）中选取一个listing作为负样本。</p>
+<p>因此，Airbnb初始的objective function几乎与word2vec的objective一模一样。</p>
+<p>在原始word2vec embedding的基础上，针对其业务特点，Airbnb的工程师希望能够把booking的信息引入embedding。这样直观上可以使Airbnb的搜索列表和similar item列表中更倾向于推荐之前booking成功session中的listing。从这个motivation出发，Airbnb把click session分成两类，最终产生booking行为的叫booked session，没有的称做exploratory session。</p>
+<p>文章多介绍了一下cold start的问题。简言之，如果有new listing缺失embedding vector，就找附近的3个同样类型、相似价格的listing embedding进行平均得到，不失为一个实用的工程经验。</p>
+<p>embedding不仅encode了price，listing-type等信息，甚至连listing的风格信息都能抓住，说明即使我们不利用图片信息，也能从用户的click session中挖掘出相似风格的listing。</p>
+<p>为了捕捉用户的长期偏好，airbnb在这里使用了booking session序列。比如用户j在过去1年依次book过5个listing。既然有了booking session的集合，我们是否可以像之前对待click session一样拿直接应用w2v的方法得到embedding呢？答案是否定的，因为我们会遇到非常棘手的数据稀疏问题。<br><img src="/img/media/RS%20Embedding%20Papers/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-18%20%E4%B8%8B%E5%8D%883.32.53.png" alt=""></p>
+<p>具体来讲booking session的数据稀疏问题表现在下面三点上：</p>
+<ol>
+<li>book行为的总体数量本身就远远小于click的行为，所以booking session集合的大小是远远小于click session的</li>
+<li>单一用户的book行为很少，大量用户在过去一年甚至只book过一个房源，这导致很多booking session sequence的长度为1</li>
+<li>大部分listing被book的次数也少的可怜，大家知道w2v要训练出较稳定有意义的embedding，item最少需要出现5-10次，但大量listing的book次数少于5次，根本无法得到有效的embedding。</li>
+</ol>
+<p>Airbnb如何解决如此严重的数据稀疏问题，训练出有意义的user embedding和listing embedding呢？他们给出的答案是基于某些属性规则做相似user和相似listing的聚合。</p>
+<p>可以之后再细读。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
 
 
 
-<!-- mathjax config similar to math.stackexchange -->
+          </div>
+          
 
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
 
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-});
-</script>
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
 
-<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+      
+
+      
+
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="ZDK"/>
+            
+              <p class="site-author-name" itemprop="name">ZDK</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">191</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">分类</span>
+                  
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">48</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/zdkswd" title="GitHub &rarr; https://github.com/zdkswd"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:2822464407@qq.com" title="E-Mail &rarr; mailto:2822464407@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/zdkswd" title="https://github.com/zdkswd">Title</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+        </div>
+      </div>
+
+      
+
+      
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZDK</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.2.0</div>
 
 
 
 
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        
 
 
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+  </div>
+
+  
 
 <script>
-(function() {
-    var OriginTitile = document.title, titleTime;
-    document.addEventListener('visibilitychange', function() {
-        if (document.hidden) {
-            document.title = 'zdk'blog';
-            clearTimeout(titleTime);
-        } else {
-            document.title = '';
-            titleTime = setTimeout(function() {
-                document.title = OriginTitile;
-            },2000);
-        }
-    });
-})();
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
 </script>
 
 
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.2.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
+
+
+
+
+  
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz',
+    appKey: 'gkBx5soQkBREmER84PWbNJeM',
+    placeholder: 'have fun',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true,
+    lang: '' || 'zh-cn'
+  });
+</script>
+
+
+
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('5');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
 
 </body>
 </html>

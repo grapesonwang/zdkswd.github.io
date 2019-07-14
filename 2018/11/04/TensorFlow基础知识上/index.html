@@ -1,33 +1,107 @@
 <!DOCTYPE html>
-<html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
-    
-
-    
-
-    
-
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
 
 
-    <meta charset="utf-8">
-    
-    
-    
-    
-    <title>TensorFlow基础知识上 | ZDK&#39;s blog</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#3F51B5">
-    
-    
-    <meta name="keywords" content="机器学习,TensorFlow">
-    <meta name="description" content="系统架构                                                                                                           自底向上为设备层和网络层、数据操作层、图计算层、API层、应用层。 其中设备层和网络层、数据操作层、图计算层是TensorFlow的核心层。 网络通信层和设备管理层网络通信层包括">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.2.0',
+    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+
+
+  <meta name="description" content="系统架构自底向上为设备层和网络层、数据操作层、图计算层、API层、应用层。 其中设备层和网络层、数据操作层、图计算层是TensorFlow的核心层。 网络通信层和设备管理层网络通信层包括gRPC( google Remote Procedure Call Protocol)和远程直接数据存取( Remote direct Memory Access,RDMA),这都是在分布式计算时需要用到的。设备">
 <meta name="keywords" content="机器学习,TensorFlow">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TensorFlow基础知识上">
 <meta property="og:url" content="https://github.com/zdkswd/2018/11/04/TensorFlow基础知识上/index.html">
 <meta property="og:site_name" content="ZDK&#39;s blog">
-<meta property="og:description" content="系统架构                                                                                                           自底向上为设备层和网络层、数据操作层、图计算层、API层、应用层。 其中设备层和网络层、数据操作层、图计算层是TensorFlow的核心层。 网络通信层和设备管理层网络通信层包括">
+<meta property="og:description" content="系统架构自底向上为设备层和网络层、数据操作层、图计算层、API层、应用层。 其中设备层和网络层、数据操作层、图计算层是TensorFlow的核心层。 网络通信层和设备管理层网络通信层包括gRPC( google Remote Procedure Call Protocol)和远程直接数据存取( Remote direct Memory Access,RDMA),这都是在分布式计算时需要用到的。设备">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://github.com/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-26%20%E4%B8%8B%E5%8D%887.38.00.png">
 <meta property="og:image" content="https://github.com/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-26%20%E4%B8%8B%E5%8D%887.56.26.png">
@@ -59,165 +133,384 @@
 <meta property="og:updated_time" content="2018-11-05T04:51:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TensorFlow基础知识上">
-<meta name="twitter:description" content="系统架构                                                                                                           自底向上为设备层和网络层、数据操作层、图计算层、API层、应用层。 其中设备层和网络层、数据操作层、图计算层是TensorFlow的核心层。 网络通信层和设备管理层网络通信层包括">
+<meta name="twitter:description" content="系统架构自底向上为设备层和网络层、数据操作层、图计算层、API层、应用层。 其中设备层和网络层、数据操作层、图计算层是TensorFlow的核心层。 网络通信层和设备管理层网络通信层包括gRPC( google Remote Procedure Call Protocol)和远程直接数据存取( Remote direct Memory Access,RDMA),这都是在分布式计算时需要用到的。设备">
 <meta name="twitter:image" content="https://github.com/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-26%20%E4%B8%8B%E5%8D%887.38.00.png">
-    
-        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
-    
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
-    <script>window.lazyScripts=[]</script>
 
-    <!-- custom head -->
-    
+
+
+  <link rel="alternate" href="/atom.xml" title="ZDK's blog" type="application/atom+xml"/>
+
+
+
+  
+  
+  <link rel="canonical" href="https://github.com/zdkswd/2018/11/04/TensorFlow基础知识上/"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>TensorFlow基础知识上 | ZDK's blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
 
 </head>
 
-<body>
-    <div id="loading" class="active"></div>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
-    <aside id="menu" class="hide" >
-  <div class="inner flex-row-vertical">
-    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-        <i class="icon icon-lg icon-close"></i>
-    </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
-      <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/tmg.jpg">
-        </a>
-        <hgroup class="introduce">
-          <h5 class="nickname">ZDK</h5>
-          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
-        </hgroup>
-      </div>
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ZDK's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
-    <div class="scroll-wrap flex-col">
-      <ul class="nav">
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
         
-            <li class="waves-block waves-effect">
-              <a href="/"  >
-                <i class="icon icon-lg icon-home"></i>
-                主页
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                Archives
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/tags"  >
-                <i class="icon icon-lg icon-tags"></i>
-                Tags
-              </a>
-            </li>
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>首页</a>
+
+  </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/categories"  >
-                <i class="icon icon-lg icon-th-list"></i>
-                Categories
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="https://github.com/zdkswd" target="_blank" >
-                <i class="icon icon-lg icon-github"></i>
-                Github
-              </a>
-            </li>
         
-      </ul>
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>归档</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br/>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
     </div>
   </div>
-</aside>
+  <div id="local-search-result"></div>
+</div>
 
-    <main id="main">
-        <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis">TensorFlow基础知识上</div>
-        
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
-        </div>
-        
-        
+
+
     </div>
-</header>
-<header class="content-header post-header">
-
-    <div class="container fade-scale">
-        <h1 class="title">TensorFlow基础知识上</h1>
-        <h5 class="subtitle">
-            
-                <time datetime="2018-11-04T10:56:41.000Z" itemprop="datePublished" class="page-time">
-  2018-11-04
-</time>
+  
+</nav>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
 
-            
-        </h5>
-    </div>
+</div>
+    </header>
 
     
 
 
-</header>
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
 
+          
+          <div id="content" class="content">
+            
 
-<div class="container body-wrap">
+  <div id="posts" class="posts-expand">
     
-    <aside class="post-widget">
-        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
-            <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#系统架构"><span class="post-toc-number">1.</span> <span class="post-toc-text">系统架构</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#网络通信层和设备管理层"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">网络通信层和设备管理层</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数据操作层"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">数据操作层</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#图计算层（了解的核心）"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">图计算层（了解的核心）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#API层和应用层"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">API层和应用层</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#设计理念"><span class="post-toc-number">2.</span> <span class="post-toc-text">设计理念</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#将图的定义和图的运行完全分开"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">将图的定义和图的运行完全分开</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#TensorFlow中涉及的运算都要放在图中-而图的运行只发生在会话-session-中"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">TensorFlow中涉及的运算都要放在图中,而图的运行只发生在会话( session)中</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#编程模型"><span class="post-toc-number">3.</span> <span class="post-toc-text">编程模型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#边"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">边</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#实线边表示数据依赖"><span class="post-toc-number">3.1.1.</span> <span class="post-toc-text">实线边表示数据依赖</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#虚线边表示控制依赖（control-dependency-）"><span class="post-toc-number">3.1.2.</span> <span class="post-toc-text">虚线边表示控制依赖（control dependency ）</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#节点"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">节点</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#其他概念"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">其他概念</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#图"><span class="post-toc-number">3.3.1.</span> <span class="post-toc-text">图</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#会话"><span class="post-toc-number">3.3.2.</span> <span class="post-toc-text">会话</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#设备"><span class="post-toc-number">3.3.3.</span> <span class="post-toc-text">设备</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#变量"><span class="post-toc-number">3.3.4.</span> <span class="post-toc-text">变量</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#内核"><span class="post-toc-number">3.3.5.</span> <span class="post-toc-text">内核</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#常用API"><span class="post-toc-number">4.</span> <span class="post-toc-text">常用API</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#图、操作和张量"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">图、操作和张量</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#变量作用域"><span class="post-toc-number">5.</span> <span class="post-toc-text">变量作用域</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#variable-scope"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">variable_scope</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#获取变量作用域"><span class="post-toc-number">5.1.1.</span> <span class="post-toc-text">获取变量作用域</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#变量作用域的初始化"><span class="post-toc-number">5.1.2.</span> <span class="post-toc-text">变量作用域的初始化</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#name-scope示例"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">name_scope示例</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#批标准化"><span class="post-toc-number">6.</span> <span class="post-toc-text">批标准化</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#方法"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">方法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#优点"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">优点</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#示例"><span class="post-toc-number">6.3.</span> <span class="post-toc-text">示例</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#tf-add-a-b-与-a-b"><span class="post-toc-number">7.</span> <span class="post-toc-text">tf.add(a, b) 与 a+b</span></a></li></ol>
-        </nav>
-    </aside>
 
+  
 
-<article id="post-TensorFlow基础知识上"
-  class="post-article article-type-post fade" itemprop="blogPost">
+  
+  
+  
 
-    <div class="post-card">
-        <h1 class="post-card-title">TensorFlow基础知识上</h1>
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2018/11/04/TensorFlow基础知识上/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZDK"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZDK's blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">TensorFlow基础知识上
+
+              
+            
+          </h1>
+        
+
         <div class="post-meta">
-            <time class="post-time" title="2018-11-04 18:56:41" datetime="2018-11-04T10:56:41.000Z"  itemprop="datePublished">2018-11-04</time>
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-11-04 18:56:41" itemprop="dateCreated datePublished" datetime="2018-11-04T18:56:41+08:00">2018-11-04</time>
+            </span>
+          
+
+          
+            
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
-
-
-
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-11-05 12:51:56" itemprop="dateModified" datetime="2018-11-05T12:51:56+08:00">2018-11-05</time>
+              </span>
             
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
-    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
-</span>
+          
 
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/读书笔记/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2018/11/04/TensorFlow基础知识上/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/11/04/TensorFlow基础知识上/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2018/11/04/TensorFlow基础知识上/" class="post-meta-item leancloud_visitors" data-flag-title="TensorFlow基础知识上">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          <br/>
+          
+
+          
+
+          
 
         </div>
-        <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="系统架构"><a href="#系统架构" class="headerlink" title="系统架构"></a>系统架构</h1><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-26%20%E4%B8%8B%E5%8D%887.38.00.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<p>自底向上为设备层和网络层、数据操作层、图计算层、API层、应用层。</p>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="系统架构"><a href="#系统架构" class="headerlink" title="系统架构"></a>系统架构</h1><p><img src="/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-26%20%E4%B8%8B%E5%8D%887.38.00.png" alt=""><br>自底向上为设备层和网络层、数据操作层、图计算层、API层、应用层。</p>
 <p>其中设备层和网络层、数据操作层、图计算层是TensorFlow的核心层。</p>
 <h2 id="网络通信层和设备管理层"><a href="#网络通信层和设备管理层" class="headerlink" title="网络通信层和设备管理层"></a>网络通信层和设备管理层</h2><p>网络通信层包括gRPC( google Remote Procedure Call Protocol)和远程直接数据存取( Remote direct Memory Access,RDMA),这都是在分布式计算时需要用到的。设备管理层包括 TensorFlow分别在CPU、GPU、FPGA等设备上的实现,也就是对上层提供了一个统一的接口,使上层只需要处理卷积等逻辑,而不需要关心在硬件上的卷积的实现过程。</p>
 <h2 id="数据操作层"><a href="#数据操作层" class="headerlink" title="数据操作层"></a>数据操作层</h2><p>主要包括卷积函数、激活函数等操作。</p>
@@ -225,173 +518,29 @@
 <h2 id="API层和应用层"><a href="#API层和应用层" class="headerlink" title="API层和应用层"></a>API层和应用层</h2><h1 id="设计理念"><a href="#设计理念" class="headerlink" title="设计理念"></a>设计理念</h1><p>TensorFlow的设计理念主要体现在以下两个方面。</p>
 <h2 id="将图的定义和图的运行完全分开"><a href="#将图的定义和图的运行完全分开" class="headerlink" title="将图的定义和图的运行完全分开"></a>将图的定义和图的运行完全分开</h2><p>编程模式通常分为<strong>命令式编程</strong>和<strong>符号式编程</strong>。命令式编程就是我们理解的通常意义上的程序，很容易理解和调试，按照原有的逻辑执行。符号式编程涉及很多的嵌入和优化,不容易理解和调试,但<strong>运行速度相对有所提升</strong>。现有的深度学习框架中, Torch是典型的命令式的,Cafe、 MXNet采用了两种编程模式混合的方法,而 TensorFlow完全釆用符号式编程。</p>
 <p>符号式计算一般是先定义各种变量,然后建立一个数据流图,在数据流图中规定各个变量之间的计算关系,最后需要对数据流图进行编译,但此时的数据流图还是一个空壳儿,里面没有任何实际数据,只有把需要运算的输入放进去后,才能在整个模型中形成数据流,从而形成输出值。</p>
-<p>在传统的程序操作中,定义了t的运算,在运行时就执行了,并输出17。而在TensorFlow中,数据流图中的节点,实际上对应的是 Tensor Flow APi中的一个操作,并没有真正去运行:<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-26%20%E4%B8%8B%E5%8D%887.56.26.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<h2 id="TensorFlow中涉及的运算都要放在图中-而图的运行只发生在会话-session-中"><a href="#TensorFlow中涉及的运算都要放在图中-而图的运行只发生在会话-session-中" class="headerlink" title="TensorFlow中涉及的运算都要放在图中,而图的运行只发生在会话( session)中"></a>TensorFlow中涉及的运算都要放在图中,而图的运行只发生在会话( session)中</h2><p>开启会话后,就可以用数据去填充节点,进行运算;关闭会话后,就不能进行计算了。因此,会话提供了操作运行和 Tensor求值的环境。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-26%20%E4%B8%8B%E5%8D%887.57.25.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<p>在传统的程序操作中,定义了t的运算,在运行时就执行了,并输出17。而在TensorFlow中,数据流图中的节点,实际上对应的是 Tensor Flow APi中的一个操作,并没有真正去运行:<br><img src="/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-26%20%E4%B8%8B%E5%8D%887.56.26.png" alt=""></p>
+<h2 id="TensorFlow中涉及的运算都要放在图中-而图的运行只发生在会话-session-中"><a href="#TensorFlow中涉及的运算都要放在图中-而图的运行只发生在会话-session-中" class="headerlink" title="TensorFlow中涉及的运算都要放在图中,而图的运行只发生在会话( session)中"></a>TensorFlow中涉及的运算都要放在图中,而图的运行只发生在会话( session)中</h2><p>开启会话后,就可以用数据去填充节点,进行运算;关闭会话后,就不能进行计算了。因此,会话提供了操作运行和 Tensor求值的环境。<br><img src="/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-26%20%E4%B8%8B%E5%8D%887.57.25.png" alt=""></p>
 <h1 id="编程模型"><a href="#编程模型" class="headerlink" title="编程模型"></a>编程模型</h1><h2 id="边"><a href="#边" class="headerlink" title="边"></a>边</h2><p>TensorFlow的边有两种连接关系:数据依赖和控制依赖。</p>
 <h3 id="实线边表示数据依赖"><a href="#实线边表示数据依赖" class="headerlink" title="实线边表示数据依赖"></a>实线边表示数据依赖</h3><p>代表数据，即张量。任意纬度的数据统称为张量。在机器学习算法中，张量在数据流图中从前往后流动一遍就完成了一次前向传播，而残差从后向前流动一遍就完成了一次反向传播。（在数理统计中，残差是指实际观察值与训练的估计值之间的差。）</p>
-<h3 id="虚线边表示控制依赖（control-dependency-）"><a href="#虚线边表示控制依赖（control-dependency-）" class="headerlink" title="虚线边表示控制依赖（control dependency ）"></a>虚线边表示控制依赖（control dependency ）</h3><p>可以用于控制操作的运行，这被确保happens-before关系，这类边上没有数据流过，但源节点必须在目的节点开始执行前完成执行。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-26%20%E4%B8%8B%E5%8D%889.06.55.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>TensorFlow 支持的张量具有表 4-1 所示的数据属性。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-26%20%E4%B8%8B%E5%8D%889.07.36.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<h2 id="节点"><a href="#节点" class="headerlink" title="节点"></a>节点</h2><p>图中的节点又称为算子，它代表一个操作(operation，OP)，一般用来表示施加的数学运算，也可以表示数据输入(feed in)的起点以及输出(push out)的终点，或者是读取/写入持久变量(persistent variable)的终点。 表 4-2 列举了一些 TensorFlow 实现的算子。算子支持表 4-1 所示的张量的各种数据属性，并且需要在建立图的时候确定下来。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-26%20%E4%B8%8B%E5%8D%889.18.57.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>与操作相关的代码位于 tensorflow-1.1.0/tensorflow_python_ops_目录下。以数学运算为例，代 码为上述目录下的 math_ops.py，里面定义了 add、subtract、multiply、scalar_mul、div、divide、 truediv、floordiv 等数学运算，每个函数里面调用了 gen_math_ops.py 中的方法，这个文件是在 编译(安装时)TensorFlow 时生成的，位于 Python 库 site-packages_tensorflow_python_ops_gen_ math_ops.py 中，随后又调用了 tensorflow-1.1.0_tensorflow_core_kernels/下面的核函数实现。 </p>
-<h2 id="其他概念"><a href="#其他概念" class="headerlink" title="其他概念"></a>其他概念</h2><h3 id="图"><a href="#图" class="headerlink" title="图"></a>图</h3><p>把操作任务描述成有向无环图。构建图的第一步是创建各个节点。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-27%20%E4%B8%8A%E5%8D%889.30.00.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<h3 id="虚线边表示控制依赖（control-dependency-）"><a href="#虚线边表示控制依赖（control-dependency-）" class="headerlink" title="虚线边表示控制依赖（control dependency ）"></a>虚线边表示控制依赖（control dependency ）</h3><p>可以用于控制操作的运行，这被确保happens-before关系，这类边上没有数据流过，但源节点必须在目的节点开始执行前完成执行。<br><img src="/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-26%20%E4%B8%8B%E5%8D%889.06.55.png" alt=""><br>TensorFlow 支持的张量具有表 4-1 所示的数据属性。<br><img src="/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-26%20%E4%B8%8B%E5%8D%889.07.36.png" alt=""></p>
+<h2 id="节点"><a href="#节点" class="headerlink" title="节点"></a>节点</h2><p>图中的节点又称为算子，它代表一个操作(operation，OP)，一般用来表示施加的数学运算，也可以表示数据输入(feed in)的起点以及输出(push out)的终点，或者是读取/写入持久变量(persistent variable)的终点。 表 4-2 列举了一些 TensorFlow 实现的算子。算子支持表 4-1 所示的张量的各种数据属性，并且需要在建立图的时候确定下来。<br><img src="/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-26%20%E4%B8%8B%E5%8D%889.18.57.png" alt=""><br>与操作相关的代码位于 tensorflow-1.1.0/tensorflow_python_ops_目录下。以数学运算为例，代 码为上述目录下的 math_ops.py，里面定义了 add、subtract、multiply、scalar_mul、div、divide、 truediv、floordiv 等数学运算，每个函数里面调用了 gen_math_ops.py 中的方法，这个文件是在 编译(安装时)TensorFlow 时生成的，位于 Python 库 site-packages_tensorflow_python_ops_gen_ math_ops.py 中，随后又调用了 tensorflow-1.1.0_tensorflow_core_kernels/下面的核函数实现。 </p>
+<h2 id="其他概念"><a href="#其他概念" class="headerlink" title="其他概念"></a>其他概念</h2><h3 id="图"><a href="#图" class="headerlink" title="图"></a>图</h3><p>把操作任务描述成有向无环图。构建图的第一步是创建各个节点。<br><img src="/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-27%20%E4%B8%8A%E5%8D%889.30.00.png" alt=""></p>
 <h3 id="会话"><a href="#会话" class="headerlink" title="会话"></a>会话</h3><p>启动图的第一步是创建一个 Session对象。会话( session)提供在图中执行操作的一些方法。一般的模式是,建立会话,此时会生成一张空图,在会话中添加节点和边,形成一张图,然后执行。</p>
-<p>要创建一张图并运行操作的类,在 Python的API中使用tf. Session,在C++的API中使用tensorflow: Session。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-27%20%E4%B8%8A%E5%8D%889.33.29.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>在调用 Session对象的run（）方法来执行图时,传入一些 Tensor,这个过程叫填充(feed)返回的结果类型根据输入的类型而定,这个过程叫取回( fetch)。</p>
+<p>要创建一张图并运行操作的类,在 Python的API中使用tf. Session,在C++的API中使用tensorflow: Session。<br><img src="/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-27%20%E4%B8%8A%E5%8D%889.33.29.png" alt=""><br>在调用 Session对象的run（）方法来执行图时,传入一些 Tensor,这个过程叫填充(feed)返回的结果类型根据输入的类型而定,这个过程叫取回( fetch)。</p>
 <p>与会话相关的源代码位于 tensorfow-11.0/ tensorfow/ python/ client/session. py。</p>
 <p><strong>会话</strong>是<strong>图交互的一个桥梁,</strong>一个会话可以有多个图,会话可以修改图的结构,也可以往图中注入数据进行计算。因此,会话主要有两个AP接口: <strong>Extend</strong>和<strong>Run</strong>。 <strong>Extend</strong>操作是<strong>在 Graph中添加节点和边</strong>,<strong>Run</strong>操作是<strong>输入计算的节点和填充必要的数据后,进行运算,并输出运算结果。</strong></p>
 <h3 id="设备"><a href="#设备" class="headerlink" title="设备"></a>设备</h3><p>设备（device）是指一块可以用来运算并且拥有自己的地址空间的硬件，如GPU和CPU。</p>
-<p>TensorFlow为了实现分布式执行操作,充分利用计算资源,可以明确指定操作在哪个设备上执行。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-27%20%E4%B8%8A%E5%8D%889.40.48.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>与设备相关的源代码位于 tensorfow-1.1.0 tensorflow_python_ framework/device. py。</p>
-<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>变量( variable）是一种特殊的数据,<strong>它在图中有固定的位置,不像普通张量那样可以流动</strong>。例如,创建一个变量张量,使用tf.Variable()构造函数,这个构造函数需要一个初始值,初始值的形状和类型决定了这个变量的形状和类型。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-27%20%E4%B8%8A%E5%8D%889.45.27.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>创建一个常量张量：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-27%20%E4%B8%8A%E5%8D%889.46.57.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>TensorFlow还提供了填充机制,可以在构建图时使用tf.placeholder临时替代任意操作的张量,在调用 Session对象的run（）方法去执行图时,使用填充数据作为调用的参数,调用结束后,填充数据就消失。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-27%20%E4%B8%8A%E5%8D%889.52.30.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>与变量相关的源代码位于 tensorflow/ tensorflow/ python_ops_ variables. py。</p>
+<p>TensorFlow为了实现分布式执行操作,充分利用计算资源,可以明确指定操作在哪个设备上执行。<br><img src="/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-27%20%E4%B8%8A%E5%8D%889.40.48.png" alt=""><br>与设备相关的源代码位于 tensorfow-1.1.0 tensorflow_python_ framework/device. py。</p>
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>变量( variable）是一种特殊的数据,<strong>它在图中有固定的位置,不像普通张量那样可以流动</strong>。例如,创建一个变量张量,使用tf.Variable()构造函数,这个构造函数需要一个初始值,初始值的形状和类型决定了这个变量的形状和类型。<br><img src="/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-27%20%E4%B8%8A%E5%8D%889.45.27.png" alt=""><br>创建一个常量张量：<br><img src="/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-27%20%E4%B8%8A%E5%8D%889.46.57.png" alt=""><br>TensorFlow还提供了填充机制,可以在构建图时使用tf.placeholder临时替代任意操作的张量,在调用 Session对象的run（）方法去执行图时,使用填充数据作为调用的参数,调用结束后,填充数据就消失。<br><img src="/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-27%20%E4%B8%8A%E5%8D%889.52.30.png" alt=""><br>与变量相关的源代码位于 tensorflow/ tensorflow/ python_ops_ variables. py。</p>
 <h3 id="内核"><a href="#内核" class="headerlink" title="内核"></a>内核</h3><p>我们知道操作( operation)是对抽象操作(如 matmul或者ad)的一个统称,而内核( kemel)则是能够运行在特定设备(如CPU、GPU)上的一种对操作的实现。因此,同一个操作可能会对应多个内核。</p>
-<h1 id="常用API"><a href="#常用API" class="headerlink" title="常用API"></a>常用API</h1><h2 id="图、操作和张量"><a href="#图、操作和张量" class="headerlink" title="图、操作和张量"></a>图、操作和张量</h2><p>与图相关的API均位于tf.Graph类中。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-27%20%E4%B8%8A%E5%8D%889.57.45.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>tf.Operation类代表图中的一个节点，用于<strong>计算张量数据</strong>。该类型由节点构造器（如tf.matmul()或者Graph.create_op()）产生。例如，c=tf.matmul(a,b)<br>创建一个Operation类，其类型为MatMul的操作类。与操作相关的API均位于tf.Operation类中。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-27%20%E4%B8%8A%E5%8D%8810.13.53.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-27%20%E4%B8%8A%E5%8D%8810.14.03.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>tf.Tensor类是操作输出的符号句柄,它不包含操作输出的值,而是提供了一种在tf.Session中计算这些值的方法。这样就可以在操作之间构建一个数据流连接,使 TensorFlow能够执行一个表示大量多步计算的图形。与张量相关的API均位于tf.Tensor类中。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-27%20%E4%B8%8A%E5%8D%8810.33.29.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<h1 id="常用API"><a href="#常用API" class="headerlink" title="常用API"></a>常用API</h1><h2 id="图、操作和张量"><a href="#图、操作和张量" class="headerlink" title="图、操作和张量"></a>图、操作和张量</h2><p>与图相关的API均位于tf.Graph类中。<br><img src="/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-27%20%E4%B8%8A%E5%8D%889.57.45.png" alt=""><br>tf.Operation类代表图中的一个节点，用于<strong>计算张量数据</strong>。该类型由节点构造器（如tf.matmul()或者Graph.create_op()）产生。例如，c=tf.matmul(a,b)<br>创建一个Operation类，其类型为MatMul的操作类。与操作相关的API均位于tf.Operation类中。<br><img src="/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-27%20%E4%B8%8A%E5%8D%8810.13.53.png" alt=""><br><img src="/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-27%20%E4%B8%8A%E5%8D%8810.14.03.png" alt=""><br>tf.Tensor类是操作输出的符号句柄,它不包含操作输出的值,而是提供了一种在tf.Session中计算这些值的方法。这样就可以在操作之间构建一个数据流连接,使 TensorFlow能够执行一个表示大量多步计算的图形。与张量相关的API均位于tf.Tensor类中。<br><img src="/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-27%20%E4%B8%8A%E5%8D%8810.33.29.png" alt=""></p>
 <h1 id="变量作用域"><a href="#变量作用域" class="headerlink" title="变量作用域"></a>变量作用域</h1><p>在 TensorFlow中有两个作用域( scope),一个是 name_scope,另一个是 variable_scope。简而言之, name_scope主要是给 variable_name加前缀,也可以给 op_ name加前缀; name_scope是给 op_name加前缀。</p>
-<h2 id="variable-scope"><a href="#variable-scope" class="headerlink" title="variable_scope"></a>variable_scope</h2><p>variable_scope变量作用域机制在 TensorFlow中主要由两部分组成:<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-27%20%E4%B8%8B%E5%8D%887.29.27.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>创建或是返回一个变量，或是为变量指定命名空间。</p>
-<p>当 tf. get_variable_scope. reuse==False时, variable_scope作用域只能用来创建新变量:<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-27%20%E4%B8%8B%E5%8D%887.32.45.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>上述程序会抛出ValueError错误，因为v这个变量已经被定义过了，但tf.get_variable_scope().reuse默认为False，所以不能重用。</p>
-<p>当tf.get_variable_scope().reuse=True时,作用域可以共享变量:<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-27%20%E4%B8%8B%E5%8D%887.38.05.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<h3 id="获取变量作用域"><a href="#获取变量作用域" class="headerlink" title="获取变量作用域"></a>获取变量作用域</h3><p>可以直接通过 tf.variable_scope()来获取变量作用域:<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-27%20%E4%B8%8B%E5%8D%887.41.51.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>如果在开启的一个变量作用域里使用之前预先定义的一个作用域,则会跳过当前变量的作用域,保持预先存在的作用域不变。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-27%20%E4%B8%8B%E5%8D%887.43.33.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<h3 id="变量作用域的初始化"><a href="#变量作用域的初始化" class="headerlink" title="变量作用域的初始化"></a>变量作用域的初始化</h3><p>变量作用域可以默认携带一个初始化器,在这个作用域中的子作用域或变量都可以继承或者重写父作用域初始化器中的值。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-27%20%E4%B8%8B%E5%8D%887.46.12.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>在variable_scope作用域下的操作op_name也会被加上前缀。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-27%20%E4%B8%8B%E5%8D%887.50.18.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-27%20%E4%B8%8B%E5%8D%887.50.27.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>variable scope主要用在循环神经网络(RNN)的操作中,其中需要大量的共享变量。</p>
-<h2 id="name-scope示例"><a href="#name-scope示例" class="headerlink" title="name_scope示例"></a>name_scope示例</h2><p>TensorFlow中常常会有数以千计的节点,在可视化的过程中很难一下子展示出来,因此用name_scope为变量划分范围,在可视化中,这表示在计算图中的一个层级。name_scope会影响op_name,不会影响get_variableo创建的变量,而会影响通过 Variableo创建的变量。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-27%20%E4%B8%8B%E5%8D%887.59.32.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<h2 id="variable-scope"><a href="#variable-scope" class="headerlink" title="variable_scope"></a>variable_scope</h2><p>variable_scope变量作用域机制在 TensorFlow中主要由两部分组成:<br><img src="/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-27%20%E4%B8%8B%E5%8D%887.29.27.png" alt=""><br>创建或是返回一个变量，或是为变量指定命名空间。</p>
+<p>当 tf. get_variable_scope. reuse==False时, variable_scope作用域只能用来创建新变量:<br><img src="/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-27%20%E4%B8%8B%E5%8D%887.32.45.png" alt=""><br>上述程序会抛出ValueError错误，因为v这个变量已经被定义过了，但tf.get_variable_scope().reuse默认为False，所以不能重用。</p>
+<p>当tf.get_variable_scope().reuse=True时,作用域可以共享变量:<br><img src="/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-27%20%E4%B8%8B%E5%8D%887.38.05.png" alt=""></p>
+<h3 id="获取变量作用域"><a href="#获取变量作用域" class="headerlink" title="获取变量作用域"></a>获取变量作用域</h3><p>可以直接通过 tf.variable_scope()来获取变量作用域:<br><img src="/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-27%20%E4%B8%8B%E5%8D%887.41.51.png" alt=""><br>如果在开启的一个变量作用域里使用之前预先定义的一个作用域,则会跳过当前变量的作用域,保持预先存在的作用域不变。<br><img src="/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-27%20%E4%B8%8B%E5%8D%887.43.33.png" alt=""></p>
+<h3 id="变量作用域的初始化"><a href="#变量作用域的初始化" class="headerlink" title="变量作用域的初始化"></a>变量作用域的初始化</h3><p>变量作用域可以默认携带一个初始化器,在这个作用域中的子作用域或变量都可以继承或者重写父作用域初始化器中的值。<br><img src="/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-27%20%E4%B8%8B%E5%8D%887.46.12.png" alt=""><br>在variable_scope作用域下的操作op_name也会被加上前缀。<br><img src="/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-27%20%E4%B8%8B%E5%8D%887.50.18.png" alt=""><br><img src="/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-27%20%E4%B8%8B%E5%8D%887.50.27.png" alt=""><br>variable scope主要用在循环神经网络(RNN)的操作中,其中需要大量的共享变量。</p>
+<h2 id="name-scope示例"><a href="#name-scope示例" class="headerlink" title="name_scope示例"></a>name_scope示例</h2><p>TensorFlow中常常会有数以千计的节点,在可视化的过程中很难一下子展示出来,因此用name_scope为变量划分范围,在可视化中,这表示在计算图中的一个层级。name_scope会影响op_name,不会影响get_variableo创建的变量,而会影响通过 Variableo创建的变量。<br><img src="/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-27%20%E4%B8%8B%E5%8D%887.59.32.png" alt=""></p>
 <h1 id="批标准化"><a href="#批标准化" class="headerlink" title="批标准化"></a>批标准化</h1><p>批标准化( batch normalization,BN)是为了克服神经网络层数加深导致难以训练而诞生的我们知道,深度神经网络随着网络深度加深,训练起来会越来越困难,收敛速度会很慢,常常会导致梯度弥散问题( vanishing gradient problem)。</p>
 <p>统计机器学习中有一个<strong>ICS</strong>( Internal Covariate shift)理论,这是一个经典假设:源域( source domain)和目标域( target domain)的数据分布是一致的。也就是说,训练数据和测试数据是满足相同分布的。这是通过训练数据获得的模型能够在测试集获得好的效果的一个基本保障。</p>
 <p><strong>Covariate shift</strong>是指训练集的样本数据和目标样本集分布不一致时,训练得到的模型无法很好地泛化( generalization)。它是分布不一致假设之下的一个分支问题,也就是指源域和目标域的条件概率是一致的,但是其边缘概率不同。的确,对于神经网络的各层输出,在经过了层内操作后,各层输出分布就会与对应的输入信号分布不同,而且差异会随着网络深度增大而加大,但是每一层所指向的样本标记( label)仍然是不变的。</p>
@@ -404,245 +553,896 @@
 <li>破坏原来的数据分布，一定程度上缓解过拟合。</li>
 </ol>
 <p>在遇到神经网络收敛速度很慢或梯度爆炸等无法训练的情况下，都可以尝试用批标准化来解决。</p>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>对每层的Wx_plus_b进行批标准化，这个步骤在激活函数之前。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-04%20%E4%B8%8B%E5%8D%886.52.51.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>规范化，也可以称为标准化，是将数据按比例缩放，使之落在一个小的特定区间。这里是指数据减去平均值，再除以标准差。</p>
-<h1 id="tf-add-a-b-与-a-b"><a href="#tf-add-a-b-与-a-b" class="headerlink" title="tf.add(a, b) 与 a+b"></a>tf.add(a, b) 与 a+b</h1><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/add/2.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>对每层的Wx_plus_b进行批标准化，这个步骤在激活函数之前。<br><img src="/img/media/TensorFlow%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8A/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-04%20%E4%B8%8B%E5%8D%886.52.51.png" alt=""><br>规范化，也可以称为标准化，是将数据按比例缩放，使之落在一个小的特定区间。这里是指数据减去平均值，再除以标准差。</p>
+<h1 id="tf-add-a-b-与-a-b"><a href="#tf-add-a-b-与-a-b" class="headerlink" title="tf.add(a, b) 与 a+b"></a>tf.add(a, b) 与 a+b</h1><p><img src="/img/add/2.png" alt=""></p>
 
-        </div>
-
-        <blockquote class="post-copyright">
-    
-    <div class="content">
-        
-<span class="post-time">
-    最后更新时间：<time datetime="2018-11-05T04:51:56.000Z" itemprop="dateUpdated">2018-11-05 12:51:56</time>
-</span><br>
-
-
-        
+      
     </div>
+
     
-    <footer>
-        <a href="https://github.com/zdkswd">
-            <img src="/img/tmg.jpg" alt="ZDK">
-            ZDK
-        </a>
+
+    
+      
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
+          
+            <a href="/tags/TensorFlow/" rel="tag"># TensorFlow</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/01/Python数据科学手册 Matplotlib数据可视化/" rel="next" title="Python数据科学手册 Matplotlib数据可视化">
+                <i class="fa fa-chevron-left"></i> Python数据科学手册 Matplotlib数据可视化
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/08/scikit-learn介绍/" rel="prev" title="scikit-learn介绍">
+                scikit-learn介绍 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
     </footer>
-</blockquote>
-
-        
-
-
-        <div class="post-footer">
-            
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TensorFlow/">TensorFlow</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li></ul>
+  </div>
+  
+  
+  
+  </article>
 
 
-            
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
 
 
         </div>
-    </div>
-
-    
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2018/11/08/scikit-learn介绍/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">scikit-learn介绍</h4>
-      </a>
-    </div>
-  
-
-  
-    <div class="waves-block waves-effect next">
-      <a href="/2018/11/01/Python数据科学手册 Matplotlib数据可视化/" id="post-next" class="post-nav-link">
-        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">Python数据科学手册 Matplotlib数据可视化</h4>
-      </a>
-    </div>
-  
-</nav>
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Valine Comments -->
-    <div class="comments vcomment" id="comments"></div>
-    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
-    <!-- Valine Comments script -->
-    <script>
-        var GUEST_INFO = ['nick','mail','link'];
-        var guest_info = 'nick,mail'.split(',').filter(function(item){
-          return GUEST_INFO.indexOf(item) > -1
-        });
-        new Valine({
-            el: '#comments',
-            notify: 'true' == 'true',
-            verify: 'false' == 'true',
-            appId: "QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz",
-            appKey: "gkBx5soQkBREmER84PWbNJeM",
-            avatar: "mm",
-            placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
-            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
-            pageSize: "10"
-        })
-    </script>
-    <!-- Valine Comments end -->
-
-
-
-
-
-
-
-</article>
-
-
-
-</div>
-
-        <footer class="footer">
-    <div class="top">
         
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
-
-
-        <p>
-            
-                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-            
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
-        </p>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
     </div>
-    <div class="bottom">
-        <p><span>ZDK &copy; 2017 - 2019</span>
-            <span>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="ZDK"/>
+            
+              <p class="site-author-name" itemprop="name">ZDK</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
                 
-                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
-            </span>
-        </p>
-    </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
-    </script>
-</footer>
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">191</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
 
-    </main>
-    <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">分类</span>
+                  
+                </div>
+              
 
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">48</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
 
-    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
-<script>
-var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
-
-
-</script>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
             </div>
-            <time class="flex-col time">{date}</time>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/zdkswd" title="GitHub &rarr; https://github.com/zdkswd"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:2822464407@qq.com" title="E-Mail &rarr; mailto:2822464407@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/zdkswd" title="https://github.com/zdkswd">Title</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
         </div>
-    </a>
-</li>
-</template>
+      </div>
 
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
 
+            
+            
+            
+            
 
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#系统架构"><span class="nav-number">1.</span> <span class="nav-text">系统架构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#网络通信层和设备管理层"><span class="nav-number">1.1.</span> <span class="nav-text">网络通信层和设备管理层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据操作层"><span class="nav-number">1.2.</span> <span class="nav-text">数据操作层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图计算层（了解的核心）"><span class="nav-number">1.3.</span> <span class="nav-text">图计算层（了解的核心）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#API层和应用层"><span class="nav-number">1.4.</span> <span class="nav-text">API层和应用层</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设计理念"><span class="nav-number">2.</span> <span class="nav-text">设计理念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#将图的定义和图的运行完全分开"><span class="nav-number">2.1.</span> <span class="nav-text">将图的定义和图的运行完全分开</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TensorFlow中涉及的运算都要放在图中-而图的运行只发生在会话-session-中"><span class="nav-number">2.2.</span> <span class="nav-text">TensorFlow中涉及的运算都要放在图中,而图的运行只发生在会话( session)中</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编程模型"><span class="nav-number">3.</span> <span class="nav-text">编程模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#边"><span class="nav-number">3.1.</span> <span class="nav-text">边</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实线边表示数据依赖"><span class="nav-number">3.1.1.</span> <span class="nav-text">实线边表示数据依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#虚线边表示控制依赖（control-dependency-）"><span class="nav-number">3.1.2.</span> <span class="nav-text">虚线边表示控制依赖（control dependency ）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#节点"><span class="nav-number">3.2.</span> <span class="nav-text">节点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他概念"><span class="nav-number">3.3.</span> <span class="nav-text">其他概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#图"><span class="nav-number">3.3.1.</span> <span class="nav-text">图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#会话"><span class="nav-number">3.3.2.</span> <span class="nav-text">会话</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设备"><span class="nav-number">3.3.3.</span> <span class="nav-text">设备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量"><span class="nav-number">3.3.4.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内核"><span class="nav-number">3.3.5.</span> <span class="nav-text">内核</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常用API"><span class="nav-number">4.</span> <span class="nav-text">常用API</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#图、操作和张量"><span class="nav-number">4.1.</span> <span class="nav-text">图、操作和张量</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#变量作用域"><span class="nav-number">5.</span> <span class="nav-text">变量作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#variable-scope"><span class="nav-number">5.1.</span> <span class="nav-text">variable_scope</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取变量作用域"><span class="nav-number">5.1.1.</span> <span class="nav-text">获取变量作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量作用域的初始化"><span class="nav-number">5.1.2.</span> <span class="nav-text">变量作用域的初始化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#name-scope示例"><span class="nav-number">5.2.</span> <span class="nav-text">name_scope示例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#批标准化"><span class="nav-number">6.</span> <span class="nav-text">批标准化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法"><span class="nav-number">6.1.</span> <span class="nav-text">方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优点"><span class="nav-number">6.2.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#示例"><span class="nav-number">6.3.</span> <span class="nav-text">示例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#tf-add-a-b-与-a-b"><span class="nav-number">7.</span> <span class="nav-text">tf.add(a, b) 与 a+b</span></a></li></ol></div>
+            
 
-<!-- mathjax config similar to math.stackexchange -->
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
+      
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
 
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-});
-</script>
-
-<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
-
-
-
-
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
 
 
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZDK</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.2.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+  </div>
+
+  
 
 <script>
-(function() {
-    var OriginTitile = document.title, titleTime;
-    document.addEventListener('visibilitychange', function() {
-        if (document.hidden) {
-            document.title = 'zdk'blog';
-            clearTimeout(titleTime);
-        } else {
-            document.title = '';
-            titleTime = setTimeout(function() {
-                document.title = OriginTitile;
-            },2000);
-        }
-    });
-})();
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
 </script>
 
 
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.2.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz',
+    appKey: 'gkBx5soQkBREmER84PWbNJeM',
+    placeholder: 'have fun',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true,
+    lang: '' || 'zh-cn'
+  });
+</script>
+
+
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('5');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
 
 </body>
 </html>

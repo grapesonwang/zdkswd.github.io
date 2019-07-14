@@ -1,33 +1,107 @@
 <!DOCTYPE html>
-<html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
-    
-
-    
-
-    
-
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
 
 
-    <meta charset="utf-8">
-    
-    
-    
-    
-    <title>JavaScript标准参考教程 DOM 事件模型 | ZDK&#39;s blog</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#3F51B5">
-    
-    
-    <meta name="keywords" content="JavaScript">
-    <meta name="description" content="事件的本质是程序各个组成部分之间的一种通信方式，也是异步编程的一种实现。DOM 支持大量的事件。 EventTarget接口DOM 的事件操作（监听和触发），都定义在EventTarget接口。所有节点对象都部署了这个接口，其他一些需要事件通信的浏览器内置对象（比如，XMLHttpRequest、AudioNode、AudioContext）也部署了这个接口。 该接口主要提供三个实例方法。">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.2.0',
+    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+
+
+  <meta name="description" content="事件的本质是程序各个组成部分之间的一种通信方式，也是异步编程的一种实现。DOM 支持大量的事件。 EventTarget接口DOM 的事件操作（监听和触发），都定义在EventTarget接口。所有节点对象都部署了这个接口，其他一些需要事件通信的浏览器内置对象（比如，XMLHttpRequest、AudioNode、AudioContext）也部署了这个接口。 该接口主要提供三个实例方法。  Ev">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript标准参考教程 DOM 事件模型">
 <meta property="og:url" content="https://github.com/zdkswd/2018/10/21/JavaScript标准参考教程 DOM 事件模型/index.html">
 <meta property="og:site_name" content="ZDK&#39;s blog">
-<meta property="og:description" content="事件的本质是程序各个组成部分之间的一种通信方式，也是异步编程的一种实现。DOM 支持大量的事件。 EventTarget接口DOM 的事件操作（监听和触发），都定义在EventTarget接口。所有节点对象都部署了这个接口，其他一些需要事件通信的浏览器内置对象（比如，XMLHttpRequest、AudioNode、AudioContext）也部署了这个接口。 该接口主要提供三个实例方法。">
+<meta property="og:description" content="事件的本质是程序各个组成部分之间的一种通信方式，也是异步编程的一种实现。DOM 支持大量的事件。 EventTarget接口DOM 的事件操作（监听和触发），都定义在EventTarget接口。所有节点对象都部署了这个接口，其他一些需要事件通信的浏览器内置对象（比如，XMLHttpRequest、AudioNode、AudioContext）也部署了这个接口。 该接口主要提供三个实例方法。  Ev">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://github.com/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%889.51.27.png">
 <meta property="og:image" content="https://github.com/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%889.52.13.png">
@@ -67,402 +141,418 @@
 <meta property="og:updated_time" content="2018-10-21T06:55:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript标准参考教程 DOM 事件模型">
-<meta name="twitter:description" content="事件的本质是程序各个组成部分之间的一种通信方式，也是异步编程的一种实现。DOM 支持大量的事件。 EventTarget接口DOM 的事件操作（监听和触发），都定义在EventTarget接口。所有节点对象都部署了这个接口，其他一些需要事件通信的浏览器内置对象（比如，XMLHttpRequest、AudioNode、AudioContext）也部署了这个接口。 该接口主要提供三个实例方法。">
+<meta name="twitter:description" content="事件的本质是程序各个组成部分之间的一种通信方式，也是异步编程的一种实现。DOM 支持大量的事件。 EventTarget接口DOM 的事件操作（监听和触发），都定义在EventTarget接口。所有节点对象都部署了这个接口，其他一些需要事件通信的浏览器内置对象（比如，XMLHttpRequest、AudioNode、AudioContext）也部署了这个接口。 该接口主要提供三个实例方法。  Ev">
 <meta name="twitter:image" content="https://github.com/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%889.51.27.png">
-    
-        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
-    
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
-    <script>window.lazyScripts=[]</script>
 
-    <!-- custom head -->
-    
+
+
+  <link rel="alternate" href="/atom.xml" title="ZDK's blog" type="application/atom+xml"/>
+
+
+
+  
+  
+  <link rel="canonical" href="https://github.com/zdkswd/2018/10/21/JavaScript标准参考教程 DOM 事件模型/"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>JavaScript标准参考教程 DOM 事件模型 | ZDK's blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
 
 </head>
 
-<body>
-    <div id="loading" class="active"></div>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
-    <aside id="menu" class="hide" >
-  <div class="inner flex-row-vertical">
-    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-        <i class="icon icon-lg icon-close"></i>
-    </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
-      <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/tmg.jpg">
-        </a>
-        <hgroup class="introduce">
-          <h5 class="nickname">ZDK</h5>
-          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
-        </hgroup>
-      </div>
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ZDK's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
-    <div class="scroll-wrap flex-col">
-      <ul class="nav">
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
         
-            <li class="waves-block waves-effect">
-              <a href="/"  >
-                <i class="icon icon-lg icon-home"></i>
-                主页
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                Archives
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/tags"  >
-                <i class="icon icon-lg icon-tags"></i>
-                Tags
-              </a>
-            </li>
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>首页</a>
+
+  </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/categories"  >
-                <i class="icon icon-lg icon-th-list"></i>
-                Categories
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="https://github.com/zdkswd" target="_blank" >
-                <i class="icon icon-lg icon-github"></i>
-                Github
-              </a>
-            </li>
         
-      </ul>
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>归档</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br/>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
     </div>
   </div>
-</aside>
+  <div id="local-search-result"></div>
+</div>
 
-    <main id="main">
-        <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis">JavaScript标准参考教程 DOM 事件模型</div>
-        
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
-        </div>
-        
-        
+
+
     </div>
-</header>
-<header class="content-header post-header">
-
-    <div class="container fade-scale">
-        <h1 class="title">JavaScript标准参考教程 DOM 事件模型</h1>
-        <h5 class="subtitle">
-            
-                <time datetime="2018-10-21T06:53:56.000Z" itemprop="datePublished" class="page-time">
-  2018-10-21
-</time>
+  
+</nav>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/教程/">教程</a></li></ul>
 
-            
-        </h5>
-    </div>
+</div>
+    </header>
 
     
 
 
-</header>
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
 
+          
+          <div id="content" class="content">
+            
 
-<div class="container body-wrap">
+  <div id="posts" class="posts-expand">
     
-    <aside class="post-widget">
-        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
-            <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#EventTarget接口"><span class="post-toc-number">1.</span> <span class="post-toc-text">EventTarget接口</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#EventTarget-addEventListener"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">EventTarget.addEventListener()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#EventTarget-removeEventListener"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">EventTarget.removeEventListener()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#EventTarget-dispatchEvent"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">EventTarget.dispatchEvent()</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#监听函数"><span class="post-toc-number">2.</span> <span class="post-toc-text">监听函数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#HTML的on-属性"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">HTML的on-属性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#元素节点的事件属性"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">元素节点的事件属性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#EventTarget-addEventListener-1"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">EventTarget.addEventListener()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#小结"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">小结</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#this的指向"><span class="post-toc-number">3.</span> <span class="post-toc-text">this的指向</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#事件的传播"><span class="post-toc-number">4.</span> <span class="post-toc-text">事件的传播</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#事件的代理"><span class="post-toc-number">5.</span> <span class="post-toc-text">事件的代理</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Event对象概述"><span class="post-toc-number">6.</span> <span class="post-toc-text">Event对象概述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Event对象的实例属性"><span class="post-toc-number">7.</span> <span class="post-toc-text">Event对象的实例属性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Event-bubbles，Event-eventPhase"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">Event.bubbles，Event.eventPhase</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Event-cancelable，Event-cancelBubble，event-defaultPrevented"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">Event.cancelable，Event.cancelBubble，event.defaultPrevented</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Event-currentTarget，Event-target"><span class="post-toc-number">7.3.</span> <span class="post-toc-text">Event.currentTarget，Event.target</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Event-type"><span class="post-toc-number">7.4.</span> <span class="post-toc-text">Event.type</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Event-timeStamp"><span class="post-toc-number">7.5.</span> <span class="post-toc-text">Event.timeStamp</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Event-isTrusted"><span class="post-toc-number">7.6.</span> <span class="post-toc-text">Event.isTrusted</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Event-detail"><span class="post-toc-number">7.7.</span> <span class="post-toc-text">Event.detail</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Event-对象的实例方法"><span class="post-toc-number">8.</span> <span class="post-toc-text">Event 对象的实例方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Event-preventDefault"><span class="post-toc-number">8.1.</span> <span class="post-toc-text">Event.preventDefault()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Event-stopPropagation"><span class="post-toc-number">8.2.</span> <span class="post-toc-text">Event.stopPropagation()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Event-stopImmediatePropagation"><span class="post-toc-number">8.3.</span> <span class="post-toc-text">Event.stopImmediatePropagation()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Event-composedPath"><span class="post-toc-number">8.4.</span> <span class="post-toc-text">Event.composedPath()</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#CustomEvent-接口"><span class="post-toc-number">9.</span> <span class="post-toc-text">CustomEvent 接口</span></a></li></ol>
-        </nav>
-    </aside>
 
+  
 
-<article id="post-JavaScript标准参考教程 DOM 事件模型"
-  class="post-article article-type-post fade" itemprop="blogPost">
+  
+  
+  
 
-    <div class="post-card">
-        <h1 class="post-card-title">JavaScript标准参考教程 DOM 事件模型</h1>
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2018/10/21/JavaScript标准参考教程 DOM 事件模型/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZDK"/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZDK's blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JavaScript标准参考教程 DOM 事件模型
+
+              
+            
+          </h1>
+        
+
         <div class="post-meta">
-            <time class="post-time" title="2018-10-21 14:53:56" datetime="2018-10-21T06:53:56.000Z"  itemprop="datePublished">2018-10-21</time>
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-10-21 14:53:56 / 修改时间：14:55:42" itemprop="dateCreated datePublished" datetime="2018-10-21T14:53:56+08:00">2018-10-21</time>
+            </span>
+          
+
+          
+            
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/教程/">教程</a></li></ul>
+          
 
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/教程/" itemprop="url" rel="index"><span itemprop="name">教程</span></a></span>
 
+                
+                
+              
+            </span>
+          
 
+          
             
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
-    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
-</span>
+            
+              
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2018/10/21/JavaScript标准参考教程 DOM 事件模型/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/10/21/JavaScript标准参考教程 DOM 事件模型/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
 
+          
+          
+            <span id="/2018/10/21/JavaScript标准参考教程 DOM 事件模型/" class="post-meta-item leancloud_visitors" data-flag-title="JavaScript标准参考教程 DOM 事件模型">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          <br/>
+          
+
+          
+
+          
 
         </div>
-        <div class="post-content" id="post-content" itemprop="postContent">
-            <p>事件的本质是程序各个组成部分之间的一种通信方式，也是异步编程的一种实现。DOM 支持大量的事件。</p>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>事件的本质是程序各个组成部分之间的一种通信方式，也是异步编程的一种实现。DOM 支持大量的事件。</p>
 <h1 id="EventTarget接口"><a href="#EventTarget接口" class="headerlink" title="EventTarget接口"></a>EventTarget接口</h1><p>DOM 的事件操作（监听和触发），都定义在<strong>EventTarget</strong>接口。所有节点对象都部署了这个接口，其他一些需要事件通信的浏览器内置对象（比如，<strong>XMLHttpRequest</strong>、<strong>AudioNode</strong>、<strong>AudioContext</strong>）也部署了这个接口。</p>
 <p>该接口主要提供三个实例方法。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%889.51.27.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<h2 id="EventTarget-addEventListener"><a href="#EventTarget-addEventListener" class="headerlink" title="EventTarget.addEventListener()"></a>EventTarget.addEventListener()</h2><p>EventTarget.addEventListener()用于在当前节点或对象上，定义一个特定事件的监听函数。一旦这个事件发生，就会执行监听函数。该方法没有返回值。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%889.52.13.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>该方法接受三个参数。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%889.54.27.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>例子：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%889.56.50.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>关于参数：</p>
+<p><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%889.51.27.png" alt=""></p>
+<h2 id="EventTarget-addEventListener"><a href="#EventTarget-addEventListener" class="headerlink" title="EventTarget.addEventListener()"></a>EventTarget.addEventListener()</h2><p>EventTarget.addEventListener()用于在当前节点或对象上，定义一个特定事件的监听函数。一旦这个事件发生，就会执行监听函数。该方法没有返回值。<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%889.52.13.png" alt=""><br>该方法接受三个参数。<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%889.54.27.png" alt=""><br>例子：<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%889.56.50.png" alt=""><br>关于参数：</p>
 <ol>
-<li>第二个参数除了监听函数，还可以是一个具有handleEvent方法的对象。<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%889.58.28.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></li>
-<li>第三个参数除了布尔值useCapture，还可以是一个属性配置对象。该对象有以下属性。<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.03.24.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-</li>
+<li>第二个参数除了监听函数，还可以是一个具有handleEvent方法的对象。<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%889.58.28.png" alt=""></li>
+<li>第三个参数除了布尔值useCapture，还可以是一个属性配置对象。该对象有以下属性。<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.03.24.png" alt=""></li>
 </ol>
 <p>addEventListener方法可以为针对当前对象的同一个事件，添加多个不同的监听函数。这些函数按照添加顺序触发，即先添加先触发。如果为同一个事件多次添加同一个监听函数，该函数只会执行一次，多余的添加将自动被去除。</p>
-<p>如果希望向监听函数传递参数，可以用匿名函数包装一下监听函数。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.06.26.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>监听函数内部的this，指向当前事件所在的那个对象。</p>
-<h2 id="EventTarget-removeEventListener"><a href="#EventTarget-removeEventListener" class="headerlink" title="EventTarget.removeEventListener()"></a>EventTarget.removeEventListener()</h2><p>EventTarget.removeEventListener方法用来移除addEventListener方法添加的事件监听函数。该方法没有返回值。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.08.15.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>removeEventListener方法的参数，与addEventListener方法完全一致。它的第一个参数“事件类型”，大小写敏感。</p>
-<p>注意，removeEventListener方法移除的监听函数，必须是addEventListener方法添加的那个监听函数，而且必须在同一个元素节点，否则无效。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.11.58.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<h2 id="EventTarget-dispatchEvent"><a href="#EventTarget-dispatchEvent" class="headerlink" title="EventTarget.dispatchEvent()"></a>EventTarget.dispatchEvent()</h2><p>EventTarget.dispatchEvent方法在当前节点上触发指定事件，从而触发监听函数的执行。该方法返回一个布尔值，只要有一个监听函数调用了Event.preventDefault()，则返回值为false，否则为true。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.15.02.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>dispatchEvent方法的参数是一个Event对象的实例。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.28.58.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>如果dispatchEvent方法的参数为空，或者不是一个有效的事件对象，将报错。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.32.55.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<p>如果希望向监听函数传递参数，可以用匿名函数包装一下监听函数。<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.06.26.png" alt=""><br>监听函数内部的this，指向当前事件所在的那个对象。</p>
+<h2 id="EventTarget-removeEventListener"><a href="#EventTarget-removeEventListener" class="headerlink" title="EventTarget.removeEventListener()"></a>EventTarget.removeEventListener()</h2><p>EventTarget.removeEventListener方法用来移除addEventListener方法添加的事件监听函数。该方法没有返回值。<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.08.15.png" alt=""><br>removeEventListener方法的参数，与addEventListener方法完全一致。它的第一个参数“事件类型”，大小写敏感。</p>
+<p>注意，removeEventListener方法移除的监听函数，必须是addEventListener方法添加的那个监听函数，而且必须在同一个元素节点，否则无效。<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.11.58.png" alt=""></p>
+<h2 id="EventTarget-dispatchEvent"><a href="#EventTarget-dispatchEvent" class="headerlink" title="EventTarget.dispatchEvent()"></a>EventTarget.dispatchEvent()</h2><p>EventTarget.dispatchEvent方法在当前节点上触发指定事件，从而触发监听函数的执行。该方法返回一个布尔值，只要有一个监听函数调用了Event.preventDefault()，则返回值为false，否则为true。<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.15.02.png" alt=""><br>dispatchEvent方法的参数是一个Event对象的实例。<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.28.58.png" alt=""><br>如果dispatchEvent方法的参数为空，或者不是一个有效的事件对象，将报错。<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.32.55.png" alt=""></p>
 <h1 id="监听函数"><a href="#监听函数" class="headerlink" title="监听函数"></a>监听函数</h1><p>浏览器的事件模型，就是通过监听函数（listener）对事件做出反应。事件发生后，浏览器监听到了这个事件，就会执行对应的监听函数。这是事件驱动编程模式（event-driven）的主要编程方式。</p>
 <p>JavaScript有三种方法，可以为事件绑定监听函数。</p>
-<h2 id="HTML的on-属性"><a href="#HTML的on-属性" class="headerlink" title="HTML的on-属性"></a>HTML的on-属性</h2><p>HTML 语言允许在元素的属性中，直接定义某些事件的监听代码。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.34.40.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>注意，这些属性的值是将会执行的代码，而不是一个函数。一旦指定的事件发生，on-属性的值是原样传入 JavaScript 引擎执行。因此如果要执行函数，不要忘记加上一对圆括号。</p>
-<p>使用这个方法指定的监听代码，只会在冒泡阶段触发。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.38.02.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>上面代码中，&lt; button&gt;是&lt; div&gt;的子元素。&lt; button&gt;的click事件，也会触发&lt; div&gt;的click事件。由于on-属性的监听代码，只在冒泡阶段触发，所以点击结果是先输出1，再输出2，即事件从子元素开始冒泡到父元素。</p>
-<p>直接设置on-属性，与通过元素节点的setAttribute方法设置on-属性，效果是一样的。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.38.53.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<h2 id="HTML的on-属性"><a href="#HTML的on-属性" class="headerlink" title="HTML的on-属性"></a>HTML的on-属性</h2><p>HTML 语言允许在元素的属性中，直接定义某些事件的监听代码。<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.34.40.png" alt=""><br>注意，这些属性的值是将会执行的代码，而不是一个函数。一旦指定的事件发生，on-属性的值是原样传入 JavaScript 引擎执行。因此如果要执行函数，不要忘记加上一对圆括号。</p>
+<p>使用这个方法指定的监听代码，只会在冒泡阶段触发。<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.38.02.png" alt=""><br>上面代码中，&lt; button&gt;是&lt; div&gt;的子元素。&lt; button&gt;的click事件，也会触发&lt; div&gt;的click事件。由于on-属性的监听代码，只在冒泡阶段触发，所以点击结果是先输出1，再输出2，即事件从子元素开始冒泡到父元素。</p>
+<p>直接设置on-属性，与通过元素节点的setAttribute方法设置on-属性，效果是一样的。<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.38.53.png" alt=""></p>
 <h2 id="元素节点的事件属性"><a href="#元素节点的事件属性" class="headerlink" title="元素节点的事件属性"></a>元素节点的事件属性</h2><p>元素节点对象的事件属性，同样可以指定监听函数。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.42.25.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<p>使用这个方法指定的监听函数，也是只会在冒泡阶段触发。</p>
+<p><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.42.25.png" alt=""><br>使用这个方法指定的监听函数，也是只会在冒泡阶段触发。</p>
 <p>注意，这种方法与 HTML 的on-属性的差异是，它的值是函数名（doSomething），而不像后者，必须给出完整的监听代码（doSomething()）。</p>
-<h2 id="EventTarget-addEventListener-1"><a href="#EventTarget-addEventListener-1" class="headerlink" title="EventTarget.addEventListener()"></a>EventTarget.addEventListener()</h2><p>所有 DOM 节点实例都有addEventListener方法，用来为该节点定义事件的监听函数。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.43.49.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<h2 id="EventTarget-addEventListener-1"><a href="#EventTarget-addEventListener-1" class="headerlink" title="EventTarget.addEventListener()"></a>EventTarget.addEventListener()</h2><p>所有 DOM 节点实例都有addEventListener方法，用来为该节点定义事件的监听函数。<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.43.49.png" alt=""></p>
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><ol>
 <li>第一种“HTML 的 on- 属性”，违反了 HTML 与 JavaScript 代码相分离的原则，将两者写在一起，不利于代码分工，因此不推荐使用。</li>
 <li>“元素节点的事件属性”的缺点在于，同一个事件只能定义一个监听函数，也就是说，如果定义两次onclick属性，后一次定义会覆盖前一次。因此，也不推荐使用。</li>
-<li>EventTarget.addEventListener是推荐的指定监听函数的方法。它有如下优点：<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.50.52.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<h1 id="this的指向"><a href="#this的指向" class="headerlink" title="this的指向"></a>this的指向</h1>监听函数内部的this指向触发事件的那个元素节点。<h1 id="事件的传播"><a href="#事件的传播" class="headerlink" title="事件的传播"></a>事件的传播</h1>一个事件发生后，会在子元素和父元素之间传播（propagation）。这种传播分成三个阶段。<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.54.01.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-这种三阶段的传播模型，使得同一个事件会在多个节点上触发。<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.58.42.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.59.12.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<h1 id="事件的代理"><a href="#事件的代理" class="headerlink" title="事件的代理"></a>事件的代理</h1>由于事件会在冒泡阶段向上传播到父节点，因此可以把子节点的监听函数定义在父节点上，由父节点的监听函数统一处理多个子元素的事件。这种方法叫做事件的代理（delegation）。<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8811.00.55.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-上面代码中，click事件的监听函数定义在&lt; ul&gt;节点，但是实际上，它处理的是子节点&lt; li&gt;的click事件。这样做的好处是，只要定义一个监听函数，就能处理多个子节点的事件，而不用在每个&lt; li&gt;节点上定义监听函数。而且以后再添加子节点，监听函数依然有效。</li>
+<li>EventTarget.addEventListener是推荐的指定监听函数的方法。它有如下优点：<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.50.52.png" alt=""><h1 id="this的指向"><a href="#this的指向" class="headerlink" title="this的指向"></a>this的指向</h1>监听函数内部的this指向触发事件的那个元素节点。<h1 id="事件的传播"><a href="#事件的传播" class="headerlink" title="事件的传播"></a>事件的传播</h1>一个事件发生后，会在子元素和父元素之间传播（propagation）。这种传播分成三个阶段。<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.54.01.png" alt=""><br>这种三阶段的传播模型，使得同一个事件会在多个节点上触发。<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.58.42.png" alt=""><br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.59.12.png" alt=""><h1 id="事件的代理"><a href="#事件的代理" class="headerlink" title="事件的代理"></a>事件的代理</h1>由于事件会在冒泡阶段向上传播到父节点，因此可以把子节点的监听函数定义在父节点上，由父节点的监听函数统一处理多个子元素的事件。这种方法叫做事件的代理（delegation）。<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8811.00.55.png" alt=""><br>上面代码中，click事件的监听函数定义在&lt; ul&gt;节点，但是实际上，它处理的是子节点&lt; li&gt;的click事件。这样做的好处是，只要定义一个监听函数，就能处理多个子节点的事件，而不用在每个&lt; li&gt;节点上定义监听函数。而且以后再添加子节点，监听函数依然有效。</li>
 </ol>
 <p>如果希望事件到某个节点为止，不再传播，可以使用事件对象的stopPropagation方法。</p>
 <p>但是，stopPropagation方法只会阻止事件的传播，不会阻止该事件触发&lt; p&gt;节点的其他click事件的监听函数。也就是说，不是彻底取消click事件。</p>
-<p>如果想要彻底阻止这个事件的传播，不再触发后面所有click的监听函数，可以使用stopImmediatePropagation方法。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8B%E5%8D%881.31.25.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<p>如果想要彻底阻止这个事件的传播，不再触发后面所有click的监听函数，可以使用stopImmediatePropagation方法。<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8B%E5%8D%881.31.25.png" alt=""></p>
 <h1 id="Event对象概述"><a href="#Event对象概述" class="headerlink" title="Event对象概述"></a>Event对象概述</h1><p>事件发生以后，会产生一个事件对象，作为参数传给监听函数。浏览器原生提供一个Event对象，所有的事件都是这个对象的实例，或者说继承了Event.prototype对象。</p>
-<p>Event对象本身就是一个构造函数，可以用来生成新的实例。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8B%E5%8D%881.35.54.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>Event构造函数接受两个参数。第一个参数type是字符串，表示事件的名称；第二个参数options是一个对象，表示事件对象的配置。该对象主要有下面两个属性。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8B%E5%8D%881.36.52.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8B%E5%8D%881.38.52.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>上面代码新建一个look事件实例，然后使用dispatchEvent方法触发该事件。</p>
+<p>Event对象本身就是一个构造函数，可以用来生成新的实例。<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8B%E5%8D%881.35.54.png" alt=""><br>Event构造函数接受两个参数。第一个参数type是字符串，表示事件的名称；第二个参数options是一个对象，表示事件对象的配置。该对象主要有下面两个属性。<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8B%E5%8D%881.36.52.png" alt=""><br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8B%E5%8D%881.38.52.png" alt=""><br>上面代码新建一个look事件实例，然后使用dispatchEvent方法触发该事件。</p>
 <p>注意，如果不是显式指定bubbles属性为true，生成的事件就只能在“捕获阶段”触发监听函数。</p>
 <h1 id="Event对象的实例属性"><a href="#Event对象的实例属性" class="headerlink" title="Event对象的实例属性"></a>Event对象的实例属性</h1><h2 id="Event-bubbles，Event-eventPhase"><a href="#Event-bubbles，Event-eventPhase" class="headerlink" title="Event.bubbles，Event.eventPhase"></a>Event.bubbles，Event.eventPhase</h2><p>Event.bubbles属性返回一个布尔值，表示当前事件是否会冒泡。该属性为只读属性，一般用来了解 Event 实例是否可以冒泡。前面说过，除非显式声明，Event构造函数生成的事件，默认是不冒泡的。</p>
-<p>Event.eventPhase属性返回一个整数常量，表示事件目前所处的阶段。该属性只读。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8B%E5%8D%881.51.04.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>Event.eventPhase的返回值有四种可能。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8B%E5%8D%881.51.21.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<p>Event.eventPhase属性返回一个整数常量，表示事件目前所处的阶段。该属性只读。<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8B%E5%8D%881.51.04.png" alt=""><br>Event.eventPhase的返回值有四种可能。<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8B%E5%8D%881.51.21.png" alt=""></p>
 <h2 id="Event-cancelable，Event-cancelBubble，event-defaultPrevented"><a href="#Event-cancelable，Event-cancelBubble，event-defaultPrevented" class="headerlink" title="Event.cancelable，Event.cancelBubble，event.defaultPrevented"></a>Event.cancelable，Event.cancelBubble，event.defaultPrevented</h2><p>Event.cancelable属性返回一个布尔值，表示事件是否可以取消。该属性为只读属性，一般用来了解 Event 实例的特性。</p>
 <p>大多数浏览器的原生事件是可以取消的。比如，取消click事件，点击链接将无效。但是除非显式声明，Event构造函数生成的事件，默认是不可以取消的。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8B%E5%8D%881.54.01.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<p>当Event.cancelable属性为true时，调用Event.preventDefault()就可以取消这个事件，阻止浏览器对该事件的默认行为。</p>
+<p><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8B%E5%8D%881.54.01.png" alt=""><br>当Event.cancelable属性为true时，调用Event.preventDefault()就可以取消这个事件，阻止浏览器对该事件的默认行为。</p>
 <p>如果事件不能取消，调用Event.preventDefault()会没有任何效果。所以使用这个方法之前，最好用Event.cancelable属性判断一下是否可以取消。</p>
 <p>Event.defaultPrevented属性返回一个布尔值，表示该事件是否调用过Event.preventDefault方法。该属性只读。</p>
 <h2 id="Event-currentTarget，Event-target"><a href="#Event-currentTarget，Event-target" class="headerlink" title="Event.currentTarget，Event.target"></a>Event.currentTarget，Event.target</h2><p>Event.currentTarget属性返回事件当前所在的节点，即正在执行的监听函数所绑定的那个节点。</p>
-<p>Event.target属性返回原始触发事件的那个节点。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8B%E5%8D%882.07.03.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>也就是currentTarget—&gt;p节点。&lt; em&gt;子节点上面点击，则e.target指向&lt; em&gt;子节点，导致&lt; em&gt;子节点（即 World 部分）会不可见。如果点击 Hello 部分，则整个para都将不可见。</p>
-<h2 id="Event-type"><a href="#Event-type" class="headerlink" title="Event.type"></a>Event.type</h2><p>Event.type属性返回一个字符串，表示事件类型。事件的类型是在生成事件的时候。该属性只读。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8B%E5%8D%882.09.09.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<h2 id="Event-timeStamp"><a href="#Event-timeStamp" class="headerlink" title="Event.timeStamp"></a>Event.timeStamp</h2><p>Event.timeStamp属性返回一个毫秒时间戳，表示事件发生的时间。它是相对于网页加载成功开始计算的。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8B%E5%8D%882.10.05.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>它的返回值有可能是整数，也有可能是小数（高精度时间戳），取决于浏览器的设置。</p>
+<p>Event.target属性返回原始触发事件的那个节点。<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8B%E5%8D%882.07.03.png" alt=""><br>也就是currentTarget—&gt;p节点。&lt; em&gt;子节点上面点击，则e.target指向&lt; em&gt;子节点，导致&lt; em&gt;子节点（即 World 部分）会不可见。如果点击 Hello 部分，则整个para都将不可见。</p>
+<h2 id="Event-type"><a href="#Event-type" class="headerlink" title="Event.type"></a>Event.type</h2><p>Event.type属性返回一个字符串，表示事件类型。事件的类型是在生成事件的时候。该属性只读。<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8B%E5%8D%882.09.09.png" alt=""></p>
+<h2 id="Event-timeStamp"><a href="#Event-timeStamp" class="headerlink" title="Event.timeStamp"></a>Event.timeStamp</h2><p>Event.timeStamp属性返回一个毫秒时间戳，表示事件发生的时间。它是相对于网页加载成功开始计算的。<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8B%E5%8D%882.10.05.png" alt=""><br>它的返回值有可能是整数，也有可能是小数（高精度时间戳），取决于浏览器的设置。</p>
 <h2 id="Event-isTrusted"><a href="#Event-isTrusted" class="headerlink" title="Event.isTrusted"></a>Event.isTrusted</h2><p>Event.isTrusted属性返回一个布尔值，表示该事件是否由真实的用户行为产生。比如，用户点击链接会产生一个click事件，该事件是用户产生的；Event构造函数生成的事件，则是脚本产生的。</p>
 <h2 id="Event-detail"><a href="#Event-detail" class="headerlink" title="Event.detail"></a>Event.detail</h2><p>Event.detail属性只有浏览器的 UI （用户界面）事件才具有。该属性返回一个数值，表示事件的某种信息。具体含义与事件类型相关。比如，对于click和dbclick事件，Event.detail是鼠标按下的次数（1表示单击，2表示双击，3表示三击）；对于鼠标滚轮事件，Event.detail是滚轮正向滚动的距离，负值就是负向滚动的距离，返回值总是3的倍数。</p>
 <h1 id="Event-对象的实例方法"><a href="#Event-对象的实例方法" class="headerlink" title="Event 对象的实例方法"></a>Event 对象的实例方法</h1><h2 id="Event-preventDefault"><a href="#Event-preventDefault" class="headerlink" title="Event.preventDefault()"></a>Event.preventDefault()</h2><p>Event.preventDefault方法取消浏览器对当前事件的默认行为。比如点击链接后，浏览器默认会跳转到另一个页面，使用这个方法以后，就不会跳转了；再比如，按一下空格键，页面向下滚动一段距离，使用这个方法以后也不会滚动了。该方法生效的前提是，事件对象的cancelable属性为true，如果为false，调用该方法没有任何效果。</p>
@@ -470,250 +560,893 @@
 <h2 id="Event-stopPropagation"><a href="#Event-stopPropagation" class="headerlink" title="Event.stopPropagation()"></a>Event.stopPropagation()</h2><p>stopPropagation方法阻止事件在 DOM 中继续传播，防止再触发定义在别的节点上的监听函数，但是不包括在当前节点上其他的事件监听函数。</p>
 <h2 id="Event-stopImmediatePropagation"><a href="#Event-stopImmediatePropagation" class="headerlink" title="Event.stopImmediatePropagation()"></a>Event.stopImmediatePropagation()</h2><p>Event.stopImmediatePropagation方法阻止同一个事件的其他监听函数被调用，不管监听函数定义在当前节点还是其他节点。也就是说，该方法阻止事件的传播，比Event.stopPropagation()更彻底。</p>
 <h2 id="Event-composedPath"><a href="#Event-composedPath" class="headerlink" title="Event.composedPath()"></a>Event.composedPath()</h2><p>Event.composedPath()返回一个数组，成员是事件的最底层节点和依次冒泡经过的所有上层节点。</p>
-<h1 id="CustomEvent-接口"><a href="#CustomEvent-接口" class="headerlink" title="CustomEvent 接口"></a>CustomEvent 接口</h1><p>CustomEvent 接口用于生成自定义的事件实例。那些浏览器预定义的事件，虽然可以手动生成，但是往往不能在事件上绑定数据。如果需要在触发事件的同时，传入指定的数据，就可以使用 CustomEvent 接口生成的自定义事件对象。浏览器原生提供CustomEvent()构造函数，用来生成 CustomEvent 事件实例。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8B%E5%8D%882.32.39.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>CustomEvent()构造函数接受两个参数。第一个参数是字符串，表示事件的名字，这是必须的。第二个参数是事件的配置对象，这个参数是可选的。CustomEvent的配置对象除了接受 Event 事件的配置属性，只有一个自己的属性。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8B%E5%8D%882.34.04.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8B%E5%8D%882.35.03.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>上面代码也说明，CustomEvent 的事件实例，除了具有 Event 接口的实例属性，还具有detail属性。</p>
+<h1 id="CustomEvent-接口"><a href="#CustomEvent-接口" class="headerlink" title="CustomEvent 接口"></a>CustomEvent 接口</h1><p>CustomEvent 接口用于生成自定义的事件实例。那些浏览器预定义的事件，虽然可以手动生成，但是往往不能在事件上绑定数据。如果需要在触发事件的同时，传入指定的数据，就可以使用 CustomEvent 接口生成的自定义事件对象。浏览器原生提供CustomEvent()构造函数，用来生成 CustomEvent 事件实例。<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8B%E5%8D%882.32.39.png" alt=""><br>CustomEvent()构造函数接受两个参数。第一个参数是字符串，表示事件的名字，这是必须的。第二个参数是事件的配置对象，这个参数是可选的。CustomEvent的配置对象除了接受 Event 事件的配置属性，只有一个自己的属性。<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8B%E5%8D%882.34.04.png" alt=""><br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8B%E5%8D%882.35.03.png" alt=""><br>上面代码也说明，CustomEvent 的事件实例，除了具有 Event 接口的实例属性，还具有detail属性。</p>
 
-        </div>
-
-        <blockquote class="post-copyright">
-    
-    <div class="content">
-        
-<span class="post-time">
-    最后更新时间：<time datetime="2018-10-21T06:55:42.000Z" itemprop="dateUpdated">2018-10-21 14:55:42</time>
-</span><br>
-
-
-        
+      
     </div>
+
     
-    <footer>
-        <a href="https://github.com/zdkswd">
-            <img src="/img/tmg.jpg" alt="ZDK">
-            ZDK
-        </a>
+
+    
+      
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/15/3Blue1Brown线性代数/" rel="next" title="3Blue1Brown线性代数">
+                <i class="fa fa-chevron-left"></i> 3Blue1Brown线性代数
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/22/常见的几种最优化方法/" rel="prev" title="常见的几种最优化方法">
+                常见的几种最优化方法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
     </footer>
-</blockquote>
-
-        
-
-
-        <div class="post-footer">
-            
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+  </div>
+  
+  
+  
+  </article>
 
 
-            
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
 
 
         </div>
-    </div>
-
-    
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2018/10/22/常见的几种最优化方法/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">常见的几种最优化方法</h4>
-      </a>
-    </div>
-  
-
-  
-    <div class="waves-block waves-effect next">
-      <a href="/2018/10/15/3Blue1Brown线性代数/" id="post-next" class="post-nav-link">
-        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">3Blue1Brown线性代数</h4>
-      </a>
-    </div>
-  
-</nav>
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Valine Comments -->
-    <div class="comments vcomment" id="comments"></div>
-    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
-    <!-- Valine Comments script -->
-    <script>
-        var GUEST_INFO = ['nick','mail','link'];
-        var guest_info = 'nick,mail'.split(',').filter(function(item){
-          return GUEST_INFO.indexOf(item) > -1
-        });
-        new Valine({
-            el: '#comments',
-            notify: 'true' == 'true',
-            verify: 'false' == 'true',
-            appId: "QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz",
-            appKey: "gkBx5soQkBREmER84PWbNJeM",
-            avatar: "mm",
-            placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
-            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
-            pageSize: "10"
-        })
-    </script>
-    <!-- Valine Comments end -->
-
-
-
-
-
-
-
-</article>
-
-
-
-</div>
-
-        <footer class="footer">
-    <div class="top">
         
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
-
-
-        <p>
-            
-                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-            
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
-        </p>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
     </div>
-    <div class="bottom">
-        <p><span>ZDK &copy; 2017 - 2019</span>
-            <span>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="ZDK"/>
+            
+              <p class="site-author-name" itemprop="name">ZDK</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
                 
-                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
-            </span>
-        </p>
-    </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
-    </script>
-</footer>
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">191</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
 
-    </main>
-    <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">分类</span>
+                  
+                </div>
+              
 
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">48</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
 
-    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
-<script>
-var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
-
-
-</script>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
             </div>
-            <time class="flex-col time">{date}</time>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/zdkswd" title="GitHub &rarr; https://github.com/zdkswd"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:2822464407@qq.com" title="E-Mail &rarr; mailto:2822464407@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/zdkswd" title="https://github.com/zdkswd">Title</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
         </div>
-    </a>
-</li>
-</template>
+      </div>
 
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
 
+            
+            
+            
+            
 
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#EventTarget接口"><span class="nav-number">1.</span> <span class="nav-text">EventTarget接口</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#EventTarget-addEventListener"><span class="nav-number">1.1.</span> <span class="nav-text">EventTarget.addEventListener()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EventTarget-removeEventListener"><span class="nav-number">1.2.</span> <span class="nav-text">EventTarget.removeEventListener()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EventTarget-dispatchEvent"><span class="nav-number">1.3.</span> <span class="nav-text">EventTarget.dispatchEvent()</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#监听函数"><span class="nav-number">2.</span> <span class="nav-text">监听函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML的on-属性"><span class="nav-number">2.1.</span> <span class="nav-text">HTML的on-属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#元素节点的事件属性"><span class="nav-number">2.2.</span> <span class="nav-text">元素节点的事件属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EventTarget-addEventListener-1"><span class="nav-number">2.3.</span> <span class="nav-text">EventTarget.addEventListener()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">2.4.</span> <span class="nav-text">小结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#this的指向"><span class="nav-number">3.</span> <span class="nav-text">this的指向</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#事件的传播"><span class="nav-number">4.</span> <span class="nav-text">事件的传播</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#事件的代理"><span class="nav-number">5.</span> <span class="nav-text">事件的代理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Event对象概述"><span class="nav-number">6.</span> <span class="nav-text">Event对象概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Event对象的实例属性"><span class="nav-number">7.</span> <span class="nav-text">Event对象的实例属性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Event-bubbles，Event-eventPhase"><span class="nav-number">7.1.</span> <span class="nav-text">Event.bubbles，Event.eventPhase</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Event-cancelable，Event-cancelBubble，event-defaultPrevented"><span class="nav-number">7.2.</span> <span class="nav-text">Event.cancelable，Event.cancelBubble，event.defaultPrevented</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Event-currentTarget，Event-target"><span class="nav-number">7.3.</span> <span class="nav-text">Event.currentTarget，Event.target</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Event-type"><span class="nav-number">7.4.</span> <span class="nav-text">Event.type</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Event-timeStamp"><span class="nav-number">7.5.</span> <span class="nav-text">Event.timeStamp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Event-isTrusted"><span class="nav-number">7.6.</span> <span class="nav-text">Event.isTrusted</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Event-detail"><span class="nav-number">7.7.</span> <span class="nav-text">Event.detail</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Event-对象的实例方法"><span class="nav-number">8.</span> <span class="nav-text">Event 对象的实例方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Event-preventDefault"><span class="nav-number">8.1.</span> <span class="nav-text">Event.preventDefault()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Event-stopPropagation"><span class="nav-number">8.2.</span> <span class="nav-text">Event.stopPropagation()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Event-stopImmediatePropagation"><span class="nav-number">8.3.</span> <span class="nav-text">Event.stopImmediatePropagation()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Event-composedPath"><span class="nav-number">8.4.</span> <span class="nav-text">Event.composedPath()</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CustomEvent-接口"><span class="nav-number">9.</span> <span class="nav-text">CustomEvent 接口</span></a></li></ol></div>
+            
 
-<!-- mathjax config similar to math.stackexchange -->
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
+      
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
 
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-});
-</script>
-
-<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
-
-
-
-
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
 
 
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZDK</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.2.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+  </div>
+
+  
 
 <script>
-(function() {
-    var OriginTitile = document.title, titleTime;
-    document.addEventListener('visibilitychange', function() {
-        if (document.hidden) {
-            document.title = 'zdk'blog';
-            clearTimeout(titleTime);
-        } else {
-            document.title = '';
-            titleTime = setTimeout(function() {
-                document.title = OriginTitile;
-            },2000);
-        }
-    });
-})();
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
 </script>
 
 
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.2.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz',
+    appKey: 'gkBx5soQkBREmER84PWbNJeM',
+    placeholder: 'have fun',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true,
+    lang: '' || 'zh-cn'
+  });
+</script>
+
+
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('5');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
 
 </body>
 </html>
