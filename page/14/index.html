@@ -1,2675 +1,619 @@
 <!DOCTYPE html>
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<html class="theme-next gemini use-motion" lang="zh-CN">
+<html>
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
-<meta name="theme-color" content="#222"/>
+    
+
+    
+
+    
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0"/>
-
-<link rel="stylesheet" href="/css/main.css?v=7.2.0"/>
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.2.0">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.2.0">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
-
-
-
-
-
-
-
-<script id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Gemini',
-    version: '7.2.0',
-    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
-    back2top: {"enable":true,"sidebar":true,"scrollpercent":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
-    fancybox: false,
-    fastclick: false,
-    lazyload: false,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    translation: {
-      copy_button: '复制',
-      copy_success: '复制成功',
-      copy_failure: '复制失败'
-    }
-  };
-</script>
-
-
-
-  <meta property="og:type" content="website">
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>ZDK&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta property="og:type" content="website">
 <meta property="og:title" content="ZDK&#39;s blog">
 <meta property="og:url" content="https://github.com/zdkswd/page/14/index.html">
 <meta property="og:site_name" content="ZDK&#39;s blog">
 <meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ZDK&#39;s blog">
+    
+        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
 
-
-
-  <link rel="alternate" href="/atom.xml" title="ZDK's blog" type="application/atom+xml"/>
-
-
-
-  
-  
-  <link rel="canonical" href="https://github.com/zdkswd/page/14/"/>
-
-
-
-<script id="page.configurations">
-  CONFIG.page = {
-    sidebar: "",
-  };
-</script>
-
-  <title>ZDK's blog</title>
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .motion-element,
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-title { opacity: initial; }
-
-  .use-motion .logo,
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
+    <!-- custom head -->
+    
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body>
+    <div id="loading" class="active"></div>
 
-  
-  
-    
-  
-
-  <div class="container sidebar-position-right 
-  page-home">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">ZDK's blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/tmg.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ZDK</h5>
+          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
+        </hgroup>
+      </div>
     </div>
-    
-    
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/zdkswd" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
   </div>
+</aside>
 
-  <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
-
-
-
-<nav class="site-nav">
-  
-    <ul id="menu" class="menu">
-      
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">ZDK&#39;s blog</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
         
         
-        
-          
-          <li class="menu-item menu-item-home">
+    </div>
+</header>
+<header class="content-header index-header">
 
-    
-    
-      
-    
-
-    
-
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>首页</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-tags">
-
-    
-    
-      
-    
-
-    
-
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>标签</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-categories">
-
-    
-    
-      
-    
-
-    
-
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>分类</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-archives">
-
-    
-    
-      
-    
-
-    
-
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>归档</a>
-
-  </li>
-
-      
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
+    <div class="container fade-scale">
+        <h1 class="title">ZDK&#39;s blog</h1>
+        <h5 class="subtitle">
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br/>搜索</a>
+                
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+<div class="container body-wrap">
+
+    <ul class="post-list">
+    
+        <li class="post-list-item fade">
+            <article id="post-具体数学 第二章"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-12-06 13:24:32" datetime="2018-12-06T05:24:32.000Z"  itemprop="datePublished">2018-12-06</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/12/06/具体数学 第二章/">具体数学 第二章</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        求递推式本身的表达式将递归式转化为求和再求出递推式本身的表达式。考虑如下递归式：两边同时乘以sn得到：观察Tn项和Tn-1项之前的系数，要想转化为可以求和的递归式，必须有：即此时令得到：此时再求和可得：所以
+例题1设n个数快速排序的操作次数为Cn，那么有用n-1取代n可以得到两式相减可以得到观察形式，由上面方法可以得到所以得进而带入公式。可以求得其中调和级数为：所以最后结果为
+求和三大定律结...
+    
+
+        <a href="/2018/12/06/具体数学 第二章/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数学/">数学</a></li></ul>
+
+    </div>
+    
+</article>
+
         </li>
-      
+    
+        <li class="post-list-item fade">
+            <article id="post-具体数学 第一章"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-12-04 12:33:32" datetime="2018-12-04T04:33:32.000Z"  itemprop="datePublished">2018-12-04</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/12/04/具体数学 第一章/">具体数学 第一章</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        汉诺塔问题3个柱子的汉诺塔问题，最少移动次数记为T(n)。T(n)=2T(n−1)+1边界条件为T(0)=0。解出其中等比数列求和公式为：
+递归移动的时候的原则就如下表示：第一阶段：（n-1）A—&gt;B（把所有的n-1个盘子从A移动到B上）第二阶段：n A—&gt;C（把最底下的n号盘从A移动到C上）第三阶段：（n-1）B—&gt;C（把n-1个盘子从B移动到C上）
+直线分割平面问题n条...
+    
+
+        <a href="/2018/12/04/具体数学 第一章/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数学/">数学</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-SVM"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-11-28 20:48:47" datetime="2018-11-28T12:48:47.000Z"  itemprop="datePublished">2018-11-28</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/11/28/SVM/">SVM</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        已修改
+统计学习方法 支持向量机支持向量机（support vector machines,SVM）是一种二类分类模型。它的基本模型是定义在特征空间上的间隔最大的线性分类器，间隔最大使它有别于感知机；支持向量机还包括核技巧，这使它成为实质上的非线性分类器。支持向量机的学习策略就是间隔最大化，可形式化为一个求解凸二次规划（convex quadratic programming）的问题，也等价...
+    
+
+        <a href="/2018/11/28/SVM/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-贝叶斯概率"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-11-22 16:49:47" datetime="2018-11-22T08:49:47.000Z"  itemprop="datePublished">2018-11-22</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/11/22/贝叶斯概率/">贝叶斯概率</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        已修改
+人工智能课上内容你对贝叶斯统计都有怎样的理解？ - 知乎
+贝叶斯概率vs经典概率关于统计推断的主张和想法，大体可以纳入到两个体系之内，其一叫频率学派，其特征是把需要推断的参数θ视作固定且未知的常数，而样本X是随机的，其着眼点在样本空间，有关的概率计算都是针对X的分布。另一派叫做贝叶斯学派，他们把参数θ视作随机变量，而样本X是固定的，其着眼点在参数空间，重视参数θ的分布，固定的操作模式...
+    
+
+        <a href="/2018/11/22/贝叶斯概率/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-AutoEncoder by Forest"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-11-21 20:16:32" datetime="2018-11-21T12:16:32.000Z"  itemprop="datePublished">2018-11-21</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/论文/">论文</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/11/21/AutoEncoder by Forest/">AutoEncoder by Forest</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        https://arxiv.org/abs/1709.09018
+摘要自动编码是一个重要的任务，通常由深度神经网络比如CNN来实现。在这篇论文中，我们提出了EncoderForest （eForest）这是第一个基于树集成的自编码器。我们提出了一种方法，让森林能够利用树的决策路径所定义的等效类来进行后向重建，并在监督和无监督环境中展示了其使用情况。实验结果表明，与DNN自编码器相比，eFor...
+    
+
+        <a href="/2018/11/21/AutoEncoder by Forest/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-特征工程与表示学习,数据的粒度,数据量"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-11-21 18:48:47" datetime="2018-11-21T10:48:47.000Z"  itemprop="datePublished">2018-11-21</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/11/21/特征工程与表示学习,数据的粒度,数据量/">特征工程与表示学习,数据的粒度,数据量</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        https://zhuanlan.zhihu.com/p/41521695
+正因为数据表示的重要性，机器学习一般有两种思路来提升原始数据的表达
+
+特征学习(feature learning)，又叫表示学习(representation learning)或者表征学习，一般指的是自动学习有用的数据特征。
+特征工程(feature engineering)，主要指对于数据的人为处理提取，有时候也...
+    
+
+        <a href="/2018/11/21/特征工程与表示学习,数据的粒度,数据量/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Deep Forest_ Towards An Alternative to Deep Neural Networks"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-11-21 18:44:32" datetime="2018-11-21T10:44:32.000Z"  itemprop="datePublished">2018-11-21</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/论文/">论文</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/11/21/Deep Forest_ Towards An Alternative to Deep Neural Networks/">Deep Forest: Towards An Alternative to Deep Neural Networks</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        https://www.ijcai.org/proceedings/2017/0497.pdf
+摘要提出了gcForest,一种能够与深层神经网络的表现高度抗衡的决策树集成方法。相比于深层神经网络需要化大力气调整超参数，gcForest更容易去训练。实际上，就算gcForest被应用于不同领域使用不同的数据，也可以通过设置几乎相同的超参数获得极好的表现。gcForest的训练时高效的可扩展的...
+    
+
+        <a href="/2018/11/21/Deep Forest_ Towards An Alternative to Deep Neural Networks/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
     </ul>
-  
 
-  
-
-  
-    <div class="site-search">
-      
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
+    
+<nav id="page-nav">
+    <div class="inner">
+    <a class="extend prev" rel="prev" href="/page/13/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="extend next" rel="next" href="/page/15/">下一页</a>
     </div>
-  </div>
-  <div id="local-search-result"></div>
-</div>
-
-
-
-    </div>
-  
 </nav>
 
 
-
 </div>
-    </header>
 
-    
-
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-            
-
-          
-          <div id="content" class="content">
-            
-  <section id="posts" class="posts-expand">
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2018/12/06/具体数学 第二章/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZDK"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
     </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZDK's blog"/>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
     </span>
+</p>
 
-    
-      <header class="post-header">
 
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/12/06/具体数学 第二章/" class="post-title-link" itemprop="url">具体数学 第二章</a>
-              
+        <p>
             
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-12-06 13:24:32 / 修改时间：13:28:00" itemprop="dateCreated datePublished" datetime="2018-12-06T13:24:32+08:00">2018-12-06</time>
-            </span>
-          
-
-          
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/知识总结/" itemprop="url" rel="index"><span itemprop="name">知识总结</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2018/12/06/具体数学 第二章/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/12/06/具体数学 第二章/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2018/12/06/具体数学 第二章/" class="post-meta-item leancloud_visitors" data-flag-title="具体数学 第二章">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="求递推式本身的表达式"><a href="#求递推式本身的表达式" class="headerlink" title="求递推式本身的表达式"></a>求递推式本身的表达式</h1><p>将递归式转化为求和再求出递推式本身的表达式。<br>考虑如下递归式：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%8812.59.06.png" alt=""><br>两边同时乘以sn得到：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%8812.59.33.png" alt=""><br>观察Tn项和Tn-1项之前的系数，要想转化为可以求和的递归式，必须有：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%881.09.54.png" alt=""><br>即<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%881.10.27.png" alt=""><br>此时令<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%881.12.42.png" alt=""><br>得到：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%881.13.12.png" alt=""><br>此时再求和可得：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%881.14.25.png" alt=""><br>所以<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%884.35.38.png" alt=""></p>
-<h2 id="例题1"><a href="#例题1" class="headerlink" title="例题1"></a>例题1</h2><p>设n个数快速排序的操作次数为Cn，那么有<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%884.49.49.png" alt=""><br>用n-1取代n可以得到<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%884.50.11.png" alt=""><br>两式相减可以得到<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%884.50.35.png" alt=""><br>观察形式，由上面方法可以得到<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%884.53.39.png" alt=""><br>所以得<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%884.54.54.png" alt=""><br>进而带入公式。可以求得<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%884.57.32.png" alt=""><br>其中调和级数为：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%884.58.06.png" alt=""><br>所以最后结果为<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%884.58.46.png" alt=""></p>
-<h1 id="求和三大定律"><a href="#求和三大定律" class="headerlink" title="求和三大定律"></a>求和三大定律</h1><p>结合律、分配率、交换律。</p>
-<h2 id="例题2"><a href="#例题2" class="headerlink" title="例题2"></a>例题2</h2><p>求<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%885.03.12.png" alt=""><br>这里使用求和定律来做<br>用n-k取代k,得到<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%885.06.06.png" alt=""><br>即<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%885.06.17.png" alt=""><br>两式相加得<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%885.06.53.png" alt=""><br>所以<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%885.08.05.png" alt=""></p>
-<h2 id="例题3"><a href="#例题3" class="headerlink" title="例题3"></a>例题3</h2><p>求<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%887.00.17.png" alt=""><br>这里用到另一种求和的方法。<br>两边同时加上第n+1项，得到<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%887.00.51.png" alt=""><br>所以<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%887.05.25.png" alt=""><br>还可以这样求解：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%887.08.31.png" alt=""><br>求导得到：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%887.10.12.png" alt=""><br>所以<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%887.11.10.png" alt=""><br>同样可以得到<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%887.11.27.png" alt=""></p>
-<h1 id="多重求和"><a href="#多重求和" class="headerlink" title="多重求和"></a>多重求和</h1><p>多重求和，也就是一个和式由多个下标来指定。<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%884.00.16.png" alt=""></p>
-<h2 id="例题1-1"><a href="#例题1-1" class="headerlink" title="例题1"></a>例题1</h2><p>一个对称矩阵<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%887.27.03.png" alt=""><br>求：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%887.27.16.png" alt=""><br>这是这个矩阵的上三角加对角线求和，因为是对称的嘛，可以补全下三角，加上对角线就行了。<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%887.34.13.png" alt=""><br>所以<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%887.34.27.png" alt=""></p>
-<h2 id="例题2-1"><a href="#例题2-1" class="headerlink" title="例题2"></a>例题2</h2><p>有如下式子，<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%887.46.45.png" alt=""><br>调换j,k位置，得到：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%887.48.31.png" alt=""><br>所以<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%888.03.06.png" alt=""><br>至此解完，可以推出一个著名不等式—-切比雪夫不等式：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%888.04.04.png" alt=""></p>
-<h2 id="例题3-1"><a href="#例题3-1" class="headerlink" title="例题3"></a>例题3</h2><p><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%888.19.56.png" alt=""><br>使用三种方法解这个式子：</p>
-<h3 id="调和级数"><a href="#调和级数" class="headerlink" title="调和级数"></a>调和级数</h3><p>调和级数：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%889.59.57.png" alt=""></p>
-<h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>首先将j和k分开，首先计算对j求和：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%888.20.39.png" alt=""></p>
-<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><p>先计算对k求和：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%888.21.11.png" alt=""></p>
-<h3 id="方法三"><a href="#方法三" class="headerlink" title="方法三"></a>方法三</h3><p>按对角线求和：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%888.21.40.png" alt=""><br>由此得到了一个完全不同的表示形式，所以得到了：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%888.27.12.png" alt=""></p>
-<h1 id="几种求和方法"><a href="#几种求和方法" class="headerlink" title="几种求和方法"></a>几种求和方法</h1><p>针对以下求和式，使用八种方法来求解：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%888.55.16.png" alt=""><br>它的答案为：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%888.55.43.png" alt=""></p>
-<h2 id="扰动法"><a href="#扰动法" class="headerlink" title="扰动法"></a>扰动法</h2><p>令<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%888.57.39.png" alt=""><br>所以<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%888.57.54.png" alt=""><br>解出<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%888.58.15.png" alt=""><br>最终得到<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%888.58.34.png" alt=""><br>可以看出，我们本来是要对k的二次方求和的，但是只要对k的三次方用扰动法求和即可，因为求和过程中k的三次方项会被抵消掉。</p>
-<h2 id="扩展成二重指标求和"><a href="#扩展成二重指标求和" class="headerlink" title="扩展成二重指标求和"></a>扩展成二重指标求和</h2><p><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-05%20%E4%B8%8B%E5%8D%889.35.15.png" alt=""></p>
-<h2 id="用有限微分求和"><a href="#用有限微分求和" class="headerlink" title="用有限微分求和"></a>用有限微分求和</h2><p>微分的形式为<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.55.14.png" alt=""><br>如果定义<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.55.39.png" alt=""><br>则有<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.55.54.png" alt=""><br>似乎不能和导数形式统一起来，用起来也不方便，定义一个新的函数，叫<strong>下降阶乘幂</strong>：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.57.26.png" alt=""><br>这个函数有一个很好的性质，那就是<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%881.09.46.png" alt=""><br>令<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%881.12.02.png" alt=""><br>和积分类似，有<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%881.13.20.png" alt=""><br>所以<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%881.13.46.png" alt=""><br>因为有<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%881.14.11.png" alt=""><br>所以有<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%881.14.33.png" alt=""><br>同样可以得到<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%881.14.53.png" alt=""></p>
-<h1 id="下降阶乘幂"><a href="#下降阶乘幂" class="headerlink" title="下降阶乘幂"></a>下降阶乘幂</h1><h2 id="性质一"><a href="#性质一" class="headerlink" title="性质一"></a>性质一</h2><p><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%889.26.04.png" alt=""></p>
-<h2 id="性质二"><a href="#性质二" class="headerlink" title="性质二"></a>性质二</h2><p>给出下降阶乘幂为负数的定义：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%889.27.20.png" alt=""></p>
-<h2 id="性质三"><a href="#性质三" class="headerlink" title="性质三"></a>性质三</h2><p><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%889.33.18.png" alt=""></p>
-<h2 id="性质四"><a href="#性质四" class="headerlink" title="性质四"></a>性质四</h2><p>定义下降阶乘幂的好处就是为了求差分方便，下降阶乘幂的差分为：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%889.35.51.png" alt=""><br>类比不定积分，不定和为：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%889.37.33.png" alt=""><br>但是这里m≠−1，若是m=−1，直接运用差分定义可以求出：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.01.19.png" alt=""><br>所以<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.06.13.png" alt=""></p>
-<h2 id="性质五"><a href="#性质五" class="headerlink" title="性质五"></a>性质五</h2><p>什么函数的差分是自身。<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.24.45.png" alt=""><br>进一步推广可得：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.25.11.png" alt=""><br>所以得到一种新的等比数列计算方法：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.26.10.png" alt=""></p>
-<h2 id="性质六"><a href="#性质六" class="headerlink" title="性质六"></a>性质六</h2><p>结合律和分配率在差分运算中也适用。<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.31.09.png" alt=""></p>
-<h2 id="性质七"><a href="#性质七" class="headerlink" title="性质七"></a>性质七</h2><p>类似分部积分，这里也可以分部来求差分。<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.36.25.png" alt=""><br>给出一个新的记号移位运算：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.37.14.png" alt=""><br>所以得到了差分的分部运算法则：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.37.44.png" alt=""><br>对两边求和，又可以得到不定求和的分布运算法则：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.38.30.png" alt=""></p>
-<h3 id="例一"><a href="#例一" class="headerlink" title="例一"></a>例一</h3><p>计算<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.40.57.png" alt=""><br>首先计算<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.41.40.png" alt=""><br>这里可以令<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.41.54.png" alt=""><br>所以<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.42.06.png" alt=""><br>求和式就可以转化为不定求和来算了：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.42.39.png" alt=""></p>
-<h3 id="例二"><a href="#例二" class="headerlink" title="例二"></a>例二</h3><p>计算<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.43.12.png" alt=""><br>首先计算<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.43.24.png" alt=""><br>这里注意要令<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.44.13.png" alt=""><br>不能倒过来，因为Hx的不定和很难求出来。所以<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.44.51.png" alt=""><br>所以<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8A%E5%8D%8810.45.25.png" alt=""></p>
-<h1 id="无限求和"><a href="#无限求和" class="headerlink" title="无限求和"></a>无限求和</h1><p>之前求和式。<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.14.29.png" alt=""><br>两边同时乘2，得：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.14.51.png" alt=""><br>解得：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.15.16.png" alt=""><br>但是同样的方式计算式子：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.15.55.png" alt=""><br>两边同时乘2，得：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.16.18.png" alt=""><br>解出：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.16.32.png" alt=""><br>显然是不可能的，因为这里T是发散的，所以不能这么求。<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.19.42.png" alt=""><br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.22.15.png" alt=""><br>比如<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.22.48.png" alt=""><br>再如：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.23.06.png" alt=""><br>求有正有负的和式。<br>可以考虑用不同的配对，将正负组合在一起，从而相消求和。<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.34.22.png" alt=""><br>我们可以将正数和负数分开求和，因为正数求和已经解决了。定义：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.35.23.png" alt=""><br>其中<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.37.57.png" alt=""><br>求和式对两部分分别求和：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.38.28.png" alt=""><br>最后可以推广到二重求和。<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%BA%8C%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-06%20%E4%B8%8B%E5%8D%8812.39.24.png" alt=""></p>
-
-          
-        
-      
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
     </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2018/12/04/具体数学 第一章/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZDK"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZDK's blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+    <div class="bottom">
+        <p><span>ZDK &copy; 2017 - 2019</span>
+            <span>
                 
-                
-                <a href="/2018/12/04/具体数学 第一章/" class="post-title-link" itemprop="url">具体数学 第一章</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-12-04 12:33:32 / 修改时间：12:37:58" itemprop="dateCreated datePublished" datetime="2018-12-04T12:33:32+08:00">2018-12-04</time>
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
             </span>
-          
-
-          
-            
-
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/知识总结/" itemprop="url" rel="index"><span itemprop="name">知识总结</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2018/12/04/具体数学 第一章/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/12/04/具体数学 第一章/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2018/12/04/具体数学 第一章/" class="post-meta-item leancloud_visitors" data-flag-title="具体数学 第一章">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="汉诺塔问题"><a href="#汉诺塔问题" class="headerlink" title="汉诺塔问题"></a>汉诺塔问题</h1><p>3个柱子的汉诺塔问题，最少移动次数记为T(n)。<br>T(n)=2T(n−1)+1<br>边界条件为T(0)=0。解出<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-03%20%E4%B8%8A%E5%8D%888.35.43.png" alt=""><br>其中等比数列求和公式为：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/7dd98d1001e93901d3c632667bec54e737d196a6.jpg" alt=""></p>
-<p>递归<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/v2-0ff29cd5195ff3e432fef0247a798c4b_b.jpg" alt=""><br>移动的时候的原则就如下表示：<br>第一阶段：（n-1）A—&gt;B（把所有的n-1个盘子从A移动到B上）<br>第二阶段：n A—&gt;C（把最底下的n号盘从A移动到C上）<br>第三阶段：（n-1）B—&gt;C（把n-1个盘子从B移动到C上）</p>
-<h1 id="直线分割平面问题"><a href="#直线分割平面问题" class="headerlink" title="直线分割平面问题"></a>直线分割平面问题</h1><p>n条直线最多分割平面为几部分，记为L(n)。所以。<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-03%20%E4%B8%8A%E5%8D%888.57.57.png" alt=""><br>边界条件为L(0)=1。得。<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-03%20%E4%B8%8A%E5%8D%888.58.36.png" alt=""><br>这题有个扩展，n个V型最多分割平面为几部分？<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/1.jpg" alt=""><br>将V型补全（红色虚线部分），那么就转化为了2n条直线划分平面数，那么n个V型划分数只要减去2n就行了，所以答案为：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-03%20%E4%B8%8A%E5%8D%8810.15.51.png" alt=""></p>
-<h1 id="约瑟夫环问题"><a href="#约瑟夫环问题" class="headerlink" title="约瑟夫环问题"></a>约瑟夫环问题</h1><p>约瑟夫问题是个有名的问题：N个人围成一圈，从第一个开始报数，第M个将被杀掉，最后剩下一个，其余人都将被杀掉。例如N=6，M=5，被杀掉的顺序是：5，4，6，2，3，1。<br>书中的例子是每隔一个人杀死一个。J（n）是最后一个幸存者的位置。</p>
-<p>分两种情况讨论：<br>当有2n个人时，踢掉n个人之后，情况如下图所示<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/2.jpg" alt=""><br>观察发现一圈当中的对应位置相同，且左图的数字为右图数字*2-1。所以最后幸存者的位置也有着相同的关系。<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-03%20%E4%B8%8A%E5%8D%8810.59.13.png" alt=""><br>同理，当有2n+1个人时，踢掉n+1个人之后<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/3.jpg" alt=""><br>观察对应关系可以得出<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-03%20%E4%B8%8A%E5%8D%8811.00.23.png" alt=""><br>边界条件为，J(1)=1。<br>这个递推式很难求解，但是枚举出前面几项可以发现，如果令n=2的m次方+l，其中2的m次方是小于等于n的最大2的幂，那么<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-03%20%E4%B8%8A%E5%8D%8811.02.04.png" alt=""><br>将n写成二进制可以发现，f(n)就是n的二进制循环左移1位。如n=10，即1010，f(10)=0101=5。<br>现在将其推广到一般形式，原始的式子中α=1，β=-1，r=1。<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-03%20%E4%B8%8B%E5%8D%886.29.36.png" alt=""><br>由此可见可以设<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-03%20%E4%B8%8B%E5%8D%886.29.56.png" alt=""><br>令<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-03%20%E4%B8%8B%E5%8D%886.31.18.png" alt=""><br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-03%20%E4%B8%8B%E5%8D%886.30.46.png" alt=""><br>通过观察得出：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-03%20%E4%B8%8B%E5%8D%886.32.45.png" alt=""><br>将递推式继续推广：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-03%20%E4%B8%8B%E5%8D%889.39.46.png" alt=""><br>可以得到解为：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-03%20%E4%B8%8B%E5%8D%889.40.06.png" alt=""><br>具体为：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/WechatIMG11543844531_.pic.jpg" alt=""></p>
-<h1 id="递推式求和"><a href="#递推式求和" class="headerlink" title="递推式求和"></a>递推式求和</h1><p>使用成套方法。<br>成套方法的一般步骤是：寻求一组已知其解的通用参数，然后将特殊情况组合起来得到一般的情形，<br>有多少个独立的参数就需要多少个独立的特解。<br>求解如下递推式：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-03%20%E4%B8%8B%E5%8D%889.44.41.png" alt=""><br>用成套方法求解，设<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-03%20%E4%B8%8B%E5%8D%889.45.02.png" alt=""><br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-03%20%E4%B8%8B%E5%8D%889.46.13.png" alt=""><br>对于更复杂得递推式：<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%8812.25.51.png" alt=""><br>同样设<br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%8812.26.10.png" alt=""><br><img src="/img/media/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%20%E7%AC%AC%E4%B8%80%E7%AB%A0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-04%20%E4%B8%8B%E5%8D%8812.31.17.png" alt=""></p>
-
-          
-        
-      
+        </p>
     </div>
+    <span id="busuanzi_container_site_uv">
+        本站访客数<span id="busuanzi_value_site_uv"></span>人次
+      </span>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+</footer>
 
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2018/11/28/SVM/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZDK"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZDK's blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/11/28/SVM/" class="post-title-link" itemprop="url">SVM</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-11-28 20:48:47" itemprop="dateCreated datePublished" datetime="2018-11-28T20:48:47+08:00">2018-11-28</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-12-02 19:49:42" itemprop="dateModified" datetime="2018-12-02T19:49:42+08:00">2018-12-02</time>
-              </span>
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/知识总结/" itemprop="url" rel="index"><span itemprop="name">知识总结</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2018/11/28/SVM/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/11/28/SVM/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2018/11/28/SVM/" class="post-meta-item leancloud_visitors" data-flag-title="SVM">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>已修改</p>
-<h1 id="统计学习方法-支持向量机"><a href="#统计学习方法-支持向量机" class="headerlink" title="统计学习方法 支持向量机"></a>统计学习方法 支持向量机</h1><p>支持向量机（support vector machines,SVM）是一种二类分类模型。它的基本模型是定义在特征空间上的间隔最大的线性分类器，间隔最大使它有别于感知机；支持向量机还包括核技巧，这使它成为实质上的非线性分类器。支持向量机的学习策略就是间隔最大化，可形式化为一个求解凸二次规划（convex quadratic programming）的问题，也等价于正则化的合页损失函数的最小化问题。支持向量机的学习算法是求解凸二次规划的最优化算法。</p>
-<p>支持向量机学习方法包括构建由简至繁的模型：线性可分支持向量机（linear support vector machine in linearly separable case），线性支持向量机（linear support vector machine）及非线性支持向量机（non-linear support vector machine）。简单的模型是复杂模型的基础，也是复杂模型的特殊情况。当训练数据线性可分时，通过硬间隔最大化（hard margin maximization），学习一个线性的分类器，即线性可分支持向量机，又称为硬间隔支持向量机；当训练数据近似线性可分时，通过软间隔最大化（soft margin maximization），也学习一个线性的分类器，即线性支持向量机，又称为软间隔支持向量机；当训练数据线性不可分时，通过使用核技巧（kernel trick）及软间隔最大化，学习非线性支持向量机。</p>
-<p>当输入空间为欧式空间或离散集合、特征空间为希尔贝特空间时，核函数（kernel function）表示将输入从输入空间映射到特征空间得到的特征向量之间的内积。通过使用核函数可以学习非线性支持向量机，等价于隐式地在高维的特征空间中学习线性支持向量机。这样的方法称为核技巧。<strong>核方法（kernel method）是比支持向量机更为一般的机器学习方法。</strong></p>
-<h2 id="线性可分支持向量机与硬间隔最大化"><a href="#线性可分支持向量机与硬间隔最大化" class="headerlink" title="线性可分支持向量机与硬间隔最大化"></a>线性可分支持向量机与硬间隔最大化</h2><h3 id="线性可分支持向量机"><a href="#线性可分支持向量机" class="headerlink" title="线性可分支持向量机"></a>线性可分支持向量机</h3><p>考虑一个二类分类问题。假设输入空间与特征空间为两个不同的空间。输入空间为欧式空间或离散集合，特征空间为欧式空间或希尔伯特空间，线性可分支持向量机、线性支持向量机假设这两个空间的元素一一对应，并将输入空间的输入映射为特征空间中的特征向量。非线性支持向量机利用一个从输入空间到特征空间的非线性映射将输入映射为特征向量。支持向量机的学习是在特征空间进行的。<br><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-25%20%E4%B8%8A%E5%8D%889.47.24.png" alt=""></p>
-<h4 id="定义（线性可分支持向量机）"><a href="#定义（线性可分支持向量机）" class="headerlink" title="定义（线性可分支持向量机）"></a>定义（线性可分支持向量机）</h4><p>给定线性可分训练数据集，通过间隔最大化或等价地求解相应的凸二次规划问题学习得到的分离超平面为<br><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-25%20%E4%B8%8A%E5%8D%889.51.01.png" alt=""></p>
-<h3 id="函数间隔和几何间隔"><a href="#函数间隔和几何间隔" class="headerlink" title="函数间隔和几何间隔"></a>函数间隔和几何间隔</h3><p><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-25%20%E4%B8%8A%E5%8D%889.55.46.png" alt=""><br>函数间隔不是距离，注意上句话中所说的“能够<strong>相对</strong>地表示”。</p>
-<h4 id="定义（函数间隔）"><a href="#定义（函数间隔）" class="headerlink" title="定义（函数间隔）"></a>定义（函数间隔）</h4><p>对于给定的训练数据集T和超平面（w,b），定义超平<br><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-25%20%E4%B8%8A%E5%8D%889.58.01.png" alt=""><br>函数间隔可以表示分类预测的正确性及确信度。但是选择分离超平面时，只有函数间隔还不够。因为只要成比例改变w和b，如改为2w和2b，超平面并没有改变，但函数间隔却成为原来的2倍，所以应该对分离超平面的法向量w加以约束，如规范化||w||=1,使得间隔是确定的。这时函数间隔成为几何间隔。<br><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-25%20%E4%B8%8A%E5%8D%8810.12.13.png" alt=""><br><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-25%20%E4%B8%8A%E5%8D%8810.12.36.png" alt=""></p>
-<h4 id="定义（几何间隔）"><a href="#定义（几何间隔）" class="headerlink" title="定义（几何间隔）"></a>定义（几何间隔）</h4><p>对于给定的训练数据集T和超平面（w,b）,定义超平<br><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-25%20%E4%B8%8A%E5%8D%8810.18.41.png" alt=""></p>
-<h3 id="间隔最大化"><a href="#间隔最大化" class="headerlink" title="间隔最大化"></a>间隔最大化</h3><p>支持向量机学习的基本想法是求解能够正确划分训练数据集并且几何间隔最大的分离超平面.对线性可分的训练数据集而言,线性可分分离超平面有无穷多个(等价于感知机),但是几何间隔最大的分离超平面是唯一的.这里的间隔最大化又称为硬间隔最大化(与将要讨论的训练数据集近似线性可分时的软间隔最大化相对应).</p>
-<p>间隔最大化的直观解释是;对训练数据集找到几何间隔最大的超平面意味着<br>以充分大的确信度对训练数据进行分类.也就是说,不仅将正负实例点分开,而      且对最难分的实例点(离超平面最近的点)也有足够大的确信度将它们分开.这<br>样的超平面应该对未知的新实例有很好的分类预测能力。</p>
-<h4 id="最大间隔分离超平面"><a href="#最大间隔分离超平面" class="headerlink" title="最大间隔分离超平面"></a>最大间隔分离超平面</h4><p>考虑如何求得一个几何间隔最大的分离超平面,即最大间隔分离超平面.具体地,这个问题可以表示为下面的约束最优化问题:<br><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-25%20%E4%B8%8A%E5%8D%8810.34.11.png" alt=""><br>函数间隔yhat的取值并不影响最优化问题的解。事实上，假设将w和b按比例改变为λw和λb,这时函数间隔称为λyhat。函数间隔的这一改变对上面最优化问题的不等式约束没有影响，对目标函数的优化也没有影响，也就是说，它产生一<br><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-25%20%E4%B8%8A%E5%8D%8810.40.56.png" alt=""><br>这是一个凸二次规划(convex quadratic programming)问题。<br><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-25%20%E4%B8%8A%E5%8D%8810.44.47.png" alt=""><br><strong>仿射函数</strong>，即最高次数为1的多项式函数。常数项为零的仿射函数称为线性函数。</p>
-<h5 id="线性可分支持向量机学习——最大间隔法"><a href="#线性可分支持向量机学习——最大间隔法" class="headerlink" title="线性可分支持向量机学习——最大间隔法"></a>线性可分支持向量机学习——最大间隔法</h5><p><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-25%20%E4%B8%8A%E5%8D%8810.46.45.png" alt=""></p>
-<h4 id="最大间隔分离超平面的存在唯一性"><a href="#最大间隔分离超平面的存在唯一性" class="headerlink" title="最大间隔分离超平面的存在唯一性"></a>最大间隔分离超平面的存在唯一性</h4><p>线性可分训练集的最大间隔分离超平面是存在且唯一的。</p>
-<h5 id="定理（最大间隔分离超平面的存在唯一性）"><a href="#定理（最大间隔分离超平面的存在唯一性）" class="headerlink" title="定理（最大间隔分离超平面的存在唯一性）"></a>定理（最大间隔分离超平面的存在唯一性）</h5><p>若训练数据集T线性可分，则可将训练数据集中的样本点完全正确分开的最大间隔分离超平面存在且唯一。</p>
-<h4 id="支持向量和间隔边界"><a href="#支持向量和间隔边界" class="headerlink" title="支持向量和间隔边界"></a>支持向量和间隔边界</h4><p>在线性可分情况下,训练数据集的样本点中与分离超平面距离最近的样本点的实例称为支持向量( support vector).支持向量是使约束条件式(7.14)等号成立的点,即<br><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-25%20%E4%B8%8B%E5%8D%881.24.01.png" alt=""><br><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-25%20%E4%B8%8B%E5%8D%881.25.49.png" alt=""><br>在决定分离超平面时只有支持向量起作用,而其他实例点并不起作用.如果移动支持向量将改变所求的解;但是如果在间隔边界以外移动其他实例点,甚至去掉这些点,则解是不会改变的.由于支持向量在确定分离超平面中起着决定性作用,所以将这种分类模型称为支持向量机.支持向量的个数一般很少,所以支持向量机由很少的“重要的”训练样本确定.</p>
-<h4 id="例"><a href="#例" class="headerlink" title="例"></a>例</h4><p><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-25%20%E4%B8%8B%E5%8D%881.31.50.png" alt=""></p>
-<h3 id="学习的对偶算法"><a href="#学习的对偶算法" class="headerlink" title="学习的对偶算法"></a>学习的对偶算法</h3><p>为了求解线性可分支持向量机的最优化问题(7.13,7.14)，将它作为原始最优化问题,应用拉格朗日对偶性,通过求解对偶问题(dual problem)得到原始问题( primal problem)的最优解,这就是线性可分支持向量机的对偶算法( dual algorithm).这样做的优点,一是对偶问题往往更容易求解;二是自然引入核函数,进而推广到非线性分类问题。<br><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-25%20%E4%B8%8B%E5%8D%881.35.40.png" alt=""><br>首先构建拉格朗日函数( Lagrange function).为此,对每一个不等式约束(7.14)引进拉格朗日乘子( Lagrange multiplier )αi≥0,i=1,2,…,N,定义拉格朗日函数:<br><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-25%20%E4%B8%8B%E5%8D%881.39.04.png" alt=""><br><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-25%20%E4%B8%8B%E5%8D%881.42.43.png" alt=""><br><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-25%20%E4%B8%8B%E5%8D%881.47.50.png" alt=""><br><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-25%20%E4%B8%8B%E5%8D%881.48.18.png" alt=""><br><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-25%20%E4%B8%8B%E5%8D%881.50.43.png" alt=""></p>
-<h4 id="定理"><a href="#定理" class="headerlink" title="定理"></a>定理</h4><p><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-25%20%E4%B8%8B%E5%8D%881.52.53.png" alt=""><br>这种算法称为线性可分支持向量机的对偶学习算法，是线性可分支持向量机学习的基本算法。</p>
-<h4 id="算法（线性可分支持向量机学习算法）"><a href="#算法（线性可分支持向量机学习算法）" class="headerlink" title="算法（线性可分支持向量机学习算法）"></a>算法（线性可分支持向量机学习算法）</h4><p><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-25%20%E4%B8%8B%E5%8D%882.05.28.png" alt=""><br><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-25%20%E4%B8%8B%E5%8D%882.05.48.png" alt=""><br><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-25%20%E4%B8%8B%E5%8D%882.06.12.png" alt=""></p>
-<h4 id="支持向量"><a href="#支持向量" class="headerlink" title="支持向量"></a>支持向量</h4><p><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-25%20%E4%B8%8B%E5%8D%882.07.41.png" alt=""></p>
-<h4 id="例-1"><a href="#例-1" class="headerlink" title="例"></a>例</h4><p><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-25%20%E4%B8%8B%E5%8D%882.08.17.png" alt=""><br><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-25%20%E4%B8%8B%E5%8D%882.08.44.png" alt=""><br>对于线性可分问题,上述线性可分支持向量机的学习(硬间隔最大化)算法是完美的,但是,训练数据集线性可分是理想的情形.在现实问题中,训练数据集往往是线性不可分的,即在样本中出现噪声或特异点.此时,有更一般的学习算法。</p>
-<h2 id="线性支持向量机与软间隔最大化"><a href="#线性支持向量机与软间隔最大化" class="headerlink" title="线性支持向量机与软间隔最大化"></a>线性支持向量机与软间隔最大化</h2><h3 id="线性支持向量机"><a href="#线性支持向量机" class="headerlink" title="线性支持向量机"></a>线性支持向量机</h3><p>线性可分问题的支持向量机学习方法,对线性不可分训练数据是不适用的,因为这时上述方法中的不等式约束并不能都成立.怎么才能将它扩展到线性不可分问题呢?这就需要修改硬间隔最大化,使其成为软间隔最大化.<br><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-27%20%E4%B8%8A%E5%8D%889.56.04.png" alt=""><br><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-27%20%E4%B8%8A%E5%8D%889.56.23.png" alt=""><br><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-27%20%E4%B8%8A%E5%8D%889.56.41.png" alt=""><br>有了上面的思路,可以和训练数据集线性可分时一样来考虑训练数据集线性不可分时的线性支持向量机学习问题相应于硬间隔最大化,它称为软间隔最大化。<br><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-27%20%E4%B8%8A%E5%8D%8810.00.06.png" alt=""></p>
-<h4 id="定义（线性支持向量机）"><a href="#定义（线性支持向量机）" class="headerlink" title="定义（线性支持向量机）"></a>定义（线性支持向量机）</h4><p><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-27%20%E4%B8%8A%E5%8D%8810.01.31.png" alt=""></p>
-<h3 id="学习的对偶算法-1"><a href="#学习的对偶算法-1" class="headerlink" title="学习的对偶算法"></a>学习的对偶算法</h3><p><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-27%20%E4%B8%8A%E5%8D%8810.02.46.png" alt=""><br><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-27%20%E4%B8%8A%E5%8D%8810.03.49.png" alt=""><br><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-27%20%E4%B8%8A%E5%8D%8810.13.31.png" alt=""><br>可以通过求解对偶问题而得到原始问题的解，进而确定分离超平面和决策函数.为此，就可以定理的形式叙述原始问题的最优解和对偶问题的最优解的关系.</p>
-<h4 id="定理-1"><a href="#定理-1" class="headerlink" title="定理"></a>定理</h4><p><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-27%20%E4%B8%8A%E5%8D%8810.19.50.png" alt=""></p>
-<h4 id="算法（线性支持向量机学习算法）"><a href="#算法（线性支持向量机学习算法）" class="headerlink" title="算法（线性支持向量机学习算法）"></a>算法（线性支持向量机学习算法）</h4><p><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-27%20%E4%B8%8A%E5%8D%8810.21.49.png" alt=""><br>符合条件的样本点上的平均值。</p>
-<h3 id="支持向量-1"><a href="#支持向量-1" class="headerlink" title="支持向量"></a>支持向量</h3><p><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-27%20%E4%B8%8A%E5%8D%8810.25.26.png" alt=""></p>
-<h3 id="合页损失函数"><a href="#合页损失函数" class="headerlink" title="合页损失函数"></a>合页损失函数</h3><p><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-27%20%E4%B8%8A%E5%8D%8810.27.25.png" alt=""><br>目标函数的第一项是经验损失或经验风险，函数<br><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-27%20%E4%B8%8A%E5%8D%8810.28.16.png" alt=""><br><img src="/img/add/17.png" alt=""></p>
-<h4 id="定理-2"><a href="#定理-2" class="headerlink" title="定理"></a>定理</h4><p><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-27%20%E4%B8%8A%E5%8D%8810.28.49.png" alt=""></p>
-<h2 id="序列最小最优化算法"><a href="#序列最小最优化算法" class="headerlink" title="序列最小最优化算法"></a>序列最小最优化算法</h2><p>支持向量机的学习问题可以形式化为求解凸二次规划问题，这样的图二次规划问题具有全局最优解，且有许多最优化算法可以用于这一问题的求解。但当训练样本容量很大时，这些算法往往变得非常低效，以致于无法使用。序列最小最优化算法就是一种快速实现算法。<br><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-27%20%E4%B8%8B%E5%8D%881.05.30.png" alt=""><br>SMO算法是一种启发式算法，其基本思路是:如果所有变量的解都满足此最优化问题的KKT条件(Karush-Kuhn-Tucker conditions),那么这个最优化问题的解就得到了。因为KKT条件是该最优化问题的充分必要条件.否则， 选择两个变量，固定其他变量，针对这两个变量构建一个二次规划问题，这个二次规划问题关于这两个变量的解应该更接近原始二次规划问题的解，因为这会使得原始二次规划问题的目标函数值变得更小.重要的是，这时子问题可以通过解析方法求解，这样就可以大大提高整个算法的计算速度.子问题有两个变量，一个是违反KKT条件最严重的那一个，另一个由约束条件自动确定.如此，SMO算法将原问题不断分解为子问题并对子问题求解，进而达到求解原问题的目的.<br><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-27%20%E4%B8%8B%E5%8D%881.13.36.png" alt=""><br>整个SMO算法包括两个部分:求解两个变量二次规划的解析方法和选择变量的启发式方法.</p>
-<h3 id="两个变量二次规划的求解方法"><a href="#两个变量二次规划的求解方法" class="headerlink" title="两个变量二次规划的求解方法"></a>两个变量二次规划的求解方法</h3><p>不失一般性，假设选择的两个变量是α1，α2，其他变量αi（i=3，4，…，N）是固定的。于是SMO的最优化问题（7.98~7.100）的子问题可以写成：<br><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-27%20%E4%B8%8B%E5%8D%881.17.44.png" alt=""><br><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-27%20%E4%B8%8B%E5%8D%881.18.27.png" alt=""><br>为了求解两个变量的二次规划问题(7.101)-(7.103)，首先分析约束条件，然后在此约束条件下求极小。<br><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-27%20%E4%B8%8B%E5%8D%881.20.48.png" alt=""><br>不等式约束(7.103)使得(a,a2)在盒子[0,C]x[0,C]内，等式约束(7.102)使(α1，α2)在平行于盒子[0,C]x[0,C]的对角线的直线上.因此要求的是目标函数在一条平行于对角线的线段.上的最优值.这使得两个变量的最优化问题成为实质上的单变量的最优化问题，不妨考患为变量α2的最优化问题.<br><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-27%20%E4%B8%8B%E5%8D%881.27.37.png" alt=""><br><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-27%20%E4%B8%8B%E5%8D%881.30.02.png" alt=""></p>
-<h4 id="定理-3"><a href="#定理-3" class="headerlink" title="定理"></a>定理</h4><p><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-27%20%E4%B8%8B%E5%8D%881.33.30.png" alt=""></p>
-<h3 id="变量的选择方法"><a href="#变量的选择方法" class="headerlink" title="变量的选择方法"></a>变量的选择方法</h3><p>SMO算法在每个子问题中选择两个变量优化，其中至少一个变量是违反KKT条件的。</p>
-<h4 id="第一个变量的选择"><a href="#第一个变量的选择" class="headerlink" title="第一个变量的选择"></a>第一个变量的选择</h4><p><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-27%20%E4%B8%8B%E5%8D%881.38.03.png" alt=""><br><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-27%20%E4%B8%8B%E5%8D%881.38.17.png" alt=""></p>
-<h4 id="第二个变量的选择"><a href="#第二个变量的选择" class="headerlink" title="第二个变量的选择"></a>第二个变量的选择</h4><p><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-27%20%E4%B8%8B%E5%8D%881.42.22.png" alt=""></p>
-<h4 id="计算阈值b和差值Ei"><a href="#计算阈值b和差值Ei" class="headerlink" title="计算阈值b和差值Ei"></a>计算阈值b和差值Ei</h4><p><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-27%20%E4%B8%8B%E5%8D%881.43.28.png" alt=""><br><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-27%20%E4%B8%8B%E5%8D%881.43.39.png" alt=""></p>
-<h3 id="SMO算法"><a href="#SMO算法" class="headerlink" title="SMO算法"></a>SMO算法</h3><p><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-27%20%E4%B8%8B%E5%8D%881.47.36.png" alt=""><br><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-27%20%E4%B8%8B%E5%8D%881.47.49.png" alt=""></p>
-<h2 id="非线性支持向量机与核函数"><a href="#非线性支持向量机与核函数" class="headerlink" title="非线性支持向量机与核函数"></a>非线性支持向量机与核函数</h2><p>对解线性分类问题，线性分类支持向量机是一种非常有效的方法。但是，有时分类问题是非线性的，这时可以使用非线性支持向量机，其主要特点是利用核技巧(kernel trick)。核技巧不仅应用于支持向量机，而且应用于其他统计学习问题。</p>
-<h3 id="核技巧"><a href="#核技巧" class="headerlink" title="核技巧"></a>核技巧</h3><h4 id="非线性分类问题"><a href="#非线性分类问题" class="headerlink" title="非线性分类问题"></a>非线性分类问题</h4><p>非线性分类问题是指通过利用非线性模型才能很好地进行分类的问题.先看<br>一个例子:如7.7 左图，是一个分类问题，图中“。”表示正实例点，“x”表示负<br>实例点. 由图可，见， 无法用直线(线性模型)将正负实例正确分开，但可以用一条椭圆曲线(非线性模型)将它们正确分开.<br><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-27%20%E4%B8%8B%E5%8D%882.29.18.png" alt=""><br><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-27%20%E4%B8%8B%E5%8D%882.28.02.png" alt=""><br>非线性问题往往不好求解，所以希望能用解线性分类问题的方法解决这个问题.所采取的方法是进行一个非线性变换，将非线性问题变换为线性问题，通过解变换后的线性问题的方法求解原来的非线性问题、对图7.7所示的例子， 通过变换，将左图中椭圆变换成右图中的直线,将非线性分类问题变换为线性分类问题.<br><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-27%20%E4%B8%8B%E5%8D%882.32.35.png" alt=""><br>用线性分类方法求解非线性分类问题分为两步: 首先使用一个变换将原空间的数据映射到新空间;然后在新空间里用线性分类学习方法从训练数据中学习分类模型. 核技巧就属于这样的方法.<br><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-27%20%E4%B8%8B%E5%8D%882.34.11.png" alt=""></p>
-<h4 id="核函数的定义"><a href="#核函数的定义" class="headerlink" title="核函数的定义"></a>核函数的定义</h4><p><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-27%20%E4%B8%8B%E5%8D%883.18.59.png" alt=""><br><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-27%20%E4%B8%8B%E5%8D%883.19.49.png" alt=""><br><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-27%20%E4%B8%8B%E5%8D%883.20.19.png" alt=""></p>
-<h4 id="核技巧在支持向量机中的应用"><a href="#核技巧在支持向量机中的应用" class="headerlink" title="核技巧在支持向量机中的应用"></a>核技巧在支持向量机中的应用</h4><p><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-27%20%E4%B8%8B%E5%8D%883.23.30.png" alt=""><br><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-27%20%E4%B8%8B%E5%8D%883.25.44.png" alt=""></p>
-<h3 id="正定核"><a href="#正定核" class="headerlink" title="正定核"></a>正定核</h3><p><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-27%20%E4%B8%8B%E5%8D%883.29.04.png" alt=""></p>
-<h4 id="定理（正定核的充要条件）"><a href="#定理（正定核的充要条件）" class="headerlink" title="定理（正定核的充要条件）"></a>定理（正定核的充要条件）</h4><p><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-27%20%E4%B8%8B%E5%8D%883.32.46.png" alt=""><br>定理给出了正定核的充要条件，因此可以作为正定核，即核函数的另一定义。</p>
-<h4 id="定义（正定核的等价定义）"><a href="#定义（正定核的等价定义）" class="headerlink" title="定义（正定核的等价定义）"></a>定义（正定核的等价定义）</h4><p><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-27%20%E4%B8%8B%E5%8D%883.34.52.png" alt=""></p>
-<h3 id="常用核函数"><a href="#常用核函数" class="headerlink" title="常用核函数"></a>常用核函数</h3><h4 id="多项式核函数"><a href="#多项式核函数" class="headerlink" title="多项式核函数"></a>多项式核函数</h4><p><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-27%20%E4%B8%8B%E5%8D%883.43.43.png" alt=""></p>
-<h4 id="高斯核函数"><a href="#高斯核函数" class="headerlink" title="高斯核函数"></a>高斯核函数</h4><p><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-27%20%E4%B8%8B%E5%8D%883.44.06.png" alt=""></p>
-<h4 id="字符串核函数"><a href="#字符串核函数" class="headerlink" title="字符串核函数"></a>字符串核函数</h4><p>核函数不仅可以定义在欧氏空间上，还可以定义在离散数据的集合上.比如，字符串核是定义在字符串集合上的核函数.字符串核函数在文本分类信息检索、生物信息学等方面都有应用.<br><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-27%20%E4%B8%8B%E5%8D%883.46.35.png" alt=""><br>字符串核函数k,(s,t)给出了字符串s和t中长度等于n的所有子串组成的特征向量的余弦相似度(cosine similarity).直观上，两个字符串相同的子串越多， 它们就越相似，字符串核函数的值就越大.字符串核函数可以由动态规划快速地计算.</p>
-<h3 id="非线性支持向量机"><a href="#非线性支持向量机" class="headerlink" title="非线性支持向量机"></a>非线性支持向量机</h3><p>利用核技巧，可以将线性分类的学习方法应用到非线性分类问题中去.将线性支持向量机扩展到非线性支持向量机，只需将线性支持向量机对偶形式中的内积换成核函数.</p>
-<h4 id="定义-非线性支持向量机"><a href="#定义-非线性支持向量机" class="headerlink" title="定义 非线性支持向量机"></a>定义 非线性支持向量机</h4><p>从非线性分类训练集，通过核函数与软间隔最大化，或凸二次规划(7.95~7.97)，学习得到的分类决策函数<br><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-27%20%E4%B8%8B%E5%8D%883.52.24.png" alt=""></p>
-<h4 id="算法-非线性支持向量机学习算法"><a href="#算法-非线性支持向量机学习算法" class="headerlink" title="算法 非线性支持向量机学习算法"></a>算法 非线性支持向量机学习算法</h4><p><img src="/img/media/SVM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-27%20%E4%B8%8B%E5%8D%883.54.40.png" alt=""></p>
-<h1 id="博客"><a href="#博客" class="headerlink" title="博客"></a>博客</h1><p><a href="https://cuijiahua.com/blog/2017/11/ml_8_svm_1.html" target="_blank" rel="noopener">机器学习实战教程（八）：支持向量机原理篇之手撕线性SVM</a></p>
-<h2 id="决策面方程"><a href="#决策面方程" class="headerlink" title="决策面方程"></a>决策面方程</h2><p>在二维空间下一条直线的方程为y=ax+b<br>现在我们做一个小小的改变，让原来的x轴变成x1,y轴变成x2<br>x2=ax1+b<br>移项得：ax1-x2+b=0<br>将公式向量化得：<br><img src="/img/add/8.png" alt=""><br>进一步向量化，用w列向量和标量r进一步向量化。<br><img src="/img/add/9.png" alt=""><br>其中向量w和x分别为：<br><img src="/img/add/10.png" alt=""><br>这里w1=a,w2=-1。最初的直线方程a和b的几何意义，a表示直线的斜率，b表示截距，向量化后的直线的w和r的几何意义为<br><img src="/img/add/11.png" alt=""><br>向量w和直线的关系为垂直的，标量r的作用也没有变，依然决定了直线的截距。</p>
-<p>将其推广到n维空间，就变成了超平面方程，公式没变，依然是：<br><img src="/img/add/12.png" alt=""><br>不同在于：<br><img src="/img/add/13.png" alt=""></p>
-<h2 id="“分类间隔”方程"><a href="#“分类间隔”方程" class="headerlink" title="“分类间隔”方程"></a>“分类间隔”方程</h2><p><img src="/img/add/14.png" alt=""><br>间隔的大小实际上就是支持向量对应的样本点到决策面的距离的二倍。d的求法如下：<br>点到直线的距离距离公式：<br><img src="/img/add/15.png" alt=""><br>公式中的直线方程为Ax0+By0+C=0，点P的坐标为(x0,y0)。<br>将直线方程扩展到多维，求得我们现在的超平面方程，对公式进行如下变形：<br><img src="/img/add/16.png" alt=""><br>这个d就是”分类间隔”。其中||w||表示w的二范数，求所有元素的平方和，然后再开方。</p>
-<h2 id="核函数与超平面"><a href="#核函数与超平面" class="headerlink" title="核函数与超平面"></a>核函数与超平面</h2><p><img src="/img/media/SVM/ml_8_7.png" alt=""></p>
-<h2 id="线性"><a href="#线性" class="headerlink" title="线性"></a>线性</h2><p>1.我们的<strong>最优化问题</strong>是：<br><img src="/img/media/SVM/ml_8_48.png" alt=""><br>我们要求解的是最小化问题，所以一个直观的想法是如果我能够构造一个函数，使得该函数在可行解区域内与原目标函数完全一致，而在可行解区域外的数值非常大，甚至是无穷大，那么这个没有约束条件的新目标函数的优化问题就与原来有约束条件的原始目标函数的优化问题是等价的问题。这就是使用拉格朗日方程的目的，它将约束条件放到目标函数中，从而将有约束优化问题转换为无约束优化问题。</p>
-<p>2.<strong>将有约束的原始目标函数转换为无约束的新构造的拉格朗日目标函数</strong><br><img src="/img/media/SVM/ml_8_49.png" alt=""><br>其中αi是拉格朗日乘子，αi大于等于0，是我们构造新目标函数时引入的系数变量(我们自己设置)。现在我们令：<br><img src="/img/media/SVM/ml_8_50.png" alt=""><br>当样本点不满足约束条件时，即在可行解区域外：<br><img src="/img/media/SVM/ml_8_51.png" alt=""><br>此时，我们将αi设置为正无穷，此时θ(w)显然也是正无穷。<br>当样本点满足约束条件时，即在可行解区域内：<br><img src="/img/media/SVM/ml_8_52.png" alt=""><br>此时，显然θ(w)为原目标函数本身。我们将上述两种情况结合一下，就得到了新的目标函数：<br><img src="/img/media/SVM/ml_8_53.png" alt=""><br>此时，再看我们的初衷，就是为了建立一个在可行解区域内与原目标函数相同，在可行解区域外函数值趋近于无穷大的新函数，现在我们做到了。<br>现在，我们的问题变成了求新目标函数的最小值，即：<br><img src="/img/media/SVM/ml_8_54.png" alt=""><br>这里用p*表示这个问题的最优值，且和最初的问题是等价的。</p>
-<p>3.<strong>将不易求解的优化问题转化为易求解的优化</strong><br>我们看一下我们的新目标函数，先求最大值，再求最小值。这样的话，我们首先就要面对带有需要求解的参数w和b的方程，而αi又是不等式约束，这个求解过程不好做。所以，我们需要使用拉格朗日函数对偶性，将最小和最大的位置交换一下，这样就变成了：<br><img src="/img/media/SVM/ml_8_55.png" alt=""><br>交换以后的新问题是原始问题的对偶问题，这个新问题的最优值用d<strong>来表示。而且d</strong>&lt;=p*。我们关心的是d=p的时候，这才是我们要的解。需要什么条件才能让d=p呢？首先必须满足这个优化问题是凸优化问题。其次，需要满足KKT条件。<br>求取最小值的目标函数为凸函数的一类优化问题。目标函数是凸函数我们已经知道，这个优化问题又是求最小值。所以我们的最优化问题就是凸优化问题。<br>而且KKT条件也满足了。</p>
-<p>求解这个对偶学习问题，可以分为三个步骤：首先要让L(w,b,α)关于w和b最小化，然后求对α的极大，最后利用SMO算法求解对偶问题中的拉格朗日乘子。</p>
-<p>4.<strong>让L(w,b,α)关于w和b最小化</strong><br>根据上述推导已知：<br><img src="/img/media/SVM/ml_8_58.png" alt=""><br>首先固定α，要让L(w,b,α)关于w和b最小化，我们分别对w和b偏导数，令其等于0，即：<br><img src="/img/media/SVM/ml_8_59.png" alt=""><br>将上述结果带回L(w,b,α)得到：<br><img src="/img/media/SVM/ml_8_60.png" alt=""><br>从上面的最后一个式子，我们可以看出，此时的L(w,b,α)函数只含有一个变量，即αi。</p>
-<p>5.<strong>对α求极大</strong><br><img src="/img/media/SVM/ml_8_61.png" alt=""><br>现在我们的优化问题变成了如上的形式。对于这个问题，我们有更高效的优化算法，即序列最小优化（SMO）算法。我们通过这个优化算法能得到α，再根据α，我们就可以求解出w和b，进而求得我们最初的目的：找到超平面，即”决策平面”。</p>
-<p>6.<strong>使用SMO算法</strong><br>步骤一：计算误差<br><img src="/img/media/SVM/ml_8_106.png" alt=""><br>步骤二：计算上下界L和H：<br><img src="/img/media/SVM/ml_8_107-1.png" alt=""><br>步骤三：计算η：<br><img src="/img/media/SVM/ml_8_108.png" alt=""><br>步骤四：更新αj<br><img src="/img/media/SVM/ml-8-109.png" alt=""><br>步骤五：根据取值范围修剪αj：<br><img src="/img/media/SVM/ml_8_110.png" alt=""><br>步骤六：更新αi：<br><img src="/img/media/SVM/ml_8_111.png" alt=""><br>步骤七：更新b1和b2：<br><img src="/img/media/SVM/ml_8_112.png" alt=""><br>步骤八：根据b1和b2更新b：<br><img src="/img/media/SVM/ml_8_113.png" alt=""></p>
-<h2 id="非线性"><a href="#非线性" class="headerlink" title="非线性"></a>非线性</h2><p>对于非线性的情况，SVM的处理方式就是选择一个核函数。简而言之：在线性不可分的情况下，SVM通过某种事先选择的非线性映射（核函数）将输入变量映到一个高维特征空间，将其变成在高维空间线性可分，在这个高维空间中构造最优分类超平面。</p>
-<p>线性可分的情况下，可知最终的超平面方程为：<br><img src="/img/media/SVM/ml_9_4.png" alt=""><br>将上述公式用内积来表示：<br><img src="/img/media/SVM/ml_9_25.png" alt=""><br>对于线性不可分，我们使用一个非线性映射，将数据映射到特征空间，在特征空间中使用线性学习器，分类函数变形如下：<br><img src="/img/media/SVM/ml_9_5.png" alt=""><br>其中ϕ从输入空间(X)到某个特征空间(F)的映射，这意味着建立非线性学习器分为两步：首先使用一个非线性映射将数据变换到一个特征空间F；然后在特征空间使用线性学习器分类。</p>
-<p>如果有一种方法可以在特征空间中直接计算内积 &lt;ϕ(xi),ϕ(x)&gt;，就像在原始输入点的函数中一样，就有可能将两个步骤融合到一起建立一个分线性的学习器，这样直接计算的方法称为核函数方法。</p>
-<p>这种将内积替换成核函数的方式被称为核技巧(kernel trick)。<br>如：<br>假设已知映射函数为：<br><img src="/img/media/SVM/ml_9_12.png" alt=""></p>
-<p>对于两个向量a1=(x1,x2)和a2=(y1,y2)有<br><img src="/img/media/SVM/ml_9_13.png" alt=""><br>如果我们不进行映射计算，直接运算下面的公式：<br><img src="/img/media/SVM/ml_9_14.png" alt=""></p>
-<p>这两个公式的计算结果是相同的。区别在于：一个是根据映射函数，映射到高维空间中，然后再根据内积的公式进行计算，计算量大；另一个则直接在原来的低维空间中进行计算，而不需要显式地写出映射后的结果，计算量小。</p>
-<p>核函数就是：<br><img src="/img/media/SVM/ml_9_15.png" alt=""></p>
-<h1 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h1><h2 id="SVM-simple"><a href="#SVM-simple" class="headerlink" title="SVM-simple"></a>SVM-simple</h2><p>简化版的SMO算法，第二个α的选择是随机的。<br><a href="https://github.com/zdkswd/MLcode/blob/master/%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0/svm/svm-simple.py">https://github.com/zdkswd/MLcode/blob/master/%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0/svm/svm-simple.py</a></p>
-<h2 id="完整SMO算法"><a href="#完整SMO算法" class="headerlink" title="完整SMO算法"></a>完整SMO算法</h2><p>完整的SMO算法可以启发式选择第二个α值。<br>在实现SMO算法的时候，先计算η，再更新αj。为了加快第二个αj乘子的迭代速度，需要让直线的斜率增大，对于αj的更新公式，其中η值没有什么文章可做，于是只能令:max|Ei-Ej|。<br>因此，优化方法为：</p>
-<ol>
-<li>最外层循环，首先在样本中选择违反KKT条件的一个乘子作为最外层循环，然后用”启发式选择”选择另外一个乘子并进行这两个乘子的优化。</li>
-<li>在非边界乘子中寻找使得 |Ei - Ej| 最大的样本<br>3.如果没有找到，则从整个样本中随机选择一个样本</li>
-</ol>
-<p>完整版SMO算法覆盖整个数据集进行计算，而简化版SMO算法是随机选择的。可以看出，完整版SMO算法选出的支持向量样点更多，更接近理想的分隔超平面。</p>
-<p>对比两种算法的运算时间，结果是完整版SMO算法的速度比简化版SMO算法的速度快6倍左右。<br><a href="https://github.com/zdkswd/MLcode/blob/master/%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0/svm/svm-smo.py">https://github.com/zdkswd/MLcode/blob/master/%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0/svm/svm-smo.py</a></p>
-<h2 id="非线性SVM"><a href="#非线性SVM" class="headerlink" title="非线性SVM"></a>非线性SVM</h2><p><a href="https://github.com/zdkswd/MLcode/blob/master/%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0/svm/svmMLiA.py">https://github.com/zdkswd/MLcode/blob/master/%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0/svm/svmMLiA.py</a><br>高斯核函数<br><img src="/img/add/18.png" alt=""><br>从图像中我们可以看出，离中心点越近，函数值就越接近于1。<br><img src="/img/add/19.png" alt=""><br>因此以任意一种颜色的同心圆作为决策边界，我们都可以完成对数据集的简单非线性划分。那么问题来了，如何映射到高维空间上去呢？——————高斯核函数！ </p>
-<h2 id="sklearn-svm-SVC"><a href="#sklearn-svm-SVC" class="headerlink" title="sklearn.svm.SVC"></a>sklearn.svm.SVC</h2><p>参数说明：<br>C:惩罚项，float类型，可选参数，默认为1.0，C越大，即对分错样本的惩罚程度越大，因此在训练样本中准确率越高，但是泛化能力降低，也就是对测试数据的分类准确率降低。相反，减小C的话，容许训练样本中有一些误分类错误样本，泛化能力强。对于训练样本带有噪声的情况，一般采用后者，把训练样本集中错误分类的样本作为噪声。</p>
-<p>kernel：核函数类型，str类型，默认为’rbf’。可选参数为：’linear’：线性核函数，’poly’：多项式核函数，’rbf’：径像核函数/高斯核，’sigmod’：sigmod核函数，’precomputed’：核矩阵，precomputed表示自己提前计算好核函数矩阵，这时候算法内部就不再用核函数去计算核矩阵，而是直接用你给的核矩阵，核矩阵需要为n*n的。</p>
-<p>degree：多项式核函数的阶数，int类型，可选参数，默认为3。这个参数只对多项式核函数有用，是指多项式核函数的阶数n，如果给的核函数参数是其他核函数，则会自动忽略该参数。</p>
-<p>gamma：核函数系数，float类型，可选参数，默认为auto。只对’rbf’ ,’poly’ ,’sigmod’有效。如果gamma为auto，代表其值为样本特征数的倒数，即1/n_features。</p>
-<p>coef0：核函数中的独立项，float类型，可选参数，默认为0.0。只有对’poly’ 和,’sigmod’核函数有用，是指其中的参数c。</p>
-<p>probability：是否启用概率估计，bool类型，可选参数，默认为False，这必须在调用fit()之前启用，并且会fit()方法速度变慢。</p>
-<p>shrinking：是否采用启发式收缩方式，bool类型，可选参数，默认为True。</p>
-<p>tol：svm停止训练的误差精度，float类型，可选参数，默认为1e^-3。</p>
-<p>cache_size：内存大小，float类型，可选参数，默认为200。指定训练所需要的内存，以MB为单位，默认为200MB。</p>
-<p>class_weight：类别权重，dict类型或str类型，可选参数，默认为None。给每个类别分别设置不同的惩罚参数C，如果没有给，则会给所有类别都给C=1，即前面参数指出的参数C。如果给定参数’balance’，则使用y的值自动调整与输入数据中的类频率成反比的权重。</p>
-<p>verbose：是否启用详细输出，bool类型，默认为False，此设置利用libsvm中的每个进程运行时设置，如果启用，可能无法在多线程上下文中正常工作。一般情况都设为False，不用管它。</p>
-<p>max_iter：最大迭代次数，int类型，默认为-1，表示不限制。</p>
-<p>decision_function_shape：决策函数类型，可选参数’ovo’和’ovr’，默认为’ovr’。’ovo’表示one vs one，’ovr’表示one vs rest。</p>
-<p>random_state：数据洗牌时的种子值，int类型，可选参数，默认为None。伪随机数发生器的种子,在混洗数据时用于概率估计。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2018/11/22/贝叶斯概率/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZDK"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZDK's blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/11/22/贝叶斯概率/" class="post-title-link" itemprop="url">贝叶斯概率</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-11-22 16:49:47" itemprop="dateCreated datePublished" datetime="2018-11-22T16:49:47+08:00">2018-11-22</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-11-23 13:50:36" itemprop="dateModified" datetime="2018-11-23T13:50:36+08:00">2018-11-23</time>
-              </span>
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/知识总结/" itemprop="url" rel="index"><span itemprop="name">知识总结</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2018/11/22/贝叶斯概率/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/11/22/贝叶斯概率/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2018/11/22/贝叶斯概率/" class="post-meta-item leancloud_visitors" data-flag-title="贝叶斯概率">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>已修改</p>
-<h1 id="人工智能课上内容"><a href="#人工智能课上内容" class="headerlink" title="人工智能课上内容"></a>人工智能课上内容</h1><p><a href="https://www.zhihu.com/question/21134457" target="_blank" rel="noopener">你对贝叶斯统计都有怎样的理解？ - 知乎</a></p>
-<h2 id="贝叶斯概率vs经典概率"><a href="#贝叶斯概率vs经典概率" class="headerlink" title="贝叶斯概率vs经典概率"></a>贝叶斯概率vs经典概率</h2><p>关于统计推断的主张和想法，大体可以纳入到两个体系之内，其一叫频率学派，其特征是把需要推断的参数θ视作固定且未知的常数，而样本X是随机的，其着眼点在样本空间，有关的概率计算都是针对X的分布。另一派叫做贝叶斯学派，他们把参数θ视作随机变量，而样本X是固定的，其着眼点在参数空间，重视参数θ的分布，固定的操作模式是通过参数的先验分布结合样本信息得到参数的后验分布。</p>
-<h2 id="经典概率"><a href="#经典概率" class="headerlink" title="经典概率"></a>经典概率</h2><p>即我们学习的概率论呀。<br>方法：MLE（极大似然估计）<br>认为世界是确定的。θ是唯一的。</p>
-<h2 id="贝叶斯概率"><a href="#贝叶斯概率" class="headerlink" title="贝叶斯概率"></a>贝叶斯概率</h2><p>方法：MAP（最大后验估计）<br>频率派认为估计对象（参数）是一个未知的固定值。而贝叶斯却认为未知的参数都是随机变量。</p>
-<p>我们要通过一些事实估计“爱因斯坦在1905年12月25日晚上八点吸烟”的真假。定义参数:，吸烟；，没吸烟。那么频率派认为，爱因斯坦有没有曾经在这时刻吸烟是事实，是取值0或者1的固定数，不能说”=1的概率是xxx”；然而贝叶斯派认为可以说“=1概率是30%”。而且随着所得资料（样本x）的增多，我们可以把这个概率加以变化，记得到的分布。这个概率其实是“信心”的含义。</p>
-<p>后验（输出）=先验（输入）*似然（输入）</p>
-<p>贝叶斯思想的优势<br>1、  对于某一种独立重复随机事件，如果采用最大似然法计算出两个极值点，例如99、100，此时最大似然法只会取最大值点100的概率值。但是使用贝叶斯思想，我们就可以同时考虑极值点99、100的概率。</p>
-<p>在实际应用中，事件A的概率可能不是一成不变的（实验难以重复独立，或者事件A的概率就是随机的）。比如考虑一个人生病的概率，幼年时生病概率高，中年时生病概率低，老年时生病概率高，或者冬天生病概率高，夏天生病概率低。频率派思想认为的概率是事件A的固定属性在这些状况下就不适用。严格的来说，任何场景下你都无法保证事件A概率是固定的。</p>
-<p>2、  频率派使用的最大似然法，只能得到概率的最大似然估计。但是通过贝叶斯公式得到概率后验分布函数后，我们可以进行各种处理，比如取概率期望，概率中位数，概率极大值等等。</p>
-<h2 id="后验分布"><a href="#后验分布" class="headerlink" title="后验分布"></a>后验分布</h2><p>以前我们想知道一个参数，要通过大量的观测值才能得出，而且是只能得出一个参数值。而现在运用了贝叶斯统计思想，这个后验概率分布其实是一系列参数值的概率分布，再说简单点就是我们得到了许多个参数及其对应的可能性，我们只需要从中选取我们想要的值就可以了：有时我们想要概率最大的那个参数，那这就是 后验众数估计(posterior mode estimator)；有时我们想知道参数分布的中位数，那这就是 后验中位数估计(posterior median estimator);有时我们想知道的是这个参数分布的均值，那就是 后验期望估计。这三种估计没有谁好谁坏，只是提供了三种方法得出参数，看需要来选择。现在这样看来得到的参数是不是更具有说服力？</p>
-<h2 id="先验分布"><a href="#先验分布" class="headerlink" title="先验分布"></a>先验分布</h2><p>说完了后验分布，现在就来说说先验分布。先验分布就是你在取得实验观测值以前对一个参数概率分布的 主观判断，这也就是为什么贝叶斯统计学一直不被认可的原因，统计学或者数学都是客观的，怎么能加入主观因素呢？但事实证明这样的效果会非常好！再拿掷硬币的例子来看(怎么老是拿这个举例，是有多爱钱。。。)，在扔之前你会有判断正面的概率是50%，这就是所谓的先验概率，但如果是在打赌，为了让自己的描述准确点，我们可能会说正面的概率为0.5的可能性最大，0.45的几率小点，0.4的几率再小点，0.1的几率几乎没有等等，这就形成了一个先验概率分布。</p>
-<p>你这个硬币的材质是不均匀的，那正面的可能性是多少呢？这就让人犯糊涂了，我们想有主观判断也无从下手，于是我们就想说那就先认为0~1之间每一种的可能性都是相同的吧，也就是设置成0~1之间的均匀分布  作为先验分布吧，这就是贝叶斯统计学当中的 无信息先验(noninformative prior)！那么下面我们就通过不断掷硬币来看看，这个概率到是多少，贝叶斯过程如下： (图来自[3])<br><img src="/img/media/%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%A6%82%E7%8E%87/v2-3ef5e8c52f6257d7624dcae8496dc14c_hd.jpg" alt=""><br><img src="/img/media/%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%A6%82%E7%8E%87/v2-0fc8c439d5a4eebf0ca11b46d1b5135d_hd.jpg" alt=""><br>从图中我们可以看出，0次试验的时候就是我们的先验假设——均匀分布，然后掷了第一次是正面，于是概率分布倾向于1，第二次又是正，概率是1的可能性更大了，但 注意：这时候在0.5的概率还是有的，只不过概率很小，在0.2的概率变得更小。第三次是反面，于是概率分布被修正了一下，从为1的概率最大变成了2/3左右最大(3次试验，2次正1次反当然概率是2/3的概率最大)。再下面就是进行更多次的试验，后验概率不断根据观测值在改变，当次数很大的时候，结果趋向于0.5(哈哈，结果这还是一枚普通的硬币，不过这个事件告诉我们，直觉是不可靠的，一定亲自实验才行~)。有的人会说，这还不是在大量数据下得到了正面概率为0.5嘛，有什么好稀奇的？ 注意了！画重点了！(敲黑板) 记住，不要和一个统计学家或者数学家打赌！跑题了，跑题了。。。说回来，我们上面就说到了古典概率学的弊端就是如果掷了2次都是正面，那我们就会认为正面的概率是1，而在贝叶斯统计学中，如果我们掷了2次都是正面，只能说明正面是1的可能性最大，但还是有可能为0.5, 0.6, 0.7等等的，这就是对古典统计学的一种完善和补充，于是我们也就是解释了，我们所谓的 地震的概率为5%；生病的概率为10%等等这些概率的意义了，这就是贝叶斯统计学的哲学思想。</p>
-<p>所以贝叶斯得到的是θ的分布。</p>
-<h2 id="贝叶斯分析"><a href="#贝叶斯分析" class="headerlink" title="贝叶斯分析"></a>贝叶斯分析</h2><p>贝叶斯分析的思路对于由证据的积累来推测一个事物发生的概率具有重大作用， 它告诉我们当我们要预测一个事物， 我们需要的是首先根据已有的经验和知识推断一个先验概率， 然后在新证据不断积累的情况下调整这个概率，整个通过积累证据来得到一个事件发生概率的过程我们称为贝叶斯分析。</p>
-<p>贝叶斯决策如果一旦变成自动化的计算机算法， 它就是机器学习。</p>
-<h1 id="统计学习方法-朴素贝叶斯法"><a href="#统计学习方法-朴素贝叶斯法" class="headerlink" title="统计学习方法 朴素贝叶斯法"></a>统计学习方法 朴素贝叶斯法</h1><h2 id="朴素贝叶斯法的学习与分类"><a href="#朴素贝叶斯法的学习与分类" class="headerlink" title="朴素贝叶斯法的学习与分类"></a>朴素贝叶斯法的学习与分类</h2><h3 id="基本方法"><a href="#基本方法" class="headerlink" title="基本方法"></a>基本方法</h3><p><strong>注意：朴素贝叶斯法与贝叶斯估计是不同的概念。</strong></p>
-<p>朴素贝叶斯法对条件概率分布作了条件独立性的假设.由于这是一个较强的<br>假设, 朴素贝叶斯法也由此得名.具体地，条件独立性假设是<br><img src="/img/media/%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%A6%82%E7%8E%87/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-22%20%E4%B8%8A%E5%8D%8810.04.37.png" alt=""><br>朴素贝叶斯法实际上学习到生成数据的机制，所以属于生成模型.条件独立假设等于是说用于分类的特征在类确定的条件下都是条件独立的.这一假设使朴素贝叶斯法变得简单，但有时会牺牲一定的分类准确率。<br><img src="/img/media/%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%A6%82%E7%8E%87/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-22%20%E4%B8%8A%E5%8D%8810.08.13.png" alt=""><br><img src="/img/media/%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%A6%82%E7%8E%87/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-22%20%E4%B8%8A%E5%8D%8810.11.27.png" alt=""><br>这是朴素贝叶斯法分类的基本公式，于是，朴素贝叶斯分类器可表示为：<br><img src="/img/media/%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%A6%82%E7%8E%87/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-22%20%E4%B8%8A%E5%8D%8810.12.22.png" alt=""><br><img src="/img/media/%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%A6%82%E7%8E%87/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-22%20%E4%B8%8A%E5%8D%8810.12.54.png" alt=""></p>
-<h3 id="后验概率最大化的含义"><a href="#后验概率最大化的含义" class="headerlink" title="后验概率最大化的含义"></a>后验概率最大化的含义</h3><p>朴素贝叶斯法将实例分到后验概率最大的类中.这等价于期望风险最小化.假设选择0-1损失函数:<br><img src="/img/media/%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%A6%82%E7%8E%87/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-22%20%E4%B8%8A%E5%8D%8810.17.39.png" alt=""><br><img src="/img/media/%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%A6%82%E7%8E%87/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-22%20%E4%B8%8A%E5%8D%8810.18.48.png" alt=""><br><img src="/img/media/%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%A6%82%E7%8E%87/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-22%20%E4%B8%8A%E5%8D%8810.20.42.png" alt=""></p>
-<h2 id="朴素贝叶斯的参数估计"><a href="#朴素贝叶斯的参数估计" class="headerlink" title="朴素贝叶斯的参数估计"></a>朴素贝叶斯的参数估计</h2><h3 id="极大似然估计"><a href="#极大似然估计" class="headerlink" title="极大似然估计"></a>极大似然估计</h3><p><img src="/img/media/%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%A6%82%E7%8E%87/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-22%20%E4%B8%8A%E5%8D%8810.22.09.png" alt=""></p>
-<h3 id="学习与分类算法"><a href="#学习与分类算法" class="headerlink" title="学习与分类算法"></a>学习与分类算法</h3><h4 id="朴素贝叶斯算法（naive-Bayes-algorithm）"><a href="#朴素贝叶斯算法（naive-Bayes-algorithm）" class="headerlink" title="朴素贝叶斯算法（naive  Bayes algorithm）"></a>朴素贝叶斯算法（naive  Bayes algorithm）</h4><p><img src="/img/media/%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%A6%82%E7%8E%87/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-22%20%E4%B8%8A%E5%8D%8810.23.27.png" alt=""></p>
-<h4 id="例"><a href="#例" class="headerlink" title="例"></a>例</h4><p><img src="/img/media/%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%A6%82%E7%8E%87/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-22%20%E4%B8%8A%E5%8D%8810.24.16.png" alt=""><br><img src="/img/media/%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%A6%82%E7%8E%87/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-22%20%E4%B8%8A%E5%8D%8810.24.39.png" alt=""></p>
-<h3 id="贝叶斯估计"><a href="#贝叶斯估计" class="headerlink" title="贝叶斯估计"></a>贝叶斯估计</h3><p><img src="/img/media/%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%A6%82%E7%8E%87/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-22%20%E4%B8%8A%E5%8D%8810.27.51.png" alt=""></p>
-<h4 id="例-1"><a href="#例-1" class="headerlink" title="例"></a>例</h4><p><img src="/img/media/%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%A6%82%E7%8E%87/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-22%20%E4%B8%8A%E5%8D%8810.28.13.png" alt=""></p>
-<h2 id="西瓜书-关于朴素贝叶斯分类器的补充"><a href="#西瓜书-关于朴素贝叶斯分类器的补充" class="headerlink" title="西瓜书 关于朴素贝叶斯分类器的补充"></a>西瓜书 关于朴素贝叶斯分类器的补充</h2><p>在现实任务中朴素贝叶斯分类器有多种使用方式.例如，若任务对预测速度要求较高，则对给定训练集,可将朴素贝叶斯分类器涉及的所有概率估值事先计算好存储起来,这样在进行预测时只需“查表”即可进行判别;若任务数据更替频繁，则可采用“懒惰学习”(lazy learning) 方式，先不进行任何训练，待收到预测请求时再根据当前数据集进行概率估值;若数据不断增加，则可在现有估值基础_上，仅对新增样本的属性值所涉及的概率估值进行计数修正即可实现增量学习。</p>
-<h1 id="西瓜书-半朴素贝叶斯分类器"><a href="#西瓜书-半朴素贝叶斯分类器" class="headerlink" title="西瓜书 半朴素贝叶斯分类器"></a>西瓜书 半朴素贝叶斯分类器</h1><p>为了降低贝叶斯公式中估计后验概率P(c|x)的困难，朴素贝叶斯分类器采用了属性条件独立性假设,但在现实任务中这个假设往往很难成立.于是，人们尝试对属性条件独立性假设进行一定程度的放松,由此产生了一类称为“半朴素贝叶斯分类器”(semi-naive Bayes clasifers)的学习方法。</p>
-<p>半朴素贝叶斯分类器的基本思想是适当考虑一部分属性间的互相依赖信息，从而既不需要进行完全联合概率计算，又不至于彻底忽略了比较强的属性依赖关系。“独依赖估计”（One-Dependent Estimator,简称ODE）是半朴素贝叶斯分类器最常用的一种策略。顾名思义，所谓“独依赖”就是假设每个属性在类别之外最多仅依赖一个其他属性，即：<br><img src="/img/media/%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%A6%82%E7%8E%87/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-22%20%E4%B8%8B%E5%8D%883.34.19.png" alt=""><br>于是，问题的关键就转化为如何确定每个属性的父属性，不同的做法产生不同的独依赖分类器</p>
-<p>最直接的做法是假设所有属性都依赖同一个属性，称为“超父”（super-parent),然后通过交叉验证等模型选择方法来确定超父属性，由此形成了SPODE方法。<br><img src="/img/media/%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%A6%82%E7%8E%87/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-22%20%E4%B8%8B%E5%8D%883.45.25.png" alt=""><br>按下不表</p>
-<h1 id="西瓜书-贝叶斯网"><a href="#西瓜书-贝叶斯网" class="headerlink" title="西瓜书 贝叶斯网"></a>西瓜书 贝叶斯网</h1><p>贝叶斯网亦称“信念网”，它借助有向无环图（Directed Acyclic Graph,简称DAG）来刻画属性间的依赖关系，并使用条件概率表（Conditional Probability Table,简称CPT）来描述属性的联合概率分布。<br><img src="/img/media/%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%A6%82%E7%8E%87/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-22%20%E4%B8%8B%E5%8D%883.52.55.png" alt=""><br>按下不表。</p>
-<h1 id="博客"><a href="#博客" class="headerlink" title="博客"></a>博客</h1><h2 id="贝叶斯推断"><a href="#贝叶斯推断" class="headerlink" title="贝叶斯推断"></a>贝叶斯推断</h2><p><img src="/img/media/%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%A6%82%E7%8E%87/ml_4_15.jpg" alt=""><br>P(A)称为”先验概率”（Prior probability），即在B事件发生之前，我们对A事件概率的一个判断。</p>
-<p>P(A|B)称为”后验概率”（Posterior probability），即在B事件发生之后，我们对A事件概率的重新评估。</p>
-<p>P(B|A)/P(B)称为”可能性函数”（Likelyhood），这是一个调整因子，使得预估概率更接近真实概率。</p>
-<p>这就是贝叶斯推断的含义。我们先预估一个”先验概率”，然后加入实验结果，看这个实验到底是增强还是削弱了”先验概率”，由此得到更接近事实的”后验概率”。</p>
-<p>在这里，如果”可能性函数”P(B|A)/P(B)&gt;1，意味着”先验概率”被增强，事件A的发生的可能性变大；如果”可能性函数”=1，意味着B事件无助于判断事件A的可能性；如果”可能性函数”&lt;1，意味着”先验概率”被削弱，事件A的可能性变小。</p>
-<p>要知道我们只需要比较 P(H1|E)和P(H2|E)的大小，找到那个最大的概率就可以。既然如此，两者的分母都是相同的，那我们只需要比较分子即可。即比较P(E|H1)P(H1)和P(E|H2)P(H2)的大小，<strong>所以为了减少计算量，全概率公式在实际编程中可以不使用。</strong></p>
-<p>其中P(B):<br><img src="/img/media/%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%A6%82%E7%8E%87/ml_4_10.jpg" alt=""></p>
-<p><img src="/img/media/%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%A6%82%E7%8E%87/ml_4_11.jpg" alt=""></p>
-<p><img src="/img/media/%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%A6%82%E7%8E%87/ml_4_12.jpg" alt=""></p>
-<p><img src="/img/media/%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%A6%82%E7%8E%87/ml_4_13.jpg" alt=""></p>
-<p><img src="/img/media/%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%A6%82%E7%8E%87/ml_4_14.jpg" alt=""></p>
-<h2 id="朴素贝叶斯推断"><a href="#朴素贝叶斯推断" class="headerlink" title="朴素贝叶斯推断"></a>朴素贝叶斯推断</h2><p><img src="/img/media/%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%A6%82%E7%8E%87/ml_4_21.jpg" alt=""><br>由于每个特征都是独立的，我们可以进一步拆分公式：<br><img src="/img/media/%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%A6%82%E7%8E%87/ml_4_22.jpg" alt=""></p>
-<h1 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h1><h2 id="朴素贝叶斯"><a href="#朴素贝叶斯" class="headerlink" title="朴素贝叶斯"></a>朴素贝叶斯</h2><p><a href="https://github.com/zdkswd/MLcode/blob/master/%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0/bayes.py">https://github.com/zdkswd/MLcode/blob/master/%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0/bayes.py</a></p>
-<h2 id="sklearn-朴素贝叶斯"><a href="#sklearn-朴素贝叶斯" class="headerlink" title="sklearn-朴素贝叶斯"></a>sklearn-朴素贝叶斯</h2><p>在sklearn中一共有三个朴素贝叶斯分类算法类。分别是GaussianNB,MultinomialNB和BernoulliNB。其中GaussianNB就是先验为高斯分布的朴素贝叶斯，MultinomialNB就是先验为多项式分布的朴素贝叶斯，而BernoulliNB就是先验为伯努利分布的朴素贝叶斯。</p>
-<p>对于新闻分类，属于多分类问题。我们可以使用MultinamialNB()完成我们的新闻分类问题。MultinomialNB假设特征的先验概率为多项式分布，即如下式：<br><img src="/img/add/6.png" alt=""><br>其中， P(Xj = Xjl | Y = Ck)是第k个类别的第j维特征的第l个取值条件概率。mk是训练集中输出为第k类的样本个数。λ为一个大于0的常数，常常取值为1，即拉普拉斯平滑，也可以取其他值。</p>
-<p>MultinamialNB这个函数，只有3个参数：<br>参数说明如下:</p>
-<ol>
-<li>alpha：浮点型可选参数，默认为1.0，其实就是添加拉普拉斯平滑，即为上述公式中的λ ，如果这个参数设置为0，就是不添加平滑；</li>
-<li>fit_prior：布尔型可选参数，默认为True。布尔参数fit_prior表示是否要考虑先验概率，如果是false,则所有的样本类别输出都有相同的类别先验概率。否则可以自己用第三个参数class_prior输入先验概率，或者不输入第三个参数class_prior让MultinomialNB自己从训练集样本来计算先验概率，此时的先验概率为P(Y=Ck)=mk/m。其中m为训练集样本总数量，mk为输出为第k类别的训练集样本数。</li>
-<li>class_prior：可选参数，默认为None。</li>
-</ol>
-<p><img src="/img/add/7.png" alt=""></p>
-<p>MultinomialNB一个重要的功能是有partial_fit方法，这个方法的一般用在如果训练集数据量非常大，一次不能全部载入内存的时候。这时我们可以把训练集分成若干等分，重复调用partial_fit来一步步的学习训练集，非常方便。GaussianNB和BernoulliNB也有类似的功能。 在使用MultinomialNB的fit方法或者partial_fit方法拟合数据后，我们可以进行预测。此时预测有三种方法，包括predict，predict_log_proba和predict_proba。predict方法就是我们最常用的预测方法，直接给出测试集的预测类别输出。predict_proba则不同，它会给出测试集样本在各个类别上预测的概率。容易理解，predict_proba预测出的各个类别概率里的最大值对应的类别，也就是predict方法得到类别。predict_log_proba和predict_proba类似，它会给出测试集样本在各个类别上预测的概率的一个对数转化。转化后predict_log_proba预测出的各个类别对数概率里的最大值对应的类别，也就是predict方法得到类别。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2018/11/21/AutoEncoder by Forest/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZDK"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZDK's blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/11/21/AutoEncoder by Forest/" class="post-title-link" itemprop="url">AutoEncoder by Forest</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-11-21 20:16:32 / 修改时间：20:20:34" itemprop="dateCreated datePublished" datetime="2018-11-21T20:16:32+08:00">2018-11-21</time>
-            </span>
-          
-
-          
-            
-
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/论文/" itemprop="url" rel="index"><span itemprop="name">论文</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2018/11/21/AutoEncoder by Forest/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/11/21/AutoEncoder by Forest/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2018/11/21/AutoEncoder by Forest/" class="post-meta-item leancloud_visitors" data-flag-title="AutoEncoder by Forest">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="https://arxiv.org/abs/1709.09018" target="_blank" rel="noopener">https://arxiv.org/abs/1709.09018</a></p>
-<h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>自动编码是一个重要的任务，通常由深度神经网络比如CNN来实现。在这篇论文中，我们提出了EncoderForest （eForest）这是第一个基于树集成的自编码器。我们提出了一种方法，让森林能够利用树的决策路径所定义的等效类来进行后向重建，并在监督和无监督环境中展示了其使用情况。实验结果表明，与DNN自编码器相比，eForest能够以较快的训练速度获得更低的重建误差，同时模型本身具有可重用性和容损性。</p>
-<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>自动编码器是一类将输入数据映射到隐藏空间，然后再映射到原始空间的模型，它使用重建误差作为目标函数。自动编码器分为两个过程：编码和解码。编码过程将原始数据映射到隐藏空间，解码数据将数据从隐藏空间映射到原始数据空间。传统实现这两个过程的方式是使用神经网络。</p>
-<p>文章提出了一种编码森林（EncoderForest），通过一个集成树模型进行前向编码和反向解码，而且可以使用监督或者无监督训练。实验显示EncoderFroest有如下优点:</p>
-<ol>
-<li>准确： 它的实验重建误差比使用MLP和CNN的自动编码器低。</li>
-<li>有效： efroest在一个单一KNL(多核CPU)上运行比CNN-Base自动编码器在一个Titan-X GPU上运行还快。</li>
-<li>容错率：训练好的模型能够正常运行即使模型部分损坏。</li>
-<li>重利用： 在同一个领域下，使用一个数据集训练的模型可以直接应用到另一个数据集下。</li>
-</ol>
-<h1 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h1><p>自动编码器有两个基本的功能，编码和解码。对于一个森林来说，编码并不困难，因为至少其叶节点信息可以被看做一种编码，甚至可以说，结点集合的一个子集或者路径的分支都能够为编码提供更多的信息。</p>
-<h2 id="编码过程"><a href="#编码过程" class="headerlink" title="编码过程"></a>编码过程</h2><p>对于给定的一个训练过的有T棵树的集成树模型（也可以是空的森林，编码过程即森林形成过程），前向编码过程将输入数据送到每棵树的根节点，并计算每棵树，得到其所属的叶节点，最后返回一个T维向量，这个T维向量的每一项是每棵树中求到的上述叶节点在树中的编号。注意，算法跟决策树的分割规则无关。只需要是T棵树即可。<br><img src="/img/media/AutoEncoder%20by%20Forest/ae_algo1.png" alt=""></p>
-<h2 id="解码过程"><a href="#解码过程" class="headerlink" title="解码过程"></a>解码过程</h2><p>一般来说，决策树都是用来前向预测，将数据计算从树的根节点到叶子结点，但是其反向重建是未定义的。下面通过一个小例子来探索解码过程。</p>
-<p>假设我们正在解决一个二分类问题，数据有三个属性，第一个和第二个属性是数值型属性，第三个属性是布尔型属性（取值为YES, NO），第四个属性是一个三值属性，取值可以是RED，BLUE，GREEN。给定一个实例x，xi代表x的第i个属性值。<br><img src="/img/media/AutoEncoder%20by%20Forest/ae_eforest_forest.png" alt=""><br>现在我们只知道，实例x落在每棵树的哪个结点，上图中的红色结点，我们的目标是重构实例x。文章提出了一种简洁有效的反向重建方法。首先，在树中的每个叶子结点对应于一条唯一的从根到叶子的路径。在上面的图中已经用红色标出这样的路径。然后，每条路径都会对应一条符号规则，所以我们就得到<br>了n条（树的数目）符号规则：<br><img src="/img/media/AutoEncoder%20by%20Forest/ae_eforest_rule.png" alt=""><br>然后，我们可以根据上面的规则推出MCR(最大完备规则)，最大完备规则的意思是，在规则中的每一个约束的范围不能再扩大。如果扩大，则会产生冲突。</p>
-<p>例如，由上面的规则集我们可以得到MCR:<br><img src="/img/media/AutoEncoder%20by%20Forest/ae_eforest_mcr.png" alt=""><br>那么显然，原始的数据肯定落在有MCR定义的范围内。</p>
-<p>计算完MCR之后，就可以根据MCR重构原始样本了，目录型属性如上面的第三和第四属性只需要根据MCR中的指定取即可，而数值型属性则可以根据MCR中的范围取一个特殊值即可（中位数、均值、或者最大最小值）。<br><img src="/img/media/AutoEncoder%20by%20Forest/ae_eforest_algo2.png" alt=""><br>首先根据编码完的T维向量从树中得到T个决策规则，再根据这些规则得到MCR，再根据MCR重构得到x，算法如下：<br><img src="/img/media/AutoEncoder%20by%20Forest/ae_eforest_algo3.png" alt=""></p>
-<h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><p><img src="/img/media/AutoEncoder%20by%20Forest/ae_eforest_exp_image2.png" alt=""></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2018/11/21/特征工程与表示学习,数据的粒度,数据量/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZDK"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZDK's blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/11/21/特征工程与表示学习,数据的粒度,数据量/" class="post-title-link" itemprop="url">特征工程与表示学习,数据的粒度,数据量</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-11-21 18:48:47 / 修改时间：18:48:56" itemprop="dateCreated datePublished" datetime="2018-11-21T18:48:47+08:00">2018-11-21</time>
-            </span>
-          
-
-          
-            
-
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/知识总结/" itemprop="url" rel="index"><span itemprop="name">知识总结</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2018/11/21/特征工程与表示学习,数据的粒度,数据量/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/11/21/特征工程与表示学习,数据的粒度,数据量/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2018/11/21/特征工程与表示学习,数据的粒度,数据量/" class="post-meta-item leancloud_visitors" data-flag-title="特征工程与表示学习,数据的粒度,数据量">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="https://zhuanlan.zhihu.com/p/41521695" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/41521695</a></p>
-<p>正因为数据表示的重要性，机器学习一般有两种思路来提升原始数据的表达</p>
-<ol>
-<li>特征学习(feature learning)，又叫表示学习(representation learning)或者表征学习，一般指的是自动学习有用的数据特征。</li>
-<li>特征工程(feature engineering)，主要指对于数据的人为处理提取，有时候也代指“洗数据”。</li>
-</ol>
-<h1 id="表示学习"><a href="#表示学习" class="headerlink" title="表示学习"></a>表示学习</h1><p>模型自动对输入数据进行学习，得到更有利于使用的特征(*可能同时做出了预测)。代表的算法大致包括：</p>
-<ol>
-<li>深度学习，包括大部分常见的模型如CNN_RNN_DBN等。</li>
-<li>某些无监督学习算法，如主成分分析(PCA)及自编码器（autoencoder）通过对数据转化而使得输入数据更有意义。</li>
-<li>某些树模型可以自动的学习到数据中的特征并同时作出预测。</li>
-</ol>
-<h1 id="模型选择"><a href="#模型选择" class="headerlink" title="模型选择"></a>模型选择</h1><p>什么时候用「手工提取」什么时候用「表示学习」。一种简单的看法是，要想自动学习到数据的良好表达，就需要大量的数据。这个现象也解释了为什么「特征工程」往往在中小数据集上表现良好，而「表示学习」在大量复杂数据上更有用武之地。</p>
-<p>比如我们会假设数据分布，会假设映射函数的性质，也会假设预测值与输入值间的关系。这一切假设其实并非凭空猜想，而是基于我们对于问题的理解，从某种角度来看，这是一种先验，是贝叶斯模型。在中小数据集上的机器学习往往使用的就是强假设模型（人类知识先验）+一个简单线性分类器。当数据愈发复杂，数据量逐渐加大后，我们对于数据的理解越来越肤浅，做出的假设也越来越倾向于随机，那么此时人工特征工程往往是有害的，而需要使用摆脱了人类先验的模型，比如深度学习或者集成模型。</p>
-<p>模型选择的过程其实也是在衡量我们对于问题及数据的理解是否深刻，是在人类先验与数据量之间的一场博弈。从这个角度来看，深度学习首先革的是传统机器学习模型的命：最先被淘汰的不是工人，而是特定场景下的传统机器学习模型。</p>
-<h1 id="数据的粒度"><a href="#数据的粒度" class="headerlink" title="数据的粒度"></a>数据的粒度</h1><p>数据的粒度可以理解为数据的细分程度。随着细分程度的改变，那么数据量也会有明显的变化。数据的粒度越细，数据量越大。</p>
-<p>过于具体的数据缺失了特征，有效的特征仅在某个特定的粒度才存在。打个比方，人是由原子、分子、细胞、组织、器官构成，但在分子层面我们不一定能分辨它是人，只有到达一定的粒度才可以。因此，数据收集的第一个重点是搞清楚，在什么粒度可以解决我们的问题，而不是盲目的收集一大堆数据，或者收集过于抽象的数据。</p>
-<h1 id="到底需要多少数据？"><a href="#到底需要多少数据？" class="headerlink" title="到底需要多少数据？"></a>到底需要多少数据？</h1><h2 id="数据量与特征量的比例"><a href="#数据量与特征量的比例" class="headerlink" title="数据量与特征量的比例"></a>数据量与特征量的比例</h2><p>谈论数据量，不能光说有多少条数据n，一定也要考虑数据的特征数m。</p>
-<p>人们讨论数据量，往往讨论的是n，也就是有多少条数据。但这个是不准确的，因为更加适合的评估应该是n/m，也就是样本量除以特征数，原因很简单。如果你只有100条数据，但只有2个特征。如果用线性函数来拟合，相当于给你100个点来拟合到二次函数上，这个数据量一般来说是比较充裕的。但还是100个数据点，每个数据的特征数是200，那么很明显你的数据是不够的，过拟合的风险极高。</p>
-<h2 id="特征间的相关性和有效性"><a href="#特征间的相关性和有效性" class="headerlink" title="特征间的相关性和有效性"></a>特征间的相关性和有效性</h2><p>数据间重复性低：包括样本间重复性比较低，特征间重复性比较低，即特征间线性无关</p>
-<p>数据的有效性：此处的有效性指的是你的变量对于解决问题有帮助，而不是完全无关或者关联性极低的数据。</p>
-<h2 id="数据是否越多越好？"><a href="#数据是否越多越好？" class="headerlink" title="数据是否越多越好？"></a>数据是否越多越好？</h2><p>数据比模型更重要，数据重要性 &gt;&gt; 模型重要性。机器学习模型的表现高度依赖于数据量，选择对的模型只是其次，因为巧妇难为无米之炊。</p>
-<p>数据不是越多越好，随机数据中也可能因为巧合而存在某种关联。</p>
-<h2 id="数据量与模型选择"><a href="#数据量与模型选择" class="headerlink" title="数据量与模型选择"></a>数据量与模型选择</h2><p>数据量很小，用朴素贝叶斯、逻辑回归或支持向量机<br>数据量适中或者较大，用树模型，优先 xgboost和lightgbm<br>数据量较大，尝试使用神经网络<br>所以说到底，依然不存在定式，而依赖于经验和理解。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2018/11/21/Deep Forest_ Towards An Alternative to Deep Neural Networks/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZDK"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZDK's blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/11/21/Deep Forest_ Towards An Alternative to Deep Neural Networks/" class="post-title-link" itemprop="url">Deep Forest: Towards An Alternative to Deep Neural Networks</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-11-21 18:44:32 / 修改时间：18:44:52" itemprop="dateCreated datePublished" datetime="2018-11-21T18:44:32+08:00">2018-11-21</time>
-            </span>
-          
-
-          
-            
-
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/论文/" itemprop="url" rel="index"><span itemprop="name">论文</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2018/11/21/Deep Forest_ Towards An Alternative to Deep Neural Networks/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/11/21/Deep Forest_ Towards An Alternative to Deep Neural Networks/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2018/11/21/Deep Forest_ Towards An Alternative to Deep Neural Networks/" class="post-meta-item leancloud_visitors" data-flag-title="Deep Forest: Towards An Alternative to Deep Neural Networks">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="https://www.ijcai.org/proceedings/2017/0497.pdf" target="_blank" rel="noopener">https://www.ijcai.org/proceedings/2017/0497.pdf</a></p>
-<h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>提出了gcForest,一种能够与深层神经网络的表现高度抗衡的决策树集成方法。相比于深层神经网络需要化大力气调整超参数，gcForest更容易去训练。实际上，就算gcForest被应用于不同领域使用不同的数据，也可以通过设置几乎相同的超参数获得极好的表现。gcForest的训练时高效的可扩展的。在作者的实验中使用PC进行gcForest的训练和使用GPU设备进行训练时间差不多，并且效率的优势可能会比这更加明显，因为gcForest更容易并行实现。更重要的是，深层神经网络需要大规模的训练数据，但是gcForest即使只有小规模的训练数据也能表现很好。还有，作为以树为基础的方法，gcForest比深层神经网络更容易进行理论分析。</p>
-<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>深度神经网络的不足：</p>
-<ol>
-<li>需要大量数据。然而就算是大数据领域也有待带标签数据不足等问题。</li>
-<li>模型复杂，需要强计算力设备进行训练。</li>
-<li>最重要的是有太多超参数，学习的表现又很依赖它们。即使是使用同样的网络模型也由于各种参数设置的不同而变得实际上使用的是不同的学习模型。这让深层学习的训练变得棘手，更像是一门艺术而不是一门科学。同时由于影响的因素太多而难以理论分析深层神经网络。</li>
-</ol>
-<p>作者设想能不能给一些学习模型赋予一些属性让其具有深层学习网络的能力而又没有上述的不足。</p>
-<p>所以论文提出gcForest(multi-Grained Cascade forest )</p>
-<h1 id="k折交叉验证"><a href="#k折交叉验证" class="headerlink" title="k折交叉验证"></a>k折交叉验证</h1><p>常用的精度测试方法主要是交叉验证，例如10折交叉验证(10-fold cross validation)，将数据集分成十份，轮流将其中9份做训练1份做验证，10次的结果的均值作为对算法精度的估计，一般还需要进行多次10折交叉验证求均值，例如：10次10折交叉验证，以求更精确一点。交叉验证有时也称为交叉比对，如：10折交叉比对。</p>
-<h1 id="博客"><a href="#博客" class="headerlink" title="博客"></a>博客</h1><h2 id="级联森林"><a href="#级联森林" class="headerlink" title="级联森林"></a>级联森林</h2><p><img src="/img/media/Deep%20Forest:%20Towards%20An%20Alternative%20to%20Deep%20Neural%20Networks/20170305230315119.png" alt=""><br>级联的每个级别包括两个随机森林（蓝色字体标出）和两个完全随机树木森林（黑色）。假设有三个类要预测; 因此，每个森林将输出三维类向量，然后将其连接以重新表示原始输入。注意，要将前一级的特征和这一级的特征连接在一起。</p>
-<p>论文中为了简单起见，在实现中，使用了两个完全随机的树森林（complete-random tree forests）和两个随机森林[Breiman，2001]。每个完全随机的树森林包含1000个完全随机树[Liu et al。，2008]，每棵树通过随机选择一个特征在树的每个节点进行分割实现生成，树一直生长，直到每个叶节点只包含相同类的实例或不超过10个实例。类似地，每个随机森林也包含1000棵树，通过随机选择sqrt(d) 数量的特征作为候选（d是输入特征的数量），然后选择具有最佳 gini 值的特征作为分割。每个森林中的树的数值是一个超参数。</p>
-<p>给定一个实例（就是一个样本），每个森林会通过计算在相关实例落入的叶节点处的不同类的训练样本的百分比，然后对森林中的所有树计平均值，以生成对类的分布的估计。如下图所示，其中红色部分突出了每个实例遍历到叶节点的路径。叶节点中的不同标记表示了不同的类。</p>
-<p><img src="/img/media/Deep%20Forest:%20Towards%20An%20Alternative%20to%20Deep%20Neural%20Networks/20170305230948452.png" alt=""><br>被估计的类分布形成类向量（class vector），该类向量接着与输入到级联的下一级的原始特征向量相连接。例如，假设有三个类，则四个森林每一个都将产生一个三维的类向量，因此，级联的下一级将接收12 = 3×4个增强特征（augmented feature）。</p>
-<p>为了降低过拟合风险，每个森林产生的类向量由k折交叉验证（k-fold cross validation）产生。具体来说，每个实例都将被用作 k -1 次训练数据，产生 k -1 个类向量，然后对其取平均值以产生作为级联中下一级的增强特征的最终类向量。需要注意的是，在扩展一个新的级后，整个级联的性能将在验证集上进行估计，如果没有显着的性能增益，训练过程将终止；因此，级联中级的数量是自动确定的。与模型的复杂性固定的大多数深度神经网络相反，gcForest 能够适当地通过终止训练来决定其模型的复杂度（early stop）。这使得 gcForest 能够适用于不同规模的训练数据，而不局限于大规模训练数据。</p>
-<h2 id="多粒度扫描（Multi-Grained-Scanning）"><a href="#多粒度扫描（Multi-Grained-Scanning）" class="headerlink" title="多粒度扫描（Multi-Grained Scanning）"></a>多粒度扫描（Multi-Grained Scanning）</h2><p><img src="/img/media/Deep%20Forest:%20Towards%20An%20Alternative%20to%20Deep%20Neural%20Networks/20170305233438302.png" alt=""><br>滑动窗口用于扫描原始特征。假设有400个原始特征，并且使用100个特征的窗口大小。对于序列数据，将通过滑动一个特征的窗口来生成100维的特征向量；总共产生301个特征向量。如果原始特征具有空间关系，比如图像像素为400的20×20的面板，则10×10窗口将产生121个特征向量（即121个10×10的面板）。从正<em>负训练样例中提取的所有特征向量被视为正</em>负实例；它们将被用于生成类向量：从相同大小的窗口提取的实例将用于训练完全随机树森林和随机森林，然后生成类向量并连接为转换后的像素。如上图的上半部分所示，假设有3个类，并且使用100维的窗口；然后，每个森林产生301个三维类向量，导致对应于原始400维原始特征向量的1,806维变换特征向量。</p>
-<p>通过使用多个尺寸的滑动窗口，最终的变换特征矢量将包括更多的特征，如下图所示。<br><img src="/img/media/Deep%20Forest:%20Towards%20An%20Alternative%20to%20Deep%20Neural%20Networks/20170305234423503.png" alt=""><br>concat成一个3618-dim的原始数据，表示原始的一个数据样本，第一级的输出是12+3618=3630，后面也是一样，直到最后第N级，只有12个输出，然后在每一类别上做avg，然后输出max那一类的label，那就是最终的预测类别。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>带着深度学习的关键在于特征学习和巨大模型的能力这一认识，我们在本文中试图赋予树集成这些属性，并提出了 gcForest 方法。与深度神经网络相比，gcForest在我们的实验中表现了极高的竞争力或更好的性能。更重要的是，gcForest 具有少得多的超参数，并且对参数设置不太敏感；实际上在我们的实验中，通过使用相同的参数设置在不同的域中都获得了优异的性能，并且无论是大规模还是小规模的数据，它的工作都很好。此外，作为一种基于树的方法，gcForest 应该比深度神经网络更容易进行理论分析。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/13/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="extend next" rel="next" href="/page/15/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
-
-
-
-          </div>
-          
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-
-      
-
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image"
-                src="/images/avatar.gif"
-                alt="ZDK"/>
-            
-              <p class="site-author-name" itemprop="name">ZDK</p>
-              <div class="site-description motion-element" itemprop="description"></div>
-          </div>
-
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives/">
-                
-                    <span class="site-state-item-count">191</span>
-                    <span class="site-state-item-name">日志</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-categories">
-                  
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">9</span>
-                    <span class="site-state-item-name">分类</span>
-                  
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-tags">
-                  
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">48</span>
-                    <span class="site-state-item-name">标签</span>
-                  
-                </div>
-              
-            </nav>
-          
-
-          
-            <div class="feed-link motion-element">
-              <a href="/atom.xml" rel="alternate">
-                <i class="fa fa-rss"></i>
-                RSS
-              </a>
-            </div>
-          
-
-          
-
-          
-            <div class="links-of-author motion-element">
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://github.com/zdkswd" title="GitHub &rarr; https://github.com/zdkswd"><i class="fa fa-fw fa-github"></i>GitHub</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="mailto:2822464407@qq.com" title="E-Mail &rarr; mailto:2822464407@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-                </span>
-              
-            </div>
-          
-
-          
-
-          
-          
-            <div class="links-of-blogroll motion-element links-of-blogroll-block">
-              <div class="links-of-blogroll-title">
-                <i class="fa  fa-fw fa-link"></i>
-                Links
-              </div>
-              <ul class="links-of-blogroll-list">
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://github.com/zdkswd" title="https://github.com/zdkswd">Title</a>
-                  </li>
-                
-              </ul>
-            </div>
-          
-
-          
-        </div>
-      </div>
-
-      
-
-      
-        <div class="back-to-top motion-element">
-          <i class="fa fa-arrow-up"></i>
-          
-        </div>
-      
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-        
-      </div>
     </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">ZDK</span>
 
-  
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
 
-  
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
 </div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
 
-
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.1</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.2.0</div>
-
-
-
-
-        
-
-
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
 
 
 
+<!-- mathjax config similar to math.stackexchange -->
 
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
 
-
-        
-      </div>
-    </footer>
-
-    
-
-    
-
-    
-  </div>
-
-  
-
-<script>
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
 </script>
 
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
 
 
 
 
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  <script src="/lib/jquery/index.js?v=3.4.1"></script>
-
-  
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-
-
-
-  <script src="/js/utils.js?v=7.2.0"></script>
-
-  <script src="/js/motion.js?v=7.2.0"></script>
-
-
-
-  
-  
-
-
-  <script src="/js/affix.js?v=7.2.0"></script>
-
-  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
-
-
-
-
-  
-
-  <script src="/js/next-boot.js?v=7.2.0"></script>
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
 
 <script>
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(function(item) {
-    return GUEST.indexOf(item) > -1;
-  });
-  new Valine({
-    el: '#comments',
-    verify: false,
-    notify: true,
-    appId: 'QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz',
-    appKey: 'gkBx5soQkBREmER84PWbNJeM',
-    placeholder: 'have fun',
-    avatar: 'mm',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: true,
-    lang: '' || 'zh-cn'
-  });
-</script>
-
-
-
-
-
-  
-  <script>
-    // Popup Window;
-    var isfetched = false;
-    var isXml = true;
-    // Search DB path;
-    var search_path = "";
-    if (search_path.length === 0) {
-      search_path = "search.xml";
-    } else if (/json$/i.test(search_path)) {
-      isXml = false;
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
-
-    var onPopupClose = function (e) {
-      $('.popup').hide();
-      $('#local-search-input').val('');
-      $('.search-result-list').remove();
-      $('#no-result').remove();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    }
-
-    function proceedsearch() {
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
-        .css('overflow', 'hidden');
-      $('.search-popup-overlay').click(onPopupClose);
-      $('.popup').toggle();
-      var $localSearchInput = $('#local-search-input');
-      $localSearchInput.attr("autocapitalize", "none");
-      $localSearchInput.attr("autocorrect", "off");
-      $localSearchInput.focus();
-    }
-
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-
-      // start loading animation
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
-          '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
-          '</div>' +
-          '</div>')
-        .css('overflow', 'hidden');
-      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
-
-      
-
-      $.ajax({
-        url: path,
-        dataType: isXml ? "xml" : "json",
-        async: true,
-        success: function(res) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = isXml ? $("entry", res).map(function() {
-            return {
-              title: $("title", this).text(),
-              content: $("content",this).text(),
-              url: $("url" , this).text()
-            };
-          }).get() : res;
-          var input = document.getElementById(search_id);
-          var resultContent = document.getElementById(content_id);
-          var inputEventFunction = function() {
-            var searchText = input.value.trim().toLowerCase();
-            var keywords = searchText.split(/[\s\-]+/);
-            if (keywords.length > 1) {
-              keywords.push(searchText);
-            }
-            var resultItems = [];
-            if (searchText.length > 0) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var hitCount = 0;
-                var searchTextCount = 0;
-                var title = data.title.trim();
-                var titleInLowerCase = title.toLowerCase();
-                var content = data.content.trim().replace(/<[^>]+>/g,"");
-                
-                var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
-                var indexOfTitle = [];
-                var indexOfContent = [];
-                // only match articles with not empty titles
-                if(title != '') {
-                  keywords.forEach(function(keyword) {
-                    function getIndexByWord(word, text, caseSensitive) {
-                      var wordLen = word.length;
-                      if (wordLen === 0) {
-                        return [];
-                      }
-                      var startPosition = 0, position = [], index = [];
-                      if (!caseSensitive) {
-                        text = text.toLowerCase();
-                        word = word.toLowerCase();
-                      }
-                      while ((position = text.indexOf(word, startPosition)) > -1) {
-                        index.push({position: position, word: word});
-                        startPosition = position + wordLen;
-                      }
-                      return index;
-                    }
-
-                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
-                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
-                  });
-                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
-                    isMatch = true;
-                    hitCount = indexOfTitle.length + indexOfContent.length;
-                  }
-                }
-
-                // show search results
-
-                if (isMatch) {
-                  // sort index by position of keyword
-
-                  [indexOfTitle, indexOfContent].forEach(function (index) {
-                    index.sort(function (itemLeft, itemRight) {
-                      if (itemRight.position !== itemLeft.position) {
-                        return itemRight.position - itemLeft.position;
-                      } else {
-                        return itemLeft.word.length - itemRight.word.length;
-                      }
-                    });
-                  });
-
-                  // merge hits into slices
-
-                  function mergeIntoSlice(text, start, end, index) {
-                    var item = index[index.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    var hits = [];
-                    var searchTextCountInSlice = 0;
-                    while (position + word.length <= end && index.length != 0) {
-                      if (word === searchText) {
-                        searchTextCountInSlice++;
-                      }
-                      hits.push({position: position, length: word.length});
-                      var wordEnd = position + word.length;
-
-                      // move to next position of hit
-
-                      index.pop();
-                      while (index.length != 0) {
-                        item = index[index.length - 1];
-                        position = item.position;
-                        word = item.word;
-                        if (wordEnd > position) {
-                          index.pop();
-                        } else {
-                          break;
-                        }
-                      }
-                    }
-                    searchTextCount += searchTextCountInSlice;
-                    return {
-                      hits: hits,
-                      start: start,
-                      end: end,
-                      searchTextCount: searchTextCountInSlice
-                    };
-                  }
-
-                  var slicesOfTitle = [];
-                  if (indexOfTitle.length != 0) {
-                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
-                  }
-
-                  var slicesOfContent = [];
-                  while (indexOfContent.length != 0) {
-                    var item = indexOfContent[indexOfContent.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    // cut out 100 characters
-                    var start = position - 20;
-                    var end = position + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if (end < position + word.length) {
-                      end = position + word.length;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
-                  }
-
-                  // sort slices in content by search text's count and hits' count
-
-                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
-                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
-                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
-                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
-                      return sliceRight.hits.length - sliceLeft.hits.length;
-                    } else {
-                      return sliceLeft.start - sliceRight.start;
-                    }
-                  });
-
-                  // select top N slices in content
-
-                  var upperBound = parseInt('5');
-                  if (upperBound >= 0) {
-                    slicesOfContent = slicesOfContent.slice(0, upperBound);
-                  }
-
-                  // highlight title and content
-
-                  function highlightKeyword(text, slice) {
-                    var result = '';
-                    var prevEnd = slice.start;
-                    slice.hits.forEach(function (hit) {
-                      result += text.substring(prevEnd, hit.position);
-                      var end = hit.position + hit.length;
-                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
-                      prevEnd = end;
-                    });
-                    result += text.substring(prevEnd, slice.end);
-                    return result;
-                  }
-
-                  var resultItem = '';
-
-                  if (slicesOfTitle.length != 0) {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
-                  } else {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
-                  }
-
-                  slicesOfContent.forEach(function (slice) {
-                    resultItem += "<a href='" + articleUrl + "'>" +
-                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
-                      "...</p>" + "</a>";
-                  });
-
-                  resultItem += "</li>";
-                  resultItems.push({
-                    item: resultItem,
-                    searchTextCount: searchTextCount,
-                    hitCount: hitCount,
-                    id: resultItems.length
-                  });
-                }
-              })
-            };
-            if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
-            } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
-            } else {
-              resultItems.sort(function (resultLeft, resultRight) {
-                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-                  return resultRight.searchTextCount - resultLeft.searchTextCount;
-                } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
-              });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'zdk'blog';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
         }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
     });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
-  </script>
+})();
+</script>
 
 
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-  
 
 </body>
 </html>

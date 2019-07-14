@@ -1,2771 +1,628 @@
 <!DOCTYPE html>
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<html class="theme-next gemini use-motion" lang="zh-CN">
+<html>
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
-<meta name="theme-color" content="#222"/>
+    
+
+    
+
+    
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0"/>
-
-<link rel="stylesheet" href="/css/main.css?v=7.2.0"/>
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.2.0">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.2.0">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
-
-
-
-
-
-
-
-<script id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Gemini',
-    version: '7.2.0',
-    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
-    back2top: {"enable":true,"sidebar":true,"scrollpercent":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
-    fancybox: false,
-    fastclick: false,
-    lazyload: false,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    translation: {
-      copy_button: '复制',
-      copy_success: '复制成功',
-      copy_failure: '复制失败'
-    }
-  };
-</script>
-
-
-
-  <meta property="og:type" content="website">
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>ZDK&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta property="og:type" content="website">
 <meta property="og:title" content="ZDK&#39;s blog">
 <meta property="og:url" content="https://github.com/zdkswd/page/3/index.html">
 <meta property="og:site_name" content="ZDK&#39;s blog">
 <meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ZDK&#39;s blog">
+    
+        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
 
-
-
-  <link rel="alternate" href="/atom.xml" title="ZDK's blog" type="application/atom+xml"/>
-
-
-
-  
-  
-  <link rel="canonical" href="https://github.com/zdkswd/page/3/"/>
-
-
-
-<script id="page.configurations">
-  CONFIG.page = {
-    sidebar: "",
-  };
-</script>
-
-  <title>ZDK's blog</title>
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .motion-element,
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-title { opacity: initial; }
-
-  .use-motion .logo,
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
+    <!-- custom head -->
+    
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body>
+    <div id="loading" class="active"></div>
 
-  
-  
-    
-  
-
-  <div class="container sidebar-position-right 
-  page-home">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">ZDK's blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/tmg.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ZDK</h5>
+          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
+        </hgroup>
+      </div>
     </div>
-    
-    
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/zdkswd" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
   </div>
+</aside>
 
-  <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
-
-
-
-<nav class="site-nav">
-  
-    <ul id="menu" class="menu">
-      
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">ZDK&#39;s blog</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
         
         
-        
-          
-          <li class="menu-item menu-item-home">
+    </div>
+</header>
+<header class="content-header index-header">
 
-    
-    
-      
-    
-
-    
-
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>首页</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-tags">
-
-    
-    
-      
-    
-
-    
-
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>标签</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-categories">
-
-    
-    
-      
-    
-
-    
-
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>分类</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-archives">
-
-    
-    
-      
-    
-
-    
-
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>归档</a>
-
-  </li>
-
-      
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
+    <div class="container fade-scale">
+        <h1 class="title">ZDK&#39;s blog</h1>
+        <h5 class="subtitle">
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br/>搜索</a>
+                
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+<div class="container body-wrap">
+
+    <ul class="post-list">
+    
+        <li class="post-list-item fade">
+            <article id="post-散列表"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-06-05 20:18:47" datetime="2019-06-05T12:18:47.000Z"  itemprop="datePublished">2019-06-05</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/06/05/散列表/">散列表</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        散列表散列思想散列表用的是数组支持按照下标随机访问数据的特性，所以散列表其实就是数组的一种扩展，由数组演化而来。可以说，如果没有数组，就没有散列表。
+将键（关键字）转化为数组下标的映射方法就叫做散列函数（Hash函数），散列函数计算得到的值就是散列值（Hash值）。
+散列函数散列函数构造的设计基本要求。
+
+散列函数计算得到的散列值是一个非负整数。
+如果key1=key2，那么hash(key...
+    
+
+        <a href="/2019/06/05/散列表/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </div>
+    
+</article>
+
         </li>
-      
+    
+        <li class="post-list-item fade">
+            <article id="post-跳表"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-05-31 20:56:47" datetime="2019-05-31T12:56:47.000Z"  itemprop="datePublished">2019-05-31</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/05/31/跳表/">跳表</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        跳表二分查找是依赖数组随机访问的特性。如果数据是存储在链表中，则要对链表进行改造，支持类似二分的查找算法。改造后的数据结构叫做跳表。
+跳表是一种各方面性能都比较优秀的动态数据结构。可以支持快速的插入删除查找，甚至可以替代红黑树。
+Redis中的有序集合(Sorted Set)就是用跳表来实现的。
+如何理解对于单链表查找数据只能从头到尾遍历，O(n)。加上一层索引之后，查找一个结点需要遍历的结...
+    
+
+        <a href="/2019/05/31/跳表/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Spring实战  Spring核心"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-05-30 20:07:47" datetime="2019-05-30T12:07:47.000Z"  itemprop="datePublished">2019-05-30</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/05/30/Spring实战  Spring核心/">Spring实战  Spring核心</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        简要概念 依赖注入方式1：构造器注入。
+创建应用组件之间协作行为通常称为装配(wiring)。可以用xml或java实现。
+Spring通过应用上下文(Application Context)装载bean的定义并把它们组装起来。Spring应用上下文全权负责对象的创建和组装。Spring自带了多种应用上下文的实现，它们之间主要的区别仅仅在于如何加载配置。
+对于XML使用CLassPathXM...
+    
+
+        <a href="/2019/05/30/Spring实战  Spring核心/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Android梳理"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-05-27 15:28:47" datetime="2019-05-27T07:28:47.000Z"  itemprop="datePublished">2019-05-27</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/05/27/Android梳理/">Android梳理</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        JavaJava多态其核心之处就在于对父类方法的改写或对接口方法的实现，以取得在运行时不同的执行效果。要使用多态，在声明对象时就应该遵循一条法则：声明的总是父类类型或接口类型，创建的是实际类型。
+
+List list =newArrayList(); ✔️ArrayList list =newArrayList(); ❎  
+
+在定义方法参数时也通常总是应该优先使用父类类型或接口类型。
+
+p...
+    
+
+        <a href="/2019/05/27/Android梳理/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Spring Boot实战 入门"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-05-27 15:00:47" datetime="2019-05-27T07:00:47.000Z"  itemprop="datePublished">2019-05-27</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/05/27/Spring Boot实战 入门/">Spring Boot实战 入门</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        自动配置初始化后的项目Application.java不仅是启动引导类，还是配置类。@SpringBootApplication开启组件扫描和自动配置。将三个有用的注解组合在了一起。1.Spring的@Configuration:标明该类使用Spring基于Java的配置。2.Spring的@ComponentScan:启用组件扫描，这样所写的Web控制器类和其他组件才能被自动发现并注册为S...
+    
+
+        <a href="/2019/05/27/Spring Boot实战 入门/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-百面 优化算法"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-05-14 09:45:47" datetime="2019-05-14T01:45:47.000Z"  itemprop="datePublished">2019-05-14</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/05/14/百面 优化算法/">百面 优化算法</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        百面 优化算法机器学习算法=模型表征+模型评估+优化算法优化算法所做的事情就是在模型表征空间中找到模型评估指标最好的模型。经典的支持向量机对应的模型表征和评估指标分别为线性分类模型和最大间隔，逻辑回归对应的模型表征和评估指标则分别为线性分类模型和交叉熵。
+有监督学习的损失函数问：有监督学习涉及的损失函数有哪些？请列举并简述它们的特点。
+答：在有监督学习中，损失函数刻画了模型和训练样本的匹配程...
+    
+
+        <a href="/2019/05/14/百面 优化算法/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-leetcode分类练习"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-05-07 19:56:47" datetime="2019-05-07T11:56:47.000Z"  itemprop="datePublished">2019-05-07</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/05/07/leetcode分类练习/">leetcode分类练习</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        数组15.3sum169.majority element41.first missing positive
+链表141.linked list cycle23.merge k sorted list
+栈20.valid parenthess32.longest valid parentheses150.evaluate reverse polish notation
+队列641.desig...
+    
+
+        <a href="/2019/05/07/leetcode分类练习/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
     </ul>
-  
 
-  
-
-  
-    <div class="site-search">
-      
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
+    
+<nav id="page-nav">
+    <div class="inner">
+    <a class="extend prev" rel="prev" href="/page/2/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="extend next" rel="next" href="/page/4/">下一页</a>
     </div>
-  </div>
-  <div id="local-search-result"></div>
-</div>
-
-
-
-    </div>
-  
 </nav>
 
 
-
 </div>
-    </header>
 
-    
-
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-            
-
-          
-          <div id="content" class="content">
-            
-  <section id="posts" class="posts-expand">
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2019/06/05/散列表/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZDK"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
     </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZDK's blog"/>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
     </span>
+</p>
 
-    
-      <header class="post-header">
 
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/06/05/散列表/" class="post-title-link" itemprop="url">散列表</a>
-              
+        <p>
             
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-06-05 20:18:47 / 修改时间：20:19:52" itemprop="dateCreated datePublished" datetime="2019-06-05T20:18:47+08:00">2019-06-05</time>
-            </span>
-          
-
-          
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/知识总结/" itemprop="url" rel="index"><span itemprop="name">知识总结</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/06/05/散列表/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/06/05/散列表/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2019/06/05/散列表/" class="post-meta-item leancloud_visitors" data-flag-title="散列表">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="散列表"><a href="#散列表" class="headerlink" title="散列表"></a>散列表</h1><h2 id="散列思想"><a href="#散列思想" class="headerlink" title="散列思想"></a>散列思想</h2><p><strong>散列表用的是数组支持按照下标随机访问数据的特性，所以散列表其实就是数组的一种扩展，由数组演化而来。可以说，如果没有数组，就没有散列表。</strong></p>
-<p>将键（关键字）转化为数组下标的映射方法就叫做<strong>散列函数</strong>（Hash函数），散列函数计算得到的值就是<strong>散列值</strong>（Hash值）。<br><img src="/img/media/%E6%95%A3%E5%88%97%E8%A1%A8/92c89a57e21f49d2f14f4424343a2773.jpg" alt=""></p>
-<h2 id="散列函数"><a href="#散列函数" class="headerlink" title="散列函数"></a>散列函数</h2><p>散列函数构造的设计基本要求。</p>
-<ol>
-<li>散列函数计算得到的散列值是一个非负整数。</li>
-<li>如果key1=key2，那么hash(key1)==hash(key2);</li>
-<li>如果key1≠key2，那么hash(key1)≠hash(key2)。</li>
-</ol>
-<p>对于第三点，即便是业界著名的MD5，SHA，CRC等哈希算法，也无法完全避免<strong>散列冲突</strong>，数组的存储空间有限，也会加大散列冲突的概率。几乎无法找到一个完美的无冲突的散列函数，即便能找到，付出的时间成本、计算成本也是很大的，所以针对散列冲突问题，需要通过其他途径来解决。</p>
-<h2 id="散列冲突"><a href="#散列冲突" class="headerlink" title="散列冲突"></a>散列冲突</h2><p>再好的散列函数也无法避免散列冲突，常用的散列冲突解决方法有两类，<strong>开放寻址法</strong>，<strong>链表法</strong>。</p>
-<h3 id="开放寻址法"><a href="#开放寻址法" class="headerlink" title="开放寻址法"></a>开放寻址法</h3><p>开放寻址法的核心思想是，如果出现了散列冲突,我们就重新探测一个空闲位置,将其插入。<br>其中一个简单的实现是<strong>线性探测法</strong>：插入数据时，如果某个数据经过散列函数散列之后，存储位置已经被占用了，就从当前位置开始，依次往后查找，看是否有空闲位置，直到找到为止。<br>黄色代表空闲，橙色代表存储了数据<br><img src="/img/media/%E6%95%A3%E5%88%97%E8%A1%A8/5c31a3127cbc00f0c63409bbe1fbd0d5.jpg" alt=""><br>在散列表中查找元素类似于插入过程。通过散列函数求出要查找元素的键值对应的散列值，然后比较数组中下标为散列值的元素和要查找的元素。如果相等，则就是我们要找的元素，否则就顺序往后依次查找。如果遍历到数组中的空闲位置还没有找到，就说明要查找的元素并没有在散列表中。<br><img src="/img/media/%E6%95%A3%E5%88%97%E8%A1%A8/9126b0d33476777e7371b96e676e90ff.jpg" alt=""><br>散列表跟数组一样，不仅支持插入、查找操作，还支持删除操作。对于使用线性探测法解决冲突的散列表，不能单纯把要删除元素设为空。<br>可以将删除的元素特殊标记为deleted。当线性探测查找遇到标记为deleted的控件，不是停下来而是继续往下探测。<br><img src="/img/media/%E6%95%A3%E5%88%97%E8%A1%A8/fe7482ba09670cbe05a9dfe4dd49bd1d.jpg" alt=""><br>线性探测法的主要问题在于，当散列表中插入的数据越来越多时，散列冲突发生的可能性就会越来越大，空闲位置会越来越少，线性探测的时间越来越久，极端下需要探测整个散列表，最坏情况时间复杂度是O(n)。同理，在删除和查找时，也有可能线性探测整张散列表，才能找到查找或者删除数据。</p>
-<p>对于开放寻址冲突解决方法，除了线性探测方法之外,还有另外两种比较经典的探测方法，<strong>二次探测</strong>(Quadratic probing)和<strong>双重散列</strong>(Double hashing)。</p>
-<p>所谓<strong>二次探测</strong>，跟线性探测很像，线性探测每次探测的步长是1,那它探测的下标序列就是hash(key)+0, hash(key)+1, hash(key)+2…..二次探测探测的步长就变成了原来的“二次方”，也就是说，它探测的下标序列就是hash(key)+0, hash(key)+1^ 2, hash(key)+2^ 2…..</p>
-<p>所谓<strong>双重散列</strong>，意思就是不仅要使用一个散列函数。 我们使用一组散列函数 hash1(key),hash2(key)，hash3(key)….. 先用第一个散列函数， 如果计算得到的存储位置已经被占用，再用第二个散列函数，依次类推，直到找到空闲的存储位置。</p>
-<p>不管采用哪种探测方法，当散列表中空闲位置不多的时候，散列冲突的概率就会大大提高。为了尽可能保证散列表的操作效率，一般情况下，我们会尽可能保证散列表中有一定比例的空闲槽位。我们用<strong>装载因子</strong>(load factor)来表示空位的多少。<br><img src="/img/media/%E6%95%A3%E5%88%97%E8%A1%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-03%20%E4%B8%8B%E5%8D%887.54.46.png" alt=""><br>装载因子越大，说明空闲位置越少，冲突越多，散列表的性能会下降。</p>
-<h3 id="链表法"><a href="#链表法" class="headerlink" title="链表法"></a>链表法</h3><p><img src="/img/media/%E6%95%A3%E5%88%97%E8%A1%A8/a4b77d593e4cb76acb2b0689294ec17f.jpg" alt=""><br>当插入时，只需要通过散列函数计算出对应的散列槽位，将其插入到对应的链表中即可，所以插入的时间复杂度是O(1)。当查找，删除一个元素时，同样通过散列函数计算出对应的槽，这两个操作的时间复杂度与链表的长度k成正比。</p>
-<h2 id="word文档单词拼写检查"><a href="#word文档单词拼写检查" class="headerlink" title="word文档单词拼写检查"></a>word文档单词拼写检查</h2><p>常用的英文单词有20万个左右，假设单词的平均长度是10个字母，平均一个单词占用10个字节的内存空间，那20万英文单词大约占2MB的存储空间，就算放大10倍也就是20MB。对于现在的计算机来说，这个大小完全可以放在内存里面。所以我们可以用散列表来存储整个英文单词词典。</p>
-<p>当用户输入某个英文单词时，我们拿用户输入的单词去散列表中查找。如果查到，则说明拼写正确;如果没有查到，则说明拼写可能有误，给予提示。借助散列表这种数据结构，我们就可以轻松实现快速判断是否存在拼写错误。</p>
-<h1 id="工业级水平的散列表"><a href="#工业级水平的散列表" class="headerlink" title="工业级水平的散列表"></a>工业级水平的散列表</h1><p>散列表的查询效率不能笼统地说成是O(1)，跟散列函数、装载因子、散列冲突都有关系，如果散列函数设计不好，或装载因子过高，都可能导致散列冲突发生概率升高，查询效率下降。极端情况下，一些恶意攻击者可能通过精心构造的数据使得所有数据经过散列函数之后都散列到同一个槽里，这时散列表就会退化为链表，查询时间复杂度从O(1)退化到O(n)。</p>
-<p>如果散列表中有10万个数据，退化后的散列表查询的效率就下降了10 万倍。更直接点说，如果之前运行100次查询只需要0.1秒，那现在就需要1万秒。这样就有可能因为查询操作消耗大量CPU或者线程资源，导致系统无法响应其他请求，从而达到拒绝服务攻击(DoS) 的目的。这也就是<strong>散列表碰撞攻击</strong>的基本原理。</p>
-<h2 id="如何设计散列函数？"><a href="#如何设计散列函数？" class="headerlink" title="如何设计散列函数？"></a>如何设计散列函数？</h2><p>散列函数设计的好坏，决定了散列表冲突的概率大小，也直接决定了散列表的性能。</p>
-<p>首先，<strong>散列函数的设计不能太复杂。</strong>过于复杂的散列函数，势必会消耗很多计算时间，也就间接的影响散列表的性能。</p>
-<p>其次，<strong>散列函数生成的值要尽可能随机并且均匀分布</strong>，这样才能避免或者最小化散列冲突，即便出现冲突，散列到每个槽里的数据也会比较平均，不会出现某个槽内数据特别多的情况。</p>
-<p>还需要综合考虑各种因素，包括关键字的长度，特点，分布、还有散列表的大小等。</p>
-<p>第一个例子就是学生运动会的例子,通过分析参赛编号的特征，把编号中的后两位作为散列值。还可以用类似的散列函数处理手机号码，因为手机号码前几位重复的可能性很大，但是后面几位就比较随机，可以取手机号的后四位作为散列值。这种散列函数的设计方法，一般叫作“<strong>数据分析法</strong>”。</p>
-<p>第二个例子是Word拼写检查功能，可以将单词中每个字母的ASCII码值进位相加，然后再跟散列表的大小求余，取模，作为散列值。</p>
-<h2 id="装载因子过大怎么办"><a href="#装载因子过大怎么办" class="headerlink" title="装载因子过大怎么办"></a>装载因子过大怎么办</h2><p>对于没有频繁插入和删除的静态数据集合来说，我们很容易根据数据的特点、分布等，设计出完美的、极少冲突的散列函数，因为毕竟之前数据都是已知的。对于动态散列表来说，数据集合是频繁变动的，事先无法预估将要加入的数据个数，所以也无法事先申请一个足够大的散列表。随着数据慢慢加入，装载因子就会慢慢变大。当装载因子大到一定程度之后，散列冲突就会变得不可接受。</p>
-<p>针对散列表，当装载因子过大时，也可以进行动态扩容，重新申请一个更大的散列表， 将数据搬移到这个新散列表中。假设每次扩容都申请一个原来散列表大小两倍的空间。如果原来散列表的装载因子是0.8，那经过扩容之后，新散列表的装载因子就下降为原来的一半，变成了0.4。针对数组的扩容，数据搬移操作比较简单。但是，针对散列表的扩容，数据搬移操作要复杂很多。因为散列表的大小变了，数据的存储位置也变了，所以需要通过散列函数重新计算每个数据的存储位置。<br><img src="/img/media/%E6%95%A3%E5%88%97%E8%A1%A8/67d12e07a7d673a9c1d14354ad029443.jpg" alt=""><br>插入一个数据，最好情况下，不需要扩容，最好时间复杂度是O(1)。最坏情况下，散列表装载因子过高，启动扩容，需要重新申请内存空间，重新计算哈希位置，并且搬移数据,所以时间复杂度是O(n)。用摊还分析法，均摊情况下，时间复杂度接近最好情况，就是O(1)。</p>
-<p>对于动态散列表，随着数据的删除，散列表中的数据会越来越少，空间会越来越多。如果对空间消耗敏感，可以在装载因子小于某个值后，启动动态缩容，如果更加在意执行效率，能容忍多消耗一点内存空间，就不用费劲缩容。<br>装载因子阈值需要选择得当，如果太大，会导致冲突过多，如果太小，会导致内存浪费严重。</p>
-<h2 id="如何避免低效地扩容？"><a href="#如何避免低效地扩容？" class="headerlink" title="如何避免低效地扩容？"></a>如何避免低效地扩容？</h2><p>在特殊情况下，当装载因子已经到达阈值，需要先进行扩容，再插入数据。这个时候，插入数据就会变得很慢，甚至会无法接受。</p>
-<p>极端如当散列表大小为1GB，想要扩容为原来的两倍大小，就要对1GB的数据重新计算哈希值，并且从原来的散列表搬移到新的散列表，十分耗时，一次搬移就会造成用户等待过久。</p>
-<p>为了解决一次性扩容耗时过久，可以将扩容操作穿插在插入操作的过程中，分批完成。当装载因子触达阈值之后，只申请新空间，但并不将老的数据搬移到新散列表。</p>
-<p>当有新数据要插入时，将新数据插入到新散列表中，并且从老的散列表中拿出一个数据放入到新散列表。每次插入一个数据到散列表，都重复操作。经过多次插入操作之后，老的散列表中的数据就一点一点搬移到新散列表中了。这样没有集中的一次性数据搬移，插入操作就都变得很快了。<br><img src="/img/media/%E6%95%A3%E5%88%97%E8%A1%A8/6d6736f986ec4b75dabc5472965fb9cb.jpg" alt=""><br>对于查询操作，先从新散列表中查找，如果没有找到，再去老的散列表查找。</p>
-<p>通过这样的均摊方法，将一次性扩容的代价，均摊到多次插入操作，避免了一次性扩容耗时过多。任何情况下，插入一个数据的时间复杂度都是O(1)。</p>
-<h2 id="如何选择冲突解决方法？"><a href="#如何选择冲突解决方法？" class="headerlink" title="如何选择冲突解决方法？"></a>如何选择冲突解决方法？</h2><p>Java中LinkedHashMap采用链表法解决冲突，ThreadLocalMap是通过线性探测的开放寻址法来解决冲突。</p>
-<h3 id="开放寻址法-1"><a href="#开放寻址法-1" class="headerlink" title="开放寻址法"></a>开放寻址法</h3><p><strong>优点</strong>：<br>开放寻址法不像链表法,需要拉很多链表。散列表中的数据都存储在数组中,可以有效地利用CPU缓存加快查询速度。而且,这种方法实现的散列表,序列化起来比较简单。链表法包含指针,序列化起来就没那么容易。</p>
-<p><strong>缺点</strong>：用开放寻址法解决冲突的散列表，删除数据的时候比较麻烦，需要特殊标记已经删除掉的数据。而且，在开放寻址法中，所有的数据都存储在一个数组中， 比起链表法来说，冲突的代价更高。所以，使用开放寻址法解决冲突的散列表，装载因子的上限不能太大。这也导致这种方法比链表法更浪费内存空间。</p>
-<p><strong>总结</strong>：<strong>当数据量较小，装载因子小时，适合采用开放寻址法。</strong></p>
-<h3 id="链表法-1"><a href="#链表法-1" class="headerlink" title="链表法"></a>链表法</h3><p>因为链表节点可以在需要时再创建，并不需要事先申请好，所以链表法对内存的利用率比开放寻址法要高。</p>
-<p>链表法对比开放寻址法对大装载因子容忍度更高。开放寻址法只适用于装载因子小于1的情况。接近1时，就可能会有大量的散列冲突。对于链表法，也只是链表长度变长了，虽然查找效率有所下降，但是比顺序查找快很多。</p>
-<p>由于链表中的节点时零散分布在内存中不是连续的，所以对CPU缓存是不友好的，对于执行效率有一定的影响。</p>
-<p>对链表法稍加改造就可以实现一个更加高效的散列表。将链表改造成其他高效的动态数据结构，即便出现散列冲突，极端情况下，所有数据都散列到一个桶内，最终退化的散列表查找时间也不过是O(logn)。就有效避免了散列碰撞攻击。<br><img src="/img/media/%E6%95%A3%E5%88%97%E8%A1%A8/103b84d7173277c5565607b413c40129.jpg" alt=""><br><strong>总结</strong>：<strong>基于链表的散列冲突处理方法比较适合存储大对象、大数据量的散列表，而且，比起开放寻址法，它更加灵活，支持更多的优化策略，比如用红黑树代替链表。</strong></p>
-<h2 id="工业级散列表举例"><a href="#工业级散列表举例" class="headerlink" title="工业级散列表举例"></a>工业级散列表举例</h2><p>Java中的HashMap。</p>
-<h3 id="初始大小"><a href="#初始大小" class="headerlink" title="初始大小"></a>初始大小</h3><p>HashMap默认的初始大小是16,当然这个默认值是可以设置的，如果事先知道大概的数据量有多大，可以通过修改默认初始大小，减少动态扩容的次数，这样会大大提高HashMap的性能。</p>
-<h3 id="装载因子和动态扩容"><a href="#装载因子和动态扩容" class="headerlink" title="装载因子和动态扩容"></a>装载因子和动态扩容</h3><p>最大装载因子默认是0.75，当HashMap中元素个数超过0.75*capacity (capacity 表示散列表的容量)的时候，就会启动扩容，每次扩容都会扩容为原来的两倍大小。</p>
-<h3 id="散列冲突解决方法"><a href="#散列冲突解决方法" class="headerlink" title="散列冲突解决方法"></a>散列冲突解决方法</h3><p>HashMap底层采用链表法来解决冲突。即使负载因子和散列函数设计得再合理，也免不了会出现拉链过长的情况，- -旦出现拉链过长,则会严重影响HashMap的性能。</p>
-<p>在JDK1.8版本中，为了对HashMap做进一步优化， 引入了红黑树。而当链表长度太长(默认超过8)时，链表就转换为红黑树。可以利用红黑树快速增删改查的特点，提高HashMap的性能。当红黑树结点个数少于8个的时候，又会将红黑树转化为链表。因为在数据量较小的情况下，红黑树要维护平衡，比起链表来，性能上的优势并不明显。</p>
-<h3 id="散列函数-1"><a href="#散列函数-1" class="headerlink" title="散列函数"></a>散列函数</h3><p>散列函数设计的并不复杂，追求的是简单高效，分布均匀。<br><img src="/img/media/%E6%95%A3%E5%88%97%E8%A1%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-04%20%E4%B8%8B%E5%8D%889.59.50.png" alt=""></p>
-<h1 id="散列表与链表"><a href="#散列表与链表" class="headerlink" title="散列表与链表"></a>散列表与链表</h1><p>散列表与链表经常放在一起使用。</p>
-<h2 id="LRU缓存淘汰算法"><a href="#LRU缓存淘汰算法" class="headerlink" title="LRU缓存淘汰算法"></a>LRU缓存淘汰算法</h2><p>缓存系统包括三个操作：添加（先要查找是否存在），删除，查找数据。都需要进行查找操作。只使用链表，时间复杂度是O(n)，散列表+链表，时间复杂度O(1)。<br><img src="/img/media/%E6%95%A3%E5%88%97%E8%A1%A8/eaefd5f4028cc7d4cfbb56b24ce8ae6e.jpg" alt=""><br><strong>查找：</strong>散列表中查找数据的时间复杂度接近O(1)。通过散列表，可以很快地在缓存中找到一个数据，当找到后还需要将它移动到双向链表的尾部。</p>
-<p><strong>删除：</strong>需要找到数据所在结点，将结点删除。借助散列表，可以在O(1)时间内找到要删除的节点。因为链表是双向链表，删除结点只需要O(1)时间复杂度。</p>
-<p><strong>添加</strong>：添加到缓存稍微有点麻烦，需要先看是否在缓存中，如果已经在其中，需要将其移动到双向链表的尾部，如果不在，就要看缓存有没有满，如果满了，则将双向链表头部结点删除，然后再将数据放到链表尾部。如果没有满就直接将数据放到链表的尾部。</p>
-<h2 id="Redis有序集合"><a href="#Redis有序集合" class="headerlink" title="Redis有序集合"></a>Redis有序集合</h2><p>Redis有序集合的操作就是下面这些：<br>1.添加一个成员对象。<br>2.按照键值来删除一个成员对象。<br>3.按照键值来查找一个成员对象。<br>4.按照分值区间查找数据，比如查找在[100,356]之间的成员对象。<br>5.按照分值从小到大排序成员变量。</p>
-<p>如果只采用跳表，按key来删除，查询就会很慢。可以再按照键值构建一个散列表，这样按照key来删除，查找一个成员对象的时间复杂度就变成了O(1)。</p>
-<h2 id="Java-LinkedHashMap"><a href="#Java-LinkedHashMap" class="headerlink" title="Java LinkedHashMap"></a>Java LinkedHashMap</h2><p>Linked并不仅仅代表它是通过链表法解决散列冲突的。<br><img src="/img/media/%E6%95%A3%E5%88%97%E8%A1%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-05%20%E4%B8%8B%E5%8D%888.01.43.png" alt=""><br>这段代码的打印结果是1，2，3，5.<br>每次调用put函数添加数据时，都会将数据添加到尾部。<br><img src="/img/media/%E6%95%A3%E5%88%97%E8%A1%A8/17ac41d9dac454e454dcb289100bf198.jpg" alt=""><br>插入key=3时，已存在，将原来的删除，并将新的放在尾部。<br><img src="/img/media/%E6%95%A3%E5%88%97%E8%A1%A8/fe313ed327bcf234c73ba738d975b18c.jpg" alt=""><br>当访问key为5时，将被访问的数据移动到链表的尾部。<br><img src="/img/media/%E6%95%A3%E5%88%97%E8%A1%A8/b5e07bb34d532d46d127f4fcc4b78f11.jpg" alt=""><br>可以发现与LRU缓存策略一模一样。<br><strong>LinkedHashMap是通过双向链表和散列表组合的，Linked实际是指双向链表。</strong></p>
-<h1 id="散列表和链表"><a href="#散列表和链表" class="headerlink" title="散列表和链表"></a>散列表和链表</h1><p>为什么散列表和链表经常一块使用?</p>
-<p>散列表这种数据结构虽然支持非常高效的数据插入、删除、查找操作，但是散列表中的数据都是通过散列函数打乱之后无规律存储的。也就说，它无法支持按照某种顺序快速地遍历数据。如果希望按照顺序遍历散列表中的数据，那我们需要将散列表中的数据拷贝到数组中，然后排序，再遍历。</p>
-<p>因为散列表是动态数据结构，不停地有数据的插入、删除，所以每当我们希望按顺序遍历散列表中的数据的时候，都需要先排序，那效率势必会很低。为了解决这个问题，我们将散列表和链表(或者跳表)结合在一起使用。</p>
-
-          
-        
-      
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
     </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2019/05/31/跳表/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZDK"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZDK's blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+    <div class="bottom">
+        <p><span>ZDK &copy; 2017 - 2019</span>
+            <span>
                 
-                
-                <a href="/2019/05/31/跳表/" class="post-title-link" itemprop="url">跳表</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-05-31 20:56:47 / 修改时间：20:56:36" itemprop="dateCreated datePublished" datetime="2019-05-31T20:56:47+08:00">2019-05-31</time>
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
             </span>
-          
-
-          
-            
-
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/知识总结/" itemprop="url" rel="index"><span itemprop="name">知识总结</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/05/31/跳表/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/31/跳表/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2019/05/31/跳表/" class="post-meta-item leancloud_visitors" data-flag-title="跳表">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="跳表"><a href="#跳表" class="headerlink" title="跳表"></a>跳表</h1><p>二分查找是依赖数组随机访问的特性。如果数据是存储在链表中，则要对链表进行改造，支持类似二分的查找算法。改造后的数据结构叫做<strong>跳表</strong>。</p>
-<p>跳表是一种各方面性能都比较优秀的<strong>动态数据结构</strong>。可以支持快速的插入删除查找，甚至可以替代红黑树。</p>
-<p>Redis中的有序集合(Sorted Set)就是用跳表来实现的。</p>
-<h2 id="如何理解"><a href="#如何理解" class="headerlink" title="如何理解"></a>如何理解</h2><p>对于单链表查找数据只能从头到尾遍历，O(n)。<br><img src="/img/media/%E8%B7%B3%E8%A1%A8/14753c824a5ee4a976ea799727adc78e.jpg" alt=""><br>加上一层索引之后，查找一个结点需要遍历的结点数减少了，也就是查找效率提高了。<br><img src="/img/media/%E8%B7%B3%E8%A1%A8/492206afe5e2fef9f683c7cff83afa65.jpg" alt=""><br><img src="/img/media/%E8%B7%B3%E8%A1%A8/46d283cd82c987153b3fe0c76dfba8a9.jpg" alt=""><br>当链表的长度比较大时，在构建索引之后，查找效率的提升就会非常明显。</p>
-<p><strong>这种链表加多级索引的结构就是跳表。</strong></p>
-<h2 id="用跳表查询到底有多快"><a href="#用跳表查询到底有多快" class="headerlink" title="用跳表查询到底有多快"></a>用跳表查询到底有多快</h2><p>O(logn)</p>
-<h2 id="跳表是不是很浪费内存？"><a href="#跳表是不是很浪费内存？" class="headerlink" title="跳表是不是很浪费内存？"></a>跳表是不是很浪费内存？</h2><p>等比数列求和。空间复杂度还是O(n)。<br>在实际的软件开发中，原始链表存储的可能是很大的对象，索引结点只需要存储关键值和几个指针，并不需要存储对象，所以当对象比索引节点大很多时，索引占用的额外空间就可以忽略了。</p>
-<h2 id="高效的动态插入和删除"><a href="#高效的动态插入和删除" class="headerlink" title="高效的动态插入和删除"></a>高效的动态插入和删除</h2><p><img src="/img/media/%E8%B7%B3%E8%A1%A8/65379f0651bc3a7cfd13ab8694c4d26c.jpg" alt=""><br>插入操作时间复杂度也是O(logn)。先要查找要插入的位置，再插入结点。<br>删除操作是，如果这个结点在索引中也有出现，除了删除原始链表汇总的结点，还要删除索引中的。在查找要删除的结点的时候，一定要获取前驱结点。如果使用的是双向链表，就不用考虑这个问题。</p>
-<h2 id="跳表索引动态更新"><a href="#跳表索引动态更新" class="headerlink" title="跳表索引动态更新"></a>跳表索引动态更新</h2><p><img src="/img/media/%E8%B7%B3%E8%A1%A8/c863074c01c26538cf0134eaf8dc67c5.jpg" alt=""><br>如果不停插入数据而不更新索引，就有可能出现某两个索引节点之间数据非常多的情况，极端情况下，跳表会退化为单链表。</p>
-<p>可以通过<strong>随机函数</strong>来维护平衡性。<br><img src="/img/media/%E8%B7%B3%E8%A1%A8/a861445d0b53fc842f38919365b004a7.jpg" alt=""><br>随机函数生成了值K，那么久将这个结点添加到第一级到第K级这K级索引中。</p>
-<p>Redis有序集合支持的核心操作包括：（1）插入（2）删除（3）查找（4）按照区间查找数据（5）迭代输出有序序列</p>
-<p>其中,插入、删除、查找以及迭代输岀有序序列这几个操作,红黑树也可以完成,时间复杂度跟跳表是一样的。但是,按照区间来查找数据这个操作,红黑树的效率没有跳表高。</p>
-
-          
-        
-      
+        </p>
     </div>
+    <span id="busuanzi_container_site_uv">
+        本站访客数<span id="busuanzi_value_site_uv"></span>人次
+      </span>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+</footer>
 
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2019/05/30/Spring实战  Spring核心/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZDK"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZDK's blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/05/30/Spring实战  Spring核心/" class="post-title-link" itemprop="url">Spring实战  Spring核心</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-05-30 20:07:47 / 修改时间：20:10:44" itemprop="dateCreated datePublished" datetime="2019-05-30T20:07:47+08:00">2019-05-30</time>
-            </span>
-          
-
-          
-            
-
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/读书笔记/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/05/30/Spring实战  Spring核心/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/30/Spring实战  Spring核心/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2019/05/30/Spring实战  Spring核心/" class="post-meta-item leancloud_visitors" data-flag-title="Spring实战  Spring核心">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="简要概念"><a href="#简要概念" class="headerlink" title="简要概念"></a>简要概念</h1><p> <strong>依赖注入</strong><br>方式1：构造器注入。</p>
-<p>创建应用组件之间协作行为通常称为<strong>装配(wiring)</strong>。<br>可以用xml或java实现。</p>
-<p>Spring通过<strong>应用上下文(Application Context)</strong>装载bean的定义并把它们组装起来。Spring应用上下文全权负责对象的创建和组装。Spring自带了多种应用上下文的实现，它们之间主要的区别仅仅在于如何加载配置。</p>
-<p>对于XML使用CLassPathXMLApplication，对于Java配置，使用AnnotationConfigApplicationContext。</p>
-<hr>
-<p> <strong>应用切面</strong><br>DI能够让相互协作的软件组件保持松散耦合，而面向切面编程（AOP）允许你把遍布应用各处的功能分离出来形成可重用的组件。</p>
-<p>可以把切面想象为覆盖在很多组件上的一个外壳。应用是由那些实现各自业务功能的模块组成的。</p>
-<p>可以在xml中将某个bean声明为一个切面。</p>
-<hr>
-<p><strong>使用模板消除样板式代码</strong><br>比如jdbcTemplate。</p>
-<hr>
-<p><strong>容纳Bean</strong><br>在基于Spring的应用中，应用对象生存于Spring容器(container)中。Spring容器负责创建对象，装配它们，配置它们并管理它们的整个生命周期，从生存到死亡。</p>
-<p>容器是 Spring框架的核心。 Spring容器使用DI管理构成应用的组件,它会创建<br>相互协作的组件之间的关联。毫无疑问,这些对象更简单干净,更易于理解,更易于重用并且更易于进行单元测试。</p>
-<p>spring自带了多种容器实现，归为两种类型，bean工厂与应用上下文。bean工厂对于大多数应用来说往往太低级，因此，应用上下文要比bean工厂更受欢迎。</p>
-<hr>
-<p><strong>使用应用上下文</strong><br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-27%20%E4%B8%8B%E5%8D%884.24.26.png" alt=""><br>无论是从文件系统中装载应用上下文还是从类路径下装载应用上下文，将bean加载到bean工厂的过程都是相似的。区别在于前者在指定的文件系统路径下查找xml文件，后者是在所有的类路径(包括JAR文件)下查找xml文件。AnnotationConfigApplicationContext通过一个配置类加载bean。<br>应用上下文准备就绪之后，就可以调用上下文的getBean()方法从Spring容器中获取bean。</p>
-<hr>
-<p><strong>bean的生命周期</strong><br>在传统的Java应用中,bean的生命周期很简单。使用Java关键字new进行bean实例化，然后该bean就可以使用了。一旦该bean不再被使用，则由Java自动进行垃圾回收。相比之下，Spring容器中的bean的生命周期就显得相对复杂多了。<br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-27%20%E4%B8%8B%E5%8D%884.34.56.png" alt=""></p>
-<hr>
-<p><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-27%20%E4%B8%8B%E5%8D%885.52.13.png" alt=""><br><strong>Spring核心容器</strong><br>容器是Spring框架最核心的部分，它管理着Spring 应用中bean的创建、配置和管理。在该模块中，包括了Spring bean 工厂，它为Spring提供了DI的功能。基于bean工厂，我们还会发现有多种Spring应用上下文的实现，每一种都提供了配置Spring的不同方式。所有的Spring模块都构建于核心容器之上，当配置应用时，其实隐式地使用了这些类。</p>
-<p><strong>Spring的AOP模块</strong><br>在AOP模块中，Spring 对面向切面编程提供了丰富的支持。这个模块是Spring 应用系统中开发切面的基础。与DI一样, AOP可以帮助应用对象解耦。借助于AOP，可以将遍布系统的关注点(例如事务和安全)从它们所应用的对象中解耦出来。</p>
-<h1 id="装配Bean"><a href="#装配Bean" class="headerlink" title="装配Bean"></a>装配Bean</h1><p>在Spring中，对象无需自己查找或创建与其所关联的其他对象。容器负责把需要相互协作的对象引用赋予各个对象。创建应用对象之间协作关系的行为称为装配，也是依赖注入的本质。</p>
-<h2 id="Spring配置的可选方案"><a href="#Spring配置的可选方案" class="headerlink" title="Spring配置的可选方案"></a>Spring配置的可选方案</h2><p>Spring提供三种主要的装配机制：</p>
-<ol>
-<li>在XML中进行显式配置；</li>
-<li>在java中进行显式配置；</li>
-<li>隐式地bean发现机制和自动装配。</li>
-</ol>
-<p>作者建议尽可能地使用自动配置机制，显式配置越少越好，当必须要显式配置bean时，推荐使用类型安全并且比XML更加强大的JavaConfig。最后，只有想使用便利的XML命名空间，并且在JavaConfig中没有同样的实现时，才应该使用XML。</p>
-<h2 id="自动化装配bean"><a href="#自动化装配bean" class="headerlink" title="自动化装配bean"></a>自动化装配bean</h2><p>Spring从两个角度来实现自动化装配：</p>
-<ol>
-<li>组件扫描(component scanning):Spring会自动发现应用上下文中所创建的bean。</li>
-<li>自动装配(autowiring):Spring自动满足bean之间的依赖。</li>
-</ol>
-<p>组件扫描和自动装配组合在一起就能发挥出强大的威力，能够将显式配置降低到最少。</p>
-<h3 id="创建可被发现的bean"><a href="#创建可被发现的bean" class="headerlink" title="创建可被发现的bean"></a>创建可被发现的bean</h3><p><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-27%20%E4%B8%8B%E5%8D%886.54.58.png" alt=""><br><strong>@Component</strong>注解表明该类会作为组件类，并告知Spring要为这个类创建bean。</p>
-<p>不过组件扫描默认是不启用的，还需要显式配置一下Spring，从而命令它去寻找带有@Component注解的类，并为其创建bean。<br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-27%20%E4%B8%8B%E5%8D%887.19.38.png" alt=""><br><strong>@ComponentScan</strong>注解可以在Spring中启用组件扫描。如果没有其他配置的话，@ComponentScan默认会扫描与配置类相同的包，Spring将会扫描这个包以及包下的所有子包，查找带有@Component注解的类并且在Spring中自动为其创建一个bean。</p>
-<p>还可以使用XML来启动组件扫描。<br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-27%20%E4%B8%8B%E5%8D%887.27.13.png" alt=""><br>还是基于Java的配置用的多，喜好问题。</p>
-<p>一个实例：<br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-27%20%E4%B8%8B%E5%8D%887.31.55.png" alt=""><br><strong>@ContextConfiguration</strong>注解说明需要在CDPlayerConfig中加载配置。因为CDPlayerConfig类中包括了<strong>@ComponentScan</strong>,所有带有@Component注解的类都会创建为bean。</p>
-<h3 id="为组件扫描的bean命名"><a href="#为组件扫描的bean命名" class="headerlink" title="为组件扫描的bean命名"></a>为组件扫描的bean命名</h3><p>Spring应用上下文中所有的bean都会给定一个ID，就是将类名的第一个字母变为小写。也可以使用@Component为bean设置不同的ID。<br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-27%20%E4%B8%8B%E5%8D%887.52.23.png" alt=""></p>
-<h3 id="设置组件扫描的基础包"><a href="#设置组件扫描的基础包" class="headerlink" title="设置组件扫描的基础包"></a>设置组件扫描的基础包</h3><p>默认扫描的是配置类所在的包作为基础包(base package)来扫描组件。<br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-27%20%E4%B8%8B%E5%8D%887.59.56.png" alt=""><br>可以指定多个包，扫描多个包。但是basePackages有一个问题是其是字符串，所以当包不存在时IDE也不会第一时间报错。可以设置basePackageClasses,设置数组中包含了类，这些类所在的包将会作为组件扫描的基础包。<br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-27%20%E4%B8%8B%E5%8D%888.05.37.png" alt=""></p>
-<h3 id="通过为bean添加注解实现自动装配"><a href="#通过为bean添加注解实现自动装配" class="headerlink" title="通过为bean添加注解实现自动装配"></a>通过为bean添加注解实现自动装配</h3><p>自动装配就是让Spring自动满足bean依赖的一种方法，在满足依赖的过程中，会在Spring应用上下文中寻找匹配某个bean需求的其他bean。可以借助<strong>@Autowired</strong>注解进行自动装配。<br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-27%20%E4%B8%8B%E5%8D%888.58.45.png" alt=""><br><strong>@Autowired</strong>注解不仅能够用在构造器上，还能用在属性的Setter方法上。如：<br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-27%20%E4%B8%8B%E5%8D%889.01.32.png" alt=""><br>在Spring初始化bean之后，会尽可能去满足bean的依赖。不管是构造器，Setter还是其他的方法，Spring都会尝试满足方法参数上所声明的依赖，假设有且只有一个bean匹配依赖的话，那么这个bean将会被装配进来，如果没有匹配的bean，那么在应用上下文创建时，Spring会抛出一个异常，也可以将@Autowired的required属性设置为false避免抛异常，当设置为false时，Spring会尝试执行自动装配，但是如果没有匹配的bean的话，Spring将会让这个bean处于未装配的状态，此时需要谨慎对待这个bean，如果代码没有进行null检查的话，这个处于未装配的属性有可能会出现NullPointerException。</p>
-<p>如果有多个bean都能满足依赖关系的话，Spring将会抛出一个异常，表明没有明确指定要选择哪个bean进行自动装配。</p>
-<p>@Autowired是Spring特有的注解。如果你不愿意在代码中到处使用Spring的特定注解来完成自动装配任务的话，可以考虑将其替换为@Inject。<br>@Inject注解来源于Java依赖注入规范，该规范同时还定义了@Named注解。在自动装配中，Spring 同时支持@Inject和@Autowired. 尽管@Inject和@Autowired之间有着一些细微的差别, 但是在大多数场景下，它们都是可以互相替换的。</p>
-<h2 id="通过Java代码装配bean"><a href="#通过Java代码装配bean" class="headerlink" title="通过Java代码装配bean"></a>通过Java代码装配bean</h2><p>尽管在很多场景下通过组件扫描和自动装配实现Spring的自动化配置是更为推荐的方式，但有时候自动化配置的方案行不通，因此需要明确配置Spring。比如说，想要将第三方库中的组件装配到应用中，在这种情况下，是没有办法在它的类上添加@Component和@Autowired注解的，因此就不能使用自动化装配的方案了。</p>
-<p>此时就需要采用显示装配的方式，分为Java和XML。在进行显式配置时，JavaConfig是更好的方案，因为其更为强大、类型安全并且对重构友好。因为它就是Java代码，就像应用程序中的其他Java代码一样。同时JavaConfig与其他的Java代码又有所区别，JavaConfig是配置代码，这意味着它不应该包含任何业务逻辑，JavaConfig也不应该侵入到业务逻辑代码之中，通常会将JavaConfig放到单独的包中，使它与其他的应用程序逻辑分离开。</p>
-<h3 id="创建配置类"><a href="#创建配置类" class="headerlink" title="创建配置类"></a>创建配置类</h3><p>创建JavaConfig类的关键在于为其添加<strong>@Configuration</strong>注解，<strong>@Configuration</strong>注解表明这个类是一个配置类, 该类应该包含在Spring应用上下文中如何创建bean的细节。对于显式配置，将@ConponentScan注解移除。此时那些bean不会被发现，配置类也没有作用了。</p>
-<h3 id="声明简单的bean"><a href="#声明简单的bean" class="headerlink" title="声明简单的bean"></a>声明简单的bean</h3><p>要在JavaConfig中声明bean，需要编写一个方法，这个方法会创建所需类型的实例，然后给这个方法添加@Bean注解。<br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-28%20%E4%B8%8A%E5%8D%889.29.24.png" alt=""><br><strong>@Bean</strong>注解告诉Spring方法返回一个对象，该对象要注册为Spring应用上下文中的bean。方法体中包含了最终产生bean实例的逻辑。</p>
-<h3 id="借助JavaConfig实现注入"><a href="#借助JavaConfig实现注入" class="headerlink" title="借助JavaConfig实现注入"></a>借助JavaConfig实现注入</h3><p>在JavaConfig中装配bean的最简单方式就是引用创建bean的方法。<br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-28%20%E4%B8%8A%E5%8D%889.33.36.png" alt=""><br>通过调用方法来引用bean令人困惑，还有一种理解起来更为简单的方式：<br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-28%20%E4%B8%8A%E5%8D%889.36.13.png" alt=""><br>这里使用构造器实现了DI功能，但是完全可以使用其他风格的DI配置，比如可以通过Setter方法注入：<br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-28%20%E4%B8%8A%E5%8D%8810.04.55.png" alt=""><br>带有@Bean注解的方法可以采用任何必要的Java功能来产生bean实例。构造器和Setter方法只是@Bean方法的两个简单样例。</p>
-<h2 id="通过XML装配bean"><a href="#通过XML装配bean" class="headerlink" title="通过XML装配bean"></a>通过XML装配bean</h2><p>在装配bean时还可以选择XML，现在已经不太合乎大家的心意了，但是在Spring中已经有很长的历史了。</p>
-<h3 id="创建XML配置规范"><a href="#创建XML配置规范" class="headerlink" title="创建XML配置规范"></a>创建XML配置规范</h3><p>在XML配置中，意味着要创建一个XML文件。并且要以<beans>元素为根。<br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-28%20%E4%B8%8A%E5%8D%8810.10.01.png" alt=""></beans></p>
-<h3 id="声明一个简单的"><a href="#声明一个简单的" class="headerlink" title="声明一个简单的"></a>声明一个简单的<bean></bean></h3><p><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-28%20%E4%B8%8A%E5%8D%8810.16.41.png" alt=""></p>
-<h3 id="借助构造器注入初始化bean"><a href="#借助构造器注入初始化bean" class="headerlink" title="借助构造器注入初始化bean"></a>借助构造器注入初始化bean</h3><p><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-28%20%E4%B8%8A%E5%8D%8810.18.49.png" alt=""></p>
-<h2 id="导入和混合配置"><a href="#导入和混合配置" class="headerlink" title="导入和混合配置"></a>导入和混合配置</h2><p>关于混合配置，首先不要在意装配的bean来自哪里，自动装配会考虑到Spring容器中所有bean，不管是在JavaConfig或XML中声明还是组件扫描获得的。</p>
-<h3 id="在JavaConfig中引用XML配置"><a href="#在JavaConfig中引用XML配置" class="headerlink" title="在JavaConfig中引用XML配置"></a>在JavaConfig中引用XML配置</h3><p>可以有一个更高级别的配置类，在类中使用<strong>@Import</strong>将两个配置类组合在一起：<br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-28%20%E4%B8%8A%E5%8D%8810.58.39.png" alt=""><br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-28%20%E4%B8%8A%E5%8D%8810.57.18.png" alt=""><br>假如配置在了XML中，则Spring可以使用<strong>@ImportResource</strong>注解加载。<br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-28%20%E4%B8%8A%E5%8D%8811.00.06.png" alt=""><br>两个bean，配置在JavaConfig中以及配置在XML中都会被加载到Spring容器中。</p>
-<h3 id="在XML配置中引入JavaConfig"><a href="#在XML配置中引入JavaConfig" class="headerlink" title="在XML配置中引入JavaConfig"></a>在XML配置中引入JavaConfig</h3><p><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-28%20%E4%B8%8B%E5%8D%881.41.08.png" alt=""></p>
-<p>不管使用JavaConfig还是使用XML进行装配，通常都会创建一个根配置(root configuration)，这个配置会将两个或更多的装配类和或XML文件组合起来。也会在根配置中启用组件扫描(通过<a href="context:component-scan" target="_blank" rel="noopener">context:component-scan</a>或@ComponentScan)。</p>
-<h1 id="高级装配"><a href="#高级装配" class="headerlink" title="高级装配"></a>高级装配</h1><h2 id="环境与profile"><a href="#环境与profile" class="headerlink" title="环境与profile"></a>环境与profile</h2><h3 id="配置profile-bean"><a href="#配置profile-bean" class="headerlink" title="配置profile bean"></a>配置profile bean</h3><p>要使用profile，首先要讲所有不同的bean定义整理到一个或多个profile之中，将应用部署到每个环境时，要确保对应的profile处于激活(active)的状态。在Java配置中，可以使用<strong>@Profile</strong>注解指定某个bean属于哪个profile。<br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-28%20%E4%B8%8B%E5%8D%881.54.00.png" alt=""><br><strong>@Profile</strong>注解应用在了类级别上，它会告诉Spring这个配置类中的bean只有在dev profile激活时才会被创建，如果没有激活的话，那么带有@Bean注解的方法都会被忽略掉。</p>
-<h3 id="在XML中配置profile"><a href="#在XML中配置profile" class="headerlink" title="在XML中配置profile"></a>在XML中配置profile</h3><p><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-28%20%E4%B8%8B%E5%8D%882.01.04.png" alt=""></p>
-<h3 id="激活profile"><a href="#激活profile" class="headerlink" title="激活profile"></a>激活profile</h3><p>Spring在确定哪个profile处于激活状态时，需要依赖两个独立的属性:spring.profiles.active和spring.profiles.default. 如果设置了spring.profiles.active属性的话，那么它的值就会用来确定哪个profile 是激活的。但如果没有设置spring .profiles.active属性的话，那Spring 将会查找spring.profiles.default的值。如果spring.profiles.active 和spring.profiles.default均没有设置的话，那就没有激活的profile,因此只会创建那些没有定义在profile中的bean。</p>
-<p>有多种方式来设置这两个属性：<br>1.作为DispatcherServlet的初始化参数;<br>2.作为Web应用的上下文参数;<br>3.作为JNDI条目;<br>4.作为环境变量;<br>5.作为JVM的系统属性;<br>6.在集成测试类上，使用@ActiveProfiles注解设置。</p>
-<h2 id="条件化的bean"><a href="#条件化的bean" class="headerlink" title="条件化的bean"></a>条件化的bean</h2><p><strong>@Conditional</strong>注解可以用到带有@Bean注解的方法上，如果给定的条件计算结果为true，就会创建这个bean，否则，这个bean会被忽略。<br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-28%20%E4%B8%8B%E5%8D%882.12.53.png" alt=""><br>设置给<strong>@Conditional</strong>的类可以是任意实现了Condition接口的类型。这个接口实现起来很简单直接，只需提供matches()方法实现即可。如果matches()方法返回true，就会创建带有<strong>@Conditional</strong>注解的bean，返回false则不会创建这些bean。<br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-28%20%E4%B8%8B%E5%8D%883.10.34.png" alt=""><br>通过ConditionContext，可以做到：<br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-28%20%E4%B8%8B%E5%8D%883.15.34.png" alt=""></p>
-<p>AnnotatedTypeMetadata则能够让我们检查带有@Bean注解的方法还有其他什么注解。借助isAnnotated()方法，我们能够判断带有@Bean注解的方法是不是还有其他特定的注解。借助其他的那些方法,我们能够检查@Bean注解的方法上其他注解的属性。</p>
-<p>@Profile注解如下所示：<br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-28%20%E4%B8%8B%E5%8D%883.40.54.png" alt=""><br>@Profile本身也使用了@Conditional注解，并且在做出决策的过程中，考虑到了ConditionContext和AnnotatedTypeMetadata中的多个因素。</p>
-<h2 id="处理自动装配的歧义性"><a href="#处理自动装配的歧义性" class="headerlink" title="处理自动装配的歧义性"></a>处理自动装配的歧义性</h2><p>仅有一个bean匹配所需的结果时，自动装配才是有效的，如果不仅有一个bean能匹配结果的话，这种歧义性会阻碍Spring自动装配属性，构造器参数或方法参数。可以将可选bean中的某一个设为首选(primary)的bean，或者使用限定符(qualifier)来帮助Spring将可选的bean的范围缩小到只有一个bean。</p>
-<h3 id="标示首选的bean"><a href="#标示首选的bean" class="headerlink" title="标示首选的bean"></a>标示首选的bean</h3><p>使用<strong>@Primary</strong>注解<br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-28%20%E4%B8%8B%E5%8D%883.52.30.png" alt=""><br>如果是通过Java配置显式声明，应该如下：<br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-28%20%E4%B8%8B%E5%8D%883.54.49.png" alt=""><br>使用XML<br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-28%20%E4%B8%8B%E5%8D%884.12.33.png" alt=""></p>
-<h3 id="限定自动装配的bean"><a href="#限定自动装配的bean" class="headerlink" title="限定自动装配的bean"></a>限定自动装配的bean</h3><p>Spring的限定符能够在所有可选的bean上进行缩小范围的操作,最终能够达到只有一个bean满足所规定的限制条件。如果将所有的限定符都用上后依然存在歧义性,那么可以继续使用更多的限定符来缩小选择范围。</p>
-<p>@Qualifier注解是使用限定符的主要方式，它可以与<strong>@Autowired</strong>和<strong>@Inject</strong>协同使用，在注入时指定想要注入进去的是哪个bean。<br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-28%20%E4%B8%8B%E5%8D%884.42.01.png" alt=""><br>@Qualifier注解所设置的参数就是想要注入的bean的ID。</p>
-<h3 id="创建自定义的限定符"><a href="#创建自定义的限定符" class="headerlink" title="创建自定义的限定符"></a>创建自定义的限定符</h3><p>自己为bean设置自己的限定符。在bean声明上添加<strong>@Qualifier</strong>注解。<br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-28%20%E4%B8%8B%E5%8D%884.43.38.png" alt=""><br>在注入的地方，只要引用cold限定符就可以了。<br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-28%20%E4%B8%8B%E5%8D%884.46.51.png" alt=""><br>通过Java配置显式定义bean时，@Qualifier也可以与@Bean注解一起使用：<br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-28%20%E4%B8%8B%E5%8D%884.47.55.png" alt=""></p>
-<h3 id="使用自定义的限定符注解"><a href="#使用自定义的限定符注解" class="headerlink" title="使用自定义的限定符注解"></a>使用自定义的限定符注解</h3><p>比如自定义<strong>@Cold</strong>注解。<br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-28%20%E4%B8%8B%E5%8D%885.05.50.png" alt=""><br>在注入点使用必要的限定符注解进行任意组合，从而将可选范围缩小到只有一个bean满足需求。<br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-28%20%E4%B8%8B%E5%8D%885.07.05.png" alt=""><br>通过声明自定义的限定符注解，可以同时使用多个限定符。</p>
-<h2 id="bean的作用域"><a href="#bean的作用域" class="headerlink" title="bean的作用域"></a>bean的作用域</h2><p>在默认情况下，Spring 应用上下文中所有bean都是作为以单例(singleton) 的形式创建的。也就是说，不管给定的一个bean被注人到其他bean多少次，每次所注入的都是同一个实例。</p>
-<p>Spring定义了多种作用域，可以基于这些作用域创建bean，包括：<br>1.单例( Singleton):在整个应用中，只创建bean的一个实例。<br>2.原型( Prototype):每次注入或者通过Spring应用上下文获取的时候，都会创建一个新的bean实例。<br>3.会话(Session): 在Web应用中，为每个会话创建一个bean实例。<br>4.请求(Rquest):在Web应用中，为每个请求创建一个bean实例。</p>
-<p><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-28%20%E4%B8%8B%E5%8D%885.30.51.png" alt=""><br>这里使用ConfigurableBeanFactory类的SCOPE_ PROTOTYPE 常量设置了原型作用城。当然也可以使用@Scope (“prototype”),但是使用SCOPE_PROTOTYPE常量更加安全并且不易出错。</p>
-<p>java配置中声明为原型bean则使用：<br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-28%20%E4%B8%8B%E5%8D%885.44.32.png" alt=""></p>
-<p>XML配置bean，使用<bean>元素的scope属性。<br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-28%20%E4%B8%8B%E5%8D%885.46.25.png" alt=""></bean></p>
-<h3 id="使用会话和请求作用域"><a href="#使用会话和请求作用域" class="headerlink" title="使用会话和请求作用域"></a>使用会话和请求作用域</h3><p><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-28%20%E4%B8%8B%E5%8D%885.50.21.png" alt=""><br>就购物车bean而言，会话作用域是最为合适的。<br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-28%20%E4%B8%8B%E5%8D%886.00.34.png" alt=""><br><strong>proxyMode</strong>属性的配置表明这个代理要实现ShoppingCart接口，并将调用委托给实现bean。<br>如果ShoppingCart是接口而不是类的话，这是可以的(最为理想的代理模式)。但如果ShoppingCart是一个具体的类的话, Spring 就没有办法创建基于接口的代理了。此时，它必须使用CGLib来生成基于类的代理。所以，如果bean类型是具体类的话,我们必须要将proxyMode属性设置为ScopedProxyMode .TARGET_ CLASS,以此来表明要以生成目标类扩展的方式创建代理。</p>
-<h3 id="在XML中声明作用域代理"><a href="#在XML中声明作用域代理" class="headerlink" title="在XML中声明作用域代理"></a>在XML中声明作用域代理</h3><p><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-28%20%E4%B8%8B%E5%8D%886.11.47.png" alt=""><br><a href="aop:scoped-proxy" target="_blank" rel="noopener">aop:scoped-proxy</a>是与@Scope注解的proxyMode属性功能相同的SpringXML配置元素。它会告诉Spring为bean创建一个作用域代理。默认情况下，它会使用CGLib创建目标类的代理。但是我们也可以将proxy-target-class 属性设置为false,进而要求它生成基于接口的代理。</p>
-<h2 id="运行时值注入"><a href="#运行时值注入" class="headerlink" title="运行时值注入"></a>运行时值注入</h2><p>当讨论依赖注入的时候，我们通常所讨论的是将一个 bean引用注入到另一个bean的属性或构造器参数中。它通常来讲指的是将一个对象与另一个对象进行关联。</p>
-<p>bean装配的另外一个方面指的是将一个值注入到bean的属性或者构造器参数中。Spring提供了两种在运行时求值的方式：<br>1.属性占位符<br>2.Spring表达式语言(SpEL)</p>
-<h3 id="注入外部的值"><a href="#注入外部的值" class="headerlink" title="注入外部的值"></a>注入外部的值</h3><p>处理外部值的最简单方式就是声明属性源并通过Spring的Environment来检索属性。<br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-28%20%E4%B8%8B%E5%8D%886.55.34.png" alt=""><br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-28%20%E4%B8%8B%E5%8D%886.55.45.png" alt=""></p>
-<h3 id="解析属性占位符"><a href="#解析属性占位符" class="headerlink" title="解析属性占位符"></a>解析属性占位符</h3><p>Spring一直支持将属性定义到外部的属性的文件中，并使用占位符值将其插入到Spring bean中，占位符的形式为”${…}”<br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-28%20%E4%B8%8B%E5%8D%887.02.51.png" alt=""><br>XML配置没有使用任何硬编码的值。</p>
-<h3 id="使用Spring表达式语言进行装配"><a href="#使用Spring表达式语言进行装配" class="headerlink" title="使用Spring表达式语言进行装配"></a>使用Spring表达式语言进行装配</h3><h1 id="面向切面的Spring"><a href="#面向切面的Spring" class="headerlink" title="面向切面的Spring"></a>面向切面的Spring</h1><p>在软件开发中，散布于应用多处的功能被称为横切关注点。这些横切关注点从概念上是与应用的业务逻辑相分离的。把这些横切关注点与业务逻辑相分离正是面向切面编程(AOP)所要解决的问题。</p>
-<h2 id="什么是面向切面编程"><a href="#什么是面向切面编程" class="headerlink" title="什么是面向切面编程"></a>什么是面向切面编程</h2><p><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-30%20%E4%B8%8A%E5%8D%8810.14.54.png" alt=""><br>如果要重用通用功能的话，最常见的面向对象技术是继承或委托。但是如果在应用中都使用相同的基类，继承往往会导致一个脆弱的对象体系；使用委托可能需要对委托对象进行复杂得调用。切面提供了取代继承和委托的另一种可选方案，在很多场景下更清晰简洁，在使用面向切面编程时，我们仍然在一个地方定义通用功能，但是可以通过声明的方式定义这个功能要以何种方式在何处应用，而无需修改受影响的类。横切关注点可以被模块化为特殊的类，这些类被称为切面。</p>
-<p>这样做有两个好处:首先，现在每个关注点都集中于一个地方，而不是分散到多处代码中;其次，服务模块更简洁，因为它们只包含主要关注点(或核心功能)的代码，而次要关注点的代码被转移到切面中了。</p>
-<h3 id="定义AOP术语"><a href="#定义AOP术语" class="headerlink" title="定义AOP术语"></a>定义AOP术语</h3><p><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-30%20%E4%B8%8A%E5%8D%8810.27.42.png" alt=""><br><strong>通知(Advice)：</strong><br>在AOP术语中，切面的工作被称为通知。<br>Spring切面可以应用5种类型的通知：</p>
-<ol>
-<li>前置通知(Before):在目标方法被调用之前调用通知功能;</li>
-<li>后置通知(After): 在目标方法完成之后调用通知，此时不会关心方法的输出是什么;</li>
-<li>返回通知(After-returning):在目标方法成功执行之后调用通知;</li>
-<li>异常通知( After-throwing):在目标方法抛出异常后调用通知;</li>
-<li>环绕通知( Around):通知包裹了被通知的方法，在被通知的方法调用之前和调用之后执行自定义的行为。</li>
-</ol>
-<p><strong>连接点(Join point):</strong><br>切面代码可以利用这些点插入到应用的正常流程之中，并添加新的行为。</p>
-<p><strong>切点(Poincut):</strong><br>如果说通知定义了切面的“什么”和“何时”的话，那么切点就定义了“何处”。</p>
-<p><strong>切面(Aspect):</strong><br>切面是通知和切点的结合。通知和切点共同定义了切面的全部内容一它是什么 ,在何时和何处完成其功能。</p>
-<p><strong>引入(Introduction):</strong><br>引入允许我们向现有的类添加新方法或属性。</p>
-<p><strong>织入(Weaving):</strong><br>织人是把切面应用到目标对象并创建新的代理对象的过程。切面在指定的连接点被织入到目标对象中。在目标对象的生命周期里有多个点可以进行织入:</p>
-<ol>
-<li>编译期:切面在目标类编译时被织入。这种方式需要特殊的编译器。AspectJ的织入编译器就是以这种方式织入切面的。</li>
-<li>类加载期:切面在目标类加载到JVM时被织入。这种方式需要特殊的类加载器(ClassLoader),它可以在目标类被引入应用之前增强该目标类的字节码。AspectJ 5的加载时织入( load-time weaving, LTW )就支持以这种方式织入切面。</li>
-<li>运行期:切面在应用运行的某个时刻被织入。一般情况下，在织入切面时，AOP容器会为目标对象动态地创建一个代理对象。Spring AOP就是以这种方式织入切面的。</li>
-</ol>
-<h3 id="Spring对AOP的支持"><a href="#Spring对AOP的支持" class="headerlink" title="Spring对AOP的支持"></a>Spring对AOP的支持</h3><p>Spring 提供了4种类型的AOP支持:</p>
-<ol>
-<li>基于代理的经典Spring AOP;</li>
-<li>纯POJO切面;</li>
-<li>@AspectJ注解驱动的切面; </li>
-<li>注入式AspectJ切面( 适用于Spring各版本)。</li>
-</ol>
-<hr>
-<p><strong>Spring通知是Java编写的</strong><br>Spring所创建的通知都是用标准的Java类编写的。可以使用与普通Java开发一样的(IDE) 来开发切面。定义通知所应用的切点通常会使用注解或在Spring配置文件里采用XML来编写,这两种语法对于Java开发者来说都是相当熟悉的。</p>
-<p>AspectJ与之相反。虽然AspectJ现在支持基于注解的切面,但AspectJ 最初是以Java语言扩展的方式实现的。这种方式有优点也有缺点。通过特有的AOP语言，可以获得更强大和细粒度的控制，以及更丰富的AOP工具集，但是需要额外学习新的工具和语法。</p>
-<hr>
-<p><strong>Spring在运行时通知对象</strong><br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-30%20%E4%B8%8B%E5%8D%8812.42.02.png" alt=""><br>通过在代理类中包裹切面，Spring在运行期把切面织入到Spring管理的bean中。代理类封装了目标类，并拦截被通知方法的调用，再把调用转发给真正的目标bean。当代理拦截到方法调用时，在调用目标bean方法前，会执行切面逻辑。</p>
-<p>直到应用需要被代理的bean 时，Spring 才创建代理对象。如果使用的是ApplicationContext的话，在ApplicationContext从BeanFactory中加载所有bean的时候，Spring 才会创建被代理的对象。因为Spring运行时才创建代理对象，所以我们不需要特殊的编译器来织人Spring AOP的切面。</p>
-<hr>
-<p><strong>Spring只支持方法级别的连接点</strong><br>因为Spring基于动态代理，所以Spring只支持方法连接点。这与一些其他的AOP框架是不同的，例如AspectJ和JBoss，除了方法切点，还提供了字段和构造器接入点。Spring缺少对字段连接点的支持，无法让我们创建细粒度的通知，例如拦截对象字段的修改。而且它不支持构造器连接点，无法在bean创建时应用通知。</p>
-<p>但是方法拦截可以满足绝大部分的需求。如果需要方法拦截之外的连接点拦截功能，那么我们可以利用Aspect来补充Spring AOP的功能。</p>
-<h2 id="通过切点来选择连接点"><a href="#通过切点来选择连接点" class="headerlink" title="通过切点来选择连接点"></a>通过切点来选择连接点</h2><p>在SpringAOP中，要使用AspectJ的切点表达式语言来定义切点。</p>
-<h3 id="编写切点"><a href="#编写切点" class="headerlink" title="编写切点"></a>编写切点</h3><p><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-30%20%E4%B8%8B%E5%8D%882.13.23.png" alt=""><br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-30%20%E4%B8%8B%E5%8D%882.13.39.png" alt=""><br>使用execution ()指示器选择Performance的perform()方法。方法表达式以“*”号开始，表明不关心方法返回值的类型。然后指定了全限定类名和方法名。对于方法参数列表，使用两个点好(..)表明切点要选择任意的perform()方法，无论该方法的入参是什么。<br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-30%20%E4%B8%8B%E5%8D%882.18.44.png" alt=""></p>
-<h3 id="在切点中选择bean"><a href="#在切点中选择bean" class="headerlink" title="在切点中选择bean"></a>在切点中选择bean</h3><p>Spring引入一个新的bean()指示器，允许在切点表达式中使用bean的ID来标识bean。<br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-30%20%E4%B8%8B%E5%8D%882.39.24.png" alt=""></p>
-<h2 id="使用注解创建切面"><a href="#使用注解创建切面" class="headerlink" title="使用注解创建切面"></a>使用注解创建切面</h2><h3 id="定义切面"><a href="#定义切面" class="headerlink" title="定义切面"></a>定义切面</h3><p><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-30%20%E4%B8%8B%E5%8D%882.44.06.png" alt=""><br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-30%20%E4%B8%8B%E5%8D%882.45.16.png" alt=""></p>
-<p>可以使用<strong>@Pointcut</strong>注解设置一个切点表达式。<br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-30%20%E4%B8%8B%E5%8D%882.48.28.png" alt=""><br>performance ()方法的实际内容并不重要，在这里它实际上应该是空的。其实该方法本身只是一个标识，供@Pointcut注解依附。</p>
-<p>接下来在JavaConfig的配置类级别上通过使用<strong>@EnableAspectJAutoProxy</strong>注解启动自动代理功能。<br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-30%20%E4%B8%8B%E5%8D%883.02.04.png" alt=""><br>XML装配bean需要使用Spring aop。<br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-30%20%E4%B8%8B%E5%8D%883.03.16.png" alt=""></p>
-<h3 id="创建环绕通知"><a href="#创建环绕通知" class="headerlink" title="创建环绕通知"></a>创建环绕通知</h3><p>环绕通知是最为强大的通知类型。它能够让你所编写的逻辑将被通知的目标方法完全包装起来。实际上就像在一个通知方法中同时编写前置通知和后置通知。<br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-30%20%E4%B8%8B%E5%8D%886.13.34.png" alt=""><br><strong>@Around</strong>注解表明方法作为切点的环绕通知。这个通知所达到的效果与之前的前置通知和后置通知是一样的。现在它们在同一个方法中，不像之前分散。</p>
-<p>它接受ProceedingJoinPoint作为参数。这个对象是必须要有的，因为要在通知中通过它来调用被通知的方法。通知方法中可以做任何的事情，当要将控制权交给被通知的方法时，它需要调用ProceedingJoinPoint的proceed()方法。</p>
-<p>别忘记调用proceed()方法，如果不调用这个方法，通知实际上会阻塞对被通知方法的调用。</p>
-<h3 id="处理通知中的参数"><a href="#处理通知中的参数" class="headerlink" title="处理通知中的参数"></a>处理通知中的参数</h3><p><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-30%20%E4%B8%8B%E5%8D%886.37.48.png" alt=""><br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-30%20%E4%B8%8B%E5%8D%886.37.58.png" alt=""></p>
-<h3 id="通过注解引入新功能"><a href="#通过注解引入新功能" class="headerlink" title="通过注解引入新功能"></a>通过注解引入新功能</h3><p>利用被称为引入的AOP概念，切面可以为Spring bean添加新方法。<br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-30%20%E4%B8%8B%E5%8D%886.50.59.png" alt=""><br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-30%20%E4%B8%8B%E5%8D%887.01.17.png" alt=""><br><strong>@DeclareParents</strong>注解由三部分组成：<br>1.value属性指定了哪种类型的bean要引入该接口。在本例中，也就是所有实现Performance的类型。(标记符后面的加号表示是Performance的所有子类型，而不是Performance本身。)<br>2.defaultImpl属性指定了为引入功能提供实现的类。在这里，我们指定的是De faultEncoreable提供实现。<br>3.@DeclareParents注解所标注的静态属性指明了要引入了接口。在这里，我们所引入的是Encoreable接口。</p>
-<h2 id="在XML中声明切面"><a href="#在XML中声明切面" class="headerlink" title="在XML中声明切面"></a>在XML中声明切面</h2><p>如果需要声明切面，但又不能Wie通知类添加注解时，就必须转向XML配置了。<br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-30%20%E4%B8%8B%E5%8D%887.37.48.png" alt=""></p>
-<p>使用<a href="aop:pointcut" target="_blank" rel="noopener">aop:pointcut</a>定义命名切点<br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-30%20%E4%B8%8B%E5%8D%887.41.14.png" alt=""><br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-30%20%E4%B8%8B%E5%8D%887.41.26.png" alt=""><br>现在切点是在一个地方定义的，并且被多个通知元素所引用。</p>
-<h3 id="声明环绕通知"><a href="#声明环绕通知" class="headerlink" title="声明环绕通知"></a>声明环绕通知</h3><p><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-30%20%E4%B8%8B%E5%8D%887.48.23.png" alt=""><br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-30%20%E4%B8%8B%E5%8D%887.48.32.png" alt=""></p>
-<h3 id="为通知传递参数"><a href="#为通知传递参数" class="headerlink" title="为通知传递参数"></a>为通知传递参数</h3><p><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-30%20%E4%B8%8B%E5%8D%887.51.19.png" alt=""><br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-30%20%E4%B8%8B%E5%8D%887.51.29.png" alt=""></p>
-<h3 id="通过切面引入新的功能"><a href="#通过切面引入新的功能" class="headerlink" title="通过切面引入新的功能"></a>通过切面引入新的功能</h3><p><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-30%20%E4%B8%8B%E5%8D%887.52.49.png" alt=""></p>
-<p><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-30%20%E4%B8%8B%E5%8D%887.54.52.png" alt=""><br>delegate-ref属性引用了一个Spring bean作为引入的委托。这需要在Spring上下文中存在一个ID为encoreableDelegate的bean。<br><img src="/img/media/Spring%E5%AE%9E%E6%88%98%20%20Spring%E6%A0%B8%E5%BF%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-30%20%E4%B8%8B%E5%8D%887.57.50.png" alt=""><br>使用default-impl来直接标识委托和间接使用delegate-ref 的区别在于后者是Spring bean,它本身可以被注人、通知或使用其他的Spring配置。</p>
-<h2 id="注入AspectJ切面"><a href="#注入AspectJ切面" class="headerlink" title="注入AspectJ切面"></a>注入AspectJ切面</h2><p>虽然Spring AOP能够满足许多应用的切面需求，但是与AspectJ相比，Spring AOP是一个功能比较弱的AOP解决方案。AspectJ提供了Spring AOP所不能支持的许多类型的切点。</p>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>AOP是面向对象编程的一个强大补充。通过AspectJ,我们现在可以把之前分散在应用各处的行为放人可重用的模块中。我们显示地声明在何处如何应用该行为。这有效减少了代码冗余，并让我们的类关注自身的主要功能。</p>
-<p>Spring提供了一个AOP框架，让我们把切面插人到方法执行的周围。现在我们已经学会如何把通知织人前置、后置和环绕方法的调用中，以及为处理异常增加自定义的行为。</p>
-<p>关于在Spring应用中如何使用切面，我们可以有多种选择。通过使用@AspectJ注解和简化的配置命名空间，在Spring中装配通知和切点变得非常简单。</p>
-<p>最后，当Spring AOP不能满足需求时，我们必须转向更为强大的AspectJ。对于这些场景，我们了解了如何使用Spring为AspectJ切面注入依赖。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2019/05/27/Android梳理/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZDK"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZDK's blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/05/27/Android梳理/" class="post-title-link" itemprop="url">Android梳理</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-05-27 15:28:47 / 修改时间：15:29:42" itemprop="dateCreated datePublished" datetime="2019-05-27T15:28:47+08:00">2019-05-27</time>
-            </span>
-          
-
-          
-            
-
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/知识总结/" itemprop="url" rel="index"><span itemprop="name">知识总结</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/05/27/Android梳理/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/27/Android梳理/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2019/05/27/Android梳理/" class="post-meta-item leancloud_visitors" data-flag-title="Android梳理">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h1><h2 id="Java多态"><a href="#Java多态" class="headerlink" title="Java多态"></a>Java多态</h2><p>其核心之处就在于对父类方法的改写或对接口方法的实现，以取得在运行时不同的执行效果。要使用多态，在声明对象时就应该遵循一条法则：声明的总是父类类型或接口类型，创建的是实际类型。</p>
-<blockquote>
-<p>List list =newArrayList(); ✔️<br>ArrayList list =newArrayList(); ❎  </p>
-</blockquote>
-<p>在定义方法参数时也通常总是应该优先使用父类类型或接口类型。</p>
-<blockquote>
-<p>publicvoid doSomething(List list);✅<br>publicvoid doSomething(ArrayList list);❎  </p>
-</blockquote>
-<p>这样声明最大的好处在于结构的灵活性：假如某一天我认为ArrayList的特性无法满足我的要求，我希望能够用LinkedList来代替它，那么只需要在对象创建的地方把new ArrayList()改为new LinkedList即可，其它代码一概不用改动。</p>
-<p>虚拟机会在执行程序时动态调用实际类的方法，它会通过一种名为动态绑定（又称延迟绑定）的机制自动实现，这个过程对程序员来说是透明的。</p>
-<h2 id="Java异常处理"><a href="#Java异常处理" class="headerlink" title="Java异常处理"></a>Java异常处理</h2><p><img src="/img/media/Android%E6%A2%B3%E7%90%86/u=2881300128,2318356091&amp;fm=173&amp;app=25&amp;f=JPEG.jpg" alt=""><br>Throwable 是所有异常类型的基类，Throwable 下一层分为两个分支，Error 和 Exception.</p>
-<p>Error 描述了 JAVA 程序运行时系统的内部错误，通常比较严重，除了通知用户和尽力使应用程序安全地终止之外，无能为力，应用程序不应该尝试去捕获这种异常。通常为一些虚拟机异常，如 StackOverflowError 等。</p>
-<p>Exception 类型下面又分为两个分支，一个分支派生自 RuntimeException，这种异常通常为程序错误导致的异常；另一个分支为非派生自 RuntimeException 的异常，这种异常通常是程序本身没有问题，由于像 I/O 错误等问题导致的异常，每个异常类用逗号隔开。</p>
-<p>受查异常<br>受查异常会在编译时被检测。如果一个方法中的代码会抛出受查异常，则该方法必须包含异常处理，即 try-catch 代码块，或在方法签名中用 throws 关键字声明该方法可能会抛出的受查异常，否则编译无法通过。</p>
-<blockquote>
-<p>private static void readFile(String filePath) throws IOException {  </p>
-</blockquote>
-<p>非受查异常不会在编译时被检测。JAVA 中 Error 和 RuntimeException 类的子类属于非受查异常，除此之外继承自 Exception 的类型为受查异常。</p>
-<p>处理RuntimeException的原则是：如果出现RuntimeException，那么一定是程序员的错误。受检查的异常（IOException等）：这类异常如果没有try……catch也没有throws抛出，编译是通不过的。这类异常一般是外部错误，例如文件找不到、试图从文件尾后读取数据等，这并不是程序本身的错误，而是在应用环境中出现的外部错误。</p>
-<h2 id="Java数据类型"><a href="#Java数据类型" class="headerlink" title="Java数据类型"></a>Java数据类型</h2><h3 id="8种基本数据类型（所占字节数）"><a href="#8种基本数据类型（所占字节数）" class="headerlink" title="8种基本数据类型（所占字节数）"></a>8种基本数据类型（所占字节数）</h3><p>byte(1) char(2) short(2) int(4) float(4) double(8) long(8) boolean(1)<br>boolean类型比较特别，多个boolean可能共同占用一个字节。 </p>
-<h3 id="String"><a href="#String" class="headerlink" title="String"></a>String</h3><p>String不是基本数据类型，是引用类型，底层用char数组实现的，因为String是final类，在java中被final修饰的类不能被继承，因此String不可以被继承。</p>
-<h2 id="Java的IO"><a href="#Java的IO" class="headerlink" title="Java的IO"></a>Java的IO</h2><h3 id="字节流与字符流"><a href="#字节流与字符流" class="headerlink" title="字节流与字符流"></a>字节流与字符流</h3><p>首先明确“字节（Byte）”和“字符（Character）”的大小：<br>1 byte = 8 bit<br>1 char = 2 byte = 16 bit (Java默认UTF-16编码)</p>
-<p>总而言之，一切都是字节流，其实没有字符流这个东西。字符只是根据编码集对字节流翻译之后的产物。面向字节流的InputStream和OutputStream<br>面向字符的Reader和Writer，即为字节流继承于InputStream和OutputStream，字符流继承于InputStreamReader和OutputStreamWriter。</p>
-<h3 id="字节流转字符流"><a href="#字节流转字符流" class="headerlink" title="字节流转字符流"></a>字节流转字符流</h3><p>字节输入流转字符输入流通过InputStreamReader实现,该类的构造函数可以传入InputStream对象。字节输出流转字符输出流通过OutputStreamWriter实现,该类的构造函数可以传入OutputStream对象。</p>
-<h3 id="将java对象序列化到文件"><a href="#将java对象序列化到文件" class="headerlink" title="将java对象序列化到文件"></a>将java对象序列化到文件</h3><p>在java中能够被序列化的类必须先实现Serializable接口，该接口没有任何抽象方法只是起到一个标记作用。当试图对一个对象进行序列化的时候，如果该对象没有实现 Serializable 接口，将抛出NotSerializableException<br><img src="/img/media/Android%E6%A2%B3%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-23%20%E4%B8%8B%E5%8D%889.43.26.png" alt=""><br><img src="/img/media/Android%E6%A2%B3%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-23%20%E4%B8%8B%E5%8D%889.44.20.png" alt=""><br>s​e​r​i​a​l​V​e​r​s​i​o​n​U​I​D​:​ ​字​面​意​思​上​是​序​列​化​的​版​本​号​，凡是实现Serializable接口的类都有一个表示序列化版本标识符的静态变量</p>
-<p>显式地定义serialVersionUID有两种用途：<br>1、 在某些场合，希望类的不同版本对序列化兼容，因此需要确保类的不同版本具有相同的serialVersionUID；<br>2、 在某些场合，不希望类的不同版本对序列化兼容，因此需要确保类的不同版本具有不同的serialVersionUID。</p>
-<h2 id="Java容器"><a href="#Java容器" class="headerlink" title="Java容器"></a>Java容器</h2><p>容器Container，和Array的最大区别就是它们的长度都是自动变化的，根本无需你干预。<br>Container 从总体上来看分为两类，一类叫做集合Collection ，另一类则叫做映射Map。<br>区别很简单在Map中，对象必须是成对存放的，这个对就叫做key-value，而集合则不是。集合又分为集<strong>Set</strong>、序列<strong>List</strong>和队列<strong>Queue</strong>。向Map中添加元素的方法是put(K key, V value)，而向Collection中添加则是add(E e)。</p>
-<h3 id="基本结构"><a href="#基本结构" class="headerlink" title="基本结构"></a>基本结构</h3><p>集Set、序列List和队列Queue 之所以说他们属于Collection，是因为他们都实现了Collection这个interface。并且他们也不是“实现类”，而是interface，他们并不能直接使用。</p>
-<h3 id="对集合排序"><a href="#对集合排序" class="headerlink" title="对集合排序"></a>对集合排序</h3><p>凡是对集合的操作，应该保持一个原则就是能用JDK中的API就用JDK中的API，比如排序算法不应去用冒泡或者选择排序，而是首先想到用Collections集合工具类。<br><img src="/img/media/Android%E6%A2%B3%E7%90%86/2C0DE4ED-7B71-4EF6-8D65-EE2586A71797.png" alt=""><br>Collection常用的方法：<br><img src="/img/media/Android%E6%A2%B3%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-24%20%E4%B8%8A%E5%8D%889.15.39.png" alt=""></p>
-<h3 id="集合的实现类"><a href="#集合的实现类" class="headerlink" title="集合的实现类"></a>集合的实现类</h3><p>List：ArrayList(数组实现) LinkedList（链表实现）</p>
-<p>Set：HashSet TreeSet LinkedHashMap （三种与Map实现类相同）<br>Set的特点是元素不能重复，在元素添加过程中，最重要的一个步骤就是进行对比，将对象通过Hash后对比速度飞起。</p>
-<p>Queue：ArrayDeque(双端队列) PriorityQueue(保证最小的在顶上，并不是全部排序)</p>
-<h3 id="集合的安全性问题"><a href="#集合的安全性问题" class="headerlink" title="集合的安全性问题"></a>集合的安全性问题</h3><p>ArrayList,HashSet,HashMap不是没有加锁，显然都是线程不安全的。</p>
-<p>在集合中 Vector和 HashTable倒是线程安全的。你打开源码会发现其实就是把各自核心方法添加上了<strong>synchronized</strong>关键字</p>
-<h3 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h3><p><img src="/img/media/Android%E6%A2%B3%E7%90%86/v2-1448f5b62001bb691d1577ab574d3d13_hd.jpg" alt=""><br>单看Key，不就是Set吗，Set就是用Map实现的，可以说Set是Map的一种特殊应用。Map中也有一个叫做KeySet()的方法，直接返回一个Set。</p>
-<h2 id="Java多线程"><a href="#Java多线程" class="headerlink" title="Java多线程"></a>Java多线程</h2><h3 id="创建的两种方式"><a href="#创建的两种方式" class="headerlink" title="创建的两种方式"></a>创建的两种方式</h3><p>java.lang.Thread类的实例就是一个线程但是它需要调用java.lang.Runnable接口来执行,由于线程类本身就是调用的Runnable接口所以你可以继承java.lang.Thread类或者直接实现Runnable接口来重写run()方法实现线程。</p>
-<h3 id="sleep和wait"><a href="#sleep和wait" class="headerlink" title="sleep和wait"></a>sleep和wait</h3><p>最大的不同是在等待时wait会释放锁,而sleep 一直持有锁。wait通常被用于线程间交互, sleep通常被用于暂停执行。</p>
-<h3 id="synchronized和volatile关键字"><a href="#synchronized和volatile关键字" class="headerlink" title="synchronized和volatile关键字"></a>synchronized和volatile关键字</h3><p>一旦一个共享变量(类的成员变量、类的静态成员变量)被<strong>volatile</strong>修饰之后,那么就具备了两层语义:<br>1 )保证了不同线程对这个变量进行操作时的可见性,即一个线程修改了某个变量的值,这新值对其他线程来说是立即可见的。<br>2 )禁止进行指令重排序。<br>volatile本质是在告诉jvm当前变量在寄存器(工作内存)中的值是不确定的,需要从主存中读取，精确地说就是，编译优化器在用到这个变量时必须每次都小心地重新读取这个变量的值，而不是使用保存在寄存器里的备份。</p>
-<p><strong>synchronized</strong>则是锁定当前变量,只有当前线程可以访问该变量,其他线程被阻塞住。</p>
-<p>两者的区别：<br>1.voltile仅能使用在变量级别;synchronized 则可以使用在变量、方法、和类级别的。<br>2.volatile仅能实现变量的修改可见性,并不能保证原子性;synchronized 则可以保证变量的修改可见性和原子性。<br>3.volatile不会造成线程的阻塞;synchronized 可能会造成线程的阻塞。<br>4.volatile标记的变量不会被编译器优化;synchronized 标记的变量可以被编译器优化。</p>
-<h3 id="一道线程安全的题"><a href="#一道线程安全的题" class="headerlink" title="一道线程安全的题"></a>一道线程安全的题</h3><p><img src="/img/media/Android%E6%A2%B3%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-24%20%E4%B8%8B%E5%8D%881.48.40.png" alt=""><br>上述代码执行后输出的结果不等于1000。</p>
-<p>在java的内存模型中每一个线程运行时都有一个线程栈,线程栈保存了线程运行时候变量值信息。当线程访问某一个对象时候值的时候,首先通过对象的引用找到对应在堆内存的变量的值,然后把堆内存变量的具体值load到线程本地内存中,建立-个变量副本 ,之后线程就不再和对象在堆内存变量值有任何关系,而是直接修改副本变量的值，在修改完之后的某一个时刻(线程退出之前) ,自动把线程变量副本的值回写到对象在堆中变量。这样在堆中的对象的值就产生变化了。</p>
-<p>也就是说上面主函数中开启了1000 个子线程,每个线程都有一个变量副本,每个线程修改变量只是临时修改了自己的副本,当线程结束时再将修改的值写入在主内存中, 这样就出现了线程安全问题。因此结果就不可能等于1000了。一般都会小于1000。<br><img src="/img/media/Android%E6%A2%B3%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-24%20%E4%B8%8B%E5%8D%881.50.04.png" alt=""></p>
-<h3 id="线程池与使用"><a href="#线程池与使用" class="headerlink" title="线程池与使用"></a>线程池与使用</h3><p>线程池就是事先将多个线程对象放到一个容器中,当使用的时候就不用new线程而是直接去池中拿线程即可,节省了开辟子线程的时间,提高的代码执行效率。</p>
-<h1 id="Java-SE高级"><a href="#Java-SE高级" class="headerlink" title="Java SE高级"></a>Java SE高级</h1><h2 id="Java反射"><a href="#Java反射" class="headerlink" title="Java反射"></a>Java反射</h2><p>Java中的反射首先是能够获取到Java中要反射类的字节码.获取字节码有三种方法，1.Class.forName(className) 2.类名.class 3.this.getClass(). 然后将字节码中的方法,变量,构造函数等映射成相应的Method. Filed, Constructor 等类,这些类提供了丰富的方法可以被我们所使用。</p>
-<h2 id="Java动态代理"><a href="#Java动态代理" class="headerlink" title="Java动态代理"></a>Java动态代理</h2><p>创建对象的过程<br><img src="/img/media/Android%E6%A2%B3%E7%90%86/v2-9cd31ab516bd967e1b8e68736931f8ba_hd.jpg" alt=""><br><img src="/img/media/Android%E6%A2%B3%E7%90%86/v2-eddc430b991c58039dfc79dd6f3139cc_hd.jpg" alt=""><br>创建一个实例，最关键的就是得到对应的Class对象。</p>
-<p>代理类和目标类理应实现同一组接口。之所以实现相同接口，是为了尽可能保证代理对象的内部结构和目标对象一致，这样我们对代理对象的操作最终都可以转移到目标对象身上，代理对象只需专注于增强代码的编写。<br><img src="/img/media/Android%E6%A2%B3%E7%90%86/v2-e302487f952bdf8e284afc0d8d6a770b_hd.jpg" alt=""><br>动态代理的使用场景：<br>(1)设计模式中有一个设计原则是开闭原则，是说对修改关闭对扩展开放，我们在工作中有时会接手很多前人的代码，里面代码逻辑让人摸不着头脑<br>，这时就很难去下手修改代码，那么这时我们就可以通过代理对类进行增强。</p>
-<p>(2)我们在使用RPC框架的时候，框架本身并不能提前知道各个业务方要调用哪些接口的哪些方法 。那么这个时候，就可用通过动态代理的方式来建立一个中间人给客户端使用，也方便框架进行搭建逻辑，某种程度上也是客户端代码和框架松耦合的一种表现。</p>
-<p>(3)Spring的AOP机制就是采用动态代理的机制来实现切面编程。</p>
-<p><img src="/img/media/Android%E6%A2%B3%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-24%20%E4%B8%8B%E5%8D%882.52.19.png" alt=""></p>
-<h1 id="Java中的设计模式"><a href="#Java中的设计模式" class="headerlink" title="Java中的设计模式"></a>Java中的设计模式</h1><p>设计模式供分为三大类：<br>1、创建型模式，共五种:<strong>工厂方法模式</strong>、<strong>抽象工厂模式</strong>、<strong>单例模式</strong>、<strong>建造者模式</strong>。原型模式。<br>2、结构型模式,共七种:<strong>适配器模式</strong>、装饰器模式、<strong>代理模式</strong>、外观模式、桥接模式、组合模式、享元模式。<br>3、行为型模式，共十一种:<strong>策略模式</strong>，模板方法模式、<strong>观察者模式</strong>，迭代子模式、责任链模式、命令模式、 备忘录模式、状态模式、访问者模式、中介者模式、解释器模式。</p>
-<h1 id="Android基础"><a href="#Android基础" class="headerlink" title="Android基础"></a>Android基础</h1><h2 id="如何避免ANR"><a href="#如何避免ANR" class="headerlink" title="如何避免ANR"></a>如何避免ANR</h2><p>ANR：Application Not Responding。不同组件发生ANR的时间不一样，主线程(Activity,Service)是5秒，BroadCastReceiver是10秒。</p>
-<p>解决方案：将所有耗时操作,比如访问网络, Socket通信,查询大量SQL语句,复杂逻辑计算等都放在子线程中去,然后通过handler.sendMessage. runonUITread. AsyncTask等方式更新UI,无论如何都要确保用户界面操作的流畅度。如果耗时操作需要让用户等待,那么可以在界面上显示进度条。</p>
-<h2 id="sim卡的EF文件"><a href="#sim卡的EF文件" class="headerlink" title="sim卡的EF文件"></a>sim卡的EF文件</h2><p>基本文件EF(Elementary File)是SIM卡文件系统的一部分。</p>
-<h2 id="Activity"><a href="#Activity" class="headerlink" title="Activity"></a>Activity</h2><h3 id="什么是Activity"><a href="#什么是Activity" class="headerlink" title="什么是Activity"></a>什么是Activity</h3><p>四大组件之一，一般一个用户交互界面对应一个activity<br>activity是Context的子类，同时实现了window.callback和keyevent.callback,可以处理与窗体用户交互事件。</p>
-<h3 id="activity生命周期"><a href="#activity生命周期" class="headerlink" title="activity生命周期"></a>activity生命周期</h3><p><img src="/img/media/Android%E6%A2%B3%E7%90%86/4aa93209cbaef5c2a9bbd2003d928641_hd.jpg" alt=""><br>一般情况下<br>按下<strong>home</strong>键:前台Activity依次回调onPause, onStop；<br>按下<strong>back</strong>键:前台Activity依次回调onPause, onStop, onDestroy；<br>按下<strong>电源键</strong>：前台Activity依次onPause, onStop；<br>对于<strong>进程管理器</strong>，采用的force-stop的方式，也是直接强杀进程，并且连广播都会隔断。</p>
-<p>横竖屏切换：在未做任何处理的情况，旋转后，Activity生命周期重新运行:onPause, onStop, onDestroy, onCreate, onStart, onRestoreInstanceState, onResume。<br> 常用Activity：FragmentActivity,ListActivity,TabActivity。</p>
-<h3 id="如何保存Activity的状态？"><a href="#如何保存Activity的状态？" class="headerlink" title="如何保存Activity的状态？"></a>如何保存Activity的状态？</h3><p>覆写onSaveInstanceState()方法，该方法接受一个Bundle类型的参数，开发者可以将状态数据存储到这个Bundle对象中，这样即使Activity被系统摧毁，开发者也可以利用这些数据将Activity恢复到被摧毁前的状态。</p>
-<h3 id="Activity跳转"><a href="#Activity跳转" class="headerlink" title="Activity跳转"></a>Activity跳转</h3><p>两个activityAB，A里面激活B时，A会调用onPause()方法，然后B调用onCreate(),onStart(),onResume()方法。B覆盖窗体，A会调用onStop()方法。如果B是个透明的，或者是对话框的样式，就不会调用A的onStop()方法。</p>
-<h3 id="Context，Activity，Application的区别"><a href="#Context，Activity，Application的区别" class="headerlink" title="Context，Activity，Application的区别"></a>Context，Activity，Application的区别</h3><p>Context维护的是当前的Activity的生命周期，Application维护的是整个项目的生命周期。</p>
-<h3 id="两个Activity之间传递数据，除了intent，广播接收者，Content-provider还有什么？"><a href="#两个Activity之间传递数据，除了intent，广播接收者，Content-provider还有什么？" class="headerlink" title="两个Activity之间传递数据，除了intent，广播接收者，Content provider还有什么？"></a>两个Activity之间传递数据，除了intent，广播接收者，Content provider还有什么？</h3><p>1、利用static静态数据，public static成员变量。<br>2、利用外部存储的传输，File文件存储，SharedPreferences，Sqlite数据库</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2019/05/27/Spring Boot实战 入门/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZDK"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZDK's blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/05/27/Spring Boot实战 入门/" class="post-title-link" itemprop="url">Spring Boot实战 入门</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-05-27 15:00:47 / 修改时间：15:21:22" itemprop="dateCreated datePublished" datetime="2019-05-27T15:00:47+08:00">2019-05-27</time>
-            </span>
-          
-
-          
-            
-
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/读书笔记/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/05/27/Spring Boot实战 入门/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/27/Spring Boot实战 入门/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2019/05/27/Spring Boot实战 入门/" class="post-meta-item leancloud_visitors" data-flag-title="Spring Boot实战 入门">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="自动配置"><a href="#自动配置" class="headerlink" title="自动配置"></a>自动配置</h1><p><strong>初始化后的项目</strong><br>Application.java不仅是启动引导类，还是配置类。<br><strong>@SpringBootApplication</strong>开启组件扫描和自动配置。将三个有用的注解组合在了一起。<br>1.Spring的<strong>@Configuration</strong>:标明该类使用Spring基于Java的配置。<br>2.Spring的<strong>@ComponentScan</strong>:启用组件扫描，这样所写的Web控制器类和其他组件才能被自动发现并注册为Spring应用程序上下文中里的Bean。<br>3.Spring Boot的<strong>@EnableAutoConfiguration</strong>:这一行配置开启了Spring Boot自动配置的魔力，可以不再写成篇的配置了。</p>
-<p><strong>application.properties</strong>可以很方便地细粒度调整Spring Boot的自动配置。完全不用告诉Spring Boot加载application.properties,只要存在就会被加载。</p>
-<p> <strong>Spring Boot项目构建插件</strong><br>Spring Boot的构建插件对构建过程有所帮助，如Maven钟spring-boot-maven-plugin。构建插件的主要功能是把项目打包成一个可执行的超级JAR，包括把应用程序的所有依赖打入JAR文件中，并为JAR添加一个描述文件，其中的内容能用java -jar来运行应用程序。</p>
-<p><strong>指定基于功能的依赖</strong><br>并不需要指定版本号，起步依赖本身的版本是由正在使用的Spring Boot的版本来决定的，而起步依赖则会决定它们引入的传递依赖版本。<br>Maven和gradle中使用构建工具来显示包含项目汇总每一个库以及它们的版本。</p>
-<p><img src="/img/media/Spring%20Boot%E5%AE%9E%E6%88%98%20%E5%85%A5%E9%97%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-23%20%E4%B8%8A%E5%8D%888.13.47.png" alt=""><br>![]<br>(/img/media/Spring%20Boot%E5%AE%9E%E6%88%98%20%E5%85%A5%E9%97%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-23%20%E4%B8%8A%E5%8D%888.13.40.png)</p>
-<p><strong>覆盖起步依赖引入的传递依赖</strong><br>gradle</p>
-<p><img src="/img/media/Spring%20Boot%E5%AE%9E%E6%88%98%20%E5%85%A5%E9%97%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-23%20%E4%B8%8A%E5%8D%888.15.40.png" alt=""><br>Maven<br><img src="/img/media/Spring%20Boot%E5%AE%9E%E6%88%98%20%E5%85%A5%E9%97%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-23%20%E4%B8%8A%E5%8D%888.16.59.png" alt=""><br>需要指定版本的依赖，则可以在pom.xml中覆盖传递依赖引入的另一个依赖。<br><img src="/img/media/Spring%20Boot%E5%AE%9E%E6%88%98%20%E5%85%A5%E9%97%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-23%20%E4%B8%8A%E5%8D%888.18.46.png" alt=""><br>gradle则是倾向于使用更新的依赖，若要指定老版本的生效，则要先将较新版本的exclude。</p>
-<p><strong>使用自动配置</strong><br>Spring Boot的自动配置是一个运行时的过程，考虑了众多的因素，才决定Spring配置应该用哪一个不该用哪一个。例如。<br><img src="/img/media/Spring%20Boot%E5%AE%9E%E6%88%98%20%E5%85%A5%E9%97%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-23%20%E4%B8%8A%E5%8D%888.22.59.png" alt=""></p>
-<p>专注于应用程序功能：1.定义领域模型如一个实体。2.定义仓库接口。3.创建Web界面。</p>
-<p>1.<strong>@Entity</strong>注解表明对象是一个JPA实体。<br><img src="/img/media/Spring%20Boot%E5%AE%9E%E6%88%98%20%E5%85%A5%E9%97%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-23%20%E4%B8%8A%E5%8D%888.25.57.png" alt=""></p>
-<p>id属性加了<strong>@Id</strong>和<strong>@GeneratedValue</strong>注解，说明这个字段是实体的唯一标识，并且这个字段的值是自动生成的。<br><img src="/img/media/Spring%20Boot%E5%AE%9E%E6%88%98%20%E5%85%A5%E9%97%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-23%20%E4%B8%8A%E5%8D%888.26.09.png" alt=""></p>
-<p>2.通过扩展JpaRepository,ReadingListRespository直接继承了18个执行常用持久化操作的方法。JpaRepository是个泛型接口，有两个参数：仓库操作的领域对象类型，及ID属性的类型。以及自己增加的方法findByReader()。只需定义仓库接口，在应用程序启动后，该接口在运行时会自动实现。<br><img src="/img/media/Spring%20Boot%E5%AE%9E%E6%88%98%20%E5%85%A5%E9%97%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-23%20%E4%B8%8A%E5%8D%888.31.11.png" alt=""></p>
-<p>3.使用SpringMVC为应用程序处理HTTP请求。<br><img src="/img/media/Spring%20Boot%E5%AE%9E%E6%88%98%20%E5%85%A5%E9%97%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-23%20%E4%B8%8A%E5%8D%888.37.12.png" alt=""><br><strong>@Controller</strong>注解，组件扫描会自动将其注册为Spring应用程序上下文的一个Bean。<br><strong>@RequestMapping</strong>注解，将其中所有的处理器方法都映射到了”/”这个URL路径上。</p>
-<p>在向应用程序加入 Spring boot时,有个名为<strong>spring-boot-autoconfigurel.JAR</strong>文件,其中包含了很多配置类。每个配置类都在应用程序的Classpath里,都有机会为应用程序的配置添砖加瓦。这些配置类里有用于 Thymeleaf的配置,有用于 Spring data JPa的配置,有用于 Spiring mvc的配置<br>还有很多其他东西的配置,你可以自己选择是否在 Spring应用程序里使用它们。其中利用了Spring的条件化配置，条件化配置运行配置存在于应用程序中，但在满足某些特定条件之前都忽略这个配置。在Spring里可以很方便地编写自己的条件，要做的就是实现Condition接口，覆盖它的matches方法。</p>
-<p>下面的简单条件类只有在Classpath里存在JdbcTemplate时才会生效。<br><img src="/img/media/Spring%20Boot%E5%AE%9E%E6%88%98%20%E5%85%A5%E9%97%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-23%20%E4%B8%8B%E5%8D%8812.39.06.png" alt=""></p>
-<p>当用Java来声明Bean时，可以用自定义条件类。<br><img src="/img/media/Spring%20Boot%E5%AE%9E%E6%88%98%20%E5%85%A5%E9%97%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-23%20%E4%B8%8B%E5%8D%8812.42.03.png" alt=""><br>在这个例子中，只有当JdbcTemplateCondition类的条件成立时才会创建MyService这个Bean。也就是说，MyService Bean创建条件是Classpath里有JdbcTemplate。否则，这个Bean的声明就会被忽略。</p>
-<p><strong>Classpath</strong><br><img src="/img/media/Spring%20Boot%E5%AE%9E%E6%88%98%20%E5%85%A5%E9%97%A8/191992114-5b5c838544f7c_articlex.png" alt=""></p>
-<p>自动配置会做出以下配置决策，它们和之前的例子息息相关。<br>1.因为Classpath里有H2，所以会创建一个嵌入式H2数据库Bean，它的类型是javax.sql.DataSource,JPA实现( Hibernate )需要它来访问数据库。<br>2.因为Classpath里有Hibernate ( Spring Data JPA传递引入的)的实体管理器，所以自动配置会配置与Hibernate相关的Bean，包括Spring的LocalContainerEntityManagerFactory Bean和JpaVendorAdapter。<br>3.因为Classpath里有Spring Data JIPA，所以它会自动配置为根据仓库的接口创建仓库实现。<br>4.因为Classpath里有Thymeleaf,所以Thymeleaf会配置为Spring MVC的视图，包括一个Thymeleaf的模板解析器、模板引擎及视图解析器。视图解析器会解析相对于Classpath根目录的 / templates目录里的模板。<br>5.因为Classpath里有SpringMVC(归功于Web起步依赖)，所以会配置Spring的DispatcherServlet并启用Spring MVC。<br>6.因为这是一个Spring MVC Web应用程序,所以会注册一个资源处理器,把相对于Classpath根目录的 / static目录里的静态内容提供出来。(这个资源处理器还能处理 / public、/ resources和_META-INF_resources的静态内容。)<br>7.因为Classpath里有Tomcat(通过Web起步依赖传递引用),所以会启动一个嵌入式的Tomcat容器，监听8080端口。</p>
-<h1 id="自定义配置"><a href="#自定义配置" class="headerlink" title="自定义配置"></a>自定义配置</h1><p><strong>覆盖Spring Boot自动配置</strong><br>正如上面所讲。</p>
-<p><strong>@Configuration</strong>用于定义配置类，可替换xml配置文件，被注解的类内部包含有一个或多个被@Bean注解的方法，这些方法将会被AnnotationConfigApplicationContext或AnnotationConfigWebApplicationContext类进行扫描，并用于构建bean定义，初始化Spring容器。</p>
-<p><strong>通过属性文件外置配置。</strong><br>另一种方式是通过applocation.properties,yml也可以。</p>
-<p>Spring Boot能从多种属性源获得属性，优先级从高到低是：<br>(1)命令行参数<br>(2) java: comp / env里的JNDI属性<br>(3)JVM系统属性<br>(4)操作系统环境变量<br>(5)随机生成的带random. * 前缀的属性<br>(6)应用程序以外的application. properties或者appliaction.yml文件<br>(7)打包在应用程序内的application.properties或者appliaction.yml文件<br>(8)通过@PropertySource标注的属性源<br>(9)默认属性</p>
-<p>application. properties和application.yml文件能放在以下四个位置。优先级有高到低<br>(1)外置，在相对于应用程序运行目录的 / config子目录里。<br>(2)外置，在应用程序运行的目录里。<br>(3)内置，在config包内 。<br>(4)内置，在Classpath根目录。</p>
-<p>同一优先级位置上，application.yml会覆盖application.properties的属性。</p>
-<p>在application.yml / prop通常你都无需指定JDBC驱动，Spring Boot会根据数据库URL识别出需要的驱动，但如果识别出问题了，你还可以设置spring datasource.driver-class-name属性。在自动配置DataSourceBean的时候，SpringBoot会使用这里的连接数据。</p>
-<p>DataSourceBean是一个连接池，如果Classpath里有Tomcat的连接池DataSource,那么就会使用这个连接池;否则，Spring Boot会在Classpath里查找以下连接池:HikariCP，Commons DBCP 2。还可以自己配置DataSource Bean,使用自己喜欢的各种连接池。</p>
-<p><strong>应用程序Bean的配置外置</strong><br><img src="/img/media/Spring%20Boot%E5%AE%9E%E6%88%98%20%E5%85%A5%E9%97%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-23%20%E4%B8%8B%E5%8D%882.44.19.png" alt=""><br><strong>@ConfigurationProperties</strong>注解说明该Bean的属性应该是（通过setter）从配置属性值注入的，更具体就是说明应该注入带amazon前缀的属性。</p>
-<p>本例中ReadingListController只有一个setter方法，就是设置associateId属性用的setter方法。因此，设置Amazon Associate ID唯一要做的就是添加amazon.associateId属性，把它加入支持的任一属性源位置里即可。<br>例如在application.properties中设置：<br><img src="/img/media/Spring%20Boot%E5%AE%9E%E6%88%98%20%E5%85%A5%E9%97%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-23%20%E4%B8%8B%E5%8D%882.51.39.png" alt=""></p>
-<p><strong>开启配置属性</strong>从技 术上来说，<strong>@ConfigurationProperties</strong>注解不会生效，除非先向Spring配置类添加<strong>@EnableConfigurationProperties</strong>注解。但通常无需这么做，因为Spring Boot自动配置后面的全部配置类都已经加上了<strong>@EnableConfigurationProperties</strong>注解。因此，除非你完全不使用自动配置，否则就无需显式地添加<strong>@EnableConfigurationProperties</strong>。</p>
-<p>需要注意，Spring Boot的属性解析器非常智能，它会自动把驼峰规则的属性和使用连字符或下划线的同名属性关联起来。换句话说，amazon. associateId这个属性和amazon. associate_ id以及amazon.associate-id都是等价的。</p>
-<p><strong>在一个类里收集属性</strong>，创建一个单独的Bean,为它加上<strong>@ConfigurationProperties</strong>注解，让这个Bean收集所有配置属性。<br><img src="/img/media/Spring%20Boot%E5%AE%9E%E6%88%98%20%E5%85%A5%E9%97%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-23%20%E4%B8%8B%E5%8D%883.08.09.png" alt=""><br>有了加载amazon.associateld配置属性的AmazonProperties后，我们可以调整ReadingListController ,让它从注入的AmazonProperties中获取Amazon Associate ID。<br><img src="/img/media/Spring%20Boot%E5%AE%9E%E6%88%98%20%E5%85%A5%E9%97%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-23%20%E4%B8%8B%E5%8D%883.13.23.png" alt=""></p>
-<p><strong>使用Profile进行配置</strong><br>Profile是一种条件化配置，基于运行时激活Profile，会使用或者忽略不同的Bean或配置类。<br><img src="/img/media/Spring%20Boot%E5%AE%9E%E6%88%98%20%E5%85%A5%E9%97%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-23%20%E4%B8%8B%E5%8D%883.51.20.png" alt=""><br><strong>@Profile</strong>注解要求运行时激活production Profile,这样才能应用该配置。如果production Profile没有激活，就会忽略该配置。设置spring.profiles.active属性就能激活Profile，任意设置配置属性的方式都能用于设置这个值。<br><img src="/img/media/Spring%20Boot%E5%AE%9E%E6%88%98%20%E5%85%A5%E9%97%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-23%20%E4%B8%8B%E5%8D%883.57.59.png" alt=""></p>
-<p>如果正在使用application.properties，可以创建额外的属性文件，遵循application-{profile}.properties命名格式，就能提供特定于Profile的属性了。<br>比如说生产环境，就是application-production.properties。</p>
-<p>使用YAML就可以把所有的Profile的配置属性都放在一个application.yml文件里，例如：<br><img src="/img/media/Spring%20Boot%E5%AE%9E%E6%88%98%20%E5%85%A5%E9%97%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-27%20%E4%B8%8B%E5%8D%882.48.39.png" alt=""></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2019/05/14/百面 优化算法/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZDK"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZDK's blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/05/14/百面 优化算法/" class="post-title-link" itemprop="url">百面 优化算法</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-05-14 09:45:47 / 修改时间：09:47:10" itemprop="dateCreated datePublished" datetime="2019-05-14T09:45:47+08:00">2019-05-14</time>
-            </span>
-          
-
-          
-            
-
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/知识总结/" itemprop="url" rel="index"><span itemprop="name">知识总结</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/05/14/百面 优化算法/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/14/百面 优化算法/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2019/05/14/百面 优化算法/" class="post-meta-item leancloud_visitors" data-flag-title="百面 优化算法">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="百面-优化算法"><a href="#百面-优化算法" class="headerlink" title="百面 优化算法"></a>百面 优化算法</h1><p>机器学习算法=模型表征+模型评估+优化算法<br>优化算法所做的事情就是在模型表征空间中找到模型评估指标最好的模型。<br>经典的支持向量机对应的模型表征和评估指标分别为线性分类模型和最大间隔，逻辑回归对应的模型表征和评估指标则分别为线性分类模型和交叉熵。</p>
-<h1 id="有监督学习的损失函数"><a href="#有监督学习的损失函数" class="headerlink" title="有监督学习的损失函数"></a>有监督学习的损失函数</h1><p><strong>问：有监督学习涉及的损失函数有哪些？请列举并简述它们的特点。</strong></p>
-<p>答：在有监督学习中，损失函数刻画了模型和训练样本的匹配程度。<br>对于二分类问题，最自然地损失函数是0-1损失。<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%888.33.40.png" alt=""><br>其中1p是指示函数，当且仅当p为真时取值为1，否则取值为0。该损失函数能够直观地刻画分类的错误率，但是由于其非凸非光滑的特点，使得算法很难直接对其进行优化。<br>0-1损失的一个代理损失函数是hinge损失函数。<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%888.35.50.png" alt=""><br>hinge损失函数是0-1损失函数相对紧的凸上界，且当fy&gt;=1时，该函数不对其做任何惩罚。hinge损失在fy=1处不可导，因此不能用梯度下降法进行优化，而是用<strong>次梯度下降法</strong>。<br>0-1损失的另一个代理损失函数是logistic损失函数：<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%888.38.32.png" alt=""><br>logistic损失函数也是0-1损失函数的凸上界，且该函数处处光滑，因此可以用梯度下降法进行优化。但是，该损失函数对所有样本点都有所惩罚，因此对异常值相对更敏感一些。<br>当预测值f属于[-1,1]时，另一个代理损失函数就是交叉熵损失函数。<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%888.56.54.png" alt=""><br>交叉熵损失函数也是0-1损失函数的光滑凸上界。<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%888.57.28.png" alt=""></p>
-<p>对于回归问题，最常用的损失函数是平方损失函数。<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%888.58.48.png" alt=""><br>平方损失函数是光滑函数，能够用梯度下降法进行优化。当预测值距离真实值越远时，平方损失函数的惩罚力度越大，因为它对异常点比较敏感。可以采用绝对损失函数来解决这个问题。<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%889.02.05.png" alt=""><br>绝对损失对异常点更鲁棒一些，但是绝对损失函数在f=y处无法求导数。综合考虑可导性和对异常点的鲁棒性，可以采用huber损失函数。<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%889.18.43.png" alt=""><br> huber损失函数在|f-y|较小时为平方损失，在|f-y|较大时为线性损失，处处可导，且对异常点鲁棒。<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%889.21.47.png" alt=""></p>
-<h1 id="机器学习中的优化问题"><a href="#机器学习中的优化问题" class="headerlink" title="机器学习中的优化问题"></a>机器学习中的优化问题</h1><p><strong>问： 机器学习中优化问题，哪些是凸优化问题，哪些是非凸优化问题？</strong></p>
-<p>答：凸函数，函数L是凸函数当且仅当对定义域中的任意两点x，y和任意实数λ∈[0,1]总有<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%889.25.15.png" alt=""><br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%889.25.42.png" alt=""><br>逻辑回归对应的就是凸优化问题，对于二分类问题，Y={1,-1},假设模型参数为θ，则逻辑回归的优化问题为。<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%889.27.51.png" alt=""><br>可以通过计算目标函数的二阶Hessian矩阵来验证凸性。令<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%889.37.57.png" alt=""><br>对该函数求一阶导，得到：<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%889.38.29.png" alt=""><br>继续求导，得到函数的Hessian矩阵<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%889.39.18.png" alt=""><br>该矩阵满足半正定的性质。<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%889.40.51.png" alt=""><br>因此<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%889.41.05.png" alt=""><br>函数L为凸函数。对于凸优化问题，所有的局部极小值都是全局极小值，因此这类问题一般认为是比较容易求解的问题。</p>
-<p>主成分分析的优化问题为非凸优化问题。一般来说，非凸优化问题被认为是比较南求解的问题，但主成分分析是一个特例，我们可以借助SVD直接得到主成分分析的全局极小值。</p>
-<p><strong>总结与扩展：</strong>其他凸优化的例子包括支持向量机，线性回归等线性模型，非凸优化问题的例子包括低秩模型(如矩阵分解),深度神经网络模型。</p>
-<h1 id="经典优化算法"><a href="#经典优化算法" class="headerlink" title="经典优化算法"></a>经典优化算法</h1><p><strong>问题：无约束优化问题的优化方法有哪些？</strong>对于无约束优化问题：<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%889.54.49.png" alt=""><br>其中目标函数L是光滑的，求解该问题的优化算法有哪些，适用场景是什么。</p>
-<p>答：优化算法分为<strong>直接法</strong>和<strong>迭代法</strong>。<br>直接法，就是能够直接给出优化问题的最优解。直接法不是万能的。直接法要求目标函数需要满足两个条件，第一个是，L是凸函数。二，若L是凸函数，那么θ是最优解的充分必要条件是L在θ处的梯度为0。<br>即<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%8810.00.16.png" alt=""><br>经典的例子是岭回归，其最优解为：<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%8810.04.11.png" alt=""><br>直接法要满足的这两个条件限制了它的应用范围。因此，在很多实际问题中，会采用迭代法。迭代法就是迭代地修正对最优解得估计。迭代法又分为一阶法和二阶法两类。<br>一阶法的迭代公式为：<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%8810.20.55.png" alt=""><br>其中α称为学习率，一阶法也称为梯度下降法，梯度就是目标函数的一阶信息。<br>二阶法的迭代公式<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%8810.22.05.png" alt=""><br>二阶法也称为牛顿法，Hessian矩阵就是目标函数的二阶信息，二阶法的收敛速度一般要远快于一阶法，但是在高维情况下，Hessian矩阵求逆的计算复杂度很大，而且当目标函数非凸时，二阶法有可能会收敛到鞍点。</p>
-<h1 id="梯度验证"><a href="#梯度验证" class="headerlink" title="梯度验证"></a>梯度验证</h1><p>在实际应用中，写出计算梯度的代码后，通常需要验证自己写的代码是否正确。<br><strong>问：如何验证求目标函数梯度功能的正确性？</strong></p>
-<p>答：ei是单位向量，维度与θ相同，仅在第i个位置取值为1，其余位置取值为0。可以取h为一个比较小的数(例如10的-7次方)，则有<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%8811.00.14.png" alt=""><br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%8811.03.09.png" alt=""><br>在实际应用中，随机初始化θ，取h为较小的数(例如10的-7次方)，并对i=1,2,…,n,依次验证<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-08%20%E4%B8%8A%E5%8D%8811.01.00.png" alt=""><br>是否成立。如果对于某个下标i，该不等式不成立，则有以下两种可能。<br>1 该下标对应的M过大<br>2 该梯度分量计算不正确</p>
-<p>此时可以固定θ，减小h为原来的十分之一，并再次计算下标i对应的近似误差，若近似误差越减小为原来的百分之一，则对应第一种可能，我们应该采用更小的h重新做一次梯度验证，否则对应第二种可能，应检查梯度的代码是否有错误。</p>
-<h1 id="随机梯度下降法"><a href="#随机梯度下降法" class="headerlink" title="随机梯度下降法"></a>随机梯度下降法</h1><p><strong>问：当训练数据量特别大时，经典的梯度下降法存在什么问题，需要做如何改进？</strong></p>
-<p>答：经典的梯度下降法在每次对模型参数进行更新时，需要遍历所有的训练数据。当M很大时，这需要很大的计算量，耗费很长的计算时间，在实际应用中基本不可行。为了解决该问题，随机梯度下降法(SGD)用单个训练样本的损失来近似平均损失，即随机梯度下降法用单个训练数据即可对模型参数进行一次更新，大大加快了收敛速率。该方法也非常适用于数据源源不断到来的在线更新场景。</p>
-<p>为了降低随机梯度的方差，从而使得迭代算法更加稳定，也为了充分利用高度优化的矩阵运算操作，在实际应用中我们会同时处理若干训练数据，该方法被称为小批量梯度下降法(Mini-Batch Gradient Descent)<br>有三个需要注意的地方：<br>1.选取参数m，在不同的应用中，最优的m通常会不一样，需要通过调参选取。一般m取2的幂次能充分利用矩阵运算操作，所以可以在2的幂次中挑选出最优的取值，例如32，64，128，256等。<br>2.挑选m个训练数据，为了避免数据的特定顺序给算法收敛带来的影响，一般会在每次遍历训练数据之前，先对所有的数据进行随机排序，然后在每次迭代时按顺序挑选m个训练数据直至遍历完所有的数据。<br>3.选取学习速率α，为了加快收敛速率，同时提高求解精度，通常会采用衰减学习速率的方案:一开始算法采用较大的学习速率，当误差曲线进入平台期后，减小学习速率做更精细的调整。最优的学习速率方案也通常需要调参才能得到。</p>
-<p>综上，通常采用小批量梯度下降法解决训练数据量过大的问题。每次更新模型参数时，只需要处理m个训练数据即可，其中m是一个远小于总数据量M的常数，这样能够大大加快训练过程。</p>
-<h1 id="随机梯度下降法的加速"><a href="#随机梯度下降法的加速" class="headerlink" title="随机梯度下降法的加速"></a>随机梯度下降法的加速</h1><p>提到深度学习中的优化方法，人们通常会想到随机梯度下降法。但是，随机梯度下降法并不是万金油，有时候反而会成为一个坑。当设计出一个深度神经网络时，如果只知道用随机梯度下降法来训练模型，那么当得到一个比较差的训练结果时，可能会放弃在这个模型上继续投入精力。然而，造成训练效果差的真正原因，可能并不是模型的问题，而是随机梯度下降法在优化过程中失效了，这可能会导致你丧失一次新发现的机会。</p>
-<p><strong>问：随机梯度下降法偶尔也会失效，无法给出满意的训练结果，这是为什么？</strong></p>
-<p>答：随机梯度下降法放弃了对梯度准确性的追求，每步仅仅随机采样一个或少量样本来估计当前梯度，计算速度快，内存开销小。但由于每步接受的信息量有限，随机梯度下降法对梯度的估计常常出现偏差，造成目标函数曲线收敛得很不稳定，伴有剧烈波动，有时甚至出现不收敛的情况。</p>
-<p>深度学习中的优化问题本身就很难，有太多局部最优点的陷阱。这些陷阱对随机梯度下降法和批量梯度下降法都是普遍存在的。但对随机梯度下降法来说，可怕的不是局部最优点，而是<strong>山谷</strong>和<strong>鞍点</strong>两类地形。</p>
-<p>山谷顾名思义就是狭长的山间小道，左右两边是峭璧;鞍点的形状像是一个马鞍，一个方向上两头翘，另一个方向上两头垂，而中心区域是一片近乎水平的平地。<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/f08834008016f4c23a67e931d2f5a281_b.jpg" alt=""><br>山谷地形</p>
-<p>在山谷中，准确的梯度方向是沿山道向下，稍有偏离就会撞向山壁，而粗糙的梯度估计使得它在两山壁间来回反弹震荡，不能沿山道方向迅速下降，导致收敛不稳定和收敛速度慢。在鞍点处，随机梯度下降法会走入一片平坦之地，结果就停滞下来。</p>
-<p><strong>问：解决之道—惯性保持和环境感知。</strong></p>
-<p>答：1.动量(<strong>Momentum</strong>)方法。<br>随机梯度下降法更新公式为：<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-13%20%E4%B8%8B%E5%8D%887.56.04.png" alt=""><br>动量方法模型参数迭代公式为：<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-13%20%E4%B8%8B%E5%8D%887.56.40.png" alt=""><br>具体来说，前进步伐-v,由两部分组成。一是学习速率乘以当前估计的梯度g;二是带衰减的前一次步伐v。这里，惯性就体现在对前一次步伐信息的重利用上。类比中学物理知识，当前梯度就好比当前时刻受力产生的加速度，前一次步伐好比前一时刻的速度，当前步伐好比当前时刻的速度。为了计算当前时刻的速度，应当考虑前一时刻速度和当前加速度共同作用的结果，因此vt直接依赖于vt-1 和gt, 而不仅仅是gt。另外，衰减系数y扮演了阻力的作用。<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/3e0e36c25cfc4dccb28e651aa7a47b01_b.png" alt=""><br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/a1a5fe431b8ab803d778337c8be2f275_b.png" alt=""><br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/20180515233015431.png" alt=""></p>
-<p><strong>AdaGrad方法</strong><br>随机梯度下降法对环境的感知是指在参数空间中，根据不同参数的一些经验性判断，自适应地确定参数的学习速率，不同参数的更新步幅是不同的。例如，在文本处理中训练词嵌入模型的参数时，有的词或词组频繁出现，有的词或词组则极少出现。数据的稀疏性导致相应参数的梯度的稀疏性，不频繁出现的词或词组的参数的梯度在大多数情况下为零，从而这些参数被更新的频率很低。在应用中，我们希望更新频率低的参数可以拥有较大的更新步幅，而更新频率高的参数的步幅可以减小。<strong>AdaGrad方法采用“历史梯度平方和”来衡量不同参数的梯度的稀疏性，取值越小表明越稀疏</strong>，具体的更新公式表示为<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-13%20%E4%B8%8B%E5%8D%889.09.19.png" alt=""><br>分母求和的形式实现了退火过程，这是很多优化技术中常见的策略，意味着随着时间推移，学习速率越来越小，从而保证了算法的最终收敛。</p>
-<p><strong>Adam方法</strong><br>Adam方法将惯性保持和环境感知这两个优点集于一身。一方面，Adam记录梯度的一阶矩(first moment) ，即过往梯度与当前梯度的平均，这体现了惯性保持;另一方面，Adam还记录梯度的二阶矩(second moment)，即过往梯度平方与当前梯度平方的平均，这类似AdaGrad方法，体现了环境感知能力，为不同参数产生自适应的学习速率。</p>
-<p>一阶矩和二阶矩采用类似于滑动窗口内求平均的思想进行融合，即当前梯度和近一段时间内梯度的平均值，时间久远的梯度对当前平均值的贡献呈指数衰减。具体来说，一阶矩和二阶矩采用指数衰退平均(exponentialdecay average)技术，计算公式<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-13%20%E4%B8%8B%E5%8D%889.16.48.png" alt=""><br>其中β，β2为衰减系数，m是一阶矩，v是二阶矩。</p>
-<p> 一阶矩相当于估计E[g]:由于当下梯度g,是随机采样得到的估计结果，因此更关注它在统计意义上的期望;二阶矩相当于估计E[g2]，这点与AdaGrad方法不同，不是g2从开始到现在的加和，而是它的期望。它们的物理意义是，当|m|大且v大时， 梯度大且稳定，这表明遇到一个明显的大坡，前进方向明确;当|m|趋于零 且v,大时，梯度不稳定，表明可能遇到一个峡谷，容易引起反弹震荡;当lm|大 且v,趋于零时，这种情况不可能出现;当|m|趋于零且v趋于零时，梯度趋于零，可能到达局部最低点，也可能走到一片坡度极缓的平地，此时要避免陷入平原(plateau) 。另外，Adam方法还考虑了m， v,在零初始值情况下的偏置矫正。具体来说，Adam的更新公式为<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-13%20%E4%B8%8B%E5%8D%889.23.22.png" alt=""><br>其中<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-13%20%E4%B8%8B%E5%8D%889.24.33.png" alt=""></p>
-<h1 id="L1正则化与稀疏性"><a href="#L1正则化与稀疏性" class="headerlink" title="L1正则化与稀疏性"></a>L1正则化与稀疏性</h1><p><strong>问：L1正则化使得模型参数具有稀疏性的原理是什么？</strong></p>
-<p>角度1：解空间形状。<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-13%20%E4%B8%8B%E5%8D%889.27.24.png" alt=""><br>在二维的情况下，黄色的部分是L2和L1正则项约束后的解空间，绿色的等高线是凸优化问题中目标函数的等高线。由图可知，L2正则项约束后的解空间是圆形，而L1正则项约束的解空间是多边形。显然，多边形的解空间更容易在尖角处与等高线碰撞出稀疏解。</p>
-<p>事实上，带正则项和带约束条件是等价的。为了约束w的可能取值空间从而防止过拟合，我们为该最优化问题加上一个约束，就是w的L2范数的平方不能大于m:<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-13%20%E4%B8%8B%E5%8D%889.54.41.png" alt=""><br>为了求解带约束条件的凸优化问题，写出拉格朗日函数。<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-13%20%E4%B8%8B%E5%8D%889.56.48.png" alt=""><br>若w <em>  和λ </em> 分别是原问题和对偶问题的最优解，根据KKT条件，它们应满足<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-14%20%E4%B8%8A%E5%8D%888.48.09.png" alt=""><br>L2正则化相当于为参数定义了一个圆形的解空间(因为必须保证L2范数不能大于m),而L1正则化相当于为参数定义了个棱形的解空间。如果原问题目标函数的最优解不是恰好落在解空间内,那么约束条件下的最优解一定是在解空间的边界上,而L1“棱角分明”的解空间显然更容易与目标函数等高线在角点碰撞,从而产生稀疏解。</p>
-<p>L2的切点只有一个点，L1的话，一个尖尖可以和无数个圆连着。</p>
-<p><strong>角度2：函数叠加</strong><br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-14%20%E4%B8%8A%E5%8D%888.55.34.png" alt=""><br>棕线是原始目标函数L(w)的曲线图，最小值点在蓝点处，且对应w * 值非0。</p>
-<p>考虑加上L2正则化项，目标函数变成L(w)+Cw2,其函数曲线为黄色。此时，最小值点在黄点处，对应w * 的绝对值减小了，但仍然非0.</p>
-<p>考虑加上L1正则化项，目标函数变成L(w)+C|w|,其函数曲线为绿色，最小值点在红色处，对应的w是0，产生了稀疏性。</p>
-<p>原因很直观，加入L1正则化后，对带正则项的目标函数求导，正则项部分产生的导数在原点左边部分是-C，在原点右边部分是C，因此，只要原目标函数的导数绝对值小于C，那么带正则项的目标函数在原点左边部分始终是递减的，在原点右边部分始终是递增的，最小值点自然在原点处。相反，L2正则项在原点处的导数是0，只要原目标函数在原点处的导数不为0，那么最小值点就不会在原点，所以L2只有减小w绝对值的作用，对解空间的稀疏性没有贡献。</p>
-<p>在一些在线梯度下降算法中，往往会采用截断梯度法来产生稀疏性，这同L1正则项产生稀疏性的原理是类似的。<br><strong>由上可以看出，L1产生稀疏性的概率比L2大很多，L2只有原目标函数导数为0这一种情况，L1则是原目标函数的导数绝对值小于C即可。</strong></p>
-<p><strong>角度3：贝叶斯先验</strong><br>从贝叶斯的角度来理解L1正则化和L2正则化，简单的解释是，L1正则化相当于对模型参数w引入了拉普拉斯先验，L2正 则化相当于引入了高斯先验，而拉普拉斯先验使参数为0的可能性更大。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2019/05/07/leetcode分类练习/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZDK"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZDK's blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/05/07/leetcode分类练习/" class="post-title-link" itemprop="url">leetcode分类练习</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-05-07 19:56:47 / 修改时间：19:56:40" itemprop="dateCreated datePublished" datetime="2019-05-07T19:56:47+08:00">2019-05-07</time>
-            </span>
-          
-
-          
-            
-
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/知识总结/" itemprop="url" rel="index"><span itemprop="name">知识总结</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/05/07/leetcode分类练习/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/07/leetcode分类练习/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2019/05/07/leetcode分类练习/" class="post-meta-item leancloud_visitors" data-flag-title="leetcode分类练习">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><p>15.3sum<br>169.majority element<br>41.first missing positive</p>
-<h1 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h1><p>141.linked list cycle<br>23.merge k sorted list</p>
-<h1 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h1><p>20.valid parenthess<br>32.longest valid parentheses<br>150.evaluate reverse polish notation</p>
-<h1 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h1><p>641.design circular deque<br>239.sliding window maxumum</p>
-<h1 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h1><p>70.climbing stairs</p>
-<h1 id="排序与二分查找"><a href="#排序与二分查找" class="headerlink" title="排序与二分查找"></a>排序与二分查找</h1><p>69.sqrt(x)</p>
-<h1 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h1><p>344.reverse string<br>151.reverse words in a string<br>8.string to integer(atoi)</p>
-<h1 id="二叉树和堆"><a href="#二叉树和堆" class="headerlink" title="二叉树和堆"></a>二叉树和堆</h1><p>226.invert binary tree<br>104.maximum depth of binary tree<br>98.validate binary search tree<br>112.path sum</p>
-<h1 id="图"><a href="#图" class="headerlink" title="图"></a>图</h1><p>200.number of islands<br>36.vaild sudoku</p>
-<h1 id="回溯分治动态规划"><a href="#回溯分治动态规划" class="headerlink" title="回溯分治动态规划"></a>回溯分治动态规划</h1><p>10.regular expression matching<br>64.minimum path sum<br>322.coin change<br>121.best time to buy and sell stock<br>152.maximum product subarray<br>120.triangle</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
-
-
-
-          </div>
-          
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-
-      
-
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image"
-                src="/images/avatar.gif"
-                alt="ZDK"/>
-            
-              <p class="site-author-name" itemprop="name">ZDK</p>
-              <div class="site-description motion-element" itemprop="description"></div>
-          </div>
-
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives/">
-                
-                    <span class="site-state-item-count">191</span>
-                    <span class="site-state-item-name">日志</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-categories">
-                  
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">9</span>
-                    <span class="site-state-item-name">分类</span>
-                  
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-tags">
-                  
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">48</span>
-                    <span class="site-state-item-name">标签</span>
-                  
-                </div>
-              
-            </nav>
-          
-
-          
-            <div class="feed-link motion-element">
-              <a href="/atom.xml" rel="alternate">
-                <i class="fa fa-rss"></i>
-                RSS
-              </a>
-            </div>
-          
-
-          
-
-          
-            <div class="links-of-author motion-element">
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://github.com/zdkswd" title="GitHub &rarr; https://github.com/zdkswd"><i class="fa fa-fw fa-github"></i>GitHub</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="mailto:2822464407@qq.com" title="E-Mail &rarr; mailto:2822464407@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-                </span>
-              
-            </div>
-          
-
-          
-
-          
-          
-            <div class="links-of-blogroll motion-element links-of-blogroll-block">
-              <div class="links-of-blogroll-title">
-                <i class="fa  fa-fw fa-link"></i>
-                Links
-              </div>
-              <ul class="links-of-blogroll-list">
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://github.com/zdkswd" title="https://github.com/zdkswd">Title</a>
-                  </li>
-                
-              </ul>
-            </div>
-          
-
-          
-        </div>
-      </div>
-
-      
-
-      
-        <div class="back-to-top motion-element">
-          <i class="fa fa-arrow-up"></i>
-          
-        </div>
-      
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-        
-      </div>
     </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">ZDK</span>
 
-  
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
 
-  
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
 </div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
 
-
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.1</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.2.0</div>
-
-
-
-
-        
-
-
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
 
 
 
+<!-- mathjax config similar to math.stackexchange -->
 
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
 
-
-        
-      </div>
-    </footer>
-
-    
-
-    
-
-    
-  </div>
-
-  
-
-<script>
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
 </script>
 
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
 
 
 
 
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  <script src="/lib/jquery/index.js?v=3.4.1"></script>
-
-  
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-
-
-
-  <script src="/js/utils.js?v=7.2.0"></script>
-
-  <script src="/js/motion.js?v=7.2.0"></script>
-
-
-
-  
-  
-
-
-  <script src="/js/affix.js?v=7.2.0"></script>
-
-  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
-
-
-
-
-  
-
-  <script src="/js/next-boot.js?v=7.2.0"></script>
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
 
 <script>
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(function(item) {
-    return GUEST.indexOf(item) > -1;
-  });
-  new Valine({
-    el: '#comments',
-    verify: false,
-    notify: true,
-    appId: 'QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz',
-    appKey: 'gkBx5soQkBREmER84PWbNJeM',
-    placeholder: 'have fun',
-    avatar: 'mm',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: true,
-    lang: '' || 'zh-cn'
-  });
-</script>
-
-
-
-
-
-  
-  <script>
-    // Popup Window;
-    var isfetched = false;
-    var isXml = true;
-    // Search DB path;
-    var search_path = "";
-    if (search_path.length === 0) {
-      search_path = "search.xml";
-    } else if (/json$/i.test(search_path)) {
-      isXml = false;
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
-
-    var onPopupClose = function (e) {
-      $('.popup').hide();
-      $('#local-search-input').val('');
-      $('.search-result-list').remove();
-      $('#no-result').remove();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    }
-
-    function proceedsearch() {
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
-        .css('overflow', 'hidden');
-      $('.search-popup-overlay').click(onPopupClose);
-      $('.popup').toggle();
-      var $localSearchInput = $('#local-search-input');
-      $localSearchInput.attr("autocapitalize", "none");
-      $localSearchInput.attr("autocorrect", "off");
-      $localSearchInput.focus();
-    }
-
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-
-      // start loading animation
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
-          '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
-          '</div>' +
-          '</div>')
-        .css('overflow', 'hidden');
-      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
-
-      
-
-      $.ajax({
-        url: path,
-        dataType: isXml ? "xml" : "json",
-        async: true,
-        success: function(res) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = isXml ? $("entry", res).map(function() {
-            return {
-              title: $("title", this).text(),
-              content: $("content",this).text(),
-              url: $("url" , this).text()
-            };
-          }).get() : res;
-          var input = document.getElementById(search_id);
-          var resultContent = document.getElementById(content_id);
-          var inputEventFunction = function() {
-            var searchText = input.value.trim().toLowerCase();
-            var keywords = searchText.split(/[\s\-]+/);
-            if (keywords.length > 1) {
-              keywords.push(searchText);
-            }
-            var resultItems = [];
-            if (searchText.length > 0) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var hitCount = 0;
-                var searchTextCount = 0;
-                var title = data.title.trim();
-                var titleInLowerCase = title.toLowerCase();
-                var content = data.content.trim().replace(/<[^>]+>/g,"");
-                
-                var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
-                var indexOfTitle = [];
-                var indexOfContent = [];
-                // only match articles with not empty titles
-                if(title != '') {
-                  keywords.forEach(function(keyword) {
-                    function getIndexByWord(word, text, caseSensitive) {
-                      var wordLen = word.length;
-                      if (wordLen === 0) {
-                        return [];
-                      }
-                      var startPosition = 0, position = [], index = [];
-                      if (!caseSensitive) {
-                        text = text.toLowerCase();
-                        word = word.toLowerCase();
-                      }
-                      while ((position = text.indexOf(word, startPosition)) > -1) {
-                        index.push({position: position, word: word});
-                        startPosition = position + wordLen;
-                      }
-                      return index;
-                    }
-
-                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
-                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
-                  });
-                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
-                    isMatch = true;
-                    hitCount = indexOfTitle.length + indexOfContent.length;
-                  }
-                }
-
-                // show search results
-
-                if (isMatch) {
-                  // sort index by position of keyword
-
-                  [indexOfTitle, indexOfContent].forEach(function (index) {
-                    index.sort(function (itemLeft, itemRight) {
-                      if (itemRight.position !== itemLeft.position) {
-                        return itemRight.position - itemLeft.position;
-                      } else {
-                        return itemLeft.word.length - itemRight.word.length;
-                      }
-                    });
-                  });
-
-                  // merge hits into slices
-
-                  function mergeIntoSlice(text, start, end, index) {
-                    var item = index[index.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    var hits = [];
-                    var searchTextCountInSlice = 0;
-                    while (position + word.length <= end && index.length != 0) {
-                      if (word === searchText) {
-                        searchTextCountInSlice++;
-                      }
-                      hits.push({position: position, length: word.length});
-                      var wordEnd = position + word.length;
-
-                      // move to next position of hit
-
-                      index.pop();
-                      while (index.length != 0) {
-                        item = index[index.length - 1];
-                        position = item.position;
-                        word = item.word;
-                        if (wordEnd > position) {
-                          index.pop();
-                        } else {
-                          break;
-                        }
-                      }
-                    }
-                    searchTextCount += searchTextCountInSlice;
-                    return {
-                      hits: hits,
-                      start: start,
-                      end: end,
-                      searchTextCount: searchTextCountInSlice
-                    };
-                  }
-
-                  var slicesOfTitle = [];
-                  if (indexOfTitle.length != 0) {
-                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
-                  }
-
-                  var slicesOfContent = [];
-                  while (indexOfContent.length != 0) {
-                    var item = indexOfContent[indexOfContent.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    // cut out 100 characters
-                    var start = position - 20;
-                    var end = position + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if (end < position + word.length) {
-                      end = position + word.length;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
-                  }
-
-                  // sort slices in content by search text's count and hits' count
-
-                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
-                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
-                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
-                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
-                      return sliceRight.hits.length - sliceLeft.hits.length;
-                    } else {
-                      return sliceLeft.start - sliceRight.start;
-                    }
-                  });
-
-                  // select top N slices in content
-
-                  var upperBound = parseInt('5');
-                  if (upperBound >= 0) {
-                    slicesOfContent = slicesOfContent.slice(0, upperBound);
-                  }
-
-                  // highlight title and content
-
-                  function highlightKeyword(text, slice) {
-                    var result = '';
-                    var prevEnd = slice.start;
-                    slice.hits.forEach(function (hit) {
-                      result += text.substring(prevEnd, hit.position);
-                      var end = hit.position + hit.length;
-                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
-                      prevEnd = end;
-                    });
-                    result += text.substring(prevEnd, slice.end);
-                    return result;
-                  }
-
-                  var resultItem = '';
-
-                  if (slicesOfTitle.length != 0) {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
-                  } else {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
-                  }
-
-                  slicesOfContent.forEach(function (slice) {
-                    resultItem += "<a href='" + articleUrl + "'>" +
-                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
-                      "...</p>" + "</a>";
-                  });
-
-                  resultItem += "</li>";
-                  resultItems.push({
-                    item: resultItem,
-                    searchTextCount: searchTextCount,
-                    hitCount: hitCount,
-                    id: resultItems.length
-                  });
-                }
-              })
-            };
-            if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
-            } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
-            } else {
-              resultItems.sort(function (resultLeft, resultRight) {
-                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-                  return resultRight.searchTextCount - resultLeft.searchTextCount;
-                } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
-              });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'zdk'blog';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
         }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
     });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
-  </script>
+})();
+</script>
 
 
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-  
 
 </body>
 </html>

@@ -1,2689 +1,625 @@
 <!DOCTYPE html>
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<html class="theme-next gemini use-motion" lang="zh-CN">
+<html>
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
-<meta name="theme-color" content="#222"/>
+    
+
+    
+
+    
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0"/>
-
-<link rel="stylesheet" href="/css/main.css?v=7.2.0"/>
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.2.0">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.2.0">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
-
-
-
-
-
-
-
-<script id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Gemini',
-    version: '7.2.0',
-    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
-    back2top: {"enable":true,"sidebar":true,"scrollpercent":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
-    fancybox: false,
-    fastclick: false,
-    lazyload: false,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    translation: {
-      copy_button: '复制',
-      copy_success: '复制成功',
-      copy_failure: '复制失败'
-    }
-  };
-</script>
-
-
-
-  <meta property="og:type" content="website">
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>ZDK&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta property="og:type" content="website">
 <meta property="og:title" content="ZDK&#39;s blog">
 <meta property="og:url" content="https://github.com/zdkswd/page/23/index.html">
 <meta property="og:site_name" content="ZDK&#39;s blog">
 <meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ZDK&#39;s blog">
+    
+        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
 
-
-
-  <link rel="alternate" href="/atom.xml" title="ZDK's blog" type="application/atom+xml"/>
-
-
-
-  
-  
-  <link rel="canonical" href="https://github.com/zdkswd/page/23/"/>
-
-
-
-<script id="page.configurations">
-  CONFIG.page = {
-    sidebar: "",
-  };
-</script>
-
-  <title>ZDK's blog</title>
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .motion-element,
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-title { opacity: initial; }
-
-  .use-motion .logo,
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
+    <!-- custom head -->
+    
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body>
+    <div id="loading" class="active"></div>
 
-  
-  
-    
-  
-
-  <div class="container sidebar-position-right 
-  page-home">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">ZDK's blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/tmg.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ZDK</h5>
+          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
+        </hgroup>
+      </div>
     </div>
-    
-    
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/zdkswd" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
   </div>
+</aside>
 
-  <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
-
-
-
-<nav class="site-nav">
-  
-    <ul id="menu" class="menu">
-      
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">ZDK&#39;s blog</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
         
         
-        
-          
-          <li class="menu-item menu-item-home">
+    </div>
+</header>
+<header class="content-header index-header">
 
-    
-    
-      
-    
-
-    
-
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>首页</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-tags">
-
-    
-    
-      
-    
-
-    
-
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>标签</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-categories">
-
-    
-    
-      
-    
-
-    
-
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>分类</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-archives">
-
-    
-    
-      
-    
-
-    
-
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>归档</a>
-
-  </li>
-
-      
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
+    <div class="container fade-scale">
+        <h1 class="title">ZDK&#39;s blog</h1>
+        <h5 class="subtitle">
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br/>搜索</a>
+                
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+<div class="container body-wrap">
+
+    <ul class="post-list">
+    
+        <li class="post-list-item fade">
+            <article id="post-Android群英传 1 Android体系与系统架构"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-07-14 11:01:32" datetime="2018-07-14T03:01:32.000Z"  itemprop="datePublished">2018-07-14</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/07/14/Android群英传 1 Android体系与系统架构/">Android群英传 1 Android体系与系统架构</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        Android群英传 1 Android体系与系统架构Google生态系统Android系统架构这些层次结构即是相互独立的，又是相互关联的。
+LinuxLinux层(仅为Linux内核)，Android最底层最核心的部分。显示内核版本，就是显示所用的Linux内核的版本。Linux层包含了Android系统的核心服务，包括硬件驱动，进程管理，安全系统等等。
+Dalvik与ARTDalvik包...
+    
+
+        <a href="/2018/07/14/Android群英传 1 Android体系与系统架构/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/电子书笔记/">电子书笔记</a></li></ul>
+
+    </div>
+    
+</article>
+
         </li>
-      
+    
+        <li class="post-list-item fade">
+            <article id="post-松本行弘的程序世界 9 整数和浮点小数"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-07-12 17:41:32" datetime="2018-07-12T09:41:32.000Z"  itemprop="datePublished">2018-07-12</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/07/12/松本行弘的程序世界 9 整数和浮点小数/">松本行弘的程序世界 9 整数和浮点小数</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        松本行弘的程序世界 9 整数和浮点小数深奥的整数世界整数是有范围的
+尝试位运算
+操作特定的位位运算组合起来，可以对存储在计算机中的各位进行自由操作。操作二进制位就等于操作计算机的数据。基本的位处理操作有4种。
+
+取出特定位的状态
+特定位置位（设为1）
+特定位清零（设为0）
+特定位反转
+
+将操作限制在特定位的数为掩码。
+表示负数的办法
+开头一位做符号位
+将整数的各位反转（1的补数）
+
+Ruby...
+    
+
+        <a href="/2018/07/12/松本行弘的程序世界 9 整数和浮点小数/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/电子书笔记/">电子书笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/程序语言/">程序语言</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-松本行弘的程序世界 8 正则表达式"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-07-12 12:41:32" datetime="2018-07-12T04:41:32.000Z"  itemprop="datePublished">2018-07-12</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/07/12/松本行弘的程序世界 8 正则表达式/">松本行弘的程序世界 8 正则表达式</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        松本行弘的程序世界 8 正则表达式正则表达式基础检索“像那样的东西”正则表达式的语法普通字符除了表中所示的元字符以外的普通字符，都与该字符自身相匹配。
+字符集合用括号（【】）括起来的部分为字符集合。与括号内所含的每一个字符都匹配。比如，【abcde】能与小写字母abcde中的任何一个相匹配。字符集合中，用中划线（-）来指定范围。所以，【abcde】可以用【a-e】来代替。字符集合中，第一个字...
+    
+
+        <a href="/2018/07/12/松本行弘的程序世界 8 正则表达式/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/电子书笔记/">电子书笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/程序语言/">程序语言</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-松本行弘的程序世界 7 文字编码"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-07-12 10:00:32" datetime="2018-07-12T02:00:32.000Z"  itemprop="datePublished">2018-07-12</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/07/12/松本行弘的程序世界 7 文字编码/">松本行弘的程序世界 7 文字编码</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        松本行弘的程序世界 7 文字编码文字编码的种类早期的文字编码纸带与文字的表现文字是什么走向英语以外的语言（欧洲篇）英语以外得到语言（亚洲篇）Unicode的问世统一编码成16位的汉字统合Unicode的两个问题选择16位文字的Unicode有两大副作用。一是字节顺序的问题，一是NUL文字问题。字节顺序就是低八位先放还是高八位先放的问题。传统C语言处理的字符串，一般有一个终端文字NUL（‘\0...
+    
+
+        <a href="/2018/07/12/松本行弘的程序世界 7 文字编码/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/电子书笔记/">电子书笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/程序语言/">程序语言</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-松本行弘的程序世界 6 Ruby On Rails"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-07-11 12:00:32" datetime="2018-07-11T04:00:32.000Z"  itemprop="datePublished">2018-07-11</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/07/11/松本行弘的程序世界 6 Ruby On Rails/">松本行弘的程序世界 6 Ruby On Rails</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        松本行弘的程序世界 6 Ruby On RailsMVC和Ruby On RailsMVC是设计GUI程序的设计模式之一。大部分设计模式仅决定程序某一部分的构成，而MVC决定了应用程序的整体部分，有时候也被成为架构模式。
+模型、视图和控制的作用模型：是表现窗口中表示内容（信息）的对象。模型代表的只是信息（名字、数值等抽象的信息），它不能包含如何来显示这些信息的信息。视图：代表将模型中包含的信...
+    
+
+        <a href="/2018/07/11/松本行弘的程序世界 6 Ruby On Rails/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/电子书笔记/">电子书笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/程序语言/">程序语言</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-松本行弘的程序世界 5 Ajax"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-07-10 17:25:32" datetime="2018-07-10T09:25:32.000Z"  itemprop="datePublished">2018-07-10</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/07/10/松本行弘的程序世界 5 Ajax/">松本行弘的程序世界 5 Ajax</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        松本行弘的程序世界 5 AjaxAjax和JavaScript（前篇）Ajax（Asynchronous JavaScript and XML）,含义是异步JavaScript及XML。Ajax不算是一个新技术，只是既有技术的组合。
+通信及异步页面更新Ajax的最大特点是进行异步操作，异步意味着Web浏览器的通信和页面更新是互相独立的。以前的Web应用程序，每按下一个按钮就开始显示下一个页面...
+    
+
+        <a href="/2018/07/10/松本行弘的程序世界 5 Ajax/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/电子书笔记/">电子书笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/程序语言/">程序语言</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-松本行弘的程序世界 4 设计模式"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-07-09 18:21:32" datetime="2018-07-09T10:21:32.000Z"  itemprop="datePublished">2018-07-09</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/07/09/松本行弘的程序世界 4 设计模式/">松本行弘的程序世界 4 设计模式</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        松本行弘的程序世界 4 设计模式设计模式（1）设计模式的价值和意义Gamma他们并没有发现新的模式，总结出来的23种设计模式也是软件开发中早就存在并反复使用的模式，因此并不能说是Gamma他们的首创。但即使是这样，设计模式有了名字，人们就可以认识到它的存在，并对之进行讨论。这种不能用语言表达的知识称为内隐知识。给这些在软件中经常反复出现的模式命名，使得这些本来只有经验丰富的程序员才能认识到的...
+    
+
+        <a href="/2018/07/09/松本行弘的程序世界 4 设计模式/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/电子书笔记/">电子书笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/程序语言/">程序语言</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
     </ul>
-  
 
-  
-
-  
-    <div class="site-search">
-      
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
+    
+<nav id="page-nav">
+    <div class="inner">
+    <a class="extend prev" rel="prev" href="/page/22/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="page-number" href="/page/22/">22</a><span class="page-number current">23</span><a class="page-number" href="/page/24/">24</a><a class="page-number" href="/page/25/">25</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="extend next" rel="next" href="/page/24/">下一页</a>
     </div>
-  </div>
-  <div id="local-search-result"></div>
-</div>
-
-
-
-    </div>
-  
 </nav>
 
 
-
 </div>
-    </header>
 
-    
-
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-            
-
-          
-          <div id="content" class="content">
-            
-  <section id="posts" class="posts-expand">
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2018/07/14/Android群英传 1 Android体系与系统架构/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZDK"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
     </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZDK's blog"/>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
     </span>
+</p>
 
-    
-      <header class="post-header">
 
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/07/14/Android群英传 1 Android体系与系统架构/" class="post-title-link" itemprop="url">Android群英传 1 Android体系与系统架构</a>
-              
+        <p>
             
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-07-14 11:01:32 / 修改时间：11:02:20" itemprop="dateCreated datePublished" datetime="2018-07-14T11:01:32+08:00">2018-07-14</time>
-            </span>
-          
-
-          
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/读书笔记/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2018/07/14/Android群英传 1 Android体系与系统架构/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/07/14/Android群英传 1 Android体系与系统架构/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2018/07/14/Android群英传 1 Android体系与系统架构/" class="post-meta-item leancloud_visitors" data-flag-title="Android群英传 1 Android体系与系统架构">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Android群英传-1-Android体系与系统架构"><a href="#Android群英传-1-Android体系与系统架构" class="headerlink" title="Android群英传 1 Android体系与系统架构"></a>Android群英传 1 Android体系与系统架构</h1><h2 id="Google生态系统"><a href="#Google生态系统" class="headerlink" title="Google生态系统"></a>Google生态系统</h2><h2 id="Android系统架构"><a href="#Android系统架构" class="headerlink" title="Android系统架构"></a>Android系统架构</h2><p><img src="/img/media/15315306518029/2fdda3cc7cd98d10ac7dfab52b3fb80e7aec908d.jpg" alt="2fdda3cc7cd98d10ac7dfab52b3fb80e7aec908d"><br>这些层次结构即是相互独立的，又是相互关联的。</p>
-<h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><p>Linux层(仅为Linux内核)，Android最底层最核心的部分。显示内核版本，就是显示所用的Linux<strong>内核</strong>的版本。Linux层包含了Android系统的核心服务，包括硬件驱动，进程管理，安全系统等等。</p>
-<h3 id="Dalvik与ART"><a href="#Dalvik与ART" class="headerlink" title="Dalvik与ART"></a>Dalvik与ART</h3><p>Dalvik包含了一整套Android运行环境虚拟机，每个App都会分配Dalvik虚拟机来保证互相之间不受干扰，并保持独立，特点是在运行时编译。<br>在Android 5.x开始，ART模式已经取代了Dalvik，ART是安装时进行编译，在运行时就不用编译了。</p>
-<h3 id="Framework"><a href="#Framework" class="headerlink" title="Framework"></a>Framework</h3><p>见上图</p>
-<h3 id="Standard-libraries"><a href="#Standard-libraries" class="headerlink" title="Standard libraries"></a>Standard libraries</h3><p>见上图</p>
-<h3 id="Application"><a href="#Application" class="headerlink" title="Application"></a>Application</h3><p>不管是使用NDK开发还是Java开发的App，都有Android Manifest文件、Dalvik Classes、Resource Bundle这些东西。</p>
-<h2 id="Android-App组件架构"><a href="#Android-App组件架构" class="headerlink" title="Android App组件架构"></a>Android App组件架构</h2><p>即四大组件：Activity、BroadCastReciever、ContentProvider和Service。它们是组成一个Android App的最基本元素。</p>
-<h3 id="Android四大组件如何协同工作"><a href="#Android四大组件如何协同工作" class="headerlink" title="Android四大组件如何协同工作"></a>Android四大组件如何协同工作</h3><p>Activity作为人机交互的第一界面，负责向用户展示和处理结果，信息的来源可以是通过资源获取，也可以是通过Content Provider来获取其他应用的信息，或是Service从后台计算，下载，处理后的结果，也可以是通过BroadCast Reciever获取到广播信息。同时，Android系统还提供了一个信使Intent，作为信息传递的载体。组件与组件之间通过Intent来通信、传递信息、交换数据，正是通过这样一种方式，四大组件形成了各自独立而又紧密联系的关系。</p>
-<h3 id="应用运行上下文对象"><a href="#应用运行上下文对象" class="headerlink" title="应用运行上下文对象"></a>应用运行上下文对象</h3><p>Android系统上下文对象即Context，Activity、Service、Application都是继承自Context。<br>Android应用程序会在几个时间点创建应用上下文Context。</p>
-<ol>
-<li>创建Application</li>
-<li>创建Activity</li>
-<li>创建Service</li>
-</ol>
-<p>创建Context的时机就是在创建Context的实现类时。</p>
-<h2 id="Android系统源代码目录与系统目录"><a href="#Android系统源代码目录与系统目录" class="headerlink" title="Android系统源代码目录与系统目录"></a>Android系统源代码目录与系统目录</h2><p>Android系统源代码目录包含了Android系统所有的源代码，从底层驱动到上层应用，Android系统对所有文件都进行了详细管理。在手机中，Android系统的目录和源代码目录不是一一对应的，与源代码编译后，与打包生成的Image文件的结构相同。</p>
-<h3 id="Android系统源代码目录"><a href="#Android系统源代码目录" class="headerlink" title="Android系统源代码目录"></a>Android系统源代码目录</h3><p>看完Android源代码，要懂C、懂脚本、懂Java。<br><img src="/img/media/15315306518029/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-14%20%E4%B8%8A%E5%8D%8810.18.18.png" alt="屏幕快照 2018-07-14 上午10.18.18"><br>应注意，不是所有的源代码结构都是这样。只有AOSP的Android项目才是这样的结构，有些芯片厂家如MTK目录结构就不同。<br>Android源码采用Makefile编译。<br>像Android这样的大型项目，它的源代码不计其数，不同的功能，模块，按类型分别放置在不同的目录中，这些模块通常会有Makefile文件进行管理。它定义了一系列的规则来指定模块，哪些文件需要编译，以及这些文件该按照怎演的顺序去编译。甚至可以配置更复杂的功能操作，比如定义编译规则，打包规则，Makefile就像一个shell脚本，不仅可以使用自己的语法，也能调用操作系统的命令。<br>Android系统源代码目录每个目录中还会包含更多的目录，而它的每一个最小的功能单位的目录下，都会有一个Makefile文件，这样每一级向上，通过一个个Makefile文件，就把整个源代码有条不紊的联系在一起了。</p>
-<h3 id="Android系统目录"><a href="#Android系统目录" class="headerlink" title="Android系统目录"></a>Android系统目录</h3><p>通过ADB连上手机，通过Linux的ls命令查看Android系统的根目录。其中/system和/data是开发者非常关心的两个目录。</p>
-<h4 id="system-app"><a href="#system-app" class="headerlink" title="/system/app/"></a>/system/app/</h4><p>这里面放的是一些系统的App</p>
-<h4 id="system-bin"><a href="#system-bin" class="headerlink" title="/system/bin/"></a>/system/bin/</h4><p>这里面主要放的是Linux自带的组件</p>
-<h4 id="system-build-prop"><a href="#system-build-prop" class="headerlink" title="/system/build.prop"></a>/system/build.prop</h4><p>这里记录的是系统的属性信息。</p>
-<h4 id="system-fonts"><a href="#system-fonts" class="headerlink" title="/system/fonts/"></a>/system/fonts/</h4><p>系统字体存放的目录root后可下载TTF格式字体替代原字体。</p>
-<h4 id="system-framework"><a href="#system-framework" class="headerlink" title="/system/framework/"></a>/system/framework/</h4><p>系统的核心文件，架构层。</p>
-<h4 id="system-lib"><a href="#system-lib" class="headerlink" title="/system/lib/"></a>/system/lib/</h4><p>存放几乎所有的共享库（.so）文件。</p>
-<h4 id="system-media"><a href="#system-media" class="headerlink" title="/system/media/"></a>/system/media/</h4><p>该目录用来保存系统提示音、系统铃声。</p>
-<h4 id="system-usr"><a href="#system-usr" class="headerlink" title="/system/usr/"></a>/system/usr/</h4><p>该目录用来保存用户的配置文件，如键盘布局、共享、时区文件等。</p>
-<h4 id="data-app"><a href="#data-app" class="headerlink" title="/data/app/"></a>/data/app/</h4><p>data目录包含了用户大部分数据信息。app目录下包含了用户安装的App或者升级的App。</p>
-<h4 id="data-data"><a href="#data-data" class="headerlink" title="/data/data/"></a>/data/data/</h4><p>这个目录应该是开发者访问最多的目录了，这里包含了App的数据信息，文件信息、数据库信息等，以包名的方式来区分各个应用。</p>
-<h4 id="data-system"><a href="#data-system" class="headerlink" title="/data/system/"></a>/data/system/</h4><p>这个目录包含了手机的各项系统信息。</p>
-<h4 id="data-misc"><a href="#data-misc" class="headerlink" title="/data/misc/"></a>/data/misc/</h4><p>这个目录保存了大部分的WiFi、VPN信息。</p>
-<h3 id="Android-App文件目录"><a href="#Android-App文件目录" class="headerlink" title="Android App文件目录"></a>Android App文件目录</h3>
-          
-        
-      
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
     </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2018/07/12/松本行弘的程序世界 9 整数和浮点小数/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZDK"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZDK's blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+    <div class="bottom">
+        <p><span>ZDK &copy; 2017 - 2019</span>
+            <span>
                 
-                
-                <a href="/2018/07/12/松本行弘的程序世界 9 整数和浮点小数/" class="post-title-link" itemprop="url">松本行弘的程序世界 9 整数和浮点小数</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-07-12 17:41:32 / 修改时间：17:39:20" itemprop="dateCreated datePublished" datetime="2018-07-12T17:41:32+08:00">2018-07-12</time>
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
             </span>
-          
-
-          
-            
-
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/读书笔记/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2018/07/12/松本行弘的程序世界 9 整数和浮点小数/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/07/12/松本行弘的程序世界 9 整数和浮点小数/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2018/07/12/松本行弘的程序世界 9 整数和浮点小数/" class="post-meta-item leancloud_visitors" data-flag-title="松本行弘的程序世界 9 整数和浮点小数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="松本行弘的程序世界-9-整数和浮点小数"><a href="#松本行弘的程序世界-9-整数和浮点小数" class="headerlink" title="松本行弘的程序世界 9 整数和浮点小数"></a>松本行弘的程序世界 9 整数和浮点小数</h1><h2 id="深奥的整数世界"><a href="#深奥的整数世界" class="headerlink" title="深奥的整数世界"></a>深奥的整数世界</h2><h3 id="整数是有范围的"><a href="#整数是有范围的" class="headerlink" title="整数是有范围的"></a>整数是有范围的</h3><p><img src="/img/media/15313834829764/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-12%20%E4%B8%8B%E5%8D%884.23.38.png" alt="屏幕快照 2018-07-12 下午4.23.38"></p>
-<h3 id="尝试位运算"><a href="#尝试位运算" class="headerlink" title="尝试位运算"></a>尝试位运算</h3><p><img src="/img/media/15313834829764/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-12%20%E4%B8%8B%E5%8D%884.24.58.png" alt="屏幕快照 2018-07-12 下午4.24.58"></p>
-<h3 id="操作特定的位"><a href="#操作特定的位" class="headerlink" title="操作特定的位"></a>操作特定的位</h3><p>位运算组合起来，可以对存储在计算机中的各位进行自由操作。<br>操作二进制位就等于操作计算机的数据。<br>基本的位处理操作有4种。</p>
-<ol>
-<li>取出特定位的状态</li>
-<li>特定位置位（设为1）</li>
-<li>特定位清零（设为0）</li>
-<li>特定位反转</li>
-</ol>
-<p>将操作限制在特定位的数为掩码。</p>
-<h3 id="表示负数的办法"><a href="#表示负数的办法" class="headerlink" title="表示负数的办法"></a>表示负数的办法</h3><ol>
-<li>开头一位做符号位</li>
-<li>将整数的各位反转（1的补数）</li>
-</ol>
-<h3 id="Ruby的整数"><a href="#Ruby的整数" class="headerlink" title="Ruby的整数"></a>Ruby的整数</h3><p>Ruby的整数有两种，一种是范围有限制的整数Fixnum（32位CPU是31位，64位CPU是63位），另一种是范围没有限制（超过内存容量除外）的整数Bignum，根据计算结果自动变换。</p>
-<h3 id="挑战公开密钥方式"><a href="#挑战公开密钥方式" class="headerlink" title="挑战公开密钥方式"></a>挑战公开密钥方式</h3><p>RSA加密的强度（解读的困难程度），就归因于素因数分解的难度。</p>
-<h2 id="扑朔迷离的浮点小数世界"><a href="#扑朔迷离的浮点小数世界" class="headerlink" title="扑朔迷离的浮点小数世界"></a>扑朔迷离的浮点小数世界</h2><h3 id="计算机对小数的处理"><a href="#计算机对小数的处理" class="headerlink" title="计算机对小数的处理"></a>计算机对小数的处理</h3><h3 id="固定小数点数不易使用"><a href="#固定小数点数不易使用" class="headerlink" title="固定小数点数不易使用"></a>固定小数点数不易使用</h3><p>浮点数，就是小数点的位置可以移动。</p>
-<h3 id="科学计数法也有问题"><a href="#科学计数法也有问题" class="headerlink" title="科学计数法也有问题"></a>科学计数法也有问题</h3><p>计算机中广泛使用的小数表示方法是科学计数法。科学计数法是指将有效数字和指数组合起来表示小数（实数）。</p>
-<p><img src="/img/media/15313834829764/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-12%20%E4%B8%8B%E5%8D%885.01.23.png" alt="屏幕快照 2018-07-12 下午5.01.23"></p>
-<p><strong>IEEE754规定，尾数部分的首位始终归一化为1，所以首位始终省略，实质有效数字为53位。</strong></p>
-<h3 id="小数不能完全表示"><a href="#小数不能完全表示" class="headerlink" title="小数不能完全表示"></a>小数不能完全表示</h3><ol>
-<li>计算机中的数的表示有长度（位数）限制。</li>
-<li>计算机中数的表示是二进制。</li>
-</ol>
-<h4 id="浮点数是有限的"><a href="#浮点数是有限的" class="headerlink" title="浮点数是有限的"></a>浮点数是有限的</h4><h4 id="浮点数有误差"><a href="#浮点数有误差" class="headerlink" title="浮点数有误差"></a>浮点数有误差</h4><h4 id="对于浮点小数，结合法不成立"><a href="#对于浮点小数，结合法不成立" class="headerlink" title="对于浮点小数，结合法不成立"></a>对于浮点小数，结合法不成立</h4><h3 id="有不能比较的时候"><a href="#有不能比较的时候" class="headerlink" title="有不能比较的时候"></a>有不能比较的时候</h3><p>对于浮点数进行比较运算，只有两个数在内部表示是完全相同的情况下才判定为相等。作为铁则，两个浮点数不能用==进行比较运算。如果有进行比较的必要，判断条件中的两个数的差要足够小。根据操作系统的不同，对于浮点数，足够小的值e有不同的定义。</p>
-<h3 id="误差积累"><a href="#误差积累" class="headerlink" title="误差积累"></a>误差积累</h3><p>减少运算次数。</p>
-<h3 id="不是数的特别“数”"><a href="#不是数的特别“数”" class="headerlink" title="不是数的特别“数”"></a>不是数的特别“数”</h3><p><img src="/img/media/15313834829764/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-12%20%E4%B8%8B%E5%8D%885.13.14.png" alt="屏幕快照 2018-07-12 下午5.13.14"><br>无限大Inf，零0，非数NaN</p>
-<h3 id="计算误差有多种"><a href="#计算误差有多种" class="headerlink" title="计算误差有多种"></a>计算误差有多种</h3><h4 id="舍入误差"><a href="#舍入误差" class="headerlink" title="舍入误差"></a>舍入误差</h4><h4 id="最大值溢出与最小值溢出"><a href="#最大值溢出与最小值溢出" class="headerlink" title="最大值溢出与最小值溢出"></a>最大值溢出与最小值溢出</h4><h4 id="信息丢失"><a href="#信息丢失" class="headerlink" title="信息丢失"></a>信息丢失</h4><h4 id="位数脱落"><a href="#位数脱落" class="headerlink" title="位数脱落"></a>位数脱落</h4><h4 id="截止误差"><a href="#截止误差" class="headerlink" title="截止误差"></a>截止误差</h4><h3 id="误差导致的严重问题"><a href="#误差导致的严重问题" class="headerlink" title="误差导致的严重问题"></a>误差导致的严重问题</h3><h3 id="BigDecimal是什么"><a href="#BigDecimal是什么" class="headerlink" title="BigDecimal是什么"></a>BigDecimal是什么</h3><p>浮点数运算的陷阱可以归结为：1. 能够表示的精度有限</p>
-<ol start="2">
-<li>以二进制来表示</li>
-</ol>
-<p>Ruby提供了BigDecimal类，有以下3个特点：</p>
-<ol>
-<li>与Bignum一样，有效数字自动扩展</li>
-<li>以十进制计算</li>
-<li>以C语言记述，比内嵌的浮点数类（Float）要慢</li>
-</ol>
-<h3 id="能够表示分数的Rational类"><a href="#能够表示分数的Rational类" class="headerlink" title="能够表示分数的Rational类"></a>能够表示分数的Rational类</h3>
-          
-        
-      
+        </p>
     </div>
+    <span id="busuanzi_container_site_uv">
+        本站访客数<span id="busuanzi_value_site_uv"></span>人次
+      </span>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+</footer>
 
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2018/07/12/松本行弘的程序世界 8 正则表达式/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZDK"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZDK's blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/07/12/松本行弘的程序世界 8 正则表达式/" class="post-title-link" itemprop="url">松本行弘的程序世界 8 正则表达式</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-07-12 12:41:32 / 修改时间：12:43:36" itemprop="dateCreated datePublished" datetime="2018-07-12T12:41:32+08:00">2018-07-12</time>
-            </span>
-          
-
-          
-            
-
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/读书笔记/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2018/07/12/松本行弘的程序世界 8 正则表达式/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/07/12/松本行弘的程序世界 8 正则表达式/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2018/07/12/松本行弘的程序世界 8 正则表达式/" class="post-meta-item leancloud_visitors" data-flag-title="松本行弘的程序世界 8 正则表达式">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="松本行弘的程序世界-8-正则表达式"><a href="#松本行弘的程序世界-8-正则表达式" class="headerlink" title="松本行弘的程序世界 8 正则表达式"></a>松本行弘的程序世界 8 正则表达式</h1><h2 id="正则表达式基础"><a href="#正则表达式基础" class="headerlink" title="正则表达式基础"></a>正则表达式基础</h2><h3 id="检索“像那样的东西”"><a href="#检索“像那样的东西”" class="headerlink" title="检索“像那样的东西”"></a>检索“像那样的东西”</h3><h3 id="正则表达式的语法"><a href="#正则表达式的语法" class="headerlink" title="正则表达式的语法"></a>正则表达式的语法</h3><h4 id="普通字符"><a href="#普通字符" class="headerlink" title="普通字符"></a>普通字符</h4><p>除了表中所示的元字符以外的普通字符，都与该字符自身相匹配。<br><img src="/img/media/15313622372722/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-12%20%E4%B8%8A%E5%8D%8810.28.08.png" alt="屏幕快照 2018-07-12 上午10.28.08"></p>
-<h4 id="字符集合"><a href="#字符集合" class="headerlink" title="字符集合"></a>字符集合</h4><p>用括号（【】）括起来的部分为字符集合。与括号内所含的每一个字符都匹配。比如，【abcde】能与小写字母abcde中的任何一个相匹配。<br>字符集合中，用中划线（-）来指定范围。所以，【abcde】可以用【a-e】来代替。<br>字符集合中，第一个字符是【\^】时，表示取反。就是说，不与括号（【】）中的字符相匹配。</p>
-<h4 id="任意一个字符"><a href="#任意一个字符" class="headerlink" title="任意一个字符"></a>任意一个字符</h4><p>表示任意一个字符读得模式是“.”。除了匹配换行符。</p>
-<h4 id="重复"><a href="#重复" class="headerlink" title="重复"></a>重复</h4><p><img src="/img/media/15313622372722/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-12%20%E4%B8%8A%E5%8D%8810.42.59.png" alt="屏幕快照 2018-07-12 上午10.42.59"></p>
-<h4 id="贪婪与懒惰"><a href="#贪婪与懒惰" class="headerlink" title="贪婪与懒惰"></a>贪婪与懒惰</h4><p>贪婪：寻找符合的最长的，遍历完再回溯，<br>懒惰：寻找第一个符合的。</p>
-<h4 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h4><p>将模式绑定起来的功能称为分组。（ma）+</p>
-<h4 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h4><p>|</p>
-<h4 id="锚点"><a href="#锚点" class="headerlink" title="锚点"></a>锚点</h4><p>指定位置而不是字符来进行匹配。称为锚点（anchor）。<br><img src="/img/media/15313622372722/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-12%20%E4%B8%8A%E5%8D%8810.53.24.png" alt="屏幕快照 2018-07-12 上午10.53.24"></p>
-<h3 id="三个陷阱"><a href="#三个陷阱" class="headerlink" title="三个陷阱"></a>三个陷阱</h3><h4 id="记号多、密度高的表达式"><a href="#记号多、密度高的表达式" class="headerlink" title="记号多、密度高的表达式"></a>记号多、密度高的表达式</h4><p>为应对这一问题，出现了扩展正则表达式。</p>
-<h4 id="0次以上的重复"><a href="#0次以上的重复" class="headerlink" title="0次以上的重复"></a>0次以上的重复</h4><h4 id="贪婪型匹配"><a href="#贪婪型匹配" class="headerlink" title="贪婪型匹配"></a>贪婪型匹配</h4><h3 id="正则表达式对象"><a href="#正则表达式对象" class="headerlink" title="正则表达式对象"></a>正则表达式对象</h3><p>面向对象语言Ruby中，所有数据都是对象。正则表达式也是对象。<br><strong>Ruby程序中正则表达式对象写成/.*/的样子。</strong><br>正则表达式对象可以用正则表达式类方法生成。程序中由组合字符串生成正则表达式时，使用类方法更自然。</p>
-<h3 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h3><p>Ruby正则表达式末尾斜杠的后面，可以为这个正则表达式添加选项。<br><img src="/img/media/15313622372722/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-12%20%E4%B8%8A%E5%8D%8811.34.28.png" alt="屏幕快照 2018-07-12 上午11.34.28"><br><img src="/img/media/15313622372722/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-12%20%E4%B8%8A%E5%8D%8811.35.23.png" alt="屏幕快照 2018-07-12 上午11.35.23"></p>
-<h3 id="正则表达式匹配的方法"><a href="#正则表达式匹配的方法" class="headerlink" title="正则表达式匹配的方法"></a>正则表达式匹配的方法</h3><p><img src="/img/media/15313622372722/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-12%20%E4%B8%8A%E5%8D%8811.37.23.png" alt="屏幕快照 2018-07-12 上午11.37.23"></p>
-<h3 id="特殊变量"><a href="#特殊变量" class="headerlink" title="特殊变量"></a>特殊变量</h3><p>Ruby中有源于Perl的特殊变量。以$开头的变量。<br><img src="/img/media/15313622372722/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-12%20%E4%B8%8A%E5%8D%8811.41.33.png" alt="屏幕快照 2018-07-12 上午11.41.33"></p>
-<h3 id="字符串与正则表达式"><a href="#字符串与正则表达式" class="headerlink" title="字符串与正则表达式"></a>字符串与正则表达式</h3><p><img src="/img/media/15313622372722/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-12%20%E4%B8%8A%E5%8D%8811.43.29.png" alt="屏幕快照 2018-07-12 上午11.43.29"></p>
-<h3 id="split的本质"><a href="#split的本质" class="headerlink" title="split的本质"></a>split的本质</h3><p>分割字符串的方法split,与正则表达式组合起来能实现很多功能。</p>
-<h3 id="字符串的扫描"><a href="#字符串的扫描" class="headerlink" title="字符串的扫描"></a>字符串的扫描</h3><h3 id="置换"><a href="#置换" class="headerlink" title="置换"></a>置换</h3><p>想要置换与字符串模式匹配的部分，可以用置换方法。</p>
-<h2 id="正则表达式的应用实例与“鬼车”"><a href="#正则表达式的应用实例与“鬼车”" class="headerlink" title="正则表达式的应用实例与“鬼车”"></a>正则表达式的应用实例与“鬼车”</h2><p>正则表达式是表达字符串模式的一种微型语言。正则表达式由字符本身、字符模式、锚点以及重复等组合而成。</p>
-<h3 id="解析日志文件的方法"><a href="#解析日志文件的方法" class="headerlink" title="解析日志文件的方法"></a>解析日志文件的方法</h3><h3 id="避免使用-的方法"><a href="#避免使用-的方法" class="headerlink" title="避免使用$的方法"></a>避免使用$的方法</h3><p>记号$不美观。Ruby中，以match方法替代=~运算符，就可以在程序中不使用这些记号了。</p>
-<h3 id="从邮件中取出日期的方法"><a href="#从邮件中取出日期的方法" class="headerlink" title="从邮件中取出日期的方法"></a>从邮件中取出日期的方法</h3><h3 id="典型拼写错误的检索方法"><a href="#典型拼写错误的检索方法" class="headerlink" title="典型拼写错误的检索方法"></a>典型拼写错误的检索方法</h3><h3 id="Ruby1-9的新功能“鬼车”"><a href="#Ruby1-9的新功能“鬼车”" class="headerlink" title="Ruby1.9的新功能“鬼车”"></a>Ruby1.9的新功能“鬼车”</h3><p>“鬼车”新正则表达式库。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">DSL</span><br><span class="line">Domain Specific Language,意为面向特定领域的编程语言。</span><br><span class="line">DSL分内部DSL和外部DSL。</span><br><span class="line">内部DSL，就是往既有的语言中加入特定领域的词汇，使之DSL化。如软件编译工具Rake中表达依存关系的内部DSL。</span><br><span class="line">make是一个同样目的的工具，它使用Makefile来表达依存关系。Rake可以利用Ruby的编程功能、方法定义、条件分歧和循环等，不管关系有多复杂，都可以编程对应。</span><br><span class="line">外部DSL，不是扩展现有的语言，而是面向特定目的，如SQL就是DSL的代表性例子。正则表达式也可以称作是以实现模式匹配为目的的外部DSL。</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2018/07/12/松本行弘的程序世界 7 文字编码/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZDK"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZDK's blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/07/12/松本行弘的程序世界 7 文字编码/" class="post-title-link" itemprop="url">松本行弘的程序世界 7 文字编码</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-07-12 10:00:32 / 修改时间：10:01:00" itemprop="dateCreated datePublished" datetime="2018-07-12T10:00:32+08:00">2018-07-12</time>
-            </span>
-          
-
-          
-            
-
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/读书笔记/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2018/07/12/松本行弘的程序世界 7 文字编码/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/07/12/松本行弘的程序世界 7 文字编码/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2018/07/12/松本行弘的程序世界 7 文字编码/" class="post-meta-item leancloud_visitors" data-flag-title="松本行弘的程序世界 7 文字编码">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="松本行弘的程序世界-7-文字编码"><a href="#松本行弘的程序世界-7-文字编码" class="headerlink" title="松本行弘的程序世界 7 文字编码"></a>松本行弘的程序世界 7 文字编码</h1><h2 id="文字编码的种类"><a href="#文字编码的种类" class="headerlink" title="文字编码的种类"></a>文字编码的种类</h2><h3 id="早期的文字编码"><a href="#早期的文字编码" class="headerlink" title="早期的文字编码"></a>早期的文字编码</h3><h3 id="纸带与文字的表现"><a href="#纸带与文字的表现" class="headerlink" title="纸带与文字的表现"></a>纸带与文字的表现</h3><h3 id="文字是什么"><a href="#文字是什么" class="headerlink" title="文字是什么"></a>文字是什么</h3><h3 id="走向英语以外的语言（欧洲篇）"><a href="#走向英语以外的语言（欧洲篇）" class="headerlink" title="走向英语以外的语言（欧洲篇）"></a>走向英语以外的语言（欧洲篇）</h3><h3 id="英语以外得到语言（亚洲篇）"><a href="#英语以外得到语言（亚洲篇）" class="headerlink" title="英语以外得到语言（亚洲篇）"></a>英语以外得到语言（亚洲篇）</h3><h3 id="Unicode的问世"><a href="#Unicode的问世" class="headerlink" title="Unicode的问世"></a>Unicode的问世</h3><h3 id="统一编码成16位的汉字统合"><a href="#统一编码成16位的汉字统合" class="headerlink" title="统一编码成16位的汉字统合"></a>统一编码成16位的汉字统合</h3><h3 id="Unicode的两个问题"><a href="#Unicode的两个问题" class="headerlink" title="Unicode的两个问题"></a>Unicode的两个问题</h3><p>选择16位文字的Unicode有两大副作用。一是字节顺序的问题，一是NUL文字问题。<br>字节顺序就是低八位先放还是高八位先放的问题。<br>传统C语言处理的字符串，一般有一个终端文字NUL（‘\0’）。但是作为16位文字的字符串，中途会出现NUL文字。所以，C语言中处理字符串的传统函数不能用于16位文字的字符串。<br>像java那样的语言，一开始就是以16位文字为前提而设计的，所以没什么问题。但以C语言处理16位文字的时候，需要全新的api。</p>
-<h3 id="Unicode的文字集"><a href="#Unicode的文字集" class="headerlink" title="Unicode的文字集"></a>Unicode的文字集</h3><p>现在，Unicode放弃了16位方式，而用21位来表示一个文字，现在Unicode能够表示4111个文字，肯定够用了。</p>
-<h3 id="文字表示的不确定性"><a href="#文字表示的不确定性" class="headerlink" title="文字表示的不确定性"></a>文字表示的不确定性</h3><h3 id="Unicode的字符编码方式"><a href="#Unicode的字符编码方式" class="headerlink" title="Unicode的字符编码方式"></a>Unicode的字符编码方式</h3><h4 id="UTF-8"><a href="#UTF-8" class="headerlink" title="UTF-8"></a>UTF-8</h4><p>UTF-8以一定式样的字节组合来表示Unicode中的21位文字。对于内部程序处理字符串非常方便，另外没有字节顺序问题，在外部处理时也很有用。<br>缺点：消费过多内存，几乎所有的汉字都要占用3个字节。<br>构成文字的字节数是可变的，随机访问任意文字，代价与字符串长度成正比。<br>但是随着计算机内存的容量和性能提高，这些缺点也无所谓了。</p>
-<h4 id="UTF-16"><a href="#UTF-16" class="headerlink" title="UTF-16"></a>UTF-16</h4><p>Unicode中能以16位表示的空间就以16位表示，超过16位就以两个16位码组合来表示。到现在缺点已经很突出了，从今以后没必要采用这种字符编码方式了。</p>
-<h4 id="UTF-32"><a href="#UTF-32" class="headerlink" title="UTF-32"></a>UTF-32</h4><p>固定长，可以随机访问，但存在字节顺序的问题。<br>因为4字节，没什么人气。</p>
-<h2 id="程序中的文字处理"><a href="#程序中的文字处理" class="headerlink" title="程序中的文字处理"></a>程序中的文字处理</h2><h3 id="文字编码有多个意思"><a href="#文字编码有多个意思" class="headerlink" title="文字编码有多个意思"></a>文字编码有多个意思</h3><h3 id="只能处理文字集中包含的文字"><a href="#只能处理文字集中包含的文字" class="headerlink" title="只能处理文字集中包含的文字"></a>只能处理文字集中包含的文字</h3><h3 id="纷繁复杂的文字编码方式"><a href="#纷繁复杂的文字编码方式" class="headerlink" title="纷繁复杂的文字编码方式"></a>纷繁复杂的文字编码方式</h3><h3 id="影响力渐微的Shift-JIS与EUC-JP"><a href="#影响力渐微的Shift-JIS与EUC-JP" class="headerlink" title="影响力渐微的Shift_JIS与EUC-JP"></a>影响力渐微的Shift_JIS与EUC-JP</h3><h3 id="Unicode有多种字符编码方式"><a href="#Unicode有多种字符编码方式" class="headerlink" title="Unicode有多种字符编码方式"></a>Unicode有多种字符编码方式</h3><h3 id="为什么会发生乱码"><a href="#为什么会发生乱码" class="headerlink" title="为什么会发生乱码"></a>为什么会发生乱码</h3><h3 id="字符编码方式错误"><a href="#字符编码方式错误" class="headerlink" title="字符编码方式错误"></a>字符编码方式错误</h3><h3 id="没有字体"><a href="#没有字体" class="headerlink" title="没有字体"></a>没有字体</h3><h3 id="变换为内部码时出错"><a href="#变换为内部码时出错" class="headerlink" title="变换为内部码时出错"></a>变换为内部码时出错</h3><h3 id="发生不完全变换"><a href="#发生不完全变换" class="headerlink" title="发生不完全变换"></a>发生不完全变换</h3><h3 id="文字集的不同"><a href="#文字集的不同" class="headerlink" title="文字集的不同"></a>文字集的不同</h3><h3 id="字节顺序错误"><a href="#字节顺序错误" class="headerlink" title="字节顺序错误"></a>字节顺序错误</h3><p>像UTF-16，UTF-32这种基本数据单位大于一个字节的编码方式，存放数据时字节该以什么顺序摆放，有两大流派，一个是big endian,一个是little endian。所以同样是UTF-16格式（UTF-32也一样）根据字节顺序不同就会有两种。<br>UTF-8就不会。</p>
-<h3 id="从编程语言的角度处理文字"><a href="#从编程语言的角度处理文字" class="headerlink" title="从编程语言的角度处理文字"></a>从编程语言的角度处理文字</h3><p>编程语言处理文本数据的方法，有UCS方式和CSI方式两种。</p>
-<h3 id="以变换为前提的UCS方式"><a href="#以变换为前提的UCS方式" class="headerlink" title="以变换为前提的UCS方式"></a>以变换为前提的UCS方式</h3><p>UCS（泛用字符集），是指程序中所处理的共同文字集（及字符编码方式）。输入输出时，编程语言将文本数据变成UCS，内部对文本数据进行统一处理。优点：</p>
-<ol>
-<li>原理简单，容易实现</li>
-<li>除变换外，处理成本低</li>
-<li>实际成果多</li>
-</ol>
-<p>缺点：</p>
-<ol>
-<li>发生不必要的变换</li>
-<li>变换存在模糊部分</li>
-<li>有外字及机种依存文字的问题</li>
-<li>UCS中不包含的文字绝对不能处理</li>
-</ol>
-<h3 id="原封不动处理的CSI方式"><a href="#原封不动处理的CSI方式" class="headerlink" title="原封不动处理的CSI方式"></a>原封不动处理的CSI方式</h3><p>CSI（Character Set Independent，字符集独立），是指不对各种文字集（及编码方式）进行任何变换，原封不动地进行处理。相对于UCS的内部只有一种编码方式的处理方式，CSI中对各种编码方式原封不动地处理。<br>CSI是优点多，自由度高的方式。</p>
-<ol>
-<li>不发生不必要的变换</li>
-<li>不发生变换所带来的问题</li>
-<li>不易发生外字的问题。</li>
-<li>理论上不存在不能处理的文字</li>
-<li>根据需要，可以处理应用程序独立的文字集</li>
-</ol>
-<p>缺点：</p>
-<ol>
-<li>字符串的处理容易变得复杂化</li>
-<li>预计处理性能会变低</li>
-<li>实际成果少</li>
-</ol>
-<p>实际上，现在存在的多种编程语言中，采用CSI方式的几乎没有。</p>
-<h3 id="使用UTF-16的Java"><a href="#使用UTF-16的Java" class="headerlink" title="使用UTF-16的Java"></a>使用UTF-16的Java</h3><p>Java采用UCS方式，内部字符编码选用UTF-16<br>制作Java时，Unicode仅限于16位。java没选择可变长的UTF-8，而选择UTF-16，因而产生了这样的悲剧。说是时机的恶作剧也罢，真是太可惜了。</p>
-<h3 id="使用UTF-8的Perl"><a href="#使用UTF-8的Perl" class="headerlink" title="使用UTF-8的Perl"></a>使用UTF-8的Perl</h3><p>Perl也使用UCS方式，内部编码方式采用UTF-8。</p>
-<h3 id="用UTF-16的Python"><a href="#用UTF-16的Python" class="headerlink" title="用UTF-16的Python"></a>用UTF-16的Python</h3><p>UCS，UTF-16</p>
-<h3 id="采用CSI方式的Ruby1-8"><a href="#采用CSI方式的Ruby1-8" class="headerlink" title="采用CSI方式的Ruby1.8"></a>采用CSI方式的Ruby1.8</h3><h3 id="强化了功能的Ruby1-9"><a href="#强化了功能的Ruby1-9" class="headerlink" title="强化了功能的Ruby1.9"></a>强化了功能的Ruby1.9</h3><h3 id="是UCS还是CSI"><a href="#是UCS还是CSI" class="headerlink" title="是UCS还是CSI"></a>是UCS还是CSI</h3>
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2018/07/11/松本行弘的程序世界 6 Ruby On Rails/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZDK"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZDK's blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/07/11/松本行弘的程序世界 6 Ruby On Rails/" class="post-title-link" itemprop="url">松本行弘的程序世界 6 Ruby On Rails</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-07-11 12:00:32 / 修改时间：11:59:46" itemprop="dateCreated datePublished" datetime="2018-07-11T12:00:32+08:00">2018-07-11</time>
-            </span>
-          
-
-          
-            
-
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/读书笔记/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2018/07/11/松本行弘的程序世界 6 Ruby On Rails/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/07/11/松本行弘的程序世界 6 Ruby On Rails/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2018/07/11/松本行弘的程序世界 6 Ruby On Rails/" class="post-meta-item leancloud_visitors" data-flag-title="松本行弘的程序世界 6 Ruby On Rails">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="松本行弘的程序世界-6-Ruby-On-Rails"><a href="#松本行弘的程序世界-6-Ruby-On-Rails" class="headerlink" title="松本行弘的程序世界 6 Ruby On Rails"></a>松本行弘的程序世界 6 Ruby On Rails</h1><h2 id="MVC和Ruby-On-Rails"><a href="#MVC和Ruby-On-Rails" class="headerlink" title="MVC和Ruby On Rails"></a>MVC和Ruby On Rails</h2><p>MVC是设计GUI程序的设计模式之一。大部分设计模式仅决定程序某一部分的构成，而MVC决定了应用程序的整体部分，有时候也被成为架构模式。</p>
-<h3 id="模型、视图和控制的作用"><a href="#模型、视图和控制的作用" class="headerlink" title="模型、视图和控制的作用"></a>模型、视图和控制的作用</h3><p>模型：是表现窗口中表示内容（信息）的对象。模型代表的只是信息（名字、数值等抽象的信息），它不能包含如何来显示这些信息的信息。<br>视图：代表将模型中包含的信息在窗口中进行表示的对象。视图知道要表现的模型的信息，而模型一般不知道要表示自己的视图信息。<br>控制：是从用户端接受输入，对视图和模型进行操作的对象。<br><img src="/img/media/15312716241699/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-11%20%E4%B8%8A%E5%8D%889.26.46.png" alt="屏幕快照 2018-07-11 上午9.26.46"></p>
-<h3 id="用秒表的例子来学习MVC模式"><a href="#用秒表的例子来学习MVC模式" class="headerlink" title="用秒表的例子来学习MVC模式"></a>用秒表的例子来学习MVC模式</h3><h3 id="生成视图和控制部分"><a href="#生成视图和控制部分" class="headerlink" title="生成视图和控制部分"></a>生成视图和控制部分</h3><h3 id="GUI工具箱与MVC"><a href="#GUI工具箱与MVC" class="headerlink" title="GUI工具箱与MVC"></a>GUI工具箱与MVC</h3><h3 id="同时使用工具箱和MVC"><a href="#同时使用工具箱和MVC" class="headerlink" title="同时使用工具箱和MVC"></a>同时使用工具箱和MVC</h3><h3 id="MVC的优缺点"><a href="#MVC的优缺点" class="headerlink" title="MVC的优缺点"></a>MVC的优缺点</h3><p>优点：</p>
-<h4 id="可以更换界面"><a href="#可以更换界面" class="headerlink" title="可以更换界面"></a>可以更换界面</h4><h4 id="一个模型对应多个视图"><a href="#一个模型对应多个视图" class="headerlink" title="一个模型对应多个视图"></a>一个模型对应多个视图</h4><h4 id="多个视图可以同时响应"><a href="#多个视图可以同时响应" class="headerlink" title="多个视图可以同时响应"></a>多个视图可以同时响应</h4><h4 id="容易测试"><a href="#容易测试" class="headerlink" title="容易测试"></a>容易测试</h4><p>缺点：</p>
-<h4 id="复杂性"><a href="#复杂性" class="headerlink" title="复杂性"></a>复杂性</h4><h4 id="强关联性"><a href="#强关联性" class="headerlink" title="强关联性"></a>强关联性</h4><p>对模型对象进行了功能追加这样的变更后，相应地也必须对视图和控制进行变更。</p>
-<h3 id="Web应用中的MVC"><a href="#Web应用中的MVC" class="headerlink" title="Web应用中的MVC"></a>Web应用中的MVC</h3><p>Web应用基本是HTTP。HTTP的一次处理经过了一下过程：<br>（1）Web浏览器对应于用户的操作，向Web服务器发出HTTP请求。<br>（2）Web服务器根据请求，准备好发送到Web浏览器的数据。<br>（3）Web服务器把数据以HTTP响应的形式送还Web浏览器。</p>
-<p>利用MVC来描述：<br>（1）Web浏览器发送过来的HTTP请求通过Web服务器传给控制部分。Web应用框架的分配器把请求传递给合适的控制部分。<br>（2）控制部分操作的模型和请求的信息相对应，同时制定显示使用的视图。视图从模型启动，一边引用模型一边准备发送给Web浏览器的数据。<br>（3）Web服务器把数据以HTTP响应的形式送还Web浏览器。</p>
-<p><img src="/img/media/15312716241699/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-11%20%E4%B8%8A%E5%8D%889.54.09.png" alt="屏幕快照 2018-07-11 上午9.54.09"></p>
-<p>Ruby on Rails上的MVC各部分功能稍有不同。Rails中的模型相当于数据库层，视图指显示用的模板，控制器指控制用的类（包含了应用逻辑）。<br><img src="/img/media/15312716241699/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-11%20%E4%B8%8A%E5%8D%889.56.48.png" alt="屏幕快照 2018-07-11 上午9.56.48"></p>
-<h2 id="开放类和猴子补丁"><a href="#开放类和猴子补丁" class="headerlink" title="开放类和猴子补丁"></a>开放类和猴子补丁</h2><p>猴子补丁，即在动态语言中，不改变源代码而对功能进行追加和变更。<br>现在灵活使用开放类，变更和追加方法全部称为猴子补丁。</p>
-<h3 id="开放类"><a href="#开放类" class="headerlink" title="开放类"></a>开放类</h3><p>Ruby的类的特征是所谓的开放类，相对于其他语言，特别容易打猴子补丁。<br>Ruby中，可以把String类、Array类等基本的数据类型及所有的类都作为开放类处理，可以自由地追加功能。</p>
-<h3 id="猴子补丁的目的"><a href="#猴子补丁的目的" class="headerlink" title="猴子补丁的目的"></a>猴子补丁的目的</h3><h4 id="功能追加"><a href="#功能追加" class="headerlink" title="功能追加"></a>功能追加</h4><p>利用开放类可以给已有的类追加功能。</p>
-<h4 id="功能变更"><a href="#功能变更" class="headerlink" title="功能变更"></a>功能变更</h4><h4 id="修改程序错误"><a href="#修改程序错误" class="headerlink" title="修改程序错误"></a>修改程序错误</h4><p>因为重新定义了有程序错误或有副作用的方法，不用修改原来那部分的代码就可以解决问题。这也是本来的猴子补丁的目的。</p>
-<h4 id="钩子"><a href="#钩子" class="headerlink" title="钩子"></a>钩子</h4><p>有时间想在每个方法调用的同时增加一些其他处理。这种伴随方法调用而进行的处理称为“钩子”（hook），钩子的追加也可以用猴子补丁来实现。</p>
-<h4 id="缓存（cache）"><a href="#缓存（cache）" class="headerlink" title="缓存（cache）"></a>缓存（cache）</h4><h3 id="猴子补丁的技巧"><a href="#猴子补丁的技巧" class="headerlink" title="猴子补丁的技巧"></a>猴子补丁的技巧</h3><p>可以吧Ruby提供的对方法、类和模块进行操作的功能运用到打猴子补丁上。最基本的功能就是给已有的方法改名或取消。<br><img src="/img/media/15312716241699/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-11%20%E4%B8%8A%E5%8D%8810.58.20.png" alt="屏幕快照 2018-07-11 上午10.58.20"></p>
-<h4 id="undef"><a href="#undef" class="headerlink" title="undef"></a>undef</h4><p>undef有把方法取消定义的功能。用undef不仅可以取消本类中的方法，也可以取消父类中定义的方法。</p>
-<h4 id="alias"><a href="#alias" class="headerlink" title="alias"></a>alias</h4><h4 id="include"><a href="#include" class="headerlink" title="include"></a>include</h4><h3 id="灵活使用开放类的库"><a href="#灵活使用开放类的库" class="headerlink" title="灵活使用开放类的库"></a>灵活使用开放类的库</h3><p>jcode库可以不使用正则表达式，利用开放类的功能，使得字符串的方法可以处理多字节文字。</p>
-<h3 id="猴子补丁的几点问题"><a href="#猴子补丁的几点问题" class="headerlink" title="猴子补丁的几点问题"></a>猴子补丁的几点问题</h3><p>若要正确使用开放类，安全地打猴子补丁，需遵守：</p>
-<ol>
-<li>基本上只是追加功能<br>对类追加新方法不会让已有的程序无法执行。使用开放类时，主要做不容易导致问题的功能追加会更保险。做功能追加时，如果发生名称重复会造成麻烦，在选择追加的方法名时需要慎重。</li>
-<li>进行功能变更时要慎重，尽可能小规模</li>
-<li>小心相互作用</li>
-</ol>
-<h3 id="其他方法"><a href="#其他方法" class="headerlink" title="其他方法"></a>其他方法</h3><p>猴子补丁能够不改变源代码进行动态修改，这种灵活性是显示动态语言柔软性和扩展性的好例子。实现猴子补丁的Ruby开放类有时功能过强，可能会引起问题。<br>其他语言中用更易控制的形式也能实现猴子补丁。</p>
-<h3 id="Ruby-on-Rails和开放类"><a href="#Ruby-on-Rails和开放类" class="headerlink" title="Ruby on Rails和开放类"></a>Ruby on Rails和开放类</h3><p>Rails构成部分之一ActiveSupport库。ActiveSupport利用Ruby的开放类功能，对Ruby标准提供的类大胆地追加了功能。</p>
-<h3 id="ActiveSupport带来的扩展"><a href="#ActiveSupport带来的扩展" class="headerlink" title="ActiveSupport带来的扩展"></a>ActiveSupport带来的扩展</h3><ol>
-<li>时间</li>
-<li>字节单位系列</li>
-<li>复数形和序数</li>
-</ol>
-<h3 id="大规模开发和Ruby"><a href="#大规模开发和Ruby" class="headerlink" title="大规模开发和Ruby"></a>大规模开发和Ruby</h3><h4 id="编译时不作类型检查"><a href="#编译时不作类型检查" class="headerlink" title="编译时不作类型检查"></a>编译时不作类型检查</h4><p>Ruby在执行时作类型检查，大规模程序为了保证可靠性一定会有严格的测试程序，如果作了严格的测试，在编译时作类型检查的优点就不像所说的那么重要了。</p>
-<h4 id="没有包"><a href="#没有包" class="headerlink" title="没有包"></a>没有包</h4><p>Java对于构成库的类和文件有独立的包，要想具备某种功能，必须明确地进行import操作。而Ruby是不具备这种功能的。所以，库定义的类和模块名是全局的，从任何地方都可以引用。因此，可以说名称重复的危险性很大。</p>
-<h4 id="存在开放类"><a href="#存在开放类" class="headerlink" title="存在开放类"></a>存在开放类</h4><p>各自独立的库发生互相矛盾的变更时，问题不能简单解决。这也可能在大规模开发时引发问题。</p>
-<h3 id="信赖性模型"><a href="#信赖性模型" class="headerlink" title="信赖性模型"></a>信赖性模型</h3><p>在某种类型的大规模开发中，Ruby的性质会造成问题，或者说造成问题时解决起来不像其他语言那么容易，这种现象是现实中可能存在的。如果认为这些是问题的话，可能不使用Ruby会更好。但是，到现在为止我们看到的情况表明，会发生那种问题的大规模开发本来就绝不是好的开发状况。首先要做的，是把项目的信赖关系改善到可以使用Ruby的程度。就算是最后也没有使用Ruby，这也是应该先做到的事情。</p>
-<h3 id="猴子补丁的未来"><a href="#猴子补丁的未来" class="headerlink" title="猴子补丁的未来"></a>猴子补丁的未来</h3><p>猴子补丁虽然有一定的危险性，但有利有弊，它也提供了方便性、扩展性和灵活性。开放类和利用它的猴子补丁，将来也可能会被更安全的、由1特定目的而特制的功能群而替代。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2018/07/10/松本行弘的程序世界 5 Ajax/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZDK"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZDK's blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/07/10/松本行弘的程序世界 5 Ajax/" class="post-title-link" itemprop="url">松本行弘的程序世界 5 Ajax</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-07-10 17:25:32 / 修改时间：17:26:46" itemprop="dateCreated datePublished" datetime="2018-07-10T17:25:32+08:00">2018-07-10</time>
-            </span>
-          
-
-          
-            
-
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/读书笔记/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2018/07/10/松本行弘的程序世界 5 Ajax/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/07/10/松本行弘的程序世界 5 Ajax/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2018/07/10/松本行弘的程序世界 5 Ajax/" class="post-meta-item leancloud_visitors" data-flag-title="松本行弘的程序世界 5 Ajax">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="松本行弘的程序世界-5-Ajax"><a href="#松本行弘的程序世界-5-Ajax" class="headerlink" title="松本行弘的程序世界 5 Ajax"></a>松本行弘的程序世界 5 Ajax</h1><h2 id="Ajax和JavaScript（前篇）"><a href="#Ajax和JavaScript（前篇）" class="headerlink" title="Ajax和JavaScript（前篇）"></a>Ajax和JavaScript（前篇）</h2><p>Ajax（Asynchronous JavaScript and XML）,含义是异步JavaScript及XML。<br>Ajax不算是一个新技术，只是既有技术的组合。</p>
-<h3 id="通信及异步页面更新"><a href="#通信及异步页面更新" class="headerlink" title="通信及异步页面更新"></a>通信及异步页面更新</h3><p>Ajax的最大特点是进行异步操作，异步意味着Web浏览器的通信和页面更新是互相独立的。<br>以前的Web应用程序，每按下一个按钮就开始显示下一个页面，在页面完整呈现之前，用户只能等待，无法进行其他操作，使用Ajax技术的页面是在后台和HTTP服务器进行通信，设计优良的Web应用程序，在客户和服务器通信的过程中也可以让用户进行操作，而不需要等待。Ajax的最大优点是改善了应用程序的操控性。<br><img src="/img/media/15311832913375/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-10%20%E4%B8%8A%E5%8D%888.52.52.png" alt="屏幕快照 2018-07-10 上午8.52.52"><br>Ajax技术中，对于用户进行的操作，基本是由JavaScript在Web浏览器中进行响应。尽在数据必须从服务器获取的情况下，才在后台进行异步通信。在通信过程中，用户也可以继续对Web浏览器进行操作。和服务器通信得到的结果由DHTML对当前的页面进行部分更新而现实出来。</p>
-<h3 id="技术要素之一：JavaScript"><a href="#技术要素之一：JavaScript" class="headerlink" title="技术要素之一：JavaScript"></a>技术要素之一：JavaScript</h3><p>支撑Ajax的三个主要技术：JavaScript、XML及DHTML。<br>JavaScript是几乎所有Web浏览器处理系统都支撑的一种编程语言。因此，它被称为世界上最普及的编程语言。<br>JavaScript可以简单的嵌入到表示网页的HTML中去，利用JavaScript可以做出<strong>完全不用和服务器进行通信</strong>的网页。</p>
-<h3 id="技术要素之二：XML"><a href="#技术要素之二：XML" class="headerlink" title="技术要素之二：XML"></a>技术要素之二：XML</h3><p>XML（eXtensible Markup Language）,和SGML、HTML类似，使用标签（tag）对数据进行标识说明的一种语言。<br>XML已经成为了数据表示、配置各种文件及其他多种场合下广泛使用的一种格式。<br>Ajax的名字中部分包括了XML，是因为当初大部分使用Ajax技术的应用程序都使用了XML数据，以及用JavaScript进行异步通信的对象的名字是XMLHTTPRequest。当然不用XML的XMLHTTPRequest的通信也是存在的，使用Ajax技术的Web应用进行通信的数据格式也是多种多样的，比如有普通文本格式以及YAML，JSON。</p>
-<h3 id="XML以外的数据表示形式"><a href="#XML以外的数据表示形式" class="headerlink" title="XML以外的数据表示形式"></a>XML以外的数据表示形式</h3><p>YAML（YAML Ain’t Markup Language）看出它不是标记语言。YAML只是表示数据的语言，目的仅仅是表示数据。特点有：</p>
-<ol>
-<li>记述简洁</li>
-<li>容易理解</li>
-<li>专注于表示数据，不用费心考虑给标签起名字。<br><img src="/img/media/15311832913375/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-10%20%E4%B8%8A%E5%8D%889.30.23.png" alt="屏幕快照 2018-07-10 上午9.30.23"></li>
-</ol>
-<p>和YMAL相提并论的是JSON（JavaScript Object Notation）意思是JavaScript对象表示法。是直接把JavaScript表示对象的程序拿来记述数据。JSON是合法的JavaScript程序，作为JavaScript实现可以生成对象。<br>JSON可以表现下面6种数据类型：数值（整数及浮点小数）、字符串、布尔值（真、假）、数组、对象（键和值的表）和null。<br>YAML通过扩展可以表示各种形式的数据。相比较，JSON就简单太多了，但也够用了。</p>
-<h3 id="技术要素之三：DHTML"><a href="#技术要素之三：DHTML" class="headerlink" title="技术要素之三：DHTML"></a>技术要素之三：DHTML</h3><p>DHTML，动态HTML，顾名思义，可以动态地对HTML进行引用、修改和更新。更具体的说，是利用装载在网页中的JavaScript，使用DOM（文档对象模型）对网页数据进行操作。使用DOM可以进行下述处理：</p>
-<ol>
-<li>取得页面中特定标签中的数据；</li>
-<li>修改标签的数据（文字、属性等）</li>
-<li>在页面中添加标签；</li>
-<li>设定事件处理程序<h3 id="JavaScript技术基础"><a href="#JavaScript技术基础" class="headerlink" title="JavaScript技术基础"></a>JavaScript技术基础</h3>JavaScript是以对象为基础的语言，所有的数据都可以作为“对象”进行统一处理。不过，它不具备“类”这样的所谓普通面向对象语言所提供的功能，即使去除JavaScript面向对象的编程功能，它也可以作为普通的结构化编程语言来使用。<h4 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h4>JavaScript的基本语法和C、Java类似。最大的不同是，JavaScript不指定变量类型。<h4 id="函数定义"><a href="#函数定义" class="headerlink" title="函数定义"></a>函数定义</h4>JavaScript的特点之一是把函数作为对象进行处理。C也是将函数作为对象处理，但JavaScript的不同之处在于函数对象有闭包（closure），可以使用函数外面的局部变量。<strong>闭包功能称为了JavaScript面向对象功能的基础。</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">闭包是Ruby中块变为对象后的结果。它的优点是，只要闭包还存在，就能访问闭包内的变量。</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="原型模式的面向对象编程语言"><a href="#原型模式的面向对象编程语言" class="headerlink" title="原型模式的面向对象编程语言"></a>原型模式的面向对象编程语言</h3><p>如果具有原型模式的面向对象功能的话，就可以最大限度地消减语言本身的固有功能。这非常适合于JavaScript这样的语言。<br>以类为中心的传统面向对象编程，是以类为基础生成新对象。类和对象的关系可以类比成铸模和铸件的关系。而原型模式的面向对象编程语言没有类这样一个概念。<br>需要生成新的对象时，只要给对象追加属性。设置函数对象作为属性的话，就成为方法。当访问对象中不存在的属性时，JavaScript会去搜索该对象prototype属性所指向的对象。<br>JavaScript利用这个功能，使用“委派”而非“继承”来实现面向对象编程。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">委派是指，把对于某个对象的调用传送到另一个对象上。</span><br></pre></td></tr></table></figure></p>
-<p>JavaScript的方式过于简单反而使记述太过复杂。</p>
-<h3 id="使用prototype-js库"><a href="#使用prototype-js库" class="headerlink" title="使用prototype.js库"></a>使用prototype.js库</h3><p>为了克服JavaScript记述过于繁杂的缺点，JavaScript提供了进行功能扩展的一些库。如prototype.js库<br>prototype.js受到了Ruby的影响，实际上Ruby on Rails中标准地附加了prototype.js库，使用得很广泛。</p>
-<h3 id="prototype-js的功能"><a href="#prototype-js的功能" class="headerlink" title="prototype.js的功能"></a>prototype.js的功能</h3><h4 id="Ajax功能"><a href="#Ajax功能" class="headerlink" title="Ajax功能"></a>Ajax功能</h4><p>prototype.js支持XMLHttpRequest对象，可以对HTML进行异步更新。<br>实际上不同Web浏览器获取XMLHttpRequest对象的方法也是不同的。Ajax.Request帮我们屏蔽了与代码移植相关的问题。</p>
-<h4 id="Enumerable"><a href="#Enumerable" class="headerlink" title="Enumerable"></a>Enumerable</h4><p>它是Ruby的Enumerable模块在JavaScript中的实现。</p>
-<h4 id="其他扩展功能"><a href="#其他扩展功能" class="headerlink" title="其他扩展功能"></a>其他扩展功能</h4><p>如使用Object.extend()给对象追加功能。</p>
-<h2 id="Ajax和JavaScript-后篇"><a href="#Ajax和JavaScript-后篇" class="headerlink" title="Ajax和JavaScript(后篇)"></a>Ajax和JavaScript(后篇)</h2><p>像Ajax有3个特点：</p>
-<ol>
-<li>没有Web页面跳转</li>
-<li>通过异步通信实现快速反应</li>
-<li>实现了动画和拖拽等单独使用HTML格式无法表现的用户界面<br>构成DHTML基础的JavaScript是一个速度不怎么快的语言。某种技术在开发出来之后经过相当长一段时间才得到普及，此类例子并不少见。<h3 id="巧妙使用DHTML"><a href="#巧妙使用DHTML" class="headerlink" title="巧妙使用DHTML"></a>巧妙使用DHTML</h3>DHTML被称为Ajax的本质技术。顾名思义，可以动态访问、更新HTML。具体就是利用嵌入网页的JavaScript，使用DOM操作页面数据。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DOM是操作HTML和XML的规范。特点是把HTML和XML作为树结构进行处理。</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>HTML被读取后，生成树结构。<br><img src="/img/media/15311832913375/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-10%20%E4%B8%8B%E5%8D%884.39.14.png" alt="屏幕快照 2018-07-10 下午4.39.14"><br>使用JavaScript对树结构进行操作就是DHTML的本质。因此JavaScript提供的W3C DOM API有如下功能：</p>
-<ol>
-<li>获取documnent节点</li>
-<li>获取和更新标签数据（包括文字、类型以及属性等）</li>
-<li>追加documnent节点</li>
-<li>设定时间处理程序（event handler）</li>
-</ol>
-<h3 id="获取documnent节点"><a href="#获取documnent节点" class="headerlink" title="获取documnent节点"></a>获取documnent节点</h3><blockquote>
-<p>getElementById(name)<br>getElementsByTagName(name)</p>
-</blockquote>
-<h3 id="获取和更新标签数据"><a href="#获取和更新标签数据" class="headerlink" title="获取和更新标签数据"></a>获取和更新标签数据</h3><p>获取节点对象后，通过调用对象的方法，读写对象的属性等就能够获取和更新标签数据。</p>
-<h3 id="设定事件处理程序"><a href="#设定事件处理程序" class="headerlink" title="设定事件处理程序"></a>设定事件处理程序</h3><p>两种办法：</p>
-<ol>
-<li>指定标签属性。如设置为a标签的onclick属性值来指定事件处理程序。</li>
-<li>把方法设为JavaScript对象的属性。如<br><img src="/img/media/15311832913375/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-10%20%E4%B8%8B%E5%8D%884.49.48.png" alt="屏幕快照 2018-07-10 下午4.49.48"></li>
-</ol>
-<h3 id="追加标签节点"><a href="#追加标签节点" class="headerlink" title="追加标签节点"></a>追加标签节点</h3><p>用appendChild方法可以为节点对象追加节点，消除节点用removeChild方法。</p>
-<h3 id="本地HTML应用"><a href="#本地HTML应用" class="headerlink" title="本地HTML应用"></a>本地HTML应用</h3><h3 id="和服务器间的通信"><a href="#和服务器间的通信" class="headerlink" title="和服务器间的通信"></a>和服务器间的通信</h3><p>使用DHTML之后，对于较简单的应用，在客户端就能够实现。但是，客户端无法保存数据，所以保存和获取数据时需要和服务器进行通信。<br>Ajax是利用XMLHTTPRequest对象来进行异步通信，不需要网页跳转，在后台就可以进行通信。</p>
-<h3 id="使用Prototype-js的优点"><a href="#使用Prototype-js的优点" class="headerlink" title="使用Prototype.js的优点"></a>使用Prototype.js的优点</h3><p>不需要麻烦的记述。</p>
-<h3 id="在服务器上保存数据"><a href="#在服务器上保存数据" class="headerlink" title="在服务器上保存数据"></a>在服务器上保存数据</h3><h3 id="Web应用的脆弱性"><a href="#Web应用的脆弱性" class="headerlink" title="Web应用的脆弱性"></a>Web应用的脆弱性</h3><p>如XSS（跨站点脚本问题）</p>
-<h3 id="使用JavaScript的感觉"><a href="#使用JavaScript的感觉" class="headerlink" title="使用JavaScript的感觉"></a>使用JavaScript的感觉</h3><h4 id="作为动态语言名副其实"><a href="#作为动态语言名副其实" class="headerlink" title="作为动态语言名副其实"></a>作为动态语言名副其实</h4><h4 id="DHTML比想象的更有趣"><a href="#DHTML比想象的更有趣" class="headerlink" title="DHTML比想象的更有趣"></a>DHTML比想象的更有趣</h4><h4 id="Prototype-js也不错"><a href="#Prototype-js也不错" class="headerlink" title="Prototype.js也不错"></a>Prototype.js也不错</h4><h4 id="调试比较麻烦"><a href="#调试比较麻烦" class="headerlink" title="调试比较麻烦"></a>调试比较麻烦</h4><p>JavaScript理就算有程序错误，Web浏览器也不会显示任何信息。想要确认程序的状态，只能多次使用alert()。<br>Firefox提供了Firebug的扩展功能，对于JavaScript的调试非常有用。</p>
-<h4 id="兼容性问题"><a href="#兼容性问题" class="headerlink" title="兼容性问题"></a>兼容性问题</h4><p>Ajax开发最难的一点就是Web浏览器间JavaScript的兼容性问题。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">名字的重要性</span><br><span class="line">起了一个合适的名字本身意味着功能设计的正确。反过来，起了不好的名字说明设计者自己也没有完全理解应完成什么样的功能。</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2018/07/09/松本行弘的程序世界 4 设计模式/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZDK"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZDK's blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/07/09/松本行弘的程序世界 4 设计模式/" class="post-title-link" itemprop="url">松本行弘的程序世界 4 设计模式</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-07-09 18:21:32" itemprop="dateCreated datePublished" datetime="2018-07-09T18:21:32+08:00">2018-07-09</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-07-20 19:02:16" itemprop="dateModified" datetime="2018-07-20T19:02:16+08:00">2018-07-20</time>
-              </span>
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/读书笔记/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2018/07/09/松本行弘的程序世界 4 设计模式/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/07/09/松本行弘的程序世界 4 设计模式/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2018/07/09/松本行弘的程序世界 4 设计模式/" class="post-meta-item leancloud_visitors" data-flag-title="松本行弘的程序世界 4 设计模式">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="松本行弘的程序世界-4-设计模式"><a href="#松本行弘的程序世界-4-设计模式" class="headerlink" title="松本行弘的程序世界 4 设计模式"></a>松本行弘的程序世界 4 设计模式</h1><h2 id="设计模式（1）"><a href="#设计模式（1）" class="headerlink" title="设计模式（1）"></a>设计模式（1）</h2><h3 id="设计模式的价值和意义"><a href="#设计模式的价值和意义" class="headerlink" title="设计模式的价值和意义"></a>设计模式的价值和意义</h3><p>Gamma他们并没有发现新的模式，总结出来的23种设计模式也是软件开发中早就存在并反复使用的模式，因此并不能说是Gamma他们的首创。但即使是这样，设计模式有了名字，人们就可以认识到它的存在，并对之进行讨论。这种不能用语言表达的知识称为内隐知识。给这些在软件中经常反复出现的模式命名，使得这些本来只有经验丰富的程序员才能认识到的软件设计模式能被广泛认识和讨论。</p>
-<h3 id="设计模式是程序抽象化的延伸"><a href="#设计模式是程序抽象化的延伸" class="headerlink" title="设计模式是程序抽象化的延伸"></a>设计模式是程序抽象化的延伸</h3><p>一旦有了设计模式，只要把过去优秀的人们考虑出来的模式拿来应用一下。</p>
-<h3 id="Ruby中的设计模式"><a href="#Ruby中的设计模式" class="headerlink" title="Ruby中的设计模式"></a>Ruby中的设计模式</h3><h3 id="Singleton模式"><a href="#Singleton模式" class="headerlink" title="Singleton模式"></a>Singleton模式</h3><p>单件模式。用来保证某个类的实例只有一个。<br>Ruby实现Singleton模式的方法有几个</p>
-<ol>
-<li>使用singleton库的方法<br>Ruby以库的形式实现了Singleton模式。使用Singleton库，在任意类中include Singleton模块，那个类就变成Singleton模式的对象。</li>
-<li>使用类或模块<br>C++和java是不能把类作为对象使用的，与之不同的是，smalltalk或Ruby能把类也作为对象来处理。因此，在类或模块中定义一个方法就可以实现Singleton模式。</li>
-<li>把一般的对象作为Singleton来使用<br>为了把一个类的对象限制为只有一个，并不一定要对对象的一般生产方法进行限制。可以生成一个一般的对象，然后不要在生产更多个对象了。</li>
-<li>使用对象和特异方法<br>Ruby可以在对象生成以后再增加新的方法。</li>
-</ol>
-<h3 id="Proxy模式"><a href="#Proxy模式" class="headerlink" title="Proxy模式"></a>Proxy模式</h3><p>Proxy（代理）模式是为某个对象提供代理对象的模式。<br>在不知道是否真正需要一个生成代价很大的对象时可能造成很大浪费，但不生成又什么都做不了。</p>
-<h3 id="Iterator模式"><a href="#Iterator模式" class="headerlink" title="Iterator模式"></a>Iterator模式</h3><p>Iterator（迭代器）模式提供按顺序访问集合对象中各元素的方法。即使不知道对象的内部构造，也可以按顺序访问其中的每个元素。<br>Iterator模式是为集合对象另外准备用来控制循环处理的对象，就像C++或java一样，我们称这个循环控制对象为Iyerator，也称为游标。</p>
-<h3 id="外部与内部，哪一个更好"><a href="#外部与内部，哪一个更好" class="headerlink" title="外部与内部，哪一个更好"></a>外部与内部，哪一个更好</h3><p>它们都有方便的一面，也都有不方便的另一面。</p>
-<h3 id="内部迭代器的缺陷"><a href="#内部迭代器的缺陷" class="headerlink" title="内部迭代器的缺陷"></a>内部迭代器的缺陷</h3><p>内部迭代器不能同时进行多个循环，也就无法实现按顺序比较两个集合元素的处理。</p>
-<h3 id="外部迭代器的缺陷"><a href="#外部迭代器的缺陷" class="headerlink" title="外部迭代器的缺陷"></a>外部迭代器的缺陷</h3><p>外部迭代器的缺陷在于迭代器对象需要引用集合对象的内部信息，为了按顺序访问集合对象的各个元素，迭代器需要访问集合的内部构造，破坏了隐藏集合内部构造的封装性原则。</p>
-<h2 id="设计模式（2）"><a href="#设计模式（2）" class="headerlink" title="设计模式（2）"></a>设计模式（2）</h2><h3 id="模式与动态语言的关系"><a href="#模式与动态语言的关系" class="headerlink" title="模式与动态语言的关系"></a>模式与动态语言的关系</h3><p>《设计模式》一书中介绍了23个设计模式。这些设计模式可分为3大类：（1）有关生成的模式（5个），有关构造的模式（7个）以及有关行为的模式（11个）。Singleton为（1），Proxy为（2），Iterayor为（3）。</p>
-<h3 id="重复使用既存对象的Protoype模式"><a href="#重复使用既存对象的Protoype模式" class="headerlink" title="重复使用既存对象的Protoype模式"></a>重复使用既存对象的Protoype模式</h3><p>Protoype（原型）模式明确一个实例作为要生成对象的种类原型，通过复制该实例来生成新的对象。<br>在需要新种类对象时，首先复制一个既存的对象，给复制的对象直接增加方法或实例变量等功能，生成最初的第一个新种类对象。最初一个也并不特别，只是偶尔被用来复制而已。<br>相对于类模式编程，原型模式的编程构成元素比较少，具有简单实现面向对象功能设计的倾向，JavaScript的面向对象就是原型模式。io语言也是。</p>
-<h3 id="亲身体验IO语言"><a href="#亲身体验IO语言" class="headerlink" title="亲身体验IO语言"></a>亲身体验IO语言</h3><h3 id="Ruby中的原型"><a href="#Ruby中的原型" class="headerlink" title="Ruby中的原型"></a>Ruby中的原型</h3><p>基本上讲Ruby是类模式的语言，但也拥有支持原型模式编程功能。</p>
-<ol>
-<li>复制对象的clone方法</li>
-<li>给个别对象增加方法的特意方法功能</li>
-<li>给个别对象增加一组功能的extend方法</li>
-</ol>
-<p>静态语言中没有原型编程，因为不可能给复制的对象增加新方法。</p>
-<h3 id="编写抽象算法的Template-Method模式"><a href="#编写抽象算法的Template-Method模式" class="headerlink" title="编写抽象算法的Template Method模式"></a>编写抽象算法的Template Method模式</h3><h3 id="用Ruby来尝试Template-Method"><a href="#用Ruby来尝试Template-Method" class="headerlink" title="用Ruby来尝试Template Method"></a>用Ruby来尝试Template Method</h3><p>Ruby的类库中最大限度灵活运用Template Method模式的部分，应该是Enumerable模块和Comparable模块了。</p>
-<h3 id="动态语言与Template-Method模式"><a href="#动态语言与Template-Method模式" class="headerlink" title="动态语言与Template Method模式"></a>动态语言与Template Method模式</h3><p>Template Method模式的这种优秀性质与语言是不是静态没有关系。</p>
-<h3 id="避免高度依赖性的Observer模式"><a href="#避免高度依赖性的Observer模式" class="headerlink" title="避免高度依赖性的Observer模式"></a>避免高度依赖性的Observer模式</h3><p>Observer（观察者）模式是当某个对象的状态发生变化时，依存于该状态的全部对象都自动得到通知，而且为了让它们都得到通知，定义了对象间一对多的依存关系。<br>这是控制类与类之间依存关系的一种模式。<br>高度依赖性会导致组成程序的零件过大，避免高度依赖性的Observer模式，构成观察者模式的有两个对象，一个称谓Observer（观察者）接受变更通知；另一个称为Subject（对象）或Observable（被观察者），发出变更通知。<br>被观察者让人得到被动的印象，在实际处理中，被观察者会发出通知“我已经变化了哦”。</p>
-<h3 id="Observable模块"><a href="#Observable模块" class="headerlink" title="Observable模块"></a>Observable模块</h3><p>Ruby中为实现Observer模式提供了名为observer的库。observer库提供observer模块。</p>
-<h3 id="Observer模式与动态语言"><a href="#Observer模式与动态语言" class="headerlink" title="Observer模式与动态语言"></a>Observer模式与动态语言</h3><p>由于Ruby的动态性质，Observer库具有以下几方面的灵活性。</p>
-<ol>
-<li>观察者类不必是特定类的子类。</li>
-<li>观察者类不必实现特定的接口（本来在Ruby中也没有接口）</li>
-<li>观察者类的更新方法名可以自由决定</li>
-<li>观察者类更新方法的参数可以自由决定</li>
-<li>被观察者类不必是特定类的子类</li>
-<li>对被观察者类的要求，只是将Observable模块包括进来。</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">说到事件监听模式,很容易将它和观察者模式联系在一起。</span><br><span class="line">实质上这两者完成同类型的工作。依个人理解，事件监听模式更像是观察者模式的进阶。</span><br><span class="line">事件监听机制就是对观察者模式进行了进一步抽象，节省了代码量。</span><br></pre></td></tr></table></figure>
-<h2 id="设计模式（3）"><a href="#设计模式（3）" class="headerlink" title="设计模式（3）"></a>设计模式（3）</h2><h3 id="软件开发的悲剧"><a href="#软件开发的悲剧" class="headerlink" title="软件开发的悲剧"></a>软件开发的悲剧</h3><ol>
-<li>复杂性</li>
-<li>变化性</li>
-</ol>
-<p>软件的规模越大，各个部分之间的牵连越复杂，更改也就越难。<br>在软件开发过程中，需求变更几乎是不可避免的。</p>
-<h3 id="开放-封闭原则"><a href="#开放-封闭原则" class="headerlink" title="开放-封闭原则"></a>开放-封闭原则</h3><p><strong>对模块扩展必须开放，对修改必须封闭。</strong><br>为了应对将来的需要，扩展必须是开放的，但是即使某一模块的内部结构改变了，对外接口也应当是不变的。简称OCP。</p>
-<h3 id="面向对象的情况"><a href="#面向对象的情况" class="headerlink" title="面向对象的情况"></a>面向对象的情况</h3><p>既要开放，又要封闭，看似互相矛盾，但是<strong>面向对象编程语言能够很彻底地消除这个矛盾。</strong></p>
-<h3 id="非面向对象的情况"><a href="#非面向对象的情况" class="headerlink" title="非面向对象的情况"></a>非面向对象的情况</h3><p>非面向对象则很难处理好。<br><strong>面向对象的精髓在于对OCP的实践。至于把对象看做物体理解起来比较容易，能够建立现实世界的模型等，不过是锦上添花。</strong></p>
-<h3 id="OCP与Template-Method模式"><a href="#OCP与Template-Method模式" class="headerlink" title="OCP与Template Method模式"></a>OCP与Template Method模式</h3><p>虽说使用面向对象语言的功能，可以实现OCP，但是只是说有这种可能性，并不是说什么时候都能实现。当然，虽然使用了面向对象语言，却做成了一个糟糕的设计，这种情况也是屡见不鲜。<br>分类中很多设计模式之所以优秀是因为经得起OCP所要求的变化。<br>Template Method模式，是满足OCP的基本手段。其他的设计模式都是利用多个类的关联来实现的，而Template Method模式则仅仅使用了继承，基本上无非是实现了一个抽象类。</p>
-<h3 id="Observer模式"><a href="#Observer模式" class="headerlink" title="Observer模式"></a>Observer模式</h3><p>Observer模式是满足OCP的。<br>DRY也好，OCP也好，都不过是原则，根据具体情况，要做适当的选择，如果代码没有再利用的打算，也没有扩展功能的打算，也就没有必要生搬硬套设计模式。使用前有必要先做判断。</p>
-<h3 id="使用Strategy模式"><a href="#使用Strategy模式" class="headerlink" title="使用Strategy模式"></a>使用Strategy模式</h3><p>Strategy（策略）模式是定义算法的集合，将各算法封装，使它们能够交换。利用Strategy模式，算法和利用这些算法的客户程序可以分别独立进行修改而不互相影响。<br>Strategy模式就是将容易变化的处理归纳为独立的对象，然后使它们能够互相交换，使用方法与将容易变化的处理交给子类的Template Method模式相类似。两个模式最大的区别在于，Strategy模式是独立的对象，能够动态交换处理逻辑。</p>
-<h3 id="Strategy模式与OCP"><a href="#Strategy模式与OCP" class="headerlink" title="Strategy模式与OCP"></a>Strategy模式与OCP</h3><p>Strategy模式完全满足OCP。<br>世上很多设计模式，为了能应对将来可能的修改，都是按照OCP的要求来设计的。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/22/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><span class="page-number current">23</span><a class="page-number" href="/page/24/">24</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="extend next" rel="next" href="/page/24/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
-
-
-
-          </div>
-          
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-
-      
-
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image"
-                src="/images/avatar.gif"
-                alt="ZDK"/>
-            
-              <p class="site-author-name" itemprop="name">ZDK</p>
-              <div class="site-description motion-element" itemprop="description"></div>
-          </div>
-
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives/">
-                
-                    <span class="site-state-item-count">191</span>
-                    <span class="site-state-item-name">日志</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-categories">
-                  
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">9</span>
-                    <span class="site-state-item-name">分类</span>
-                  
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-tags">
-                  
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">48</span>
-                    <span class="site-state-item-name">标签</span>
-                  
-                </div>
-              
-            </nav>
-          
-
-          
-            <div class="feed-link motion-element">
-              <a href="/atom.xml" rel="alternate">
-                <i class="fa fa-rss"></i>
-                RSS
-              </a>
-            </div>
-          
-
-          
-
-          
-            <div class="links-of-author motion-element">
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://github.com/zdkswd" title="GitHub &rarr; https://github.com/zdkswd"><i class="fa fa-fw fa-github"></i>GitHub</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="mailto:2822464407@qq.com" title="E-Mail &rarr; mailto:2822464407@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-                </span>
-              
-            </div>
-          
-
-          
-
-          
-          
-            <div class="links-of-blogroll motion-element links-of-blogroll-block">
-              <div class="links-of-blogroll-title">
-                <i class="fa  fa-fw fa-link"></i>
-                Links
-              </div>
-              <ul class="links-of-blogroll-list">
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://github.com/zdkswd" title="https://github.com/zdkswd">Title</a>
-                  </li>
-                
-              </ul>
-            </div>
-          
-
-          
-        </div>
-      </div>
-
-      
-
-      
-        <div class="back-to-top motion-element">
-          <i class="fa fa-arrow-up"></i>
-          
-        </div>
-      
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-        
-      </div>
     </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">ZDK</span>
 
-  
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
 
-  
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
 </div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
 
-
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.1</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.2.0</div>
-
-
-
-
-        
-
-
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
 
 
 
+<!-- mathjax config similar to math.stackexchange -->
 
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
 
-
-        
-      </div>
-    </footer>
-
-    
-
-    
-
-    
-  </div>
-
-  
-
-<script>
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
 </script>
 
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
 
 
 
 
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  <script src="/lib/jquery/index.js?v=3.4.1"></script>
-
-  
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-
-
-
-  <script src="/js/utils.js?v=7.2.0"></script>
-
-  <script src="/js/motion.js?v=7.2.0"></script>
-
-
-
-  
-  
-
-
-  <script src="/js/affix.js?v=7.2.0"></script>
-
-  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
-
-
-
-
-  
-
-  <script src="/js/next-boot.js?v=7.2.0"></script>
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
 
 <script>
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(function(item) {
-    return GUEST.indexOf(item) > -1;
-  });
-  new Valine({
-    el: '#comments',
-    verify: false,
-    notify: true,
-    appId: 'QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz',
-    appKey: 'gkBx5soQkBREmER84PWbNJeM',
-    placeholder: 'have fun',
-    avatar: 'mm',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: true,
-    lang: '' || 'zh-cn'
-  });
-</script>
-
-
-
-
-
-  
-  <script>
-    // Popup Window;
-    var isfetched = false;
-    var isXml = true;
-    // Search DB path;
-    var search_path = "";
-    if (search_path.length === 0) {
-      search_path = "search.xml";
-    } else if (/json$/i.test(search_path)) {
-      isXml = false;
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
-
-    var onPopupClose = function (e) {
-      $('.popup').hide();
-      $('#local-search-input').val('');
-      $('.search-result-list').remove();
-      $('#no-result').remove();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    }
-
-    function proceedsearch() {
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
-        .css('overflow', 'hidden');
-      $('.search-popup-overlay').click(onPopupClose);
-      $('.popup').toggle();
-      var $localSearchInput = $('#local-search-input');
-      $localSearchInput.attr("autocapitalize", "none");
-      $localSearchInput.attr("autocorrect", "off");
-      $localSearchInput.focus();
-    }
-
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-
-      // start loading animation
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
-          '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
-          '</div>' +
-          '</div>')
-        .css('overflow', 'hidden');
-      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
-
-      
-
-      $.ajax({
-        url: path,
-        dataType: isXml ? "xml" : "json",
-        async: true,
-        success: function(res) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = isXml ? $("entry", res).map(function() {
-            return {
-              title: $("title", this).text(),
-              content: $("content",this).text(),
-              url: $("url" , this).text()
-            };
-          }).get() : res;
-          var input = document.getElementById(search_id);
-          var resultContent = document.getElementById(content_id);
-          var inputEventFunction = function() {
-            var searchText = input.value.trim().toLowerCase();
-            var keywords = searchText.split(/[\s\-]+/);
-            if (keywords.length > 1) {
-              keywords.push(searchText);
-            }
-            var resultItems = [];
-            if (searchText.length > 0) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var hitCount = 0;
-                var searchTextCount = 0;
-                var title = data.title.trim();
-                var titleInLowerCase = title.toLowerCase();
-                var content = data.content.trim().replace(/<[^>]+>/g,"");
-                
-                var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
-                var indexOfTitle = [];
-                var indexOfContent = [];
-                // only match articles with not empty titles
-                if(title != '') {
-                  keywords.forEach(function(keyword) {
-                    function getIndexByWord(word, text, caseSensitive) {
-                      var wordLen = word.length;
-                      if (wordLen === 0) {
-                        return [];
-                      }
-                      var startPosition = 0, position = [], index = [];
-                      if (!caseSensitive) {
-                        text = text.toLowerCase();
-                        word = word.toLowerCase();
-                      }
-                      while ((position = text.indexOf(word, startPosition)) > -1) {
-                        index.push({position: position, word: word});
-                        startPosition = position + wordLen;
-                      }
-                      return index;
-                    }
-
-                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
-                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
-                  });
-                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
-                    isMatch = true;
-                    hitCount = indexOfTitle.length + indexOfContent.length;
-                  }
-                }
-
-                // show search results
-
-                if (isMatch) {
-                  // sort index by position of keyword
-
-                  [indexOfTitle, indexOfContent].forEach(function (index) {
-                    index.sort(function (itemLeft, itemRight) {
-                      if (itemRight.position !== itemLeft.position) {
-                        return itemRight.position - itemLeft.position;
-                      } else {
-                        return itemLeft.word.length - itemRight.word.length;
-                      }
-                    });
-                  });
-
-                  // merge hits into slices
-
-                  function mergeIntoSlice(text, start, end, index) {
-                    var item = index[index.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    var hits = [];
-                    var searchTextCountInSlice = 0;
-                    while (position + word.length <= end && index.length != 0) {
-                      if (word === searchText) {
-                        searchTextCountInSlice++;
-                      }
-                      hits.push({position: position, length: word.length});
-                      var wordEnd = position + word.length;
-
-                      // move to next position of hit
-
-                      index.pop();
-                      while (index.length != 0) {
-                        item = index[index.length - 1];
-                        position = item.position;
-                        word = item.word;
-                        if (wordEnd > position) {
-                          index.pop();
-                        } else {
-                          break;
-                        }
-                      }
-                    }
-                    searchTextCount += searchTextCountInSlice;
-                    return {
-                      hits: hits,
-                      start: start,
-                      end: end,
-                      searchTextCount: searchTextCountInSlice
-                    };
-                  }
-
-                  var slicesOfTitle = [];
-                  if (indexOfTitle.length != 0) {
-                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
-                  }
-
-                  var slicesOfContent = [];
-                  while (indexOfContent.length != 0) {
-                    var item = indexOfContent[indexOfContent.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    // cut out 100 characters
-                    var start = position - 20;
-                    var end = position + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if (end < position + word.length) {
-                      end = position + word.length;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
-                  }
-
-                  // sort slices in content by search text's count and hits' count
-
-                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
-                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
-                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
-                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
-                      return sliceRight.hits.length - sliceLeft.hits.length;
-                    } else {
-                      return sliceLeft.start - sliceRight.start;
-                    }
-                  });
-
-                  // select top N slices in content
-
-                  var upperBound = parseInt('5');
-                  if (upperBound >= 0) {
-                    slicesOfContent = slicesOfContent.slice(0, upperBound);
-                  }
-
-                  // highlight title and content
-
-                  function highlightKeyword(text, slice) {
-                    var result = '';
-                    var prevEnd = slice.start;
-                    slice.hits.forEach(function (hit) {
-                      result += text.substring(prevEnd, hit.position);
-                      var end = hit.position + hit.length;
-                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
-                      prevEnd = end;
-                    });
-                    result += text.substring(prevEnd, slice.end);
-                    return result;
-                  }
-
-                  var resultItem = '';
-
-                  if (slicesOfTitle.length != 0) {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
-                  } else {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
-                  }
-
-                  slicesOfContent.forEach(function (slice) {
-                    resultItem += "<a href='" + articleUrl + "'>" +
-                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
-                      "...</p>" + "</a>";
-                  });
-
-                  resultItem += "</li>";
-                  resultItems.push({
-                    item: resultItem,
-                    searchTextCount: searchTextCount,
-                    hitCount: hitCount,
-                    id: resultItems.length
-                  });
-                }
-              })
-            };
-            if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
-            } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
-            } else {
-              resultItems.sort(function (resultLeft, resultRight) {
-                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-                  return resultRight.searchTextCount - resultLeft.searchTextCount;
-                } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
-              });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'zdk'blog';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
         }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
     });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
-  </script>
+})();
+</script>
 
 
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-  
 
 </body>
 </html>

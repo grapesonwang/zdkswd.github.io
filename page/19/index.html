@@ -1,3292 +1,624 @@
 <!DOCTYPE html>
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<html class="theme-next gemini use-motion" lang="zh-CN">
+<html>
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
-<meta name="theme-color" content="#222"/>
+    
+
+    
+
+    
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0"/>
-
-<link rel="stylesheet" href="/css/main.css?v=7.2.0"/>
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.2.0">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.2.0">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
-
-
-
-
-
-
-
-<script id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Gemini',
-    version: '7.2.0',
-    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
-    back2top: {"enable":true,"sidebar":true,"scrollpercent":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
-    fancybox: false,
-    fastclick: false,
-    lazyload: false,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    translation: {
-      copy_button: '复制',
-      copy_success: '复制成功',
-      copy_failure: '复制失败'
-    }
-  };
-</script>
-
-
-
-  <meta property="og:type" content="website">
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>ZDK&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta property="og:type" content="website">
 <meta property="og:title" content="ZDK&#39;s blog">
 <meta property="og:url" content="https://github.com/zdkswd/page/19/index.html">
 <meta property="og:site_name" content="ZDK&#39;s blog">
 <meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ZDK&#39;s blog">
+    
+        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
 
-
-
-  <link rel="alternate" href="/atom.xml" title="ZDK's blog" type="application/atom+xml"/>
-
-
-
-  
-  
-  <link rel="canonical" href="https://github.com/zdkswd/page/19/"/>
-
-
-
-<script id="page.configurations">
-  CONFIG.page = {
-    sidebar: "",
-  };
-</script>
-
-  <title>ZDK's blog</title>
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .motion-element,
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-title { opacity: initial; }
-
-  .use-motion .logo,
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
+    <!-- custom head -->
+    
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body>
+    <div id="loading" class="active"></div>
 
-  
-  
-    
-  
-
-  <div class="container sidebar-position-right 
-  page-home">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">ZDK's blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/tmg.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ZDK</h5>
+          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
+        </hgroup>
+      </div>
     </div>
-    
-    
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/zdkswd" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
   </div>
+</aside>
 
-  <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
-
-
-
-<nav class="site-nav">
-  
-    <ul id="menu" class="menu">
-      
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">ZDK&#39;s blog</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
         
         
-        
-          
-          <li class="menu-item menu-item-home">
+    </div>
+</header>
+<header class="content-header index-header">
 
-    
-    
-      
-    
-
-    
-
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>首页</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-tags">
-
-    
-    
-      
-    
-
-    
-
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>标签</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-categories">
-
-    
-    
-      
-    
-
-    
-
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>分类</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-archives">
-
-    
-    
-      
-    
-
-    
-
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>归档</a>
-
-  </li>
-
-      
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
+    <div class="container fade-scale">
+        <h1 class="title">ZDK&#39;s blog</h1>
+        <h5 class="subtitle">
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br/>搜索</a>
+                
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+<div class="container body-wrap">
+
+    <ul class="post-list">
+    
+        <li class="post-list-item fade">
+            <article id="post-petri网理论及其应用 0 形式化表示"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-09-13 19:09:56" datetime="2018-09-13T11:09:56.000Z"  itemprop="datePublished">2018-09-13</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/课堂笔记/">课堂笔记</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/09/13/petri网理论及其应用 0 形式化表示/">petri网理论及其应用 0 形式化表示</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        petri网理论及其应用 0 形式化表示楔子热点必须要了解，结合趋势。
+为什么要形式化方法形式化方法的研究高潮始于 20世纪60年代后期，针对当时所谓“软件危机”,人们提出种种解决方法,归纳起来有两类：一是采用工程方法来组织、管理软件的开发过程；二是深入探讨程 序和程序开发过程的规律，建立严密的理论，以其用来指导软件开发实践。前者导致“软件工程”的出现和发展，后者则推动了形式化方法的深入研究...
+    
+
+        <a href="/2018/09/13/petri网理论及其应用 0 形式化表示/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/petri网/">petri网</a></li></ul>
+
+    </div>
+    
+</article>
+
         </li>
-      
+    
+        <li class="post-list-item fade">
+            <article id="post-人工智能第一课"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-09-13 16:49:32" datetime="2018-09-13T08:49:32.000Z"  itemprop="datePublished">2018-09-13</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/课堂笔记/">课堂笔记</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/09/13/人工智能第一课/">人工智能第一课</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        考核方式
+学术组织，会议
+刊物
+作业
+
+    
+
+        <a href="/2018/09/13/人工智能第一课/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/人工智能/">人工智能</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Python廖雪峰 IO编程 进程和线程 正则表达式"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-09-13 16:46:56" datetime="2018-09-13T08:46:56.000Z"  itemprop="datePublished">2018-09-13</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/教程/">教程</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/09/13/Python廖雪峰 IO编程 进程和线程 正则表达式/">Python廖雪峰 IO编程 进程和线程 正则表达式</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        已修改
+IO编程IO在计算机中指Input/Output，也就是输入和输出。由于程序和运行时数据是在内存中驻留，由CPU这个超快的计算核心来执行，涉及到数据交换的地方，通常是磁盘、网络等，就需要IO接口。
+比如你打开浏览器，访问新浪首页，浏览器这个程序就需要通过网络IO获取新浪的网页。浏览器首先会发送数据给新浪服务器，告诉它我想要首页的HTML，这个动作是往外发数据，叫Output，随后新浪...
+    
+
+        <a href="/2018/09/13/Python廖雪峰 IO编程 进程和线程 正则表达式/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Python廖雪峰 面向对象 异常处理"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-09-02 15:00:56" datetime="2018-09-02T07:00:56.000Z"  itemprop="datePublished">2018-09-02</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/教程/">教程</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/09/02/Python廖雪峰 面向对象 异常处理/">Python廖雪峰 面向对象 异常处理 调试测试</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        面向对象编程类和实例在Python中，定义类是通过class关键字。
+通常，如果没有合适的继承类，就使用object类，这是所有类最终都会继承的类。
+创建实例是通过类名+()实现的。
+可以自由地给一个实例变量绑定属性，比如，给实例bart绑定一个name属性。
+由于类可以起到模板的作用，因此，可以在创建实例的时候，把一些我们认为必须绑定的属性强制填写进去。通过定义一个特殊的__init__方...
+    
+
+        <a href="/2018/09/02/Python廖雪峰 面向对象 异常处理/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Python廖雪峰 高级特性 函数式编程 模块"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-08-31 15:00:56" datetime="2018-08-31T07:00:56.000Z"  itemprop="datePublished">2018-08-31</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/教程/">教程</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/08/31/Python廖雪峰 高级特性 函数式编程 模块/">Python廖雪峰 高级特性 函数式编程 模块</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        高级特性切片取数组前3个元素，用一行代码就可以完成切片。
+从索引0开始取，直到索引3为止，但不包括索引3。
+如果第一个索引是0，还可以省略。
+Python支持L[-1]取倒数第一个元素，那么它同样支持倒数切片。
+后10个数，L[-10:]。前10个数，每两个取一个，L[:10:2]。甚至什么都不写，只写[:]就可以原样复制一个list。
+tuple也是一种list，唯一区别是tuple不可变...
+    
+
+        <a href="/2018/08/31/Python廖雪峰 高级特性 函数式编程 模块/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Python廖雪峰 简介，解释器，基础，函数"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-08-27 19:33:56" datetime="2018-08-27T11:33:56.000Z"  itemprop="datePublished">2018-08-27</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/教程/">教程</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/08/27/Python廖雪峰 简介，解释器，基础，函数/">Python廖雪峰 简介，解释器，基础，函数</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        Python简介Python就为我们提供了非常完善的基础代码库，覆盖了网络、文件、GUI、数据库、文本等大量内容，被形象地称作“内置电池（batteries included）”。用Python开发，许多功能不必从零编写，直接使用现成的即可。
+除了内置的库外，Python还有大量的第三方库，也就是别人开发的，供你直接使用的东西。当然，如果你开发的代码通过很好的封装，也可以作为第三方库给别人使...
+    
+
+        <a href="/2018/08/27/Python廖雪峰 简介，解释器，基础，函数/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-JavaScript标准参考教程 DOM模型 一"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-08-22 18:33:56" datetime="2018-08-22T10:33:56.000Z"  itemprop="datePublished">2018-08-22</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/教程/">教程</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/08/22/JavaScript标准参考教程 DOM模型 一/">JavaScript标准参考教程 DOM模型 概述 Document节点</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        DOM模型概述基本概念DOMDOM 是 JavaScript 操作网页的接口，全称为“文档对象模型”（Document Object Model）。它的作用是将网页转为一个 JavaScript 对象，从而可以用脚本进行各种操作（比如增删内容）。
+浏览器会根据 DOM 模型，将结构化文档（比如 HTML 和 XML）解析成一系列的节点，再由这些节点组成一个树状结构（DOM Tree）。所有的...
+    
+
+        <a href="/2018/08/22/JavaScript标准参考教程 DOM模型 一/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
     </ul>
-  
 
-  
-
-  
-    <div class="site-search">
-      
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
+    
+<nav id="page-nav">
+    <div class="inner">
+    <a class="extend prev" rel="prev" href="/page/18/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="page-number" href="/page/18/">18</a><span class="page-number current">19</span><a class="page-number" href="/page/20/">20</a><a class="page-number" href="/page/21/">21</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="extend next" rel="next" href="/page/20/">下一页</a>
     </div>
-  </div>
-  <div id="local-search-result"></div>
-</div>
-
-
-
-    </div>
-  
 </nav>
 
 
-
 </div>
-    </header>
 
-    
-
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-            
-
-          
-          <div id="content" class="content">
-            
-  <section id="posts" class="posts-expand">
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2018/09/13/petri网理论及其应用 0 形式化表示/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZDK"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
     </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZDK's blog"/>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
     </span>
+</p>
 
-    
-      <header class="post-header">
 
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/09/13/petri网理论及其应用 0 形式化表示/" class="post-title-link" itemprop="url">petri网理论及其应用 0 形式化表示</a>
-              
+        <p>
             
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-09-13 19:09:56 / 修改时间：19:19:34" itemprop="dateCreated datePublished" datetime="2018-09-13T19:09:56+08:00">2018-09-13</time>
-            </span>
-          
-
-          
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/课堂笔记/" itemprop="url" rel="index"><span itemprop="name">课堂笔记</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2018/09/13/petri网理论及其应用 0 形式化表示/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/09/13/petri网理论及其应用 0 形式化表示/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2018/09/13/petri网理论及其应用 0 形式化表示/" class="post-meta-item leancloud_visitors" data-flag-title="petri网理论及其应用 0 形式化表示">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="petri网理论及其应用-0-形式化表示"><a href="#petri网理论及其应用-0-形式化表示" class="headerlink" title="petri网理论及其应用 0 形式化表示"></a>petri网理论及其应用 0 形式化表示</h1><h2 id="楔子"><a href="#楔子" class="headerlink" title="楔子"></a>楔子</h2><p>热点必须要了解，结合趋势。</p>
-<h2 id="为什么要形式化方法"><a href="#为什么要形式化方法" class="headerlink" title="为什么要形式化方法"></a>为什么要形式化方法</h2><p>形式化方法的研究高潮始于 20世纪60年代后期，针对当时所谓“软件危机”,人们提出种种解决方法,归纳起来有两类：一是采用工程方法来组织、管理软件的开发过程；二是深入探讨程 序和程序开发过程的规律，建立严密的理论，以其用来指导软件开发实践。前者导致“软件工程”的出现和发展，后者则推动了形式化方法的深入研究。</p>
-<p>形式化方法的基本含义是借助数学的方法来研究CS中的有关问题。目的是为开发过程提供一些技术和工具，用于发现并指出软件实现中潜在的缺陷问题。数学是完美的，无二义性的，可以用在航空航天工程中，当然工业界也在慢慢的从软件测试逐步变为形式化方法。</p>
-<h2 id="什么是形式化方法"><a href="#什么是形式化方法" class="headerlink" title="什么是形式化方法"></a>什么是形式化方法</h2><p>根据表达能力，形式化方法可以分为五类：</p>
-<ol>
-<li>基于模型的方法：通过明确定义状态和操作来建立一个系统模型（使系统从一个状态转换到另一个状态）。用这种方法虽可以表示非功能性需求（诸如时间需求），但不能很好地表示并发性。如：Z语言，VDM，B方法等。</li>
-<li>基于逻辑的方法：用逻辑描述系统预期的性能，包括底层规约、时序和可能性行为。采用与所选逻辑相关的公理系统证明系统具有预期的性能。用具体的编程构 造扩充逻辑从而得到一种广谱形式化方法，通过保持正确性的细化步骤集来开发系统。如：ITL（区间时序逻辑），区段演算（DC），hoare 逻辑，WP演算，模态逻辑，时序逻辑，TAM（时序代理模型），RTTL（实时时序逻辑）等。</li>
-<li>代数方法：通过将未定义状态下不同的操作行为相联系，给出操作的显式定义。与基于模型的方法相同的是，没有给出并发的显式表示。如：OBJ， Larch族代数规约语言等；</li>
-<li>进程代数方法：通过限制所有容许的可观察的过程间通信来表示系统行为。此类方法允许并发过程的显式表示。如：通信顺序过程（CSP），通信系统演算 （CCS），通信过程代数（ACP），时序排序规约语言（LOTOS），计时CSP(TCSP），通信系统计时可能性演算（TPCCS）等。</li>
-<li>基于网络的方法：由于图形化表示法易于理解，而且非专业人员能够使用，因此是一种通用的系统确定表示法。该方法采用具有形式语义的图形语言，为系统开发和再工程带来特殊的好处。如 <strong>Petri图</strong>，计时Petri图，状态图等。</li>
-</ol>
-<h3 id="形式化语言与自动机"><a href="#形式化语言与自动机" class="headerlink" title="形式化语言与自动机"></a>形式化语言与自动机</h3><p>以四类形式语言（短语结构语言、上下文有关语言、上下文无关语言、正则语言）</p>
-<p>四种自动机（有穷自动机、下推自动机、图灵机、线性有界自动机）</p>
-<h3 id="自动机"><a href="#自动机" class="headerlink" title="自动机"></a>自动机</h3><p>自动机是有限状态机(FSM)的数学模型。<img src="/img/media/15368328512934/15368361353633.jpg" alt=""></p>
-<p>在编译当中有所应用。自动机描述的是顺序的，线性的。</p>
-<p>有限自动机是指有限个状态，在语法，词法分析中有用到。编译解决的主要是上下文无关文法，日常生活中所用的语言是上下文有关的文法。科大讯飞在解决日常语言识别时使用到了大数据。</p>
-<h3 id="λ-演算与图灵机"><a href="#λ-演算与图灵机" class="headerlink" title="λ-演算与图灵机"></a>λ-演算与图灵机</h3><p>这两者是等价的，都是回答了计算机可计算的边界这一问题。</p>
-<p>不同的是，λ-演算使用的是数学的演算，而图灵机则是具有了一个物理的模型。</p>
-
-          
-        
-      
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
     </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2018/09/13/人工智能第一课/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZDK"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZDK's blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+    <div class="bottom">
+        <p><span>ZDK &copy; 2017 - 2019</span>
+            <span>
                 
-                
-                <a href="/2018/09/13/人工智能第一课/" class="post-title-link" itemprop="url">人工智能第一课</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-09-13 16:49:32 / 修改时间：16:54:02" itemprop="dateCreated datePublished" datetime="2018-09-13T16:49:32+08:00">2018-09-13</time>
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
             </span>
-          
-
-          
-            
-
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/课堂笔记/" itemprop="url" rel="index"><span itemprop="name">课堂笔记</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2018/09/13/人工智能第一课/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/09/13/人工智能第一课/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2018/09/13/人工智能第一课/" class="post-meta-item leancloud_visitors" data-flag-title="人工智能第一课">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="考核方式"><a href="#考核方式" class="headerlink" title="考核方式"></a>考核方式</h2><p><img src="/img/media/2/4.JPG" alt=""></p>
-<h2 id="学术组织，会议"><a href="#学术组织，会议" class="headerlink" title="学术组织，会议"></a>学术组织，会议</h2><p><img src="/img/media/2/1.jpg" alt=""></p>
-<h2 id="刊物"><a href="#刊物" class="headerlink" title="刊物"></a>刊物</h2><p><img src="/img/media/2/2.jpg" alt=""></p>
-<h2 id="作业"><a href="#作业" class="headerlink" title="作业"></a>作业</h2><p><img src="/img/media/2/3.jpg" alt=""></p>
-
-          
-        
-      
+        </p>
     </div>
+    <span id="busuanzi_container_site_uv">
+        本站访客数<span id="busuanzi_value_site_uv"></span>人次
+      </span>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+</footer>
 
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2018/09/13/Python廖雪峰 IO编程 进程和线程 正则表达式/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZDK"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZDK's blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/09/13/Python廖雪峰 IO编程 进程和线程 正则表达式/" class="post-title-link" itemprop="url">Python廖雪峰 IO编程 进程和线程 正则表达式</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-09-13 16:46:56" itemprop="dateCreated datePublished" datetime="2018-09-13T16:46:56+08:00">2018-09-13</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-12-12 19:29:26" itemprop="dateModified" datetime="2018-12-12T19:29:26+08:00">2018-12-12</time>
-              </span>
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/教程/" itemprop="url" rel="index"><span itemprop="name">教程</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2018/09/13/Python廖雪峰 IO编程 进程和线程 正则表达式/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/09/13/Python廖雪峰 IO编程 进程和线程 正则表达式/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2018/09/13/Python廖雪峰 IO编程 进程和线程 正则表达式/" class="post-meta-item leancloud_visitors" data-flag-title="Python廖雪峰 IO编程 进程和线程 正则表达式">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>已修改</p>
-<h1 id="IO编程"><a href="#IO编程" class="headerlink" title="IO编程"></a>IO编程</h1><p>IO在计算机中指Input/Output，也就是输入和输出。由于程序和运行时数据是在内存中驻留，由CPU这个超快的计算核心来执行，涉及到数据交换的地方，通常是磁盘、网络等，就需要IO接口。</p>
-<p>比如你打开浏览器，访问新浪首页，浏览器这个程序就需要通过网络IO获取新浪的网页。浏览器首先会发送数据给新浪服务器，告诉它我想要首页的HTML，这个动作是往外发数据，叫Output，随后新浪服务器把网页发过来，这个动作是从外面接收数据，叫Input。所以，通常，程序完成IO操作会有Input和Output两个数据流。当然也有只用一个的情况，比如，从磁盘读取文件到内存，就只有Input操作，反过来，把数据写到磁盘文件里，就只是一个Output操作。</p>
-<p>IO编程中，Stream（流）是一个很重要的概念，可以把流想象成一个水管，数据就是水管里的水，但是只能单向流动。Input Stream就是数据从外面（磁盘、网络）流进内存，Output Stream就是数据从内存流到外面去。对于浏览网页来说，浏览器和新浪服务器之间至少需要建立两根水管，才可以既能发数据，又能收数据。</p>
-<p>由于CPU和内存的速度远远高于外设的速度，所以，在IO编程中，就存在速度严重不匹配的问题。举个例子来说，比如要把100M的数据写入磁盘，CPU输出100M的数据只需要0.01秒，可是磁盘要接收这100M数据可能需要10秒，怎么办呢？有两种办法：</p>
-<p>第一种是CPU等着，也就是程序暂停执行后续代码，等100M的数据在10秒后写入磁盘，再接着往下执行，这种模式称为同步IO；</p>
-<p>另一种方法是CPU不等待，只是告诉磁盘，“您老慢慢写，不着急，我接着干别的事去了”，于是，后续代码可以立刻接着执行，这种模式称为异步IO。</p>
-<p>很明显，使用异步IO来编写程序性能会远远高于同步IO，但是异步IO的缺点是编程模型复杂。想想看，你得知道什么时候通知你“汉堡做好了”，而通知你的方法也各不相同。如果是服务员跑过来找到你，这是回调模式，如果服务员发短信通知你，你就得不停地检查手机，这是轮询模式。总之，异步IO的复杂度远远高于同步IO。</p>
-<p>操作IO的能力都是由操作系统提供的，每一种编程语言都会把操作系统提供的低级C接口封装起来方便使用，Python也不例外。我们后面会详细讨论Python的IO编程接口。</p>
-<p>注意，本章的IO编程都是同步模式，异步IO由于复杂度太高，后续涉及到服务器端程序开发时我们再讨论。</p>
-<h2 id="文件读写"><a href="#文件读写" class="headerlink" title="文件读写"></a>文件读写</h2><p>读写文件是最常见的IO操作。Python内置了读写文件的函数，用法和C是兼容的。</p>
-<p>读写文件前，我们先必须了解一下，在磁盘上读写文件的功能都是由操作系统提供的，现代操作系统不允许普通的程序直接操作磁盘，所以，读写文件就是请求操作系统打开一个文件对象（通常称为文件描述符），然后，通过操作系统提供的接口从这个文件对象中读取数据（读文件），或者把数据写入这个文件对象（写文件）。</p>
-<h3 id="读文件"><a href="#读文件" class="headerlink" title="读文件"></a>读文件</h3><p>要以读文件的模式打开一个文件对象，使用Python内置的open()函数，传入文件名和标示符：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f = open(&apos;/Users/michael/test.txt&apos;, &apos;r&apos;)</span><br></pre></td></tr></table></figure>
-<p>标示符’r’表示读，这样，我们就成功地打开了一个文件。</p>
-<p>如果文件不存在，open()函数就会抛出一个IOError的错误，并且给出错误码和详细的信息告诉你文件不存在。</p>
-<p>如果文件打开成功，接下来，调用read()方法可以一次读取文件的全部内容，Python把内容读到内存，用一个str对象表示。</p>
-<p>最后一步是调用close()方法关闭文件。文件使用完毕后必须关闭，因为文件对象会占用操作系统的资源，并且操作系统同一时间能打开的文件数量也是有限的。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f.close()</span><br></pre></td></tr></table></figure>
-<p>由于文件读写时都有可能产生IOError，一旦出错，后面的f.close()就不会调用。所以，为了保证无论是否出错都能正确地关闭文件，我们可以使用try … finally来实现。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    f = open(<span class="string">'/path/to/file'</span>, <span class="string">'r'</span>)</span><br><span class="line">    print(f.read())</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    <span class="keyword">if</span> f:</span><br><span class="line">        f.close()</span><br></pre></td></tr></table></figure>
-<p>但是每次都这么写实在太繁琐，所以，Python引入了with语句来自动帮我们调用close()方法。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">'/path/to/file'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    print(f.read())</span><br></pre></td></tr></table></figure>
-<p>这和前面的try … finally是一样的，但是代码更佳简洁，并且不必调用f.close()方法。</p>
-<p>调用read()会一次性读取文件的全部内容，如果文件有10G，内存就爆了，所以，要保险起见，可以反复调用read(size)方法，每次最多读取size个字节的内容。另外，调用readline()可以每次读取一行内容，调用readlines()一次读取所有内容并按行返回list。因此，要根据需要决定怎么调用。</p>
-<p>如果文件很小，read()一次性读取最方便；如果不能确定文件大小，反复调用read(size)比较保险；如果是配置文件，调用readlines()最方便。</p>
-<h3 id="file-like-Object"><a href="#file-like-Object" class="headerlink" title="file-like Object"></a>file-like Object</h3><p>像open()函数返回的这种有个read()方法的对象，在Python中统称为file-like Object。除了file外，还可以是内存的字节流，网络流，自定义流等等。file-like Object不要求从特定类继承，只要写个read()方法就行。</p>
-<p>StringIO就是在内存中创建的file-like Object，常用作临时缓冲。</p>
-<h3 id="二进制文件"><a href="#二进制文件" class="headerlink" title="二进制文件"></a>二进制文件</h3><p>前面讲的默认都是读取文本文件，并且是UTF-8编码的文本文件。要读取二进制文件，比如图片、视频等等，用’rb’模式打开文件即可。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; f = open(&apos;/Users/michael/test.jpg&apos;, &apos;rb&apos;)</span><br><span class="line">&gt;&gt;&gt; f.read()</span><br><span class="line">b&apos;\xff\xd8\xff\xe1\x00\x18Exif\x00\x00...&apos; # 十六进制表示的字节</span><br></pre></td></tr></table></figure>
-<h3 id="字符编码"><a href="#字符编码" class="headerlink" title="字符编码"></a>字符编码</h3><p>要读取非UTF-8编码的文本文件，需要给open()函数传入encoding参数，例如，读取GBK编码的文件。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; f = open('/Users/michael/gbk.txt', 'r', encoding='gbk')</span><br><span class="line">&gt;&gt;&gt; f.read()</span><br><span class="line">'测试'</span><br></pre></td></tr></table></figure></p>
-<h3 id="写文件"><a href="#写文件" class="headerlink" title="写文件"></a>写文件</h3><p>写文件和读文件是一样的，唯一区别是调用open()函数时，传入标识符’w’或者’wb’表示写文本文件或写二进制文件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; f = open(&apos;/Users/michael/test.txt&apos;, &apos;w&apos;)</span><br><span class="line">&gt;&gt;&gt; f.write(&apos;Hello, world!&apos;)</span><br><span class="line">&gt;&gt;&gt; f.close()</span><br></pre></td></tr></table></figure></p>
-<p>你可以反复调用write()来写入文件，但是务必要调用f.close()来关闭文件。当我们写文件时，操作系统往往不会立刻把数据写入磁盘，而是放到内存缓存起来，空闲的时候再慢慢写入。只有调用close()方法时，操作系统才保证把没有写入的数据全部写入磁盘。忘记调用close()的后果是数据可能只写了一部分到磁盘，剩下的丢失了。所以，还是用with语句来得保险。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">with open(&apos;/Users/michael/test.txt&apos;, &apos;w&apos;) as f:</span><br><span class="line">    f.write(&apos;Hello, world!&apos;)</span><br></pre></td></tr></table></figure></p>
-<p>要写入特定编码的文本文件，请给open()函数传入encoding参数，将字符串自动转换成指定编码。</p>
-<p>以’w’模式写入文件时，如果文件已存在，会直接覆盖（相当于删掉后新写入一个文件）。如果我们希望追加到文件末尾怎么办？可以传入’a’以追加（append）模式写入。</p>
-<h2 id="StringIO和BytesIO"><a href="#StringIO和BytesIO" class="headerlink" title="StringIO和BytesIO"></a>StringIO和BytesIO</h2><h3 id="StringIO"><a href="#StringIO" class="headerlink" title="StringIO"></a>StringIO</h3><p>很多时候，数据读写不一定是文件，也可以在内存中读写。</p>
-<p>StringIO顾名思义就是在内存中读写str。</p>
-<p>要把str写入StringIO，我们需要先创建一个StringIO，然后，像文件一样写入即可。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> io <span class="keyword">import</span> StringIO</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f = StringIO()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f.write(<span class="string">'hello'</span>)</span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f.write(<span class="string">' '</span>)</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f.write(<span class="string">'world!'</span>)</span><br><span class="line"><span class="number">6</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(f.getvalue())</span><br><span class="line">hello world!</span><br></pre></td></tr></table></figure></p>
-<p>getvalue()方法用于获得写入后的str。</p>
-<p>要读取StringIO，可以用一个str初始化StringIO，然后，像读文件一样读取：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> io <span class="keyword">import</span> StringIO</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f = StringIO(<span class="string">'Hello!\nHi!\nGoodbye!'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line"><span class="meta">... </span>    s = f.readline()</span><br><span class="line"><span class="meta">... </span>    <span class="keyword">if</span> s == <span class="string">''</span>:</span><br><span class="line"><span class="meta">... </span>        <span class="keyword">break</span></span><br><span class="line"><span class="meta">... </span>    print(s.strip())</span><br><span class="line">...</span><br><span class="line">Hello!</span><br><span class="line">Hi!</span><br><span class="line">Goodbye!</span><br></pre></td></tr></table></figure>
-<h3 id="BytesIO"><a href="#BytesIO" class="headerlink" title="BytesIO"></a>BytesIO</h3><p>StringIO操作的只能是str，如果要操作二进制数据，就需要使用BytesIO。</p>
-<p>BytesIO实现了在内存中读写bytes，我们创建一个BytesIO，然后写入一些bytes。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> io <span class="keyword">import</span> BytesIO</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f = BytesIO()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f.write(<span class="string">'中文'</span>.encode(<span class="string">'utf-8'</span>))</span><br><span class="line"><span class="number">6</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(f.getvalue())</span><br><span class="line"><span class="string">b'\xe4\xb8\xad\xe6\x96\x87'</span></span><br></pre></td></tr></table></figure>
-<p>请注意，写入的不是str，而是经过UTF-8编码的bytes。</p>
-<p>和StringIO类似，可以用一个bytes初始化BytesIO，然后，像读文件一样读取。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> io <span class="keyword">import</span> BytesIO</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f = BytesIO(<span class="string">b'\xe4\xb8\xad\xe6\x96\x87'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f.read()</span><br><span class="line"><span class="string">b'\xe4\xb8\xad\xe6\x96\x87'</span></span><br></pre></td></tr></table></figure>
-<p>StringIO和BytesIO是在内存中操作str和bytes的方法，使得和读写文件具有一致的接口。</p>
-<h2 id="操作文件和目录"><a href="#操作文件和目录" class="headerlink" title="操作文件和目录"></a>操作文件和目录</h2><p>操作系统提供的命令只是简单地调用了操作系统提供的接口函数，Python内置的os模块也可以直接调用操作系统提供的接口函数。</p>
-<p>打开Python交互式命令行，我们来看看如何使用os模块的基本功能。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> os</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.name <span class="comment"># 操作系统类型</span></span><br><span class="line"><span class="string">'posix'</span></span><br></pre></td></tr></table></figure>
-<p>要获取详细的系统信息，可以调用uname()函数。</p>
-<h3 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h3><p>在操作系统中定义的环境变量，全部保存在os.environ这个变量中，可以直接查看。</p>
-<p>要获取某个环境变量的值，可以调用os.environ.get(‘key’)。</p>
-<h3 id="操作文件和目录-1"><a href="#操作文件和目录-1" class="headerlink" title="操作文件和目录"></a>操作文件和目录</h3><p>操作文件和目录的函数一部分放在os模块中，一部分放在os.path模块中，这一点要注意一下。查看、创建和删除目录可以这么调用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 查看当前目录的绝对路径:</span><br><span class="line">&gt;&gt;&gt; os.path.abspath(&apos;.&apos;)</span><br><span class="line">&apos;/Users/michael&apos;</span><br><span class="line"># 在某个目录下创建一个新目录，首先把新目录的完整路径表示出来:</span><br><span class="line">&gt;&gt;&gt; os.path.join(&apos;/Users/michael&apos;, &apos;testdir&apos;)</span><br><span class="line">&apos;/Users/michael/testdir&apos;</span><br><span class="line"># 然后创建一个目录:</span><br><span class="line">&gt;&gt;&gt; os.mkdir(&apos;/Users/michael/testdir&apos;)</span><br><span class="line"># 删掉一个目录:</span><br><span class="line">&gt;&gt;&gt; os.rmdir(&apos;/Users/michael/testdir&apos;)</span><br></pre></td></tr></table></figure></p>
-<p>把两个路径合成一个时，不要直接拼字符串，而要通过os.path.join()函数，这样可以正确处理不同操作系统的路径分隔符。</p>
-<p>同样的道理，要拆分路径时，也不要直接去拆字符串，而要通过os.path.split()函数，这样可以把一个路径拆分为两部分，后一部分总是最后级别的目录或文件名。</p>
-<p>os.path.splitext()可以直接让你得到文件扩展名，很多时候非常方便。</p>
-<p>这些合并、拆分路径的函数并不要求目录和文件要真实存在，它们只对字符串进行操作。</p>
-<p>文件操作使用下面的函数。假定当前目录下有一个test.txt文件。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 对文件重命名:</span><br><span class="line">&gt;&gt;&gt; os.rename(&apos;test.txt&apos;, &apos;test.py&apos;)</span><br><span class="line"># 删掉文件:</span><br><span class="line">&gt;&gt;&gt; os.remove(&apos;test.py&apos;)</span><br></pre></td></tr></table></figure>
-<p>但是复制文件的函数居然在os模块中不存在！原因是复制文件并非由操作系统提供的系统调用。理论上讲，读写文件就可以完成文件复制。</p>
-<p>shutil模块提供了copyfile()的函数，你还可以在shutil模块中找到很多实用函数，它们可以看做是os模块的补充。</p>
-<p>我们要列出当前目录下的所有目录，只需要一行代码：<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;</span>&gt; [x for x in os.listdir(<span class="string">'.'</span>) if os.path.isdir(x)]</span><br><span class="line">[<span class="string">'.lein'</span>, <span class="string">'.local'</span>, <span class="string">'.m2'</span>, <span class="string">'.npm'</span>, <span class="string">'.ssh'</span>, <span class="string">'.Trash'</span>, <span class="string">'.vim'</span>, <span class="string">'Applications'</span>, <span class="string">'Desktop'</span>, ...]</span><br></pre></td></tr></table></figure></p>
-<p>要列出所有的.py文件，也只需一行代码：<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;</span>&gt; [x for x in os.listdir(<span class="string">'.'</span>) if os.path.isfile(x) and os.path.splitext(x)[<span class="number">1</span>]==<span class="string">'.py'</span>]</span><br><span class="line">[<span class="string">'apis.py'</span>, <span class="string">'config.py'</span>, <span class="string">'models.py'</span>, <span class="string">'pymonitor.py'</span>, <span class="string">'test_db.py'</span>, <span class="string">'urls.py'</span>, <span class="string">'wsgiapp.py'</span>]</span><br></pre></td></tr></table></figure></p>
-<h2 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h2><p>我们把变量从内存中变成可存储或传输的过程称之为序列化，在Python中叫pickling，在其他语言中也被称之为serialization，marshalling，flattening等等，都是一个意思。</p>
-<p>序列化之后，就可以把序列化后的内容写入磁盘，或者通过网络传输到别的机器上。</p>
-<p>反过来，把变量内容从序列化的对象重新读到内存里称之为反序列化，即unpickling。</p>
-<p>Python提供了pickle模块来实现序列化。</p>
-<p>把一个对象序列化并写入文件：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import pickle</span><br><span class="line">&gt;&gt;&gt; d = dict(name='Bob', age=20, score=88)</span><br><span class="line">&gt;&gt;&gt; pickle.dumps(d)</span><br><span class="line">b'\x80\x03&#125;q\x00(X\x03\x00\x00\x00ageq\x01K\x14X\x05\x00\x00\x00scoreq\x02KXX\x04\x00\x00\x00nameq\x03X\x03\x00\x00\x00Bobq\x04u.'</span><br></pre></td></tr></table></figure></p>
-<p>pickle.dumps()方法把任意对象序列化成一个bytes，然后，就可以把这个bytes写入文件。或者用另一个方法pickle.dump()直接把对象序列化后写入一个file-like Object：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; f = open(&apos;dump.txt&apos;, &apos;wb&apos;)</span><br><span class="line">&gt;&gt;&gt; pickle.dump(d, f)</span><br><span class="line">&gt;&gt;&gt; f.close()</span><br></pre></td></tr></table></figure></p>
-<p>看看写入的dump.txt文件，一堆乱七八糟的内容，这些都是Python保存的对象内部信息。</p>
-<p>当我们要把对象从磁盘读到内存时，可以先把内容读到一个bytes，然后用pickle.loads()方法反序列化出对象，也可以直接用pickle.load()方法从一个file-like Object中直接反序列化出对象。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; f = open(&apos;dump.txt&apos;, &apos;rb&apos;)</span><br><span class="line">&gt;&gt;&gt; d = pickle.load(f)</span><br><span class="line">&gt;&gt;&gt; f.close()</span><br><span class="line">&gt;&gt;&gt; d</span><br><span class="line">&#123;&apos;age&apos;: 20, &apos;score&apos;: 88, &apos;name&apos;: &apos;Bob&apos;&#125;</span><br></pre></td></tr></table></figure>
-<p>当然，这个变量和原来的变量是完全不相干的对象，它们只是内容相同而已。</p>
-<p>Pickle的问题和所有其他编程语言特有的序列化问题一样，就是它只能用于Python，并且可能不同版本的Python彼此都不兼容，因此，只能用Pickle保存那些不重要的数据，不能成功地反序列化也没关系。</p>
-<p>由于JSON标准规定JSON编码是UTF-8，所以我们总是能正确地在Python的str与JSON的字符串之间转换。</p>
-<h3 id="JSON进阶"><a href="#JSON进阶" class="headerlink" title="JSON进阶"></a>JSON进阶</h3><p>Python的dict对象可以直接序列化为JSON的{}，不过，很多时候，我们更喜欢用class表示对象，比如定义Student类，然后序列化，但是Student对象不是一个可序列化为JSON的对象。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">student2dict</span><span class="params">(std)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        <span class="string">'name'</span>: std.name,</span><br><span class="line">        <span class="string">'age'</span>: std.age,</span><br><span class="line">        <span class="string">'score'</span>: std.score</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>这样，Student实例首先被student2dict()函数转换成dict，然后再被顺利序列化为JSON：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(json.dumps(s, default=student2dict))</span><br><span class="line">&#123;<span class="string">"age"</span>: <span class="number">20</span>, <span class="string">"name"</span>: <span class="string">"Bob"</span>, <span class="string">"score"</span>: <span class="number">88</span>&#125;</span><br></pre></td></tr></table></figure></p>
-<p>我们可以偷个懒，把任意class的实例变为dict：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(json.dumps(s, default=<span class="keyword">lambda</span> obj: obj.__dict__))</span><br></pre></td></tr></table></figure></p>
-<p>因为通常class的实例都有一个<strong>dict</strong>属性，它就是一个dict，用来存储实例变量。也有少数例外，比如定义了<strong>slots</strong>的class。</p>
-<p>同样的道理，如果我们要把JSON反序列化为一个Student对象实例，loads()方法首先转换出一个dict对象，然后，我们传入的object_hook函数负责把dict转换为Student实例。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dict2student</span><span class="params">(d)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> Student(d[<span class="string">'name'</span>], d[<span class="string">'age'</span>], d[<span class="string">'score'</span>])</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>json_str = <span class="string">'&#123;"age": 20, "score": 88, "name": "Bob"&#125;'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(json.loads(json_str, object_hook=dict2student))</span><br><span class="line">&lt;__main__.Student object at <span class="number">0x10cd3c190</span>&gt;</span><br></pre></td></tr></table></figure>
-<h1 id="进程和线程"><a href="#进程和线程" class="headerlink" title="进程和线程"></a>进程和线程</h1><p>对于操作系统来说，一个任务就是一个进程（Process），比如打开一个浏览器就是启动一个浏览器进程，打开一个记事本就启动了一个记事本进程，打开两个记事本就启动了两个记事本进程，打开一个Word就启动了一个Word进程。</p>
-<p>有些进程还不止同时干一件事，比如Word，它可以同时进行打字、拼写检查、打印等事情。在一个进程内部，要同时干多件事，就需要同时运行多个“子任务”，我们把进程内的这些“子任务”称为线程（Thread）。</p>
-<h2 id="多进程"><a href="#多进程" class="headerlink" title="多进程"></a>多进程</h2><p>Unix/Linux操作系统提供了一个fork()系统调用，它非常特殊。普通的函数调用，调用一次，返回一次，但是fork()调用一次，返回两次，因为操作系统自动把当前进程（称为父进程）复制了一份（称为子进程），然后，分别在父进程和子进程内返回。</p>
-<p>子进程永远返回0，而父进程返回子进程的ID。这样做的理由是，一个父进程可以fork出很多子进程，所以，父进程要记下每个子进程的ID，而子进程只需要调用getppid()就可以拿到父进程的ID。</p>
-<p>Python的os模块封装了常见的系统调用，其中就包括fork，可以在Python程序中轻松创建子进程。<br><img src="/img/media/1/1.png" alt=""></p>
-<p>由于Windows没有fork调用，上面的代码在Windows上无法运行。由于Mac系统是基于BSD（Unix的一种）内核，所以，在Mac下运行是没有问题的，推荐大家用Mac学Python！</p>
-<p>有了fork调用，一个进程在接到新任务时就可以复制出一个子进程来处理新任务，常见的Apache服务器就是由父进程监听端口，每当有新的http请求时，就fork出子进程来处理新的http请求。</p>
-<h3 id="multiprocessing"><a href="#multiprocessing" class="headerlink" title="multiprocessing"></a>multiprocessing</h3><p>针对Windows没有fork，由于Python是跨平台的，自然也应该提供一个跨平台的多进程支持。multiprocessing模块就是跨平台版本的多进程模块。</p>
-<p>multiprocessing模块提供了一个Process类来代表一个进程对象。</p>
-<p>创建子进程时，只需要传入一个执行函数和函数的参数，创建一个Process实例，用start()方法启动，这样创建进程比fork()还要简单。</p>
-<p>join()方法可以等待子进程结束后再继续往下运行，通常用于进程间的同步。</p>
-<h3 id="Pool"><a href="#Pool" class="headerlink" title="Pool"></a>Pool</h3><p>如果要启动大量的子进程，可以用进程池的方式批量创建子进程。</p>
-<p>对Pool对象调用join()方法会等待所有子进程执行完毕，调用join()之前必须先调用close()，调用close()之后就不能继续添加新的Process了。</p>
-<p>Pool的默认大小是CPU的核数。</p>
-<h3 id="子进程"><a href="#子进程" class="headerlink" title="子进程"></a>子进程</h3><p>subprocess模块可以让我们非常方便地启动一个子进程，然后控制其输入和输出。</p>
-<h3 id="进程间通信"><a href="#进程间通信" class="headerlink" title="进程间通信"></a>进程间通信</h3><p>Process之间肯定是需要通信的，操作系统提供了很多机制来实现进程间的通信。Python的multiprocessing模块包装了底层的机制，提供了Queue、Pipes等多种方式来交换数据。</p>
-<p>在Unix/Linux下，multiprocessing模块封装了fork()调用，使我们不需要关注fork()的细节。由于Windows没有fork调用，因此，multiprocessing需要“模拟”出fork的效果，父进程所有Python对象都必须通过pickle序列化再传到子进程去，所有，如果multiprocessing在Windows下调用失败了，要先考虑是不是pickle失败了。</p>
-<h2 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h2><p>多任务可以由多进程完成，也可以由一个进程内的多线程完成。</p>
-<p>由于线程是操作系统直接支持的执行单元，因此，高级语言通常都内置多线程的支持，Python也不例外，并且，Python的线程是真正的Posix Thread，而不是模拟出来的线程。</p>
-<p>Python的标准库提供了两个模块：_thread和threading，_thread是低级模块，threading是高级模块，对_thread进行了封装。绝大多数情况下，我们只需要使用threading这个高级模块。</p>
-<p>启动一个线程就是把一个函数传入并创建Thread实例，然后调用start()开始执行。<br><img src="/img/media/1/2.png" alt=""></p>
-<p>由于任何进程默认就会启动一个线程，我们把该线程称为主线程，主线程又可以启动新的线程，Python的threading模块有个current_thread()函数，它永远返回当前线程的实例。主线程实例的名字叫MainThread，子线程的名字在创建时指定，我们用LoopThread命名子线程。名字仅仅在打印时用来显示，完全没有其他意义，如果不起名字Python就自动给线程命名为Thread-1，Thread-2……</p>
-<h3 id="Lock"><a href="#Lock" class="headerlink" title="Lock"></a>Lock</h3><p>多线程和多进程最大的不同在于，多进程中，同一个变量，各自有一份拷贝存在于每个进程中，互不影响，而多线程中，所有变量都由所有线程共享，所以，任何一个变量都可以被任何一个线程修改，因此，线程之间共享数据最大的危险在于多个线程同时改一个变量，把内容给改乱了。</p>
-<p>创建一个锁就是通过threading.Lock()来实现。</p>
-<p><img src="/img/media/1/3.png" alt=""></p>
-<p>当多个线程同时执行lock.acquire()时，只有一个线程能成功地获取锁，然后继续执行代码，其他线程就继续等待直到获得锁为止。</p>
-<p>获得锁的线程用完后一定要释放锁，否则那些苦苦等待锁的线程将永远等待下去，成为死线程。所以我们用try…finally来确保锁一定会被释放。</p>
-<p>锁的好处就是确保了某段关键代码只能由一个线程从头到尾完整地执行，坏处当然也很多，首先是阻止了多线程并发执行，包含锁的某段代码实际上只能以单线程模式执行，效率就大大地下降了。其次，由于可以存在多个锁，不同的线程持有不同的锁，并试图获取对方持有的锁时，可能会造成死锁，导致多个线程全部挂起，既不能执行，也无法结束，只能靠操作系统强制终止。</p>
-<h3 id="多核CPU"><a href="#多核CPU" class="headerlink" title="多核CPU"></a>多核CPU</h3><p>Python的线程虽然是真正的线程，但解释器执行代码时，有一个GIL锁：Global Interpreter Lock，任何Python线程执行前，必须先获得GIL锁，然后，每执行100条字节码，解释器就自动释放GIL锁，让别的线程有机会执行。这个GIL全局锁实际上把所有线程的执行代码都给上了锁，所以，多线程在Python中只能交替执行，即使100个线程跑在100核CPU上，也只能用到1个核。</p>
-<p>GIL是Python解释器设计的历史遗留问题，通常我们用的解释器是官方实现的CPython，要真正利用多核，除非重写一个不带GIL的解释器。</p>
-<p>所以，在Python中，可以使用多线程，但不要指望能有效利用多核。如果一定要通过多线程利用多核，那只能通过C扩展来实现，不过这样就失去了Python简单易用的特点。</p>
-<p>不过，也不用过于担心，Python虽然不能利用多线程实现多核任务，但可以通过多进程实现多核任务。多个Python进程有各自独立的GIL锁，互不影响。</p>
-<h2 id="ThreadLocal"><a href="#ThreadLocal" class="headerlink" title="ThreadLocal"></a>ThreadLocal</h2><p>在多线程环境下，每个线程都有自己的数据。一个线程使用自己的局部变量比使用全局变量好，因为局部变量只有线程自己能看见，不会影响其他线程，而全局变量的修改必须加锁。</p>
-<p>但是局部变量也有问题，就是在函数调用的时候，传递起来很麻烦。</p>
-<p>一个ThreadLocal变量虽然是全局变量，但每个线程都只能读写自己线程的独立副本，互不干扰。ThreadLocal解决了参数在一个线程中各个函数之间互相传递的问题。</p>
-<h2 id="进程-vs-线程"><a href="#进程-vs-线程" class="headerlink" title="进程 vs 线程"></a>进程 vs 线程</h2><p>要实现多任务，通常我们会设计Master-Worker模式，Master负责分配任务，Worker负责执行任务，因此，多任务环境下，通常是一个Master，多个Worker。</p>
-<p>如果用多进程实现Master-Worker，主进程就是Master，其他进程就是Worker。</p>
-<p>如果用多线程实现Master-Worker，主线程就是Master，其他线程就是Worker。</p>
-<p>多进程模式最大的优点就是稳定性高，因为一个子进程崩溃了，不会影响主进程和其他子进程。（当然主进程挂了所有进程就全挂了，但是Master进程只负责分配任务，挂掉的概率低）著名的Apache最早就是采用多进程模式。</p>
-<p>多进程模式的缺点是创建进程的代价大，在Unix/Linux系统下，用fork调用还行，在Windows下创建进程开销巨大。另外，操作系统能同时运行的进程数也是有限的，在内存和CPU的限制下，如果有几千个进程同时运行，操作系统连调度都会成问题。</p>
-<p>多线程模式通常比多进程快一点，但是也快不到哪去，而且，多线程模式致命的<strong>缺点</strong>就是任何一个线程挂掉都可能直接造成整个进程崩溃，因为所有线程共享进程的内存。在Windows上，如果一个线程执行的代码出了问题，你经常可以看到这样的提示：“该程序执行了非法操作，即将关闭”，其实往往是某个线程出了问题，但是操作系统会强制结束整个进程。</p>
-<p>在Windows下，多线程的效率比多进程要高，所以微软的IIS服务器默认采用多线程模式。由于多线程存在稳定性的问题，IIS的稳定性就不如Apache。为了缓解这个问题，IIS和Apache现在又有多进程+多线程的混合模式，真是把问题越搞越复杂。</p>
-<h3 id="线程切换"><a href="#线程切换" class="headerlink" title="线程切换"></a>线程切换</h3><p>无论是多进程还是多线程，只要数量一多，效率肯定上不去。</p>
-<p>切换过程虽然很快，但是也需要耗费时间。如果有几千个任务同时进行，操作系统可能就主要忙着切换任务，根本没有多少时间去执行任务了，这种情况最常见的就是硬盘狂响，点窗口无反应，系统处于假死状态。</p>
-<h3 id="计算密集型-vs-IO密集型"><a href="#计算密集型-vs-IO密集型" class="headerlink" title="计算密集型 vs. IO密集型"></a>计算密集型 vs. IO密集型</h3><p>是否采用多任务的第二个考虑是任务的类型。我们可以把任务分为计算密集型和IO密集型。</p>
-<p>计算密集型任务的特点是要进行大量的计算，消耗CPU资源，比如计算圆周率、对视频进行高清解码等等，全靠CPU的运算能力。这种计算密集型任务虽然也可以用多任务完成，但是任务越多，花在任务切换的时间就越多，CPU执行任务的效率就越低，所以，要最高效地利用CPU，计算密集型任务同时进行的数量应当等于CPU的核心数。</p>
-<p>计算密集型任务由于主要消耗CPU资源，因此，代码运行效率至关重要。Python这样的脚本语言运行效率很低，完全不适合计算密集型任务。对于计算密集型任务，最好用C语言编写。</p>
-<p>第二种任务的类型是IO密集型，涉及到网络、磁盘IO的任务都是IO密集型任务，这类任务的特点是CPU消耗很少，任务的大部分时间都在等待IO操作完成（因为IO的速度远远低于CPU和内存的速度）。对于IO密集型任务，任务越多，CPU效率越高，但也有一个限度。常见的大部分任务都是IO密集型任务，比如Web应用。</p>
-<p>IO密集型任务执行期间，99%的时间都花在IO上，花在CPU上的时间很少，因此，用运行速度极快的C语言替换用Python这样运行速度极低的脚本语言，完全无法提升运行效率。对于IO密集型任务，最合适的语言就是开发效率最高（代码量最少）的语言，脚本语言是首选，C语言最差。</p>
-<h3 id="异步IO"><a href="#异步IO" class="headerlink" title="异步IO"></a>异步IO</h3><p>考虑到CPU和IO之间巨大的速度差异，一个任务在执行的过程中大部分时间都在等待IO操作，单进程单线程模型会导致别的任务无法并行执行，因此，我们才需要多进程模型或者多线程模型来支持多任务并发执行。</p>
-<p><img src="/img/media/1/4.png" alt=""></p>
-<p>现代操作系统对IO操作已经做了巨大的改进，最大的特点就是支持异步IO。如果充分利用操作系统提供的异步IO支持，就可以用单进程单线程模型来执行多任务，这种全新的模型称为事件驱动模型，Nginx就是支持异步IO的Web服务器，它在单核CPU上采用单进程模型就可以高效地支持多任务。在多核CPU上，可以运行多个进程（数量与CPU核心数相同），充分利用多核CPU。由于系统总的进程数量十分有限，因此操作系统调度非常高效。用异步IO编程模型来实现多任务是一个主要的趋势。</p>
-<p>对应到Python语言，单线程的异步编程模型称为协程，有了协程的支持，就可以基于事件驱动编写高效的多任务程序。我们会在后面讨论如何编写协程。</p>
-<h2 id="分布式进程"><a href="#分布式进程" class="headerlink" title="分布式进程"></a>分布式进程</h2><p>在Thread和Process中，应当优选Process，因为Process更稳定，而且，Process可以分布到多台机器上，而Thread最多只能分布到同一台机器的多个CPU上。</p>
-<p>Python的multiprocessing模块不但支持多进程，其中managers子模块还支持把多进程分布到多台机器上。一个服务进程可以作为调度者，将任务分布到其他多个进程中，依靠网络通信。由于managers模块封装很好，不必了解网络通信的细节，就可以很容易地编写分布式多进程程序。</p>
-<p>举个例子：如果我们已经有一个通过Queue通信的多进程程序在同一台机器上运行，现在，由于处理任务的进程任务繁重，希望把发送任务的进程和处理任务的进程分布到两台机器上。怎么用分布式进程实现？</p>
-<p>原有的Queue可以继续使用，但是，通过managers模块把Queue通过网络暴露出去，就可以让其他机器的进程访问Queue了。</p>
-<p>服务进程负责启动Queue，把Queue注册到网络上，然后往Queue里面写入任务。</p>
-<p>请注意，当我们在一台机器上写多进程程序时，创建的Queue可以直接拿来用，但是，在分布式多进程环境下，添加任务到Queue不可以直接对原始的task_queue进行操作，那样就绕过了QueueManager的封装，必须通过manager.get_task_queue()获得的Queue接口添加。</p>
-<p>这个简单的Master/Worker模型有什么用？其实这就是一个简单但真正的分布式计算，把代码稍加改造，启动多个worker，就可以把任务分布到几台甚至几十台机器上，比如把计算n*n的代码换成发送邮件，就实现了邮件队列的异步发送。</p>
-<p>Python的分布式进程接口简单，封装良好，适合需要把繁重任务分布到多台机器的环境下。</p>
-<p>注意Queue的作用是用来传递任务和接收结果，每个任务的描述数据量要尽量小。比如发送一个处理日志文件的任务，就不要发送几百兆的日志文件本身，而是发送日志文件存放的完整路径，由Worker进程再去共享的磁盘上读取文件。</p>
-<h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><p>规则和javascript一样，实现形式通过re模块来实现。</p>
-<h2 id="re模块"><a href="#re模块" class="headerlink" title="re模块"></a>re模块</h2><p>由于Python的字符串本身也用\转义，所以要特别注意。</p>
-<p>因此我们强烈建议使用Python的r前缀，就不用考虑转义的问题了。</p>
-<p>match()方法判断是否匹配，如果匹配成功，返回一个Match对象，否则返回None。</p>
-<p><img src="/img/media/1/9.png" alt=""></p>
-<p>re.match与re.search的区别：re.match只匹配字符串的开始，如果字符串开始不符合正则表达式，则匹配失败，函数返回None；而re.search匹配整个字符串，直到找到一个匹配。返回的都是match对象。</p>
-<p>正则 re.findall 返回string中所有与pattern相匹配的全部字串，返回形式为数组。在正则里面 “（）” 代表的是分组的意思，一个括号代表一个分组，你只能匹配到”()”中的内容。多个（）就返回元组。</p>
-<h2 id="切分字符串"><a href="#切分字符串" class="headerlink" title="切分字符串"></a>切分字符串</h2><p>用正则表达式切分字符串比用固定的字符更灵活。<br>在split（）函数中可以使用正则表达式。</p>
-<h2 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h2><p>除了简单地判断是否匹配之外，正则表达式还有提取子串的强大功能。用()表示的就是要提取的分组（Group）。</p>
-<p>如果正则表达式中定义了组，就可以在Match对象上用group()方法提取出子串来。</p>
-<p>注意到group(0)永远是原始字符串，group(1)、group(2)……表示第1、2、……个子串。</p>
-<p><img src="/img/media/1/10.png" alt=""></p>
-<h2 id="贪婪匹配"><a href="#贪婪匹配" class="headerlink" title="贪婪匹配"></a>贪婪匹配</h2><p>正则匹配默认是贪婪匹配，也就是匹配尽可能多的字符。</p>
-<p>和javascript一样，加个?就可以让\d+采用非贪婪匹配。</p>
-<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><p>当我们在Python中使用正则表达式时，re模块内部会干两件事情：</p>
-<ol>
-<li>编译正则表达式，如果正则表达式的字符串本身不合法，会报错；</li>
-<li>用编译后的正则表达式去匹配字符串。</li>
-</ol>
-<p>如果一个正则表达式要重复使用几千次，出于效率的考虑，我们可以预编译该正则表达式，接下来重复使用时就不需要编译这个步骤了，直接匹配。</p>
-<p><img src="/img/media/1/11.png" alt=""></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2018/09/02/Python廖雪峰 面向对象 异常处理/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZDK"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZDK's blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/09/02/Python廖雪峰 面向对象 异常处理/" class="post-title-link" itemprop="url">Python廖雪峰 面向对象 异常处理 调试测试</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-09-02 15:00:56" itemprop="dateCreated datePublished" datetime="2018-09-02T15:00:56+08:00">2018-09-02</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-03-20 20:13:04" itemprop="dateModified" datetime="2019-03-20T20:13:04+08:00">2019-03-20</time>
-              </span>
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/教程/" itemprop="url" rel="index"><span itemprop="name">教程</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2018/09/02/Python廖雪峰 面向对象 异常处理/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/09/02/Python廖雪峰 面向对象 异常处理/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2018/09/02/Python廖雪峰 面向对象 异常处理/" class="post-meta-item leancloud_visitors" data-flag-title="Python廖雪峰 面向对象 异常处理 调试测试">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="面向对象编程"><a href="#面向对象编程" class="headerlink" title="面向对象编程"></a>面向对象编程</h1><h2 id="类和实例"><a href="#类和实例" class="headerlink" title="类和实例"></a>类和实例</h2><p>在Python中，定义类是通过class关键字。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%883.05.01.png" alt=""></p>
-<p>通常，如果没有合适的继承类，就使用object类，这是所有类最终都会继承的类。</p>
-<p>创建实例是通过类名+()实现的。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%883.05.39.png" alt=""></p>
-<p>可以自由地给一个实例变量绑定属性，比如，给实例bart绑定一个name属性。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%883.06.53.png" alt=""></p>
-<p>由于类可以起到模板的作用，因此，可以在创建实例的时候，把一些我们认为必须绑定的属性强制填写进去。通过定义一个特殊的__init__方法，在创建实例的时候，就把name，score等属性绑上去。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%883.31.33.png" alt=""></p>
-<p>注意到__init__方法的第一个参数永远是self，表示创建的实例本身。</p>
-<p>有了__init__方法，在创建实例的时候，就不能传入空的参数了，必须传入与__init__方法匹配的参数，但self不需要传，Python解释器自己会把实例变量传进去。</p>
-<p>和普通的函数相比，在类中定义的函数只有一点不同，就是第一个参数永远是实例变量self，并且，调用时，不用传递该参数。除此之外，类的方法和普通函数没有什么区别，所以，你仍然可以用默认参数、可变参数、关键字参数和命名关键字参数。</p>
-<h3 id="数据封装"><a href="#数据封装" class="headerlink" title="数据封装"></a>数据封装</h3><p>我们从外部看Student类，就只需要知道，创建实例需要给出name和score，而如何打印，都是在Student类的内部定义的，这些数据和逻辑被“封装”起来了，调用很容易，但却不用知道内部实现的细节。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%883.49.56.png" alt=""></p>
-<p>定义一个方法，除了第一个参数是self外，其他和普通函数一样。要调用一个方法，只需要在实例变量上直接调用，除了self不用传递，其他参数正常传入。</p>
-<p>封装的另一个好处是可以给Student类增加新的方法。</p>
-<h2 id="访问限制"><a href="#访问限制" class="headerlink" title="访问限制"></a>访问限制</h2><p>在Class内部，可以有属性和方法，而外部代码可以通过直接调用实例变量的方法来操作数据，这样，就隐藏了内部的复杂逻辑。</p>
-<p>从前面Student类的定义来看，外部代码还是可以自由地修改一个实例的name、score属性。</p>
-<p>如果要让内部属性不被外部访问，可以把属性的名称前加上两个下划线__，在Python中，实例的变量名如果以__开头，就变成了一个私有变量（private），只有内部可以访问，外部不能访问。</p>
-<p>已经无法从外部访问实例变量.__name和实例变量.__score了</p>
-<p>需要注意的是，在Python中，变量名类似__xxx__的，也就是以双下划线开头，并且以双下划线结尾的，是特殊变量，特殊变量是可以直接访问的，不是private变量，所以，不能用__name__、__score__这样的变量名。</p>
-<p>有些时候，你会看到以一个下划线开头的实例变量名，比如_name，这样的实例变量外部是可以访问的，但是，按照约定俗成的规定，当你看到这样的变量时，意思就是，“虽然我可以被访问，但是，请把我视为私有变量，不要随意访问”。</p>
-<p>双下划线开头的实例变量是不是一定不能从外部访问呢？其实也不是。不能直接访问__name是因为Python解释器对外把__name变量改成了_Student__name，所以，仍然可以通过_Student__name来访问__name变量。</p>
-<p>总的来说就是，Python本身没有任何机制阻止你干坏事，一切全靠自觉。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%883.55.00.png" alt=""></p>
-<p>对私有数据操作用getter以及setter啦。</p>
-<h2 id="继承和多态"><a href="#继承和多态" class="headerlink" title="继承和多态"></a>继承和多态</h2><p>继承有什么好处？最大的好处是子类获得了父类的全部功能。</p>
-<p>当子类和父类都存在相同的run()方法时，我们说，子类的run()覆盖了父类的run()，在代码运行的时候，总是会调用子类的run()。这样，我们就获得了继承的另一个好处：<strong>多态</strong>。</p>
-<p>多态真正的威力：调用方只管调用，不管细节。</p>
-<p>当我们新增一种Animal的子类时，只要确保run()方法编写正确，不用管原来的代码是如何调用的。这就是著名的“开闭”原则。对扩展开放：允许新增Animal子类；对修改封闭：不需要修改依赖Animal类型的run_twice()等函数。</p>
-<h3 id="静态语言-vs-动态语言"><a href="#静态语言-vs-动态语言" class="headerlink" title="静态语言 vs 动态语言"></a>静态语言 vs 动态语言</h3><p>对于静态语言（例如Java）来说，如果需要传入Animal类型，则传入的对象必须是Animal类型或者它的子类，否则，将无法调用run()方法。</p>
-<p>对于Python这样的动态语言来说，则不一定需要传入Animal类型。我们只需要保证传入的对象有一个run()方法就可以了。</p>
-<p>这就是动态语言的“鸭子类型”，它并不要求严格的继承体系，一个对象只要“看起来像鸭子，走起路来像鸭子”，那它就可以被看做是鸭子。</p>
-<p>Python的“file-like object“就是一种鸭子类型。对真正的文件对象，它有一个read()方法，返回其内容。但是，许多对象，只要有read()方法，都被视为“file-like object“。许多函数接收的参数就是“file-like object“，你不一定要传入真正的文件对象，完全可以传入任何实现了read()方法的对象。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">维基百科</span><br><span class="line">在程序设计中，鸭子类型（英语：duck typing）是动态类型的一种风格。在这种风格中，一个对象有效的语义，不是由继承自特定的类或实现特定的接口，而是由当前方法和属性的集合决定。</span><br></pre></td></tr></table></figure>
-<h2 id="获取对象信息"><a href="#获取对象信息" class="headerlink" title="获取对象信息"></a>获取对象信息</h2><h3 id="使用type"><a href="#使用type" class="headerlink" title="使用type()"></a>使用type()</h3><p>判断对象类型，使用type()函数。<br>基本类型都可以用type()判断，如果一个变量指向函数或者类，也可以用type()判断。返回对应的Class类型。</p>
-<p><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%884.18.38.png" alt=""></p>
-<p>判断一个对象是否是函数怎么办？可以使用types模块中定义的常量。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%884.18.15.png" alt=""></p>
-<h3 id="使用isinstance"><a href="#使用isinstance" class="headerlink" title="使用isinstance()"></a>使用isinstance()</h3><p>对于class的继承关系来说，使用type()就很不方便。我们要判断class的类型，可以使用isinstance()函数。</p>
-<p>isinstance()判断的是一个对象是否是该类型本身，或者位于该类型的父继承链上。</p>
-<p>总是优先使用isinstance()判断类型，可以将指定类型及其子类“一网打尽”。</p>
-<h3 id="使用dir"><a href="#使用dir" class="headerlink" title="使用dir()"></a>使用dir()</h3><p>如果要获得一个对象的所有属性和方法，可以使用dir()函数，它返回一个包含字符串的list。</p>
-<p><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%884.28.52.png" alt=""></p>
-<p>类似__xxx__的属性和方法在Python中都是有特殊用途的，比如__len__方法返回长度。在Python中，如果你调用len()函数试图获取一个对象的长度，实际上，在len()函数内部，它自动去调用该对象的__len__()方法。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%884.27.56.png" alt=""></p>
-<p><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%884.28.14.png" alt=""></p>
-<p>仅仅把属性和方法列出来是不够的，配合getattr()、setattr()以及hasattr()，我们可以直接操作一个对象的状态。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%884.30.11.png" alt=""><br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%884.30.39.png" alt=""></p>
-<h2 id="实例属性和类属性"><a href="#实例属性和类属性" class="headerlink" title="实例属性和类属性"></a>实例属性和类属性</h2><p>由于Python是动态语言，根据类创建的实例可以任意绑定属性。</p>
-<p>给实例绑定属性的方法是通过实例变量，或者通过self变量。</p>
-<p>可以直接在class中定义属性，这种属性是类属性，归Student类所有。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%884.32.54.png" alt=""></p>
-<p>当我们定义了一个类属性后，这个属性虽然归类所有，但类的所有实例都可以访问到。</p>
-<h1 id="面向对象高级编程"><a href="#面向对象高级编程" class="headerlink" title="面向对象高级编程"></a>面向对象高级编程</h1><h2 id="使用-slots"><a href="#使用-slots" class="headerlink" title="使用__slots__"></a>使用__slots__</h2><p>正常情况下，当我们定义了一个class，创建了一个class的实例后，我们可以给该实例绑定任何属性和方法，这就是动态语言的灵活性。</p>
-<p>为了给所有实例都绑定方法，可以给class绑定方法。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%889.01.31.png" alt=""></p>
-<p>动态绑定允许我们在程序运行的过程中动态给class加上功能，这在静态语言中很难实现。</p>
-<p>Python允许在定义class的时候，定义一个特殊的__slots__变量，来限制该class实例能添加的属性。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%889.02.32.png" alt=""><br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%889.03.25.png" alt=""></p>
-<p>使用__slots__要注意，__slots__定义的属性仅对当前类实例起作用，对继承的子类是不起作用的。</p>
-<h2 id="使用-property"><a href="#使用-property" class="headerlink" title="使用@property"></a>使用@property</h2><p>在绑定属性时，如果我们直接把属性暴露出去，虽然写起来很简单，但是，没办法检查参数，导致可以把成绩随便改。</p>
-<p>这显然不合逻辑。为了限制score的范围，可以通过一个set_score()方法来设置成绩，再通过一个get_score()来获取成绩，这样，在set_score()方法里，就可以检查参数。</p>
-<p>调用方法又略显复杂，没有直接用属性这么直接简单。</p>
-<p>对于类的方法，装饰器一样起作用。Python内置的@property装饰器就是负责把一个方法（图中为getter方法）变成属性调用的。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%889.13.15.png" alt=""></p>
-<p>@property的实现比较复杂，我们先考察如何使用。把一个getter方法变成属性，只需要加上@property就可以了，此时，@property本身又创建了另一个装饰器@score.setter，负责把一个setter方法变成属性赋值，于是，我们就拥有一个可控的属性操作。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%889.13.56.png" alt=""></p>
-<p>还可以定义只读属性，只定义getter方法，不定义setter方法就是一个只读属性。</p>
-<h2 id="多重继承"><a href="#多重继承" class="headerlink" title="多重继承"></a>多重继承</h2><p><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%889.23.53.png" alt=""></p>
-<h3 id="MixIn"><a href="#MixIn" class="headerlink" title="MixIn"></a>MixIn</h3><p><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%889.30.44.png" alt=""></p>
-<p>MixIn的目的就是给一个类增加多个功能，这样，在设计类的时候，我们优先考虑通过多重继承来组合多个MixIn的功能，而不是设计多层次的复杂的继承关系。</p>
-<p>为了更好地看出继承关系，我们把Runnable和Flyable改为RunnableMixIn和FlyableMixIn。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%889.27.45.png" alt=""></p>
-<p>这样一来，<strong>我们不需要复杂而庞大的继承链，只要选择组合不同的类的功能，就可以快速构造出所需的子类。</strong></p>
-<p>由于Python允许使用多重继承，因此，MixIn就是一种常见的设计。</p>
-<p>只允许单一继承的语言（如Java）不能使用MixIn的设计。</p>
-<h2 id="定制类"><a href="#定制类" class="headerlink" title="定制类"></a>定制类</h2><h3 id="str"><a href="#str" class="headerlink" title="__str__"></a>__str__</h3><p>定义好__str__()方法，返回一个好看的字符串就可以了。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%889.34.25.png" alt=""></p>
-<p>这是因为直接显示变量调用的不是__str__()，而是__repr__()，两者的区别是__str__()返回用户看到的字符串，而__repr__()返回程序开发者看到的字符串，也就是说，__repr__()是为调试服务的。</p>
-<p>解决办法是再定义一个__repr__()。但是通常__str__()和__repr__()代码都是一样的，所以，有个偷懒的写法。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%889.39.31.png" alt=""></p>
-<h3 id="iter"><a href="#iter" class="headerlink" title="__iter__"></a>__iter__</h3><p> 如果一个类想被用于for … in循环，类似list或tuple那样，就必须实现一个__iter__()方法，该方法返回一个迭代对象，然后，Python的for循环就会不断调用该迭代对象的__next__()方法拿到循环的下一个值，直到遇到StopIteration错误时退出循环。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%889.45.53.png" alt=""></p>
-<h3 id="getitem"><a href="#getitem" class="headerlink" title="__getitem__"></a>__getitem__</h3><p>要表现得像list那样按照下标取出元素，需要实现__getitem__()方法。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%889.48.36.png" alt=""></p>
-<p>但是如果想要正确实现一个__getitem__()还是要有很多工作要做的。</p>
-<p>此外，如果把对象看成dict，__getitem__()的参数也可能是一个可以作key的object，例如str。</p>
-<p>与之对应的是__setitem、__()方法，把对象视作list或dict来对集合赋值。最后，还有一个__delitem__()方法，用于删除某个元素。</p>
-<p>总之，通过上面的方法，我们自己定义的类表现得和Python自带的list、tuple、dict没什么区别，这完全归功于动态语言的“鸭子类型”，不需要强制继承某个接口。</p>
-<h3 id="getattr"><a href="#getattr" class="headerlink" title="__getattr__"></a>__getattr__</h3><p>正常情况下，当我们调用类的方法或属性时，如果不存在，就会报错。</p>
-<p>要避免这个错误，Python还有另一个机制，那就是写一个__getattr__()方法，动态返回一个属性。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%889.55.54.png" alt=""></p>
-<p>当调用不存在的属性时，比如score，Python解释器会试图调用__getattr__(self, ‘score’)来尝试获得属性，这样，我们就有机会返回score的值。</p>
-<p>返回函数也是完全可以的。</p>
-<p>注意，只有在没有找到属性的情况下，才调用__getattr__，已有的属性，比如name，不会在__getattr__中查找。</p>
-<p>此外，注意到任意调用如s.abc都会返回None，这是因为我们定义的__getattr__默认返回就是None。要让class只响应特定的几个属性，我们就要按照约定，抛出AttributeError的错误。          </p>
-<h3 id="call"><a href="#call" class="headerlink" title="__call__"></a>__call__</h3><p>一个对象实例可以有自己的属性和方法，当我们调用实例方法时，我们用instance.method()来调用。</p>
-<p>任何类，只需要定义一个__call__()方法，就可以直接对实例进行调用。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%8810.26.54.png" alt=""></p>
-<p><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%8810.27.07.png" alt=""></p>
-<p>__call__()还可以定义参数。对实例进行直接调用就好比对一个函数进行调用一样，所以你完全可以把对象看成函数，把函数看成对象，因为这两者之间本来就没啥根本的区别。</p>
-<p>如果你把对象看成函数，那么函数本身其实也可以在运行期动态创建出来，因为类的实例都是运行期创建出来的，这么一来，我们就模糊了对象和函数的界限。</p>
-<p>更多的时候，我们需要判断一个对象是否能被调用，能被调用的对象就是一个Callable对象，比如函数和我们上面定义的带有__call__()的类实例。</p>
-<p><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%8810.35.06.png" alt=""></p>
-<p>通过callable()函数，我们就可以判断一个对象是否是“可调用”对象。</p>
-<h2 id="使用枚举类"><a href="#使用枚举类" class="headerlink" title="使用枚举类"></a>使用枚举类</h2><p>Python提供了Enum类。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-01%20%E4%B8%8A%E5%8D%8811.31.06.png" alt=""></p>
-<p><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-01%20%E4%B8%8A%E5%8D%8811.33.05.png" alt=""></p>
-<h2 id="使用元类"><a href="#使用元类" class="headerlink" title="使用元类"></a>使用元类</h2><h3 id="type"><a href="#type" class="headerlink" title="type()"></a>type()</h3><p>动态语言和静态语言最大的不同，就是函数和类的定义，不是编译时定义的，而是运行时动态创建的。</p>
-<p>我们说class的定义是运行时动态创建的，而创建class的方法就是使用type()函数。</p>
-<p>type()函数既可以返回一个对象的类型，又可以创建出新的类型。</p>
-<p>要创建一个class对象，type()函数依次传入3个参数。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-01%20%E4%B8%8A%E5%8D%8811.37.45.png" alt=""></p>
-<p>通过type()函数创建的类和直接写class是完全一样的，因为Python解释器遇到class定义时，仅仅是扫描一下class定义的语法，然后调用type()函数创建出class。</p>
-<p>正常情况下，我们都用class Xxx…来定义类，但是，type()函数也允许我们动态创建出类来，也就是说，动态语言本身支持运行期动态创建类，这和静态语言有非常大的不同，要在静态语言运行期创建类，必须构造源代码字符串再调用编译器，或者借助一些工具生成字节码实现，本质上都是动态编译，会非常复杂。</p>
-<h3 id="metaclass"><a href="#metaclass" class="headerlink" title="metaclass"></a>metaclass</h3><p>除了使用type()动态创建类以外，要控制类的创建行为，还可以使用metaclass。</p>
-<p>metaclass，直译为元类，简单的解释就是，当我们定义了类以后，就可以根据这个类创建出实例，所以：先定义类，然后创建实例。</p>
-<p>先定义metaclass，就可以创建类，最后创建实例。metaclass允许你创建类或者修改类，可以把类看成是metaclass创建出来的“实例”。</p>
-<p>按照默认习惯，metaclass的类名总是以Metaclass结尾，以便清楚地表示这是一个metaclass。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-01%20%E4%B8%8A%E5%8D%8811.43.13.png" alt=""></p>
-<p>metaclass是Python面向对象里最难理解，也是最难使用的魔术代码。</p>
-<p>编写ORM会用到。</p>
-<h1 id="错误、调试和测试"><a href="#错误、调试和测试" class="headerlink" title="错误、调试和测试"></a>错误、调试和测试</h1><h2 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h2><h3 id="try"><a href="#try" class="headerlink" title="try"></a>try</h3><p><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-01%20%E4%B8%8B%E5%8D%881.40.16.png" alt=""></p>
-<p>当我们认为某些代码可能会出错时，就可以用try来运行这段代码，如果执行出错，则后续代码不会继续执行，而是直接跳转至错误处理代码，即except语句块，执行完except后，如果有finally语句块，则执行finally语句块，至此，执行完毕。</p>
-<p>可以有多个except来捕获不同类型的错误。</p>
-<p>可以在except语句块后面加一个else，当没有错误发生时，会自动执行else语句。</p>
-<p><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-01%20%E4%B8%8B%E5%8D%881.41.50.png" alt=""></p>
-<p>Python的错误其实也是class，所有的错误类型都继承自BaseException，所以在使用except时需要注意的是，它不但捕获该类型的错误，还把其子类也“一网打尽”。</p>
-<h3 id="调用栈"><a href="#调用栈" class="headerlink" title="调用栈"></a>调用栈</h3><p>如果错误没有被捕获，它就会一直往上抛，最后被Python解释器捕获，打印一个错误信息，然后程序退出。</p>
-<p>出错的时候，一定要分析错误的调用栈信息，才能定位错误的位置。</p>
-<h3 id="记录错误"><a href="#记录错误" class="headerlink" title="记录错误"></a>记录错误</h3><p>Python内置的logging模块可以非常容易地记录错误信息。</p>
-<p>同样是出错，但程序打印完错误信息后会继续执行，并正常退出。</p>
-<p>通过配置，logging还可以把错误记录到日志文件里，方便事后排查。</p>
-<h3 id="抛出错误"><a href="#抛出错误" class="headerlink" title="抛出错误"></a>抛出错误</h3><p>因为错误是class，捕获一个错误就是捕获到该class的一个实例。因此，错误并不是凭空产生的，而是有意创建并抛出的。Python的内置函数会抛出很多类型的错误，我们自己编写的函数也可以抛出错误。</p>
-<p>如果要抛出错误，首先根据需要，可以定义一个错误的class，选择好继承关系，然后，用raise语句抛出一个错误的实例。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-01%20%E4%B8%8B%E5%8D%882.47.07.png" alt=""></p>
-<p>只有在必要的时候才定义我们自己的错误类型。如果可以选择Python已有的内置的错误类型（比如ValueError，TypeError），尽量使用Python内置的错误类型。</p>
-<p>raise语句如果不带参数，就会把当前错误原样抛出。</p>
-<p>捕获错误目的只是记录一下，便于后续追踪。但是，由于当前函数不知道应该怎么处理该错误，所以，最恰当的方式是继续往上抛，让顶层调用者去处理。</p>
-<h2 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h2><p>第一种方法简单直接粗暴有效，就是用print()把可能有问题的变量打印出来看看</p>
-<p>用print()最大的坏处是将来还得删掉它，想想程序里到处都是print()，运行结果也会包含很多垃圾信息。所以，我们又有第二种方法。</p>
-<h3 id="断言"><a href="#断言" class="headerlink" title="断言"></a>断言</h3><p>凡是用print()来辅助查看的地方，都可以用断言（assert）来替代。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-01%20%E4%B8%8B%E5%8D%882.53.57.png" alt=""></p>
-<p>assert的意思是，表达式n != 0应该是True，否则，根据程序运行的逻辑，后面的代码肯定会出错。</p>
-<p>如果断言失败，assert语句本身就会抛出AssertionError。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-01%20%E4%B8%8B%E5%8D%882.55.12.png" alt=""></p>
-<p>程序中如果到处充斥着assert，和print()相比也好不到哪去。不过，启动Python解释器时可以用-O参数来关闭assert。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-01%20%E4%B8%8B%E5%8D%882.55.35.png" alt=""></p>
-<p>关闭后，你可以把所有的assert语句当成pass来看。</p>
-<h3 id="logging"><a href="#logging" class="headerlink" title="logging"></a>logging</h3><p>把print()替换为logging是第3种方式，和assert比，logging不会抛出错误，而且可以输出到文件。</p>
-<p>这就是logging的好处，它允许你指定记录信息的级别，有debug，info，warning，error等几个级别，当我们指定level=INFO时，logging.debug就不起作用了。同理，指定level=WARNING后，debug和info就不起作用了。这样一来，你可以放心地输出不同级别的信息，也不用删除，最后统一控制输出哪个级别的信息。</p>
-<p>logging的另一个好处是通过简单的配置，一条语句可以同时输出到不同的地方，比如console和文件。</p>
-<h3 id="pdb"><a href="#pdb" class="headerlink" title="pdb"></a>pdb</h3><p>第4种方式是启动Python的调试器pdb，让程序以单步方式运行，可以随时查看运行状态。</p>
-<p>以参数-m pdb启动后，pdb定位到下一步要执行的代码-&gt; s = ‘0’。输入命令l来查看代码。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-01%20%E4%B8%8B%E5%8D%882.57.37.png" alt=""></p>
-<p>输入命令n可以单步执行代码。</p>
-<p>任何时候都可以输入命令p 变量名来查看变量。</p>
-<p>这种通过pdb在命令行调试的方法理论上是万能的，但实在是太麻烦了，如果有一千行代码，要运行到第999行得敲多少命令啊。还好，我们还有另一种调试方法。</p>
-<h3 id="pdb-set-trace"><a href="#pdb-set-trace" class="headerlink" title="pdb.set_trace()"></a>pdb.set_trace()</h3><p>这个方法也是用pdb，但是不需要单步执行，我们只需要import pdb，然后，在可能出错的地方放一个pdb.set_trace()，就可以设置一个断点。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-01%20%E4%B8%8B%E5%8D%882.58.57.png" alt=""></p>
-<p>运行代码，程序会自动在pdb.set_trace()暂停并进入pdb调试环境，可以用命令p查看变量，或者用命令c继续运行。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-01%20%E4%B8%8B%E5%8D%882.59.53.png" alt=""></p>
-<h3 id="IDE"><a href="#IDE" class="headerlink" title="IDE"></a>IDE</h3><p>如果要比较爽地设置断点、单步执行，就需要一个支持调试功能的IDE。目前比较好的Python IDE有，Visual Studio Code，需要安装Python插件。PyCharm。</p>
-<h2 id="单元测试"><a href="#单元测试" class="headerlink" title="单元测试"></a>单元测试</h2><p>单元测试是用来对一个模块、一个函数或者一个类来进行正确性检验的测试工作。</p>
-<p>这种以测试为驱动的开发模式最大的好处就是确保一个程序模块的行为符合我们设计的测试用例。在将来修改的时候，可以极大程度地保证该模块行为仍然是正确的</p>
-<p>为了编写单元测试，我们需要引入Python自带的unittest模块。</p>
-<p>编写单元测试时，我们需要编写一个测试类，从unittest.TestCase继承。</p>
-<p><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-02%20%E4%B8%8A%E5%8D%889.54.03.png" alt=""></p>
-<p>以test开头的方法就是测试方法，不以test开头的方法不被认为是测试方法，测试的时候不会被执行。</p>
-<p>对每一类测试都需要编写一个test_xxx()方法。由于unittest.TestCase提供了很多内置的条件判断，我们只需要调用这些方法就可以断言输出是否是我们所期望的。最常用的断言就是assertEqual()。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-02%20%E4%B8%8A%E5%8D%889.50.35.png" alt=""><br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-02%20%E4%B8%8A%E5%8D%889.53.05.png" alt=""></p>
-<h3 id="运行单元测试"><a href="#运行单元测试" class="headerlink" title="运行单元测试"></a>运行单元测试</h3><p><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-02%20%E4%B8%8A%E5%8D%889.56.19.png" alt=""></p>
-<h2 id="文档测试"><a href="#文档测试" class="headerlink" title="文档测试"></a>文档测试</h2><p>如果你经常阅读Python的官方文档，可以看到很多文档都有示例代码。</p>
-<p>可以把这些示例代码在Python的交互式环境下输入并执行，结果与文档中的示例代码显示的一致。</p>
-<p>Python内置的“文档测试”（doctest）模块可以直接提取注释中的代码并执行测试。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2018/08/31/Python廖雪峰 高级特性 函数式编程 模块/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZDK"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZDK's blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/08/31/Python廖雪峰 高级特性 函数式编程 模块/" class="post-title-link" itemprop="url">Python廖雪峰 高级特性 函数式编程 模块</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-08-31 15:00:56" itemprop="dateCreated datePublished" datetime="2018-08-31T15:00:56+08:00">2018-08-31</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-10-26 08:28:48" itemprop="dateModified" datetime="2018-10-26T08:28:48+08:00">2018-10-26</time>
-              </span>
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/教程/" itemprop="url" rel="index"><span itemprop="name">教程</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2018/08/31/Python廖雪峰 高级特性 函数式编程 模块/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/08/31/Python廖雪峰 高级特性 函数式编程 模块/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2018/08/31/Python廖雪峰 高级特性 函数式编程 模块/" class="post-meta-item leancloud_visitors" data-flag-title="Python廖雪峰 高级特性 函数式编程 模块">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="高级特性"><a href="#高级特性" class="headerlink" title="高级特性"></a>高级特性</h1><h2 id="切片"><a href="#切片" class="headerlink" title="切片"></a>切片</h2><p>取数组前3个元素，用一行代码就可以完成切片。<br><img src="/img/media/15355307965600/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-29%20%E4%B8%8B%E5%8D%884.21.44.png" alt=""></p>
-<p>从索引0开始取，直到索引3为止，但不包括索引3。</p>
-<p>如果第一个索引是0，还可以省略。</p>
-<p>Python支持L[-1]取倒数第一个元素，那么它同样支持倒数切片。</p>
-<p>后10个数，L[-10:]。前10个数，每两个取一个，L[:10:2]。甚至什么都不写，只写[:]就可以原样复制一个list。</p>
-<p>tuple也是一种list，唯一区别是tuple不可变。因此，tuple也可以用切片操作，只是操作的结果仍是tuple。</p>
-<p>字符串’xxx’也可以看成是一种list，每个元素就是一个字符。因此，字符串也可以用切片操作，只是操作结果仍是字符串。</p>
-<p>Python没有针对字符串的截取函数，只需要切片一个操作就可以完成，非常简单。</p>
-<h2 id="迭代"><a href="#迭代" class="headerlink" title="迭代"></a>迭代</h2><p>当我们使用for循环时，只要作用于一个可迭代对象，for循环就可以正常运行，而我们不太关心该对象究竟是list还是其他数据类型。</p>
-<p>通过collections模块的Iterable类型判断一个对象是可迭代对象。<br><img src="/img/media/15355307965600/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-29%20%E4%B8%8B%E5%8D%884.34.11.png" alt=""></p>
-<p>Python内置的enumerate函数可以把一个list变成索引-元素对，这样就可以在for循环中同时迭代索引和元素本身。<br><img src="/img/media/15355307965600/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-29%20%E4%B8%8B%E5%8D%884.35.29.png" alt=""></p>
-<p>for循环里，同时引用了两个变量，在Python里是很常见的。<br><img src="/img/media/15355307965600/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-29%20%E4%B8%8B%E5%8D%884.36.22.png" alt=""></p>
-<h2 id="列表生成式"><a href="#列表生成式" class="headerlink" title="列表生成式"></a>列表生成式</h2><p>列表生成式即List Comprehensions，是Python内置的非常简单却强大的可以用来创建list的生成式。</p>
-<p>要生成list [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]可以用list(range(1, 11))。</p>
-<p>列表生成式则可以用一行语句代替循环。<br><img src="/img/media/15355307965600/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-29%20%E4%B8%8B%E5%8D%884.38.14.png" alt=""></p>
-<p>for循环后面还可以加上if判断。<br><img src="/img/media/15355307965600/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-29%20%E4%B8%8B%E5%8D%884.44.41.png" alt=""></p>
-<p>还可以使用两层循环，还可以使用两层循环。<br><img src="/img/media/15355307965600/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-29%20%E4%B8%8B%E5%8D%884.45.40.png" alt=""></p>
-<p>for循环其实可以同时使用两个甚至多个变量，比如dict的items()可以同时迭代key和value。<br><img src="/img/media/15355307965600/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-29%20%E4%B8%8B%E5%8D%884.46.48.png" alt=""></p>
-<h2 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h2><p>创建一个包含100万个元素的列表，不仅占用很大的存储空间，如果我们仅仅需要访问前面几个元素，那后面绝大多数元素占用的空间都白白浪费了。</p>
-<p>如果列表元素可以按照某种算法推算出来，可以在循环的过程中不断推算出后续的元素，就不必创建完整的list。Python中，这种一边循环一边计算的机制，称为生成器：generator。</p>
-<p>把一个列表生成式的[]改成()，就创建了一个generator。<br><img src="/img/media/15355307965600/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-29%20%E4%B8%8B%E5%8D%884.50.24.png" alt=""></p>
-<p>通过next()函数获得generator的下一个返回值。</p>
-<p>generator保存的是算法，每次调用next(g)，就计算出g的下一个元素的值，直到计算到最后一个元素，没有更多的元素时，抛出StopIteration的错误。</p>
-<p>不断调用next(g)实在是太变态了，正确的方法是使用for循环，因为generator也是可迭代对象。<br><img src="/img/media/15355307965600/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-30%20%E4%B8%8B%E5%8D%889.57.20.png" alt=""></p>
-<p>如果一个函数定义中包含<strong>yield</strong>关键字，那么这个函数就不再是一个普通函数，而是一个<strong>generator</strong>。</p>
-<p>最难理解的就是generator和函数的执行流程不一样。函数是顺序执行，遇到return语句或者最后一行函数语句就返回。而变成generator的函数，在每次调用next()的时候执行，遇到yield语句返回，再次执行时从上次返回的yield语句处继续执行。<br><img src="/img/media/15355307965600/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-30%20%E4%B8%8B%E5%8D%8810.20.44.png" alt=""></p>
-<p>调用该generator时，首先要生成一个generator对象，然后用next()函数不断获得下一个返回值。<br><img src="/img/media/15355307965600/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-30%20%E4%B8%8B%E5%8D%8810.22.13.png" alt=""></p>
-<p>我们在循环过程中不断调用yield，就会不断中断。当然要给循环设置一个条件来退出循环，不然就会产生一个无限数列出来。把函数改成generator后，我们基本上从来不会用next()来获取下一个返回值，而是直接使用for循环来迭代。<br><img src="/img/media/15355307965600/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-30%20%E4%B8%8B%E5%8D%8810.32.43.png" alt=""></p>
-<p>但是用for循环调用generator时，发现拿不到generator的return语句的返回值。如果想要拿到返回值，必须捕获StopIteration错误，返回值包含在StopIteration的value中。</p>
-<h2 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h2><p>可以直接作用于for循环的对象统称为可迭代对象：<strong>Iterable</strong>。如集合数据类型，如list、tuple、dict、set、str等，generator，包括生成器和带yield的generator function。</p>
-<p>可以使用isinstance()判断一个对象是否是Iterable对象。<br><img src="/img/media/15355307965600/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-30%20%E4%B8%8B%E5%8D%8810.35.45.png" alt=""></p>
-<p>可以被next()函数调用并不断返回下一个值的对象称为迭代器：<strong>Iterator</strong>。</p>
-<p>可以使用isinstance()判断一个对象是否是Iterator对象。<br><img src="/img/media/15355307965600/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-30%20%E4%B8%8B%E5%8D%8810.36.00.png" alt=""></p>
-<p><strong>生成器都是Iterator对象，但list、dict、str虽然是Iterable，却不是Iterator。</strong></p>
-<p>把list、dict、str等Iterable变成Iterator可以使用iter()函数。<br><img src="/img/media/15355307965600/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-30%20%E4%B8%8B%E5%8D%8810.37.00.png" alt=""></p>
-<p>Python的Iterator对象表示的是一个数据流，Iterator对象可以被next()函数调用并不断返回下一个数据，直到没有数据时抛出StopIteration错误。可以把这个数据流看做是一个有序序列，但我们却不能提前知道序列的长度，只能不断通过next()函数实现按需计算下一个数据，所以Iterator的计算是惰性的，只有在需要返回下一个数据时它才会计算。</p>
-<p>Iterator甚至可以表示一个无限大的数据流，例如全体自然数。而使用list是永远不可能存储全体自然数的。所以list、dict、str等数据类型不是Iterator。</p>
-<h1 id="函数式编程"><a href="#函数式编程" class="headerlink" title="函数式编程"></a>函数式编程</h1><h2 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h2><h3 id="map-reduce"><a href="#map-reduce" class="headerlink" title="map/reduce"></a>map/reduce</h3><p>Python内建了map()和reduce()函数。</p>
-<p>map()函数接收两个参数，一个是函数，一个是Iterable，map将传入的函数依次作用到序列的每个元素，并把结果作为新的Iterator返回。<br><img src="/img/media/15355307965600/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-30%20%E4%B8%8B%E5%8D%8810.41.21.png" alt=""></p>
-<p>由于结果r是一个Iterator，Iterator是惰性序列，因此通过list()函数让它把整个序列都计算出来并返回一个list。</p>
-<p>所以，map()作为高阶函数，事实上它把运算规则抽象了，能一眼看明白“把f(x)作用在list的每一个元素并把结果生成一个新的list。</p>
-<p>reduce把一个函数作用在一个序列[x1, x2, x3, …]上，这个函数必须接收两个参数，reduce把结果继续和序列的下一个元素做累积计算。<br><img src="/img/media/15355307965600/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-30%20%E4%B8%8B%E5%8D%8810.45.10.png" alt=""></p>
-<p><img src="/img/media/15355307965600/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-30%20%E4%B8%8B%E5%8D%8810.47.08.png" alt=""></p>
-<p>假设Python没有提供int()函数，你完全可以自己写一个把字符串转化为整数的函数，而且只需要几行代码！</p>
-<h3 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h3><p>Python内建的filter()函数用于过滤序列。</p>
-<p>和map()类似，filter()也接收一个函数和一个序列。和map()不同的是，filter()把传入的函数依次作用于每个元素，然后根据返回值是True还是False决定保留还是丢弃该元素。<br><img src="/img/media/15355307965600/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-30%20%E4%B8%8B%E5%8D%8810.48.32.png" alt=""></p>
-<p>注意到filter()函数返回的是一个Iterator，也就是一个惰性序列，所以要强迫filter()完成计算结果，需要用list()函数获得所有结果并返回list。</p>
-<h3 id="sorted"><a href="#sorted" class="headerlink" title="sorted"></a>sorted</h3><h4 id="排序算法"><a href="#排序算法" class="headerlink" title="排序算法"></a>排序算法</h4><p>Python内置的sorted()函数就可以对list进行排序。<br><img src="/img/media/15355307965600/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-30%20%E4%B8%8B%E5%8D%8810.50.47.png" alt=""></p>
-<p>sorted()函数也是一个高阶函数，它还可以接收一个key函数来实现自定义的排序，例如按绝对值大小排序。<br><img src="/img/media/15355307965600/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-30%20%E4%B8%8B%E5%8D%8810.51.07.png" alt=""></p>
-<p>key指定的函数将作用于list的每一个元素上，并根据key函数返回的结果进行排序。<br><img src="/img/media/15355307965600/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-30%20%E4%B8%8B%E5%8D%8810.52.39.png" alt=""></p>
-<p>从上述例子可以看出，高阶函数的抽象能力是非常强大的，而且，核心代码可以保持得非常简洁。</p>
-<h2 id="返回函数"><a href="#返回函数" class="headerlink" title="返回函数"></a>返回函数</h2><h3 id="函数作为返回值"><a href="#函数作为返回值" class="headerlink" title="函数作为返回值"></a>函数作为返回值</h3><p>高阶函数除了可以接受函数作为参数外，还可以把函数作为结果值返回。</p>
-<p><img src="/img/media/15355307965600/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8A%E5%8D%8811.18.53.png" alt=""></p>
-<h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p>返回的函数并没有立刻执行，而是直到调用了f()才执行。</p>
-<p>返回闭包时牢记一点：返回函数不要引用任何循环变量，或者后续会发生变化的变量。</p>
-<h2 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h2><p>匿名函数lambda x: x * x实际上就是<br><img src="/img/media/15355307965600/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8A%E5%8D%8811.35.58.png" alt=""></p>
-<p>匿名函数有个限制，就是只能有一个表达式，不用写return，返回值就是该表达式的结果。</p>
-<p>用匿名函数有个好处，因为函数没有名字，不必担心函数名冲突。此外，匿名函数也是一个函数对象，也可以把匿名函数赋值给一个变量，再利用变量来调用该函数。<br><img src="/img/media/15355307965600/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8A%E5%8D%8811.37.39.png" alt=""></p>
-<p>同样，也可以把匿名函数作为返回值返回，比如。<br><img src="/img/media/15355307965600/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8A%E5%8D%8811.38.10.png" alt=""></p>
-<h2 id="装饰器"><a href="#装饰器" class="headerlink" title="装饰器"></a>装饰器</h2><p>由于函数也是一个对象，而且函数对象可以被赋值给变量，所以，通过变量也能调用该函数。</p>
-<p>函数对象有一个<strong>name</strong>属性，可以拿到函数的名字。</p>
-<p>在代码运行期间动态增加功能的方式，称之为“装饰器”（Decorator）。</p>
-<p>本质上，decorator就是一个返回函数的高阶函数。</p>
-<p>我们要定义一个能打印日志的decorator，可以定义如下。<br><img src="/img/media/15355307965600/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8A%E5%8D%8811.42.10.png" alt=""></p>
-<p>我们要借助Python的@语法，把decorator置于函数的定义处。<br><img src="/img/media/15355307965600/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8A%E5%8D%8811.42.32.png" alt=""></p>
-<p>把@log放到now()函数的定义处，相当于执行了语句。<br><img src="/img/media/15355307965600/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8A%E5%8D%8811.43.02.png" alt=""></p>
-<p>将原函数now传入log函数之中，返回wrapper函数，包含了原本的now功能以及加上了新的功能。将值赋予now。这样就完成了装饰。</p>
-<p><img src="/img/media/15355307965600/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8A%E5%8D%8811.45.01.png" alt=""></p>
-<h2 id="偏函数"><a href="#偏函数" class="headerlink" title="偏函数"></a>偏函数</h2><p>Python的functools模块提供了很多有用的功能，其中一个就是偏函数（Partial function）。要注意，这里的偏函数和数学意义上的偏函数不一样。</p>
-<p>简单总结functools.partial的作用就是，把一个函数的某些参数给固定住（也就是设置默认值），返回一个新的函数，调用这个新函数会更简单。<br><img src="/img/media/15355307965600/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8A%E5%8D%8811.51.47.png" alt=""></p>
-<h1 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h1><h2 id="使用模块"><a href="#使用模块" class="headerlink" title="使用模块"></a>使用模块</h2><p>Python本身就内置了很多非常有用的模块，只要安装完毕，这些模块就可以立刻使用。</p>
-<h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h3><p>在一个模块中，我们可能会定义很多函数和变量，但有的函数和变量我们希望给别人使用，有的函数和变量我们希望仅仅在模块内部使用。在Python中，是通过_前缀来实现的。</p>
-<p>正常的函数和变量名是公开的（public），可以被直接引用，比如：abc，x123，PI等；</p>
-<p>类似__xxx__这样的变量是特殊变量，可以被直接引用，但是有特殊用途，比如上面的__author__，__name__就是特殊变量，hello模块定义的文档注释也可以用特殊变量__doc__访问，我们自己的变量一般不要用这种变量名；</p>
-<p>类似_xxx和__xxx这样的函数或变量就是非公开的（private），不应该被直接引用，比如_abc，__abc等；</p>
-<p>之所以我们说，private函数和变量“不应该”被直接引用，而不是“不能”被直接引用，是因为Python并没有一种方法可以完全限制访问private函数或变量，但是，从编程习惯上不应该引用private函数或变量。</p>
-<p>外部不需要引用的函数全部定义成private，只有外部需要引用的函数才定义为public，这也是一种非常有用的代码封装和抽象的方法。</p>
-<h2 id="安装第三方模块"><a href="#安装第三方模块" class="headerlink" title="安装第三方模块"></a>安装第三方模块</h2><p>在Python中，安装第三方模块，是通过包管理工具pip完成的。</p>
-<p>注意：Mac或Linux上有可能并存Python 3.x和Python 2.x，因此对应的pip命令是pip3。</p>
-<p>一般来说，第三方库都会在Python官方的pypi.python.org网站注册，要安装一个第三方库，必须先知道该库的名称，可以在官网或者pypi上搜索，比如Pillow的名称叫Pillow，因此，安装Pillow的命令就是。<br><img src="/img/media/15355307965600/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8A%E5%8D%8811.57.13.png" alt=""></p>
-<h3 id="安装常用模块"><a href="#安装常用模块" class="headerlink" title="安装常用模块"></a>安装常用模块</h3><p>我们装上Anaconda，就相当于把数十个第三方模块自动安装好了，非常简单易用。</p>
-<h3 id="模块搜索路径"><a href="#模块搜索路径" class="headerlink" title="模块搜索路径"></a>模块搜索路径</h3><p>当我们试图加载一个模块时，Python会在指定的路径下搜索对应的.py文件，如果找不到，就会报错。</p>
-<p>默认情况下，Python解释器会搜索当前目录、所有已安装的内置模块和第三方模块，搜索路径存放在sys模块的path变量中。</p>
-<p>如果我们要添加自己的搜索目录，有两种方法<br>一是直接修改sys.path，添加要搜索的目录。<br>第二种方法是设置环境变量PYTHONPATH，该环境变量的内容会被自动添加到模块搜索路径中。设置方式与设置Path环境变量类似。注意只需要添加你自己的搜索路径，Python自己本身的搜索路径不受影响。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2018/08/27/Python廖雪峰 简介，解释器，基础，函数/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZDK"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZDK's blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/08/27/Python廖雪峰 简介，解释器，基础，函数/" class="post-title-link" itemprop="url">Python廖雪峰 简介，解释器，基础，函数</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-08-27 19:33:56" itemprop="dateCreated datePublished" datetime="2018-08-27T19:33:56+08:00">2018-08-27</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-11-13 17:16:40" itemprop="dateModified" datetime="2018-11-13T17:16:40+08:00">2018-11-13</time>
-              </span>
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/教程/" itemprop="url" rel="index"><span itemprop="name">教程</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2018/08/27/Python廖雪峰 简介，解释器，基础，函数/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/08/27/Python廖雪峰 简介，解释器，基础，函数/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2018/08/27/Python廖雪峰 简介，解释器，基础，函数/" class="post-meta-item leancloud_visitors" data-flag-title="Python廖雪峰 简介，解释器，基础，函数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Python简介"><a href="#Python简介" class="headerlink" title="Python简介"></a>Python简介</h1><p>Python就为我们提供了非常完善的基础代码库，覆盖了网络、文件、GUI、数据库、文本等大量内容，被形象地称作“内置电池（batteries included）”。用Python开发，许多功能不必从零编写，直接使用现成的即可。</p>
-<p>除了内置的库外，Python还有大量的第三方库，也就是别人开发的，供你直接使用的东西。当然，如果你开发的代码通过很好的封装，也可以作为第三方库给别人使用。</p>
-<h2 id="那Python适合开发哪些类型的应用呢？"><a href="#那Python适合开发哪些类型的应用呢？" class="headerlink" title="那Python适合开发哪些类型的应用呢？"></a>那Python适合开发哪些类型的应用呢？</h2><p>首选是网络应用，包括网站、后台服务等等；</p>
-<p>其次是许多日常需要的小工具，包括系统管理员需要的脚本任务等等；</p>
-<p>另外就是把其他语言开发的程序再包装起来，方便使用。</p>
-<h2 id="Python的缺点"><a href="#Python的缺点" class="headerlink" title="Python的缺点"></a>Python的缺点</h2><p>第一个缺点就是运行速度慢，和C程序相比非常慢，因为Python是解释型语言，你的代码在执行时会一行一行地翻译成CPU能理解的机器码，这个翻译过程非常耗时，所以很慢。而C程序是运行前直接编译成CPU能执行的机器码，所以非常快。</p>
-<p>第二个缺点就是代码不能加密。如果要发布你的Python程序，实际上就是发布源代码，这一点跟C语言不同，C语言不用发布源代码，只需要把编译后的机器码（也就是你在Windows上常见的xxx.exe文件）发布出去。要从机器码反推出C代码是不可能的，所以，凡是编译型的语言，都没有这个问题，而解释型的语言，则必须把源码发布出去。</p>
-<h1 id="Python解释器"><a href="#Python解释器" class="headerlink" title="Python解释器"></a>Python解释器</h1><p>由于整个Python语言从规范到解释器都是开源的，所以理论上，只要水平够高，任何人都可以编写Python解释器来执行Python代码（当然难度很大）。事实上，确实存在多种Python解释器。</p>
-<h2 id="CPython"><a href="#CPython" class="headerlink" title="CPython"></a>CPython</h2><p>官方版本的解释器：CPython。这个解释器是用C语言开发的。CPython是使用最广的Python解释器。教程的所有代码也都在CPython下执行。</p>
-<h2 id="IPython"><a href="#IPython" class="headerlink" title="IPython"></a>IPython</h2><p>IPython是基于CPython之上的一个交互式解释器，也就是说，IPython只是在交互方式上有所增强，但是执行Python代码的功能和CPython是完全一样的。</p>
-<h2 id="PyPy"><a href="#PyPy" class="headerlink" title="PyPy"></a>PyPy</h2><p>PyPy是另一个Python解释器，它的目标是执行速度。PyPy采用JIT技术，对Python代码进行动态编译（注意不是解释），所以可以显著提高Python代码的执行速度。<br>绝大部分Python代码都可以在PyPy下运行，但是PyPy和CPython有一些是不同的，这就导致相同的Python代码在两种解释器下执行可能会有不同的结果。</p>
-<h2 id="Jython"><a href="#Jython" class="headerlink" title="Jython"></a>Jython</h2><p>Jython是运行在Java平台上的Python解释器，可以直接把Python代码编译成Java字节码执行。</p>
-<h2 id="IronPython"><a href="#IronPython" class="headerlink" title="IronPython"></a>IronPython</h2><p>IronPython和Jython类似，只不过IronPython是运行在微软.Net平台上的Python解释器，可以直接把Python代码编译成.Net的字节码。</p>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>Python的解释器很多，但使用最广泛的还是CPython。如果要和Java或.Net平台交互，最好的办法不是用Jython或IronPython，而是通过网络调用来交互，确保各程序之间的独立性。</p>
-<h1 id="Python基础"><a href="#Python基础" class="headerlink" title="Python基础"></a>Python基础</h1><h2 id="数据类型和变量"><a href="#数据类型和变量" class="headerlink" title="数据类型和变量"></a>数据类型和变量</h2><h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p>在Python中，能够直接处理的数据类型有以下几种：</p>
-<h4 id="整数"><a href="#整数" class="headerlink" title="整数"></a>整数</h4><p>Python可以处理任意大小的整数，当然包括负整数，在程序中的表示方法和数学上的写法一模一样，例如：1，100，-8080，0，等等。</p>
-<p>计算机由于使用二进制，所以，有时候用十六进制表示整数比较方便，十六进制用0x前缀和0-9，a-f表示，例如：0xff00，0xa5b4c3d2，等等。</p>
-<h4 id="浮点数"><a href="#浮点数" class="headerlink" title="浮点数"></a>浮点数</h4><p>浮点数也就是小数，之所以称为浮点数，是因为按照科学记数法表示时，一个浮点数的小数点位置是可变的，比如，1.23x109和12.3x108是完全相等的。浮点数可以用数学写法，如1.23，3.14，-9.01，等等。但是对于很大或很小的浮点数，就必须用科学计数法表示，把10用e替代，1.23x109就是1.23e9，或者12.3e8，0.000012可以写成1.2e-5，等等。</p>
-<p>整数和浮点数在计算机内部存储的方式是不同的，整数运算永远是精确的（除法难道也是精确的？是的！），而浮点数运算则可能会有四舍五入的误差。</p>
-<h4 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h4><p>字符串是以单引号’或双引号”括起来的任意文本，比如’abc’，”xyz”等等。请注意，’’或””本身只是一种表示方式，不是字符串的一部分，因此，字符串’abc’只有a，b，c这3个字符。如果’本身也是一个字符，那就可以用””括起来，比如”I’m OK”包含的字符是I，’，m，空格，O，K这6个字符。</p>
-<p>如果字符串内部既包含’又包含”怎么办？可以用转义字符\来标识。</p>
-<p>如果字符串里面有很多字符都需要转义，就需要加很多\，为了简化，Python还允许用r’’表示’’内部的字符串默认不转义。</p>
-<p>如果字符串内部有很多换行，用\n写在一行里不好阅读，为了简化，Python允许用’’’…’’’的格式表示多行内容。用在命令行中，py文件中直接换行也可输出换行后的内容。</p>
-<h4 id="布尔值"><a href="#布尔值" class="headerlink" title="布尔值"></a>布尔值</h4><p>一个布尔值只有True、False两种值，要么是True，要么是False。</p>
-<p>布尔值可以用and、or和not运算。</p>
-<p><strong>空值</strong><br>空值是Python里一个特殊的值，用None表示。None不能理解为0，因为0是有意义的，而None是一个特殊的空值。</p>
-<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>变量在程序中就是用一个变量名表示了，变量名必须是大小写英文、数字和_的组合，且不能用数字开头。</p>
-<p>在Python中，等号=是赋值语句，可以把任意数据类型赋值给变量，同一个变量可以反复赋值，而且可以是不同类型的变量。<br><img src="/img/media/15352502018689/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-26%20%E4%B8%8A%E5%8D%8810.53.52.png" alt=""></p>
-<p>可以看到赋值前不需要声明变量。</p>
-<p>这种变量本身类型不固定的语言称之为<strong>动态语言</strong>。</p>
-<p><strong>变量在计算机内存中的表示</strong><br><img src="/img/media/15352502018689/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-26%20%E4%B8%8A%E5%8D%8811.07.53.png" alt=""></p>
-<p>Python解释器干了两件事情：<br>在内存中创建了一个’ABC’的字符串；<br>在内存中创建了一个名为a的变量，并把它指向’ABC’。</p>
-<h3 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h3><p>所谓常量就是不能变的变量，比如常用的数学常数π就是一个常量。在Python中，通常用全部大写的变量名表示常量。</p>
-<p>但事实上PI仍然是一个变量，Python根本没有任何机制保证PI不会被改变。用全部大写的变量名表示常量只是一个习惯上的用法。</p>
-<p>/ 除法计算结果是浮点数，即使是两个整数恰好整除，结果也是浮点数：</p>
-<p>还有一种除法是//，称为地板除，两个整数的除法仍然是整数。</p>
-<h2 id="字符串和编码"><a href="#字符串和编码" class="headerlink" title="字符串和编码"></a>字符串和编码</h2><h3 id="字符编码"><a href="#字符编码" class="headerlink" title="字符编码"></a>字符编码</h3><p>计算机只能处理数字，如果要处理文本，就必须先把文本转换为数字才能处理。</p>
-<p>Unicode把所有语言都统一到一套编码里，这样就不会再有乱码问题了。</p>
-<p>ASCII编码和Unicode编码的区别：ASCII编码是1个字节，而Unicode编码通常是2个字节。</p>
-<p>本着节约的精神，又出现了把Unicode编码转化为“可变长编码”的UTF-8编码。UTF-8编码把一个Unicode字符根据不同的数字大小编码成1-6个字节，常用的英文字母被编码成1个字节，汉字通常是3个字节，只有很生僻的字符才会被编码成4-6个字节。如果你要传输的文本包含大量英文字符，用UTF-8编码就能节省空间。</p>
-<p>在计算机内存中，统一使用Unicode编码，当需要保存到硬盘或者需要传输的时候，就转换为UTF-8编码。</p>
-<h3 id="Python的字符串"><a href="#Python的字符串" class="headerlink" title="Python的字符串"></a>Python的字符串</h3><p>在最新的Python 3版本中，字符串是以Unicode编码的，也就是说，Python的字符串支持多语言。</p>
-<p>由于Python的字符串类型是str，在内存中以Unicode表示，一个字符对应若干个字节。如果要在网络上传输，或者保存到磁盘上，就需要把str变为以字节为单位的bytes。</p>
-<p>要注意区分’ABC’和b’ABC’，前者是str，后者虽然内容显示得和前者一样，但bytes的每个字符都只占用一个字节。</p>
-<p>以Unicode表示的str通过encode()方法可以编码为指定的bytes。</p>
-<p>纯英文的str可以用ASCII编码为bytes，内容是一样的，含有中文的str可以用UTF-8编码为bytes。含有中文的str无法用ASCII编码，因为中文编码的范围超过了ASCII编码的范围，Python会报错。</p>
-<p>反过来，如果我们从网络或磁盘上读取了字节流，那么读到的数据就是bytes。要把bytes变为str，就需要用decode()方法。</p>
-<p>len()函数计算的是str的字符数，如果换成bytes，len()函数就计算字节数。</p>
-<p>1个中文字符经过UTF-8编码后通常会占用3个字节，而1个英文字符只占用1个字节。</p>
-<p>在操作字符串时，我们经常遇到str和bytes的互相转换。为了避免乱码问题，应当始终坚持使用UTF-8编码对str和bytes进行转换。<br><img src="/img/media/15352502018689/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-26%20%E4%B8%8B%E5%8D%883.00.36.png" alt=""><br><img src="/img/media/15352502018689/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-26%20%E4%B8%8B%E5%8D%883.00.47.png" alt=""></p>
-<p>由于Python源代码也是一个文本文件，所以，当你的源代码中包含中文的时候，在保存源代码时，就需要务必指定保存为UTF-8编码。Python当然也支持其他编码方式，比如把Unicode编码成GB2312。但这种方式纯属自找麻烦，如果没有特殊业务要求，请牢记仅使用UTF-8编码。</p>
-<p>申明了UTF-8编码并不意味着你的.py文件就是UTF-8编码的，必须并且要确保文本编辑器正在使用UTF-8 without BOM编码。</p>
-<h3 id="格式化"><a href="#格式化" class="headerlink" title="格式化"></a>格式化</h3><p>在Python中，采用的格式化方式和C语言是一致的，用%实现。</p>
-<p><img src="/img/media/15352502018689/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-26%20%E4%B8%8B%E5%8D%883.07.01.png" alt=""></p>
-<p>常见的占位符有：<br><img src="/img/media/15352502018689/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-26%20%E4%B8%8B%E5%8D%883.04.12.png" alt=""></p>
-<p>如果你不太确定应该用什么，%s永远起作用，它会把任何数据类型转换为字符串。</p>
-<p>转义，用%%来表示一个%。</p>
-<h4 id="format"><a href="#format" class="headerlink" title="format()"></a>format()</h4><p>另一种格式化字符串的方法是使用字符串的format()方法，它会用传入的参数依次替换字符串内的占位符{0}、{1}……，不过这种方式写起来比%要麻烦得多。<br><img src="/img/media/15352502018689/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-26%20%E4%B8%8B%E5%8D%883.07.43.png" alt=""></p>
-<h2 id="使用list和tuple"><a href="#使用list和tuple" class="headerlink" title="使用list和tuple"></a>使用list和tuple</h2><h3 id="list"><a href="#list" class="headerlink" title="list"></a>list</h3><p>list是一种有序的集合，可以随时添加和删除其中的元素。<br><img src="/img/media/15352502018689/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-26%20%E4%B8%8B%E5%8D%883.10.00.png" alt=""></p>
-<p>len()函数可以获得list元素的个数。</p>
-<p>用索引来访问list中每一个位置的元素，记得索引是从0开始的。</p>
-<p>-1做索引，直接获取最后一个元素。</p>
-<p>append()可以往list中追加元素到末尾<br><img src="/img/media/15352502018689/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-26%20%E4%B8%8B%E5%8D%883.12.51.png" alt=""></p>
-<p>insert()也可以把元素插入到指定的位置。<br><img src="/img/media/15352502018689/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-26%20%E4%B8%8B%E5%8D%883.14.00.png" alt=""></p>
-<p>pop()方法，删除list末尾的元素。要删除指定位置的元素，用pop(i)方法。</p>
-<p>要把某个元素替换成别的元素，可以直接赋值给对应的索引位置。</p>
-<p>list里面的元素的数据类型也可以不同。list元素也可以是另一个list。</p>
-<p>如果一个list中一个元素也没有，就是一个空的list，它的长度为0。</p>
-<p>python列表mask:<br><img src="/img/add/5.png" alt=""></p>
-<h3 id="tuple"><a href="#tuple" class="headerlink" title="tuple"></a>tuple</h3><p>另一种有序列表叫元组：tuple。tuple和list非常类似，但是tuple一旦初始化就不能修改。<br><img src="/img/media/15352502018689/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-26%20%E4%B8%8B%E5%8D%883.37.50.png" alt=""></p>
-<p>没有append()，insert()这样的方法。其他获取元素的方法和list是一样的，你可以正常地使用classmates[0]，classmates[-1]，但不能赋值成另外的元素。</p>
-<p>因为tuple不可变，所以代码更安全。如果可能，能用tuple代替list就尽量用tuple。</p>
-<p>tuple的陷阱：只有1个元素的tuple定义时必须加一个逗号“  ,   ”，来消除歧义。</p>
-<p>Python在显示只有1个元素的tuple时，也会加一个逗号“ , ”，以免你误解成数学计算意义上的括号。</p>
-<p>tuple所谓的“不变”是说，tuple的每个元素，指向永远不变。即指向’a’，就不能改成指向’b’，指向一个list，就不能改成指向其他对象，但指向的这个list本身是可变的！</p>
-<p>创建一个内容也不变的tuple那就必须保证tuple的每一个元素本身也不能变。</p>
-<h2 id="条件判断"><a href="#条件判断" class="headerlink" title="条件判断"></a>条件判断</h2><p>if语句elif是else if的缩写。<br><img src="/img/media/15352502018689/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-26%20%E4%B8%8B%E5%8D%883.43.11.png" alt=""></p>
-<h3 id="input"><a href="#input" class="headerlink" title="input"></a>input</h3><p>input()读取用户的输入，这样可以自己输入。</p>
-<h2 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h2><h3 id="for…in循环"><a href="#for…in循环" class="headerlink" title="for…in循环"></a>for…in循环</h3><p><img src="/img/media/15352502018689/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-26%20%E4%B8%8B%E5%8D%883.48.01.png" alt=""></p>
-<p>for x in …循环就是把每个元素代入变量x，然后执行缩进块的语句。</p>
-<p>range()函数，可以生成一个整数序列，range(5)生成的序列是从0开始小于5（没有5）的整数。<br><img src="/img/media/15352502018689/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-26%20%E4%B8%8B%E5%8D%883.53.04.png" alt=""></p>
-<p>0-100。</p>
-<h3 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h3><p><img src="/img/media/15352502018689/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-26%20%E4%B8%8B%E5%8D%883.53.52.png" alt=""></p>
-<h3 id="break"><a href="#break" class="headerlink" title="break"></a>break</h3><p>break语句可以提前退出循环。</p>
-<h3 id="continue"><a href="#continue" class="headerlink" title="continue"></a>continue</h3><p>continue语句，跳过当前的这次循环，直接开始下一次循环。</p>
-<h2 id="使用dict和set"><a href="#使用dict和set" class="headerlink" title="使用dict和set"></a>使用dict和set</h2><h3 id="dict"><a href="#dict" class="headerlink" title="dict"></a>dict</h3><p>Python内置了字典：dict的支持，dict全称dictionary，在其他语言中也称为map，使用键-值（key-value）存储，具有极快的查找速度。<br><img src="/img/media/15352502018689/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-26%20%E4%B8%8B%E5%8D%884.01.18.png" alt=""></p>
-<p>把数据放入dict的方法，除了初始化时指定外，还可以通过key放入。</p>
-<p>由于一个key只能对应一个value，所以，多次对一个key放入value，后面的值会把前面的值冲掉。</p>
-<p>如果key不存在，dict就会报错，要避免key不存在的错误，有两种办法，一是通过in判断key是否存在，二是通过dict提供的get()方法，如果key不存在，可以返回None，或者自己指定的value。注意：返回None的时候Python的交互环境不显示结果。</p>
-<p>要删除一个key，用pop(key)方法，对应的value也会从dict中删除。<br><img src="/img/media/15352502018689/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-26%20%E4%B8%8B%E5%8D%884.11.37.png" alt=""></p>
-<p>请务必注意，dict内部存放的顺序和key放入的顺序是没有关系的。</p>
-<p>和list比较，dict有以下几个特点<br>查找和插入的速度极快，不会随着key的增加而变慢<br>需要占用大量的内存，内存浪费多<br>而list相反</p>
-<p>dict是用空间来换取时间的一种方法。</p>
-<p>正确使用dict非常重要，需要牢记的第一条就是dict的key必须是不可变对象。在Python中，字符串、整数等都是不可变的，因此，可以放心地作为key。而list是可变的，就不能作为key。</p>
-<h3 id="set"><a href="#set" class="headerlink" title="set"></a>set</h3><p>set和dict类似，也是一组key的集合，但不存储value。由于key不能重复，所以，在set中，没有重复的key。</p>
-<p>要创建一个set，需要提供一个list作为输入集合。<br><img src="/img/media/15352502018689/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-27%20%E4%B8%8B%E5%8D%882.58.30.png" alt=""></p>
-<p>重复元素在set中自动被过滤。</p>
-<p>通过add(key)方法可以添加元素到set中，可以重复添加，但不会有效果。</p>
-<p>通过remove(key)方法可以删除元素。</p>
-<p>set可以看成数学意义上的无序和无重复元素的集合，因此，两个set可以做数学意义上的交集、并集等操作。</p>
-<p><img src="/img/media/15352502018689/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-27%20%E4%B8%8B%E5%8D%883.26.25.png" alt=""></p>
-<p>set和dict的唯一区别仅在于没有存储对应的value，但是，set的原理和dict一样，所以，同样不可以放入可变对象。</p>
-<h3 id="不可变对象"><a href="#不可变对象" class="headerlink" title="不可变对象"></a>不可变对象</h3><p>对于不变对象来说，调用对象自身的任意方法，也不会改变该对象自身的内容。相反，这些方法会创建新的对象并返回，这样，就保证了不可变对象本身永远是不可变的。</p>
-<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="调用函数"><a href="#调用函数" class="headerlink" title="调用函数"></a>调用函数</h2><p>要调用一个函数，需要知道函数的名称和参数，比如求绝对值的函数abs，只有一个参数。</p>
-<p>调用函数的时候，如果传入的参数数量不对，会报TypeError的错误。如果传入的参数数量是对的，但参数类型不能被函数所接受，也会报TypeError的错误，并且给出错误信息。</p>
-<h3 id="数据类型转换"><a href="#数据类型转换" class="headerlink" title="数据类型转换"></a>数据类型转换</h3><p>Python内置的常用函数还包括数据类型转换函数，比如int()函数可以把其他数据类型转换为整数。<br><img src="/img/media/15352502018689/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-27%20%E4%B8%8B%E5%8D%883.37.37.png" alt=""></p>
-<p>函数名其实就是指向一个函数对象的引用，完全可以把函数名赋给一个变量，相当于给这个函数起了一个“别名”。</p>
-<p><img src="/img/media/15352502018689/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-27%20%E4%B8%8B%E5%8D%883.39.25.png" alt=""></p>
-<h2 id="定义函数"><a href="#定义函数" class="headerlink" title="定义函数"></a>定义函数</h2><p>在Python中，定义一个函数要使用def语句，依次写出函数名、括号、括号中的参数和冒号:，然后，在缩进块中编写函数体，函数的返回值用return语句返回。</p>
-<p><img src="/img/media/15352502018689/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-27%20%E4%B8%8B%E5%8D%883.40.13.png" alt=""></p>
-<p>如果你已经把my_abs()的函数定义保存为abstest.py文件了，那么，可以在该文件的当前目录下启动Python解释器，用from abstest import my_abs来导入my_abs()函数，注意abstest是文件名（不含.py扩展名）。</p>
-<h3 id="空函数"><a href="#空函数" class="headerlink" title="空函数"></a>空函数</h3><p>如果想定义一个什么事也不做的空函数，可以用pass语句。</p>
-<p>实际上pass可以用来作为占位符，比如现在还没想好怎么写函数的代码，就可以先放一个pass，让代码能运行起来。</p>
-<p>缺少了pass，代码运行就会有语法错误。</p>
-<h3 id="参数检查"><a href="#参数检查" class="headerlink" title="参数检查"></a>参数检查</h3><p>调用函数时，如果参数个数不对，Python解释器会自动检查出来，并抛出TypeError。但是如果参数类型不对，Python解释器就无法帮我们检查。</p>
-<p>对参数的限制需要我们手动完成，数据类型检查可以用内置函数isinstance()实现。<br><img src="/img/media/15352502018689/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-27%20%E4%B8%8B%E5%8D%883.46.28.png" alt=""></p>
-<h3 id="返回多个值"><a href="#返回多个值" class="headerlink" title="返回多个值"></a>返回多个值</h3><p><img src="/img/media/15352502018689/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-27%20%E4%B8%8B%E5%8D%883.51.54.png" alt=""></p>
-<p><img src="/img/media/15352502018689/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-27%20%E4%B8%8B%E5%8D%883.52.07.png" alt=""></p>
-<p>但其实这只是一种假象，Python函数返回的仍然是单一值。</p>
-<p>原来返回值是一个tuple！但是，在语法上，返回一个tuple可以省略括号，而多个变量可以同时接收一个tuple，按位置赋给对应的值，所以，Python的函数返回多值其实就是返回一个tuple，但写起来更方便。</p>
-<h3 id="小结-1"><a href="#小结-1" class="headerlink" title="小结"></a>小结</h3><p>函数体内部可以用return随时返回函数结果；<br>函数执行完毕也没有return语句时，自动return None。</p>
-<h2 id="函数的参数"><a href="#函数的参数" class="headerlink" title="函数的参数"></a>函数的参数</h2><p>Python的函数定义非常简单，但灵活度却非常大。除了正常定义的必选参数外，还可以使用默认参数、可变参数和关键字参数，使得函数定义出来的接口，不但能处理复杂的参数，还可以简化调用者的代码。</p>
-<h3 id="位置参数"><a href="#位置参数" class="headerlink" title="位置参数"></a>位置参数</h3><p>对于power(x)函数，参数x就是一个位置参数。</p>
-<h3 id="默认参数"><a href="#默认参数" class="headerlink" title="默认参数"></a>默认参数</h3><p> power(x, n=2)</p>
-<p>当我们调用power(5)时，相当于调用power(5, 2)</p>
-<p>设置默认参数时，有几点要注意<br>一是必选参数在前，默认参数在后，否则Python的解释器会报错。<br>当函数有多个参数时，把变化大的参数放前面，变化小的参数放后面。变化小的参数就可以作为默认参数。</p>
-<p>默认参数降低了函数调用的难度，而一旦需要更复杂的调用时，又可以传递更多的参数来实现。无论是简单调用还是复杂调用，函数只需要定义一个。</p>
-<p><img src="/img/media/15352502018689/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-27%20%E4%B8%8B%E5%8D%884.01.14.png" alt=""></p>
-<p>有多个默认参数时，调用的时候，既可以按顺序提供默认参数，比如调用enroll(‘Bob’, ‘M’, 7)，意思是，除了name，gender这两个参数外，最后1个参数应用在参数age上，city参数由于没有提供，仍然使用默认值。</p>
-<p>也可以不按顺序提供部分默认参数。当不按顺序提供部分默认参数时，需要把参数名写上。比如调用enroll(‘Adam’, ‘M’, city=’Tianjin’)，意思是，city参数用传进去的值，其他默认参数继续使用默认值。</p>
-<p>默认参数很有用，但使用不当，也会掉坑里。默认参数有个最大的坑。<strong>定义默认参数要牢记一点：默认参数必须指向不变对象！</strong></p>
-<p>为什么要设计str、None这样的不变对象呢？因为不变对象一旦创建，对象内部的数据就不能修改，这样就减少了由于修改数据导致的错误。此外，由于对象不变，多任务环境下同时读取对象不需要加锁，同时读一点问题都没有。我们在编写程序时，如果可以设计一个不变对象，那就尽量设计成不变对象。</p>
-<h3 id="可变参数"><a href="#可变参数" class="headerlink" title="可变参数"></a>可变参数</h3><p>在Python函数中，还可以定义可变参数。顾名思义，可变参数就是传入的参数个数是可变的。<br><img src="/img/media/15352502018689/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-27%20%E4%B8%8B%E5%8D%884.49.46.png" alt=""></p>
-<p>定义可变参数和定义一个list或tuple参数相比，仅仅在参数前面加了一个*号。在函数内部，参数numbers接收到的是一个tuple，因此，函数代码完全不变。但是，调用该函数时，可以传入任意个参数，包括0个参数。</p>
-<p>Python允许你在list或tuple前面加一个*号，把list或tuple的元素变成可变参数传进去。<br><img src="/img/media/15352502018689/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-27%20%E4%B8%8B%E5%8D%884.50.57.png" alt=""></p>
-<h3 id="关键字参数"><a href="#关键字参数" class="headerlink" title="关键字参数"></a>关键字参数</h3><p>可变参数允许你传入0个或任意个参数，这些可变参数在函数调用时自动组装为一个tuple。而关键字参数允许你传入0个或任意个含参数名的参数，这些关键字参数在函数内部自动组装为一个dict。<br><img src="/img/media/15352502018689/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-27%20%E4%B8%8B%E5%8D%884.54.26.png" alt=""></p>
-<p><img src="/img/media/15352502018689/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-27%20%E4%B8%8B%E5%8D%884.55.32.png" alt=""></p>
-<p>它可以扩展函数的功能。比如，在person函数里，我们保证能接收到name和age这两个参数，但是，如果调用者愿意提供更多的参数，我们也能收到。试想你正在做一个用户注册的功能，除了用户名和年龄是必填项外，其他都是可选项，利用关键字参数来定义这个函数就能满足注册的需求。</p>
-<p><img src="/img/media/15352502018689/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-27%20%E4%B8%8B%E5%8D%884.56.40.png" alt=""></p>
-<p>注意kw获得的dict是extra的一份拷贝，对kw的改动不会影响到函数外的extra。</p>
-<h3 id="命名关键字参数"><a href="#命名关键字参数" class="headerlink" title="命名关键字参数"></a>命名关键字参数</h3><p>如果要限制关键字参数的名字，就可以用命名关键字参数，例如，只接收city和job作为关键字参数。这种方式定义的函数如下<br><img src="/img/media/15352502018689/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-27%20%E4%B8%8B%E5%8D%885.00.57.png" alt=""></p>
-<p>和关键字参数**kw不同，命名关键字参数需要一个特殊分隔符*，*后面的参数被视为命名关键字参数。</p>
-<p>调用方式如下<br><img src="/img/media/15352502018689/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-27%20%E4%B8%8B%E5%8D%885.09.44.png" alt=""></p>
-<p>如果函数定义中已经有了一个可变参数，后面跟着的命名关键字参数就不再需要一个特殊分隔符*了<br><img src="/img/media/15352502018689/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-27%20%E4%B8%8B%E5%8D%885.10.07.png" alt=""></p>
-<p>命名关键字参数必须传入参数名，这和位置参数不同。如果没有传入参数名，调用将报错。<br><img src="/img/media/15352502018689/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-27%20%E4%B8%8B%E5%8D%885.10.49.png" alt=""></p>
-<p>命名关键字参数可以有缺省值，从而简化调用。</p>
-<h3 id="参数组合"><a href="#参数组合" class="headerlink" title="参数组合"></a>参数组合</h3><p>在Python中定义函数，可以用必选参数、默认参数、可变参数、关键字参数和命名关键字参数，这5种参数都可以组合使用。</p>
-<p><strong>参数定义的顺序必须是：必选参数、默认参数、可变参数、命名关键字参数和关键字参数。</strong></p>
-<p>对于任意函数，都可以通过类似func(*args, **kw)的形式调用它，无论它的参数是如何定义的。</p>
-<h2 id="递归函数"><a href="#递归函数" class="headerlink" title="递归函数"></a>递归函数</h2><p>尾递归是指，在函数返回的时候，调用自身本身，并且，return语句不能包含表达式。这样，编译器或者解释器就可以把尾递归做优化，使递归本身无论调用多少次，都只占用一个栈帧，不会出现栈溢出的情况。</p>
-<p>遗憾的是，大多数编程语言没有针对尾递归做优化，Python解释器也没有做优化。</p>
-<p>使用递归函数的优点是逻辑简单清晰，缺点是过深的调用会导致栈溢出。</p>
-<p>针对尾递归优化的语言可以通过尾递归防止栈溢出。尾递归事实上和循环是等价的，没有循环语句的编程语言只能通过尾递归实现循环。</p>
-<p>Python标准的解释器没有针对尾递归做优化，任何递归函数都存在栈溢出的问题。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2018/08/22/JavaScript标准参考教程 DOM模型 一/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZDK"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZDK's blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/08/22/JavaScript标准参考教程 DOM模型 一/" class="post-title-link" itemprop="url">JavaScript标准参考教程 DOM模型 概述 Document节点</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-08-22 18:33:56" itemprop="dateCreated datePublished" datetime="2018-08-22T18:33:56+08:00">2018-08-22</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-10-09 15:11:40" itemprop="dateModified" datetime="2018-10-09T15:11:40+08:00">2018-10-09</time>
-              </span>
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/教程/" itemprop="url" rel="index"><span itemprop="name">教程</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2018/08/22/JavaScript标准参考教程 DOM模型 一/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/08/22/JavaScript标准参考教程 DOM模型 一/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2018/08/22/JavaScript标准参考教程 DOM模型 一/" class="post-meta-item leancloud_visitors" data-flag-title="JavaScript标准参考教程 DOM模型 概述 Document节点">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="DOM模型概述"><a href="#DOM模型概述" class="headerlink" title="DOM模型概述"></a>DOM模型概述</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h3 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h3><p>DOM 是 JavaScript 操作网页的接口，全称为“文档对象模型”（Document Object Model）。它的作用是将网页转为一个 JavaScript 对象，从而可以用脚本进行各种操作（比如增删内容）。</p>
-<p>浏览器会根据 DOM 模型，将结构化文档（比如 HTML 和 XML）解析成一系列的节点，再由这些节点组成一个树状结构（DOM Tree）。所有的节点和最终的树状结构，都有规范的对外接口。</p>
-<p>DOM 只是一个接口规范，可以用各种语言实现。所以严格地说，DOM 不是 JavaScript 语法的一部分，但是 DOM 操作是 JavaScript 最常见的任务，离开了 DOM，JavaScript 就无法控制网页。另一方面，JavaScript 也是最常用于 DOM 操作的语言。</p>
-<h3 id="节点"><a href="#节点" class="headerlink" title="节点"></a>节点</h3><p>DOM 的最小组成单位叫做节点（node）。文档的树形结构（DOM 树），就是由各种不同类型的节点组成。每个节点可以看作是文档树的一片叶子。</p>
-<p>节点的类型有七种<br><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-20%20%E4%B8%8B%E5%8D%889.50.20.png" alt=""></p>
-<p>浏览器提供一个原生的节点对象Node，上面这七种节点都继承了Node，因此具有一些共同的属性和方法。</p>
-<h3 id="节点树"><a href="#节点树" class="headerlink" title="节点树"></a>节点树</h3><p>一个文档的所有节点，按照所在的层级，可以抽象成一种树状结构。这种树状结构就是 DOM 树。它有一个顶层节点，下一层都是顶层节点的子节点，然后子节点又有自己的子节点，就这样层层衍生出一个金字塔结构，倒过来就像一棵树。</p>
-<p>浏览器原生提供document节点，代表整个文档。</p>
-<p>文档的第一层只有一个节点，就是 HTML 网页的第一个标签&lt; html&gt;，它构成了树结构的根节点（root node），其他 HTML 标签节点都是它的下级节点。</p>
-<p>除了根节点，其他节点都有三种层级关系。</p>
-<p><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-20%20%E4%B8%8B%E5%8D%8810.05.52.png" alt=""></p>
-<p>DOM 提供操作接口，用来获取这三种关系的节点。比如，子节点接口包括firstChild（第一个子节点）和lastChild（最后一个子节点）等属性，同级节点接口包括nextSibling（紧邻在后的那个同级节点）和previousSibling（紧邻在前的那个同级节点）属性。</p>
-<h2 id="Node-接口的属性"><a href="#Node-接口的属性" class="headerlink" title="Node 接口的属性"></a>Node 接口的属性</h2><p>所有 DOM 节点都继承了 Node 接口，拥有一些共同的属性和方法。这是 DOM 操作的基础。</p>
-<h3 id="Node-nodeType"><a href="#Node-nodeType" class="headerlink" title="Node.nodeType"></a>Node.nodeType</h3><p>nodeType属性返回一个整数值，表示节点的类型。</p>
-<p>Node 对象定义了几个常量，对应这些类型值。</p>
-<p><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-20%20%E4%B8%8B%E5%8D%8810.07.17.png" alt=""></p>
-<p>确定节点类型时，使用nodeType属性是常用方法。</p>
-<h3 id="Node-nodeName"><a href="#Node-nodeName" class="headerlink" title="Node.nodeName"></a>Node.nodeName</h3><p>nodeName属性返回节点的名称。</p>
-<p>不同节点的nodeName属性值如下。</p>
-<p><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-20%20%E4%B8%8B%E5%8D%8810.10.47.png" alt=""></p>
-<h3 id="Node-nodeValue"><a href="#Node-nodeValue" class="headerlink" title="Node.nodeValue"></a>Node.nodeValue</h3><p>nodeValue属性返回一个字符串，表示当前节点本身的文本值，该属性可读写。</p>
-<p>只有文本节点（text）和注释节点（comment）有文本值，因此这两类节点的nodeValue可以返回结果，其他类型的节点一律返回null。同样的，也只有这两类节点可以设置nodeValue属性的值，其他类型的节点设置无效。</p>
-<h3 id="Node-textContent"><a href="#Node-textContent" class="headerlink" title="Node.textContent"></a>Node.textContent</h3><p>textContent属性返回当前节点和它的所有后代节点的文本内容。</p>
-<p>textContent属性自动忽略当前节点内部的 HTML 标签，返回所有文本内容。</p>
-<p>该属性是可读写的，设置该属性的值，会用一个新的文本节点，替换所有原来的子节点。它还有一个好处，就是自动对 HTML 标签转义。这很适合用于用户提供的内容。</p>
-<p>对于文本节点（text）和注释节点（comment），textContent属性的值与nodeValue属性相同。对于其他类型的节点，该属性会将每个子节点的内容连接在一起返回，但是不包括注释节点。如果一个节点没有子节点，则返回空字符串。</p>
-<p>文档节点（document）和文档类型节点（doctype）的textContent属性为null。如果要读取整个文档的内容，可以使用document.documentElement.textContent。</p>
-<h3 id="Node-baseURI"><a href="#Node-baseURI" class="headerlink" title="Node.baseURI"></a>Node.baseURI</h3><p>baseURI属性返回一个字符串，表示当前网页的绝对路径。浏览器根据这个属性，计算网页上的相对路径的 URL。该属性为只读。</p>
-<p>如果无法读到网页的 URL，baseURI属性返回null。</p>
-<p>该属性的值一般由当前网址的 URL（即window.location属性）决定，但是可以使用 HTML 的&lt; base&gt;标签，改变该属性的值。</p>
-<p>设置了以后，baseURI属性就返回<base>标签设置的值。</p>
-<h3 id="Node-ownerDocument"><a href="#Node-ownerDocument" class="headerlink" title="Node.ownerDocument"></a>Node.ownerDocument</h3><p>Node.ownerDocument属性返回当前节点所在的顶层文档对象，即document对象。</p>
-<p>document对象本身的ownerDocument属性，返回null。</p>
-<h3 id="Node-nextSibling"><a href="#Node-nextSibling" class="headerlink" title="Node.nextSibling"></a>Node.nextSibling</h3><p>Node.nextSibling属性返回紧跟在当前节点后面的第一个同级节点。如果当前节点后面没有同级节点，则返回null。</p>
-<p>注意，该属性还包括文本节点和注释节点（<!-- comment -->）。因此如果当前节点后面有空格，该属性会返回一个文本节点，内容为空格。</p>
-<p>nextSibling属性可以用来遍历所有子节点。</p>
-<h3 id="Node-previousSibling"><a href="#Node-previousSibling" class="headerlink" title="Node.previousSibling"></a>Node.previousSibling</h3><p>previousSibling属性返回当前节点前面的、距离最近的一个同级节点。如果当前节点前面没有同级节点，则返回null。</p>
-<p>注意，该属性还包括文本节点和注释节点。因此如果当前节点前面有空格，该属性会返回一个文本节点，内容为空格。</p>
-<h3 id="Node-parentNode"><a href="#Node-parentNode" class="headerlink" title="Node.parentNode"></a>Node.parentNode</h3><p>parentNode属性返回当前节点的父节点。对于一个节点来说，它的父节点只可能是三种类型：元素节点（element）、文档节点（document）和文档片段节点（documentfragment）。</p>
-<p>文档节点（document）和文档片段节点（documentfragment）的父节点都是null。另外，对于那些生成后还没插入 DOM 树的节点，父节点也是null。</p>
-<h3 id="Node-parentElement"><a href="#Node-parentElement" class="headerlink" title="Node.parentElement"></a>Node.parentElement</h3><p>parentElement属性返回当前节点的父元素节点。如果当前节点没有父节点，或者父节点类型不是元素节点，则返回null。</p>
-<p>由于父节点只可能是三种类型：元素节点、文档节点（document）和文档片段节点（documentfragment）。parentElement属性相当于把后两种父节点都排除了。</p>
-<h3 id="Node-firstChild，Node-lastChild"><a href="#Node-firstChild，Node-lastChild" class="headerlink" title="Node.firstChild，Node.lastChild"></a>Node.firstChild，Node.lastChild</h3><p>firstChild属性返回当前节点的第一个子节点，如果当前节点没有子节点，则返回null。</p>
-<p>注意，firstChild返回的除了元素节点，还可能是文本节点或注释节点。</p>
-<p>lastChild属性返回当前节点的最后一个子节点，如果当前节点没有子节点，则返回null。用法与firstChild属性相同。</p>
-<h3 id="Node-childNodes"><a href="#Node-childNodes" class="headerlink" title="Node.childNodes"></a>Node.childNodes</h3><p>childNodes属性返回一个类似数组的对象（NodeList集合），成员包括当前节点的所有子节点。</p>
-<p>使用该属性，可以遍历某个节点的所有子节点。</p>
-<p>文档节点（document）就有两个子节点：文档类型节点（docType）和 HTML 根元素节点。</p>
-<h3 id="Node-isConnected"><a href="#Node-isConnected" class="headerlink" title="Node.isConnected"></a>Node.isConnected</h3><p>isConnected属性返回一个布尔值，表示当前节点是否在文档之中。</p>
-<p><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-20%20%E4%B8%8B%E5%8D%8810.56.33.png" alt=""></p>
-<h2 id="Node-接口的方法"><a href="#Node-接口的方法" class="headerlink" title="Node 接口的方法"></a>Node 接口的方法</h2><h3 id="Node-appendChild"><a href="#Node-appendChild" class="headerlink" title="Node.appendChild()"></a>Node.appendChild()</h3><p>appendChild方法接受一个节点对象作为参数，将其作为最后一个子节点，插入当前节点。该方法的返回值就是插入文档的子节点。</p>
-<p><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-20%20%E4%B8%8B%E5%8D%8811.00.03.png" alt=""></p>
-<p>如果参数节点是 DOM 已经存在的节点，appendChild方法会将其从原来的位置，移动到新位置。</p>
-<p>如果appendChild方法的参数是DocumentFragment节点，那么插入的是DocumentFragment的所有子节点，而不是DocumentFragment节点本身。返回值是一个空的DocumentFragment节点。</p>
-<h3 id="Node-hasChildNodes"><a href="#Node-hasChildNodes" class="headerlink" title="Node.hasChildNodes()"></a>Node.hasChildNodes()</h3><p>hasChildNodes方法返回一个布尔值，表示当前节点是否有子节点。</p>
-<p>注意，子节点包括所有节点，哪怕节点只包含一个空格，hasChildNodes方法也会返回true。</p>
-<p>判断一个节点有没有子节点，有许多种方法，下面是其中的三种。<br><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-20%20%E4%B8%8B%E5%8D%8811.05.23.png" alt=""></p>
-<h3 id="Node-cloneNode"><a href="#Node-cloneNode" class="headerlink" title="Node.cloneNode()"></a>Node.cloneNode()</h3><p>cloneNode方法用于克隆一个节点。它接受一个布尔值作为参数，表示是否同时克隆子节点。它的返回值是一个克隆出来的新节点。</p>
-<p>该方法有一些使用注意点。</p>
-<ol>
-<li>克隆一个节点，会拷贝该节点的所有属性，但是会丧失addEventListener方法和on-属性（即node.onclick = fn），添加在这个节点上的事件回调函数。</li>
-<li>该方法返回的节点不在文档之中，即没有任何父节点，必须使用诸如Node.appendChild这样的方法添加到文档之中。</li>
-<li>克隆一个节点之后，DOM 有可能出现两个有相同id属性（即id=”xxx”）的网页元素，这时应该修改其中一个元素的id属性。如果原节点有name属性，可能也需要修改。</li>
-</ol>
-<h3 id="Node-insertBefore"><a href="#Node-insertBefore" class="headerlink" title="Node.insertBefore()"></a>Node.insertBefore()</h3><p>insertBefore方法用于将某个节点插入父节点内部的指定位置。</p>
-<p>insertBefore方法接受两个参数，第一个参数是所要插入的节点newNode，第二个参数是父节点parentNode内部的一个子节点referenceNode。newNode将插在referenceNode这个子节点的前面。返回值是插入的新节点newNode。</p>
-<p>如果insertBefore方法的第二个参数为null，则新节点将插在当前节点内部的最后位置，即变成最后一个子节点。</p>
-<p><strong>注意</strong>，如果所要插入的节点是当前 DOM 现有的节点，则该节点将从原有的位置移除，插入新的位置。</p>
-<p>由于不存在insertAfter方法，如果新节点要插在父节点的某个子节点后面，可以用insertBefore方法结合nextSibling属性模拟。</p>
-<p>如果要插入的节点是DocumentFragment类型，那么插入的将是DocumentFragment的所有子节点，而不是DocumentFragment节点本身。返回值将是一个空的DocumentFragment节点。</p>
-<h3 id="Node-removeChild"><a href="#Node-removeChild" class="headerlink" title="Node.removeChild()"></a>Node.removeChild()</h3><p>removeChild方法接受一个子节点作为参数，用于从当前节点移除该子节点。返回值是移除的子节点。</p>
-<p>被移除的节点依然存在于内存之中，但不再是 DOM 的一部分。所以，一个节点移除以后，依然可以使用它，比如插入到另一个节点下面。</p>
-<p>如果参数节点不是当前节点的子节点，removeChild方法将报错。</p>
-<h3 id="Node-replaceChild"><a href="#Node-replaceChild" class="headerlink" title="Node.replaceChild()"></a>Node.replaceChild()</h3><p>replaceChild方法用于将一个新的节点，替换当前节点的某一个子节点。</p>
-<p>replaceChild方法接受两个参数，第一个参数newChild是用来替换的新节点，第二个参数oldChild是将要替换走的子节点。返回值是替换走的那个节点oldChild。</p>
-<h3 id="Node-contains"><a href="#Node-contains" class="headerlink" title="Node.contains()"></a>Node.contains()</h3><p>contains方法返回一个布尔值，表示参数节点是否满足以下三个条件之一。</p>
-<p><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-20%20%E4%B8%8B%E5%8D%8811.21.05.png" alt=""></p>
-<h3 id="Node-compareDocumentPosition"><a href="#Node-compareDocumentPosition" class="headerlink" title="Node.compareDocumentPosition()"></a>Node.compareDocumentPosition()</h3><p>compareDocumentPosition方法的用法，与contains方法完全一致，返回一个七个比特位的二进制值，表示参数节点与当前节点的关系。</p>
-<p><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-20%20%E4%B8%8B%E5%8D%8811.22.06.png" alt=""></p>
-<p>由于compareDocumentPosition返回值的含义，定义在每一个比特位上，所以如果要检查某一种特定的含义，就需要使用比特位运算符。</p>
-<p>进行与运算（&amp;）。</p>
-<h3 id="Node-isEqualNode-，Node-isSameNode"><a href="#Node-isEqualNode-，Node-isSameNode" class="headerlink" title="Node.isEqualNode()，Node.isSameNode()"></a>Node.isEqualNode()，Node.isSameNode()</h3><p>isEqualNode方法返回一个布尔值，用于检查两个节点是否相等。所谓相等的节点，指的是两个节点的类型相同、属性相同、子节点相同。</p>
-<p>isSameNode方法返回一个布尔值，表示两个节点是否为同一个节点。</p>
-<h3 id="Node-normalize"><a href="#Node-normalize" class="headerlink" title="Node.normalize()"></a>Node.normalize()</h3><p>normailize方法用于清理当前节点内部的所有文本节点（text）。它会去除空的文本节点，并且将毗邻的文本节点合并成一个，也就是说不存在空的文本节点，以及毗邻的文本节点。</p>
-<p>该方法是Text.splitText的逆方法。</p>
-<h3 id="Node-getRootNode"><a href="#Node-getRootNode" class="headerlink" title="Node.getRootNode()"></a>Node.getRootNode()</h3><p>getRootNode方法返回当前节点所在文档的根节点。</p>
-<h2 id="NodeList-接口"><a href="#NodeList-接口" class="headerlink" title="NodeList 接口"></a>NodeList 接口</h2><p>节点都是单个对象，有时需要一种数据结构，能够容纳多个节点。DOM 提供两种节点集合，用于容纳多个节点：NodeList和HTMLCollection。</p>
-<p>这两种集合都属于接口规范。许多 DOM 属性和方法，返回的结果是NodeList实例或HTMLCollection实例。</p>
-<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>NodeList实例是一个类似数组的对象，它的成员是节点对象。通过以下方法可以得到NodeList实例。</p>
-<p><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-21%20%E4%B8%8B%E5%8D%883.58.33.png" alt=""></p>
-<p>NodeList实例很像数组，可以使用length属性和forEach方法。但是，它不是数组，不能使用pop或push之类数组特有的方法。</p>
-<p>注意，NodeList 实例可能是动态集合，也可能是静态集合。所谓动态集合就是一个活的集合，DOM 删除或新增一个相关节点，都会立刻反映在 NodeList 实例。目前，只有Node.childNodes返回的是一个动态集合，其他的 NodeList 都是静态集合。</p>
-<h3 id="NodeList-prototype-length"><a href="#NodeList-prototype-length" class="headerlink" title="NodeList.prototype.length"></a>NodeList.prototype.length</h3><p>length属性返回 NodeList 实例包含的节点数量。</p>
-<p>document.getElementsByTagName返回一个 NodeList 集合。对于那些不存在的 HTML 标签，length属性返回0。</p>
-<h3 id="NodeList-prototype-forEach"><a href="#NodeList-prototype-forEach" class="headerlink" title="NodeList.prototype.forEach()"></a>NodeList.prototype.forEach()</h3><p>forEach方法用于遍历 NodeList 的所有成员。它接受一个回调函数作为参数，每一轮遍历就执行一次这个回调函数，用法与数组实例的forEach方法完全一致。</p>
-<p>forEach方法的第二个参数，用于绑定回调函数内部的this，该参数可省略。</p>
-<h3 id="NodeList-prototype-item"><a href="#NodeList-prototype-item" class="headerlink" title="NodeList.prototype.item()"></a>NodeList.prototype.item()</h3><p>item方法接受一个整数值作为参数，表示成员的位置，返回该位置上的成员。</p>
-<p>如果参数值大于实际长度，或者索引不合法（比如负数），item方法返回null。如果省略参数，item方法会报错。</p>
-<p>所有类似数组的对象，都可以使用方括号运算符取出成员。一般情况下，都是使用方括号运算符，而不使用item方法。</p>
-<h3 id="NodeList-prototype-keys-，NodeList-prototype-values-，NodeList-prototype-entries"><a href="#NodeList-prototype-keys-，NodeList-prototype-values-，NodeList-prototype-entries" class="headerlink" title="NodeList.prototype.keys()，NodeList.prototype.values()，NodeList.prototype.entries()"></a>NodeList.prototype.keys()，NodeList.prototype.values()，NodeList.prototype.entries()</h3><p>这三个方法都返回一个 ES6 的遍历器对象，可以通过for…of循环遍历获取每一个成员的信息。区别在于，keys()返回键名的遍历器，values()返回键值的遍历器，entries()返回的遍历器同时包含键名和键值的信息。</p>
-<h2 id="HTMLCollection-接口"><a href="#HTMLCollection-接口" class="headerlink" title="HTMLCollection 接口"></a>HTMLCollection 接口</h2><h3 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h3><p>HTMLCollection是一个节点对象的集合，只能包含元素节点（element），不能包含其他类型的节点。它的返回值是一个类似数组的对象，但是与NodeList接口不同，HTMLCollection没有forEach方法，只能使用for循环遍历。</p>
-<p>HTMLCollection实例都是动态集合，节点的变化会实时反映在集合中。</p>
-<p>如果元素节点有id或name属性，那么HTMLCollection实例上面，可以使用id属性或name属性引用该节点元素。如果没有对应的节点，则返回null。</p>
-<p><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-21%20%E4%B8%8B%E5%8D%884.25.14.png" alt=""></p>
-<h3 id="HTMLCollection-prototype-length"><a href="#HTMLCollection-prototype-length" class="headerlink" title="HTMLCollection.prototype.length"></a>HTMLCollection.prototype.length</h3><p>length属性返回HTMLCollection实例包含的成员数量。</p>
-<h3 id="HTMLCollection-prototype-item"><a href="#HTMLCollection-prototype-item" class="headerlink" title="HTMLCollection.prototype.item()"></a>HTMLCollection.prototype.item()</h3><p>item方法接受一个整数值作为参数，表示成员的位置，返回该位置上的成员。</p>
-<p>如果参数值超出成员数量或者不合法（比如小于0），那么item方法返回null。</p>
-<h3 id="HTMLCollection-prototype-namedItem"><a href="#HTMLCollection-prototype-namedItem" class="headerlink" title="HTMLCollection.prototype.namedItem()"></a>HTMLCollection.prototype.namedItem()</h3><p>namedItem方法的参数是一个字符串，表示id属性或name属性的值，返回对应的元素节点。如果没有对应的节点，则返回null。</p>
-<p><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-21%20%E4%B8%8B%E5%8D%884.28.51.png" alt=""></p>
-<h2 id="ParentNode-接口"><a href="#ParentNode-接口" class="headerlink" title="ParentNode 接口"></a>ParentNode 接口</h2><p>节点对象除了继承 Node 接口以外，还会继承其他接口。ParentNode接口表示当前节点是一个父节点，提供一些处理子节点的方法。ChildNode接口表示当前节点是一个子节点，提供一些相关方法。</p>
-<p>如果当前节点是父节点，就会继承ParentNode接口。由于只有元素节点（element）、文档节点（document）和文档片段节点（documentFragment）拥有子节点，因此只有这三类节点会继承ParentNode接口。</p>
-<h3 id="ParentNode-children"><a href="#ParentNode-children" class="headerlink" title="ParentNode.children"></a>ParentNode.children</h3><p>children属性返回一个HTMLCollection实例，成员是当前节点的所有元素子节点。该属性只读。</p>
-<p>children属性只包括元素子节点，不包括其他类型的子节点（比如文本子节点）。如果没有元素类型的子节点，返回值HTMLCollection实例的length属性为0。</p>
-<p>HTMLCollection是动态集合，会实时反映 DOM 的任何变化。</p>
-<h3 id="ParentNode-firstElementChild"><a href="#ParentNode-firstElementChild" class="headerlink" title="ParentNode.firstElementChild"></a>ParentNode.firstElementChild</h3><p>firstElementChild属性返回当前节点的第一个元素子节点。如果没有任何元素子节点，则返回null。</p>
-<h3 id="ParentNode-lastElementChild"><a href="#ParentNode-lastElementChild" class="headerlink" title="ParentNode.lastElementChild"></a>ParentNode.lastElementChild</h3><p>lastElementChild属性返回当前节点的最后一个元素子节点，如果不存在任何元素子节点，则返回null。</p>
-<h3 id="ParentNode-childElementCount"><a href="#ParentNode-childElementCount" class="headerlink" title="ParentNode.childElementCount"></a>ParentNode.childElementCount</h3><p>childElementCount属性返回一个整数，表示当前节点的所有元素子节点的数目。如果不包含任何元素子节点，则返回0。</p>
-<h3 id="ParentNode-append-，ParentNode-prepend"><a href="#ParentNode-append-，ParentNode-prepend" class="headerlink" title="ParentNode.append()，ParentNode.prepend()"></a>ParentNode.append()，ParentNode.prepend()</h3><p>append方法为当前节点追加一个或多个子节点，位置是最后一个元素子节点的后面。</p>
-<p>该方法不仅可以添加元素子节点，还可以添加文本子节点。</p>
-<p>注意，该方法没有返回值。</p>
-<p>prepend方法为当前节点追加一个或多个子节点，位置是第一个元素子节点的前面。它的用法与append方法完全一致，也是没有返回值。</p>
-<h2 id="ChildNode-接口"><a href="#ChildNode-接口" class="headerlink" title="ChildNode 接口"></a>ChildNode 接口</h2><p>如果一个节点有父节点，那么该节点就继承了ChildNode接口。</p>
-<h3 id="ChildNode-remove"><a href="#ChildNode-remove" class="headerlink" title="ChildNode.remove()"></a>ChildNode.remove()</h3><p>remove方法用于从父节点移除当前节点。</p>
-<h3 id="ChildNode-before-，ChildNode-after"><a href="#ChildNode-before-，ChildNode-after" class="headerlink" title="ChildNode.before()，ChildNode.after()"></a>ChildNode.before()，ChildNode.after()</h3><p>before方法用于在当前节点的前面，插入一个或多个同级节点。两者拥有相同的父节点。</p>
-<p>注意，该方法不仅可以插入元素节点，还可以插入文本节点。</p>
-<p>after方法用于在当前节点的后面，插入一个或多个同级节点，两者拥有相同的父节点。用法与before方法完全相同。</p>
-<h3 id="ChildNode-replaceWith"><a href="#ChildNode-replaceWith" class="headerlink" title="ChildNode.replaceWith()"></a>ChildNode.replaceWith()</h3><p>replaceWith方法使用参数节点，替换当前节点。参数可以是元素节点，也可以是文本节点。</p>
-<h1 id="document-对象"><a href="#document-对象" class="headerlink" title="document 对象"></a>document 对象</h1><h2 id="概述-2"><a href="#概述-2" class="headerlink" title="概述"></a>概述</h2><p>document对象是文档的根节点，每张网页都有自己的document对象。window.document属性就指向这个对象。只要浏览器开始载入 HTML 文档，该对象就存在了，可以直接使用。</p>
-<p>document对象有不同的办法可以获取。</p>
-<p><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-21%20%E4%B8%8B%E5%8D%885.01.03.png" alt=""></p>
-<p>document对象继承了EventTarget接口、Node接口、ParentNode接口。这意味着，这些接口的方法都可以在document对象上调用。除此之外，document对象还有很多自己的属性和方法。</p>
-<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><h3 id="快捷方式属性"><a href="#快捷方式属性" class="headerlink" title="快捷方式属性"></a>快捷方式属性</h3><p>以下属性是指向文档内部的某个节点的快捷方式。</p>
-<h4 id="document-defaultView"><a href="#document-defaultView" class="headerlink" title="document.defaultView"></a>document.defaultView</h4><p>document.defaultView属性返回document对象所属的window对象。如果当前文档不属于window对象，该属性返回null。</p>
-<h4 id="document-doctype"><a href="#document-doctype" class="headerlink" title="document.doctype"></a>document.doctype</h4><p>对于 HTML 文档来说，document对象一般有两个子节点。第一个子节点是document.doctype，指向&lt; DOCTYPE&gt;节点，即文档类型（Document Type Declaration，简写DTD）节点。HTML 的文档类型节点，一般写成&lt; !DOCTYPE html&gt;。如果网页没有声明 DTD，该属性返回null。</p>
-<p>document.firstChild通常就返回这个节点。</p>
-<h4 id="document-documentElement"><a href="#document-documentElement" class="headerlink" title="document.documentElement"></a>document.documentElement</h4><p>document.documentElement属性返回当前文档的根节点（root）。它通常是document节点的第二个子节点，紧跟在document.doctype节点后面。HTML网页的该属性，一般是<html>节点。</html></p>
-<h4 id="document-body，document-head"><a href="#document-body，document-head" class="headerlink" title="document.body，document.head"></a>document.body，document.head</h4><p>document.body属性指向&lt; body&gt;节点，document.head属性指向&lt; head&gt;节点。</p>
-<p>这两个属性总是存在的，如果网页源码里面省略了&lt; head&gt;或&lt; body&gt;，浏览器会自动创建。另外，这两个属性是可写的，如果改写它们的值，相当于移除所有子节点。</p>
-<h4 id="document-scrollingElement"><a href="#document-scrollingElement" class="headerlink" title="document.scrollingElement"></a>document.scrollingElement</h4><p>document.scrollingElement属性返回文档的滚动元素。也就是说，当文档整体滚动时，到底是哪个元素在滚动。</p>
-<p>标准模式下，这个属性返回的文档的根元素document.documentElement（即<html>）。兼容（quirk）模式下，返回的是<body>元素，如果该元素不存在，返回null。</body></html></p>
-<h4 id="document-activeElement"><a href="#document-activeElement" class="headerlink" title="document.activeElement"></a>document.activeElement</h4><p>document.activeElement属性返回获得当前焦点（focus）的 DOM 元素。通常，这个属性返回的是&lt; input&gt;、&lt; textarea&gt;、&lt; select&gt;等表单元素，如果当前没有焦点元素，返回&lt; body&gt;元素或null。</p>
-<h4 id="document-fullscreenElement"><a href="#document-fullscreenElement" class="headerlink" title="document.fullscreenElement"></a>document.fullscreenElement</h4><p>document.fullscreenElement属性返回当前以全屏状态展示的 DOM 元素。如果不是全屏状态，该属性返回null。</p>
-<h2 id="节点集合属性"><a href="#节点集合属性" class="headerlink" title="节点集合属性"></a>节点集合属性</h2><p>以下属性返回一个HTMLCollection实例，表示文档内部特定元素的集合。这些集合都是动态的，原节点有任何变化，立刻会反映在集合中。</p>
-<h3 id="document-links"><a href="#document-links" class="headerlink" title="document.links"></a>document.links</h3><p>document.links属性返回当前文档所有设定了href属性的&lt; a&gt;及&lt; area&gt;节点。</p>
-<h3 id="document-forms"><a href="#document-forms" class="headerlink" title="document.forms"></a>document.forms</h3><p>document.forms属性返回所有&lt; form&gt;表单节点。</p>
-<h3 id="document-images"><a href="#document-images" class="headerlink" title="document.images"></a>document.images</h3><p>document.images属性返回页面所有&lt; img&gt;图片节点。</p>
-<h3 id="document-embeds，document-plugins"><a href="#document-embeds，document-plugins" class="headerlink" title="document.embeds，document.plugins"></a>document.embeds，document.plugins</h3><p>document.embeds属性和document.plugins属性，都返回所有&lt; embed&gt;节点。</p>
-<h3 id="document-scripts"><a href="#document-scripts" class="headerlink" title="document.scripts"></a>document.scripts</h3><p>document.scripts属性返回所有&lt; script&gt;节点。</p>
-<h3 id="document-styleSheets"><a href="#document-styleSheets" class="headerlink" title="document.styleSheets"></a>document.styleSheets</h3><p>document.styleSheets属性返回文档内嵌或引入的样式表集合。</p>
-<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>除了document.styleSheets，以上的集合属性返回的都是HTMLCollection实例。</p>
-<p>HTMLCollection实例是类似数组的对象，所以这些属性都有length属性，都可以使用方括号运算符引用成员。如果成员有id或name属性，还可以用这两个属性的值，在HTMLCollection实例上引用到这个成员。</p>
-<p><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-21%20%E4%B8%8B%E5%8D%886.03.36.png" alt=""></p>
-<h2 id="文档静态信息属性"><a href="#文档静态信息属性" class="headerlink" title="文档静态信息属性"></a>文档静态信息属性</h2><p>以下属性返回文档信息。</p>
-<h3 id="document-documentURI，document-URL"><a href="#document-documentURI，document-URL" class="headerlink" title="document.documentURI，document.URL"></a>document.documentURI，document.URL</h3><p>document.documentURI属性和document.URL属性都返回一个字符串，表示当前文档的网址。不同之处是它们继承自不同的接口，documentURI继承自Document接口，可用于所有文档；URL继承自HTMLDocument接口，只能用于 HTML 文档。</p>
-<p>如果文档的锚点（#anchor）变化，这两个属性都会跟着变化。</p>
-<h3 id="document-domain"><a href="#document-domain" class="headerlink" title="document.domain"></a>document.domain</h3><p>document.domain属性返回当前文档的域名，不包含协议和接口。</p>
-<p>比如，网页的网址是<a href="http://www.example.com:80/hello.html，" target="_blank" rel="noopener">http://www.example.com:80/hello.html，</a> 那么domain属性就等于<a href="http://www.example.com。如果无法获取域名，该属性返回null。" target="_blank" rel="noopener">www.example.com。如果无法获取域名，该属性返回null。</a></p>
-<p>document.domain基本上是一个只读属性，只有一种情况除外。次级域名的网页，可以把document.domain设为对应的上级域名。比如，当前域名是a.sub.example.com，则document.domain属性可以设置为sub.example.com，也可以设为example.com。修改后，document.domain相同的两个网页，可以读取对方的资源，比如设置的 Cookie。</p>
-<p>另外，设置document.domain会导致端口被改成null。因此，如果通过设置document.domain来进行通信，双方网页都必须设置这个值，才能保证端口相同</p>
-<h3 id="document-location"><a href="#document-location" class="headerlink" title="document.location"></a>document.location</h3><p>Location对象是浏览器提供的原生对象，提供 URL 相关的信息和操作方法。通过window.location和document.location属性，可以拿到这个对象。</p>
-<h3 id="document-lastModified"><a href="#document-lastModified" class="headerlink" title="document.lastModified"></a>document.lastModified</h3><p>document.lastModified属性返回一个字符串，表示当前文档最后修改的时间。不同浏览器的返回值，日期格式是不一样的。</p>
-<p>注意，document.lastModified属性的值是字符串，所以不能直接用来比较。Date.parse方法将其转为Date实例，才能比较两个网页。</p>
-<h3 id="document-title"><a href="#document-title" class="headerlink" title="document.title"></a>document.title</h3><p>document.title属性返回当前文档的标题。默认情况下，返回<title>节点的值。但是该属性是可写的，一旦被修改，就返回修改后的值。</title></p>
-<h3 id="document-characterSet"><a href="#document-characterSet" class="headerlink" title="document.characterSet"></a>document.characterSet</h3><p>document.characterSet属性返回当前文档的编码，比如UTF-8、ISO-8859-1等等。</p>
-<h3 id="document-referrer"><a href="#document-referrer" class="headerlink" title="document.referrer"></a>document.referrer</h3><p>document.referrer属性返回一个字符串，表示当前文档的访问者来自哪里。</p>
-<h3 id="document-dir"><a href="#document-dir" class="headerlink" title="document.dir"></a>document.dir</h3><p>document.dir返回一个字符串，表示文字方向。它只有两个可能的值：rtl表示文字从右到左，阿拉伯文是这种方式；ltr表示文字从左到右，包括英语和汉语在内的大多数文字采用这种方式。</p>
-<h3 id="document-compatMode"><a href="#document-compatMode" class="headerlink" title="document.compatMode"></a>document.compatMode</h3><p>compatMode属性返回浏览器处理文档的模式，可能的值为BackCompat（向后兼容模式）和CSS1Compat（严格模式）。</p>
-<p>一般来说，如果网页代码的第一行设置了明确的DOCTYPE（比如&lt;!doctype html&gt;），document.compatMode的值都为CSS1Compat。</p>
-<h2 id="文档状态属性"><a href="#文档状态属性" class="headerlink" title="文档状态属性"></a>文档状态属性</h2><h3 id="document-hidden"><a href="#document-hidden" class="headerlink" title="document.hidden"></a>document.hidden</h3><p>document.hidden属性返回一个布尔值，表示当前页面是否可见。如果窗口最小化、浏览器切换了 Tab，都会导致导致页面不可见，使得document.hidden返回true。</p>
-<h3 id="document-visibilityState"><a href="#document-visibilityState" class="headerlink" title="document.visibilityState"></a>document.visibilityState</h3><p>document.visibilityState返回文档的可见状态。</p>
-<p><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-21%20%E4%B8%8B%E5%8D%886.34.52.png" alt=""></p>
-<p>这个属性可以用在页面加载时，防止加载某些资源；或者页面不可见时，停掉一些页面功能。</p>
-<h3 id="document-readyState"><a href="#document-readyState" class="headerlink" title="document.readyState"></a>document.readyState</h3><p>document.readyState属性返回当前文档的状态，共有三种可能的值。</p>
-<p><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-21%20%E4%B8%8B%E5%8D%886.35.45.png" alt=""></p>
-<p>这个属性变化的过程如下。</p>
-<p><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8A%E5%8D%8811.19.23.png" alt=""></p>
-<p>每次状态变化都会触发一个readystatechange事件。</p>
-<h3 id="document-cookie"><a href="#document-cookie" class="headerlink" title="document.cookie"></a>document.cookie</h3><p>document.cookie属性用来操作浏览器 Cookie。</p>
-<h3 id="document-designMode"><a href="#document-designMode" class="headerlink" title="document.designMode"></a>document.designMode</h3><p>document.designMode属性控制当前文档是否可编辑，通常用在所见即所得编辑器。该属性只有两个值on和off，默认值为off。</p>
-<h3 id="document-implementation"><a href="#document-implementation" class="headerlink" title="document.implementation"></a>document.implementation</h3><p>document.implementation属性返回一个DOMImplementation对象。该对象有三个方法，主要用于创建独立于当前文档的新的 Document 对象。</p>
-<p><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8A%E5%8D%8811.24.44.png" alt=""></p>
-<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><h3 id="document-open-，document-close"><a href="#document-open-，document-close" class="headerlink" title="document.open()，document.close()"></a>document.open()，document.close()</h3><p>document.open方法清除当前文档所有内容，使得文档处于可写状态，供document.write方法写入内容。</p>
-<p>document.close方法用来关闭document.open()打开的文档。</p>
-<h3 id="document-write-，document-writeln"><a href="#document-write-，document-writeln" class="headerlink" title="document.write()，document.writeln()"></a>document.write()，document.writeln()</h3><p>document.write方法用于向当前文档写入内容。</p>
-<p>在网页的首次渲染阶段，只要页面没有关闭写入（即没有执行document.close()），document.write写入的内容就会追加在已有内容的后面。</p>
-<p>注意，document.write会当作 HTML 代码解析，不会转义。</p>
-<p><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8A%E5%8D%8811.27.38.png" alt=""></p>
-<p>如果页面已经解析完成（DOMContentLoaded事件发生之后），再调用write方法，它会先调用open方法，擦除当前文档所有内容，然后再写入。</p>
-<p>如果在页面渲染过程中调用write方法，并不会自动调用open方法。（可以理解成，open方法已调用，但close方法还未调用。）</p>
-<p>document.write是JavaScript语言标准化之前就存在的方法，现在完全有更符合标准的方法向文档写入内容（比如对innerHTML属性赋值）。所以，除了某些特殊情况，应该尽量避免使用document.write这个方法。</p>
-<p>document.writeln方法与write方法完全一致，除了会在输出内容的尾部添加换行符。</p>
-<p>注意，writeln方法添加的是 ASCII 码的换行符，渲染成 HTML 网页时不起作用，即在网页上显示不出换行。网页上的换行，必须显式写入<br>。</p>
-<h3 id="document-querySelector-，document-querySelectorAll"><a href="#document-querySelector-，document-querySelectorAll" class="headerlink" title="document.querySelector()，document.querySelectorAll()"></a>document.querySelector()，document.querySelectorAll()</h3><p>document.querySelector方法接受一个 CSS 选择器作为参数，返回匹配该选择器的元素节点。如果有多个节点满足匹配条件，则返回第一个匹配的节点。如果没有发现匹配的节点，则返回null。</p>
-<p><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8A%E5%8D%8811.53.59.png" alt=""></p>
-<p>document.querySelectorAll方法与querySelector用法类似，区别是返回一个NodeList对象，包含所有匹配给定选择器的节点。</p>
-<p>这两个方法的参数，可以是逗号分隔的多个 CSS 选择器，返回匹配其中一个选择器的元素节点，这与 CSS 选择器的规则是一致的。</p>
-<p>这两个方法都支持复杂的 CSS 选择器。</p>
-<p><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8A%E5%8D%8811.55.11.png" alt=""></p>
-<p>但是，它们不支持 CSS 伪元素的选择器（比如:first-line和:first-letter）和伪类的选择器（比如:link和:visited），即无法选中伪元素和伪类。</p>
-<p>如果querySelectorAll方法的参数是字符串*，则会返回文档中的所有元素节点。另外，querySelectorAll的返回结果不是动态集合，不会实时反映元素节点的变化。</p>
-<p>最后，这两个方法除了定义在document对象上，还定义在元素节点上，即在元素节点上也可以调用。</p>
-<h3 id="document-getElementsByTagName"><a href="#document-getElementsByTagName" class="headerlink" title="document.getElementsByTagName()"></a>document.getElementsByTagName()</h3><p>document.getElementsByTagName方法搜索 HTML 标签名，返回符合条件的元素。它的返回值是一个类似数组对象（HTMLCollection实例），可以实时反映 HTML 文档的变化。如果没有任何匹配的元素，就返回一个空集。</p>
-<p>HTML 标签名是大小写不敏感的，因此getElementsByTagName方法也是大小写不敏感的。另外，返回结果中，各个成员的顺序就是它们在文档中出现的顺序。</p>
-<p>注意，元素节点本身也定义了getElementsByTagName方法，返回该元素的后代元素中符合条件的元素。也就是说，这个方法不仅可以在document对象上调用，也可以在任何元素节点上调用。</p>
-<h3 id="document-getElementsByClassName"><a href="#document-getElementsByClassName" class="headerlink" title="document.getElementsByClassName()"></a>document.getElementsByClassName()</h3><p>document.getElementsByClassName方法返回一个类似数组的对象（HTMLCollection实例），包括了所有class名字符合指定条件的元素，元素的变化实时反映在返回结果中。</p>
-<p>由于class是保留字，所以 JavaScript 一律使用className表示 CSS 的class。</p>
-<p>参数可以是多个class，它们之间使用空格分隔。</p>
-<p>注意，正常模式下，CSS 的class是大小写敏感的。（quirks mode下，大小写不敏感。）</p>
-<p>与getElementsByTagName方法一样，getElementsByClassName方法不仅可以在document对象上调用，也可以在任何元素节点上调用。</p>
-<p><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%8812.08.27.png" alt=""></p>
-<h3 id="document-getElementsByName"><a href="#document-getElementsByName" class="headerlink" title="document.getElementsByName()"></a>document.getElementsByName()</h3><p>document.getElementsByName方法用于选择拥有name属性的 HTML 元素,返回一个类似数组的的对象（NodeList实例），因为name属性相同的元素可能不止一个。</p>
-<h3 id="document-getElementById"><a href="#document-getElementById" class="headerlink" title="document.getElementById()"></a>document.getElementById()</h3><p>document.getElementById方法返回匹配指定id属性的元素节点。如果没有发现匹配的节点，则返回null。</p>
-<p>注意，该方法的参数是大小写敏感的。比如，如果某个节点的id属性是main，那么document.getElementById(‘Main’)将返回null。</p>
-<p>document.getElementById方法与document.querySelector方法都能获取元素节点，不同之处是document.querySelector方法的参数使用 CSS 选择器语法，document.getElementById方法的参数是元素的id属性。document.getElementById()比document.querySelector()效率高得多。</p>
-<p>另外，这个方法只能在document对象上使用，不能在其他元素节点上使用。</p>
-<h3 id="document-elementFromPoint-，document-elementsFromPoint"><a href="#document-elementFromPoint-，document-elementsFromPoint" class="headerlink" title="document.elementFromPoint()，document.elementsFromPoint()"></a>document.elementFromPoint()，document.elementsFromPoint()</h3><p>document.elementFromPoint方法返回位于页面指定位置最上层的元素节点。</p>
-<p>elementFromPoint方法的两个参数，依次是相对于当前视口左上角的横坐标和纵坐标，单位是像素。如果位于该位置的 HTML 元素不可返回（比如文本框的滚动条），则返回它的父元素（比如文本框）。如果坐标值无意义（比如负值或超过视口大小），则返回null。</p>
-<p>document.elementsFromPoint()返回一个数组，成员是位于指定坐标（相对于视口）的所有元素。</p>
-<h3 id="document-caretPositionFromPoint"><a href="#document-caretPositionFromPoint" class="headerlink" title="document.caretPositionFromPoint()"></a>document.caretPositionFromPoint()</h3><p>document.caretPositionFromPoint()返回一个 CaretPosition 对象，包含了指定坐标点在节点对象内部的位置信息。CaretPosition 对象就是光标插入点的概念，用于确定光标点在文本对象内部的具体位置。</p>
-<p>CaretPosition 对象。该对象有两个属性。<br><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%882.04.26.png" alt=""></p>
-<h3 id="document-createElement"><a href="#document-createElement" class="headerlink" title="document.createElement()"></a>document.createElement()</h3><p>document.createElement方法用来生成元素节点，并返回该节点。</p>
-<p><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%882.05.32.png" alt=""></p>
-<p>createElement方法的参数为元素的标签名，即元素节点的tagName属性，对于 HTML 网页大小写不敏感，即参数为div或DIV返回的是同一种节点。如果参数里面包含尖括号（即&lt;和&gt;）会报错。</p>
-<p>注意，document.createElement的参数可以是自定义的标签名。</p>
-<h3 id="document-createTextNode"><a href="#document-createTextNode" class="headerlink" title="document.createTextNode()"></a>document.createTextNode()</h3><p>document.createTextNode方法用来生成文本节点（Text实例），并返回该节点。它的参数是文本节点的内容。</p>
-<p><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%882.07.07.png" alt=""></p>
-<p>这个方法可以确保返回的节点，被浏览器当作文本渲染，而不是当作 HTML 代码渲染。因此，可以用来展示用户的输入，避免 XSS 攻击。</p>
-<h3 id="document-createAttribute"><a href="#document-createAttribute" class="headerlink" title="document.createAttribute()"></a>document.createAttribute()</h3><p>document.createAttribute方法生成一个新的属性节点（Attr实例），并返回它。</p>
-<p>document.createAttribute方法的参数name，是属性的名称。</p>
-<p><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%882.09.32.png" alt=""></p>
-<h3 id="document-createComment"><a href="#document-createComment" class="headerlink" title="document.createComment()"></a>document.createComment()</h3><p>document.createComment方法生成一个新的注释节点，并返回该节点。</p>
-<p>document.createComment方法的参数是一个字符串，会成为注释节点的内容。</p>
-<h3 id="document-createDocumentFragment"><a href="#document-createDocumentFragment" class="headerlink" title="document.createDocumentFragment()"></a>document.createDocumentFragment()</h3><p>document.createDocumentFragment方法生成一个空的文档片段对象（DocumentFragment实例）。</p>
-<p>DocumentFragment是一个存在于内存的 DOM 片段，不属于当前文档，常常用来生成一段较复杂的 DOM 结构，然后再插入当前文档。这样做的好处在于，因为DocumentFragment不属于当前文档，对它的任何改动，都不会引发网页的重新渲染，比直接修改当前文档的 DOM 有更好的性能表现。</p>
-<p><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%882.12.09.png" alt=""></p>
-<h3 id="document-createEvent"><a href="#document-createEvent" class="headerlink" title="document.createEvent()"></a>document.createEvent()</h3><p>document.createEvent方法生成一个事件对象（Event实例），该对象可以被element.dispatchEvent方法使用，触发指定事件。</p>
-<p>document.createEvent方法的参数是事件类型，比如UIEvents、MouseEvents、MutationEvents、HTMLEvents。</p>
-<h3 id="document-addEventListener-，document-removeEventListener-，document-dispatchEvent"><a href="#document-addEventListener-，document-removeEventListener-，document-dispatchEvent" class="headerlink" title="document.addEventListener()，document.removeEventListener()，document.dispatchEvent()"></a>document.addEventListener()，document.removeEventListener()，document.dispatchEvent()</h3><p>这三个方法用于处理document节点的事件。它们都继承自EventTarget接口。</p>
-<h3 id="document-hasFocus"><a href="#document-hasFocus" class="headerlink" title="document.hasFocus()"></a>document.hasFocus()</h3><p>document.hasFocus方法返回一个布尔值，表示当前文档之中是否有元素被激活或获得焦点。</p>
-<p>注意，有焦点的文档必定被激活（active），反之不成立，激活的文档未必有焦点。比如，用户点击按钮，从当前窗口跳出一个新窗口，该新窗口就是激活的，但是不拥有焦点。</p>
-<h3 id="document-adoptNode-，document-importNode"><a href="#document-adoptNode-，document-importNode" class="headerlink" title="document.adoptNode()，document.importNode()"></a>document.adoptNode()，document.importNode()</h3><p>document.adoptNode方法将某个节点及其子节点，从原来所在的文档或DocumentFragment里面移除，归属当前document对象，返回插入后的新节点。插入的节点对象的ownerDocument属性，会变成当前的document对象，而parentNode属性是null。</p>
-<p>注意，document.adoptNode方法只是改变了节点的归属，并没有将这个节点插入新的文档树。所以，还要再用appendChild方法或insertBefore方法，将新节点插入当前文档树。</p>
-<p>document.importNode方法则是从原来所在的文档或DocumentFragment里面，拷贝某个节点及其子节点，让它们归属当前document对象。拷贝的节点对象的ownerDocument属性，会变成当前的document对象，而parentNode属性是null。</p>
-<p>document.importNode方法的第一个参数是外部节点，第二个参数是一个布尔值，表示对外部节点是深拷贝还是浅拷贝，默认是浅拷贝（false）。虽然第二个参数是可选的，但是建议总是保留这个参数，并设为true。</p>
-<p>注意，document.importNode方法只是拷贝外部节点，这时该节点的父节点是null。下一步还必须将这个节点插入当前文档树。</p>
-<h3 id="document-createNodeIterator"><a href="#document-createNodeIterator" class="headerlink" title="document.createNodeIterator()"></a>document.createNodeIterator()</h3><p>document.createNodeIterator方法返回一个子节点遍历器。</p>
-<p>document.createNodeIterator方法第一个参数为所要遍历的根节点，第二个参数为所要遍历的节点类型，这里指定为元素节点（NodeFilter.SHOW_ELEMENT）。几种主要的节点类型写法如下。<br><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%882.35.09.png" alt=""></p>
-<p>document.createNodeIterator方法返回一个“遍历器”对象（NodeFilter实例）。该实例的nextNode()方法和previousNode()方法，可以用来遍历所有子节点。<br><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%882.40.09.png" alt=""></p>
-<p>currentNode和previousNode都指向同一个的节点。</p>
-<p>注意，遍历器返回的第一个节点，总是根节点。</p>
-<h3 id="document-createTreeWalker"><a href="#document-createTreeWalker" class="headerlink" title="document.createTreeWalker()"></a>document.createTreeWalker()</h3><p>document.createTreeWalker方法返回一个 DOM 的子树遍历器。它与document.createNodeIterator方法基本是类似的，区别在于它返回的是TreeWalker实例，后者返回的是NodeIterator实例。另外，它的第一个节点不是根节点。</p>
-<p>document.createTreeWalker方法的第一个参数是所要遍历的根节点，第二个参数指定所要遍历的节点类型（与document.createNodeIterator方法的第二个参数相同）。</p>
-<h3 id="document-getSelection"><a href="#document-getSelection" class="headerlink" title="document.getSelection()"></a>document.getSelection()</h3><p>这个方法指向window.getSelection()。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/18/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><span class="page-number current">19</span><a class="page-number" href="/page/20/">20</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="extend next" rel="next" href="/page/20/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
-
-
-
-          </div>
-          
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-
-      
-
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image"
-                src="/images/avatar.gif"
-                alt="ZDK"/>
-            
-              <p class="site-author-name" itemprop="name">ZDK</p>
-              <div class="site-description motion-element" itemprop="description"></div>
-          </div>
-
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives/">
-                
-                    <span class="site-state-item-count">191</span>
-                    <span class="site-state-item-name">日志</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-categories">
-                  
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">9</span>
-                    <span class="site-state-item-name">分类</span>
-                  
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-tags">
-                  
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">48</span>
-                    <span class="site-state-item-name">标签</span>
-                  
-                </div>
-              
-            </nav>
-          
-
-          
-            <div class="feed-link motion-element">
-              <a href="/atom.xml" rel="alternate">
-                <i class="fa fa-rss"></i>
-                RSS
-              </a>
-            </div>
-          
-
-          
-
-          
-            <div class="links-of-author motion-element">
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://github.com/zdkswd" title="GitHub &rarr; https://github.com/zdkswd"><i class="fa fa-fw fa-github"></i>GitHub</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="mailto:2822464407@qq.com" title="E-Mail &rarr; mailto:2822464407@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-                </span>
-              
-            </div>
-          
-
-          
-
-          
-          
-            <div class="links-of-blogroll motion-element links-of-blogroll-block">
-              <div class="links-of-blogroll-title">
-                <i class="fa  fa-fw fa-link"></i>
-                Links
-              </div>
-              <ul class="links-of-blogroll-list">
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://github.com/zdkswd" title="https://github.com/zdkswd">Title</a>
-                  </li>
-                
-              </ul>
-            </div>
-          
-
-          
-        </div>
-      </div>
-
-      
-
-      
-        <div class="back-to-top motion-element">
-          <i class="fa fa-arrow-up"></i>
-          
-        </div>
-      
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-        
-      </div>
     </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">ZDK</span>
 
-  
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
 
-  
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
 </div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
 
-
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.1</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.2.0</div>
-
-
-
-
-        
-
-
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
 
 
 
+<!-- mathjax config similar to math.stackexchange -->
 
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
 
-
-        
-      </div>
-    </footer>
-
-    
-
-    
-
-    
-  </div>
-
-  
-
-<script>
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
 </script>
 
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
 
 
 
 
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  <script src="/lib/jquery/index.js?v=3.4.1"></script>
-
-  
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-
-
-
-  <script src="/js/utils.js?v=7.2.0"></script>
-
-  <script src="/js/motion.js?v=7.2.0"></script>
-
-
-
-  
-  
-
-
-  <script src="/js/affix.js?v=7.2.0"></script>
-
-  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
-
-
-
-
-  
-
-  <script src="/js/next-boot.js?v=7.2.0"></script>
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
 
 <script>
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(function(item) {
-    return GUEST.indexOf(item) > -1;
-  });
-  new Valine({
-    el: '#comments',
-    verify: false,
-    notify: true,
-    appId: 'QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz',
-    appKey: 'gkBx5soQkBREmER84PWbNJeM',
-    placeholder: 'have fun',
-    avatar: 'mm',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: true,
-    lang: '' || 'zh-cn'
-  });
-</script>
-
-
-
-
-
-  
-  <script>
-    // Popup Window;
-    var isfetched = false;
-    var isXml = true;
-    // Search DB path;
-    var search_path = "";
-    if (search_path.length === 0) {
-      search_path = "search.xml";
-    } else if (/json$/i.test(search_path)) {
-      isXml = false;
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
-
-    var onPopupClose = function (e) {
-      $('.popup').hide();
-      $('#local-search-input').val('');
-      $('.search-result-list').remove();
-      $('#no-result').remove();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    }
-
-    function proceedsearch() {
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
-        .css('overflow', 'hidden');
-      $('.search-popup-overlay').click(onPopupClose);
-      $('.popup').toggle();
-      var $localSearchInput = $('#local-search-input');
-      $localSearchInput.attr("autocapitalize", "none");
-      $localSearchInput.attr("autocorrect", "off");
-      $localSearchInput.focus();
-    }
-
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-
-      // start loading animation
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
-          '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
-          '</div>' +
-          '</div>')
-        .css('overflow', 'hidden');
-      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
-
-      
-
-      $.ajax({
-        url: path,
-        dataType: isXml ? "xml" : "json",
-        async: true,
-        success: function(res) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = isXml ? $("entry", res).map(function() {
-            return {
-              title: $("title", this).text(),
-              content: $("content",this).text(),
-              url: $("url" , this).text()
-            };
-          }).get() : res;
-          var input = document.getElementById(search_id);
-          var resultContent = document.getElementById(content_id);
-          var inputEventFunction = function() {
-            var searchText = input.value.trim().toLowerCase();
-            var keywords = searchText.split(/[\s\-]+/);
-            if (keywords.length > 1) {
-              keywords.push(searchText);
-            }
-            var resultItems = [];
-            if (searchText.length > 0) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var hitCount = 0;
-                var searchTextCount = 0;
-                var title = data.title.trim();
-                var titleInLowerCase = title.toLowerCase();
-                var content = data.content.trim().replace(/<[^>]+>/g,"");
-                
-                var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
-                var indexOfTitle = [];
-                var indexOfContent = [];
-                // only match articles with not empty titles
-                if(title != '') {
-                  keywords.forEach(function(keyword) {
-                    function getIndexByWord(word, text, caseSensitive) {
-                      var wordLen = word.length;
-                      if (wordLen === 0) {
-                        return [];
-                      }
-                      var startPosition = 0, position = [], index = [];
-                      if (!caseSensitive) {
-                        text = text.toLowerCase();
-                        word = word.toLowerCase();
-                      }
-                      while ((position = text.indexOf(word, startPosition)) > -1) {
-                        index.push({position: position, word: word});
-                        startPosition = position + wordLen;
-                      }
-                      return index;
-                    }
-
-                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
-                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
-                  });
-                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
-                    isMatch = true;
-                    hitCount = indexOfTitle.length + indexOfContent.length;
-                  }
-                }
-
-                // show search results
-
-                if (isMatch) {
-                  // sort index by position of keyword
-
-                  [indexOfTitle, indexOfContent].forEach(function (index) {
-                    index.sort(function (itemLeft, itemRight) {
-                      if (itemRight.position !== itemLeft.position) {
-                        return itemRight.position - itemLeft.position;
-                      } else {
-                        return itemLeft.word.length - itemRight.word.length;
-                      }
-                    });
-                  });
-
-                  // merge hits into slices
-
-                  function mergeIntoSlice(text, start, end, index) {
-                    var item = index[index.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    var hits = [];
-                    var searchTextCountInSlice = 0;
-                    while (position + word.length <= end && index.length != 0) {
-                      if (word === searchText) {
-                        searchTextCountInSlice++;
-                      }
-                      hits.push({position: position, length: word.length});
-                      var wordEnd = position + word.length;
-
-                      // move to next position of hit
-
-                      index.pop();
-                      while (index.length != 0) {
-                        item = index[index.length - 1];
-                        position = item.position;
-                        word = item.word;
-                        if (wordEnd > position) {
-                          index.pop();
-                        } else {
-                          break;
-                        }
-                      }
-                    }
-                    searchTextCount += searchTextCountInSlice;
-                    return {
-                      hits: hits,
-                      start: start,
-                      end: end,
-                      searchTextCount: searchTextCountInSlice
-                    };
-                  }
-
-                  var slicesOfTitle = [];
-                  if (indexOfTitle.length != 0) {
-                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
-                  }
-
-                  var slicesOfContent = [];
-                  while (indexOfContent.length != 0) {
-                    var item = indexOfContent[indexOfContent.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    // cut out 100 characters
-                    var start = position - 20;
-                    var end = position + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if (end < position + word.length) {
-                      end = position + word.length;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
-                  }
-
-                  // sort slices in content by search text's count and hits' count
-
-                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
-                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
-                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
-                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
-                      return sliceRight.hits.length - sliceLeft.hits.length;
-                    } else {
-                      return sliceLeft.start - sliceRight.start;
-                    }
-                  });
-
-                  // select top N slices in content
-
-                  var upperBound = parseInt('5');
-                  if (upperBound >= 0) {
-                    slicesOfContent = slicesOfContent.slice(0, upperBound);
-                  }
-
-                  // highlight title and content
-
-                  function highlightKeyword(text, slice) {
-                    var result = '';
-                    var prevEnd = slice.start;
-                    slice.hits.forEach(function (hit) {
-                      result += text.substring(prevEnd, hit.position);
-                      var end = hit.position + hit.length;
-                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
-                      prevEnd = end;
-                    });
-                    result += text.substring(prevEnd, slice.end);
-                    return result;
-                  }
-
-                  var resultItem = '';
-
-                  if (slicesOfTitle.length != 0) {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
-                  } else {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
-                  }
-
-                  slicesOfContent.forEach(function (slice) {
-                    resultItem += "<a href='" + articleUrl + "'>" +
-                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
-                      "...</p>" + "</a>";
-                  });
-
-                  resultItem += "</li>";
-                  resultItems.push({
-                    item: resultItem,
-                    searchTextCount: searchTextCount,
-                    hitCount: hitCount,
-                    id: resultItems.length
-                  });
-                }
-              })
-            };
-            if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
-            } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
-            } else {
-              resultItems.sort(function (resultLeft, resultRight) {
-                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-                  return resultRight.searchTextCount - resultLeft.searchTextCount;
-                } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
-              });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'zdk'blog';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
         }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
     });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
-  </script>
+})();
+</script>
 
 
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-  
 
 </body>
 </html>

@@ -1,2611 +1,626 @@
 <!DOCTYPE html>
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<html class="theme-next gemini use-motion" lang="zh-CN">
+<html>
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
-<meta name="theme-color" content="#222"/>
+    
+
+    
+
+    
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0"/>
-
-<link rel="stylesheet" href="/css/main.css?v=7.2.0"/>
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.2.0">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.2.0">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
-
-
-
-
-
-
-
-<script id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Gemini',
-    version: '7.2.0',
-    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
-    back2top: {"enable":true,"sidebar":true,"scrollpercent":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
-    fancybox: false,
-    fastclick: false,
-    lazyload: false,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    translation: {
-      copy_button: '复制',
-      copy_success: '复制成功',
-      copy_failure: '复制失败'
-    }
-  };
-</script>
-
-
-
-  <meta property="og:type" content="website">
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>ZDK&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta property="og:type" content="website">
 <meta property="og:title" content="ZDK&#39;s blog">
 <meta property="og:url" content="https://github.com/zdkswd/page/7/index.html">
 <meta property="og:site_name" content="ZDK&#39;s blog">
 <meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ZDK&#39;s blog">
+    
+        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
 
-
-
-  <link rel="alternate" href="/atom.xml" title="ZDK's blog" type="application/atom+xml"/>
-
-
-
-  
-  
-  <link rel="canonical" href="https://github.com/zdkswd/page/7/"/>
-
-
-
-<script id="page.configurations">
-  CONFIG.page = {
-    sidebar: "",
-  };
-</script>
-
-  <title>ZDK's blog</title>
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .motion-element,
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-title { opacity: initial; }
-
-  .use-motion .logo,
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
+    <!-- custom head -->
+    
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body>
+    <div id="loading" class="active"></div>
 
-  
-  
-    
-  
-
-  <div class="container sidebar-position-right 
-  page-home">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">ZDK's blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/tmg.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ZDK</h5>
+          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
+        </hgroup>
+      </div>
     </div>
-    
-    
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/zdkswd" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
   </div>
+</aside>
 
-  <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
-
-
-
-<nav class="site-nav">
-  
-    <ul id="menu" class="menu">
-      
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">ZDK&#39;s blog</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
         
         
-        
-          
-          <li class="menu-item menu-item-home">
+    </div>
+</header>
+<header class="content-header index-header">
 
-    
-    
-      
-    
-
-    
-
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>首页</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-tags">
-
-    
-    
-      
-    
-
-    
-
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>标签</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-categories">
-
-    
-    
-      
-    
-
-    
-
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>分类</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-archives">
-
-    
-    
-      
-    
-
-    
-
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>归档</a>
-
-  </li>
-
-      
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
+    <div class="container fade-scale">
+        <h1 class="title">ZDK&#39;s blog</h1>
+        <h5 class="subtitle">
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br/>搜索</a>
+                
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+<div class="container body-wrap">
+
+    <ul class="post-list">
+    
+        <li class="post-list-item fade">
+            <article id="post-广告竞价  综述"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-04-02 12:01:47" datetime="2019-04-02T04:01:47.000Z"  itemprop="datePublished">2019-04-02</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/04/02/广告竞价  综述/">广告竞价  综述</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        基于第二价位的广告竞拍点击率预测可以提供对广告优劣的一种预测，还需要机制来决定如何从众多的广告中进行选取,这就是广告的竞价排名。
+广告位竞价排名的出现有两个原因。第一，发布商的广告位是有限的。不管是搜索广告还是展示广告，绝大多数的发布商都以一定的比例在原生的内容，例如新闻、社交媒体内容里插入一些广告位。但是这些广告位的数目是有限的，特别是在优质的发布商资源里，就会出现一些广告位有着很大的竞争...
+    
+
+        <a href="/2019/04/02/广告竞价  综述/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li></ul>
+
+    </div>
+    
+</article>
+
         </li>
-      
+    
+        <li class="post-list-item fade">
+            <article id="post-RS矩阵分解  概述"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-03-29 21:36:47" datetime="2019-03-29T13:36:47.000Z"  itemprop="datePublished">2019-03-29</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/03/29/RS矩阵分解  概述/">RS矩阵分解  概述</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        RS矩阵分解  概述源自于评分预测问题。评分预测问题很典型但是并不大众，与之相对的另一类问题行为预测，才是平民级推荐问题，处处可见。
+为什么要矩阵分解矩阵分解确实可以解决一些近邻模型无法解决的问题。
+近邻模型存在的问题：
+
+物品建存在相关性，信息量并不随着向量维度增加而线性增加。
+矩阵元素稀疏，计算结果不稳定，增减一个向量维度，导致近邻结果差异很大的情况存在。
+
+上述两个问题，在矩阵分解中可...
+    
+
+        <a href="/2019/03/29/RS矩阵分解  概述/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/矩阵分解/">矩阵分解</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-熵"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-03-27 19:46:47" datetime="2019-03-27T11:46:47.000Z"  itemprop="datePublished">2019-03-27</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/03/27/熵/">熵</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        熵https://www.jianshu.com/p/09b70253c840完美解释交叉熵
+随机变量包含不确定性的变量称为随机变量，统计学就是研究这类不确定性变量的工具。刻画随机变量最有力的一个工具就是它的概率分布。有了概率分布，我们可以说对一个随机变量有了完全的掌握，因为我们可以知道它可能取哪些值，某个值的概率是多少。
+什么是熵概率分布是对随机变量的刻画，不同的随机变量有着相同或不同的概...
+    
+
+        <a href="/2019/03/27/熵/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-统计学习方法  k近邻法"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-03-24 19:16:47" datetime="2019-03-24T11:16:47.000Z"  itemprop="datePublished">2019-03-24</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/03/24/统计学习方法  k近邻法/">统计学习方法  k近邻法</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        统计学习方法  k近邻法k近邻法(k-nearest neighbor, k-NN)是一种基本分类与回归方法，下面只讨论分类问题中的k近邻法，k近邻法的输入为实例的特征向量，对应于特征空间的点;输出为实例的类别，可以取多类. k近邻法假设给定一个训练数据集，其中的实例类别已定.分类时，对新的实例,根据其k个最近邻的训练实例的类别，通过多数表决等方式进行预测.因此，k近邻法不具有显式的学习过程...
+    
+
+        <a href="/2019/03/24/统计学习方法  k近邻法/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-莫凡 sklearn"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-03-22 20:12:56" datetime="2019-03-22T12:12:56.000Z"  itemprop="datePublished">2019-03-22</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/03/22/莫凡 sklearn/">莫凡 sklearn</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        莫凡 sklearnSklearn 包含了很多种机器学习的方式:
+Classification 分类Regression 回归Clustering 非监督分类Dimensionality reduction 数据降维Model Selection 模型选择Preprocessing 数据预处理我们总能够从这些方法中挑选出一个适合于自己问题的, 然后解决自己的问题.
+看图选方法由图中，可以看到...
+    
+
+        <a href="/2019/03/22/莫凡 sklearn/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-译 Numpy Vs Pandas 表现比较"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-03-22 10:50:56" datetime="2019-03-22T02:50:56.000Z"  itemprop="datePublished">2019-03-22</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/03/22/译 Numpy Vs Pandas 表现比较/">译 Numpy Vs Pandas 表现比较</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        译 Numpy Vs Pandas 表现比较原文链接：http://gouthamanbalaraman.com/blog/numpy-vs-pandas-comparison.html
+
+Numpy比起Pandas消耗更少的内存
+对于5w行或更少的数据，Numpy的表现普遍要好。
+对于50w行或更多的数据，pandas的表现普遍要好。
+对于5w到50w行的数据，就要取决于使用哪种操作。
+
+...
+    
+
+        <a href="/2019/03/22/译 Numpy Vs Pandas 表现比较/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-莫凡 使用Numpy的技巧"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-03-22 09:30:12" datetime="2019-03-22T01:30:12.000Z"  itemprop="datePublished">2019-03-22</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/03/22/莫凡 使用Numpy的技巧/">莫凡 使用Numpy的技巧</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        莫凡 使用Numpy的技巧pandas要比Numpy慢，所以尽量避免使用Pandas。
+为什么用Numpy？Python 是慢的, 简单来说, 因为 Python 执行代码的时候会执行很多复杂的“check” 功能, 比如赋值在计算机内部, b 首先要从一个整数 integer 转换成浮点数 float, 才能进行后面的 b/0.5, 因为得到的要是一个小数.提到 Numpy, 它就是一个 ...
+    
+
+        <a href="/2019/03/22/莫凡 使用Numpy的技巧/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
     </ul>
-  
 
-  
-
-  
-    <div class="site-search">
-      
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
+    
+<nav id="page-nav">
+    <div class="inner">
+    <a class="extend prev" rel="prev" href="/page/6/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="extend next" rel="next" href="/page/8/">下一页</a>
     </div>
-  </div>
-  <div id="local-search-result"></div>
-</div>
-
-
-
-    </div>
-  
 </nav>
 
 
-
 </div>
-    </header>
 
-    
-
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-            
-
-          
-          <div id="content" class="content">
-            
-  <section id="posts" class="posts-expand">
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2019/04/02/广告竞价  综述/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZDK"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
     </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZDK's blog"/>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
     </span>
+</p>
 
-    
-      <header class="post-header">
 
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/04/02/广告竞价  综述/" class="post-title-link" itemprop="url">广告竞价  综述</a>
-              
+        <p>
             
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-04-02 12:01:47 / 修改时间：12:02:06" itemprop="dateCreated datePublished" datetime="2019-04-02T12:01:47+08:00">2019-04-02</time>
-            </span>
-          
-
-          
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/知识总结/" itemprop="url" rel="index"><span itemprop="name">知识总结</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/04/02/广告竞价  综述/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/02/广告竞价  综述/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2019/04/02/广告竞价  综述/" class="post-meta-item leancloud_visitors" data-flag-title="广告竞价  综述">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="基于第二价位的广告竞拍"><a href="#基于第二价位的广告竞拍" class="headerlink" title="基于第二价位的广告竞拍"></a>基于第二价位的广告竞拍</h1><p>点击率预测可以提供对广告优劣的一种预测，还需要机制来决定如何从众多的广告中进行选取,这就是<strong>广告的竞价排名</strong>。</p>
-<p>广告位竞价排名的出现有两个原因。第一，发布商的广告位是有限的。不管是搜索广告还是展示广告，绝大多数的发布商都以一定的比例在原生的内容，例如新闻、社交媒体内容里插入一些广告位。但是这些广告位的数目是有限的，特别是在优质的发布商资源里，就会出现一些广告位有着很大的竞争。第二，既然有竞争，那么如果引入一种竞价机制的话，势必有可能抬高广告的单价，从而让广告中间平台例如DSP，或者是发布商从中获取更高的价值。</p>
-<h2 id="基于第一价位的竞拍"><a href="#基于第一价位的竞拍" class="headerlink" title="基于第一价位的竞拍"></a>基于第一价位的竞拍</h2><p>所谓基于第一价位的竞拍，指的是所有的投标方都定好自己的出价，然后一次性统一出价。 在出价的过程中，所有的投标方都是看不见竞争对手的出价的，这保证了出价的诚实性。当竞拍平台接到所有投标方的出价以后，按照出价由高到低排序，出价最高的投标方获得投标的胜利。</p>
-<p>在广告系统中，如果要采用这样的形式，那么，决定最后投标顺序的不再是单纯的价格，而往往是一个投标价格和点击率的函数，最简单的函数就是<strong>点击率乘以投标价格</strong>。这其实也可以被认为是一种“<strong>期望收入</strong>”。也就是说，如果发布商或者DSP是按照广告的每一次点击来收取费用的话，那么，点击率乘以投标价格就是这种收入的一个数学期望值。</p>
-<p>所以，基于第一价位竞价的广告系统，按照<strong>广告收入的期望值</strong>进行竞价排名。排名第一的广告被选为显示的广告。</p>
-<p>这种机制在早期的互联网广告平台中曾被大量使用。但是一段时间以后，大家发现，基于第一价位竞价的竞价结果往往是“虚高”的。这也很容易形象地解释，在大家都不知道对方出价的情况下，如果希望自己能在竞拍中胜出，势必就可能报出比较高的价格。另外一个方面，投标方并不清楚这个广告位的真实价值，大家只能在条件允许的情况下，尽量抬高价格来获取这个机会。从某种意义上来说，这样的竞价并不利于广告商的长远发展，也打击了广告商的积极性。</p>
-<h2 id="基于第二价位的竞拍"><a href="#基于第二价位的竞拍" class="headerlink" title="基于第二价位的竞拍"></a>基于第二价位的竞拍</h2><p>就是在基于第一价位竞价的基础上， 互联网广告界逐渐衍生出了一种新的竞拍方法一基于第二价位的竞拍。首先，和基于第一价位的竞拍模式一样，基于第二价位的模式也是按照广告的期望收入，也就是根据点击率和出价的乘积来进行排序。但和基于第一价位模式不一 样的是，中间商或者发布商并不按照第一位的价格来收取费用，而是按照竞价排位第二位的广告商的出价来收取费用。也就是说，<strong>虽然第一名利用自己的出价赢得了排名，但是只需要付第二名所出的价格。时至今日，基于第二价位的竞拍方式已经成为了互联网广告的主流竞拍模式。</strong></p>
-<p>基于第二价位的竞拍方式好处在于，在这种形式下，广告商按照自己对广告为价值的理解来竞拍是相对较优的策略。技术难点在于对于广告商来说，主要是希望知道在当前出价的情况下，究竟有多大的概率赢得当前的竞拍。这也就是所谓的“<strong>赢的概率</strong>”，这对于广告商调整自己的出价有非常重要的指导意义。对于整个出价的概率分布的一个估计，有时候又叫作<strong>竞价全景观</strong>(Bid Landscape)预测。这是一个非常形象的说法，因为广告商希望知道整个赢的概率随着出价变化的整个分布，从而调整自己的安排。</p>
-<p>这样的预测工作会用到一些简单的模型。比如，有学者认为，赢的价格服从一个“<strong>对数正态分布</strong>”(Log-normal) 也就是说，广告商出的价格并且最终赢得竞拍的这些价格，在取了对数的情况下，服从一个正态分布。当然，这是一个假设。但是有了这么一个假设以后，我们就可以从数据中估计这个对数正态分布的参数，从而能够对整个“竞价全景观”进行估计。</p>
-<p>对于“竞价全景观”或者是赢的价格分布的估计有一个比较困难的地方，那就是，作为广告商来说，往往并不知道所有其他竞争对手的出价，以及在没有赢得竞拍的情况下，那些赢得竞拍的出价是多少。简而言之，也就是我们<strong>只观测到了一部分数据</strong>，那就是我们赢得这些广告位的出价。在这种只有一部分信息的情况下，所做的估计就会不准确。</p>
-<h1 id="广告竞价策略"><a href="#广告竞价策略" class="headerlink" title="广告竞价策略"></a>广告竞价策略</h1><h2 id="竞价策略"><a href="#竞价策略" class="headerlink" title="竞价策略"></a>竞价策略</h2><p>其实这个问题主要是在“<strong>实时竞价</strong>”，或简称<strong>RTB</strong>的背景下来探讨的。RTB是DSP目前流行的竞价模式，也就是广告商等利用计算机程序来自动对广告竞拍进行出价。从实际的运作中来看，这样的自动竞价模式要比人工竞价更加方便快捷，也更加高效。然而，在自动竞价的模式下，我们势必需要一种指导思想，来让我们的计算机程序能够随着形式的变化来进行出价。</p>
-<p>在RTB中，竞价策略的环境。竞价的一个重要特征，作为一个竞价方，并不知道其他竞标方的点击率和出价，因此<strong>处在一个信息不完整的竞价环境中</strong>。只能根据自己的点击率估计和自己的出价，以及过去出价的成功与否来对整个市场形势进行判断。这就是RTB竞价策略的一大挑战和难点。</p>
-<p>在这样的背景下， RTB竞价策略的研究和开发集中在以下两种思路上。</p>
-<p>一种思路是<strong>把整个竞价策略当做一种“博弈”</strong>(Game) ，从而根据博弈论中的方法来对竞价环境中各个竞标方的行为和收益进行研究。 用博弈论的方法来对竞价进行研究有一个最大的特点，那就是博弈论主要是对各个竞标方行为之间的<strong>关联性</strong>进行建模，这种关联性包括他们之间的<strong>收益</strong>和他们的<strong>动机</strong>。</p>
-<p>另外一种思路是<strong>把整个竟价策略当做是纯粹的统计决策</strong>,也就是直接对广告商的行为进行建模,而把整个竟价环境中的种种联系都当做是当前决策下的不确定因素。在这样的思路下,各个竞标方之间的行为关联变得不那么重要,而对于整个不确定性的建模则变得至关重要。</p>
-<p>第一种思路,也就是利用博弈论的方法来对竟价策略进行硏究主要存在于学术界。虽然从理论上来说,博弈论可能提供一种比较有说服力的解释,但是这种思路需要对整个竟价环境有非常多的假设(例如竞标方是不是理性,市场是不是充分竞争等等)。而<strong>第二种思路</strong>,仅仅需要从广告商自身的角度出发,因此在现实中,这种思路的操作性更强,从而<strong>受到工业界的青睐</strong>。</p>
-<p>总的来说,第二种思路其实就是根据当前的输入信息,例如页面信息、广告信息、用户信息以及上下文信息等,学到一个<strong>输出价格的函数</strong>,也就是说,这个函数的输出就是在现在情况下当前广告的出价。当然,这个函数势必需要考虑各种不确定的因素。</p>
-<h2 id="搜索广告和展示广告的竞价"><a href="#搜索广告和展示广告的竞价" class="headerlink" title="搜索广告和展示广告的竞价"></a>搜索广告和展示广告的竞价</h2><p>搜索广告和展示广告的竞标存在着不小的区别，因此，从技术上来讲，就发展出了一系列不同的方法。</p>
-<p>对于搜索广告来讲，在大多数情况下，每-一个出价都是针对某-个搜索关键词的。利用机器学习方法对搜索广告的出价进行建模的工作。在这个工作里，每一个关键词的出价来自于一一个线性函数的输出，而这个线性函数是把用户信息、关键词以及其他的页面信息当做特性，学习了一个<strong>从特性到出价的线性关系</strong>。这可以算是最早的利用线性函数来进行出价的例子了。</p>
-<p>展示广告的竞价则面临着不同的挑战。首先，在展示广告中，场景中并不存在搜索关键词这种概念。因此，很多广告商无法针对场景事先产生出价。这也就要求RTB的提供商要能够在不同的场景中帮助广告商进行出价。</p>
-<p>同时，相比于搜索广告针对<strong>每一个关键词</strong>的出价方式来说，针对<strong>每一个页面显示机会</strong>出价的挑战则更大。理论上讲，每一个页面显示机会的价格都可能有很大的不同。很多RTB都利用一种叫作<strong>CPM的收费模式</strong>，也就是说，一旦某一个广告位被赢得之后，对于广告商来说，这往往就意味着需要被收取费用。所以，在展示广告的情况下，如何针对当前的页面显示机会以及目前的预<br>算剩余等等因素进行统一建模，就成为一个必不可少的步骤。</p>
-<h2 id="竞价策略的其他问题"><a href="#竞价策略的其他问题" class="headerlink" title="竞价策略的其他问题"></a>竞价策略的其他问题</h2><p>因此，在广告竞价策略中，还存在着一个叫“<strong>预算步调</strong>”(Budget Pacing)的技术，也就是希望能够让广告的展示相对平缓而不至于在短时间内使用完全部的预算。这势必对于广告如何出价有着直接的影响。</p>
-<p>另外，对于平台而言，虽然竞价保证了一定的竞争，但是也并不是所有的展示机会都有非常充分的竞争。因此，从平台的角度来说，如何能够保证一定的收益就变得十分重要。在这样的情况下，有的平台有一种叫作“<strong>保留价格</strong>”(Reserved Price)的做法，用来设置一个 最低的竞价价格。保留价格虽然能够来保证收益，但是也可能会让广告商觉得不划算，因此如何来设置这个保留价格，也就成为了出价策略中的一个重要组成部分。</p>
-
-          
-        
-      
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
     </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2019/03/29/RS矩阵分解  概述/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZDK"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZDK's blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+    <div class="bottom">
+        <p><span>ZDK &copy; 2017 - 2019</span>
+            <span>
                 
-                
-                <a href="/2019/03/29/RS矩阵分解  概述/" class="post-title-link" itemprop="url">RS矩阵分解  概述</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-03-29 21:36:47" itemprop="dateCreated datePublished" datetime="2019-03-29T21:36:47+08:00">2019-03-29</time>
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
             </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-04-01 16:35:52" itemprop="dateModified" datetime="2019-04-01T16:35:52+08:00">2019-04-01</time>
-              </span>
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/知识总结/" itemprop="url" rel="index"><span itemprop="name">知识总结</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/03/29/RS矩阵分解  概述/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/03/29/RS矩阵分解  概述/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2019/03/29/RS矩阵分解  概述/" class="post-meta-item leancloud_visitors" data-flag-title="RS矩阵分解  概述">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="RS矩阵分解-概述"><a href="#RS矩阵分解-概述" class="headerlink" title="RS矩阵分解  概述"></a>RS矩阵分解  概述</h1><p>源自于评分预测问题。评分预测问题很典型但是并不大众，与之相对的另一类问题行为预测，才是平民级推荐问题，处处可见。</p>
-<h1 id="为什么要矩阵分解"><a href="#为什么要矩阵分解" class="headerlink" title="为什么要矩阵分解"></a>为什么要矩阵分解</h1><p>矩阵分解确实可以解决一些近邻模型无法解决的问题。</p>
-<p>近邻模型存在的问题：</p>
-<ol>
-<li>物品建存在相关性，信息量并不随着向量维度增加而线性增加。</li>
-<li>矩阵元素稀疏，计算结果不稳定，增减一个向量维度，导致近邻结果差异很大的情况存在。</li>
-</ol>
-<p>上述两个问题，在矩阵分解中可以得到解决。矩阵分解，直观上说来简单，就是把原来的大矩阵，近似分解成两个小矩阵的乘积，在实际推荐计算时不再使用大矩阵，而是使用分解得到的两个小矩阵。</p>
-<p>具体说来就是，假设用户物品的评分矩阵A是m乘以n维，即共有m个用户，n个物品。我们选一个很小的数k，这个k比m和n都小很多，比如小两个数量级这样，通过一套算法得到两个矩阵U和V,矩阵U的维度是m乘以k,代表用户偏好的用户隐因子向量。矩阵V的维度是n乘以k，代表物品语义主题的隐因子向量。</p>
-<p>矩阵UV需要能够通过公式复原矩阵A：<br><img src="/img/media/RS%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3%20%20%E6%A6%82%E8%BF%B0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-29%20%E4%B8%8B%E5%8D%882.02.13.png" alt=""><br>得到的这两个矩阵有这么几个特点:<br>1.每个用户对应一个k维向量，每个物品也对应一个k维向量，就是所谓的隐因子向量，因为是无中生有变出来的，所以叫做“隐因子”;<br>2.两个矩阵相乘后，就得到了任何一个用户对任何一个物品的预测评分，具体这个评分靠不靠谱，那就是看功夫了。就需要定义损失函数去优化。</p>
-<p>所以说矩阵分解，所做的事就是矩阵填充。</p>
-<h1 id="基础的SVD算法"><a href="#基础的SVD算法" class="headerlink" title="基础的SVD算法"></a>基础的SVD算法</h1><p>SVD全称奇异值分解，属于线性代数的知识，在推荐算法中实际使用的并不是正统的奇异值分解，而是一个伪奇异值分解。传统SVD在实际应用场景中面临着稀疏性问题和效率问题。所以，提出了一个新的方法Funk-SVD算法，其主要思路是将原始评分矩阵M（m*n）分解成两个矩阵P（m*k）和Q(k*n),同时仅考察原始评分矩阵中有评分的项分解结果是否准确，而判别标准是均方差。这种方法被称为隐语义模型（Latent factor）<br><img src="/img/add/28.png" alt=""></p>
-<p>用户评分矩阵通常是稀疏的，如果只有少数项有值，极易造成过拟合，此时就要通过矩阵分解将矩阵分解为稠密的矩阵。矩阵分解，就是把用户和物品都映射到一个k维空间中，这个k维空间不是我们能直接看到的，也不一定具有非常好的可解释性，每一个维度也没有名字，所以常常叫做<strong>隐因子</strong>，代表藏在直观的矩阵数据下。</p>
-<p>每一个物品都获得一个向量q，每一个用户也得到一个向量p。</p>
-<p>对于物品，与它对应的向量q中的元素有正有负，代表这个物品背后隐藏的一些用户关注的因素。</p>
-<p>对于用户，与它对应的向量p的元素，也有正有负，代表这个用户在若干因素上的偏好。物品被关注的因素，和用户偏好的因素，它们的数量和意义是一致的，就是矩阵分解之初人为指定的k。</p>
-<p>例如，用户u的向量是pu，物品i的向量是qi，要计算物品i推荐给用户u的推荐分数，直接计算点积即可：<br><img src="/img/media/RS%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3%20%20%E6%A6%82%E8%BF%B0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-29%20%E4%B8%8B%E5%8D%882.16.24.png" alt=""></p>
-<p>难点在于，如何得到每一个用户，每一个物品的k维向量。这是一个机器学习问题。两个要素，损失函数和优化算法。</p>
-<p>SVD的损失函数定义如下：<br><img src="/img/media/RS%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3%20%20%E6%A6%82%E8%BF%B0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-29%20%E4%B8%8B%E5%8D%882.22.50.png" alt=""><br>加号前一部分控制着模型的偏差，加号后一部分控制着模型的方差。<br>前一部分就是用分解后的矩阵预测分数，要和实际的用户评分之间误差越小越好。后一部分就是，得到的隐因子向量要越简单越好，以控制这个模型的方差，也就是让它在真正执行推荐任务时要发挥稳定，以免产生“过拟合”。</p>
-<p>整个SVD的学习过程就是：</p>
-<ol>
-<li>准备好用户物品的评分矩阵，每一条评分数据看做一条训练样本。</li>
-<li>给分解后的U矩阵和V矩阵随机初始化元素值。</li>
-<li>用U和V计算预测后的分数。</li>
-<li>计算预测的分数和实际的分数误差。</li>
-<li>按照梯度下降的方向更新U和V中的元素值。</li>
-<li>重复步骤3到5，直到到达停止条件。</li>
-</ol>
-<p><img src="/img/add/29.png" alt=""><br>得到分解后的矩阵之后，实质上就是得到了每个用户和每个物品的隐因子向量，拿着这个向量再做推荐计算就简单了。</p>
-<h1 id="增加偏置信息"><a href="#增加偏置信息" class="headerlink" title="增加偏置信息"></a>增加偏置信息</h1><p>实际情况下，一些用户会给出偏高的分数，比如标准宽松的用户，有些物品也会受到偏高的评分，比如一些目标观众为铁粉的电影，甚至有可能整个平台的全局评分就偏高。</p>
-<p>原装的SVD就有了第一个变种:把偏置信息抽出来的SVD。</p>
-<p>一个用户给一个物品的评分会由四部分相加:<br><img src="/img/media/RS%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3%20%20%E6%A6%82%E8%BF%B0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-29%20%E4%B8%8B%E5%8D%883.34.44.png" alt=""><br>从左至右分别代表:全局平均分、物品的评分偏置、用户评分的偏置、用户和物品之间的兴趣偏好。</p>
-<p>针对前面三项偏置分数，我在这里举个例子，假如一个电影评分网站全局平均分是3分,《肖申克的救赎》的平均分比全局平均分要高1分。</p>
-<p>你是一个对电影非常严格的人，你一般打分比平均分都要低0.5,所以前三项从左到右分别就是3, 1, -0.5。 如果简单的就靠这三项，也可以给计算出一个你会给《肖申克的救赎》打的分数，就是3.5。</p>
-<p>增加了偏置信息的SVD模型目标函数稍有改变:<br><img src="/img/media/RS%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3%20%20%E6%A6%82%E8%BF%B0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-29%20%E4%B8%8B%E5%8D%883.37.24.png" alt=""><br>和基本的SVD相比，要想学习两个参数:用户偏置和物品偏置。学习的算法还是一样的。</p>
-<h1 id="增加历史行为"><a href="#增加历史行为" class="headerlink" title="增加历史行为"></a>增加历史行为</h1><p>相比沉默的大多数，主动点评电影或者美食的用户是少数。也就是显示反馈比隐式反馈少，但是可以利用隐式反馈来弥补这一点，对于用户的个人属性，比如性别，也可以加入到模型中来弥补冷启动的不足。</p>
-<p>在SVD中结合用户的隐式反馈行为和属性，这套模型叫做SVD++。</p>
-<p>加入隐式反馈的方法是除了假设评分矩阵中的物品有一个隐因子向量外，用户有过行为的物品集合也都有一个隐因子向量，维度是一样的。把用户操作过的物品隐因子向量加起来，用来表达用户的兴趣偏好。</p>
-<p>综合两者，SVD++的目标函数中，只需要把推荐分数预测部分稍作修改，原来的用户向量部分增加了隐式反馈向量和用户属性向量。<br><img src="/img/media/RS%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3%20%20%E6%A6%82%E8%BF%B0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-29%20%E4%B8%8B%E5%8D%884.36.29.png" alt=""><br>学习算法依然不变，只是要学习的参数多了两个向量: x和y。其中N(U)表示为用户U提供了隐式反馈的物品的集合。xi所在的项是隐式反馈的物品向量，ya所在的项是用户属性的向量。这样一来，在用户没有评分时，也可以用他的隐式反馈和属性做出一定的预测。</p>
-<h1 id="考虑时间因素"><a href="#考虑时间因素" class="headerlink" title="考虑时间因素"></a>考虑时间因素</h1><p>人是善变的，今天的我们和十年前的我们很可能不一样了，在SVD中考虑时间因素也变得顺理成章。</p>
-<p>在SVD中考虑时间因素，有几种做法:<br>1.对评分按照时间加权，让久远的评分更趋近平均值;<br>2.对评分时间划分区间，不同的时间区间内分别学习出隐因子向量，使用时按照区间使用对应的隐因子向量来计算;<br>3.对特殊的期间，如节日、周末等训练对应的隐因子向量。</p>
-<h1 id="交替最小二乘原理（ALS）"><a href="#交替最小二乘原理（ALS）" class="headerlink" title="交替最小二乘原理（ALS）"></a>交替最小二乘原理（ALS）</h1><p><img src="/img/media/RS%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3%20%20%E6%A6%82%E8%BF%B0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-29%20%E4%B8%8B%E5%8D%885.39.58.png" alt=""><br>有了目标函数，就要用到优化算法找到使它最小的参数，优化算法常用的有两个，一个是<strong>随机梯度下降（SGD）</strong>，是针对qi或者pu整条向量进行更新而不是单个元素。<br>损失函数求偏导：<br><img src="/img/add/30.png" alt=""></p>
-<p>根据随机梯度下降法得到的递推公式:<br><img src="/img/add/31.png" alt=""><br>另一个是<strong>交替最小二乘(ALS)</strong>。</p>
-<p>在实际应用中，交替最小二乘更常用一些，这也是社交巨头Facebook在他们的推荐系统中选择的主要矩阵分解方法。</p>
-<p>交替最小二乘的核心是交替,任务是找到两个矩阵P和Q,让它们相乘后约等于原矩阵R：<br><img src="/img/media/RS%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3%20%20%E6%A6%82%E8%BF%B0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-29%20%E4%B8%8B%E5%8D%887.56.11.png" alt=""><br>如果知道其中一个，那另一Q也就已知了，交替最小二乘法通过迭代解决了这个鸡生蛋蛋生鸡的问题。<br>1.初始化随机矩阵Q里面的元素值;<br>2.把Q矩阵当做已知的，直接用线性代数的方法求得矩阵P;<br>3.得到了矩阵P后，把P当做已知的，故技重施，回去求解矩阵Q;<br>4.上面两个过程交替进行，直到目标函数可以接受为止。</p>
-<p>交替最小二乘的好处:<br>1.在交替的其中一步，也就是假设已知其中一个矩阵求解另一个时，要优化的参数是很容易并行化的;<br>2.在不那么稀疏的数据集合上，交替最小二乘通常比随机梯度下降要更快地得到结果。</p>
-<h1 id="隐式反馈"><a href="#隐式反馈" class="headerlink" title="隐式反馈"></a>隐式反馈</h1><p>矩阵分解算法，是为解决评分预测问题而生的，然而事实上却是，用户首先必须先去浏览商品，然后是购买，最后才可能打分。相比“预测用户会打多少分”，“预测用户会不会去浏览”更加有意义，而且，用户浏览数据远远多于打分评价数据。也就是说，实际上推荐系统关注的是预测行为，行为也就是一再强调的隐式反馈。</p>
-<p>最方便的数据时高质量的显式反馈，其中包括用户对产品感兴趣的显式输入。通常，显式反馈包含一个稀疏矩阵，因为任何一个用户可能只对可能的项目进行了一小部分的评分。隐式反馈通常指示一个事件存在或不存在，因此它通常由一个密集的矩阵表示。</p>
-<p>如果把预测用户行为看成一个二分类问题， 猜用户会不会做某件事，但实际上收集到的数据只有明确的一类:用户干了某件事，而用户明确“不干”某件事的数据却没有明确表达。所以这就是One-Class的由来，One-Class数据也是隐式反馈的通常特点。</p>
-<p>对隐式反馈的矩阵分解，需要将交替最小二乘做一些改进，改进后的算法叫做<strong>加权交替最小二乘</strong>: <strong>Weighted-ALS</strong>。</p>
-<p>用户对物品的反馈，通常是多次的，行为的次数是对行为的置信度反应，也就是所谓的加权。</p>
-<p>加权交替最小二乘法对待隐式反馈：<br>1.如果用户对物品无隐式反馈则认为评分是0;<br>2.如果用户对物品有至少一次隐式反馈则认为评分是1,次数作为该评分的置信度。</p>
-<p>现在的目标函数变为：<br><img src="/img/media/RS%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3%20%20%E6%A6%82%E8%BF%B0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-29%20%E4%B8%8B%E5%8D%888.30.19.png" alt=""><br>多出来的Cui就是置信度，在计算误差时考虑反馈次数,次数越多，就越可信。置信度一般也不是直接等于反馈次数，根据一些经验，置信度Cui这样计算:<br><img src="/img/media/RS%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3%20%20%E6%A6%82%E8%BF%B0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-29%20%E4%B8%8B%E5%8D%888.43.16.png" alt=""><br>其中阿尔法是一个超参数，需要调教，默认值取40可以得到差不多的效果，C就是次数了。</p>
-<p>此时那些没有反馈的缺失值，就是在我们的设定下，取值为0的评分就非常多，有两个原因导致在实际使用时要注意这个问题:<br>1.本身隐式反馈就只有正类别是确定的，负类别是我们假设的。<br>2.这会导致正负类别样本非常不平衡，严重倾斜到0评分这边。</p>
-<p>应对这个问题的做法就是负样本采样：挑一部分缺失值作为负类别样本即可。有两种挑的方法。<br>1.随机均匀采样和正类别一样多。<br>2.按照物品的热门程度采样。</p>
-<p>在实践中，第一种不是很靠谱，第二种经受住了检验，其思想是一个越热门的物品，用户越可能知道它的存在。那这种情况下，用户还没对它有反馈就表明:这很可能就是真正的负样本。</p>
-<h1 id="推荐计算"><a href="#推荐计算" class="headerlink" title="推荐计算"></a>推荐计算</h1><p>在得到了分解后的矩阵后，相当于每个用户得到了隐因子向量，这是一个稠密向量，用于代表他的兴趣。同时每个物品也得到了-个稠密向量，代表它的语义或主题。而且可以认为这两者是一一对应的，用户的兴趣就是表现在物品的语义维度上的。</p>
-<p>看上去，让用户和物品的隐因子向量两两相乘,计算点积就可以得到所有的推荐结果了。但是实际上复杂度还是很高，尤其对于用户数量和物品数量都巨大的应用，如Facebook,就更不现实。于是Facebook提出了两个办法得到真正的推荐结果。</p>
-<p><strong>第一种</strong>， 利用一些专门设计的数据结构存储所有物品的隐因子向量，从而实现通过一个用户向量可以返回最相似的K个物品。Facebook给出了自己的开源实现Faiss,类似的开源实现还有Annoy, KGraph, NMSL IB。其中Facebook开源的Faiss 和NMSLIB (Non-Metric Space Library)都用到了ball tree来存储物品向量。</p>
-<p>如果需要动态增加新的物品向量到索引中，推荐使用Faiss,如果不是，推荐使用NMSLIB或者KGraph。用户向量则可以存在内存数据中，这样可以在用户访问时，实时产生推荐结果。</p>
-<p><strong>第二种</strong>，就是拿着物品的隐因子向量先做聚类，海量的物品会减少为少量的聚类。然后再逐一计算用户和每个聚类中心的推荐分数，给用户推荐物品就变成了给用户推荐物品聚类。</p>
-<p>得到给用户推荐的聚类后，再从每个聚类中挑选少许几个物品作为最终推荐结果。这样做的好处除了大大减小推荐计算量之外，还可以控制推荐结果的多样性，因为可以控制在每个类别中选择的物品数量。</p>
-<h1 id="矩阵分解的优缺点"><a href="#矩阵分解的优缺点" class="headerlink" title="矩阵分解的优缺点"></a>矩阵分解的优缺点</h1><p>矩阵分解有如下的优点：</p>
-<ol>
-<li>能将高维的矩阵映射成两个低维矩阵的乘积，很好地解决了数据稀疏的问题；</li>
-<li>具体实现和求解都很简洁，预测的精度也比较好；</li>
-<li>模型的可扩展性也非常优秀，其基本思想也能广泛运用于各种场景中。</li>
-</ol>
-<p>矩阵分解的缺点有：</p>
-<ol>
-<li>可解释性很差，其隐空间中的维度无法与现实中的概念对应起来；</li>
-<li>训练速度慢，很难实现实时推荐，不过可以通过离线训练来弥补这个缺点；</li>
-<li>实际推荐场景中往往只关心topn结果的准确性，此时考察全局的均方差显然是不准确的。</li>
-</ol>
-<p>矩阵分解作为推荐系统中的经典模型，已经经过了十几年的发展，时至今日依然被广泛应用于推荐系统当中，其基本思想更是在各式各样的模型中发挥出重要作用。但是对于推荐系统来说，仅仅有一个好的模型是远远不够的。影响推荐系统效果的因素非常之多。想要打造一个一流的推荐系统，除了一个强大的算法模型之外，更需要想方设法结合起具体业务，不断进行各种尝试、升级，方能取得最终的胜利。</p>
-
-          
-        
-      
+        </p>
     </div>
+    <span id="busuanzi_container_site_uv">
+        本站访客数<span id="busuanzi_value_site_uv"></span>人次
+      </span>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+</footer>
 
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2019/03/27/熵/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZDK"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZDK's blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/27/熵/" class="post-title-link" itemprop="url">熵</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-03-27 19:46:47 / 修改时间：19:47:42" itemprop="dateCreated datePublished" datetime="2019-03-27T19:46:47+08:00">2019-03-27</time>
-            </span>
-          
-
-          
-            
-
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/知识总结/" itemprop="url" rel="index"><span itemprop="name">知识总结</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/03/27/熵/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/03/27/熵/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2019/03/27/熵/" class="post-meta-item leancloud_visitors" data-flag-title="熵">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="熵"><a href="#熵" class="headerlink" title="熵"></a>熵</h1><p><a href="https://www.jianshu.com/p/09b70253c840" target="_blank" rel="noopener">https://www.jianshu.com/p/09b70253c840</a><br><a href="https://baijiahao.baidu.com/s?id=1618702220267847958&amp;wfr=spider&amp;for=pc" target="_blank" rel="noopener">完美解释交叉熵</a></p>
-<h1 id="随机变量"><a href="#随机变量" class="headerlink" title="随机变量"></a>随机变量</h1><p>包含不确定性的变量称为随机变量，统计学就是研究这类不确定性变量的工具。刻画随机变量最有力的一个工具就是它的概率分布。有了概率分布，我们可以说对一个随机变量有了完全的掌握，因为我们可以知道它可能取哪些值，某个值的概率是多少。</p>
-<h1 id="什么是熵"><a href="#什么是熵" class="headerlink" title="什么是熵"></a>什么是熵</h1><p>概率分布是对随机变量的刻画，不同的随机变量有着相同或不同的概率分布，熵，就是对不同概率分布的刻画！本质上，是为了描述不确定的程度，并以此对不同的概率分布进行比较。</p>
-<p>如果我们知道一枚硬币抛出后正面朝上概率为0.8，要比知道概率为0.5，更容易猜对硬币抛出后哪面朝上。即0.8的概率分布比0.5的概率分布对我们来说，具有更大的信息量。</p>
-<p>需要的是一个定量的指标，来衡量概率分布的不确定性。这个指标就是熵。</p>
-<h1 id="熵的数学表达"><a href="#熵的数学表达" class="headerlink" title="熵的数学表达"></a>熵的数学表达</h1><p>以抛硬币为例，我们看正面这个取值。可以看到，取正面的概率越大，则不确定性就越小。即概率越大，不确定性越小。能够表达出概率越大，不确定性越小的表达式就是：<br>-logP，图像如下：<br><img src="/img/media/%E7%86%B5/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-26%20%E4%B8%8B%E5%8D%889.14.29.png" alt=""><br>图中的纵轴为-logP，横轴为P。</p>
-<p>-logP只是衡量了某个概率的不确定性，对于抛硬币，是正面的不确定性小了，那是反面的不确定性就大了。所以衡量一个概率的分布的不确定性，就要综合衡量所有概率表达的不确定性，也就是求一个概率分部综合的不确定性。<strong>熵</strong>的表达式即为：<strong>-∑PlogP</strong></p>
-<p>这个指标可以理解成概率分布的不确定性的期望值。这个值越大，表示该概率分布不确定性越大。它为我们人类提供的“信息”就越小，我们越难利用这个概率分布做出一个正确的判断。从这个角度，我们可以看到，熵是对概率分布信息含量的衡量，这与它是不确定性的衡量，其实是两种解读方式而已。</p>
-<h1 id="从另一个角度理解熵"><a href="#从另一个角度理解熵" class="headerlink" title="从另一个角度理解熵"></a>从另一个角度理解熵</h1><p><img src="/img/media/%E7%86%B5/u=2536703424,2008652302&amp;fm=173&amp;app=49&amp;f=JPEG.jpg" alt=""><br>上图例中，每种颜色的概率都是1/4。此时的最优策略。</p>
-<p><img src="/img/media/%E7%86%B5/u=766989654,2959505221&amp;fm=173&amp;app=49&amp;f=JPEG.jpg" alt=""><br>上图为1/8绿色, 1/8 橘色, 1/4 红色, 1/2 蓝色时的最优策略。</p>
-<p>对于同一问题，目标是问最少次数的问题，就能得到正确的答案。在这个问题中, 问题个数的期望是<br><img src="/img/media/%E7%86%B5/u=1914240327,2567469862&amp;fm=173&amp;app=49&amp;f=JPEG.jpg" alt=""><br>即为<strong>熵</strong>。<br>第一幅图的熵为 1/4(机率) <em> 2道题目 </em> 4颗球 = 2，平均需要问两道题目才能找出不同颜色的球，也就是说期望值为2，就是熵。<br>第二幅图为1/2×1+1/4×2+1/8×3+1/8×3=1.75。<br>极端情况下全是一种颜色，就不用问问题，熵为0。</p>
-<p>熵的意义就是在<strong>最优化</strong>策略下, <strong>猜到颜色所需要的问题的个数</strong>。也就是一种情况下，只对应一个熵。在不同的情况中，熵越大，需要问的东西越多，说明其不确定性大，熵越小，<strong>需要判断的次数就越少</strong>。</p>
-<h1 id="伯努利分布的熵"><a href="#伯努利分布的熵" class="headerlink" title="伯努利分布的熵"></a>伯努利分布的熵</h1><p>抛硬币即为伯努利分布，它的熵为：H(p) = -plogp -(1-p)log(1-p)</p>
-<p>画出来即为下图：<br><img src="/img/media/%E7%86%B5/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-27%20%E4%B8%8A%E5%8D%889.09.49.png" alt=""><br><strong>当p=0.5时，熵最大</strong>，因为此时硬币朝上朝下完全是随机的，<strong>不确定性最大</strong>。在两侧当其中一面向上的概率为1时，则完全没有不确定性。所以熵就是0。<strong>熵越大，不确定性越大，熵越小，信息越多。</strong>所以熵越小越好，可以把熵看做是优化的目标。</p>
-<p>事实上方差可以用来描述变量变化程度，和熵有一致性，方差越大，不确定性就越大，熵就越大。<br><img src="/img/media/%E7%86%B5/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-27%20%E4%B8%8A%E5%8D%889.18.40.png" alt=""></p>
-<h1 id="联合熵"><a href="#联合熵" class="headerlink" title="联合熵"></a>联合熵</h1><p>联合熵与联合概率分布有关，对于随机变量X和Y，二者的联合概率分布为p(x,y),则这个联合概率分布的熵就叫做<strong>联合熵</strong>：<br><strong>H(x,y) = -Σp(x,y)log(p(x,y))</strong></p>
-<p>H(x,y)肯定是大于等于H(x)或H(y)的。仅当X没有不确定性时，比如永远是正面朝上，此时，在Y的基础上联合X，并没有引入新的不确定性，所以，H(x,y)=H(y)。</p>
-<h1 id="条件熵"><a href="#条件熵" class="headerlink" title="条件熵"></a>条件熵</h1><p>x,y的联合熵大于等于x和y单独的熵，对于y来说，引入的x增大了熵，那么，衡量x的引入增加了多大的熵呢，这就是<strong>条件熵</strong>。<br><strong>H(x|y) = H(x,y) - H(y)</strong></p>
-<p>注意H(x|y)叫做条件熵，它可不是条件概率p(x|y)的熵。因为p(x|y)不是一个概率分布。</p>
-<p>条件熵的计算，和条件概率还是有点关系的。<br>H(x|y) = - Σp(x,y)log(p(x|y))</p>
-<p><strong>条件熵是在Y上引入X后增加的不确定性</strong>，从感觉上，增加的不确定性无论如何不可能大于X本身自有的不确定性，也就是：<br><strong>H(x|y) &lt;= H(x)</strong>  仅当x，y相互独立时，等号才成立。</p>
-<h1 id="李航-信息增益"><a href="#李航-信息增益" class="headerlink" title="李航 信息增益"></a>李航 信息增益</h1><p>当熵和条件熵中的概率有数据统计（特别是极大似然估计）得到时，所对应的熵与条件熵分别称为<strong>经验熵</strong>和<strong>经验条件熵</strong>。此时如果有0概率，令0log0=0</p>
-<p><strong>信息增益</strong>表示得知<strong>特征X</strong>的信息而使得<strong>类Y</strong>的信息的不确定性减少的程度。</p>
-<p>特征A对训练数据集D的信息增益g(D,A)，定义为集合D的经验熵H(D)与特征A给定条件下D的经验条件熵H(D|A)之差，即<br><img src="/img/media/%E7%86%B5/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-27%20%E4%B8%8B%E5%8D%8812.29.58.png" alt=""><br>一般地，熵H(Y)与条件熵H(Y|X)之差称为<strong>互信息</strong>。决策树学习中的信息增益等价于训练数据集中<strong>类与特征的互信息</strong>。详见决策树个人总结。</p>
-<h1 id="相对熵（又叫互熵，KL散度）"><a href="#相对熵（又叫互熵，KL散度）" class="headerlink" title="相对熵（又叫互熵，KL散度）"></a>相对熵（又叫互熵，KL散度）</h1><p>相对熵和前面的几个概念联系不大。互熵D(q||p)实际上就是在衡量我们通过计算得出的真实分布的表达式q，究竟与由样本统计得来的分布p有多接近，在衡量多接近这个概念时，我们运用到了熵的形式。PQ完全相同，互熵就等于0了。<br><img src="/img/media/%E7%86%B5/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-27%20%E4%B8%8B%E5%8D%881.44.20.png" alt=""><br>其中P代表真实分布，Q代表模型分布。也可写为：<br><img src="/img/media/%E7%86%B5/9922720e0cf3d7ca31c6e0d3ff1fbe096b63a967.png" alt=""></p>
-<p><strong>KL散度大于等于0</strong>.</p>
-<p>其值等于<strong>真实分布</strong>与<strong>拟合分布</strong>的<strong>交叉熵</strong>与真实分布的<strong>信息熵</strong>之差。<br>此时是两个分布间的运算，与前面同个分布两个变量的运算不是一个概念。</p>
-<h1 id="交叉熵"><a href="#交叉熵" class="headerlink" title="交叉熵"></a>交叉熵</h1><p>P的熵是-Σp(x)log(p(x))，Q的熵是-ΣQ(x)log(Q(x))<br>交叉熵即为<strong>-ΣP(x)log(Q(x))</strong><br>交叉熵是不满足交换律的。<br>如果说对于第二个例子，仍然使用第一个例子中的策略，如下<br><img src="/img/media/%E7%86%B5/u=3840435294,1181281422&amp;fm=173&amp;app=49&amp;f=JPEG.jpg" alt=""><br>即认为小球分布是(1/4，1/4，1/4，1/4），这个分布就是非真实分布。平均来说, 需要的问题数是 1/8×2+1/8×2+1/4×2+1/2×2=2。 因此, 在例子二中使用例子一的策略是一个比较差的策略. 其中2是这个方案中的<strong>交叉熵</strong>。而最优方案的交叉熵是1.75。那样预测模型与真实最佳模型是一样的。</p>
-<p>即为给定一个策略（分布）, 交叉熵就是在该策略（分布）下猜中颜色所需要的问题的期望值。更普遍的说，<strong>交叉熵用来衡量在给定的真实分布下，使用非真实分布所指定的策略产生的熵。</strong></p>
-<h2 id="为什么使用交叉熵损失函数"><a href="#为什么使用交叉熵损失函数" class="headerlink" title="为什么使用交叉熵损失函数"></a>为什么使用交叉熵损失函数</h2><p>由于KL散度是衡量真实与模型分布的准则，后一项为常数值，KL值大于等于0，所以损失函数为交叉熵即可，使交叉熵越小越好。交叉熵的最小值即为真实分布的熵。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2019/03/24/统计学习方法  k近邻法/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZDK"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZDK's blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/24/统计学习方法  k近邻法/" class="post-title-link" itemprop="url">统计学习方法  k近邻法</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-03-24 19:16:47 / 修改时间：19:16:18" itemprop="dateCreated datePublished" datetime="2019-03-24T19:16:47+08:00">2019-03-24</time>
-            </span>
-          
-
-          
-            
-
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/读书笔记/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/03/24/统计学习方法  k近邻法/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/03/24/统计学习方法  k近邻法/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2019/03/24/统计学习方法  k近邻法/" class="post-meta-item leancloud_visitors" data-flag-title="统计学习方法  k近邻法">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="统计学习方法-k近邻法"><a href="#统计学习方法-k近邻法" class="headerlink" title="统计学习方法  k近邻法"></a>统计学习方法  k近邻法</h1><p>k近邻法(k-nearest neighbor, k-NN)是一种基本<strong>分类</strong>与<strong>回归</strong>方法，下面只讨论分类问题中的k近邻法，k近邻法的输入为实例的特征向量，对应于特征空间的点;输出为实例的类别，可以取多类. k近邻法假设给定一个训练数据集，其中的实例类别已定.分类时，对新的实例,根据其k个最近邻的训练实例的类别，通过多数表决等方式进行预测.因此，k近邻法不具有显式的学习过程，k近邻法实际上利用训练数据集对特征向量空间进行划分，并作为其分类的“模型”。<strong>k值的选择、距离度量及分类决策规则</strong>是k近邻法的三个基本要素. </p>
-<h1 id="k近邻算法"><a href="#k近邻算法" class="headerlink" title="k近邻算法"></a>k近邻算法</h1><p>k近邻算法简单、直观:给定一个训练数据集，对新的输入实例，在训练数据集中找到与该实例最邻近的k个实例，这k个实例的多数属于某个类，就把该输入实例分为这个类.</p>
-<p><strong>k近邻法没有显式的学习过程.</strong></p>
-<h1 id="k近邻模型"><a href="#k近邻模型" class="headerlink" title="k近邻模型"></a>k近邻模型</h1><h2 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h2><p>特征空间中，对每个训练实例点，距离该点比其他点更近的所有点组成一个区域，叫作单元(cell). 每个训练实例点拥有一个单元，所有训练实例点的单元构成对特征空间的一个划分.最近邻法将实例xi的类yi作为其单元中所有点的类标记(class label). 这样，每个单元的实例点的类别是确定的。<br><img src="/img/media/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%20%20k%E8%BF%91%E9%82%BB%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-24%20%E4%B8%8B%E5%8D%886.30.48.png" alt=""></p>
-<h2 id="距离度量"><a href="#距离度量" class="headerlink" title="距离度量"></a>距离度量</h2><p>欧式距离，曼哈顿距离等。</p>
-<h2 id="k值的选择"><a href="#k值的选择" class="headerlink" title="k值的选择"></a>k值的选择</h2><p>如果选择较小的k值，就相当于用较小的邻域中的训练实例进行预测，“学习”的近似误差(approximation error)会减小，只有与输入实例较近的(相似的)训练实例才会对预测结果起作用.但缺点是“学习”的估计误差(estimation error)会增大，预测结果会对近邻的实例点非常敏感.如果邻近的实例点恰巧是噪声,预测就会出错.换句话说，<strong>k值的减小就意味着整体模型变得复杂，容易发生过拟合.</strong></p>
-<p>如果选择较大的k值，就相当于用较大邻域中的训练实例进行预测.其优点是可以减少学习的估计误差.但缺点是学习的近似误差会增大.这时与输入实例较远的(不相似的)训练实例也会对预测起作用，使预测发生错误. <strong>k值的增大就意味着整体的模型变得简单.</strong></p>
-<p>在应用中，k值一般取一个比较小的数值.通常采用交叉验证法来选取最优的k值.</p>
-<h2 id="分类决策规则"><a href="#分类决策规则" class="headerlink" title="分类决策规则"></a>分类决策规则</h2><p>k近邻法中的分类决策规则往往是多数表决，即由输入实例的k个邻近的训练实例中的多数类决定输入实例的类.</p>
-<h1 id="k近邻法的实现：kd树"><a href="#k近邻法的实现：kd树" class="headerlink" title="k近邻法的实现：kd树"></a>k近邻法的实现：kd树</h1><p>实现k近邻法时,主要考虑的问题是如何对训练数据进行快速k近邻搜索.这点在特征空间的维数大及训练数据容量大时尤其必要.</p>
-<p>k近邻法最简单的实现方法是线性扫描(linear scan).这时要计算输入实例与每一个训练实例的距离.当训练集很大时，计算非常耗时,这种方法是不可行的.</p>
-<p>为了提高k近邻搜索的效率，可以考虑<strong>使用特殊的结构存储训练数据</strong>,以<strong>减少计算距离的次数</strong>.比如kd tree方法。</p>
-<h2 id="构造kd树"><a href="#构造kd树" class="headerlink" title="构造kd树"></a>构造kd树</h2><p>kd树是一种对k维空间中的实例点进行存储以便对其进行快速检索的<strong>树形数据结构</strong>. kd 树是<strong>二叉树</strong>，表示对k维空间的一个<strong>划分</strong>(patition). 构造kd树相当于不断地用垂直于坐标轴的超平面将k维空间切分,构成一系列的k维超矩形区域、kd树的每个结点对应于一个k维超矩形区域.</p>
-<p>通常,依次选择坐标轴对空间切分，选择训练实例点在选定坐标轴上的中位数(median)为切分点，这样得到的kd树是平衡的.注意，平衡的kd树搜索时的效率未必是最优的.<br><img src="/img/media/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%20%20k%E8%BF%91%E9%82%BB%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-24%20%E4%B8%8B%E5%8D%887.03.29.png" alt=""><br><img src="/img/media/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%20%20k%E8%BF%91%E9%82%BB%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-24%20%E4%B8%8B%E5%8D%887.03.48.png" alt=""><br><img src="/img/media/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%20%20k%E8%BF%91%E9%82%BB%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-24%20%E4%B8%8B%E5%8D%887.04.07.png" alt=""></p>
-<h2 id="搜索kd树"><a href="#搜索kd树" class="headerlink" title="搜索kd树"></a>搜索kd树</h2><p><img src="/img/media/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%20%20k%E8%BF%91%E9%82%BB%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-24%20%E4%B8%8B%E5%8D%887.05.52.png" alt=""><br>利用kd树可以省去对大部分数据点的搜索，从而减少搜索的计算量。以最近邻为例，给定一个目标点，搜索其最近邻.首先找到包含目标点的叶结点;然后从该叶结点出发,依次回退到父结点;不断查找与目标点最邻近的结点，当确定不可能存在更近的结点时终止.这样搜索就被限制在空间的局部区域上，效率大为提高.</p>
-<p>如果实例点是随机分布的, kd树搜索的平均计算复杂度是O(logN),这里N是训练实例数. kd树更适用于训练实例数远大于空间维数时的k近邻搜索.当空间维数接近训练实例数时，它的效率会迅速下降，几乎接近线性扫描.</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2019/03/22/莫凡 sklearn/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZDK"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZDK's blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/22/莫凡 sklearn/" class="post-title-link" itemprop="url">莫凡 sklearn</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-03-22 20:12:56 / 修改时间：20:12:54" itemprop="dateCreated datePublished" datetime="2019-03-22T20:12:56+08:00">2019-03-22</time>
-            </span>
-          
-
-          
-            
-
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/知识总结/" itemprop="url" rel="index"><span itemprop="name">知识总结</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/03/22/莫凡 sklearn/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/03/22/莫凡 sklearn/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2019/03/22/莫凡 sklearn/" class="post-meta-item leancloud_visitors" data-flag-title="莫凡 sklearn">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="莫凡-sklearn"><a href="#莫凡-sklearn" class="headerlink" title="莫凡 sklearn"></a>莫凡 sklearn</h1><p>Sklearn 包含了很多种机器学习的方式:</p>
-<p>Classification 分类<br>Regression 回归<br>Clustering 非监督分类<br>Dimensionality reduction 数据降维<br>Model Selection 模型选择<br>Preprocessing 数据预处理<br>我们总能够从这些方法中挑选出一个适合于自己问题的, 然后解决自己的问题.</p>
-<p>看图选方法<br>由图中，可以看到算法有四类，分类，回归，聚类，降维。<img src="/img/media/%E8%8E%AB%E5%87%A1%20sklearn/2_1_1.png" alt=""></p>
-<h1 id="交叉验证"><a href="#交叉验证" class="headerlink" title="交叉验证"></a>交叉验证</h1><h2 id="Model基础验证法"><a href="#Model基础验证法" class="headerlink" title="Model基础验证法"></a>Model基础验证法</h2><p><img src="/img/media/%E8%8E%AB%E5%87%A1%20sklearn/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-22%20%E4%B8%8B%E5%8D%885.05.50.png" alt=""></p>
-<h2 id="Model交叉验证法"><a href="#Model交叉验证法" class="headerlink" title="Model交叉验证法"></a>Model交叉验证法</h2><p><img src="/img/media/%E8%8E%AB%E5%87%A1%20sklearn/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-22%20%E4%B8%8B%E5%8D%885.08.19.png" alt=""><br>其中scoring还可以取neg_mean_squared_error,则返回的就是平均方差的数组。</p>
-<p>sklearn.learning_curve 中的 learning curve 可以很直观的看出我们的 model 学习的进度, 对比发现有没有 overfitting 的问题. 然后我们可以对我们的 model 进行调整, 克服 overfitting 的问题.<br><img src="/img/media/%E8%8E%AB%E5%87%A1%20sklearn/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-22%20%E4%B8%8B%E5%8D%885.20.33.png" alt=""></p>
-<p><img src="/img/media/%E8%8E%AB%E5%87%A1%20sklearn/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-22%20%E4%B8%8B%E5%8D%885.20.44.png" alt=""></p>
-<p>连续三节的交叉验证(cross validation)让我们知道在机器学习中验证是有多么的重要, 这一次的 sklearn 中我们用到了sklearn.learning_curve当中的另外一种, 叫做validation_curve,用这一种曲线我们就能更加直观看出改变模型中的参数的时候有没有过拟合(overfitting)的问题了. 这也是可以让我们更好的选择参数的方法.</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2019/03/22/译 Numpy Vs Pandas 表现比较/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZDK"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZDK's blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/22/译 Numpy Vs Pandas 表现比较/" class="post-title-link" itemprop="url">译 Numpy Vs Pandas 表现比较</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-03-22 10:50:56 / 修改时间：10:51:08" itemprop="dateCreated datePublished" datetime="2019-03-22T10:50:56+08:00">2019-03-22</time>
-            </span>
-          
-
-          
-            
-
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/知识总结/" itemprop="url" rel="index"><span itemprop="name">知识总结</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/03/22/译 Numpy Vs Pandas 表现比较/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/03/22/译 Numpy Vs Pandas 表现比较/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2019/03/22/译 Numpy Vs Pandas 表现比较/" class="post-meta-item leancloud_visitors" data-flag-title="译 Numpy Vs Pandas 表现比较">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="译-Numpy-Vs-Pandas-表现比较"><a href="#译-Numpy-Vs-Pandas-表现比较" class="headerlink" title="译 Numpy Vs Pandas 表现比较"></a>译 Numpy Vs Pandas 表现比较</h1><p>原文链接：<a href="http://gouthamanbalaraman.com/blog/numpy-vs-pandas-comparison.html" target="_blank" rel="noopener">http://gouthamanbalaraman.com/blog/numpy-vs-pandas-comparison.html</a></p>
-<ol>
-<li>Numpy比起Pandas消耗更少的内存</li>
-<li>对于5w行或更少的数据，Numpy的表现普遍要好。</li>
-<li>对于50w行或更多的数据，pandas的表现普遍要好。</li>
-<li>对于5w到50w行的数据，就要取决于使用哪种操作。</li>
-</ol>
-<p>对于15MM行的数据，pandas要使用内存1506m，Numpy要使用内存686m，pandas的内存要求是Numpy的两倍多。</p>
-<h1 id="对列进行操作"><a href="#对列进行操作" class="headerlink" title="对列进行操作"></a>对列进行操作</h1><p>聚合操作mean，Numpy与pandas速度的比较。分界点在于10w行。<br><img src="/img/media/%E8%AF%91%20Numpy%20Vs%20Pandas%20%E8%A1%A8%E7%8E%B0%E6%AF%94%E8%BE%83/download.png" alt=""></p>
-<p>对于向量化操作符log，10w行以下Numpy更快，对于10w行以上两者差不多，但是pandas占用的内存要更大。<br><img src="/img/media/%E8%AF%91%20Numpy%20Vs%20Pandas%20%E8%A1%A8%E7%8E%B0%E6%AF%94%E8%BE%83/download%202.png" alt=""></p>
-<p>对于去重函数，pandas使用unique，numpy使用species。<br><img src="/img/media/%E8%AF%91%20Numpy%20Vs%20Pandas%20%E8%A1%A8%E7%8E%B0%E6%AF%94%E8%BE%83/download%203.png" alt=""></p>
-<h1 id="对于有过滤条件的操作"><a href="#对于有过滤条件的操作" class="headerlink" title="对于有过滤条件的操作"></a>对于有过滤条件的操作</h1><p><img src="/img/media/%E8%AF%91%20Numpy%20Vs%20Pandas%20%E8%A1%A8%E7%8E%B0%E6%AF%94%E8%BE%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-22%20%E4%B8%8A%E5%8D%8810.17.54.png" alt=""><br><img src="/img/media/%E8%AF%91%20Numpy%20Vs%20Pandas%20%E8%A1%A8%E7%8E%B0%E6%AF%94%E8%BE%83/download%204.png" alt=""></p>
-<p><img src="/img/media/%E8%AF%91%20Numpy%20Vs%20Pandas%20%E8%A1%A8%E7%8E%B0%E6%AF%94%E8%BE%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-22%20%E4%B8%8A%E5%8D%8810.20.34.png" alt=""><br><img src="/img/media/%E8%AF%91%20Numpy%20Vs%20Pandas%20%E8%A1%A8%E7%8E%B0%E6%AF%94%E8%BE%83/download%205.png" alt=""></p>
-<h1 id="对于列的向量化操作"><a href="#对于列的向量化操作" class="headerlink" title="对于列的向量化操作"></a>对于列的向量化操作</h1><p><img src="/img/media/%E8%AF%91%20Numpy%20Vs%20Pandas%20%E8%A1%A8%E7%8E%B0%E6%AF%94%E8%BE%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-22%20%E4%B8%8A%E5%8D%8810.23.26.png" alt=""><br><img src="/img/media/%E8%AF%91%20Numpy%20Vs%20Pandas%20%E8%A1%A8%E7%8E%B0%E6%AF%94%E8%BE%83/download%206.png" alt=""></p>
-<p><img src="/img/media/%E8%AF%91%20Numpy%20Vs%20Pandas%20%E8%A1%A8%E7%8E%B0%E6%AF%94%E8%BE%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-22%20%E4%B8%8A%E5%8D%8810.24.00.png" alt=""><br><img src="/img/media/%E8%AF%91%20Numpy%20Vs%20Pandas%20%E8%A1%A8%E7%8E%B0%E6%AF%94%E8%BE%83/download%207.png" alt=""></p>
-<h1 id="留下一个疑问"><a href="#留下一个疑问" class="headerlink" title="留下一个疑问"></a>留下一个疑问</h1><p>pandas对于大量行的数据做了哪些优化，为什么性能得到了提升？</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2019/03/22/莫凡 使用Numpy的技巧/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZDK"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZDK's blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/22/莫凡 使用Numpy的技巧/" class="post-title-link" itemprop="url">莫凡 使用Numpy的技巧</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-03-22 09:30:12 / 修改时间：19:01:58" itemprop="dateCreated datePublished" datetime="2019-03-22T09:30:12+08:00">2019-03-22</time>
-            </span>
-          
-
-          
-            
-
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/知识总结/" itemprop="url" rel="index"><span itemprop="name">知识总结</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/03/22/莫凡 使用Numpy的技巧/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/03/22/莫凡 使用Numpy的技巧/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2019/03/22/莫凡 使用Numpy的技巧/" class="post-meta-item leancloud_visitors" data-flag-title="莫凡 使用Numpy的技巧">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="莫凡-使用Numpy的技巧"><a href="#莫凡-使用Numpy的技巧" class="headerlink" title="莫凡 使用Numpy的技巧"></a>莫凡 使用Numpy的技巧</h1><p>pandas要比Numpy慢，所以尽量避免使用Pandas。</p>
-<h1 id="为什么用Numpy？"><a href="#为什么用Numpy？" class="headerlink" title="为什么用Numpy？"></a>为什么用Numpy？</h1><p>Python 是慢的, 简单来说, 因为 Python 执行代码的时候会执行很多复杂的“check” 功能, 比如赋值<br><img src="/img/media/%E8%8E%AB%E5%87%A1%20%E4%BD%BF%E7%94%A8Numpy%E7%9A%84%E6%8A%80%E5%B7%A7/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-20%20%E4%B8%8B%E5%8D%889.42.23.png" alt=""><br>在计算机内部, b 首先要从一个整数 integer 转换成浮点数 float, 才能进行后面的 b/0.5, 因为得到的要是一个小数.提到 Numpy, 它就是一个 Python 的救星. 能把简单好用的 Python 和高性能的 C 语言合并在一起. 当你调用 Numpy 功能的时候, 他其实调用了很多 C 语言而不是纯 Python. 这就是为什么大家都爱用 Numpy 的原因.</p>
-<h1 id="创建Numpy-Array的结构"><a href="#创建Numpy-Array的结构" class="headerlink" title="创建Numpy Array的结构"></a>创建Numpy Array的结构</h1><p>其实 Numpy 就是 C 的逻辑, 创建存储容器 “Array” 的时候是寻找内存上的一连串区域来存放, 而 Python 存放的时候则是不连续的区域, 这使得 Python 在索引这个容器里的数据时不是那么有效率. Numpy 只需要再这块固定的连续区域前后走走就能不费吹灰之力拿到数据.<br><img src="/img/media/%E8%8E%AB%E5%87%A1%20%E4%BD%BF%E7%94%A8Numpy%E7%9A%84%E6%8A%80%E5%B7%A7/4-1-2.png" alt=""><br>在运用 Numpy 的时候, 我们通常不是用一个一维 Array 来存放数据, 而是用二维或者三维的块来存放<br><img src="/img/media/%E8%8E%AB%E5%87%A1%20%E4%BD%BF%E7%94%A8Numpy%E7%9A%84%E6%8A%80%E5%B7%A7/4-1-3.png" alt=""><br>因为 Numpy 快速的<strong>矩阵相乘</strong>运算, 能将乘法运算分配到计算机中的多个核, 让运算并行. 这种并行运算大大加速了运算速度.</p>
-<p>不管是1D，2D，3D 的 Array, 从根本上, 它都是一个 1D array。<br><img src="/img/media/%E8%8E%AB%E5%87%A1%20%E4%BD%BF%E7%94%A8Numpy%E7%9A%84%E6%8A%80%E5%B7%A7/4-1-4.png" alt=""><br>2D Array, 如果追溯到计算机内存里, 它其实是储存在一个连续空间上的. 而对于这个连续空间, 我们如果创建 Array 的方式不同, 在这个连续空间上的排列顺序也有不同. 这将影响之后所有的事情!</p>
-<p>在 Numpy 中, 创建 2D Array 的默认方式是 “C-type” 以 row 为主在内存中排列, 而如果是 “Fortran” 的方式创建的, 就是以 column 为主在内存中排列.<br><img src="/img/media/%E8%8E%AB%E5%87%A1%20%E4%BD%BF%E7%94%A8Numpy%E7%9A%84%E6%8A%80%E5%B7%A7/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-21%20%E4%B8%8B%E5%8D%886.52.43.png" alt=""></p>
-<h1 id="在-Axis-上的动作"><a href="#在-Axis-上的动作" class="headerlink" title="在 Axis 上的动作"></a>在 Axis 上的动作</h1><p>当你的计算中涉及合并矩阵, 不同形式的矩阵创建方式会有不同的时间效果. 因为在 Numpy 中的矩阵合并等, 都是发生在一维空间里 ! 不是二维空间中!</p>
-<p>从上面的那张图, 可以想到, row 为主的存储方式, 如果在 row 的方向上合并矩阵, 将会更快. 因为只要我们将思维放在 1D array 那, 直接再加一个 row 放在1D array 后面就好了。</p>
-<p>但是在以 column 为主的系统中, 往 1D array 后面加 row 的规则变复杂了, 消耗的时间也变长. 如果以 axis=1 的方式合并, “F” 方式将会比 “C” 方式更好.</p>
-<p>在数组的拼接中，对比<strong>np.stack</strong>和<strong>np.concatenate</strong>,通过测试发现，为了速度，尽量使用<strong>np.concatenate</strong>。</p>
-<h1 id="copy慢，view快"><a href="#copy慢，view快" class="headerlink" title="copy慢，view快"></a>copy慢，view快</h1><p>在 Numpy 中, 有两个很重要的概念, copy 和 view. copy 顾名思义, 会将数据 copy 出来存放在内存中另一个地方, 而 view 则是不 copy 数据, 直接取源数据的索引部分.<br><img src="/img/media/%E8%8E%AB%E5%87%A1%20%E4%BD%BF%E7%94%A8Numpy%E7%9A%84%E6%8A%80%E5%B7%A7/4-1-5.png" alt=""><br>简单说, a_view 的东西全部都是 a 的东西, 动 a_view 的任何地方, a 都会被动到, 因为他们在内存中的位置是一模一样的, 本质上就是自己. 而 a_copy 则是将 a copy 了一份, 然后把 a_copy 放在内存中的另外的地方, 这样改变 a_copy, a 是不会被改变的.</p>
-<p>因为 view 不会复制东西, 速度快。</p>
-<p>对于 view 还有一点要提,<strong>把一个矩阵展平</strong>, 用到 <strong>np.flatten()</strong> 或者<strong>np.ravel()</strong>. 他俩是不同的!ravel 返回的是一个 view (官方说如果用 ravel, 需要 copy 的时候才会被 copy , 我想这个时候可能是把 ravel 里面 order 转换的时候, 如 ‘C-type’ -&gt; ‘Fortran’), 而 flatten 返回的总是一个 copy. 相比于 flatten, <strong>ravel</strong> 是神速.</p>
-<h1 id="选择数据"><a href="#选择数据" class="headerlink" title="选择数据"></a>选择数据</h1><p>选择数据的时候, 我们常会用到 view 或者 copy 的形式. 我们知道了, 如果能用到 view 的, 我们就尽量用 view, 避免 copy 数据.下面举例的都是 view 的方式:<br><img src="/img/media/%E8%8E%AB%E5%87%A1%20%E4%BD%BF%E7%94%A8Numpy%E7%9A%84%E6%8A%80%E5%B7%A7/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-22%20%E4%B8%8A%E5%8D%889.10.18.png" alt=""><br>使用copy的方式：<br><img src="/img/media/%E8%8E%AB%E5%87%A1%20%E4%BD%BF%E7%94%A8Numpy%E7%9A%84%E6%8A%80%E5%B7%A7/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-22%20%E4%B8%8A%E5%8D%889.10.48.png" alt=""><br>对于fancy indexing的形式，我们也是可以对它加速。<br>1.使用<strong>np.take()</strong>, 替代用 index 选数据的方法.<br>像 a_copy1 = a[ [1,4,6] ,  [2,4,6] ], 用 take 在大部分情况中会比这样的 a_copy1 要快.<br><img src="/img/media/%E8%8E%AB%E5%87%A1%20%E4%BD%BF%E7%94%A8Numpy%E7%9A%84%E6%8A%80%E5%B7%A7/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-22%20%E4%B8%8A%E5%8D%889.15.16.png" alt=""><br>2 使用 np.compress(), 替代用 mask 选数据的方法.<br>a_copy2 = a[ [ True, True] ,  [ False, True]] 这种就是用 TRUE, FALSE 来选择数据的.<br><img src="/img/media/%E8%8E%AB%E5%87%A1%20%E4%BD%BF%E7%94%A8Numpy%E7%9A%84%E6%8A%80%E5%B7%A7/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-22%20%E4%B8%8A%E5%8D%889.17.11.png" alt=""></p>
-<h1 id="非常有用的out参数"><a href="#非常有用的out参数" class="headerlink" title="非常有用的out参数"></a>非常有用的out参数</h1><p>下面两个其实在功能上是没差的, 不过运算时间上有差, 我觉得可能是 a=a+1 要先转换成 np.add() 这种形式再运算, 所以前者要用更久一点的时间.<br><img src="/img/media/%E8%8E%AB%E5%87%A1%20%E4%BD%BF%E7%94%A8Numpy%E7%9A%84%E6%8A%80%E5%B7%A7/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-22%20%E4%B8%8A%E5%8D%889.19.23.png" alt=""><br>这两个被赋值的 a, 都是原来 a 的一个 copy, 并不是 a 的 view. 但是在功能里面有一个 out 参数, 让我们不必要重新创建一个 a. 所以下面两个是一样的功能, 都不会创建另一个 copy. 可能是上面提到的那个原因, 这里的运算时间也有差.<br><img src="/img/media/%E8%8E%AB%E5%87%A1%20%E4%BD%BF%E7%94%A8Numpy%E7%9A%84%E6%8A%80%E5%B7%A7/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-22%20%E4%B8%8A%E5%8D%889.22.03.png" alt=""><br>所以只要是已经存在了一个 placeholder (比如 a), 我们就没有必要去再创建一个, 用 out 方便又有效.</p>
-<h1 id="给数据一个名字"><a href="#给数据一个名字" class="headerlink" title="给数据一个名字"></a>给数据一个名字</h1><p>使用Numpy的structured array.</p>
-<p>pandas 为什么比 numpy 慢, 因为 pandas data 里面还有很多七七八八的数据, 记录着这个 data 的种种其他的特征. </p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
-
-
-
-          </div>
-          
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-
-      
-
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image"
-                src="/images/avatar.gif"
-                alt="ZDK"/>
-            
-              <p class="site-author-name" itemprop="name">ZDK</p>
-              <div class="site-description motion-element" itemprop="description"></div>
-          </div>
-
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives/">
-                
-                    <span class="site-state-item-count">191</span>
-                    <span class="site-state-item-name">日志</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-categories">
-                  
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">9</span>
-                    <span class="site-state-item-name">分类</span>
-                  
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-tags">
-                  
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">48</span>
-                    <span class="site-state-item-name">标签</span>
-                  
-                </div>
-              
-            </nav>
-          
-
-          
-            <div class="feed-link motion-element">
-              <a href="/atom.xml" rel="alternate">
-                <i class="fa fa-rss"></i>
-                RSS
-              </a>
-            </div>
-          
-
-          
-
-          
-            <div class="links-of-author motion-element">
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://github.com/zdkswd" title="GitHub &rarr; https://github.com/zdkswd"><i class="fa fa-fw fa-github"></i>GitHub</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="mailto:2822464407@qq.com" title="E-Mail &rarr; mailto:2822464407@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-                </span>
-              
-            </div>
-          
-
-          
-
-          
-          
-            <div class="links-of-blogroll motion-element links-of-blogroll-block">
-              <div class="links-of-blogroll-title">
-                <i class="fa  fa-fw fa-link"></i>
-                Links
-              </div>
-              <ul class="links-of-blogroll-list">
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://github.com/zdkswd" title="https://github.com/zdkswd">Title</a>
-                  </li>
-                
-              </ul>
-            </div>
-          
-
-          
-        </div>
-      </div>
-
-      
-
-      
-        <div class="back-to-top motion-element">
-          <i class="fa fa-arrow-up"></i>
-          
-        </div>
-      
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-        
-      </div>
     </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">ZDK</span>
 
-  
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
 
-  
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
 </div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
 
-
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.1</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.2.0</div>
-
-
-
-
-        
-
-
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
 
 
 
+<!-- mathjax config similar to math.stackexchange -->
 
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
 
-
-        
-      </div>
-    </footer>
-
-    
-
-    
-
-    
-  </div>
-
-  
-
-<script>
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
 </script>
 
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
 
 
 
 
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  <script src="/lib/jquery/index.js?v=3.4.1"></script>
-
-  
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-
-
-
-  <script src="/js/utils.js?v=7.2.0"></script>
-
-  <script src="/js/motion.js?v=7.2.0"></script>
-
-
-
-  
-  
-
-
-  <script src="/js/affix.js?v=7.2.0"></script>
-
-  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
-
-
-
-
-  
-
-  <script src="/js/next-boot.js?v=7.2.0"></script>
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
 
 <script>
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(function(item) {
-    return GUEST.indexOf(item) > -1;
-  });
-  new Valine({
-    el: '#comments',
-    verify: false,
-    notify: true,
-    appId: 'QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz',
-    appKey: 'gkBx5soQkBREmER84PWbNJeM',
-    placeholder: 'have fun',
-    avatar: 'mm',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: true,
-    lang: '' || 'zh-cn'
-  });
-</script>
-
-
-
-
-
-  
-  <script>
-    // Popup Window;
-    var isfetched = false;
-    var isXml = true;
-    // Search DB path;
-    var search_path = "";
-    if (search_path.length === 0) {
-      search_path = "search.xml";
-    } else if (/json$/i.test(search_path)) {
-      isXml = false;
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
-
-    var onPopupClose = function (e) {
-      $('.popup').hide();
-      $('#local-search-input').val('');
-      $('.search-result-list').remove();
-      $('#no-result').remove();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    }
-
-    function proceedsearch() {
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
-        .css('overflow', 'hidden');
-      $('.search-popup-overlay').click(onPopupClose);
-      $('.popup').toggle();
-      var $localSearchInput = $('#local-search-input');
-      $localSearchInput.attr("autocapitalize", "none");
-      $localSearchInput.attr("autocorrect", "off");
-      $localSearchInput.focus();
-    }
-
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-
-      // start loading animation
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
-          '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
-          '</div>' +
-          '</div>')
-        .css('overflow', 'hidden');
-      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
-
-      
-
-      $.ajax({
-        url: path,
-        dataType: isXml ? "xml" : "json",
-        async: true,
-        success: function(res) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = isXml ? $("entry", res).map(function() {
-            return {
-              title: $("title", this).text(),
-              content: $("content",this).text(),
-              url: $("url" , this).text()
-            };
-          }).get() : res;
-          var input = document.getElementById(search_id);
-          var resultContent = document.getElementById(content_id);
-          var inputEventFunction = function() {
-            var searchText = input.value.trim().toLowerCase();
-            var keywords = searchText.split(/[\s\-]+/);
-            if (keywords.length > 1) {
-              keywords.push(searchText);
-            }
-            var resultItems = [];
-            if (searchText.length > 0) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var hitCount = 0;
-                var searchTextCount = 0;
-                var title = data.title.trim();
-                var titleInLowerCase = title.toLowerCase();
-                var content = data.content.trim().replace(/<[^>]+>/g,"");
-                
-                var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
-                var indexOfTitle = [];
-                var indexOfContent = [];
-                // only match articles with not empty titles
-                if(title != '') {
-                  keywords.forEach(function(keyword) {
-                    function getIndexByWord(word, text, caseSensitive) {
-                      var wordLen = word.length;
-                      if (wordLen === 0) {
-                        return [];
-                      }
-                      var startPosition = 0, position = [], index = [];
-                      if (!caseSensitive) {
-                        text = text.toLowerCase();
-                        word = word.toLowerCase();
-                      }
-                      while ((position = text.indexOf(word, startPosition)) > -1) {
-                        index.push({position: position, word: word});
-                        startPosition = position + wordLen;
-                      }
-                      return index;
-                    }
-
-                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
-                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
-                  });
-                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
-                    isMatch = true;
-                    hitCount = indexOfTitle.length + indexOfContent.length;
-                  }
-                }
-
-                // show search results
-
-                if (isMatch) {
-                  // sort index by position of keyword
-
-                  [indexOfTitle, indexOfContent].forEach(function (index) {
-                    index.sort(function (itemLeft, itemRight) {
-                      if (itemRight.position !== itemLeft.position) {
-                        return itemRight.position - itemLeft.position;
-                      } else {
-                        return itemLeft.word.length - itemRight.word.length;
-                      }
-                    });
-                  });
-
-                  // merge hits into slices
-
-                  function mergeIntoSlice(text, start, end, index) {
-                    var item = index[index.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    var hits = [];
-                    var searchTextCountInSlice = 0;
-                    while (position + word.length <= end && index.length != 0) {
-                      if (word === searchText) {
-                        searchTextCountInSlice++;
-                      }
-                      hits.push({position: position, length: word.length});
-                      var wordEnd = position + word.length;
-
-                      // move to next position of hit
-
-                      index.pop();
-                      while (index.length != 0) {
-                        item = index[index.length - 1];
-                        position = item.position;
-                        word = item.word;
-                        if (wordEnd > position) {
-                          index.pop();
-                        } else {
-                          break;
-                        }
-                      }
-                    }
-                    searchTextCount += searchTextCountInSlice;
-                    return {
-                      hits: hits,
-                      start: start,
-                      end: end,
-                      searchTextCount: searchTextCountInSlice
-                    };
-                  }
-
-                  var slicesOfTitle = [];
-                  if (indexOfTitle.length != 0) {
-                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
-                  }
-
-                  var slicesOfContent = [];
-                  while (indexOfContent.length != 0) {
-                    var item = indexOfContent[indexOfContent.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    // cut out 100 characters
-                    var start = position - 20;
-                    var end = position + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if (end < position + word.length) {
-                      end = position + word.length;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
-                  }
-
-                  // sort slices in content by search text's count and hits' count
-
-                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
-                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
-                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
-                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
-                      return sliceRight.hits.length - sliceLeft.hits.length;
-                    } else {
-                      return sliceLeft.start - sliceRight.start;
-                    }
-                  });
-
-                  // select top N slices in content
-
-                  var upperBound = parseInt('5');
-                  if (upperBound >= 0) {
-                    slicesOfContent = slicesOfContent.slice(0, upperBound);
-                  }
-
-                  // highlight title and content
-
-                  function highlightKeyword(text, slice) {
-                    var result = '';
-                    var prevEnd = slice.start;
-                    slice.hits.forEach(function (hit) {
-                      result += text.substring(prevEnd, hit.position);
-                      var end = hit.position + hit.length;
-                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
-                      prevEnd = end;
-                    });
-                    result += text.substring(prevEnd, slice.end);
-                    return result;
-                  }
-
-                  var resultItem = '';
-
-                  if (slicesOfTitle.length != 0) {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
-                  } else {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
-                  }
-
-                  slicesOfContent.forEach(function (slice) {
-                    resultItem += "<a href='" + articleUrl + "'>" +
-                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
-                      "...</p>" + "</a>";
-                  });
-
-                  resultItem += "</li>";
-                  resultItems.push({
-                    item: resultItem,
-                    searchTextCount: searchTextCount,
-                    hitCount: hitCount,
-                    id: resultItems.length
-                  });
-                }
-              })
-            };
-            if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
-            } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
-            } else {
-              resultItems.sort(function (resultLeft, resultRight) {
-                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-                  return resultRight.searchTextCount - resultLeft.searchTextCount;
-                } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
-              });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'zdk'blog';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
         }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
     });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
-  </script>
+})();
+</script>
 
 
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-  
 
 </body>
 </html>

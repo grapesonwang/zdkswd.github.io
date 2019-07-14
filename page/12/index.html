@@ -1,2709 +1,618 @@
 <!DOCTYPE html>
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<html class="theme-next gemini use-motion" lang="zh-CN">
+<html>
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
-<meta name="theme-color" content="#222"/>
+    
+
+    
+
+    
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0"/>
-
-<link rel="stylesheet" href="/css/main.css?v=7.2.0"/>
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.2.0">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.2.0">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
-
-
-
-
-
-
-
-<script id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Gemini',
-    version: '7.2.0',
-    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
-    back2top: {"enable":true,"sidebar":true,"scrollpercent":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
-    fancybox: false,
-    fastclick: false,
-    lazyload: false,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    translation: {
-      copy_button: '复制',
-      copy_success: '复制成功',
-      copy_failure: '复制失败'
-    }
-  };
-</script>
-
-
-
-  <meta property="og:type" content="website">
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>ZDK&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta property="og:type" content="website">
 <meta property="og:title" content="ZDK&#39;s blog">
 <meta property="og:url" content="https://github.com/zdkswd/page/12/index.html">
 <meta property="og:site_name" content="ZDK&#39;s blog">
 <meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ZDK&#39;s blog">
+    
+        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
 
-
-
-  <link rel="alternate" href="/atom.xml" title="ZDK's blog" type="application/atom+xml"/>
-
-
-
-  
-  
-  <link rel="canonical" href="https://github.com/zdkswd/page/12/"/>
-
-
-
-<script id="page.configurations">
-  CONFIG.page = {
-    sidebar: "",
-  };
-</script>
-
-  <title>ZDK's blog</title>
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .motion-element,
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-title { opacity: initial; }
-
-  .use-motion .logo,
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
+    <!-- custom head -->
+    
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body>
+    <div id="loading" class="active"></div>
 
-  
-  
-    
-  
-
-  <div class="container sidebar-position-right 
-  page-home">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">ZDK's blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/tmg.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ZDK</h5>
+          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
+        </hgroup>
+      </div>
     </div>
-    
-    
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/zdkswd" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
   </div>
+</aside>
 
-  <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
-
-
-
-<nav class="site-nav">
-  
-    <ul id="menu" class="menu">
-      
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">ZDK&#39;s blog</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
         
         
-        
-          
-          <li class="menu-item menu-item-home">
+    </div>
+</header>
+<header class="content-header index-header">
 
-    
-    
-      
-    
-
-    
-
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>首页</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-tags">
-
-    
-    
-      
-    
-
-    
-
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>标签</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-categories">
-
-    
-    
-      
-    
-
-    
-
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>分类</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-archives">
-
-    
-    
-      
-    
-
-    
-
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>归档</a>
-
-  </li>
-
-      
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
+    <div class="container fade-scale">
+        <h1 class="title">ZDK&#39;s blog</h1>
+        <h5 class="subtitle">
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br/>搜索</a>
+                
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+<div class="container body-wrap">
+
+    <ul class="post-list">
+    
+        <li class="post-list-item fade">
+            <article id="post-网络爬虫"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-01-16 20:15:32" datetime="2019-01-16T12:15:32.000Z"  itemprop="datePublished">2019-01-16</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/01/16/网络爬虫/">网络爬虫 爬小说 爬图片 爬视频</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        网络爬虫参考https://cuijiahua.com/blog/2017/10/spider_tutorial_1.html网络爬虫的第一步就是根据URL，获取网页的HTML信息。在Python3中，可以使用urllib.request和requests进行网页爬取。
+
+urllib库是python内置的，无需我们额外安装，只要安装了Python就可以使用这个库。
+requests库是第三...
+    
+
+        <a href="/2019/01/16/网络爬虫/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/爬虫/">爬虫</a></li></ul>
+
+    </div>
+    
+</article>
+
         </li>
-      
+    
+        <li class="post-list-item fade">
+            <article id="post-SSH"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-01-16 20:09:56" datetime="2019-01-16T12:09:56.000Z"  itemprop="datePublished">2019-01-16</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/01/16/SSH/">SSH</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        SSH参考http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html
+什么是SSHSSH是一种网络协议，用于计算机之间的加密登录。
+如果一个用户从本地计算机，使用SSH协议登录另一台远程计算机，我们就可以认为，这种登录是安全的，即使被中途截获，密码也不会泄露。
+最早的时候，互联网通信都是明文通信，一旦被截获，内容就暴露无疑。199...
+    
+
+        <a href="/2019/01/16/SSH/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/计算机网络/">计算机网络</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-python requests库"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-01-14 12:03:56" datetime="2019-01-14T04:03:56.000Z"  itemprop="datePublished">2019-01-14</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/01/14/python requests库/">python requests库</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        requests库的使用（廖雪峰）要通过GET访问一个页面，只需要几行代码：对于带参数的URL，传入一个dict作为params参数：requests自动检测编码，可以使用encoding属性查看：无论响应是文本还是二进制内容，我们都可以用content属性获得bytes对象：requests的方便之处还在于，对于特定类型的响应，例如JSON，可以直接获取：需要传入HTTP Header时，...
+    
+
+        <a href="/2019/01/14/python requests库/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-安卓开发的MVC和MVP模式"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-01-08 20:04:56" datetime="2019-01-08T12:04:56.000Z"  itemprop="datePublished">2019-01-08</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/01/08/安卓开发的MVC和MVP模式/">安卓开发的MVC和MVP模式</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        MVC和MVP示意图
+MVP和MVC的区别
+Activity职责不同，Activity在MVP中是View层，在MVC中是Controller层，这是MVC和MVP很主要的一个区别，可以说Android从MVC转向MVP开发也主要是优化Activity的代码，避免Activity的代码臃肿庞大。
+View层不同，MVC的View层指的是XML布局文件或者是用Java自定义的View，MVP的...
+    
+
+        <a href="/2019/01/08/安卓开发的MVC和MVP模式/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-C++内存格局"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-01-05 14:48:56" datetime="2019-01-05T06:48:56.000Z"  itemprop="datePublished">2019-01-05</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/01/05/C++内存格局/">C++内存格局 汇编语言</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        C++内存格局C++程序的内存格局通常分为四个区：全局数据区(data area)，代码区(code area)，栈区(stack area)，堆区(heap area)(即自由存储区)。全局数据区存放全局变量，静态数据和常量；所有类成员函数和非成员函数代码存放在代码区；为运行函数而分配的局部变量、函数参数、返回数据、返回地址等存放在栈区；余下的空间都被称为堆区。根据这个解释，我们可以得知在...
+    
+
+        <a href="/2019/01/05/C++内存格局/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/汇编/">汇编</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-C++ Primer 对象和类"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-01-04 20:32:56" datetime="2019-01-04T12:32:56.000Z"  itemprop="datePublished">2019-01-04</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/教程/">教程</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/01/04/C++ Primer 对象和类/">C++ Primer 对象和类</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        C++ Primer 对象和类C++中的类类设计尽可能将公有接口与实现细节分开。公有接口表示设计的抽象组件。将实现细节放在一起并将它们与抽象分开被称为封装。数据隐藏(将数据放在类的私有部分中)是一种封装，将实现的细节隐藏在私有部分中，就像Stock类对set tot() 所做的那样，也是一种封装。封装的另一个例子是，将类函数定义和类声明放在不同的文件中。
+控制对成员的访问：公有还是私有无论类...
+    
+
+        <a href="/2019/01/04/C++ Primer 对象和类/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-计算机是怎么启动的"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-12-26 10:03:47" datetime="2018-12-26T02:03:47.000Z"  itemprop="datePublished">2018-12-26</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/12/26/计算机是怎么启动的/">计算机是怎么启动的</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        计算机是怎么启动的参考：http://www.ruanyifeng.com/blog/2013/02/booting.html
+计算机启动是一个很矛盾的过程：必须先运行程序，然后计算机才能启动，但是计算机不启动就无法运行程序！所以启动又称为boot，”pull oneself up by one’s bootstraps”。
+第一阶段 BIOS开机程序被刷入ROM（”只读内存”）芯片，计算机...
+    
+
+        <a href="/2018/12/26/计算机是怎么启动的/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/计算机科学/">计算机科学</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
     </ul>
-  
 
-  
-
-  
-    <div class="site-search">
-      
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
+    
+<nav id="page-nav">
+    <div class="inner">
+    <a class="extend prev" rel="prev" href="/page/11/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="extend next" rel="next" href="/page/13/">下一页</a>
     </div>
-  </div>
-  <div id="local-search-result"></div>
-</div>
-
-
-
-    </div>
-  
 </nav>
 
 
-
 </div>
-    </header>
 
-    
-
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-            
-
-          
-          <div id="content" class="content">
-            
-  <section id="posts" class="posts-expand">
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2019/01/16/网络爬虫/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZDK"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
     </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZDK's blog"/>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
     </span>
+</p>
 
-    
-      <header class="post-header">
 
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/01/16/网络爬虫/" class="post-title-link" itemprop="url">网络爬虫 爬小说 爬图片 爬视频</a>
-              
+        <p>
             
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-01-16 20:15:32" itemprop="dateCreated datePublished" datetime="2019-01-16T20:15:32+08:00">2019-01-16</time>
-            </span>
-          
-
-          
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-02-08 12:35:48" itemprop="dateModified" datetime="2019-02-08T12:35:48+08:00">2019-02-08</time>
-              </span>
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/知识总结/" itemprop="url" rel="index"><span itemprop="name">知识总结</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/01/16/网络爬虫/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/01/16/网络爬虫/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2019/01/16/网络爬虫/" class="post-meta-item leancloud_visitors" data-flag-title="网络爬虫 爬小说 爬图片 爬视频">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="网络爬虫"><a href="#网络爬虫" class="headerlink" title="网络爬虫"></a>网络爬虫</h1><p>参考<a href="https://cuijiahua.com/blog/2017/10/spider_tutorial_1.html" target="_blank" rel="noopener">https://cuijiahua.com/blog/2017/10/spider_tutorial_1.html</a><br>网络爬虫的第一步就是根据URL，获取网页的HTML信息。在Python3中，可以使用urllib.request和requests进行网页爬取。</p>
-<ol>
-<li>urllib库是python内置的，无需我们额外安装，只要安装了Python就可以使用这个库。</li>
-<li>requests库是第三方库，需要我们自己安装。</li>
-</ol>
-<p>requests库的基础方法如下：<br><img src="/img/media/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8B%E5%8D%888.59.57.png" alt=""><br>requests.get()方法，它用于向服务器发起GET请求。requests.get()方法就是从服务器得到、抓住数据，也就是获取数据。</p>
-<h1 id="小说下载"><a href="#小说下载" class="headerlink" title="小说下载"></a>小说下载</h1><p>代码<a href="https://github.com/zdkswd/papapachong/tree/master/%E7%88%AC%E5%8F%96%E5%B0%8F%E8%AF%B4">papapachong/爬取小说 at master · zdkswd/papapachong · GitHub</a></p>
-<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>小说网站-笔趣看：</p>
-<p>URL：http:<a href="http://www.biqukan.com/" target="_blank" rel="noopener">www.biqukan.com/</a><br>笔趣看是一个盗版小说网站，这里有很多起点中文网的小说，该网站小说的更新速度稍滞后于起点中文网正版小说的更新速度。并且该网站只支持在线浏览，不支持小说打包下载。因此，本次实战就是从该网站爬取并保存一本名为《一念永恒》的小说，该小说是耳根正在连载中的一部玄幻小说。PS：本实例仅为交流学习，支持耳根大大，请上起点中文网订阅。</p>
-<h2 id="小试牛刀"><a href="#小试牛刀" class="headerlink" title="小试牛刀"></a>小试牛刀</h2><p>《一念永恒》小说的第一章内容，URL：<a href="http://www.biqukan.com/1_1094/5403177.html" target="_blank" rel="noopener">http://www.biqukan.com/1_1094/5403177.html</a></p>
-<p>通过result=rq.get(url=target)<br>我们很轻松地获取了HTML信息。但是，很显然，很多信息是我们不想看到的，我们只想获得如右侧所示的正文内容，我们不关心div、br这些html标签。如何把正文内容从这些众多的html标签中提取出来呢？这就是本次实战的主要内容。</p>
-<h2 id="Beautiful-Soup"><a href="#Beautiful-Soup" class="headerlink" title="Beautiful Soup"></a>Beautiful Soup</h2><p>爬虫的第一步，获取整个网页的HTML信息，我们已经完成。接下来就是爬虫的第二步，解析HTML信息，提取我们感兴趣的内容。对于本小节的实战，我们感兴趣的内容就是文章的正文。提取的方法有很多，例如使用正则表达式、Xpath、Beautiful Soup等。对于初学者而言，最容易理解，并且使用简单的方法就是使用Beautiful Soup提取感兴趣内容。</p>
-<p>Beautiful Soup中文的官方文档。URL：<br><a href="http://beautifulsoup.readthedocs.io/zh_CN/latest/" target="_blank" rel="noopener">http://beautifulsoup.readthedocs.io/zh_CN/latest/</a></p>
-<p>仔细观察目标网站一番，我们会发现这样一个事实：class属性为showtxt的div标签，独一份！这个标签里面存放的内容，是我们关心的正文部分。</p>
-<p>知道这个信息，我们就可以使用Beautiful Soup提取我们想要的内容了。<br>在解析html之前，我们需要创建一个Beautiful Soup对象。BeautifulSoup函数里的参数就是我们已经获得的html信息。然后我们使用find_all方法，获得html信息中所有class属性为showtxt的div标签。find_all方法的第一个参数是获取的标签名，第二个参数class_是标签的属性，为什么不是class，而带了一个下划线呢？因为python中class是关键字，为了防止冲突，这里使用class_表示标签的class属性。</p>
-<p>为什么不是find_all(‘div’, id = ‘content’, class_ = ‘showtxt’)?这样其实也是可以的，属性是作为查询时候的约束条件，添加一个class_=’showtxt’条件，我们就已经能够准确匹配到我们想要的标签了，所以我们就不必再添加id这个属性了。</p>
-<p>此时结果中有一些我们不想要的东西。比如div标签名，br标签，以及各种空格。怎么去除这些东西呢？</p>
-<p>find_all匹配的返回的结果是一个列表。提取匹配结果后，使用text属性，提取文本内容，滤除br标签。随后使用replace方法，剔除空格，替换为回车进行分段。&nbsp;在html中是用来表示空格的。replace(‘\xa0’*8,’\n\n’)就是去掉下图的八个空格符号，并用回车代替。</p>
-<p>可以看到，我们很自然的匹配到了所有正文内容，并进行了分段。我们已经顺利获得了一个章节的内容，要想下载正本小说，我们就要获取每个章节的链接。我们先分析下小说目录：</p>
-<p>URL：http:<a href="http://www.biqukan.com/1_1094/" target="_blank" rel="noopener">www.biqukan.com/1_1094/</a></p>
-<p>根据<a> 标签的href属性值获得每个章节的链接和名称。小说每章的链接放在了class属性为listmain的<div>标签下的<a>标签中。链接具体位置放在html-&gt;body-&gt;div-&gt;dl-&gt;dd-&gt;a的href属性中。先匹配class属性为listmain的<div>标签，再匹配<a>标签。</a></div></a></div></a></p>
-<h1 id="爬取壁纸"><a href="#爬取壁纸" class="headerlink" title="爬取壁纸"></a>爬取壁纸</h1><p><a href="https://github.com/zdkswd/papapachong/tree/master/%E7%88%AC%E5%8F%96%E5%9B%BE%E7%89%87">papapachong/爬取图片 at master · zdkswd/papapachong · GitHub</a></p>
-<h2 id="背景-1"><a href="#背景-1" class="headerlink" title="背景"></a>背景</h2><p>URL：https:unsplash.com/<br>网站的名字叫做Unsplash，免费高清壁纸分享网是一个坚持每天分享高清的摄影图片的站点，每天更新一张高质量的图片素材，全是生活中的景象作品，清新的生活气息图片可以作为桌面壁纸也可以应用于各种需要的环境。</p>
-<h2 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h2><ol>
-<li>使用requeusts获取整个网页的HTML信息；</li>
-<li>使用Beautiful Soup解析HTML信息，找到所有<img>标签，提取src属性，获取图片存放地址；</li>
-<li>根据图片存放地址，下载图片。</li>
-</ol>
-<p>照此方法得不到<img>标签，而是\&lt;script>标签，因为这个网站的所有图片都是动态加载的！网站有静态网站和动态网站之分，上一个实战爬取的网站是静态网站，而这个网站是动态网站，动态加载有一部分的目的就是为了反爬虫。</p>
-<p>动态网站使用动态加载常用的手段就是通过调用JavaScript来实现的。一个动态加载的网站可能使用很多JavaScript脚本，我们只要找到负责动态加载图片的JavaScript脚本。强大的抓包工具，它会帮助分析。这个强大的抓包工具就是Fiddler。但是Fiddler只在Windows上才能发挥完全的作用，所以我用的是一个跨平台的抓包工具Charles。</p>
-<p>经过抓包发现，在如下数据包中。<br><img src="/img/media/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-23%20%E4%B8%8B%E5%8D%889.04.27.png" alt=""></p>
-<p>有json数据包<br><img src="/img/media/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-23%20%E4%B8%8B%E5%8D%889.08.54.png" alt=""></p>
-<p>id和下载图片有以下的关系<br><img src="/img/media/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-23%20%E4%B8%8B%E5%8D%889.04.02.png" alt=""></p>
-<p>所以可以</p>
-<ol>
-<li>获取整个json数据</li>
-<li>解析json数据</li>
-</ol>
-<p>如果直接获取会出现SSL认证的错误，SSL认证是指客户端到服务器端的认证。一个非常简单的解决这个认证错误的方法就是设置requests.get()方法的verify参数。这个参数默认设置为True，也就是执行认证。我们将其设置为False，绕过认证。</p>
-<p>反爬虫的手段除了动态加载，还有一个反爬虫手段，那就是验证Request Headers。Requests Headers里有很多参数，有Accept、Accept-Encoding、Accept-Language、DPR、User-Agent、Viewport-Width、accept-version、Referer、x-unsplash-client、authorization、Connection、Host。</p>
-<ol>
-<li>User-Agent：这里面存放浏览器的信息。如果我们不设置这个参数，用Python程序直接发送GET请求，服务器接受到的User-Agent信息就会是一个包含python字样的User-Agent。如果后台设计者验证这个User-Agent参数是否合法，不让带Python字样的User-Agent访问，这样就起到了反爬虫的作用。这是一个最简单的，最常用的反爬虫手段。</li>
-<li>Referer：这个参数也可以用于反爬虫，它表示这个请求是从哪发出的。可以看到我们通过浏览器访问网站，这个请求是从<a href="https://unsplash.com/，这个地址发出的。如果后台设计者，验证这个参数，对于不是从这个地址跳转过来的请求一律禁止访问，这样就也起到了反爬虫的作用。" target="_blank" rel="noopener">https://unsplash.com/，这个地址发出的。如果后台设计者，验证这个参数，对于不是从这个地址跳转过来的请求一律禁止访问，这样就也起到了反爬虫的作用。</a></li>
-<li>authorization：这个参数是基于AAA模型中的身份验证信息允许访问一种资源的行为。在我们用浏览器访问的时候，服务器会为访问者分配这个用户ID。如果后台设计者，验证这个参数，对于没有用户ID的请求一律禁止访问，这样就又起到了反爬虫的作用。</li>
-</ol>
-<p>Unsplash是根据authorization参数进行反爬虫的。通过程序手动添加这个参数，然后再发送GET请求，就可以顺利访问了。即requests.get()方法，添加headers参数即可。</p>
-<p>现在终于顺利获得json数据了，使用json.load()方法解析数据。解析json数据很简单，跟字典操作一样，就是字典套字典。json.load()里面的参数是原始的json格式的数据。</p>
-<p>图片的ID已经获得了，再通过字符串处理一下，就生成了我们需要的图片下载请求地址。根据这个地址，我们就可以下载图片了。下载方式，使用直接写入文件的方法。</p>
-<p>每次获取链接加一个1s延时，因为人在浏览页面的时候，翻页的动作不可能太快。我们要让我们的爬虫尽量友好一些。</p>
-<p>下载速度还行，有的图片下载慢是因为图片太大。可以看到也打印了一些警报信息，这是因为没有进行SSL验证。</p>
-<h1 id="爱奇艺VIP视频下载"><a href="#爱奇艺VIP视频下载" class="headerlink" title="爱奇艺VIP视频下载"></a>爱奇艺VIP视频下载</h1><p>现在失效了，只能手动抓包了<br><a href="https://github.com/zdkswd/papapachong/tree/master/%E7%88%AC%E5%8F%96%E8%A7%86%E9%A2%91">papapachong/爬取视频 at master · zdkswd/papapachong · GitHub</a><br><a href="http://www.wq114.org/" target="_blank" rel="noopener">vip视频解析,vip视频在线解析</a>有效的url解析网站。<br>解析格式：<a href="http://www.wq114.org/yun.php?url=" target="_blank" rel="noopener">www.wq114.org/yun.php?url=</a> [视频url]<br>利用网络爬虫进行抓包，可以将视频下载下来。</p>
-<p>HTTP请求头Referer的作用：表示请求来源。</p>
-<p>编写代码的时候注意一个问题，就是我们需要使用requests.session()保持我们的会话请求。简单理解就是，在初次访问服务器的时候，服务器会给你分配一个身份证明。我们需要拿着这个身份证去继续访问，如果没有这个身份证明，服务器就不会再让你访问。这也就是这个服务器的反爬虫手段，会验证用户的身份。</p>
-<h1 id="selenium和xpath"><a href="#selenium和xpath" class="headerlink" title="selenium和xpath"></a>selenium和xpath</h1><p><a href="https://github.com/zdkswd/papapachong/tree/master/%E5%AE%89%E5%B1%85%E5%AE%A2">https://github.com/zdkswd/papapachong/tree/master/%E5%AE%89%E5%B1%85%E5%AE%A2</a></p>
-
-          
-        
-      
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
     </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2019/01/16/SSH/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZDK"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZDK's blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+    <div class="bottom">
+        <p><span>ZDK &copy; 2017 - 2019</span>
+            <span>
                 
-                
-                <a href="/2019/01/16/SSH/" class="post-title-link" itemprop="url">SSH</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-01-16 20:09:56 / 修改时间：20:11:36" itemprop="dateCreated datePublished" datetime="2019-01-16T20:09:56+08:00">2019-01-16</time>
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
             </span>
-          
-
-          
-            
-
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/知识总结/" itemprop="url" rel="index"><span itemprop="name">知识总结</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/01/16/SSH/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/01/16/SSH/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2019/01/16/SSH/" class="post-meta-item leancloud_visitors" data-flag-title="SSH">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h1><p>参考<a href="http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html</a></p>
-<h1 id="什么是SSH"><a href="#什么是SSH" class="headerlink" title="什么是SSH"></a>什么是SSH</h1><p>SSH是一种网络协议，用于计算机之间的加密登录。</p>
-<p>如果一个用户从本地计算机，使用SSH协议登录另一台远程计算机，我们就可以认为，这种登录是安全的，即使被中途截获，密码也不会泄露。</p>
-<p>最早的时候，互联网通信都是明文通信，一旦被截获，内容就暴露无疑。1995年，芬兰学者Tatu Ylonen设计了SSH协议，将登录信息全部加密，成为互联网安全的一个基本解决方案，迅速在全世界获得推广，目前已经成为Linux系统的标准配置。</p>
-<p>SSH只是一种协议，存在多种实现，既有商业实现，也有开源实现。本文针对的实现是OpenSSH，它是自由软件，应用非常广泛。本文只讨论SSH在Linux Shell中的用法。</p>
-<h1 id="最基本的用法"><a href="#最基本的用法" class="headerlink" title="最基本的用法"></a>最基本的用法</h1><p>SSH主要用于远程登录。假定你要以用户名user，登录远程主机host，只要一条简单命令就可以了。<br><img src="/img/media/SSH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-16%20%E4%B8%8B%E5%8D%886.28.07.png" alt=""><br>如果本地用户名与远程用户名一致，登录时可以省略用户名。<br><img src="/img/media/SSH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-16%20%E4%B8%8B%E5%8D%886.28.41.png" alt=""><br>SSH的默认端口是22，也就是说，你的登录请求会送进远程主机的22端口。使用p参数，可以修改这个端口。<br><img src="/img/media/SSH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-16%20%E4%B8%8B%E5%8D%886.29.04.png" alt=""><br>上面这条命令表示，ssh直接连接远程主机的2222端口。</p>
-<h1 id="中间人攻击"><a href="#中间人攻击" class="headerlink" title="中间人攻击"></a>中间人攻击</h1><p>SSH之所以能够保证安全，原因在于它采用了公钥加密。</p>
-<p>整个过程是这样的：（1）远程主机收到用户的登录请求，把自己的公钥发给用户。（2）用户使用这个公钥，将登录密码加密后，发送回来。（3）远程主机用自己的私钥，解密登录密码，如果密码正确，就同意用户登录。</p>
-<p>这个过程本身是安全的，但是实施的时候存在一个风险：如果有人截获了登录请求，然后冒充远程主机，将伪造的公钥发给用户，那么用户很难辨别真伪。因为不像https协议，SSH协议的公钥是没有证书中心（CA）公证的，也就是说，都是自己签发的。</p>
-<p>可以设想，如果攻击者插在用户与远程主机之间（比如在公共的wifi区域），用伪造的公钥，获取用户的登录密码。再用这个密码登录远程主机，那么SSH的安全机制就荡然无存了。这种风险就是著名的”中间人攻击”（Man-in-the-middle attack）。</p>
-<p>SSH协议也有应对的方法。</p>
-<h1 id="口令登录"><a href="#口令登录" class="headerlink" title="口令登录"></a>口令登录</h1><p>如果你是第一次登录对方主机，系统会出现下面的提示：<br><img src="/img/media/SSH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-16%20%E4%B8%8B%E5%8D%886.36.44.png" alt=""><br>这段话的意思是，无法确认host主机的真实性，只知道它的公钥指纹，问你还想继续连接吗？</p>
-<p>所谓”公钥指纹”，是指公钥长度较长（这里采用RSA算法，长达1024位），很难比对，所以对其进行MD5计算，将它变成一个128位的指纹。上例中是98:2e:d7:e0:de:9f:ac:67:28:c2:42:2d:37:16:58:4d，再进行比较，就容易多了。</p>
-<p>很自然的一个问题就是，用户怎么知道远程主机的公钥指纹应该是多少？回答是没有好办法，远程主机必须在自己的网站上贴出公钥指纹，以便用户自行核对。</p>
-<p>假定经过风险衡量以后，用户决定接受这个远程主机的公钥。<br><img src="/img/media/SSH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-16%20%E4%B8%8B%E5%8D%886.39.17.png" alt=""><br>系统会出现一句提示，表示host主机已经得到认可。然后会要求输入密码。密码正确就可以登录了。</p>
-<p>当远程主机的公钥被接受以后，它就会被保存在文件$HOME/ .ssh /known_hosts之中。下次再连接这台主机，系统就会认出它的公钥已经保存在本地了，从而跳过警告部分，直接提示输入密码。</p>
-<p>每个SSH用户都有自己的known_hosts文件，此外系统也有一个这样的文件，通常是/ etc / ssh /ssh_known_hosts，保存一些对所有用户都可信赖的远程主机的公钥。</p>
-<h1 id="公钥登录"><a href="#公钥登录" class="headerlink" title="公钥登录"></a>公钥登录</h1><p>使用密码登录，每次都必须输入密码，非常麻烦。好在SSH还提供了公钥登录，可以省去输入密码的步骤。</p>
-<p>所谓”公钥登录”，原理很简单，就是用户将自己的公钥储存在远程主机上。登录的时候，远程主机会向用户发送一段随机字符串，用户用自己的私钥加密后，再发回来。远程主机用事先储存的公钥进行解密，如果成功，就证明用户是可信的，直接允许登录shell，不再要求密码。</p>
-<p>这种方法要求用户必须提供自己的公钥。如果没有现成的，可以直接用ssh-keygen生成一个：<br><img src="/img/media/SSH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-16%20%E4%B8%8B%E5%8D%887.00.07.png" alt=""><br>运行上面的命令以后，系统会出现一系列提示，可以一路回车。其中有一个问题是，要不要对私钥设置口令（passphrase），如果担心私钥的安全，这里可以设置一个。</p>
-<p>运行结束以后，在$HOME/ .ssh /目录下，会新生成两个文件：id_rsa.pub和id_rsa。前者是你的公钥，后者是你的私钥。</p>
-<p>这时再输入下面的命令，将公钥传送到远程主机host上面：<br><img src="/img/media/SSH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-16%20%E4%B8%8B%E5%8D%887.50.44.png" alt=""><br>从此再登录，就不需要输入密码了。</p>
-<p>如果还是不行，就打开远程主机的_etc_ssh/sshd_config这个文件，检查下面几行前面# 注释是否取掉。<br><img src="/img/media/SSH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-16%20%E4%B8%8B%E5%8D%887.58.07.png" alt=""><br>然后，重启远程主机的ssh服务。<br><img src="/img/media/SSH/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-16%20%E4%B8%8B%E5%8D%887.58.26.png" alt=""></p>
-<h1 id="公钥私钥补充"><a href="#公钥私钥补充" class="headerlink" title="公钥私钥补充"></a>公钥私钥补充</h1><p>如果只是单方面采用非对称性加密算法,其实有两种方式,用于不同用处。</p>
-<p>第一种是签名,使用私钥加密,公钥解密,用于让所有公钥所有者验证私钥所有者的身份并且用来防止私钥所有者发布的内容被篡改.但是不用来保证内容不被他人获得。</p>
-<p>第二种是加密,用公钥加密,私钥解密,用于向公钥所有者发布信息,这个信息可能被他人篡改,但是无法被他人获得。</p>
-<p>如果甲想给乙发一个安全的保密的数据,那么应该甲乙各自有一个私钥,甲先用乙的公钥加密这段数据,再用自己的私钥加密这段加密后的数据.最后再发给乙,这样确保了内容即不会被读取,也不会被篡改。</p>
-<h1 id="远程操作"><a href="#远程操作" class="headerlink" title="远程操作"></a>远程操作</h1><p>SSH不仅可以用于远程主机登录，还可以直接在远程主机上执行操作。</p>
-<p>SSH可以在用户和远程主机之间，建立命令和数据的传输通道，因此很多事情都可以通过SSH来完成。</p>
-
-          
-        
-      
+        </p>
     </div>
+    <span id="busuanzi_container_site_uv">
+        本站访客数<span id="busuanzi_value_site_uv"></span>人次
+      </span>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+</footer>
 
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2019/01/14/python requests库/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZDK"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZDK's blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/01/14/python requests库/" class="post-title-link" itemprop="url">python requests库</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-01-14 12:03:56 / 修改时间：12:20:40" itemprop="dateCreated datePublished" datetime="2019-01-14T12:03:56+08:00">2019-01-14</time>
-            </span>
-          
-
-          
-            
-
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/知识总结/" itemprop="url" rel="index"><span itemprop="name">知识总结</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/01/14/python requests库/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/01/14/python requests库/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2019/01/14/python requests库/" class="post-meta-item leancloud_visitors" data-flag-title="python requests库">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="requests库的使用（廖雪峰）"><a href="#requests库的使用（廖雪峰）" class="headerlink" title="requests库的使用（廖雪峰）"></a>requests库的使用（廖雪峰）</h1><p>要通过GET访问一个页面，只需要几行代码：<br><img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-25%20%E4%B8%8A%E5%8D%888.53.52.png" alt=""><br>对于带参数的URL，传入一个dict作为params参数：<br><img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-25%20%E4%B8%8A%E5%8D%888.56.49.png" alt=""><br>requests自动检测编码，可以使用encoding属性查看：<br><img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-25%20%E4%B8%8A%E5%8D%889.03.40.png" alt=""><br>无论响应是文本还是二进制内容，我们都可以用content属性获得bytes对象：<br><img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-25%20%E4%B8%8A%E5%8D%889.04.45.png" alt=""><br>requests的方便之处还在于，对于特定类型的响应，例如JSON，可以直接获取：<br><img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-25%20%E4%B8%8A%E5%8D%889.05.46.png" alt=""><br>需要传入HTTP Header时，我们传入一个dict作为headers参数：<br><img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-25%20%E4%B8%8A%E5%8D%889.07.37.png" alt=""><br>要发送POST请求，只需要把get()方法变成post()，然后传入data参数作为POST请求的数据：<br><img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-25%20%E4%B8%8A%E5%8D%889.08.41.png" alt=""><br>requests默认使用application/x-www-form-urlencoded对POST数据编码。如果要传递JSON数据，可以直接传入json参数：<br><img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-25%20%E4%B8%8A%E5%8D%889.09.50.png" alt=""><br>类似的，上传文件需要更复杂的编码格式，但是requests把它简化成files参数：<br><img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-25%20%E4%B8%8A%E5%8D%889.10.56.png" alt=""><br>在读取文件时，注意务必使用’rb’即二进制模式读取，这样获取的bytes长度才是文件的长度。</p>
-<p>把post()方法替换为put()，delete()等，就可以以PUT或DELETE方式请求资源。</p>
-<p>除了能轻松获取响应内容外，requests对获取HTTP响应的其他信息也非常简单。例如，获取响应头：<br><img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-25%20%E4%B8%8A%E5%8D%889.14.38.png" alt=""><br>requests对Cookie做了特殊处理，使得我们不必解析Cookie就可以轻松获取指定的Cookie：<br><img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-25%20%E4%B8%8A%E5%8D%889.15.11.png" alt=""><br>要在请求中传入Cookie，只需准备一个dict传入cookies参数：<br><img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-25%20%E4%B8%8A%E5%8D%889.15.41.png" alt=""><br>最后，要指定超时，传入以秒为单位的timeout参数：<br><img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-25%20%E4%B8%8A%E5%8D%889.16.22.png" alt=""></p>
-<h1 id="requests的使用（博客）"><a href="#requests的使用（博客）" class="headerlink" title="requests的使用（博客）"></a>requests的使用（博客）</h1><p><a href="https://blog.csdn.net/WuZuoDingFeng/article/details/76156777" target="_blank" rel="noopener">https://blog.csdn.net/WuZuoDingFeng/article/details/76156777</a></p>
-<h2 id="requests-get"><a href="#requests-get" class="headerlink" title="requests.get()"></a>requests.get()</h2><p><img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-14%20%E4%B8%8A%E5%8D%8810.16.33.png" alt=""><br>参数说明：<br><img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-14%20%E4%B8%8A%E5%8D%8810.18.45.png" alt=""></p>
-<h2 id="requests-post"><a href="#requests-post" class="headerlink" title="requests.post()"></a>requests.post()</h2><p><img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-14%20%E4%B8%8A%E5%8D%8810.19.24.png" alt=""><br>参数说明：<br><img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-14%20%E4%B8%8A%E5%8D%8810.19.44.png" alt=""></p>
-<h2 id="请求响应体说明"><a href="#请求响应体说明" class="headerlink" title="请求响应体说明"></a>请求响应体说明</h2><p><img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-14%20%E4%B8%8A%E5%8D%8810.28.09.png" alt=""></p>
-<h2 id="requests-utils中的常用方法"><a href="#requests-utils中的常用方法" class="headerlink" title="requests.utils中的常用方法"></a>requests.utils中的常用方法</h2><ol>
-<li>requests.utils.get_encodings_from_content(r.content): 返回原始数据编码;</li>
-<li>requests.utils.dict_from_cookiejar(r.cookies): 将CookieJar转为字典;</li>
-<li>requests.utils.cookiejar_from_dict(cookie_dict, cookiejar=None, overwrite=True): 将字典转为CookieJar;</li>
-</ol>
-<h2 id="开启会话，保持cookie"><a href="#开启会话，保持cookie" class="headerlink" title="开启会话，保持cookie"></a>开启会话，保持cookie</h2><blockquote>
-<p>s = requests.Session()             # 开启会话<br>cookies = json.loads(result)                     # phantomjs获取的cookies json对象<br>cookie = {}<br>for k in cookies:<br>   cookie[k[‘name’]] = k[‘value’]               # 获取每个cookie中的name和value<br>s.cookies = requests.utils.cookiejar_from_dict(cookie, cookiejar=None,<br>overwrite=True)       # 将字典cookie转换为cookieJar,然后放在会话中<br>s.get(url…..)              # 此时每个请求都会带上cookie<br>……………………………………………………<br>s.cookies: cookiejar对象;<br>s.cookies.get_dict(): dict,cookie键值对;  </p>
-</blockquote>
-<h2 id="设置超时和最大尝试次数"><a href="#设置超时和最大尝试次数" class="headerlink" title="设置超时和最大尝试次数"></a>设置超时和最大尝试次数</h2><ol>
-<li>timeout是get/post等的参数, 单位秒.</li>
-<li>max_retries需要构建一个HTTPAdapter并设置其max_retries, 最后将该Adaptor加载给requests的Session对象. mount时的链接是前端最大匹配, 使用” http: ”和” https: ”可以分别对应两大类网址. 也可以更具体针对某网站.</li>
-<li>注：max_retries适用于超时，并不适用于访问出错。</li>
-<li>注：在会话中，请求url1所返回的cookies会自动保存，当访问url2的时候也会被自动带入。</li>
-</ol>
-<blockquote>
-<p>requestsSession = requests.Session()                # 开启会话<br>requestsAdapterA = requests.adapters.HTTPAdapter(max_retries=3)     # 挂载适配器<br>requestsSession.mount(‘http: ‘, requestsAdapterA)    # 此会话中适用所有http请求<br>r = requestsSession.get(url , timeout=20)                  # 打开相应url并设置超时  </p>
-</blockquote>
-<h2 id="上传文件"><a href="#上传文件" class="headerlink" title="上传文件"></a>上传文件</h2><blockquote>
-<p>url = ‘<a href="http://httpbin.org/post&#39;" target="_blank" rel="noopener">http://httpbin.org/post&#39;</a><br>files = {‘file’: open(‘report.xls’, ‘rb’)}<br> #  files = {‘file’: (‘report.xls’, open(‘report.xls’, ‘rb’), ‘application/vnd.ms-excel’, {‘Expires’: ‘0’})}   # 显示的设置文件名、文件类型、文件头<br>r = requests.post(url, files=files)<br>r.text  </p>
-</blockquote>
-<h2 id="流式上传"><a href="#流式上传" class="headerlink" title="流式上传"></a>流式上传</h2><p><img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-14%20%E4%B8%8A%E5%8D%8810.49.33.png" alt=""></p>
-<h2 id="文件下载"><a href="#文件下载" class="headerlink" title="文件下载"></a>文件下载</h2><p><img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-14%20%E4%B8%8A%E5%8D%8810.49.56.png" alt=""></p>
-<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
-<li>get()或post()中的headers、cookies设置的值，将合并到Requests中去，所以传入 {} 也没关系；</li>
-<li>图片、pdf等打开方式应该为 ‘wb’，写入的内容应该是 r.content；</li>
-<li>若是响应头Content-Type中不含charset，则 r.text 默认为 ‘ISO-8859-1’；</li>
-<li>若是timeout没有显示的设置，理论上requests请求永不超时。</li>
-<li>在session中删除一个参数，直接设置其值为None；</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2019/01/08/安卓开发的MVC和MVP模式/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZDK"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZDK's blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/01/08/安卓开发的MVC和MVP模式/" class="post-title-link" itemprop="url">安卓开发的MVC和MVP模式</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-01-08 20:04:56 / 修改时间：20:04:44" itemprop="dateCreated datePublished" datetime="2019-01-08T20:04:56+08:00">2019-01-08</time>
-            </span>
-          
-
-          
-            
-
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/知识总结/" itemprop="url" rel="index"><span itemprop="name">知识总结</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/01/08/安卓开发的MVC和MVP模式/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/01/08/安卓开发的MVC和MVP模式/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2019/01/08/安卓开发的MVC和MVP模式/" class="post-meta-item leancloud_visitors" data-flag-title="安卓开发的MVC和MVP模式">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="MVC和MVP示意图"><a href="#MVC和MVP示意图" class="headerlink" title="MVC和MVP示意图"></a>MVC和MVP示意图</h1><p><img src="/img/media/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91%E7%9A%84MVC%E5%92%8CMVP%E6%A8%A1%E5%BC%8F/20170813105245063.png" alt=""><br><img src="/img/media/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91%E7%9A%84MVC%E5%92%8CMVP%E6%A8%A1%E5%BC%8F/20170813013123472.png" alt=""></p>
-<h1 id="MVP和MVC的区别"><a href="#MVP和MVC的区别" class="headerlink" title="MVP和MVC的区别"></a>MVP和MVC的区别</h1><ol>
-<li><strong>Activity职责不同</strong>，Activity在MVP中是View层，在MVC中是Controller层，这是MVC和MVP很主要的一个区别，可以说Android从MVC转向MVP开发也主要是优化Activity的代码，避免Activity的代码臃肿庞大。</li>
-<li><strong>View层不同</strong>，MVC的View层指的是XML布局文件或者是用Java自定义的View，MVP的View层是Activity或者Fragment。使用传统的MVC，其中的View，对应的是各种Layout布局文件，但是这些布局文件中并不像Web端那样强大，能做的事情非常有限。MVP的View层Activity在实际项目中，随着逻辑的复杂度越来越大，Activity臃肿的缺点仍然体现出来了，因为Activity中还是充满了大量与View层无关的代码，比如各种事件的处理派发，就如MVC中的那样View层和Controller代码耦合在一起无法自拔。</li>
-<li><strong>控制层不同</strong>，MVC的控制层是Activity，或者是Fragment，Controller对应的是Activity，而Activity中却又具有操作UI的功能，我们在实际的项目中也会有很多UI操作在这一层，也做了很多View中应该做的事情，当然Controller层Activity中也包含Controller应该做的事情，比如各种事件的派发回调，而且在一层中我们会根据事件再去调用Model层操作数据，所以这种MVC的方式在实际项目中，Activity所在的Controller是非常重的，各层次之间的耦合情况也比较严重，不方便单元测试。MVP的控制层是Presenter，里面没有很多的实际东西，主要是做Model和View层的交互。</li>
-<li><strong>关系链不同</strong>，MVP中Model层与View是没有关系的，彼此不会通讯和操作，Model与View的通讯都是Presenter层来传达的。但是在MVC中，Model层和View是曾在交互的。比如我们自定义的View控件里面肯定是要使用Model的数据的，View也要根据不同的Model数据做出不同的展现！这点尤其是体现在自定义的View中，自定义View需要设置数据，用户操作了自定义控件需要改变数据，View要操作Model怎么办？有人说把Controller传到自定义的View啊，现实是不可能没一个自定义View都去持有Controller的引用，其实在MVP中就不会这么尴尬，接口就可以完成。</li>
-<li><strong>适用范围不同</strong>，在Android中，MVP和MVC都用自己的适用情况，使用MVP可以更好的解耦三大模块，模块之间比较清晰，也很方便使用MVP来组件化架构整体项目。但是MVC也是有用武之地的，在组件化的Module或者中间件我们可以使用MVC来做，Module或者中间件不会存在很复杂的View层，使用MVC可以更加方便我们实现功能。</li>
-<li><strong>交互方式不同</strong>，MVP中通讯交互基本都是通过接口的，MVC中的通讯交互很多时候都是实打实的调用对象的方法，简单粗暴！</li>
-<li><strong>实现方法不同</strong> ，MVC和MVP的Model几乎一样的，都是处理数据，只要不在Activity或者Fragment中请求数据，其他的所有控制都放在Activity或者Fragment中，这样写就基本是MVC的模式，这样写不麻烦，但是很容易把Activity写出上万行代码。用MVP的时候我们需要写很多View和Presenter接口来实现模块之间的通讯，会增加很多类。</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2019/01/05/C++内存格局/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZDK"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZDK's blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/01/05/C++内存格局/" class="post-title-link" itemprop="url">C++内存格局 汇编语言</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-01-05 14:48:56 / 修改时间：14:55:54" itemprop="dateCreated datePublished" datetime="2019-01-05T14:48:56+08:00">2019-01-05</time>
-            </span>
-          
-
-          
-            
-
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/知识总结/" itemprop="url" rel="index"><span itemprop="name">知识总结</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/01/05/C++内存格局/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/01/05/C++内存格局/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2019/01/05/C++内存格局/" class="post-meta-item leancloud_visitors" data-flag-title="C++内存格局 汇编语言">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="C-内存格局"><a href="#C-内存格局" class="headerlink" title="C++内存格局"></a>C++内存格局</h1><p>C++程序的内存格局通常分为四个区：全局数据区(data area)，代码区(code area)，栈区(stack area)，堆区(heap area)(即自由存储区)。全局数据区存放全局变量，静态数据和常量；所有类成员函数和非成员函数代码存放在代码区；为运行函数而分配的局部变量、函数参数、返回数据、返回地址等存放在栈区；余下的空间都被称为堆区。根据这个解释，我们可以得知在类的定义时，类成员函数是被放在代码区，而类的静态成员变量在类定义时就已经在全局数据区分配了内存，因而它是属于类的。对于非静态成员变量，我们是在类的实例化过程中(构造对象)才在栈区或者堆区为其分配内存，是为每个对象生成一个拷贝，所以它是属于对象的。<br><img src="/img/media/C++%E5%86%85%E5%AD%98%E6%A0%BC%E5%B1%80/1097927-20180724163319830-302594590.png" alt=""></p>
-<h1 id="汇编语言"><a href="#汇编语言" class="headerlink" title="汇编语言"></a>汇编语言</h1><p><img src="/img/media/C++%E5%86%85%E5%AD%98%E6%A0%BC%E5%B1%80/bg2018012204.png" alt=""><br>计算机真正能够理解的是低级语言，它专门用来控制硬件。汇编语言就是低级语言，直接描述/控制 CPU 的运行。</p>
-<h2 id="汇编语言是什么"><a href="#汇编语言是什么" class="headerlink" title="汇编语言是什么"></a>汇编语言是什么</h2><p>CPU 只负责计算，本身不具备智能。你输入一条指令（instruction），它就运行一次，然后停下来，等待下一条指令。指令都是二进制的，称为操作码（opcode），比如加法指令就是00000011。<strong>编译器的作用，就是将高级语言写好的程序，翻译成一条条操作码。</strong>对于人类来说，二进制程序是不可读的，根本看不出来机器干了什么。为了解决可读性的问题，以及偶尔的编辑需求，就诞生了汇编语言。</p>
-<p>汇编语言是二进制指令的文本形式，与指令是一一对应的关系。比如，加法指令00000011写成汇编语言就是 ADD。只要还原成二进制，汇编语言就可以被 CPU 直接执行，所以它是最底层的低级语言。</p>
-<h2 id="来历"><a href="#来历" class="headerlink" title="来历"></a>来历</h2><p>最早的时候，编写程序就是手写二进制指令，然后通过各种开关输入计算机，比如要做加法了，就按一下加法开关。后来，发明了纸带打孔机，通过在纸带上打孔，将二进制指令自动输入计算机。</p>
-<p>为了解决二进制指令的可读性问题，工程师将那些指令写成了八进制。二进制转八进制是轻而易举的，但是八进制的可读性也不行。很自然地，最后还是用文字表达，加法指令写成 ADD。内存地址也不再直接引用，而是用标签表示。</p>
-<p>这样的话，就多出一个步骤，要把这些文字指令翻译成二进制，这个步骤就称为 assembling，完成这个步骤的程序就叫做 assembler。它处理的文本，自然就叫做 aseembly code。标准化以后，称为 assembly language，缩写为 asm，中文译为汇编语言。</p>
-<p>每一种 CPU 的机器指令都是不一样的，因此对应的汇编语言也不一样。本文介绍的是目前最常见的 x86 汇编语言，即 Intel 公司的 CPU 使用的那一种。</p>
-<h2 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h2><p>CPU 本身只负责运算，不负责储存数据。数据一般都储存在内存之中，CPU 要用的时候就去内存读写数据。但是，CPU 的运算速度远高于内存的读写速度，为了避免被拖慢，CPU 都自带一级缓存和二级缓存。基本上，CPU 缓存可以看作是读写速度较快的内存。</p>
-<p>但是，CPU 缓存还是不够快，另外数据在缓存里面的地址是不固定的，CPU 每次读写都要寻址也会拖慢速度。因此，除了缓存之外，CPU 还自带了寄存器（register），用来储存最常用的数据。也就是说，那些最频繁读写的数据（比如循环变量），都会放在寄存器里面，CPU 优先读写寄存器，再由寄存器跟内存交换数据。</p>
-<p>寄存器不依靠地址区分数据，而依靠<strong>名称</strong>。每一个寄存器都有自己的名称，我们告诉 CPU 去具体的哪一个寄存器拿数据，这样的速度是最快的。有人比喻寄存器是 CPU 的零级缓存。</p>
-<h2 id="寄存器的种类"><a href="#寄存器的种类" class="headerlink" title="寄存器的种类"></a>寄存器的种类</h2><p>早期的 x86 CPU 只有8个寄存器，而且每个都有不同的用途。现在的寄存器已经有100多个了，都变成通用寄存器，不特别指定用途了，但是早期寄存器的名字都被保存了下来。<br>EAX，EBX，ECX，EDX，EDI，ESI，EBP，ESP<br>8个寄存器之中，前面七个都是通用的。ESP 寄存器有特定用途，保存当前 Stack 的地址。</p>
-<p>32位 CPU、64位 CPU 这样的名称，其实指的就是寄存器的大小。32 位 CPU 的寄存器大小就是4个字节。</p>
-<h2 id="内存模型：Heap"><a href="#内存模型：Heap" class="headerlink" title="内存模型：Heap"></a>内存模型：Heap</h2><p>寄存器只能存放很少量的数据，大多数时候，CPU 要指挥寄存器，直接跟内存交换数据。所以，除了寄存器，还必须了解内存怎么储存数据。</p>
-<p>程序运行的时候，操作系统会给它分配一段内存，用来储存程序和运行产生的数据。这段内存有起始地址和结束地址，比如从0x1000到0x8000，起始地址是较小的那个地址，结束地址是较大的那个地址。<br><img src="/img/media/C++%E5%86%85%E5%AD%98%E6%A0%BC%E5%B1%80/bg2018012208.png" alt=""><br>程序运行过程中，对于动态的内存占用请求（比如新建对象，或者使用malloc命令），系统就会从预先分配好的那段内存之中，划出一部分给用户，具体规则是从起始地址开始划分（实际上，起始地址会有一段静态数据，这里忽略）。举例来说，用户要求得到10个字节内存，那么从起始地址0x1000开始给他分配，一直分配到地址0x100A，如果再要求得到22个字节，那么就分配到0x1020。<br><img src="/img/media/C++%E5%86%85%E5%AD%98%E6%A0%BC%E5%B1%80/bg2018012209.png" alt=""><br>这种因为用户主动请求而划分出来的内存区域，叫做 Heap（堆）。它由起始地址开始，从低位（地址）向高位（地址）增长。Heap 的一个重要特点就是不会自动消失，必须手动释放，或者由垃圾回收机制来回收。</p>
-<h2 id="内存模型：Stack"><a href="#内存模型：Stack" class="headerlink" title="内存模型：Stack"></a>内存模型：Stack</h2><p>除了 Heap 以外，其他的内存占用叫做 Stack（栈）。简单说，Stack 是由于函数运行而临时占用的内存区域。</p>
-<p><img src="/img/media/C++%E5%86%85%E5%AD%98%E6%A0%BC%E5%B1%80/bg2018012210.png" alt=""><br>如<br><img src="/img/media/C++%E5%86%85%E5%AD%98%E6%A0%BC%E5%B1%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-05%20%E4%B8%8B%E5%8D%881.21.23.png" alt=""><br>上面代码中，系统开始执行main函数时，会为它在内存里面建立一个帧（frame），所有main的内部变量（比如a和b）都保存在这个帧里面。main函数执行结束后，该帧就会被回收，释放所有的内部变量，不再占用空间。<br><img src="/img/media/C++%E5%86%85%E5%AD%98%E6%A0%BC%E5%B1%80/bg2018012211.png" alt=""><br>如果函数内部调用了其他函数，会发生什么情况？<br><img src="/img/media/C++%E5%86%85%E5%AD%98%E6%A0%BC%E5%B1%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-05%20%E4%B8%8B%E5%8D%881.22.58.png" alt=""><br>上面代码中，main函数内部调用了add_a_and_b函数。执行到这一行的时候，系统也会为add_a_and_b新建一个帧，用来储存它的内部变量。也就是说，此时同时存在两个帧：main和add_a_and_b。一般来说，调用栈有多少层，就有多少帧。<br><img src="/img/media/C++%E5%86%85%E5%AD%98%E6%A0%BC%E5%B1%80/bg2018012215.png" alt=""><br>等到add_a_and_b运行结束，它的帧就会被回收，系统会回到函数main刚才中断执行的地方，继续往下执行。通过这种机制，就实现了函数的层层调用，并且每一层都能使用自己的本地变量。</p>
-<p>所有的帧都存放在 Stack，由于帧是一层层叠加的，所以 Stack 叫做栈。生成新的帧，叫做”入栈”，英文是 push；栈的回收叫做”出栈”，英文是 pop。Stack 的特点就是，最晚入栈的帧最早出栈（因为最内层的函数调用，最先结束运行），这就叫做”后进先出”的数据结构。每一次函数执行结束，就自动释放一个帧，所有函数执行结束，整个 Stack 就都释放了。</p>
-<p>Stack 是由内存区域的结束地址开始，从高位（地址）向低位（地址）分配。比如，内存区域的结束地址是0x8000，第一帧假定是16字节，那么下一次分配的地址就会从0x7FF0开始；第二帧假定需要64字节，那么地址就会移动到0x7FB0。</p>
-<h2 id="CPU指令"><a href="#CPU指令" class="headerlink" title="CPU指令"></a>CPU指令</h2><h3 id="一个实例"><a href="#一个实例" class="headerlink" title="一个实例"></a>一个实例</h3><p>一个简单的程序example.c。<br><img src="/img/media/C++%E5%86%85%E5%AD%98%E6%A0%BC%E5%B1%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-05%20%E4%B8%8B%E5%8D%881.30.35.png" alt=""><br>gcc 将这个程序转成汇编语言。<br><img src="/img/media/C++%E5%86%85%E5%AD%98%E6%A0%BC%E5%B1%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-05%20%E4%B8%8B%E5%8D%881.30.55.png" alt=""><br>上面的命令执行以后，会生成一个文本文件example.s，里面就是汇编语言，包含了几十行指令。一个高级语言的简单操作，底层可能由几个，甚至几十个 CPU 指令构成。CPU 依次执行这些指令，完成这一步操作。</p>
-<p>example.s经过简化以后，大概是下面的样子。<br><img src="/img/media/C++%E5%86%85%E5%AD%98%E6%A0%BC%E5%B1%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-05%20%E4%B8%8B%E5%8D%881.32.04.png" alt=""><br>可以看到，原程序的两个函数add_a_and_b和main，对应两个标签_add_a_and_b和_main。每个标签里面是该函数所转成的 CPU 运行流程。<br>每一行就是 CPU 执行的一次操作。它又分成两部分，就以其中一行为例。<br><img src="/img/media/C++%E5%86%85%E5%AD%98%E6%A0%BC%E5%B1%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-05%20%E4%B8%8B%E5%8D%881.33.44.png" alt=""><br>这一行里面，push是 CPU 指令，%ebx是该指令要用到的运算子。一个 CPU 指令可以有零个到多个运算子。</p>
-<h3 id="push指令"><a href="#push指令" class="headerlink" title="push指令"></a>push指令</h3><p>根据约定，程序从_main标签开始执行，这时会在 Stack 上为main建立一个帧，并将 Stack 所指向的地址，写入 ESP 寄存器。后面如果有数据要写入main这个帧，就会写在 ESP 寄存器所保存的地址。</p>
-<p>然后，开始执行第一行代码。<br><img src="/img/media/C++%E5%86%85%E5%AD%98%E6%A0%BC%E5%B1%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-05%20%E4%B8%8B%E5%8D%882.00.14.png" alt=""><br>push指令用于将运算子放入 Stack，这里就是将3写入main这个帧。虽然看上去很简单，push指令其实有一个前置操作。它会先取出 ESP 寄存器里面的地址，将其减去4个字节，然后将新地址写入 ESP 寄存器。使用减法是因为 Stack 从高位向低位发展，4个字节则是因为3的类型是int，占用4个字节。得到新地址以后， 3 就会写入这个地址开始的四个字节。<br><img src="/img/media/C++%E5%86%85%E5%AD%98%E6%A0%BC%E5%B1%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-05%20%E4%B8%8B%E5%8D%882.03.46.png" alt=""><br>第二行也是一样，push指令将2写入main这个帧，位置紧贴着前面写入的3。这时，ESP 寄存器会再减去 4个字节（累计减去8）。<br><img src="/img/media/C++%E5%86%85%E5%AD%98%E6%A0%BC%E5%B1%80/bg2018012216.png" alt=""></p>
-<h3 id="call指令"><a href="#call指令" class="headerlink" title="call指令"></a>call指令</h3><p>第三行的call指令用来调用函数。<br><img src="/img/media/C++%E5%86%85%E5%AD%98%E6%A0%BC%E5%B1%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-05%20%E4%B8%8B%E5%8D%882.04.34.png" alt=""><br>上面的代码表示调用add_a_and_b函数。这时，程序就会去找_add_a_and_b标签，并为该函数建立一个新的帧。下面就开始执行_add_a_and_b的代码。<br><img src="/img/media/C++%E5%86%85%E5%AD%98%E6%A0%BC%E5%B1%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-05%20%E4%B8%8B%E5%8D%882.05.39.png" alt=""><br>这一行表示将 EBX 寄存器里面的值，写入_add_a_and_b这个帧。这是因为后面要用到这个寄存器，就先把里面的值取出来，用完后再写回去。</p>
-<p>这时，push指令会再将 ESP 寄存器里面的地址减去4个字节（累计减去12）。</p>
-<h3 id="mov指令"><a href="#mov指令" class="headerlink" title="mov指令"></a>mov指令</h3><p>mov指令用于将一个值写入某个寄存器。<br><img src="/img/media/C++%E5%86%85%E5%AD%98%E6%A0%BC%E5%B1%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-05%20%E4%B8%8B%E5%8D%882.08.50.png" alt=""><br>这一行代码表示，先将 ESP 寄存器里面的地址加上8个字节，得到一个新的地址，然后按照这个地址在 Stack 取出数据。根据前面的步骤，可以推算出这里取出的是2，再将2写入 EAX 寄存器。下一行代码也是干同样的事情。<br><img src="/img/media/C++%E5%86%85%E5%AD%98%E6%A0%BC%E5%B1%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-05%20%E4%B8%8B%E5%8D%882.11.06.png" alt=""><br>上面的代码将 ESP 寄存器的值加12个字节，再按照这个地址在 Stack 取出数据，这次取出的是3，将其写入 EBX 寄存器。</p>
-<h3 id="add指令"><a href="#add指令" class="headerlink" title="add指令"></a>add指令</h3><p>add指令用于将两个运算子相加，并将结果写入第一个运算子。<br><img src="/img/media/C++%E5%86%85%E5%AD%98%E6%A0%BC%E5%B1%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-05%20%E4%B8%8B%E5%8D%882.14.30.png" alt=""><br>上面的代码将 EAX 寄存器的值（即2）加上 EBX 寄存器的值（即3），得到结果5，再将这个结果写入第一个运算子 EAX 寄存器。</p>
-<h3 id="pop指令"><a href="#pop指令" class="headerlink" title="pop指令"></a>pop指令</h3><p>pop指令用于取出 Stack 最近一个写入的值（即最低位地址的值），并将这个值写入运算子指定的位置。<br><img src="/img/media/C++%E5%86%85%E5%AD%98%E6%A0%BC%E5%B1%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-05%20%E4%B8%8B%E5%8D%882.16.17.png" alt=""><br>上面的代码表示，取出 Stack 最近写入的值（即 EBX 寄存器的原始值），再将这个值写回 EBX 寄存器（因为加法已经做完了，EBX 寄存器用不到了）。</p>
-<p>注意，pop指令还会将 ESP 寄存器里面的地址加4，即回收4个字节。</p>
-<h3 id="ret指令"><a href="#ret指令" class="headerlink" title="ret指令"></a>ret指令</h3><p>ret指令用于终止当前函数的执行，将运行权交还给上层函数。也就是，当前函数的帧将被回收。<br><img src="/img/media/C++%E5%86%85%E5%AD%98%E6%A0%BC%E5%B1%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-05%20%E4%B8%8B%E5%8D%882.17.57.png" alt=""><br>可以看到，该指令没有运算子。</p>
-<p>随着add_a_and_b函数终止执行，系统就回到刚才main函数中断的地方，继续往下执行。<br><img src="/img/media/C++%E5%86%85%E5%AD%98%E6%A0%BC%E5%B1%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-05%20%E4%B8%8B%E5%8D%882.18.24.png" alt=""><br>上面的代码表示，将 ESP 寄存器里面的地址，手动加上8个字节，再写回 ESP 寄存器。这是因为 ESP 寄存器的是 Stack 的写入开始地址，前面的pop操作已经回收了4个字节，这里再回收8个字节，等于全部回收。<br><img src="/img/media/C++%E5%86%85%E5%AD%98%E6%A0%BC%E5%B1%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-05%20%E4%B8%8B%E5%8D%882.19.03.png" alt=""><br>最后，main函数运行结束，ret指令退出程序执行。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2019/01/04/C++ Primer 对象和类/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZDK"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZDK's blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/01/04/C++ Primer 对象和类/" class="post-title-link" itemprop="url">C++ Primer 对象和类</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-01-04 20:32:56 / 修改时间：20:39:08" itemprop="dateCreated datePublished" datetime="2019-01-04T20:32:56+08:00">2019-01-04</time>
-            </span>
-          
-
-          
-            
-
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/教程/" itemprop="url" rel="index"><span itemprop="name">教程</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/01/04/C++ Primer 对象和类/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/01/04/C++ Primer 对象和类/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2019/01/04/C++ Primer 对象和类/" class="post-meta-item leancloud_visitors" data-flag-title="C++ Primer 对象和类">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="C-Primer-对象和类"><a href="#C-Primer-对象和类" class="headerlink" title="C++ Primer 对象和类"></a>C++ Primer 对象和类</h1><h2 id="C-中的类"><a href="#C-中的类" class="headerlink" title="C++中的类"></a>C++中的类</h2><p><img src="/img/media/C++%20Primer%20%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-27%20%E4%B8%8B%E5%8D%889.42.27.png" alt=""><br>类设计尽可能将公有接口与实现细节分开。公有接口表示设计的抽象组件。将实现细节放在一起并将它们与抽象分开被称为封装。数据隐藏(将数据放在类的私有部分中)是一种封装，将实现的细节隐藏在私有部分中，就像Stock类对set tot() 所做的那样，也是一种封装。封装的另一个例子是，将类函数定义和类声明放在不同的文件中。</p>
-<h3 id="控制对成员的访问：公有还是私有"><a href="#控制对成员的访问：公有还是私有" class="headerlink" title="控制对成员的访问：公有还是私有"></a>控制对成员的访问：公有还是私有</h3><p>无论类成员是数据成员还是成员函数，都可以在类的公有部分或私有部分中声明它。但由于隐藏数据是OOP主要的目标之一，因此数据项通常放在私有部分，组成类接口的成员函数放在公有部分:否则，就无法从程序中调用这些函数。也可以把成员函数放在私有部分。不能直接从程序中调用这种函数，但公有方法却可以使用它们。通常，程序员使用私有成员函数来处理不属于公有接口的实现细节。</p>
-<p>不必在类声明中使用关键字 private, 因为这是类对象的默认访问控制:<br><img src="/img/media/C++%20Primer%20%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-27%20%E4%B8%8B%E5%8D%889.52.32.png" alt=""><br>为强调数据隐藏的概念，显式使用private。</p>
-<h3 id="类和结构"><a href="#类和结构" class="headerlink" title="类和结构"></a>类和结构</h3><p>类描述看上去很像是包含成员函数以及public和private可见性标签的结构声明。实际上，C++对结构进行了扩展，使之具有与类相同的特性 它们之间惟一的区别是，结构的默认访问类型是public, 而类为private C++程序员通常使用类来实现类描述，而把结构限制为只表示纯粹的数据对象或没有私有部分的类。</p>
-<h3 id="实现类成员函数"><a href="#实现类成员函数" class="headerlink" title="实现类成员函数"></a>实现类成员函数</h3><p>成员函数定义与常规丽数定义非常相似，它们有函数头和函数体，也可以有返回类型和参数。但是它们还有两个特殊的特征:</p>
-<ol>
-<li>定义成员函数时，使用作用域解析操作符(::) 来标识函数所属的类。</li>
-<li>类方法可以访问类的private组件。</li>
-</ol>
-<p>如：<br><img src="/img/media/C++%20Primer%20%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-28%20%E4%B8%8B%E5%8D%884.32.20.png" alt=""><br>类方法的完整名称中包括类名。我们说，Stock::update() 是函数的限定名(qualfied name);而简单的update()是全名的缩写(非限定名，unqualified name), 它只能在类作用域中使用。</p>
-<p>这些方法定义可以放在单独一个文件中，也可以位于类声明所在的文件中。</p>
-<h4 id="内联方法"><a href="#内联方法" class="headerlink" title="内联方法"></a>内联方法</h4><p>其定义位于类声明中的函数都将自动成为内联函数。如果愿意，也可以在类声明之外定义成员函数，并使其成为内联函数。为此只需要在类实现部分中定义函数时使用inline限定符即可。<br><img src="/img/media/C++%20Primer%20%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-28%20%E4%B8%8B%E5%8D%884.48.10.png" alt=""><br>内联函数的特殊规则要求在每个使用它们的文件中都对其进行定义。确保内联定义对多文件程序中的所有文件都可用的、最简便的方法是:将内联定义放在定义类的头文件中(有些开发系统包含智能链接程序，允许将内联定义放在一个独立的实现文件)。</p>
-<h4 id="方法与对象"><a href="#方法与对象" class="headerlink" title="方法与对象"></a>方法与对象</h4><p>所创建的每个新对象都有自己的存储空间，<strong>用于存储其内部变量和类成员</strong>;但同一个类的所有对象<strong>共享同一组类方法</strong>，即每种方法只有一个副本。例如，假设kate和joe都是Stock对象，则kate.shares将占据一个内存块，而je.shares 占用另一一个内存块， 但kate.show()和joe.show()都调用同一个方法，也就是说，它们将执行同一个代码块，只是将这些代码用于不同的数据。在OOP中，调用成员函数被称为发送消息，因此将同样的消息发送给2个不同的对象将调用同一个方法，但该方法被用于2个不同的对象。<br><img src="/img/media/C++%20Primer%20%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-28%20%E4%B8%8B%E5%8D%884.58.08.png" alt=""></p>
-<h2 id="类的构造函数和析构函数"><a href="#类的构造函数和析构函数" class="headerlink" title="类的构造函数和析构函数"></a>类的构造函数和析构函数</h2><p>C++提供了一个特殊的成员函数—类构造函数，专门用于构造新对象、将值赋给它们的数据成员。更准确地说，C++为这些成员函数提供了名称和使用方法，而程序员需要提供方法定义。构造函数的原型和函数头有一个有趣的特征—虽然没有返回值，但没有被声明为void类型。实际上，构造函数没有声明类型。</p>
-<h3 id="声明和定义构造函数"><a href="#声明和定义构造函数" class="headerlink" title="声明和定义构造函数"></a>声明和定义构造函数</h3><p>原型如下：<br><img src="/img/media/C++%20Primer%20%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-28%20%E4%B8%8B%E5%8D%887.20.29.png" alt=""><br>构造函数的一种可能定义：<br><img src="C++%20Primer%20%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-28%20%E4%B8%8B%E5%8D%887.21.14.png" alt=""><br>程序声明对象时，将自动调用构造函数。<br>参数名不能与类成员相同，为避免混乱，通常的做法是在数据成员名中使用m_前缀：<br><img src="/img/media/C++%20Primer%20%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-28%20%E4%B8%8B%E5%8D%887.45.05.png" alt=""></p>
-<h3 id="使用构造函数"><a href="#使用构造函数" class="headerlink" title="使用构造函数"></a>使用构造函数</h3><p>C++提供了两种使用构造函数来初始化对象的方式。第一种方式是显式地调用构造函数:<br><img src="/img/media/C++%20Primer%20%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-28%20%E4%B8%8B%E5%8D%887.48.00.png" alt=""><br>另一种方式是隐式地调用构造函数:<br><img src="/img/media/C++%20Primer%20%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-28%20%E4%B8%8B%E5%8D%887.48.42.png" alt=""><br>它与下面的显式调用等价：<br><img src="/img/media/C++%20Primer%20%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-28%20%E4%B8%8B%E5%8D%887.50.26.png" alt=""><br>每次创建类对象(甚至使用new动态分配内存)时，C++都将使用类构造函数。下面是将构造函数与new 起使用的方法:<br><img src="/img/media/C++%20Primer%20%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-28%20%E4%B8%8B%E5%8D%887.52.52.png" alt=""><br>这条语句创建一个Stock对象，将其初始化为参数提供的值，并将该对象的地址赋给pstock指针。在这种情况下，对象没有名称，但可以使用指针来管理该对象。</p>
-<p>无法使用对象来调用构造函数，因为在构造函数构造出对象之前，对象是不存在的。因此构造函数被用来创建对象， 而不能通过对象来调用。</p>
-<h3 id="默认构造函数"><a href="#默认构造函数" class="headerlink" title="默认构造函数"></a>默认构造函数</h3><p>默认构造函数是在未提供显式的初始化值时,被用来创建对象的构造函数。<br><img src="/img/media/C++%20Primer%20%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-28%20%E4%B8%8B%E5%8D%888.01.56.png" alt=""><br>如果没有提供任何构造函数，则C++将自动提供默认构造函数。它是默认构造函数的隐式版本，不做任何工作。对于Stock类来说，默认构造函数可能如下：<br><img src="/img/media/C++%20Primer%20%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-28%20%E4%B8%8B%E5%8D%888.05.14.png" alt=""><br>创建 stock 对象,但不初始化其成员,这和下面的语句<br><img src="/img/media/C++%20Primer%20%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-28%20%E4%B8%8B%E5%8D%888.05.54.png" alt=""><br>创建x,但没有提供值给它一样。默认构造函数没有参数,因为声明中不包含值。</p>
-<p>当且仅当没有定义任何构造函数时,编译器才会提供默认构造函数。为类定义了构造函数后,程序员就必须为它提供默认构造函数。如果提供了非默认构造函数但没有提供默认构造函数,则将出错。如果要创建对象,而不显式地初始化, 则必须定义一个不接受任何参数的默认构造函数。</p>
-<p>定义默认构造函数的方式有两种。一种是给已有构造函数的所有参数提供默认值:<br><img src="/img/media/C++%20Primer%20%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-28%20%E4%B8%8B%E5%8D%888.11.20.png" alt=""><br>另一种方式是通过函数重载来定义另一个构造函数一一一个没有参数的构造函数:<br><img src="/img/media/C++%20Primer%20%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-28%20%E4%B8%8B%E5%8D%888.12.21.png" alt=""><br>由于只能有个默认构造函数， 因此不要同时采用这两种方式。</p>
-<p>在设计类时，通常应提供对所有类成员做隐式初始化的默认构造函数。</p>
-<p>使用上述任何一种方式(没有参数或所有参数都有默认值)创建了默认构造函数后，便可以声明对象变量，而不对它们进行显式初始化:<br><img src="/img/media/C++%20Primer%20%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-28%20%E4%B8%8B%E5%8D%888.23.34.png" alt=""><br>隐式地调用默认构造函数时，不要使用圆括号。</p>
-<h3 id="析构函数"><a href="#析构函数" class="headerlink" title="析构函数"></a>析构函数</h3><p>用构造函数创建对象后，程序负责跟踪该对象，直到其过期为止。对象过期时，程序将自动调用一个特殊的成员函数，该函数的名称令人生畏一析构函数。析构函数完成清理工作，因此实际上很有用。如，如果构造函数使用new 来分配内存，则析构函数将使用delete来释放这些内存。如果构造函数没有使用new，析构函数实际上没有需要完成的任务。此时，只需让编译器生成一个什么都不用做的隐式析构函数。</p>
-<p>和构造函数一样，析构函数的名称也很特殊:在类名前加上(~)。因此，Stock类的析构函数为~Stock().另外， 和构造函数一样，析构函数也可以没有返回值和声明类型。与构造函数不同的是，析构函数没有参数，因此析构函数的原型必须是这样的:<br><img src="/img/media/C++%20Primer%20%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-28%20%E4%B8%8B%E5%8D%888.32.29.png" alt=""><br>什么时候调用析构函数由<strong>编译器</strong>决定，通常不应在代码中显式地调用析构函数。如果创建的是静态存储类对象，则其析构函数将在程序结束时自动被调用。如果创建的是自动存储类对象,则其析构函数将在程序执行完代码块时(该对象是在其中定义的)自动被调用。如果对象是通过new创建的，则它将驻留在堆栈内存或自由存储区中，当使用delete来释放内存时，其析构函数将自动被调用。最后，程序可以创建临时对象来完成特定的操作，在这种情况下，程序将在结束对该对象的使用时自动调用其析构函数。</p>
-<p>由于在类对象过期时析构函数将自动被调用，因此必须有- 个析构函数。如果程序员没有提供析构函数，编译器将隐式地声明一个默认析构函数，并在发现导致对象破删除的代码后，提供默认析构函数的定义。</p>
-<h4 id="const成员函数"><a href="#const成员函数" class="headerlink" title="const成员函数"></a>const成员函数</h4><p><img src="/img/media/C++%20Primer%20%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-28%20%E4%B8%8B%E5%8D%888.47.39.png" alt=""><br>对于当前的C++来说，编译器将拒绝第二行。因为show()的代码无法确保调用对象不被修改一调用对象和const一样，不应被修改。一种新的句法—保证函数不会修改调用对象。C++的解决方法是将const关键字放在函数的括号后面。<br>show（）声明：<br><img src="/img/media/C++%20Primer%20%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-28%20%E4%B8%8B%E5%8D%888.51.19.png" alt=""><br>函数定义的开头：<br><img src="/img/media/C++%20Primer%20%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-28%20%E4%B8%8B%E5%8D%888.51.42.png" alt=""><br>以这种方式声明和定义的类函数被称为const成员函数。就像应尽可能将const引用和指针用作函数形参一样， 只要类方法不修改调用对象，就应将其声明为const.从现在开始，我们将遵守这一规则。</p>
-<h4 id="新特性"><a href="#新特性" class="headerlink" title="新特性"></a>新特性</h4><p>接收一个参数的构造函数允许使用赋值句法将对象初始化为一个值。<br><img src="/img/media/C++%20Primer%20%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-28%20%E4%B8%8B%E5%8D%889.06.43.png" alt=""></p>
-<h2 id="this指针"><a href="#this指针" class="headerlink" title="this指针"></a>this指针</h2><p>每个成员函数(包括构造函数和析构函数)都有一个this 指针。this 指针指向调用对象。this是对象的地址，如果方法需要引用整个调用对象，则可以使用表达式 * this。在函数的括号后面使用const 限定符将this限定为const,这样将不能使用this 来修改对象的值。</p>
-<h2 id="对象数组"><a href="#对象数组" class="headerlink" title="对象数组"></a>对象数组</h2><p>声明对象数组的方法与声明标准类型数组相同：<br><img src="/img/media/C++%20Primer%20%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-28%20%E4%B8%8B%E5%8D%889.24.34.png" alt=""><br>当程序创建未被现实初始化的类对象时，总是调用默认构造函数。此时要么是没有显示地定义任何构造函数，将使用不执行任何操作的隐式默认构造函数。要么定义了一个显式默认构造函数。每个元素都是Stock对象可以使用Stock方法。</p>
-<p>可以用构造函数来初始化数组元素。此时，必须为每个元素调用构造函数。<br><img src="/img/media/C++%20Primer%20%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-28%20%E4%B8%8B%E5%8D%889.31.25.png" alt=""><br>初始化对象数组的方案是，首先使用默认构造函数创建数组元素，然后花括号中的构造函数将创建临时对象，然后将临时对象的内容复制到相应的元素中。因此，<strong>要创建类对象数组，则这个类必须有默认构造函数。</strong></p>
-<h2 id="类作用域"><a href="#类作用域" class="headerlink" title="类作用域"></a>类作用域</h2><p>在类中定义的名称(如类数据成员名和类成员函数名)的作用域都为整个类,作用域为整个类的名称只在该类中是已知的,在类外是不可知的。因此,可以在不同类中使用相同的类成员名而不会引起冲突。另外,类作用域意味着不能从外部直接访问类的成员,公有成员函数也是如此。也就是说,要调用公有成员函数,必须通过对象。在定义成员函数时，必须使用作用域解析操作符。<br><img src="/img/media/C++%20Primer%20%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-28%20%E4%B8%8B%E5%8D%889.42.56.png" alt=""></p>
-<h3 id="作用域为整个类的常量"><a href="#作用域为整个类的常量" class="headerlink" title="作用域为整个类的常量"></a>作用域为整个类的常量</h3><p>使用关键字static，在类中定义常量。该常量将与其他静态变量存储在一起，而不是存储在对象中。只能使用这种结束声明值为整数或枚举的静态常量，而不能存储double常量。</p>
-<h1 id="使用类"><a href="#使用类" class="headerlink" title="使用类"></a>使用类</h1><h2 id="操作符重载"><a href="#操作符重载" class="headerlink" title="操作符重载"></a>操作符重载</h2><p>要重载操作符,需使用被称为操作符函数的特殊函数形式。操作符函数的格式如下:<br><img src="/img/media/C++%20Primer%20%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-02%20%E4%B8%8B%E5%8D%889.26.25.png" alt=""><br>op是将要重载的操作符。operator+()重载+操作符，op必须是有效的C++操作符，不能虚构一个新的符号。例如，不能有operator@()这样的函数，因为C++中没有@操作符。但是，operator<a href=""></a>函数将重载[]操作符，因为【】是数组索引操作符。</p>
-<h2 id="友元简介"><a href="#友元简介" class="headerlink" title="友元简介"></a>友元简介</h2><p>友元有3种：</p>
-<ol>
-<li>友元函数</li>
-<li>友元类</li>
-<li>友元成员函数</li>
-</ol>
-<p>对于重载操作符，左侧的操作数是调用对象。<br><img src="/img/media/C++%20Primer%20%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-03%20%E4%B8%8B%E5%8D%881.23.52.png" alt=""><br>其中要使用重载运算符就只能将B写在左侧。使用非成员函数，大多数操作符都可以通过成员或非成员函数来重载。非成员函数不是由对象调用的，它使用的所有值都是显示参数。这样编译器能够将表达式中B写到右侧。有一类特殊的非成员函数可以访问类的私有成员，为友元函数。</p>
-<h3 id="创建友元"><a href="#创建友元" class="headerlink" title="创建友元"></a>创建友元</h3><p>创建友元函数的第一步，是将其原型放在类声明中，并在原型声明前加上关键字friend。<br><img src="/img/media/C++%20Primer%20%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-03%20%E4%B8%8B%E5%8D%881.35.49.png" alt=""><br>该原型意味着两点：</p>
-<ol>
-<li>虽然operator * （）函数是在类声明中声明的，但它不是成员函数，因此不能使用成员函数操作符来调用。</li>
-<li>虽然operator * （）函数不是成员函数，但它与成员函数的访问权限相同。</li>
-</ol>
-<p>第二步是编写函数定义。因为它不是成员函数，所以不要使用Time：：限定符。另外，不要再定义中使用关键字friend，定义如下：<br><img src="/img/media/C++%20Primer%20%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-03%20%E4%B8%8B%E5%8D%881.41.26.png" alt=""><br>简而言之，类的友元函数是非成员函数，其访问权限与成员函数相同。</p>
-<h3 id="友元是否有悖于OOP"><a href="#友元是否有悖于OOP" class="headerlink" title="友元是否有悖于OOP"></a>友元是否有悖于OOP</h3><p>只有类声明可以决定哪一个函数是友元，因此类声明仍然控制了哪些函数可以访问私有数据。简而言之，类方法和友元只是表达类接口的两种不同机制。</p>
-<h3 id="常用的友元：重载-lt-lt-操作符"><a href="#常用的友元：重载-lt-lt-操作符" class="headerlink" title="常用的友元：重载&lt;&lt;操作符"></a>常用的友元：重载&lt;&lt;操作符</h3><h2 id="重载操作符：作为成员函数还是非成员函数"><a href="#重载操作符：作为成员函数还是非成员函数" class="headerlink" title="重载操作符：作为成员函数还是非成员函数"></a>重载操作符：作为成员函数还是非成员函数</h2><p>对于很多操作符来说，可以选择使用成员函数或非成员函数来实现操作符重载。一般来说，非成员函数应是友元函数， 这样它才能直接访问类的私有数据。例如，Time 类的加法操作符在Time类声明中的原型如下:<br><img src="/img/media/C++%20Primer%20%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-03%20%E4%B8%8B%E5%8D%881.57.09.png" alt=""><br>加法操作符需要两个操作数。对于成员函数版本来说，一个操作数通过this指针隐式地传递，另一个操作数作为函数参数显式地传递;对于友元版本来说，两个操作数都作为参数来传递。</p>
-<p>非成员版本的重载操作符函数所需的形参数目与操作符使用的操作数数目相同;而成员版本所需的参数数目少一个，因为其中的一个操作数是被隐式地传递的调用对象。</p>
-<h1 id="类继承"><a href="#类继承" class="headerlink" title="类继承"></a>类继承</h1><h2 id="一个简单的基类"><a href="#一个简单的基类" class="headerlink" title="一个简单的基类"></a>一个简单的基类</h2><p>从一个类派生出另一个类，原始类称为基类，继承类称为派生类。<br><img src="/img/media/C++%20Primer%20%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-03%20%E4%B8%8B%E5%8D%882.29.06.png" alt=""><br>冒号指出RatedPlayer类的基类是TableTennisplayer 类。上述特殊的声明头表明TableTennisPlayer 是一个公有基类，这被称为公有派生。派生类对象包含基类对象。使用公有派生，基类的公有成员将成为派生类的公有成员; 基类的私有部分也将成为派生类的一部分，但只能通过基类的公有和保护方法访问。<br><img src="/img/media/C++%20Primer%20%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-03%20%E4%B8%8B%E5%8D%882.34.38.png" alt=""></p>
-<h3 id="构造函数：访问权限的考虑"><a href="#构造函数：访问权限的考虑" class="headerlink" title="构造函数：访问权限的考虑"></a>构造函数：访问权限的考虑</h3><p>派生类不能直接访问基类的私有成员，而必须通过基类方法进行访问。具体地说，派生类构造函数必须使用基类构造函数。</p>
-<p>创建派生类对象时，程序首先创建基类对象。从概念上说，这意味着基类对象应当在程序进入派生类构造函数之前被创建。C++使用成员初始化列表句法来完成这种工作。RatedPlayer构造函数代码：<br><img src="/img/media/C++%20Primer%20%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-03%20%E4%B8%8B%E5%8D%882.44.19.png" alt=""><br>其中TableTennisPlayer(fn,ln,ht)是成员初始化列表，它调用TableTennisPlayer构造函数。</p>
-<p>派生类构造函数要点：</p>
-<ol>
-<li>基类对象首先被创建。</li>
-<li>派生类构造函数应通过成员初始化列表将基类信息传递给基类构造函数。</li>
-<li>派生类构造函数应初始化派生类新增的数据成员。</li>
-</ol>
-<p>如果没有提供显示构造函数，因此将使用隐式构造函数。释放对象的顺序与创建对象的顺序相反，即首先执行派生类的析构函数，然后自动调用基类的析构函数。</p>
-<h3 id="成员初始化列表"><a href="#成员初始化列表" class="headerlink" title="成员初始化列表"></a>成员初始化列表</h3><p><img src="/img/media/C++%20Primer%20%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-03%20%E4%B8%8B%E5%8D%883.53.51.png" alt=""></p>
-<h3 id="使用派生类"><a href="#使用派生类" class="headerlink" title="使用派生类"></a>使用派生类</h3><p>要使用派生类，程序必须要能够访问基类声明。可以将这两种类的声明置于同一个头文件中。也可以将每个类放在独立的头文件中，但由于这两个类是相关的，所以把其类声明放在一起更合适。</p>
-<h2 id="派生类和基类之间的特殊关系"><a href="#派生类和基类之间的特殊关系" class="headerlink" title="派生类和基类之间的特殊关系"></a>派生类和基类之间的特殊关系</h2><p>派生类对象可以使用基类的方法，条件是方法不是私有的。<br>基类指针可以在不进行显式类型转换的情况下指向派生类对象。<br>基类引用可以在不进行显式类型转换的情况下引用派生类对象。</p>
-<p>不过，基类指针或引用只能用户调用基类方法，而不能调用派生类的方法。通常，C++要求引用和指针类型与赋给的类型匹配，但这一规则对继承来说是例外。不过，这种例外只是单向的，不可以将基类对象和地址赋给派生类引用和指针。</p>
-<h2 id="继承——is-a关系"><a href="#继承——is-a关系" class="headerlink" title="继承——is-a关系"></a>继承——is-a关系</h2><p>派生类和基类之间的特殊关系是基于C++继承的底层模型。C++有3种继承方式：<strong>公有继承、保护继承和私有继承</strong>。公有继承是最常用的方式，它建立一种is-a关系，即派生类对象也是一个基类对象，可以对基类对象执行任何操作，也可以对派生类对象执行。</p>
-<h2 id="多态公有继承"><a href="#多态公有继承" class="headerlink" title="多态公有继承"></a>多态公有继承</h2><p>希望同一个方法在派生类和基类中的行为是不同的，有两种重要的机制可用于实现多态公有继承：</p>
-<ol>
-<li>在派生类中重新定义基类方法。</li>
-<li>使用虚方法。</li>
-</ol>
-<p>在某基类中声明为 virtual 并在一个或多个派生类中被重新定义的成员函数，实现多态性，使用关键字virtual来声明虚方法。virtual 函数返回类型 函数名（参数表） {函数体}；</p>
-<h3 id="静态联编和动态联编"><a href="#静态联编和动态联编" class="headerlink" title="静态联编和动态联编"></a>静态联编和动态联编</h3><p>将源代码中的函数调用解释为执行特定的函数代码块被称为函数名联编(binding)。在C++中，由于函数重载的缘故，这项任务更复杂。编译器必须查看函数参数以及函数名才能确定使用哪个函数。C/C++编译器可以再编译过程完成这种联编。在编译过程中进行联编被称为静态联编（static binding）又称为早期联编。不过虚函数使这项工作变得更困难，使用哪一个函数是不能在编译时确定的，因为编译器不知道用户将选择哪种类型的对象。所以，编译器必须生成能够在程序运行时选择正确的虚方法的代码，这被称为动态联编（dynamic binding），又称为晚期联编（late binding）。</p>
-<h3 id="为什么有两种类型的联编以及为什么默认为静态联编"><a href="#为什么有两种类型的联编以及为什么默认为静态联编" class="headerlink" title="为什么有两种类型的联编以及为什么默认为静态联编"></a>为什么有两种类型的联编以及为什么默认为静态联编</h3><p>如果动态联编让您能够重新定义类方法，而静态联编在这方面很差; 为何不摒弃静态联编呢?原因有两个—效率和概念模型。</p>
-<p>效率：为使程序能够在运行阶段进行决策，必须采取一些方法来跟踪基类指针或引用指向的对象类型，这增加了额外的处理开销。如果类不会用作基类，则不需要动态联编。如果派生类不重新定义基类的任何方法，也不需要使用动态联编。这时，使用静态联编更合理，效率也更高。由于静态联编的效率更高，因此被设置为C++的默认选择。概念模型，在设计类时，可能包含一些不在派生类重新定义的成员函数。不该将函数设置为虚函数，有两方面的好处：首先效率更高；其次指出不要重新定义该函数。</p>
-<h3 id="虚函数的工作原理"><a href="#虚函数的工作原理" class="headerlink" title="虚函数的工作原理"></a>虚函数的工作原理</h3><p>编译器处理虚函数的方法是：给每个对象添加一个隐藏成员。隐藏成员中保存了一个指向函数地址数组的指针。这种数组称为虚函数表（vtbl）。虚函数表中存储了为类对象进行声明的虚函数地址。例如，基类对象包含一个指针，该指针指向基类中所有虚函数的地址表。派生类对象将包含一个指向独立地址表的指针。如果派生类提供了虚函数的新定义，该虚函数表将保存新函数的地址；如果派生类没有重新定义虚函数，该vtbl将保存函数原始版本的地址。无论类中包含的虚函数是一个还是10个，都只需要在对象中添加一个地址成员，只是表的大小不同而已。</p>
-<p>调用虚函数时，程序将查看存储在对象中的vtbl地址，然后转向相应的函数地址表。如果使用类声明中定义的第一个虚函数，则程序将使用数组中的第一个函数地址，并执行具有该地址的函数。如果使用类声明中的第三个虚函数，程序将使用地址为数组中第三个元素的函数。</p>
-<p>简而言之，使用虚函数时，在内存和执行速度方面有一定的成本，包括：</p>
-<ol>
-<li>每个对象都将增大，增大量为存储地址的空间。</li>
-<li>对每个类，编译器都创建一个虚函数地址表（数组）。</li>
-<li>每个函数调用都需要执行一步额外的操作，即到表中查找地址。<br>虽然非虚函数的效率比虚函数稍高，但不具备动态联编功能。</li>
-</ol>
-<h3 id="有关虚函数的注意事项"><a href="#有关虚函数的注意事项" class="headerlink" title="有关虚函数的注意事项"></a>有关虚函数的注意事项</h3><p>虚函数的要点：</p>
-<ol>
-<li>在基类方法的声明中使用关键字virtual可使该方法在基类以及所有的派生类(包括从派生类派生出来的类)中是虚拟的。</li>
-<li>如果使用指向对象的引用或指针来调用虚方法，程序将使用为对象类型定义的方法，而不使用为引用或指针类型定义的方法。这称为动态联编或晚期联编。这种行为非常重要，因为这样基类指针或引用可以指向派生类对象。</li>
-<li>如果定义的类将被用作基类，则应将那些要在派生类中重新定义的类方法声明为虚拟的。</li>
-</ol>
-<p>对于虚函数还有。<br>1.构造函数，构造函数不能是虚函数。<br>2.析构函数，析构函数应当是虚函数，除非类不用做基类。<br>如<br><img src="/img/media/C++%20Primer%20%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-04%20%E4%B8%8B%E5%8D%887.59.17.png" alt=""><br>如果使用默认的静态联编，delete 语句将调用~Employee()析构函数。这将释放由Singer 对象中的Employee部分指向的内存，但不会释放新的类成员指向的内存。但如果析构函数是虚拟的，则上述代码将先调用~Singer析构函数释放由Singer 组件指向的内存，然后，调用~Employee() 析构函数来释放由Employee组件指向的内存。</p>
-<p><strong>通常应给基类提供一个虚拟析构函数，即使它并不需要析构函数。</strong><br>3.友元，友元不能是虚函数，因为友元不是类成员，而只有成员才能是虚函数</p>
-<h2 id="访问控制：protected"><a href="#访问控制：protected" class="headerlink" title="访问控制：protected"></a>访问控制：protected</h2><p>关键字 protected与 private相似,在类外只能用公有类成员来访问protected部分中的类成员。private和 protected之间的区别只有在基类派生的类中才会表现出来。派生类的成员可以直接访问基类的保护成员，但不能直接访问基类的私有成员。因此，对于外部世界来说，保护成员的行为与私有成员相似；但对于派生类来说，保护成员的行为与公有成员相似。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/zdkswd/2018/12/26/计算机是怎么启动的/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZDK"/>
-      <meta itemprop="description" content=""/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZDK's blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/12/26/计算机是怎么启动的/" class="post-title-link" itemprop="url">计算机是怎么启动的</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-12-26 10:03:47 / 修改时间：20:15:22" itemprop="dateCreated datePublished" datetime="2018-12-26T10:03:47+08:00">2018-12-26</time>
-            </span>
-          
-
-          
-            
-
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/知识总结/" itemprop="url" rel="index"><span itemprop="name">知识总结</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2018/12/26/计算机是怎么启动的/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/12/26/计算机是怎么启动的/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2018/12/26/计算机是怎么启动的/" class="post-meta-item leancloud_visitors" data-flag-title="计算机是怎么启动的">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="计算机是怎么启动的"><a href="#计算机是怎么启动的" class="headerlink" title="计算机是怎么启动的"></a>计算机是怎么启动的</h1><p>参考：<a href="http://www.ruanyifeng.com/blog/2013/02/booting.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2013/02/booting.html</a></p>
-<p>计算机启动是一个很矛盾的过程：必须先运行程序，然后计算机才能启动，但是计算机不启动就无法运行程序！所以启动又称为boot，”pull oneself up by one’s bootstraps”。</p>
-<h2 id="第一阶段-BIOS"><a href="#第一阶段-BIOS" class="headerlink" title="第一阶段 BIOS"></a>第一阶段 BIOS</h2><p>开机程序被刷入ROM（”只读内存”）芯片，计算机通电后，第一件事就是读取它。芯片里的程序叫做”基本輸出輸入系統”（Basic Input/Output System），简称为BIOS。</p>
-<h3 id="硬件自检"><a href="#硬件自检" class="headerlink" title="硬件自检"></a>硬件自检</h3><p>BIOS程序首先检查，计算机硬件能否满足运行的基本条件，这叫做”硬件自检”（Power-On Self-Test），缩写为POST。</p>
-<p>如果硬件出现问题，主板会发出不同含义的蜂鸣，启动中止。如果没有问题，屏幕就会显示出CPU、内存、硬盘等信息。</p>
-<h3 id="启动顺序"><a href="#启动顺序" class="headerlink" title="启动顺序"></a>启动顺序</h3><p>硬件自检完成后，BIOS把控制权转交给下一阶段的启动程序。</p>
-<p>这时，BIOS需要知道，”下一阶段的启动程序”具体存放在哪一个设备。也就是说，BIOS需要有一个外部储存设备的排序，排在前面的设备就是优先转交控制权的设备。这种排序叫做”启动顺序”（Boot Sequence）。</p>
-<p>打开BIOS的操作界面，里面有一项就是”设定启动顺序”。</p>
-<h2 id="第二阶段：主引导记录"><a href="#第二阶段：主引导记录" class="headerlink" title="第二阶段：主引导记录"></a>第二阶段：主引导记录</h2><p>BIOS按照”启动顺序”，把控制权转交给排在第一位的储存设备。</p>
-<p>这时，计算机读取该设备的第一个扇区，也就是读取最前面的512个字节。如果这512个字节的最后两个字节是0x55和0xAA，表明这个设备可以用于启动；如果不是，表明设备不能用于启动，控制权于是被转交给”启动顺序”中的下一个设备。</p>
-<p>这最前面的512个字节，就叫做”主引导记录”（Master boot record，缩写为MBR）。</p>
-<h3 id="主引导记录的结构"><a href="#主引导记录的结构" class="headerlink" title="主引导记录的结构"></a>主引导记录的结构</h3><p>“主引导记录”只有512个字节，放不了太多东西。它的主要作用是，告诉计算机到硬盘的哪一个位置去找操作系统。</p>
-<p>主引导记录由三个部分组成：<br><img src="/img/media/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%98%AF%E6%80%8E%E4%B9%88%E5%90%AF%E5%8A%A8%E7%9A%84/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-26%20%E4%B8%8B%E5%8D%887.48.52.png" alt=""><br>其中，第二部分”分区表”的作用，是将硬盘分成若干个区。</p>
-<h3 id="分区表"><a href="#分区表" class="headerlink" title="分区表"></a>分区表</h3><p>硬盘分区有很多好处。考虑到每个区可以安装不同的操作系统，”主引导记录”因此必须知道将控制权转交给哪个区。</p>
-<p>分区表的长度只有64个字节，里面又分成四项，每项16个字节。所以，一个硬盘最多只能分四个一级分区，又叫做”主分区”。</p>
-<p>每个主分区的16个字节，由6个部分组成：<br><img src="/img/media/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%98%AF%E6%80%8E%E4%B9%88%E5%90%AF%E5%8A%A8%E7%9A%84/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-26%20%E4%B8%8B%E5%8D%888.00.12.png" alt=""><br>最后的四个字节（”主分区的扇区总数”），决定了这个主分区的长度。也就是说，一个主分区的扇区总数最多不超过2的32次方。</p>
-<p>如果每个扇区为512个字节，就意味着单个分区最大不超过2TB。再考虑到扇区的逻辑地址也是32位，所以单个硬盘可利用的空间最大也不超过2TB。如果想使用更大的硬盘，只有2个方法：一是提高每个扇区的字节数，二是增加扇区总数。</p>
-<h2 id="第三阶段：硬盘启动"><a href="#第三阶段：硬盘启动" class="headerlink" title="第三阶段：硬盘启动"></a>第三阶段：硬盘启动</h2><p>这时，计算机的控制权就要转交给硬盘的某个分区了，这里又分成三种情况。</p>
-<h3 id="情况A：卷引导记录"><a href="#情况A：卷引导记录" class="headerlink" title="情况A：卷引导记录"></a>情况A：卷引导记录</h3><p>四个主分区里面，只有一个是激活的。计算机会读取激活分区的第一个扇区，叫做”卷引导记录”（Volume boot record，缩写为VBR）。</p>
-<p>“卷引导记录”的主要作用是，告诉计算机，操作系统在这个分区里的位置。然后，计算机就会加载操作系统了。</p>
-<h3 id="情况B：扩展分区和逻辑分区"><a href="#情况B：扩展分区和逻辑分区" class="headerlink" title="情况B：扩展分区和逻辑分区"></a>情况B：扩展分区和逻辑分区</h3><p>随着硬盘越来越大，四个主分区已经不够了，需要更多的分区。但是，分区表只有四项，因此规定有且仅有一个区可以被定义成”扩展分区”（Extended partition）。</p>
-<p>所谓”扩展分区”，就是指这个区里面又分成多个区。这种分区里面的分区，就叫做”逻辑分区”（logical partition）。</p>
-<p>计算机先读取扩展分区的第一个扇区，叫做”扩展引导记录”（Extended boot record，缩写为EBR）。它里面也包含一张64字节的分区表，但是最多只有两项（也就是两个逻辑分区）。</p>
-<p>计算机接着读取第二个逻辑分区的第一个扇区，再从里面的分区表中找到第三个逻辑分区的位置，以此类推，直到某个逻辑分区的分区表只包含它自身为止（即只有一个分区项）。因此，扩展分区可以包含无数个逻辑分区。</p>
-<p>但是，似乎很少通过这种方式启动操作系统。如果操作系统确实安装在扩展分区，一般采用下一种方式启动。</p>
-<h3 id="情况C：启动管理器"><a href="#情况C：启动管理器" class="headerlink" title="情况C：启动管理器"></a>情况C：启动管理器</h3><p>在这种情况下，计算机读取”主引导记录”前面446字节的机器码之后，不再把控制权转交给某一个分区，而是运行事先安装的”启动管理器”（boot loader），由用户选择启动哪一个操作系统。</p>
-<p>Linux环境中，目前最流行的启动管理器是Grub。</p>
-<h2 id="第四阶段：操作系统"><a href="#第四阶段：操作系统" class="headerlink" title="第四阶段：操作系统"></a>第四阶段：操作系统</h2><p>控制权转交给操作系统后，操作系统的内核首先被载入内存。</p>
-<p>以Linux系统为例，先载入_boot目录下面的kernel。内核加载成功后，第一个运行的程序是_sbin_init。它根据配置文件（Debian系统是_etc/initab）产生init进程。这是Linux启动后的第一个进程，pid进程编号为1，其他进程都是它的后代。</p>
-<p>然后，init线程加载系统的各个模块，比如窗口程序和网络程序，直至执行_bin_login程序，跳出登录界面，等待用户输入用户名和密码。</p>
-<p>至此，全部启动过程完成。</p>
-<h1 id="冯诺依曼体系图"><a href="#冯诺依曼体系图" class="headerlink" title="冯诺依曼体系图"></a>冯诺依曼体系图</h1><p><img src="/img/media/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%98%AF%E6%80%8E%E4%B9%88%E5%90%AF%E5%8A%A8%E7%9A%84/a8773912b31bb051973f1da5367adab44aede020.png" alt=""></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/11/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="extend next" rel="next" href="/page/13/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
-
-
-
-          </div>
-          
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-
-      
-
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image"
-                src="/images/avatar.gif"
-                alt="ZDK"/>
-            
-              <p class="site-author-name" itemprop="name">ZDK</p>
-              <div class="site-description motion-element" itemprop="description"></div>
-          </div>
-
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives/">
-                
-                    <span class="site-state-item-count">191</span>
-                    <span class="site-state-item-name">日志</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-categories">
-                  
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">9</span>
-                    <span class="site-state-item-name">分类</span>
-                  
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-tags">
-                  
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">48</span>
-                    <span class="site-state-item-name">标签</span>
-                  
-                </div>
-              
-            </nav>
-          
-
-          
-            <div class="feed-link motion-element">
-              <a href="/atom.xml" rel="alternate">
-                <i class="fa fa-rss"></i>
-                RSS
-              </a>
-            </div>
-          
-
-          
-
-          
-            <div class="links-of-author motion-element">
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://github.com/zdkswd" title="GitHub &rarr; https://github.com/zdkswd"><i class="fa fa-fw fa-github"></i>GitHub</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="mailto:2822464407@qq.com" title="E-Mail &rarr; mailto:2822464407@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-                </span>
-              
-            </div>
-          
-
-          
-
-          
-          
-            <div class="links-of-blogroll motion-element links-of-blogroll-block">
-              <div class="links-of-blogroll-title">
-                <i class="fa  fa-fw fa-link"></i>
-                Links
-              </div>
-              <ul class="links-of-blogroll-list">
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://github.com/zdkswd" title="https://github.com/zdkswd">Title</a>
-                  </li>
-                
-              </ul>
-            </div>
-          
-
-          
-        </div>
-      </div>
-
-      
-
-      
-        <div class="back-to-top motion-element">
-          <i class="fa fa-arrow-up"></i>
-          
-        </div>
-      
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-        
-      </div>
     </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">ZDK</span>
 
-  
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
 
-  
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
 </div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
 
-
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.1</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.2.0</div>
-
-
-
-
-        
-
-
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
 
 
 
+<!-- mathjax config similar to math.stackexchange -->
 
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
 
-
-        
-      </div>
-    </footer>
-
-    
-
-    
-
-    
-  </div>
-
-  
-
-<script>
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
 </script>
 
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
 
 
 
 
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  <script src="/lib/jquery/index.js?v=3.4.1"></script>
-
-  
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-
-
-
-  <script src="/js/utils.js?v=7.2.0"></script>
-
-  <script src="/js/motion.js?v=7.2.0"></script>
-
-
-
-  
-  
-
-
-  <script src="/js/affix.js?v=7.2.0"></script>
-
-  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
-
-
-
-
-  
-
-  <script src="/js/next-boot.js?v=7.2.0"></script>
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
 
 <script>
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(function(item) {
-    return GUEST.indexOf(item) > -1;
-  });
-  new Valine({
-    el: '#comments',
-    verify: false,
-    notify: true,
-    appId: 'QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz',
-    appKey: 'gkBx5soQkBREmER84PWbNJeM',
-    placeholder: 'have fun',
-    avatar: 'mm',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: true,
-    lang: '' || 'zh-cn'
-  });
-</script>
-
-
-
-
-
-  
-  <script>
-    // Popup Window;
-    var isfetched = false;
-    var isXml = true;
-    // Search DB path;
-    var search_path = "";
-    if (search_path.length === 0) {
-      search_path = "search.xml";
-    } else if (/json$/i.test(search_path)) {
-      isXml = false;
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
-
-    var onPopupClose = function (e) {
-      $('.popup').hide();
-      $('#local-search-input').val('');
-      $('.search-result-list').remove();
-      $('#no-result').remove();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    }
-
-    function proceedsearch() {
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
-        .css('overflow', 'hidden');
-      $('.search-popup-overlay').click(onPopupClose);
-      $('.popup').toggle();
-      var $localSearchInput = $('#local-search-input');
-      $localSearchInput.attr("autocapitalize", "none");
-      $localSearchInput.attr("autocorrect", "off");
-      $localSearchInput.focus();
-    }
-
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-
-      // start loading animation
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
-          '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
-          '</div>' +
-          '</div>')
-        .css('overflow', 'hidden');
-      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
-
-      
-
-      $.ajax({
-        url: path,
-        dataType: isXml ? "xml" : "json",
-        async: true,
-        success: function(res) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = isXml ? $("entry", res).map(function() {
-            return {
-              title: $("title", this).text(),
-              content: $("content",this).text(),
-              url: $("url" , this).text()
-            };
-          }).get() : res;
-          var input = document.getElementById(search_id);
-          var resultContent = document.getElementById(content_id);
-          var inputEventFunction = function() {
-            var searchText = input.value.trim().toLowerCase();
-            var keywords = searchText.split(/[\s\-]+/);
-            if (keywords.length > 1) {
-              keywords.push(searchText);
-            }
-            var resultItems = [];
-            if (searchText.length > 0) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var hitCount = 0;
-                var searchTextCount = 0;
-                var title = data.title.trim();
-                var titleInLowerCase = title.toLowerCase();
-                var content = data.content.trim().replace(/<[^>]+>/g,"");
-                
-                var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
-                var indexOfTitle = [];
-                var indexOfContent = [];
-                // only match articles with not empty titles
-                if(title != '') {
-                  keywords.forEach(function(keyword) {
-                    function getIndexByWord(word, text, caseSensitive) {
-                      var wordLen = word.length;
-                      if (wordLen === 0) {
-                        return [];
-                      }
-                      var startPosition = 0, position = [], index = [];
-                      if (!caseSensitive) {
-                        text = text.toLowerCase();
-                        word = word.toLowerCase();
-                      }
-                      while ((position = text.indexOf(word, startPosition)) > -1) {
-                        index.push({position: position, word: word});
-                        startPosition = position + wordLen;
-                      }
-                      return index;
-                    }
-
-                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
-                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
-                  });
-                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
-                    isMatch = true;
-                    hitCount = indexOfTitle.length + indexOfContent.length;
-                  }
-                }
-
-                // show search results
-
-                if (isMatch) {
-                  // sort index by position of keyword
-
-                  [indexOfTitle, indexOfContent].forEach(function (index) {
-                    index.sort(function (itemLeft, itemRight) {
-                      if (itemRight.position !== itemLeft.position) {
-                        return itemRight.position - itemLeft.position;
-                      } else {
-                        return itemLeft.word.length - itemRight.word.length;
-                      }
-                    });
-                  });
-
-                  // merge hits into slices
-
-                  function mergeIntoSlice(text, start, end, index) {
-                    var item = index[index.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    var hits = [];
-                    var searchTextCountInSlice = 0;
-                    while (position + word.length <= end && index.length != 0) {
-                      if (word === searchText) {
-                        searchTextCountInSlice++;
-                      }
-                      hits.push({position: position, length: word.length});
-                      var wordEnd = position + word.length;
-
-                      // move to next position of hit
-
-                      index.pop();
-                      while (index.length != 0) {
-                        item = index[index.length - 1];
-                        position = item.position;
-                        word = item.word;
-                        if (wordEnd > position) {
-                          index.pop();
-                        } else {
-                          break;
-                        }
-                      }
-                    }
-                    searchTextCount += searchTextCountInSlice;
-                    return {
-                      hits: hits,
-                      start: start,
-                      end: end,
-                      searchTextCount: searchTextCountInSlice
-                    };
-                  }
-
-                  var slicesOfTitle = [];
-                  if (indexOfTitle.length != 0) {
-                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
-                  }
-
-                  var slicesOfContent = [];
-                  while (indexOfContent.length != 0) {
-                    var item = indexOfContent[indexOfContent.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    // cut out 100 characters
-                    var start = position - 20;
-                    var end = position + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if (end < position + word.length) {
-                      end = position + word.length;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
-                  }
-
-                  // sort slices in content by search text's count and hits' count
-
-                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
-                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
-                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
-                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
-                      return sliceRight.hits.length - sliceLeft.hits.length;
-                    } else {
-                      return sliceLeft.start - sliceRight.start;
-                    }
-                  });
-
-                  // select top N slices in content
-
-                  var upperBound = parseInt('5');
-                  if (upperBound >= 0) {
-                    slicesOfContent = slicesOfContent.slice(0, upperBound);
-                  }
-
-                  // highlight title and content
-
-                  function highlightKeyword(text, slice) {
-                    var result = '';
-                    var prevEnd = slice.start;
-                    slice.hits.forEach(function (hit) {
-                      result += text.substring(prevEnd, hit.position);
-                      var end = hit.position + hit.length;
-                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
-                      prevEnd = end;
-                    });
-                    result += text.substring(prevEnd, slice.end);
-                    return result;
-                  }
-
-                  var resultItem = '';
-
-                  if (slicesOfTitle.length != 0) {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
-                  } else {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
-                  }
-
-                  slicesOfContent.forEach(function (slice) {
-                    resultItem += "<a href='" + articleUrl + "'>" +
-                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
-                      "...</p>" + "</a>";
-                  });
-
-                  resultItem += "</li>";
-                  resultItems.push({
-                    item: resultItem,
-                    searchTextCount: searchTextCount,
-                    hitCount: hitCount,
-                    id: resultItems.length
-                  });
-                }
-              })
-            };
-            if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
-            } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
-            } else {
-              resultItems.sort(function (resultLeft, resultRight) {
-                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-                  return resultRight.searchTextCount - resultLeft.searchTextCount;
-                } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
-              });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'zdk'blog';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
         }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
     });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
-  </script>
+})();
+</script>
 
 
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-  
 
 </body>
 </html>
