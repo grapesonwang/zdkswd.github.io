@@ -198,13 +198,40 @@
 <p>作者设想能不能给一些学习模型赋予一些属性让其具有深层学习网络的能力而又没有上述的不足。</p>
 <p>所以论文提出gcForest(multi-Grained Cascade forest )</p>
 <h1 id="k折交叉验证"><a href="#k折交叉验证" class="headerlink" title="k折交叉验证"></a>k折交叉验证</h1><p>常用的精度测试方法主要是交叉验证，例如10折交叉验证(10-fold cross validation)，将数据集分成十份，轮流将其中9份做训练1份做验证，10次的结果的均值作为对算法精度的估计，一般还需要进行多次10折交叉验证求均值，例如：10次10折交叉验证，以求更精确一点。交叉验证有时也称为交叉比对，如：10折交叉比对。</p>
-<h1 id="博客"><a href="#博客" class="headerlink" title="博客"></a>博客</h1><h2 id="级联森林"><a href="#级联森林" class="headerlink" title="级联森林"></a>级联森林</h2><p><img src="/img/media/Deep%20Forest:%20Towards%20An%20Alternative%20to%20Deep%20Neural%20Networks/20170305230315119.png" alt=""><br>级联的每个级别包括两个随机森林（蓝色字体标出）和两个完全随机树木森林（黑色）。假设有三个类要预测; 因此，每个森林将输出三维类向量，然后将其连接以重新表示原始输入。注意，要将前一级的特征和这一级的特征连接在一起。</p>
+<h1 id="博客"><a href="#博客" class="headerlink" title="博客"></a>博客</h1><h2 id="级联森林"><a href="#级联森林" class="headerlink" title="级联森林"></a>级联森林</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Deep%20Forest:%20Towards%20An%20Alternative%20to%20Deep%20Neural%20Networks/20170305230315119.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>级联的每个级别包括两个随机森林（蓝色字体标出）和两个完全随机树木森林（黑色）。假设有三个类要预测; 因此，每个森林将输出三维类向量，然后将其连接以重新表示原始输入。注意，要将前一级的特征和这一级的特征连接在一起。</p>
 <p>论文中为了简单起见，在实现中，使用了两个完全随机的树森林（complete-random tree forests）和两个随机森林[Breiman，2001]。每个完全随机的树森林包含1000个完全随机树[Liu et al。，2008]，每棵树通过随机选择一个特征在树的每个节点进行分割实现生成，树一直生长，直到每个叶节点只包含相同类的实例或不超过10个实例。类似地，每个随机森林也包含1000棵树，通过随机选择sqrt(d) 数量的特征作为候选（d是输入特征的数量），然后选择具有最佳 gini 值的特征作为分割。每个森林中的树的数值是一个超参数。</p>
 <p>给定一个实例（就是一个样本），每个森林会通过计算在相关实例落入的叶节点处的不同类的训练样本的百分比，然后对森林中的所有树计平均值，以生成对类的分布的估计。如下图所示，其中红色部分突出了每个实例遍历到叶节点的路径。叶节点中的不同标记表示了不同的类。</p>
-<p><img src="/img/media/Deep%20Forest:%20Towards%20An%20Alternative%20to%20Deep%20Neural%20Networks/20170305230948452.png" alt=""><br>被估计的类分布形成类向量（class vector），该类向量接着与输入到级联的下一级的原始特征向量相连接。例如，假设有三个类，则四个森林每一个都将产生一个三维的类向量，因此，级联的下一级将接收12 = 3×4个增强特征（augmented feature）。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Deep%20Forest:%20Towards%20An%20Alternative%20to%20Deep%20Neural%20Networks/20170305230948452.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>被估计的类分布形成类向量（class vector），该类向量接着与输入到级联的下一级的原始特征向量相连接。例如，假设有三个类，则四个森林每一个都将产生一个三维的类向量，因此，级联的下一级将接收12 = 3×4个增强特征（augmented feature）。</p>
 <p>为了降低过拟合风险，每个森林产生的类向量由k折交叉验证（k-fold cross validation）产生。具体来说，每个实例都将被用作 k -1 次训练数据，产生 k -1 个类向量，然后对其取平均值以产生作为级联中下一级的增强特征的最终类向量。需要注意的是，在扩展一个新的级后，整个级联的性能将在验证集上进行估计，如果没有显着的性能增益，训练过程将终止；因此，级联中级的数量是自动确定的。与模型的复杂性固定的大多数深度神经网络相反，gcForest 能够适当地通过终止训练来决定其模型的复杂度（early stop）。这使得 gcForest 能够适用于不同规模的训练数据，而不局限于大规模训练数据。</p>
-<h2 id="多粒度扫描（Multi-Grained-Scanning）"><a href="#多粒度扫描（Multi-Grained-Scanning）" class="headerlink" title="多粒度扫描（Multi-Grained Scanning）"></a>多粒度扫描（Multi-Grained Scanning）</h2><p><img src="/img/media/Deep%20Forest:%20Towards%20An%20Alternative%20to%20Deep%20Neural%20Networks/20170305233438302.png" alt=""><br>滑动窗口用于扫描原始特征。假设有400个原始特征，并且使用100个特征的窗口大小。对于序列数据，将通过滑动一个特征的窗口来生成100维的特征向量；总共产生301个特征向量。如果原始特征具有空间关系，比如图像像素为400的20×20的面板，则10×10窗口将产生121个特征向量（即121个10×10的面板）。从正<em>负训练样例中提取的所有特征向量被视为正</em>负实例；它们将被用于生成类向量：从相同大小的窗口提取的实例将用于训练完全随机树森林和随机森林，然后生成类向量并连接为转换后的像素。如上图的上半部分所示，假设有3个类，并且使用100维的窗口；然后，每个森林产生301个三维类向量，导致对应于原始400维原始特征向量的1,806维变换特征向量。</p>
-<p>通过使用多个尺寸的滑动窗口，最终的变换特征矢量将包括更多的特征，如下图所示。<br><img src="/img/media/Deep%20Forest:%20Towards%20An%20Alternative%20to%20Deep%20Neural%20Networks/20170305234423503.png" alt=""><br>concat成一个3618-dim的原始数据，表示原始的一个数据样本，第一级的输出是12+3618=3630，后面也是一样，直到最后第N级，只有12个输出，然后在每一类别上做avg，然后输出max那一类的label，那就是最终的预测类别。</p>
+<h2 id="多粒度扫描（Multi-Grained-Scanning）"><a href="#多粒度扫描（Multi-Grained-Scanning）" class="headerlink" title="多粒度扫描（Multi-Grained Scanning）"></a>多粒度扫描（Multi-Grained Scanning）</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Deep%20Forest:%20Towards%20An%20Alternative%20to%20Deep%20Neural%20Networks/20170305233438302.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>滑动窗口用于扫描原始特征。假设有400个原始特征，并且使用100个特征的窗口大小。对于序列数据，将通过滑动一个特征的窗口来生成100维的特征向量；总共产生301个特征向量。如果原始特征具有空间关系，比如图像像素为400的20×20的面板，则10×10窗口将产生121个特征向量（即121个10×10的面板）。从正<em>负训练样例中提取的所有特征向量被视为正</em>负实例；它们将被用于生成类向量：从相同大小的窗口提取的实例将用于训练完全随机树森林和随机森林，然后生成类向量并连接为转换后的像素。如上图的上半部分所示，假设有3个类，并且使用100维的窗口；然后，每个森林产生301个三维类向量，导致对应于原始400维原始特征向量的1,806维变换特征向量。</p>
+<p>通过使用多个尺寸的滑动窗口，最终的变换特征矢量将包括更多的特征，如下图所示。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Deep%20Forest:%20Towards%20An%20Alternative%20to%20Deep%20Neural%20Networks/20170305234423503.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>concat成一个3618-dim的原始数据，表示原始的一个数据样本，第一级的输出是12+3618=3630，后面也是一样，直到最后第N级，只有12个输出，然后在每一类别上做avg，然后输出max那一类的label，那就是最终的预测类别。</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>带着深度学习的关键在于特征学习和巨大模型的能力这一认识，我们在本文中试图赋予树集成这些属性，并提出了 gcForest 方法。与深度神经网络相比，gcForest在我们的实验中表现了极高的竞争力或更好的性能。更重要的是，gcForest 具有少得多的超参数，并且对参数设置不太敏感；实际上在我们的实验中，通过使用相同的参数设置在不同的域中都获得了优异的性能，并且无论是大规模还是小规模的数据，它的工作都很好。此外，作为一种基于树的方法，gcForest 应该比深度神经网络更容易进行理论分析。</p>
 
         </div>
@@ -342,9 +369,7 @@
             </span>
         </p>
     </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
+
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
     </script>
 </footer>

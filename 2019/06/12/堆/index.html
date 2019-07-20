@@ -21,13 +21,13 @@
     
     
     <meta name="keywords" content="算法">
-    <meta name="description" content="堆堆的应用场景非常多，最经典的就是堆排序。堆排序是一种原地，时间复杂度为O(nlogn)的排序算法。在实际软件开发中，快速排序性能要比堆排序好。 堆的定义 堆是一个完全二叉树; 堆中每一个节点的值都必须大于等于(或小于等于)其子树中每个节点的值。分别对应大顶堆和小顶堆。  实现一个堆用数组存储一个堆。 1.往堆中插入一个元素往堆中插入一个元素后需要继续满足堆的两个特性，就需要进行调整，让其重新满足">
+    <meta name="description" content="堆堆的应用场景非常多，最经典的就是堆排序。堆排序是一种原地，时间复杂度为O(nlogn)的排序算法。在实际软件开发中，快速排序性能要比堆排序好。 堆的定义 堆是一个完全二叉树; 堆中每一个节点的值都必须大于等于(或小于等于)其子树中每个节点的值。分别对应大顶堆和小顶堆。  实现一个堆用数组存储一个堆。">
 <meta name="keywords" content="算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="堆">
 <meta property="og:url" content="https://github.com/zdkswd/2019/06/12/堆/index.html">
 <meta property="og:site_name" content="ZDK&#39;s blog">
-<meta property="og:description" content="堆堆的应用场景非常多，最经典的就是堆排序。堆排序是一种原地，时间复杂度为O(nlogn)的排序算法。在实际软件开发中，快速排序性能要比堆排序好。 堆的定义 堆是一个完全二叉树; 堆中每一个节点的值都必须大于等于(或小于等于)其子树中每个节点的值。分别对应大顶堆和小顶堆。  实现一个堆用数组存储一个堆。 1.往堆中插入一个元素往堆中插入一个元素后需要继续满足堆的两个特性，就需要进行调整，让其重新满足">
+<meta property="og:description" content="堆堆的应用场景非常多，最经典的就是堆排序。堆排序是一种原地，时间复杂度为O(nlogn)的排序算法。在实际软件开发中，快速排序性能要比堆排序好。 堆的定义 堆是一个完全二叉树; 堆中每一个节点的值都必须大于等于(或小于等于)其子树中每个节点的值。分别对应大顶堆和小顶堆。  实现一个堆用数组存储一个堆。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://github.com/img/media/%E5%A0%86/4d349f57947df6590a2dd1364c3b0b1e.jpg">
 <meta property="og:image" content="https://github.com/img/media/%E5%A0%86/e578654f930002a140ebcf72b11eb722.jpg">
@@ -42,7 +42,7 @@
 <meta property="og:updated_time" content="2019-06-12T13:50:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="堆">
-<meta name="twitter:description" content="堆堆的应用场景非常多，最经典的就是堆排序。堆排序是一种原地，时间复杂度为O(nlogn)的排序算法。在实际软件开发中，快速排序性能要比堆排序好。 堆的定义 堆是一个完全二叉树; 堆中每一个节点的值都必须大于等于(或小于等于)其子树中每个节点的值。分别对应大顶堆和小顶堆。  实现一个堆用数组存储一个堆。 1.往堆中插入一个元素往堆中插入一个元素后需要继续满足堆的两个特性，就需要进行调整，让其重新满足">
+<meta name="twitter:description" content="堆堆的应用场景非常多，最经典的就是堆排序。堆排序是一种原地，时间复杂度为O(nlogn)的排序算法。在实际软件开发中，快速排序性能要比堆排序好。 堆的定义 堆是一个完全二叉树; 堆中每一个节点的值都必须大于等于(或小于等于)其子树中每个节点的值。分别对应大顶堆和小顶堆。  实现一个堆用数组存储一个堆。">
 <meta name="twitter:image" content="https://github.com/img/media/%E5%A0%86/4d349f57947df6590a2dd1364c3b0b1e.jpg">
     
         <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
@@ -198,16 +198,65 @@
 <li>堆是一个完全二叉树;</li>
 <li>堆中每一个节点的值都必须大于等于(或小于等于)其子树中每个节点的值。分别对应大顶堆和小顶堆。</li>
 </ol>
-<h1 id="实现一个堆"><a href="#实现一个堆" class="headerlink" title="实现一个堆"></a>实现一个堆</h1><p>用数组存储一个堆。<br><img src="/img/media/%E5%A0%86/4d349f57947df6590a2dd1364c3b0b1e.jpg" alt=""></p>
-<h2 id="1-往堆中插入一个元素"><a href="#1-往堆中插入一个元素" class="headerlink" title="1.往堆中插入一个元素"></a>1.往堆中插入一个元素</h2><p>往堆中插入一个元素后需要继续满足堆的两个特性，就需要进行调整，让其重新满足堆的特性，这个过程就叫做<strong>堆化</strong>。分为从下往上和从上往下。<br><img src="/img/media/%E5%A0%86/e578654f930002a140ebcf72b11eb722.jpg" alt=""><br>堆化就是顺着节点所在的路径从上或从下对比交换。<br><img src="/img/media/%E5%A0%86/e3744661e038e4ae570316bc862b2c0e.jpg" alt=""><br>让新插入的节点与父节点对比大小，如果不满足子节点小于等于父节点的大小关系，就互换两个节点，一直重复这个过程，直到父子节点之间满足大小关系。即为从下往上。</p>
-<h2 id="2-删除堆顶元素"><a href="#2-删除堆顶元素" class="headerlink" title="2.删除堆顶元素"></a>2.删除堆顶元素</h2><p><img src="/img/media/%E5%A0%86/110d6f442e718f86d2a1d16095513260.jpg" alt=""><br>从上往下。</p>
+<h1 id="实现一个堆"><a href="#实现一个堆" class="headerlink" title="实现一个堆"></a>实现一个堆</h1><p>用数组存储一个堆。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%A0%86/4d349f57947df6590a2dd1364c3b0b1e.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h2 id="1-往堆中插入一个元素"><a href="#1-往堆中插入一个元素" class="headerlink" title="1.往堆中插入一个元素"></a>1.往堆中插入一个元素</h2><p>往堆中插入一个元素后需要继续满足堆的两个特性，就需要进行调整，让其重新满足堆的特性，这个过程就叫做<strong>堆化</strong>。分为从下往上和从上往下。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%A0%86/e578654f930002a140ebcf72b11eb722.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>堆化就是顺着节点所在的路径从上或从下对比交换。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%A0%86/e3744661e038e4ae570316bc862b2c0e.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>让新插入的节点与父节点对比大小，如果不满足子节点小于等于父节点的大小关系，就互换两个节点，一直重复这个过程，直到父子节点之间满足大小关系。即为从下往上。</p>
+<h2 id="2-删除堆顶元素"><a href="#2-删除堆顶元素" class="headerlink" title="2.删除堆顶元素"></a>2.删除堆顶元素</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%A0%86/110d6f442e718f86d2a1d16095513260.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>从上往下。</p>
 <h1 id="基于堆实现排序"><a href="#基于堆实现排序" class="headerlink" title="基于堆实现排序"></a>基于堆实现排序</h1><p>时间复杂度<strong>O(nlogn)</strong>，原地排序算法。堆排序分为两个大步骤，<strong>建堆</strong>和<strong>排序</strong>。</p>
 <h2 id="1-建堆"><a href="#1-建堆" class="headerlink" title="1.建堆"></a>1.建堆</h2><p>有两种思路，<br>第一种，在堆中插入一个元素，起初堆中只包含一个数据，就是下标为1的数据，然后调用插入操作，将下标从2到n的数据依次插入到堆中，这样就将包含n个数据的数据组织成了堆。</p>
-<p>第二种思路，直接从第一个非叶子节点开始，依次堆化。<br><img src="/img/media/%E5%A0%86/50c1e6bc6fe68378d0a66bdccfff441e.jpg" alt=""><br><img src="/img/media/%E5%A0%86/aabb8d15b1b92d5e040895589c60419d.jpg" alt=""><br>建堆的时间复杂度分析：<strong>O(n)</strong></p>
-<h2 id="2-排序"><a href="#2-排序" class="headerlink" title="2.排序"></a>2.排序</h2><p>建堆结束后，数组中数据已经是按照大顶堆的特性来组织的。数组中的第一个元素就是堆顶，也就是最大的元素。不断取出堆顶的元素也就完成了排序。<br><img src="/img/media/%E5%A0%86/23958f889ca48dbb8373f521708408d1.jpg" alt=""><br><strong>堆排序的时间复杂度、空间复杂度以及稳定性：</strong><br>整个堆排序只需要极个别临时存储空间，堆排序是原地排序算法。堆排序包括<strong>建堆</strong>和<strong>排序</strong>两个操作。建堆的时间复杂度是<strong>O(n)</strong>,排序过程的时间复杂度是<strong>O(nlogn)</strong>,所以堆排序整体的时间复杂度是<strong>O(nlogn)</strong>。</p>
+<p>第二种思路，直接从第一个非叶子节点开始，依次堆化。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%A0%86/50c1e6bc6fe68378d0a66bdccfff441e.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%A0%86/aabb8d15b1b92d5e040895589c60419d.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>建堆的时间复杂度分析：<strong>O(n)</strong></p>
+<h2 id="2-排序"><a href="#2-排序" class="headerlink" title="2.排序"></a>2.排序</h2><p>建堆结束后，数组中数据已经是按照大顶堆的特性来组织的。数组中的第一个元素就是堆顶，也就是最大的元素。不断取出堆顶的元素也就完成了排序。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%A0%86/23958f889ca48dbb8373f521708408d1.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><strong>堆排序的时间复杂度、空间复杂度以及稳定性：</strong><br>整个堆排序只需要极个别临时存储空间，堆排序是原地排序算法。堆排序包括<strong>建堆</strong>和<strong>排序</strong>两个操作。建堆的时间复杂度是<strong>O(n)</strong>,排序过程的时间复杂度是<strong>O(nlogn)</strong>,所以堆排序整体的时间复杂度是<strong>O(nlogn)</strong>。</p>
 <p>堆排序不是稳定的排序算法，因为在排序过程中，存在将堆最后一个节点与堆顶节点互换的操作，所以就有可能改变相同数据原始相对顺序。</p>
 <p>如果堆从0开始存储，实际上处理思路是没有变化的，唯一变化的是代码实现时计算子节点和父节点的下标公式改变了。</p>
-<h2 id="快排与堆排序"><a href="#快排与堆排序" class="headerlink" title="快排与堆排序"></a>快排与堆排序</h2><p>实际开发中，快排比堆排序性能好的两方面原因。<br><strong>一，堆排序数据访问的方式没有快速排序友好。</strong><br>对于快速排序来说，数据是顺序访问的，对于堆排序来说，数据是跳着访问的。这样对CPU缓存是不友好的。<br><strong>二，对于同样的数据，在排序过程中，堆排序算法的数据交换次数多于快速排序。</strong>堆排序的第一步是建堆，建堆的过程会打乱数据原有的相对先后顺序，导致原数据的有序度降低。对于一组已经有序的数据，经过建堆，数据变得更无序了。<br><img src="/img/media/%E5%A0%86/6e81fdde42ec3fd288d32eb866867fbd.jpg" alt=""></p>
+<h2 id="快排与堆排序"><a href="#快排与堆排序" class="headerlink" title="快排与堆排序"></a>快排与堆排序</h2><p>实际开发中，快排比堆排序性能好的两方面原因。<br><strong>一，堆排序数据访问的方式没有快速排序友好。</strong><br>对于快速排序来说，数据是顺序访问的，对于堆排序来说，数据是跳着访问的。这样对CPU缓存是不友好的。<br><strong>二，对于同样的数据，在排序过程中，堆排序算法的数据交换次数多于快速排序。</strong>堆排序的第一步是建堆，建堆的过程会打乱数据原有的相对先后顺序，导致原数据的有序度降低。对于一组已经有序的数据，经过建堆，数据变得更无序了。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%A0%86/6e81fdde42ec3fd288d32eb866867fbd.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <h1 id="堆的应用"><a href="#堆的应用" class="headerlink" title="堆的应用"></a>堆的应用</h1><p>堆有几个非常重要的应用：优先级队列，求TopK和求中位数。</p>
 <h2 id="堆的应用一：优先级队列"><a href="#堆的应用一：优先级队列" class="headerlink" title="堆的应用一：优先级队列"></a>堆的应用一：优先级队列</h2><p>队列是先进先出，不过在优先级队列里，出队顺序不是先进先出，而是按照优先级来，优先级最高的最先出队。</p>
 <p>一个堆就可以看作是一个优先级队列。</p>
@@ -220,9 +269,21 @@
 <p>动态数据求得Top K就是实时Top K。一个数据集合中有两个操作，一个是添加数据，另一个询问当前的前K大数据。</p>
 <p>实际上，我们可以一直都维护一个K大小的小顶堆，当有数据被添加到集合中时，我们就拿它与堆顶的元素对比。如果比堆顶元素大，我们就把堆顶元素删除，并且将这个元素插入到堆中;如果比堆顶元素小，则不做处理。这样，无论任何时候需要查询当前的前K大数据，都可以立刻返回。</p>
 <h2 id="堆的应用三：利用堆求中位数"><a href="#堆的应用三：利用堆求中位数" class="headerlink" title="堆的应用三：利用堆求中位数"></a>堆的应用三：利用堆求中位数</h2><p>对于静态数据，中位数是固定的，可以先排序取中间就是中位数，面对<strong>动态数据</strong>集合，中位数不断变动，如果再用先排序的方法，效率就不高了。<strong>借助堆这种数据结构，不用排序，就可以非常高效地实现求中位数操作。</strong></p>
-<p>需要维护两个堆，一个大顶堆，一个小顶堆。大顶堆中存储前半部分数据，小顶堆中存储后半部分数据，且小顶堆中的数据都大于大顶堆中的数据。<br><img src="/img/media/%E5%A0%86/08c29d3e014a4baf5f8148c2271e6099.jpg" alt=""><br><strong>大顶堆的堆顶即为要找的中位数。</strong></p>
+<p>需要维护两个堆，一个大顶堆，一个小顶堆。大顶堆中存储前半部分数据，小顶堆中存储后半部分数据，且小顶堆中的数据都大于大顶堆中的数据。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%A0%86/08c29d3e014a4baf5f8148c2271e6099.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><strong>大顶堆的堆顶即为要找的中位数。</strong></p>
 <p>当新添加一个数据的时候，如果新加入的数据小于等于大顶堆的堆顶元素，就将这个新数据插入到大顶堆;否则，就将这个新数据插入到小顶堆。</p>
-<p>这个时候就有可能出现，两个堆中的数据个数不符合约定的情况:<strong>如果n是偶数，两个堆中的数据个数都是n / 2;如果n是奇数，大顶堆有 n / 2 +1 个数据，小顶堆有 n / 2 个数据。</strong>这个时候，可以从一个堆中不停地将堆项元素移动到另一个堆，通过这样的调整，来让两个堆中的数据满足约定。<br><img src="/img/media/%E5%A0%86/aee4dcaf9d34111870a1d66a6e109fb1.jpg" alt=""><br><strong>插入数据</strong>因为需要涉及堆化，所以时间复杂度为<strong>O(logn)</strong>, 但是求中位数只需要返回大顶堆的堆顶元素，时间复杂度为<strong>O(1)</strong>。</p>
+<p>这个时候就有可能出现，两个堆中的数据个数不符合约定的情况:<strong>如果n是偶数，两个堆中的数据个数都是n / 2;如果n是奇数，大顶堆有 n / 2 +1 个数据，小顶堆有 n / 2 个数据。</strong>这个时候，可以从一个堆中不停地将堆项元素移动到另一个堆，通过这样的调整，来让两个堆中的数据满足约定。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%A0%86/aee4dcaf9d34111870a1d66a6e109fb1.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><strong>插入数据</strong>因为需要涉及堆化，所以时间复杂度为<strong>O(logn)</strong>, 但是求中位数只需要返回大顶堆的堆顶元素，时间复杂度为<strong>O(1)</strong>。</p>
 <p><strong>通过类似的方法可以求任意百分位值。</strong></p>
 
         </div>
@@ -360,9 +421,7 @@
             </span>
         </p>
     </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
+
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
     </script>
 </footer>

@@ -216,22 +216,46 @@
 <p>浏览器会根据 DOM 模型，将结构化文档（比如 HTML 和 XML）解析成一系列的节点，再由这些节点组成一个树状结构（DOM Tree）。所有的节点和最终的树状结构，都有规范的对外接口。</p>
 <p>DOM 只是一个接口规范，可以用各种语言实现。所以严格地说，DOM 不是 JavaScript 语法的一部分，但是 DOM 操作是 JavaScript 最常见的任务，离开了 DOM，JavaScript 就无法控制网页。另一方面，JavaScript 也是最常用于 DOM 操作的语言。</p>
 <h3 id="节点"><a href="#节点" class="headerlink" title="节点"></a>节点</h3><p>DOM 的最小组成单位叫做节点（node）。文档的树形结构（DOM 树），就是由各种不同类型的节点组成。每个节点可以看作是文档树的一片叶子。</p>
-<p>节点的类型有七种<br><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-20%20%E4%B8%8B%E5%8D%889.50.20.png" alt=""></p>
+<p>节点的类型有七种<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-20%20%E4%B8%8B%E5%8D%889.50.20.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <p>浏览器提供一个原生的节点对象Node，上面这七种节点都继承了Node，因此具有一些共同的属性和方法。</p>
 <h3 id="节点树"><a href="#节点树" class="headerlink" title="节点树"></a>节点树</h3><p>一个文档的所有节点，按照所在的层级，可以抽象成一种树状结构。这种树状结构就是 DOM 树。它有一个顶层节点，下一层都是顶层节点的子节点，然后子节点又有自己的子节点，就这样层层衍生出一个金字塔结构，倒过来就像一棵树。</p>
 <p>浏览器原生提供document节点，代表整个文档。</p>
 <p>文档的第一层只有一个节点，就是 HTML 网页的第一个标签&lt; html&gt;，它构成了树结构的根节点（root node），其他 HTML 标签节点都是它的下级节点。</p>
 <p>除了根节点，其他节点都有三种层级关系。</p>
-<p><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-20%20%E4%B8%8B%E5%8D%8810.05.52.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-20%20%E4%B8%8B%E5%8D%8810.05.52.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>DOM 提供操作接口，用来获取这三种关系的节点。比如，子节点接口包括firstChild（第一个子节点）和lastChild（最后一个子节点）等属性，同级节点接口包括nextSibling（紧邻在后的那个同级节点）和previousSibling（紧邻在前的那个同级节点）属性。</p>
 <h2 id="Node-接口的属性"><a href="#Node-接口的属性" class="headerlink" title="Node 接口的属性"></a>Node 接口的属性</h2><p>所有 DOM 节点都继承了 Node 接口，拥有一些共同的属性和方法。这是 DOM 操作的基础。</p>
 <h3 id="Node-nodeType"><a href="#Node-nodeType" class="headerlink" title="Node.nodeType"></a>Node.nodeType</h3><p>nodeType属性返回一个整数值，表示节点的类型。</p>
 <p>Node 对象定义了几个常量，对应这些类型值。</p>
-<p><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-20%20%E4%B8%8B%E5%8D%8810.07.17.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-20%20%E4%B8%8B%E5%8D%8810.07.17.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>确定节点类型时，使用nodeType属性是常用方法。</p>
 <h3 id="Node-nodeName"><a href="#Node-nodeName" class="headerlink" title="Node.nodeName"></a>Node.nodeName</h3><p>nodeName属性返回节点的名称。</p>
 <p>不同节点的nodeName属性值如下。</p>
-<p><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-20%20%E4%B8%8B%E5%8D%8810.10.47.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-20%20%E4%B8%8B%E5%8D%8810.10.47.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h3 id="Node-nodeValue"><a href="#Node-nodeValue" class="headerlink" title="Node.nodeValue"></a>Node.nodeValue</h3><p>nodeValue属性返回一个字符串，表示当前节点本身的文本值，该属性可读写。</p>
 <p>只有文本节点（text）和注释节点（comment）有文本值，因此这两类节点的nodeValue可以返回结果，其他类型的节点一律返回null。同样的，也只有这两类节点可以设置nodeValue属性的值，其他类型的节点设置无效。</p>
 <h3 id="Node-textContent"><a href="#Node-textContent" class="headerlink" title="Node.textContent"></a>Node.textContent</h3><p>textContent属性返回当前节点和它的所有后代节点的文本内容。</p>
@@ -261,14 +285,32 @@
 <p>使用该属性，可以遍历某个节点的所有子节点。</p>
 <p>文档节点（document）就有两个子节点：文档类型节点（docType）和 HTML 根元素节点。</p>
 <h3 id="Node-isConnected"><a href="#Node-isConnected" class="headerlink" title="Node.isConnected"></a>Node.isConnected</h3><p>isConnected属性返回一个布尔值，表示当前节点是否在文档之中。</p>
-<p><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-20%20%E4%B8%8B%E5%8D%8810.56.33.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-20%20%E4%B8%8B%E5%8D%8810.56.33.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h2 id="Node-接口的方法"><a href="#Node-接口的方法" class="headerlink" title="Node 接口的方法"></a>Node 接口的方法</h2><h3 id="Node-appendChild"><a href="#Node-appendChild" class="headerlink" title="Node.appendChild()"></a>Node.appendChild()</h3><p>appendChild方法接受一个节点对象作为参数，将其作为最后一个子节点，插入当前节点。该方法的返回值就是插入文档的子节点。</p>
-<p><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-20%20%E4%B8%8B%E5%8D%8811.00.03.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-20%20%E4%B8%8B%E5%8D%8811.00.03.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>如果参数节点是 DOM 已经存在的节点，appendChild方法会将其从原来的位置，移动到新位置。</p>
 <p>如果appendChild方法的参数是DocumentFragment节点，那么插入的是DocumentFragment的所有子节点，而不是DocumentFragment节点本身。返回值是一个空的DocumentFragment节点。</p>
 <h3 id="Node-hasChildNodes"><a href="#Node-hasChildNodes" class="headerlink" title="Node.hasChildNodes()"></a>Node.hasChildNodes()</h3><p>hasChildNodes方法返回一个布尔值，表示当前节点是否有子节点。</p>
 <p>注意，子节点包括所有节点，哪怕节点只包含一个空格，hasChildNodes方法也会返回true。</p>
-<p>判断一个节点有没有子节点，有许多种方法，下面是其中的三种。<br><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-20%20%E4%B8%8B%E5%8D%8811.05.23.png" alt=""></p>
+<p>判断一个节点有没有子节点，有许多种方法，下面是其中的三种。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-20%20%E4%B8%8B%E5%8D%8811.05.23.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <h3 id="Node-cloneNode"><a href="#Node-cloneNode" class="headerlink" title="Node.cloneNode()"></a>Node.cloneNode()</h3><p>cloneNode方法用于克隆一个节点。它接受一个布尔值作为参数，表示是否同时克隆子节点。它的返回值是一个克隆出来的新节点。</p>
 <p>该方法有一些使用注意点。</p>
 <ol>
@@ -288,9 +330,21 @@
 <h3 id="Node-replaceChild"><a href="#Node-replaceChild" class="headerlink" title="Node.replaceChild()"></a>Node.replaceChild()</h3><p>replaceChild方法用于将一个新的节点，替换当前节点的某一个子节点。</p>
 <p>replaceChild方法接受两个参数，第一个参数newChild是用来替换的新节点，第二个参数oldChild是将要替换走的子节点。返回值是替换走的那个节点oldChild。</p>
 <h3 id="Node-contains"><a href="#Node-contains" class="headerlink" title="Node.contains()"></a>Node.contains()</h3><p>contains方法返回一个布尔值，表示参数节点是否满足以下三个条件之一。</p>
-<p><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-20%20%E4%B8%8B%E5%8D%8811.21.05.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-20%20%E4%B8%8B%E5%8D%8811.21.05.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h3 id="Node-compareDocumentPosition"><a href="#Node-compareDocumentPosition" class="headerlink" title="Node.compareDocumentPosition()"></a>Node.compareDocumentPosition()</h3><p>compareDocumentPosition方法的用法，与contains方法完全一致，返回一个七个比特位的二进制值，表示参数节点与当前节点的关系。</p>
-<p><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-20%20%E4%B8%8B%E5%8D%8811.22.06.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-20%20%E4%B8%8B%E5%8D%8811.22.06.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>由于compareDocumentPosition返回值的含义，定义在每一个比特位上，所以如果要检查某一种特定的含义，就需要使用比特位运算符。</p>
 <p>进行与运算（&amp;）。</p>
 <h3 id="Node-isEqualNode-，Node-isSameNode"><a href="#Node-isEqualNode-，Node-isSameNode" class="headerlink" title="Node.isEqualNode()，Node.isSameNode()"></a>Node.isEqualNode()，Node.isSameNode()</h3><p>isEqualNode方法返回一个布尔值，用于检查两个节点是否相等。所谓相等的节点，指的是两个节点的类型相同、属性相同、子节点相同。</p>
@@ -301,7 +355,13 @@
 <h2 id="NodeList-接口"><a href="#NodeList-接口" class="headerlink" title="NodeList 接口"></a>NodeList 接口</h2><p>节点都是单个对象，有时需要一种数据结构，能够容纳多个节点。DOM 提供两种节点集合，用于容纳多个节点：NodeList和HTMLCollection。</p>
 <p>这两种集合都属于接口规范。许多 DOM 属性和方法，返回的结果是NodeList实例或HTMLCollection实例。</p>
 <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>NodeList实例是一个类似数组的对象，它的成员是节点对象。通过以下方法可以得到NodeList实例。</p>
-<p><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-21%20%E4%B8%8B%E5%8D%883.58.33.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-21%20%E4%B8%8B%E5%8D%883.58.33.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>NodeList实例很像数组，可以使用length属性和forEach方法。但是，它不是数组，不能使用pop或push之类数组特有的方法。</p>
 <p>注意，NodeList 实例可能是动态集合，也可能是静态集合。所谓动态集合就是一个活的集合，DOM 删除或新增一个相关节点，都会立刻反映在 NodeList 实例。目前，只有Node.childNodes返回的是一个动态集合，其他的 NodeList 都是静态集合。</p>
 <h3 id="NodeList-prototype-length"><a href="#NodeList-prototype-length" class="headerlink" title="NodeList.prototype.length"></a>NodeList.prototype.length</h3><p>length属性返回 NodeList 实例包含的节点数量。</p>
@@ -315,12 +375,24 @@
 <h2 id="HTMLCollection-接口"><a href="#HTMLCollection-接口" class="headerlink" title="HTMLCollection 接口"></a>HTMLCollection 接口</h2><h3 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h3><p>HTMLCollection是一个节点对象的集合，只能包含元素节点（element），不能包含其他类型的节点。它的返回值是一个类似数组的对象，但是与NodeList接口不同，HTMLCollection没有forEach方法，只能使用for循环遍历。</p>
 <p>HTMLCollection实例都是动态集合，节点的变化会实时反映在集合中。</p>
 <p>如果元素节点有id或name属性，那么HTMLCollection实例上面，可以使用id属性或name属性引用该节点元素。如果没有对应的节点，则返回null。</p>
-<p><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-21%20%E4%B8%8B%E5%8D%884.25.14.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-21%20%E4%B8%8B%E5%8D%884.25.14.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h3 id="HTMLCollection-prototype-length"><a href="#HTMLCollection-prototype-length" class="headerlink" title="HTMLCollection.prototype.length"></a>HTMLCollection.prototype.length</h3><p>length属性返回HTMLCollection实例包含的成员数量。</p>
 <h3 id="HTMLCollection-prototype-item"><a href="#HTMLCollection-prototype-item" class="headerlink" title="HTMLCollection.prototype.item()"></a>HTMLCollection.prototype.item()</h3><p>item方法接受一个整数值作为参数，表示成员的位置，返回该位置上的成员。</p>
 <p>如果参数值超出成员数量或者不合法（比如小于0），那么item方法返回null。</p>
 <h3 id="HTMLCollection-prototype-namedItem"><a href="#HTMLCollection-prototype-namedItem" class="headerlink" title="HTMLCollection.prototype.namedItem()"></a>HTMLCollection.prototype.namedItem()</h3><p>namedItem方法的参数是一个字符串，表示id属性或name属性的值，返回对应的元素节点。如果没有对应的节点，则返回null。</p>
-<p><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-21%20%E4%B8%8B%E5%8D%884.28.51.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-21%20%E4%B8%8B%E5%8D%884.28.51.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h2 id="ParentNode-接口"><a href="#ParentNode-接口" class="headerlink" title="ParentNode 接口"></a>ParentNode 接口</h2><p>节点对象除了继承 Node 接口以外，还会继承其他接口。ParentNode接口表示当前节点是一个父节点，提供一些处理子节点的方法。ChildNode接口表示当前节点是一个子节点，提供一些相关方法。</p>
 <p>如果当前节点是父节点，就会继承ParentNode接口。由于只有元素节点（element）、文档节点（document）和文档片段节点（documentFragment）拥有子节点，因此只有这三类节点会继承ParentNode接口。</p>
 <h3 id="ParentNode-children"><a href="#ParentNode-children" class="headerlink" title="ParentNode.children"></a>ParentNode.children</h3><p>children属性返回一个HTMLCollection实例，成员是当前节点的所有元素子节点。该属性只读。</p>
@@ -341,7 +413,13 @@
 <h3 id="ChildNode-replaceWith"><a href="#ChildNode-replaceWith" class="headerlink" title="ChildNode.replaceWith()"></a>ChildNode.replaceWith()</h3><p>replaceWith方法使用参数节点，替换当前节点。参数可以是元素节点，也可以是文本节点。</p>
 <h1 id="document-对象"><a href="#document-对象" class="headerlink" title="document 对象"></a>document 对象</h1><h2 id="概述-2"><a href="#概述-2" class="headerlink" title="概述"></a>概述</h2><p>document对象是文档的根节点，每张网页都有自己的document对象。window.document属性就指向这个对象。只要浏览器开始载入 HTML 文档，该对象就存在了，可以直接使用。</p>
 <p>document对象有不同的办法可以获取。</p>
-<p><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-21%20%E4%B8%8B%E5%8D%885.01.03.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-21%20%E4%B8%8B%E5%8D%885.01.03.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>document对象继承了EventTarget接口、Node接口、ParentNode接口。这意味着，这些接口的方法都可以在document对象上调用。除此之外，document对象还有很多自己的属性和方法。</p>
 <h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><h3 id="快捷方式属性"><a href="#快捷方式属性" class="headerlink" title="快捷方式属性"></a>快捷方式属性</h3><p>以下属性是指向文档内部的某个节点的快捷方式。</p>
 <h4 id="document-defaultView"><a href="#document-defaultView" class="headerlink" title="document.defaultView"></a>document.defaultView</h4><p>document.defaultView属性返回document对象所属的window对象。如果当前文档不属于window对象，该属性返回null。</p>
@@ -363,7 +441,13 @@
 <h3 id="document-styleSheets"><a href="#document-styleSheets" class="headerlink" title="document.styleSheets"></a>document.styleSheets</h3><p>document.styleSheets属性返回文档内嵌或引入的样式表集合。</p>
 <h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>除了document.styleSheets，以上的集合属性返回的都是HTMLCollection实例。</p>
 <p>HTMLCollection实例是类似数组的对象，所以这些属性都有length属性，都可以使用方括号运算符引用成员。如果成员有id或name属性，还可以用这两个属性的值，在HTMLCollection实例上引用到这个成员。</p>
-<p><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-21%20%E4%B8%8B%E5%8D%886.03.36.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-21%20%E4%B8%8B%E5%8D%886.03.36.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h2 id="文档静态信息属性"><a href="#文档静态信息属性" class="headerlink" title="文档静态信息属性"></a>文档静态信息属性</h2><p>以下属性返回文档信息。</p>
 <h3 id="document-documentURI，document-URL"><a href="#document-documentURI，document-URL" class="headerlink" title="document.documentURI，document.URL"></a>document.documentURI，document.URL</h3><p>document.documentURI属性和document.URL属性都返回一个字符串，表示当前文档的网址。不同之处是它们继承自不同的接口，documentURI继承自Document接口，可用于所有文档；URL继承自HTMLDocument接口，只能用于 HTML 文档。</p>
 <p>如果文档的锚点（#anchor）变化，这两个属性都会跟着变化。</p>
@@ -382,34 +466,76 @@
 <p>一般来说，如果网页代码的第一行设置了明确的DOCTYPE（比如&lt;!doctype html&gt;），document.compatMode的值都为CSS1Compat。</p>
 <h2 id="文档状态属性"><a href="#文档状态属性" class="headerlink" title="文档状态属性"></a>文档状态属性</h2><h3 id="document-hidden"><a href="#document-hidden" class="headerlink" title="document.hidden"></a>document.hidden</h3><p>document.hidden属性返回一个布尔值，表示当前页面是否可见。如果窗口最小化、浏览器切换了 Tab，都会导致导致页面不可见，使得document.hidden返回true。</p>
 <h3 id="document-visibilityState"><a href="#document-visibilityState" class="headerlink" title="document.visibilityState"></a>document.visibilityState</h3><p>document.visibilityState返回文档的可见状态。</p>
-<p><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-21%20%E4%B8%8B%E5%8D%886.34.52.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-21%20%E4%B8%8B%E5%8D%886.34.52.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>这个属性可以用在页面加载时，防止加载某些资源；或者页面不可见时，停掉一些页面功能。</p>
 <h3 id="document-readyState"><a href="#document-readyState" class="headerlink" title="document.readyState"></a>document.readyState</h3><p>document.readyState属性返回当前文档的状态，共有三种可能的值。</p>
-<p><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-21%20%E4%B8%8B%E5%8D%886.35.45.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-21%20%E4%B8%8B%E5%8D%886.35.45.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>这个属性变化的过程如下。</p>
-<p><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8A%E5%8D%8811.19.23.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8A%E5%8D%8811.19.23.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>每次状态变化都会触发一个readystatechange事件。</p>
 <h3 id="document-cookie"><a href="#document-cookie" class="headerlink" title="document.cookie"></a>document.cookie</h3><p>document.cookie属性用来操作浏览器 Cookie。</p>
 <h3 id="document-designMode"><a href="#document-designMode" class="headerlink" title="document.designMode"></a>document.designMode</h3><p>document.designMode属性控制当前文档是否可编辑，通常用在所见即所得编辑器。该属性只有两个值on和off，默认值为off。</p>
 <h3 id="document-implementation"><a href="#document-implementation" class="headerlink" title="document.implementation"></a>document.implementation</h3><p>document.implementation属性返回一个DOMImplementation对象。该对象有三个方法，主要用于创建独立于当前文档的新的 Document 对象。</p>
-<p><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8A%E5%8D%8811.24.44.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8A%E5%8D%8811.24.44.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><h3 id="document-open-，document-close"><a href="#document-open-，document-close" class="headerlink" title="document.open()，document.close()"></a>document.open()，document.close()</h3><p>document.open方法清除当前文档所有内容，使得文档处于可写状态，供document.write方法写入内容。</p>
 <p>document.close方法用来关闭document.open()打开的文档。</p>
 <h3 id="document-write-，document-writeln"><a href="#document-write-，document-writeln" class="headerlink" title="document.write()，document.writeln()"></a>document.write()，document.writeln()</h3><p>document.write方法用于向当前文档写入内容。</p>
 <p>在网页的首次渲染阶段，只要页面没有关闭写入（即没有执行document.close()），document.write写入的内容就会追加在已有内容的后面。</p>
 <p>注意，document.write会当作 HTML 代码解析，不会转义。</p>
-<p><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8A%E5%8D%8811.27.38.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8A%E5%8D%8811.27.38.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>如果页面已经解析完成（DOMContentLoaded事件发生之后），再调用write方法，它会先调用open方法，擦除当前文档所有内容，然后再写入。</p>
 <p>如果在页面渲染过程中调用write方法，并不会自动调用open方法。（可以理解成，open方法已调用，但close方法还未调用。）</p>
 <p>document.write是JavaScript语言标准化之前就存在的方法，现在完全有更符合标准的方法向文档写入内容（比如对innerHTML属性赋值）。所以，除了某些特殊情况，应该尽量避免使用document.write这个方法。</p>
 <p>document.writeln方法与write方法完全一致，除了会在输出内容的尾部添加换行符。</p>
 <p>注意，writeln方法添加的是 ASCII 码的换行符，渲染成 HTML 网页时不起作用，即在网页上显示不出换行。网页上的换行，必须显式写入<br>。</p>
 <h3 id="document-querySelector-，document-querySelectorAll"><a href="#document-querySelector-，document-querySelectorAll" class="headerlink" title="document.querySelector()，document.querySelectorAll()"></a>document.querySelector()，document.querySelectorAll()</h3><p>document.querySelector方法接受一个 CSS 选择器作为参数，返回匹配该选择器的元素节点。如果有多个节点满足匹配条件，则返回第一个匹配的节点。如果没有发现匹配的节点，则返回null。</p>
-<p><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8A%E5%8D%8811.53.59.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8A%E5%8D%8811.53.59.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>document.querySelectorAll方法与querySelector用法类似，区别是返回一个NodeList对象，包含所有匹配给定选择器的节点。</p>
 <p>这两个方法的参数，可以是逗号分隔的多个 CSS 选择器，返回匹配其中一个选择器的元素节点，这与 CSS 选择器的规则是一致的。</p>
 <p>这两个方法都支持复杂的 CSS 选择器。</p>
-<p><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8A%E5%8D%8811.55.11.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8A%E5%8D%8811.55.11.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>但是，它们不支持 CSS 伪元素的选择器（比如:first-line和:first-letter）和伪类的选择器（比如:link和:visited），即无法选中伪元素和伪类。</p>
 <p>如果querySelectorAll方法的参数是字符串*，则会返回文档中的所有元素节点。另外，querySelectorAll的返回结果不是动态集合，不会实时反映元素节点的变化。</p>
 <p>最后，这两个方法除了定义在document对象上，还定义在元素节点上，即在元素节点上也可以调用。</p>
@@ -421,7 +547,13 @@
 <p>参数可以是多个class，它们之间使用空格分隔。</p>
 <p>注意，正常模式下，CSS 的class是大小写敏感的。（quirks mode下，大小写不敏感。）</p>
 <p>与getElementsByTagName方法一样，getElementsByClassName方法不仅可以在document对象上调用，也可以在任何元素节点上调用。</p>
-<p><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%8812.08.27.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%8812.08.27.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h3 id="document-getElementsByName"><a href="#document-getElementsByName" class="headerlink" title="document.getElementsByName()"></a>document.getElementsByName()</h3><p>document.getElementsByName方法用于选择拥有name属性的 HTML 元素,返回一个类似数组的的对象（NodeList实例），因为name属性相同的元素可能不止一个。</p>
 <h3 id="document-getElementById"><a href="#document-getElementById" class="headerlink" title="document.getElementById()"></a>document.getElementById()</h3><p>document.getElementById方法返回匹配指定id属性的元素节点。如果没有发现匹配的节点，则返回null。</p>
 <p>注意，该方法的参数是大小写敏感的。比如，如果某个节点的id属性是main，那么document.getElementById(‘Main’)将返回null。</p>
@@ -431,22 +563,52 @@
 <p>elementFromPoint方法的两个参数，依次是相对于当前视口左上角的横坐标和纵坐标，单位是像素。如果位于该位置的 HTML 元素不可返回（比如文本框的滚动条），则返回它的父元素（比如文本框）。如果坐标值无意义（比如负值或超过视口大小），则返回null。</p>
 <p>document.elementsFromPoint()返回一个数组，成员是位于指定坐标（相对于视口）的所有元素。</p>
 <h3 id="document-caretPositionFromPoint"><a href="#document-caretPositionFromPoint" class="headerlink" title="document.caretPositionFromPoint()"></a>document.caretPositionFromPoint()</h3><p>document.caretPositionFromPoint()返回一个 CaretPosition 对象，包含了指定坐标点在节点对象内部的位置信息。CaretPosition 对象就是光标插入点的概念，用于确定光标点在文本对象内部的具体位置。</p>
-<p>CaretPosition 对象。该对象有两个属性。<br><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%882.04.26.png" alt=""></p>
+<p>CaretPosition 对象。该对象有两个属性。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%882.04.26.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <h3 id="document-createElement"><a href="#document-createElement" class="headerlink" title="document.createElement()"></a>document.createElement()</h3><p>document.createElement方法用来生成元素节点，并返回该节点。</p>
-<p><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%882.05.32.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%882.05.32.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>createElement方法的参数为元素的标签名，即元素节点的tagName属性，对于 HTML 网页大小写不敏感，即参数为div或DIV返回的是同一种节点。如果参数里面包含尖括号（即&lt;和&gt;）会报错。</p>
 <p>注意，document.createElement的参数可以是自定义的标签名。</p>
 <h3 id="document-createTextNode"><a href="#document-createTextNode" class="headerlink" title="document.createTextNode()"></a>document.createTextNode()</h3><p>document.createTextNode方法用来生成文本节点（Text实例），并返回该节点。它的参数是文本节点的内容。</p>
-<p><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%882.07.07.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%882.07.07.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>这个方法可以确保返回的节点，被浏览器当作文本渲染，而不是当作 HTML 代码渲染。因此，可以用来展示用户的输入，避免 XSS 攻击。</p>
 <h3 id="document-createAttribute"><a href="#document-createAttribute" class="headerlink" title="document.createAttribute()"></a>document.createAttribute()</h3><p>document.createAttribute方法生成一个新的属性节点（Attr实例），并返回它。</p>
 <p>document.createAttribute方法的参数name，是属性的名称。</p>
-<p><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%882.09.32.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%882.09.32.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h3 id="document-createComment"><a href="#document-createComment" class="headerlink" title="document.createComment()"></a>document.createComment()</h3><p>document.createComment方法生成一个新的注释节点，并返回该节点。</p>
 <p>document.createComment方法的参数是一个字符串，会成为注释节点的内容。</p>
 <h3 id="document-createDocumentFragment"><a href="#document-createDocumentFragment" class="headerlink" title="document.createDocumentFragment()"></a>document.createDocumentFragment()</h3><p>document.createDocumentFragment方法生成一个空的文档片段对象（DocumentFragment实例）。</p>
 <p>DocumentFragment是一个存在于内存的 DOM 片段，不属于当前文档，常常用来生成一段较复杂的 DOM 结构，然后再插入当前文档。这样做的好处在于，因为DocumentFragment不属于当前文档，对它的任何改动，都不会引发网页的重新渲染，比直接修改当前文档的 DOM 有更好的性能表现。</p>
-<p><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%882.12.09.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%882.12.09.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h3 id="document-createEvent"><a href="#document-createEvent" class="headerlink" title="document.createEvent()"></a>document.createEvent()</h3><p>document.createEvent方法生成一个事件对象（Event实例），该对象可以被element.dispatchEvent方法使用，触发指定事件。</p>
 <p>document.createEvent方法的参数是事件类型，比如UIEvents、MouseEvents、MutationEvents、HTMLEvents。</p>
 <h3 id="document-addEventListener-，document-removeEventListener-，document-dispatchEvent"><a href="#document-addEventListener-，document-removeEventListener-，document-dispatchEvent" class="headerlink" title="document.addEventListener()，document.removeEventListener()，document.dispatchEvent()"></a>document.addEventListener()，document.removeEventListener()，document.dispatchEvent()</h3><p>这三个方法用于处理document节点的事件。它们都继承自EventTarget接口。</p>
@@ -458,8 +620,20 @@
 <p>document.importNode方法的第一个参数是外部节点，第二个参数是一个布尔值，表示对外部节点是深拷贝还是浅拷贝，默认是浅拷贝（false）。虽然第二个参数是可选的，但是建议总是保留这个参数，并设为true。</p>
 <p>注意，document.importNode方法只是拷贝外部节点，这时该节点的父节点是null。下一步还必须将这个节点插入当前文档树。</p>
 <h3 id="document-createNodeIterator"><a href="#document-createNodeIterator" class="headerlink" title="document.createNodeIterator()"></a>document.createNodeIterator()</h3><p>document.createNodeIterator方法返回一个子节点遍历器。</p>
-<p>document.createNodeIterator方法第一个参数为所要遍历的根节点，第二个参数为所要遍历的节点类型，这里指定为元素节点（NodeFilter.SHOW_ELEMENT）。几种主要的节点类型写法如下。<br><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%882.35.09.png" alt=""></p>
-<p>document.createNodeIterator方法返回一个“遍历器”对象（NodeFilter实例）。该实例的nextNode()方法和previousNode()方法，可以用来遍历所有子节点。<br><img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%882.40.09.png" alt=""></p>
+<p>document.createNodeIterator方法第一个参数为所要遍历的根节点，第二个参数为所要遍历的节点类型，这里指定为元素节点（NodeFilter.SHOW_ELEMENT）。几种主要的节点类型写法如下。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%882.35.09.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>document.createNodeIterator方法返回一个“遍历器”对象（NodeFilter实例）。该实例的nextNode()方法和previousNode()方法，可以用来遍历所有子节点。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15347699009417/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%882.40.09.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <p>currentNode和previousNode都指向同一个的节点。</p>
 <p>注意，遍历器返回的第一个节点，总是根节点。</p>
 <h3 id="document-createTreeWalker"><a href="#document-createTreeWalker" class="headerlink" title="document.createTreeWalker()"></a>document.createTreeWalker()</h3><p>document.createTreeWalker方法返回一个 DOM 的子树遍历器。它与document.createNodeIterator方法基本是类似的，区别在于它返回的是TreeWalker实例，后者返回的是NodeIterator实例。另外，它的第一个节点不是根节点。</p>
@@ -601,9 +775,7 @@
             </span>
         </p>
     </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
+
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
     </script>
 </footer>

@@ -21,13 +21,13 @@
     
     
     <meta name="keywords" content="算法">
-    <meta name="description" content="跳表二分查找是依赖数组随机访问的特性。如果数据是存储在链表中，则要对链表进行改造，支持类似二分的查找算法。改造后的数据结构叫做跳表。 跳表是一种各方面性能都比较优秀的动态数据结构。可以支持快速的插入删除查找，甚至可以替代红黑树。 Redis中的有序集合(Sorted Set)就是用跳表来实现的。 如何理解对于单链表查找数据只能从头到尾遍历，O(n)。加上一层索引之后，查找一个结点需要遍历的结点数减">
+    <meta name="description" content="跳表二分查找是依赖数组随机访问的特性。如果数据是存储在链表中，则要对链表进行改造，支持类似二分的查找算法。改造后的数据结构叫做跳表。 跳表是一种各方面性能都比较优秀的动态数据结构。可以支持快速的插入删除查找，甚至可以替代红黑树。 Redis中的有序集合(Sorted Set)就是用跳表来实现的。 如何理解对于单链表查找数据只能从头到尾遍历，O(n)。">
 <meta name="keywords" content="算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="跳表">
 <meta property="og:url" content="https://github.com/zdkswd/2019/05/31/跳表/index.html">
 <meta property="og:site_name" content="ZDK&#39;s blog">
-<meta property="og:description" content="跳表二分查找是依赖数组随机访问的特性。如果数据是存储在链表中，则要对链表进行改造，支持类似二分的查找算法。改造后的数据结构叫做跳表。 跳表是一种各方面性能都比较优秀的动态数据结构。可以支持快速的插入删除查找，甚至可以替代红黑树。 Redis中的有序集合(Sorted Set)就是用跳表来实现的。 如何理解对于单链表查找数据只能从头到尾遍历，O(n)。加上一层索引之后，查找一个结点需要遍历的结点数减">
+<meta property="og:description" content="跳表二分查找是依赖数组随机访问的特性。如果数据是存储在链表中，则要对链表进行改造，支持类似二分的查找算法。改造后的数据结构叫做跳表。 跳表是一种各方面性能都比较优秀的动态数据结构。可以支持快速的插入删除查找，甚至可以替代红黑树。 Redis中的有序集合(Sorted Set)就是用跳表来实现的。 如何理解对于单链表查找数据只能从头到尾遍历，O(n)。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://github.com/img/media/%E8%B7%B3%E8%A1%A8/14753c824a5ee4a976ea799727adc78e.jpg">
 <meta property="og:image" content="https://github.com/img/media/%E8%B7%B3%E8%A1%A8/492206afe5e2fef9f683c7cff83afa65.jpg">
@@ -38,7 +38,7 @@
 <meta property="og:updated_time" content="2019-05-31T12:56:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="跳表">
-<meta name="twitter:description" content="跳表二分查找是依赖数组随机访问的特性。如果数据是存储在链表中，则要对链表进行改造，支持类似二分的查找算法。改造后的数据结构叫做跳表。 跳表是一种各方面性能都比较优秀的动态数据结构。可以支持快速的插入删除查找，甚至可以替代红黑树。 Redis中的有序集合(Sorted Set)就是用跳表来实现的。 如何理解对于单链表查找数据只能从头到尾遍历，O(n)。加上一层索引之后，查找一个结点需要遍历的结点数减">
+<meta name="twitter:description" content="跳表二分查找是依赖数组随机访问的特性。如果数据是存储在链表中，则要对链表进行改造，支持类似二分的查找算法。改造后的数据结构叫做跳表。 跳表是一种各方面性能都比较优秀的动态数据结构。可以支持快速的插入删除查找，甚至可以替代红黑树。 Redis中的有序集合(Sorted Set)就是用跳表来实现的。 如何理解对于单链表查找数据只能从头到尾遍历，O(n)。">
 <meta name="twitter:image" content="https://github.com/img/media/%E8%B7%B3%E8%A1%A8/14753c824a5ee4a976ea799727adc78e.jpg">
     
         <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
@@ -192,13 +192,51 @@
             <h1 id="跳表"><a href="#跳表" class="headerlink" title="跳表"></a>跳表</h1><p>二分查找是依赖数组随机访问的特性。如果数据是存储在链表中，则要对链表进行改造，支持类似二分的查找算法。改造后的数据结构叫做<strong>跳表</strong>。</p>
 <p>跳表是一种各方面性能都比较优秀的<strong>动态数据结构</strong>。可以支持快速的插入删除查找，甚至可以替代红黑树。</p>
 <p>Redis中的有序集合(Sorted Set)就是用跳表来实现的。</p>
-<h2 id="如何理解"><a href="#如何理解" class="headerlink" title="如何理解"></a>如何理解</h2><p>对于单链表查找数据只能从头到尾遍历，O(n)。<br><img src="/img/media/%E8%B7%B3%E8%A1%A8/14753c824a5ee4a976ea799727adc78e.jpg" alt=""><br>加上一层索引之后，查找一个结点需要遍历的结点数减少了，也就是查找效率提高了。<br><img src="/img/media/%E8%B7%B3%E8%A1%A8/492206afe5e2fef9f683c7cff83afa65.jpg" alt=""><br><img src="/img/media/%E8%B7%B3%E8%A1%A8/46d283cd82c987153b3fe0c76dfba8a9.jpg" alt=""><br>当链表的长度比较大时，在构建索引之后，查找效率的提升就会非常明显。</p>
+<h2 id="如何理解"><a href="#如何理解" class="headerlink" title="如何理解"></a>如何理解</h2><p>对于单链表查找数据只能从头到尾遍历，O(n)。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%B7%B3%E8%A1%A8/14753c824a5ee4a976ea799727adc78e.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>加上一层索引之后，查找一个结点需要遍历的结点数减少了，也就是查找效率提高了。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%B7%B3%E8%A1%A8/492206afe5e2fef9f683c7cff83afa65.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%B7%B3%E8%A1%A8/46d283cd82c987153b3fe0c76dfba8a9.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>当链表的长度比较大时，在构建索引之后，查找效率的提升就会非常明显。</p>
 <p><strong>这种链表加多级索引的结构就是跳表。</strong></p>
 <h2 id="用跳表查询到底有多快"><a href="#用跳表查询到底有多快" class="headerlink" title="用跳表查询到底有多快"></a>用跳表查询到底有多快</h2><p>O(logn)</p>
 <h2 id="跳表是不是很浪费内存？"><a href="#跳表是不是很浪费内存？" class="headerlink" title="跳表是不是很浪费内存？"></a>跳表是不是很浪费内存？</h2><p>等比数列求和。空间复杂度还是O(n)。<br>在实际的软件开发中，原始链表存储的可能是很大的对象，索引结点只需要存储关键值和几个指针，并不需要存储对象，所以当对象比索引节点大很多时，索引占用的额外空间就可以忽略了。</p>
-<h2 id="高效的动态插入和删除"><a href="#高效的动态插入和删除" class="headerlink" title="高效的动态插入和删除"></a>高效的动态插入和删除</h2><p><img src="/img/media/%E8%B7%B3%E8%A1%A8/65379f0651bc3a7cfd13ab8694c4d26c.jpg" alt=""><br>插入操作时间复杂度也是O(logn)。先要查找要插入的位置，再插入结点。<br>删除操作是，如果这个结点在索引中也有出现，除了删除原始链表汇总的结点，还要删除索引中的。在查找要删除的结点的时候，一定要获取前驱结点。如果使用的是双向链表，就不用考虑这个问题。</p>
-<h2 id="跳表索引动态更新"><a href="#跳表索引动态更新" class="headerlink" title="跳表索引动态更新"></a>跳表索引动态更新</h2><p><img src="/img/media/%E8%B7%B3%E8%A1%A8/c863074c01c26538cf0134eaf8dc67c5.jpg" alt=""><br>如果不停插入数据而不更新索引，就有可能出现某两个索引节点之间数据非常多的情况，极端情况下，跳表会退化为单链表。</p>
-<p>可以通过<strong>随机函数</strong>来维护平衡性。<br><img src="/img/media/%E8%B7%B3%E8%A1%A8/a861445d0b53fc842f38919365b004a7.jpg" alt=""><br>随机函数生成了值K，那么久将这个结点添加到第一级到第K级这K级索引中。</p>
+<h2 id="高效的动态插入和删除"><a href="#高效的动态插入和删除" class="headerlink" title="高效的动态插入和删除"></a>高效的动态插入和删除</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%B7%B3%E8%A1%A8/65379f0651bc3a7cfd13ab8694c4d26c.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>插入操作时间复杂度也是O(logn)。先要查找要插入的位置，再插入结点。<br>删除操作是，如果这个结点在索引中也有出现，除了删除原始链表汇总的结点，还要删除索引中的。在查找要删除的结点的时候，一定要获取前驱结点。如果使用的是双向链表，就不用考虑这个问题。</p>
+<h2 id="跳表索引动态更新"><a href="#跳表索引动态更新" class="headerlink" title="跳表索引动态更新"></a>跳表索引动态更新</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%B7%B3%E8%A1%A8/c863074c01c26538cf0134eaf8dc67c5.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>如果不停插入数据而不更新索引，就有可能出现某两个索引节点之间数据非常多的情况，极端情况下，跳表会退化为单链表。</p>
+<p>可以通过<strong>随机函数</strong>来维护平衡性。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%B7%B3%E8%A1%A8/a861445d0b53fc842f38919365b004a7.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>随机函数生成了值K，那么久将这个结点添加到第一级到第K级这K级索引中。</p>
 <p>Redis有序集合支持的核心操作包括：（1）插入（2）删除（3）查找（4）按照区间查找数据（5）迭代输出有序序列</p>
 <p>其中,插入、删除、查找以及迭代输岀有序序列这几个操作,红黑树也可以完成,时间复杂度跟跳表是一样的。但是,按照区间来查找数据这个操作,红黑树的效率没有跳表高。</p>
 
@@ -337,9 +375,7 @@
             </span>
         </p>
     </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
+
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
     </script>
 </footer>

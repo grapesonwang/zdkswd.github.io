@@ -21,13 +21,13 @@
     
     
     <meta name="keywords" content="Python">
-    <meta name="description" content="莫凡 使用Numpy的技巧pandas要比Numpy慢，所以尽量避免使用Pandas。 为什么用Numpy？Python 是慢的, 简单来说, 因为 Python 执行代码的时候会执行很多复杂的“check” 功能, 比如赋值在计算机内部, b 首先要从一个整数 integer 转换成浮点数 float, 才能进行后面的 b/0.5, 因为得到的要是一个小数.提到 Numpy, 它就是一个 Pyt">
+    <meta name="description" content="莫凡 使用Numpy的技巧pandas要比Numpy慢，所以尽量避免使用Pandas。 为什么用Numpy？Python 是慢的, 简单来说, 因为 Python 执行代码的时候会执行很多复杂的“check” 功能, 比如赋值">
 <meta name="keywords" content="Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="莫凡 使用Numpy的技巧">
 <meta property="og:url" content="https://github.com/zdkswd/2019/03/22/莫凡 使用Numpy的技巧/index.html">
 <meta property="og:site_name" content="ZDK&#39;s blog">
-<meta property="og:description" content="莫凡 使用Numpy的技巧pandas要比Numpy慢，所以尽量避免使用Pandas。 为什么用Numpy？Python 是慢的, 简单来说, 因为 Python 执行代码的时候会执行很多复杂的“check” 功能, 比如赋值在计算机内部, b 首先要从一个整数 integer 转换成浮点数 float, 才能进行后面的 b/0.5, 因为得到的要是一个小数.提到 Numpy, 它就是一个 Pyt">
+<meta property="og:description" content="莫凡 使用Numpy的技巧pandas要比Numpy慢，所以尽量避免使用Pandas。 为什么用Numpy？Python 是慢的, 简单来说, 因为 Python 执行代码的时候会执行很多复杂的“check” 功能, 比如赋值">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://github.com/img/media/%E8%8E%AB%E5%87%A1%20%E4%BD%BF%E7%94%A8Numpy%E7%9A%84%E6%8A%80%E5%B7%A7/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-20%20%E4%B8%8B%E5%8D%889.42.23.png">
 <meta property="og:image" content="https://github.com/img/media/%E8%8E%AB%E5%87%A1%20%E4%BD%BF%E7%94%A8Numpy%E7%9A%84%E6%8A%80%E5%B7%A7/4-1-2.png">
@@ -44,7 +44,7 @@
 <meta property="og:updated_time" content="2019-03-22T11:01:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="莫凡 使用Numpy的技巧">
-<meta name="twitter:description" content="莫凡 使用Numpy的技巧pandas要比Numpy慢，所以尽量避免使用Pandas。 为什么用Numpy？Python 是慢的, 简单来说, 因为 Python 执行代码的时候会执行很多复杂的“check” 功能, 比如赋值在计算机内部, b 首先要从一个整数 integer 转换成浮点数 float, 才能进行后面的 b/0.5, 因为得到的要是一个小数.提到 Numpy, 它就是一个 Pyt">
+<meta name="twitter:description" content="莫凡 使用Numpy的技巧pandas要比Numpy慢，所以尽量避免使用Pandas。 为什么用Numpy？Python 是慢的, 简单来说, 因为 Python 执行代码的时候会执行很多复杂的“check” 功能, 比如赋值">
 <meta name="twitter:image" content="https://github.com/img/media/%E8%8E%AB%E5%87%A1%20%E4%BD%BF%E7%94%A8Numpy%E7%9A%84%E6%8A%80%E5%B7%A7/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-20%20%E4%B8%8B%E5%8D%889.42.23.png">
     
         <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
@@ -196,19 +196,91 @@
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             <h1 id="莫凡-使用Numpy的技巧"><a href="#莫凡-使用Numpy的技巧" class="headerlink" title="莫凡 使用Numpy的技巧"></a>莫凡 使用Numpy的技巧</h1><p>pandas要比Numpy慢，所以尽量避免使用Pandas。</p>
-<h1 id="为什么用Numpy？"><a href="#为什么用Numpy？" class="headerlink" title="为什么用Numpy？"></a>为什么用Numpy？</h1><p>Python 是慢的, 简单来说, 因为 Python 执行代码的时候会执行很多复杂的“check” 功能, 比如赋值<br><img src="/img/media/%E8%8E%AB%E5%87%A1%20%E4%BD%BF%E7%94%A8Numpy%E7%9A%84%E6%8A%80%E5%B7%A7/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-20%20%E4%B8%8B%E5%8D%889.42.23.png" alt=""><br>在计算机内部, b 首先要从一个整数 integer 转换成浮点数 float, 才能进行后面的 b/0.5, 因为得到的要是一个小数.提到 Numpy, 它就是一个 Python 的救星. 能把简单好用的 Python 和高性能的 C 语言合并在一起. 当你调用 Numpy 功能的时候, 他其实调用了很多 C 语言而不是纯 Python. 这就是为什么大家都爱用 Numpy 的原因.</p>
-<h1 id="创建Numpy-Array的结构"><a href="#创建Numpy-Array的结构" class="headerlink" title="创建Numpy Array的结构"></a>创建Numpy Array的结构</h1><p>其实 Numpy 就是 C 的逻辑, 创建存储容器 “Array” 的时候是寻找内存上的一连串区域来存放, 而 Python 存放的时候则是不连续的区域, 这使得 Python 在索引这个容器里的数据时不是那么有效率. Numpy 只需要再这块固定的连续区域前后走走就能不费吹灰之力拿到数据.<br><img src="/img/media/%E8%8E%AB%E5%87%A1%20%E4%BD%BF%E7%94%A8Numpy%E7%9A%84%E6%8A%80%E5%B7%A7/4-1-2.png" alt=""><br>在运用 Numpy 的时候, 我们通常不是用一个一维 Array 来存放数据, 而是用二维或者三维的块来存放<br><img src="/img/media/%E8%8E%AB%E5%87%A1%20%E4%BD%BF%E7%94%A8Numpy%E7%9A%84%E6%8A%80%E5%B7%A7/4-1-3.png" alt=""><br>因为 Numpy 快速的<strong>矩阵相乘</strong>运算, 能将乘法运算分配到计算机中的多个核, 让运算并行. 这种并行运算大大加速了运算速度.</p>
-<p>不管是1D，2D，3D 的 Array, 从根本上, 它都是一个 1D array。<br><img src="/img/media/%E8%8E%AB%E5%87%A1%20%E4%BD%BF%E7%94%A8Numpy%E7%9A%84%E6%8A%80%E5%B7%A7/4-1-4.png" alt=""><br>2D Array, 如果追溯到计算机内存里, 它其实是储存在一个连续空间上的. 而对于这个连续空间, 我们如果创建 Array 的方式不同, 在这个连续空间上的排列顺序也有不同. 这将影响之后所有的事情!</p>
-<p>在 Numpy 中, 创建 2D Array 的默认方式是 “C-type” 以 row 为主在内存中排列, 而如果是 “Fortran” 的方式创建的, 就是以 column 为主在内存中排列.<br><img src="/img/media/%E8%8E%AB%E5%87%A1%20%E4%BD%BF%E7%94%A8Numpy%E7%9A%84%E6%8A%80%E5%B7%A7/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-21%20%E4%B8%8B%E5%8D%886.52.43.png" alt=""></p>
+<h1 id="为什么用Numpy？"><a href="#为什么用Numpy？" class="headerlink" title="为什么用Numpy？"></a>为什么用Numpy？</h1><p>Python 是慢的, 简单来说, 因为 Python 执行代码的时候会执行很多复杂的“check” 功能, 比如赋值<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%8E%AB%E5%87%A1%20%E4%BD%BF%E7%94%A8Numpy%E7%9A%84%E6%8A%80%E5%B7%A7/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-20%20%E4%B8%8B%E5%8D%889.42.23.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>在计算机内部, b 首先要从一个整数 integer 转换成浮点数 float, 才能进行后面的 b/0.5, 因为得到的要是一个小数.提到 Numpy, 它就是一个 Python 的救星. 能把简单好用的 Python 和高性能的 C 语言合并在一起. 当你调用 Numpy 功能的时候, 他其实调用了很多 C 语言而不是纯 Python. 这就是为什么大家都爱用 Numpy 的原因.</p>
+<h1 id="创建Numpy-Array的结构"><a href="#创建Numpy-Array的结构" class="headerlink" title="创建Numpy Array的结构"></a>创建Numpy Array的结构</h1><p>其实 Numpy 就是 C 的逻辑, 创建存储容器 “Array” 的时候是寻找内存上的一连串区域来存放, 而 Python 存放的时候则是不连续的区域, 这使得 Python 在索引这个容器里的数据时不是那么有效率. Numpy 只需要再这块固定的连续区域前后走走就能不费吹灰之力拿到数据.<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%8E%AB%E5%87%A1%20%E4%BD%BF%E7%94%A8Numpy%E7%9A%84%E6%8A%80%E5%B7%A7/4-1-2.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>在运用 Numpy 的时候, 我们通常不是用一个一维 Array 来存放数据, 而是用二维或者三维的块来存放<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%8E%AB%E5%87%A1%20%E4%BD%BF%E7%94%A8Numpy%E7%9A%84%E6%8A%80%E5%B7%A7/4-1-3.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>因为 Numpy 快速的<strong>矩阵相乘</strong>运算, 能将乘法运算分配到计算机中的多个核, 让运算并行. 这种并行运算大大加速了运算速度.</p>
+<p>不管是1D，2D，3D 的 Array, 从根本上, 它都是一个 1D array。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%8E%AB%E5%87%A1%20%E4%BD%BF%E7%94%A8Numpy%E7%9A%84%E6%8A%80%E5%B7%A7/4-1-4.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>2D Array, 如果追溯到计算机内存里, 它其实是储存在一个连续空间上的. 而对于这个连续空间, 我们如果创建 Array 的方式不同, 在这个连续空间上的排列顺序也有不同. 这将影响之后所有的事情!</p>
+<p>在 Numpy 中, 创建 2D Array 的默认方式是 “C-type” 以 row 为主在内存中排列, 而如果是 “Fortran” 的方式创建的, 就是以 column 为主在内存中排列.<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%8E%AB%E5%87%A1%20%E4%BD%BF%E7%94%A8Numpy%E7%9A%84%E6%8A%80%E5%B7%A7/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-21%20%E4%B8%8B%E5%8D%886.52.43.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <h1 id="在-Axis-上的动作"><a href="#在-Axis-上的动作" class="headerlink" title="在 Axis 上的动作"></a>在 Axis 上的动作</h1><p>当你的计算中涉及合并矩阵, 不同形式的矩阵创建方式会有不同的时间效果. 因为在 Numpy 中的矩阵合并等, 都是发生在一维空间里 ! 不是二维空间中!</p>
 <p>从上面的那张图, 可以想到, row 为主的存储方式, 如果在 row 的方向上合并矩阵, 将会更快. 因为只要我们将思维放在 1D array 那, 直接再加一个 row 放在1D array 后面就好了。</p>
 <p>但是在以 column 为主的系统中, 往 1D array 后面加 row 的规则变复杂了, 消耗的时间也变长. 如果以 axis=1 的方式合并, “F” 方式将会比 “C” 方式更好.</p>
 <p>在数组的拼接中，对比<strong>np.stack</strong>和<strong>np.concatenate</strong>,通过测试发现，为了速度，尽量使用<strong>np.concatenate</strong>。</p>
-<h1 id="copy慢，view快"><a href="#copy慢，view快" class="headerlink" title="copy慢，view快"></a>copy慢，view快</h1><p>在 Numpy 中, 有两个很重要的概念, copy 和 view. copy 顾名思义, 会将数据 copy 出来存放在内存中另一个地方, 而 view 则是不 copy 数据, 直接取源数据的索引部分.<br><img src="/img/media/%E8%8E%AB%E5%87%A1%20%E4%BD%BF%E7%94%A8Numpy%E7%9A%84%E6%8A%80%E5%B7%A7/4-1-5.png" alt=""><br>简单说, a_view 的东西全部都是 a 的东西, 动 a_view 的任何地方, a 都会被动到, 因为他们在内存中的位置是一模一样的, 本质上就是自己. 而 a_copy 则是将 a copy 了一份, 然后把 a_copy 放在内存中的另外的地方, 这样改变 a_copy, a 是不会被改变的.</p>
+<h1 id="copy慢，view快"><a href="#copy慢，view快" class="headerlink" title="copy慢，view快"></a>copy慢，view快</h1><p>在 Numpy 中, 有两个很重要的概念, copy 和 view. copy 顾名思义, 会将数据 copy 出来存放在内存中另一个地方, 而 view 则是不 copy 数据, 直接取源数据的索引部分.<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%8E%AB%E5%87%A1%20%E4%BD%BF%E7%94%A8Numpy%E7%9A%84%E6%8A%80%E5%B7%A7/4-1-5.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>简单说, a_view 的东西全部都是 a 的东西, 动 a_view 的任何地方, a 都会被动到, 因为他们在内存中的位置是一模一样的, 本质上就是自己. 而 a_copy 则是将 a copy 了一份, 然后把 a_copy 放在内存中的另外的地方, 这样改变 a_copy, a 是不会被改变的.</p>
 <p>因为 view 不会复制东西, 速度快。</p>
 <p>对于 view 还有一点要提,<strong>把一个矩阵展平</strong>, 用到 <strong>np.flatten()</strong> 或者<strong>np.ravel()</strong>. 他俩是不同的!ravel 返回的是一个 view (官方说如果用 ravel, 需要 copy 的时候才会被 copy , 我想这个时候可能是把 ravel 里面 order 转换的时候, 如 ‘C-type’ -&gt; ‘Fortran’), 而 flatten 返回的总是一个 copy. 相比于 flatten, <strong>ravel</strong> 是神速.</p>
-<h1 id="选择数据"><a href="#选择数据" class="headerlink" title="选择数据"></a>选择数据</h1><p>选择数据的时候, 我们常会用到 view 或者 copy 的形式. 我们知道了, 如果能用到 view 的, 我们就尽量用 view, 避免 copy 数据.下面举例的都是 view 的方式:<br><img src="/img/media/%E8%8E%AB%E5%87%A1%20%E4%BD%BF%E7%94%A8Numpy%E7%9A%84%E6%8A%80%E5%B7%A7/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-22%20%E4%B8%8A%E5%8D%889.10.18.png" alt=""><br>使用copy的方式：<br><img src="/img/media/%E8%8E%AB%E5%87%A1%20%E4%BD%BF%E7%94%A8Numpy%E7%9A%84%E6%8A%80%E5%B7%A7/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-22%20%E4%B8%8A%E5%8D%889.10.48.png" alt=""><br>对于fancy indexing的形式，我们也是可以对它加速。<br>1.使用<strong>np.take()</strong>, 替代用 index 选数据的方法.<br>像 a_copy1 = a[ [1,4,6] ,  [2,4,6] ], 用 take 在大部分情况中会比这样的 a_copy1 要快.<br><img src="/img/media/%E8%8E%AB%E5%87%A1%20%E4%BD%BF%E7%94%A8Numpy%E7%9A%84%E6%8A%80%E5%B7%A7/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-22%20%E4%B8%8A%E5%8D%889.15.16.png" alt=""><br>2 使用 np.compress(), 替代用 mask 选数据的方法.<br>a_copy2 = a[ [ True, True] ,  [ False, True]] 这种就是用 TRUE, FALSE 来选择数据的.<br><img src="/img/media/%E8%8E%AB%E5%87%A1%20%E4%BD%BF%E7%94%A8Numpy%E7%9A%84%E6%8A%80%E5%B7%A7/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-22%20%E4%B8%8A%E5%8D%889.17.11.png" alt=""></p>
-<h1 id="非常有用的out参数"><a href="#非常有用的out参数" class="headerlink" title="非常有用的out参数"></a>非常有用的out参数</h1><p>下面两个其实在功能上是没差的, 不过运算时间上有差, 我觉得可能是 a=a+1 要先转换成 np.add() 这种形式再运算, 所以前者要用更久一点的时间.<br><img src="/img/media/%E8%8E%AB%E5%87%A1%20%E4%BD%BF%E7%94%A8Numpy%E7%9A%84%E6%8A%80%E5%B7%A7/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-22%20%E4%B8%8A%E5%8D%889.19.23.png" alt=""><br>这两个被赋值的 a, 都是原来 a 的一个 copy, 并不是 a 的 view. 但是在功能里面有一个 out 参数, 让我们不必要重新创建一个 a. 所以下面两个是一样的功能, 都不会创建另一个 copy. 可能是上面提到的那个原因, 这里的运算时间也有差.<br><img src="/img/media/%E8%8E%AB%E5%87%A1%20%E4%BD%BF%E7%94%A8Numpy%E7%9A%84%E6%8A%80%E5%B7%A7/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-22%20%E4%B8%8A%E5%8D%889.22.03.png" alt=""><br>所以只要是已经存在了一个 placeholder (比如 a), 我们就没有必要去再创建一个, 用 out 方便又有效.</p>
+<h1 id="选择数据"><a href="#选择数据" class="headerlink" title="选择数据"></a>选择数据</h1><p>选择数据的时候, 我们常会用到 view 或者 copy 的形式. 我们知道了, 如果能用到 view 的, 我们就尽量用 view, 避免 copy 数据.下面举例的都是 view 的方式:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%8E%AB%E5%87%A1%20%E4%BD%BF%E7%94%A8Numpy%E7%9A%84%E6%8A%80%E5%B7%A7/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-22%20%E4%B8%8A%E5%8D%889.10.18.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>使用copy的方式：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%8E%AB%E5%87%A1%20%E4%BD%BF%E7%94%A8Numpy%E7%9A%84%E6%8A%80%E5%B7%A7/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-22%20%E4%B8%8A%E5%8D%889.10.48.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>对于fancy indexing的形式，我们也是可以对它加速。<br>1.使用<strong>np.take()</strong>, 替代用 index 选数据的方法.<br>像 a_copy1 = a[ [1,4,6] ,  [2,4,6] ], 用 take 在大部分情况中会比这样的 a_copy1 要快.<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%8E%AB%E5%87%A1%20%E4%BD%BF%E7%94%A8Numpy%E7%9A%84%E6%8A%80%E5%B7%A7/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-22%20%E4%B8%8A%E5%8D%889.15.16.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>2 使用 np.compress(), 替代用 mask 选数据的方法.<br>a_copy2 = a[ [ True, True] ,  [ False, True]] 这种就是用 TRUE, FALSE 来选择数据的.<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%8E%AB%E5%87%A1%20%E4%BD%BF%E7%94%A8Numpy%E7%9A%84%E6%8A%80%E5%B7%A7/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-22%20%E4%B8%8A%E5%8D%889.17.11.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h1 id="非常有用的out参数"><a href="#非常有用的out参数" class="headerlink" title="非常有用的out参数"></a>非常有用的out参数</h1><p>下面两个其实在功能上是没差的, 不过运算时间上有差, 我觉得可能是 a=a+1 要先转换成 np.add() 这种形式再运算, 所以前者要用更久一点的时间.<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%8E%AB%E5%87%A1%20%E4%BD%BF%E7%94%A8Numpy%E7%9A%84%E6%8A%80%E5%B7%A7/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-22%20%E4%B8%8A%E5%8D%889.19.23.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>这两个被赋值的 a, 都是原来 a 的一个 copy, 并不是 a 的 view. 但是在功能里面有一个 out 参数, 让我们不必要重新创建一个 a. 所以下面两个是一样的功能, 都不会创建另一个 copy. 可能是上面提到的那个原因, 这里的运算时间也有差.<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%8E%AB%E5%87%A1%20%E4%BD%BF%E7%94%A8Numpy%E7%9A%84%E6%8A%80%E5%B7%A7/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-22%20%E4%B8%8A%E5%8D%889.22.03.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>所以只要是已经存在了一个 placeholder (比如 a), 我们就没有必要去再创建一个, 用 out 方便又有效.</p>
 <h1 id="给数据一个名字"><a href="#给数据一个名字" class="headerlink" title="给数据一个名字"></a>给数据一个名字</h1><p>使用Numpy的structured array.</p>
 <p>pandas 为什么比 numpy 慢, 因为 pandas data 里面还有很多七七八八的数据, 记录着这个 data 的种种其他的特征. </p>
 
@@ -347,9 +419,7 @@
             </span>
         </p>
     </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
+
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
     </script>
 </footer>

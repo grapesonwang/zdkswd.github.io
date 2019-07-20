@@ -192,7 +192,13 @@
 <p><strong>bin文件夹</strong>是一个二进制程序文件夹<br>1.bin是binary的缩写，代表的意思是二进制，二进制数据是用0和1两个数码来表示的数。<br>2.bin这个文件夹里存放的是二进制可执行的文件，比如exe，msi，com等的都是二进制文件，双击就能运行。  </p>
 <p>GUN下面绝大部分应用的编译系统都是用<strong>automake</strong>。<br>于是乎，你看到的很多很多应用都安装在了/usr/local/目录下<br>然后通常/usr/bin下面的都是系统预装的可执行程序，会随着系统升级而改变<br>/usr/local/bin目录是给用户放置自己的可执行程序的地方，推荐放在这里，不会被系统升级而覆盖同名文件<br>安装好的lib文件存放在“/usr/local/lib”文件夹，h文件存放在“/usr/local/include”（Unix）</p>
 <h2 id="什么是cmake"><a href="#什么是cmake" class="headerlink" title="什么是cmake"></a>什么是cmake</h2><p>CMake是一个跨平台的安装（编译）工具，可以用简单的语句来描述所有平台的安装(编译过程)。他能够输出各种各样的makefile或者project文件，能测试编译器所支持的C++特性,类似UNIX下的automake。只是 CMake 的组态档取名为 CMakeLists.txt。<br>cmake是跨平台项目管理工具，它用更抽象的语法来组织项目。在windows下它会支持生成visual studio的工程，在linux下它会生成Makefile，甚至它还能生成eclipse工程文件。也就是说，从同一个抽象规则出发，它为各个编译器定制工程文件。</p>
-<p><img src="/img/media/15249996372857/15250008307496.jpg" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15249996372857/15250008307496.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h2 id="dll"><a href="#dll" class="headerlink" title="dll"></a>dll</h2><p>dll存在于windows中</p>
 <h2 id="openCV安装过程"><a href="#openCV安装过程" class="headerlink" title="openCV安装过程"></a>openCV安装过程</h2><blockquote>
 <p>mkdir release<br>cd release<br>cmake -D CMAKE_BUILD_TYPE=RELEASE -D 换行CMAKE_INSTALL_PREFIX=usr/local/opencv3.1.0  -G “Unix Makefiles” ..<br>make<br>sudo make install</p>
@@ -333,9 +339,7 @@
             </span>
         </p>
     </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
+
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
     </script>
 </footer>

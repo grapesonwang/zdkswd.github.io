@@ -144,6 +144,56 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-Tomcat系统架构"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-07-20 13:29:32" datetime="2019-07-20T05:29:32.000Z"  itemprop="datePublished">2019-07-20</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/07/20/Tomcat系统架构/">Tomcat系统架构</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        Tomcat系统架构Tomcat总体架构Tomcat实现2个核心功能：1处理Socket连接，负责网络字节流与Request和Response对象的转化。2加载和管理Servlet，以及具体处理Request请求。
+Tomcat设计了两个核心组件连接器（Connector）和容器（Container）来分别做这两件事情。连接器负责对外交流，容器负责内部处理。
+
+Tomcat支持的I/O模型有...
+    
+
+        <a href="/2019/07/20/Tomcat系统架构/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tomcat/">Tomcat</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-Tomcat综述"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -173,9 +223,15 @@
 
     
         Tomcat综述
+                
+                    
+                    
+                
+                
+            
 
 Web容器
-HTTP服务器（比如Apache、Nginx）向浏览器返回静态HTML，浏览器负责解析HTML，将结果呈现给用户。我们希望通过一些交互操作，来获取动态结果，需要一些扩展机制能够让HTTP服务器调用服务端程序。于是Sun公司推出了Servlet技术。可以把Servlet简单理解为运行在服务端的Java小程序，Servlet没有main方法，不能独立运行，所以必须...
+HTTP服务器（比如Apache、Nginx）向浏览器返回静态HTML，浏览器负责解析HTML，将结果呈现给用户。我们希望通过一些交互操作，来获取动态...
     
 
         <a href="/2019/07/14/Tomcat综述/" class="post-more waves-effect waves-button">
@@ -273,7 +329,9 @@ Facebook发布了Hive，支持SQL语法来进行大数据计算。
 
     
         字符串匹配算法 KMPBM算法是工程中非常常用的一种高效字符串匹配算法，是最高效最常用的字符串匹配算法。在所有字符串匹配算法中，最知名的非KMP算法莫属。
-KMP算法基本原理KMP算法的核心思想与BM算法非常相近。在模式串与主串匹配过程中，当遇到不可匹配的字符时，通过找到一些规律将模式串往后多滑动几位，跳过肯定不会匹配的情况。当遇到坏字符的时候，就要把模式串往后滑动，在滑动的过程中，只要模式...
+KMP算法基本原理KMP算法的核心思想与BM算法非常相近。在模式串与主串匹配过程中，当遇到不可匹配的字符时，通过找到一些规律将模式串往后多滑动几位，跳过肯定不会匹配的情况。
+                
+               ...
     
 
         <a href="/2019/06/28/字符串匹配算法 KMP/" class="post-more waves-effect waves-button">
@@ -419,10 +477,15 @@ BF算法Brute Force，即为暴力匹配算法，比较简单，性能不高。
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        Spring MVC起步处理流程在请求离开浏览器时，1️⃣：会带有用户所请求内容信息，至少会包含请求的URL。还可能带有其他的信息，例如用户提交的表单信息。
-单实例Servlet ，DispatcherServlet将请求委托给应用程序的其他组件来执行实际处理。通过所携带的URL来进行决策。
-控制器返回时仅仅传递了一个逻辑名称，这个名字将会用来查找产生结果的真正视图。
-搭建Spring MV...
+        Spring MVC起步处理流程
+                
+                    
+                    
+                
+                
+            
+在请求离开浏览器时，1️⃣：会带有用户所请求内容信息，至少会包含请求的URL。还可能带有其他的信息，例如用户提交的表单信息。
+单实例Servlet ...
     
 
         <a href="/2019/06/21/Spring MVC/" class="post-more waves-effect waves-button">
@@ -433,60 +496,6 @@ BF算法Brute Force，即为暴力匹配算法，比较简单，性能不高。
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-图"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-06-14 21:03:47" datetime="2019-06-14T13:03:47.000Z"  itemprop="datePublished">2019-06-14</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/06/14/图/">图</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        图的概念无向图，两者之间建立一条边，称为顶点的度。就是跟顶点相连接的边的条数。
-
-有向图，在有向图中把度分为入度和出度。
-
-带权图，每条边都有一个权重。
-图的存储方法邻接矩阵存储法图最直观的存储方法就是邻接矩阵。用邻接表来表示一个图虽然简单直观，比较浪费存储空间。如果存储的是稀疏图，就更加浪费空间了。
-邻接矩阵的优点在于简单直接，在获取两个顶点关系时非常高效，其次还方便计算。
-邻接表存储方法...
-    
-
-        <a href="/2019/06/14/图/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 
     </div>
     
@@ -534,9 +543,7 @@ BF算法Brute Force，即为暴力匹配算法，比较简单，性能不高。
             </span>
         </p>
     </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
+
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
     </script>
 </footer>

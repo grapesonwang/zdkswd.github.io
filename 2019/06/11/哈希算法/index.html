@@ -213,8 +213,45 @@
 <p>这就是<strong>MapReduce</strong>的基本设计思想。</p>
 <h3 id="2-快速判断图片是否在图库中"><a href="#2-快速判断图片是否在图库中" class="headerlink" title="2.快速判断图片是否在图库中"></a>2.快速判断图片是否在图库中</h3><p>当图片数太多单机存不下时可以分布式存储。</p>
 <p>当要判断一个图片是否在图库中的时候，我们通过同样的哈希算法，计算这个图片的唯一标识，然后与机器个数n求余取模。假设得到的值是k，那就去编号k的机器构建的散列表中查找。</p>
-<h2 id="应用七-分布式缓存"><a href="#应用七-分布式缓存" class="headerlink" title="应用七:分布式缓存"></a>应用七:分布式缓存</h2><h3 id="朴素分布式缓存"><a href="#朴素分布式缓存" class="headerlink" title="朴素分布式缓存"></a>朴素分布式缓存</h3><p><img src="/img/media/%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-11%20%E4%B8%8B%E5%8D%886.51.49.png" alt=""><br>这种方式存在缺陷：当增加缓存服务器时，之前缓存全部作废，后端服务器就会面临巨大压力。</p>
-<h3 id="一致性哈希算法"><a href="#一致性哈希算法" class="headerlink" title="一致性哈希算法"></a>一致性哈希算法</h3><p><strong>hash(服务器A的IP地址)%(2^32)</strong><br><img src="/img/media/%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-11%20%E4%B8%8B%E5%8D%886.55.11.png" alt=""><br>对于图片<br><strong>hash(图片)%2^32</strong><br><img src="/img/media/%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-11%20%E4%B8%8B%E5%8D%886.57.25.png" alt=""><br><strong>假如B服务器坏掉，也只有部分缓存失效。</strong><br><img src="/img/media/%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-11%20%E4%B8%8B%E5%8D%886.58.07.png" alt=""><br>现实中要处理的是哈希环的倾斜问题。<br><img src="/img/media/%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-11%20%E4%B8%8B%E5%8D%886.58.57.png" alt=""><br>某个服务器承担了太多压力。<br><img src="/img/media/%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-11%20%E4%B8%8B%E5%8D%886.59.46.png" alt=""><br>可以通过<strong>虚拟节点</strong>来解决这个问题。虚拟节点是实际节点在hash环上的复制品，一个实际节点可以对应多个虚拟节点。</p>
+<h2 id="应用七-分布式缓存"><a href="#应用七-分布式缓存" class="headerlink" title="应用七:分布式缓存"></a>应用七:分布式缓存</h2><h3 id="朴素分布式缓存"><a href="#朴素分布式缓存" class="headerlink" title="朴素分布式缓存"></a>朴素分布式缓存</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-11%20%E4%B8%8B%E5%8D%886.51.49.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>这种方式存在缺陷：当增加缓存服务器时，之前缓存全部作废，后端服务器就会面临巨大压力。</p>
+<h3 id="一致性哈希算法"><a href="#一致性哈希算法" class="headerlink" title="一致性哈希算法"></a>一致性哈希算法</h3><p><strong>hash(服务器A的IP地址)%(2^32)</strong><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-11%20%E4%B8%8B%E5%8D%886.55.11.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>对于图片<br><strong>hash(图片)%2^32</strong><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-11%20%E4%B8%8B%E5%8D%886.57.25.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><strong>假如B服务器坏掉，也只有部分缓存失效。</strong><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-11%20%E4%B8%8B%E5%8D%886.58.07.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>现实中要处理的是哈希环的倾斜问题。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-11%20%E4%B8%8B%E5%8D%886.58.57.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>某个服务器承担了太多压力。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-11%20%E4%B8%8B%E5%8D%886.59.46.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>可以通过<strong>虚拟节点</strong>来解决这个问题。虚拟节点是实际节点在hash环上的复制品，一个实际节点可以对应多个虚拟节点。</p>
 
         </div>
 
@@ -351,9 +388,7 @@
             </span>
         </p>
     </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
+
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
     </script>
 </footer>

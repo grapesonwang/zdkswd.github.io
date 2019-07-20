@@ -200,11 +200,23 @@
 <li>以此类推。有几个基模型，就会对整个train数据集生成几列新的特征表达。同样，也会对test有几列新的特征表达。</li>
 <li>一般使用LR作为第二层的模型进行建模预测。</li>
 </ol>
-<p><img src="/img/media/tx%E5%BE%80%E5%B1%8A%E5%BF%83%E5%BE%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-02%20%E4%B8%8B%E5%8D%881.32.08.png" alt=""><br>上面这个框架说明的是：对训练数据进行无重复的五次划分之后，分别对其中每一部分进行一次预测，而预测的模型就是由其余四部分训练的；并且在预测了预测集之后，还需要对我们的test数据集也进行一次预测，这这样就会得到5个N/5行、1列的对train数据集的特征转换，和5个M行、1列的对test数据集的特征转换，由此进入下一个图。<br><img src="/img/media/tx%E5%BE%80%E5%B1%8A%E5%BF%83%E5%BE%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-02%20%E4%B8%8B%E5%8D%881.33.39.png" alt=""></p>
+<p><img src="/img/media/tx%E5%BE%80%E5%B1%8A%E5%BF%83%E5%BE%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-02%20%E4%B8%8B%E5%8D%881.32.08.png" alt=""><br>上面这个框架说明的是：对训练数据进行无重复的五次划分之后，分别对其中每一部分进行一次预测，而预测的模型就是由其余四部分训练的；并且在预测了预测集之后，还需要对我们的test数据集也进行一次预测，这这样就会得到5个N/5行、1列的对train数据集的特征转换，和5个M行、1列的对test数据集的特征转换，由此进入下一个图。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/tx%E5%BE%80%E5%B1%8A%E5%BF%83%E5%BE%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-02%20%E4%B8%8B%E5%8D%881.33.39.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>1.stacking的框架设计比较复杂，对于一个基模型要训练5次，如果你的一个xgb模型要训练2个小时，即使在进行stacking的时候每折减少了五分之一的数据量，你的计算时间仍然是很可观的，加起来应该还是8-9小时，所以耗费时间很长（想像一下一个stacking框架跑一个基模型要大半天，简直太可怕）。所以建议大家在使用的时候要计算时间的耗费，或者可以改为3折，4折等等；</p>
 <p>2、我们前面讲过了，stacking框架是集成了不同的算法，充分利用不同算法从不同的数据空间角度和数据结构角度的对数据的不同观测，来取长补短，优化结果。所以，我们的基模型除了是不同参数的相同模型之外，比如不同参数的xgboost，或者不同K值的KNN等等；更重要的是要尽可能的多加一些不同种类的基模型进去，也就是说所谓的模型要“跨越空间”的概念。这样的话我们的集成结果会更加稳健，更加精确。（曾经有一个比赛集成了上百个基模型的stacking框架获奖）</p>
 <h2 id="基本变种改进"><a href="#基本变种改进" class="headerlink" title="基本变种改进"></a>基本变种改进</h2><p>在变种改进方面，我们可以不仅对模型进行融合，还可以对特征级进行一些变化，比如选部分特征做stacking；或者对stacking的结果进行再次的stacking，上面介绍的是两层的stacking，可以有3层，或者更多。但是时间复杂度很高，效果并不一定明显。</p>
-<h1 id="Kaggle数据挖掘比赛经验分享"><a href="#Kaggle数据挖掘比赛经验分享" class="headerlink" title="Kaggle数据挖掘比赛经验分享"></a>Kaggle数据挖掘比赛经验分享</h1><p><a href="https://mp.weixin.qq.com/s?__biz=MzIzMzgzOTUxNA==&amp;mid=2247483678&amp;idx=1&amp;sn=5f044dabfaa726e292686287a1dd5ca4&amp;chksm=e8fecfebdf8946fdabf71fd5c4c0e019144f105da993c12fa257c64f281ecfb3a7557f16b79e&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">【干货】Kaggle 数据挖掘比赛经验分享</a><br>一个完整的数据挖掘比赛基本流程如下：<br><img src="/img/media/tx%E5%BE%80%E5%B1%8A%E5%BF%83%E5%BE%97/640.png" alt=""></p>
+<h1 id="Kaggle数据挖掘比赛经验分享"><a href="#Kaggle数据挖掘比赛经验分享" class="headerlink" title="Kaggle数据挖掘比赛经验分享"></a>Kaggle数据挖掘比赛经验分享</h1><p><a href="https://mp.weixin.qq.com/s?__biz=MzIzMzgzOTUxNA==&amp;mid=2247483678&amp;idx=1&amp;sn=5f044dabfaa726e292686287a1dd5ca4&amp;chksm=e8fecfebdf8946fdabf71fd5c4c0e019144f105da993c12fa257c64f281ecfb3a7557f16b79e&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">【干货】Kaggle 数据挖掘比赛经验分享</a><br>一个完整的数据挖掘比赛基本流程如下：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/tx%E5%BE%80%E5%B1%8A%E5%BF%83%E5%BE%97/640.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <h2 id="数据分析"><a href="#数据分析" class="headerlink" title="数据分析"></a>数据分析</h2><p>通过对数据进行探索性分析（甚至有些情况下需要肉眼观察样本），还可以有助于启发数据清洗和特征抽取，譬如缺失值和异常值的处理，文本数据是否需要进行拼写纠正等。</p>
 <h3 id="分析特征变量的分布"><a href="#分析特征变量的分布" class="headerlink" title="分析特征变量的分布"></a>分析特征变量的分布</h3><ol>
 <li><strong>特征变量</strong>为连续值：如果为长尾分布并且考虑使用线性模型，可以对变量进行幂变换或者对数变换。</li>
@@ -238,9 +250,21 @@
 <p>1.<strong>训练集和验证集的划分。</strong>根据比赛提供的训练集和测试集，模拟其划分方式对训练集进行划分为本地训练集和本地验证集。划分的方式视具体比赛和数据而定，常用的方式有：<br>a) 随机划分：譬如随机采样 70% 作为训练集，剩余的 30% 作为测试集。在这种情况下，本地可以采用 KFold 或者 Stratified KFold 的方法来构造训练集和验证集。<br>b) 按时间划分：一般对应于时序序列数据，譬如取前 7 天数据作为训练集，后 1 天数据作为测试集。这种情况下，划分本地训练集和验证集也需要按时间先后划分。常见的错误方式是随机划分，这种划分方式可能会导致模型效果被高估。<br>c) 按某些规则划分：在 HomeDepot 搜索相关性比赛中，训练集和测试集中的 Query 集合并非完全重合，两者只有部分交集。而在另外一个相似的比赛中（CrowdFlower 搜索相关性比赛），训练集和测试集具有完全一致的 Query 集合。对于 HomeDepot 这个比赛中，训练集和验证集数据的划分，需要考虑 Query 集合并非完全重合这个情况，其中的一种方法可以参考第三名的获奖方案，<a href="https://github.com/ChenglongChen/Kaggle_HomeDepot。">https://github.com/ChenglongChen/Kaggle_HomeDepot。</a></p>
 <p>2.<strong>指定参数空间</strong>。在指定参数空间的时候，需要对模型参数以及其如何影响模型的效果有一定的了解，才能指定出合理的参数空间。譬如DNN或者XGBoost中学习率这个参数，一般就选 0.01 左右就 OK 了（太大可能会导致优化算法错过最优化点，太小导致优化收敛过慢）。再如 Random Forest，一般设定树的棵数范围为 100~200 就能有不错的效果，当然也有人固定数棵数为 500，然后只调整其他的超参数。</p>
 <p>3.<strong>按照一定的方法进行参数搜索</strong>。常用的参数搜索方法有，Grid Search，Random Search以及一些自动化的方法（如 Hyperopt）。其中，Hyperopt 的方法，根据历史已经评估过的参数组合的效果，来推测本次评估使用哪个参数组合更有可能获得更好的效果。</p>
-<h3 id="适当利用-Public-LB-的反馈"><a href="#适当利用-Public-LB-的反馈" class="headerlink" title="适当利用 Public LB 的反馈"></a>适当利用 Public LB 的反馈</h3><p><img src="/img/media/tx%E5%BE%80%E5%B1%8A%E5%BF%83%E5%BE%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8A%E5%8D%8810.30.48.png" alt=""></p>
+<h3 id="适当利用-Public-LB-的反馈"><a href="#适当利用-Public-LB-的反馈" class="headerlink" title="适当利用 Public LB 的反馈"></a>适当利用 Public LB 的反馈</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/tx%E5%BE%80%E5%B1%8A%E5%BF%83%E5%BE%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8A%E5%8D%8810.30.48.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h2 id="模型集成"><a href="#模型集成" class="headerlink" title="模型集成"></a>模型集成</h2><h3 id="Averaging-和-Voting"><a href="#Averaging-和-Voting" class="headerlink" title="Averaging 和 Voting"></a>Averaging 和 Voting</h3><p>直接对多个模型的预测结果求平均或者投票。对于目标变量为连续值的任务，使用平均；对于目标变量为离散值的任务，使用投票的方式。</p>
-<h3 id="Stacking"><a href="#Stacking" class="headerlink" title="Stacking"></a>Stacking</h3><p><img src="/img/media/tx%E5%BE%80%E5%B1%8A%E5%BF%83%E5%BE%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8A%E5%8D%8810.32.33.png" alt=""></p>
+<h3 id="Stacking"><a href="#Stacking" class="headerlink" title="Stacking"></a>Stacking</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/tx%E5%BE%80%E5%B1%8A%E5%BF%83%E5%BE%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8A%E5%8D%8810.32.33.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <ol>
 <li><strong>数据集划分</strong>。将训练数据按照5-Fold进行划分（如果数据跟时间有关，需要按时间划分）</li>
 <li><strong>基础模型训练 I</strong>。按照交叉验证（Cross Validation）的方法，在训练集（Training Fold）上面训练模型（如图灰色部分所示），并在验证集（Validation Fold）上面做预测，得到预测结果（如图黄色部分所示）。最后综合得到整个训练集上面的预测结果（如图第一个黄色部分的CV Prediction所示）。</li>
@@ -392,9 +416,7 @@
             </span>
         </p>
     </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
+
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
     </script>
 </footer>

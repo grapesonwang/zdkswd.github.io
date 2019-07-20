@@ -21,13 +21,13 @@
     
     
     <meta name="keywords" content="JavaScript">
-    <meta name="description" content="实战中的使用DOM   如果加了括号就会直接执行了。 Element对象Element对象对应网页的 HTML 元素。每一个 HTML 元素，在 DOM 树上都会转化成一个Element节点对象（以下简称元素节点）。 元素节点的nodeType属性都是1。 Element对象继承了Node接口，因此Node的属性和方法在Element对象都存在。此外，不同的 HTML 元素对应的元素节点是不一样的">
+    <meta name="description" content="实战中的使用DOM">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript标准参考教程 DOM模型 实际使用DOM Element节点">
 <meta property="og:url" content="https://github.com/zdkswd/2018/10/09/JavaScript标准参考教程 DOM模型 实际使用DOM Element节点/index.html">
 <meta property="og:site_name" content="ZDK&#39;s blog">
-<meta property="og:description" content="实战中的使用DOM   如果加了括号就会直接执行了。 Element对象Element对象对应网页的 HTML 元素。每一个 HTML 元素，在 DOM 树上都会转化成一个Element节点对象（以下简称元素节点）。 元素节点的nodeType属性都是1。 Element对象继承了Node接口，因此Node的属性和方法在Element对象都存在。此外，不同的 HTML 元素对应的元素节点是不一样的">
+<meta property="og:description" content="实战中的使用DOM">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://github.com/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-09%20%E4%B8%8A%E5%8D%8811.44.53.png">
 <meta property="og:image" content="https://github.com/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-09%20%E4%B8%8A%E5%8D%8811.50.54.png">
@@ -49,7 +49,7 @@
 <meta property="og:updated_time" content="2018-10-09T13:19:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript标准参考教程 DOM模型 实际使用DOM Element节点">
-<meta name="twitter:description" content="实战中的使用DOM   如果加了括号就会直接执行了。 Element对象Element对象对应网页的 HTML 元素。每一个 HTML 元素，在 DOM 树上都会转化成一个Element节点对象（以下简称元素节点）。 元素节点的nodeType属性都是1。 Element对象继承了Node接口，因此Node的属性和方法在Element对象都存在。此外，不同的 HTML 元素对应的元素节点是不一样的">
+<meta name="twitter:description" content="实战中的使用DOM">
 <meta name="twitter:image" content="https://github.com/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-09%20%E4%B8%8A%E5%8D%8811.44.53.png">
     
         <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
@@ -200,10 +200,35 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="实战中的使用DOM"><a href="#实战中的使用DOM" class="headerlink" title="实战中的使用DOM"></a>实战中的使用DOM</h1><p><img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-09%20%E4%B8%8A%E5%8D%8811.44.53.png" alt=""></p>
-<p><img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-09%20%E4%B8%8A%E5%8D%8811.50.54.png" alt=""></p>
-<p><img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-09%20%E4%B8%8B%E5%8D%883.07.00.png" alt=""></p>
-<p><img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-09%20%E4%B8%8B%E5%8D%883.26.06.png" alt=""><br>如果加了括号就会直接执行了。</p>
+            <h1 id="实战中的使用DOM"><a href="#实战中的使用DOM" class="headerlink" title="实战中的使用DOM"></a>实战中的使用DOM</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-09%20%E4%B8%8A%E5%8D%8811.44.53.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-09%20%E4%B8%8A%E5%8D%8811.50.54.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-09%20%E4%B8%8B%E5%8D%883.07.00.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-09%20%E4%B8%8B%E5%8D%883.26.06.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>如果加了括号就会直接执行了。</p>
 <h1 id="Element对象"><a href="#Element对象" class="headerlink" title="Element对象"></a>Element对象</h1><p>Element对象对应网页的 HTML 元素。每一个 HTML 元素，在 DOM 树上都会转化成一个Element节点对象（以下简称元素节点）。</p>
 <p>元素节点的nodeType属性都是1。</p>
 <p>Element对象继承了Node接口，因此Node的属性和方法在Element对象都存在。此外，不同的 HTML 元素对应的元素节点是不一样的，浏览器使用不同的构造函数，生成不同的元素节点，比如&lt; a&gt;元素的节点对象由HTMLAnchorElement构造函数生成，&lt; button&gt;元素的节点对象由HTMLButtonElement构造函数生成。因此，元素节点不是一种对象，而是一组对象，这些对象除了继承Element的属性和方法，还有各自构造函数的属性和方法。</p>
@@ -211,7 +236,13 @@
 <p>id属性的值是大小写敏感。</p>
 <h4 id="Element-tagName"><a href="#Element-tagName" class="headerlink" title="Element.tagName"></a>Element.tagName</h4><p>Element.tagName属性返回指定元素的大写标签名，与nodeName属性的值相等。</p>
 <h4 id="Element-dir"><a href="#Element-dir" class="headerlink" title="Element.dir"></a>Element.dir</h4><p>Element.dir属性用于读写当前元素的文字方向，可能是从左到右（”ltr”），也可能是从右到左（”rtl”）。</p>
-<h4 id="Element-accessKey"><a href="#Element-accessKey" class="headerlink" title="Element.accessKey"></a>Element.accessKey</h4><p>Element.accessKey属性用于读写分配给当前元素的快捷键。<br><img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%882.46.27.png" alt=""></p>
+<h4 id="Element-accessKey"><a href="#Element-accessKey" class="headerlink" title="Element.accessKey"></a>Element.accessKey</h4><p>Element.accessKey属性用于读写分配给当前元素的快捷键。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%882.46.27.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <p>上面代码中，btn元素的快捷键是h，按下Alt + h就能将焦点转移到它上面。</p>
 <h4 id="Element-draggable"><a href="#Element-draggable" class="headerlink" title="Element.draggable"></a>Element.draggable</h4><p>Element.draggable属性返回一个布尔值，表示当前元素是否可拖动。该属性可读写。</p>
 <h4 id="Element-lang"><a href="#Element-lang" class="headerlink" title="Element.lang"></a>Element.lang</h4><p>Element.lang属性返回当前元素的语言设置。该属性可读写。</p>
@@ -223,28 +254,70 @@
 <p>CSS 的设置高于Element.hidden。如果 CSS 指定了该元素不可见（display: none）或可见（display: hidden），那么Element.hidden并不能改变该元素实际的可见性。换言之，这个属性只在 CSS 没有明确设定当前元素的可见性时才有效。</p>
 <h4 id="Element-contentEditable，Element-isContentEditable"><a href="#Element-contentEditable，Element-isContentEditable" class="headerlink" title="Element.contentEditable，Element.isContentEditable"></a>Element.contentEditable，Element.isContentEditable</h4><p>HTML 元素可以设置contentEditable属性，使得元素的内容可以编辑。</p>
 <p>Element.contentEditable属性返回一个字符串，表示是否设置了contenteditable属性，有三种可能的值。该属性可写。</p>
-<p><img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%882.49.37.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%882.49.37.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>Element.isContentEditable属性返回一个布尔值，同样表示是否设置了contenteditable属性。该属性只读。</p>
 <h3 id="Element-attributes"><a href="#Element-attributes" class="headerlink" title="Element.attributes"></a>Element.attributes</h3><p>Element.attributes属性返回一个类似数组的对象，成员是当前元素节点的所有属性节点。</p>
 <h4 id="Element-className，Element-classList"><a href="#Element-className，Element-classList" class="headerlink" title="Element.className，Element.classList"></a>Element.className，Element.classList</h4><p>className属性用来读写当前元素节点的class属性。它的值是一个字符串，每个class之间用空格分割</p>
 <p>classList属性返回一个类似数组的对象，当前元素节点的每个class就是这个对象的一个成员。</p>
 <p>classList对象有下列方法。</p>
-<p><img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%882.52.15.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%882.52.15.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>toggle方法可以接受一个布尔值，作为第二个参数。如果为true，则添加该属性；如果为false，则去除该属性。</p>
 <h3 id="Element-dataset"><a href="#Element-dataset" class="headerlink" title="Element.dataset"></a>Element.dataset</h3><p>网页元素可以自定义data-属性，用来添加数据。</p>
-<p><img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%882.53.44.png" alt=""></p>
-<p>Element.dataset属性返回一个对象，可以从这个对象读写data-属性。<br><img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%882.54.24.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%882.53.44.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>Element.dataset属性返回一个对象，可以从这个对象读写data-属性。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%882.54.24.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <p>注意，dataset上面的各个属性返回都是字符串。</p>
-<p>HTML 代码中，data-属性的属性名，只能包含英文字母、数字、连词线（-）、点（.）、冒号（:）和下划线（_）。它们转成 JavaScript 对应的dataset属性名，规则如下。<br><img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%882.54.51.png" alt=""></p>
+<p>HTML 代码中，data-属性的属性名，只能包含英文字母、数字、连词线（-）、点（.）、冒号（:）和下划线（_）。它们转成 JavaScript 对应的dataset属性名，规则如下。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%882.54.51.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <p>因此，data-abc-def对应dataset.abcDef，data-abc-1对应dataset[“abc-1”]。</p>
 <p>除了使用dataset读写data-属性，也可以使用Element.getAttribute()和Element.setAttribute()，通过完整的属性名读写这些属性。</p>
 <h3 id="Element-innerHTML"><a href="#Element-innerHTML" class="headerlink" title="Element.innerHTML"></a>Element.innerHTML</h3><p>Element.innerHTML属性返回一个字符串，等同于该元素包含的所有 HTML 代码。该属性可读写，常用来设置某个节点的内容。它能改写所有元素节点的内容，包括<html>和<body>元素。</body></html></p>
 <p>如果将innerHTML属性设为空，等于删除所有它包含的所有节点。</p>
-<p>注意，读取属性值的时候，如果文本节点包含 \&amp;、小于号（ &lt;）和大于号（ &gt;），innerHTML属性会将它们转为实体形式 \&amp; amp;、\&amp; lt;、\&amp; gt;。如果想得到原文，建议使用element.textContent属性。<br><img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%883.53.56.png" alt=""></p>
+<p>注意，读取属性值的时候，如果文本节点包含 \&amp;、小于号（ &lt;）和大于号（ &gt;），innerHTML属性会将它们转为实体形式 \&amp; amp;、\&amp; lt;、\&amp; gt;。如果想得到原文，建议使用element.textContent属性。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%883.53.56.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <p>注意，如果文本之中含有&lt; script&gt;标签，虽然可以生成script节点，但是插入的代码不会执行。</p>
 <p>为了安全考虑，如果插入的是文本，最好用textContent属性代替innerHTML。</p>
 <h3 id="Element-outerHTML"><a href="#Element-outerHTML" class="headerlink" title="Element.outerHTML"></a>Element.outerHTML</h3><p>Element.outerHTML属性返回一个字符串，表示当前元素节点的所有 HTML 代码，包括该元素本身和所有子元素。</p>
-<p><img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%883.57.03.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%883.57.03.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>outerHTML属性是可读写的，对它进行赋值，等于替换掉当前元素。</p>
 <p>注意，如果一个节点没有父节点，设置outerHTML属性会报错。</p>
 <h3 id="Element-clientHeight，Element-clientWidth"><a href="#Element-clientHeight，Element-clientWidth" class="headerlink" title="Element.clientHeight，Element.clientWidth"></a>Element.clientHeight，Element.clientWidth</h3><p>Element.clientHeight属性返回一个整数值，表示元素节点的 CSS 高度（单位像素），只对块级元素生效，对于行内元素返回0。如果块级元素没有设置 CSS 高度，则返回实际高度。</p>
@@ -291,18 +364,36 @@
 <p>它也可以接受多个 CSS 选择器，它们之间使用逗号分隔。如果选择器里面有伪元素的选择器，则总是返回一个空的NodeList实例。</p>
 <h3 id="Element-getElementsByClassName"><a href="#Element-getElementsByClassName" class="headerlink" title="Element.getElementsByClassName()"></a>Element.getElementsByClassName()</h3><p>Element.getElementsByClassName方法返回一个HTMLCollection实例，成员是当前元素节点的所有具有指定 class 的子元素节点。该方法与document.getElementsByClassName方法的用法类似，只是搜索范围不是整个文档，而是当前元素节点。</p>
 <p>注意，该方法的参数大小写敏感。</p>
-<p>由于HTMLCollection实例是一个活的集合，document对象的任何变化会立刻反应到实例。<br><img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%884.59.41.png" alt=""></p>
+<p>由于HTMLCollection实例是一个活的集合，document对象的任何变化会立刻反应到实例。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%884.59.41.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <p>上面代码中，matches集合的第一个成员，一旦被拿掉 class 里面的foo，就会立刻从matches里面消失，导致出现上面的结果。</p>
 <h3 id="Element-getElementsByTagName"><a href="#Element-getElementsByTagName" class="headerlink" title="Element.getElementsByTagName()"></a>Element.getElementsByTagName()</h3><p>Element.getElementsByTagName方法返回一个HTMLCollection实例，成员是当前节点的所有匹配指定标签名的子元素节点。该方法与document.getElementsByClassName方法的用法类似，只是搜索范围不是整个文档，而是当前元素节点。</p>
 <p><strong>注意</strong>，该方法的参数是大小写不敏感的。</p>
 <h3 id="Element-closest"><a href="#Element-closest" class="headerlink" title="Element.closest()"></a>Element.closest()</h3><p>Element.closest方法接受一个 CSS 选择器作为参数，返回匹配该选择器的、最接近当前节点的一个祖先节点（包括当前节点本身）。如果没有任何节点匹配 CSS 选择器，则返回null。</p>
 <h3 id="Element-matches"><a href="#Element-matches" class="headerlink" title="Element.matches()"></a>Element.matches()</h3><p>Element.matches方法返回一个布尔值，表示当前元素是否匹配给定的 CSS 选择器。</p>
-<h3 id="事件相关方法"><a href="#事件相关方法" class="headerlink" title="事件相关方法"></a>事件相关方法</h3><p>以下三个方法与Element节点的事件相关。这些方法都继承自EventTarget接口，<br><img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%885.31.11.png" alt=""></p>
+<h3 id="事件相关方法"><a href="#事件相关方法" class="headerlink" title="事件相关方法"></a>事件相关方法</h3><p>以下三个方法与Element节点的事件相关。这些方法都继承自EventTarget接口，<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%885.31.11.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <h3 id="Element-scrollIntoView"><a href="#Element-scrollIntoView" class="headerlink" title="Element.scrollIntoView()"></a>Element.scrollIntoView()</h3><p>Element.scrollIntoView方法滚动当前元素，进入浏览器的可见区域，类似于设置window.location.hash的效果。</p>
 <p>该方法可以接受一个布尔值作为参数。如果为true，表示元素的顶部与当前区域的可见部分的顶部对齐（前提是当前区域可滚动）；如果为false，表示元素的底部与当前区域的可见部分的尾部对齐（前提是当前区域可滚动）。如果没有提供该参数，默认为true。</p>
 <h3 id="Element-getBoundingClientRect"><a href="#Element-getBoundingClientRect" class="headerlink" title="Element.getBoundingClientRect()"></a>Element.getBoundingClientRect()</h3><p>Element.getBoundingClientRect方法返回一个对象，提供当前元素节点的大小、位置等信息，基本上就是 CSS 盒状模型的所有信息。</p>
 <p>只读。</p>
-<p><img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%885.54.41.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%885.54.41.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>注意，getBoundingClientRect方法的所有属性，都把边框（border属性）算作元素的一部分。也就是说，都是从边框外缘的各个点来计算。因此，width和height包括了元素本身 + padding + border。</p>
 <h3 id="Element-getClientRects"><a href="#Element-getClientRects" class="headerlink" title="Element.getClientRects()"></a>Element.getClientRects()</h3><p>Element.getClientRects方法返回一个类似数组的对象，里面是当前元素在页面上形成的所有矩形（所以方法名中的Rect用的是复数）。每个矩形都有bottom、height、left、right、top和width六个属性，表示它们相对于视口的四个坐标，以及本身的高度和宽度。</p>
 <p>对于盒状元素（比如&lt; div&gt;和&lt; p&gt;），该方法返回的对象中只有该元素一个成员。对于行内元素（比如&lt; span&gt;、&lt; a&gt;、&lt; em&gt;），该方法返回的对象有多少个成员，取决于该元素在页面上占据多少行。这是它和Element.getBoundingClientRect()方法的主要区别，后者对于行内元素总是返回一个矩形。</p>
@@ -312,7 +403,13 @@
 <p>注意，beforebegin和afterend这两个值，只在当前节点有父节点时才会生效。如果当前节点是由脚本创建的，没有父节点，那么插入会失败。</p>
 <h3 id="Element-insertAdjacentHTML-，Element-insertAdjacentText"><a href="#Element-insertAdjacentHTML-，Element-insertAdjacentText" class="headerlink" title="Element.insertAdjacentHTML()，Element.insertAdjacentText()"></a>Element.insertAdjacentHTML()，Element.insertAdjacentText()</h3><p>Element.insertAdjacentHTML方法用于将一个 HTML 字符串，解析生成 DOM 结构，插入相对于当前节点的指定位置。</p>
 <p>该方法接受两个参数，第一个是一个表示指定位置的字符串，第二个是待解析的 HTML 字符串。第一个参数只能设置下面四个值之一。</p>
-<p><img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%886.22.41.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/1534769900941/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-22%20%E4%B8%8B%E5%8D%886.22.41.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>该方法只是在现有的 DOM 结构里面插入节点，这使得它的执行速度比innerHTML方法快得多。</p>
 <p>注意，该方法会使 HTML 字符串显示为网页结构，这导致它不能用来插入用户输入的内容，否则会有安全风险。</p>
 <h3 id="Element-focus-，Element-blur"><a href="#Element-focus-，Element-blur" class="headerlink" title="Element.focus()，Element.blur()"></a>Element.focus()，Element.blur()</h3><p>Element.focus方法用于将当前页面的焦点，转移到指定元素上。</p>
@@ -455,9 +552,7 @@
             </span>
         </p>
     </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
+
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
     </script>
 </footer>

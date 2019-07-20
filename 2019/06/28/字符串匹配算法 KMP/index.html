@@ -21,13 +21,13 @@
     
     
     <meta name="keywords" content="算法">
-    <meta name="description" content="字符串匹配算法 KMPBM算法是工程中非常常用的一种高效字符串匹配算法，是最高效最常用的字符串匹配算法。在所有字符串匹配算法中，最知名的非KMP算法莫属。 KMP算法基本原理KMP算法的核心思想与BM算法非常相近。在模式串与主串匹配过程中，当遇到不可匹配的字符时，通过找到一些规律将模式串往后多滑动几位，跳过肯定不会匹配的情况。当遇到坏字符的时候，就要把模式串往后滑动，在滑动的过程中，只要模式串和好">
+    <meta name="description" content="字符串匹配算法 KMPBM算法是工程中非常常用的一种高效字符串匹配算法，是最高效最常用的字符串匹配算法。在所有字符串匹配算法中，最知名的非KMP算法莫属。 KMP算法基本原理KMP算法的核心思想与BM算法非常相近。在模式串与主串匹配过程中，当遇到不可匹配的字符时，通过找到一些规律将模式串往后多滑动几位，跳过肯定不会匹配的情况。">
 <meta name="keywords" content="算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="字符串匹配算法 KMP">
 <meta property="og:url" content="https://github.com/zdkswd/2019/06/28/字符串匹配算法 KMP/index.html">
 <meta property="og:site_name" content="ZDK&#39;s blog">
-<meta property="og:description" content="字符串匹配算法 KMPBM算法是工程中非常常用的一种高效字符串匹配算法，是最高效最常用的字符串匹配算法。在所有字符串匹配算法中，最知名的非KMP算法莫属。 KMP算法基本原理KMP算法的核心思想与BM算法非常相近。在模式串与主串匹配过程中，当遇到不可匹配的字符时，通过找到一些规律将模式串往后多滑动几位，跳过肯定不会匹配的情况。当遇到坏字符的时候，就要把模式串往后滑动，在滑动的过程中，只要模式串和好">
+<meta property="og:description" content="字符串匹配算法 KMPBM算法是工程中非常常用的一种高效字符串匹配算法，是最高效最常用的字符串匹配算法。在所有字符串匹配算法中，最知名的非KMP算法莫属。 KMP算法基本原理KMP算法的核心思想与BM算法非常相近。在模式串与主串匹配过程中，当遇到不可匹配的字符时，通过找到一些规律将模式串往后多滑动几位，跳过肯定不会匹配的情况。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://github.com/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20KMP/17ae3d55cf140285d1f34481e173aebe.jpg">
 <meta property="og:image" content="https://github.com/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20KMP/f4ef2c1e6ce5915e1c6460c2e26c9469.jpg">
@@ -39,7 +39,7 @@
 <meta property="og:updated_time" content="2019-07-13T14:35:03.790Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="字符串匹配算法 KMP">
-<meta name="twitter:description" content="字符串匹配算法 KMPBM算法是工程中非常常用的一种高效字符串匹配算法，是最高效最常用的字符串匹配算法。在所有字符串匹配算法中，最知名的非KMP算法莫属。 KMP算法基本原理KMP算法的核心思想与BM算法非常相近。在模式串与主串匹配过程中，当遇到不可匹配的字符时，通过找到一些规律将模式串往后多滑动几位，跳过肯定不会匹配的情况。当遇到坏字符的时候，就要把模式串往后滑动，在滑动的过程中，只要模式串和好">
+<meta name="twitter:description" content="字符串匹配算法 KMPBM算法是工程中非常常用的一种高效字符串匹配算法，是最高效最常用的字符串匹配算法。在所有字符串匹配算法中，最知名的非KMP算法莫属。 KMP算法基本原理KMP算法的核心思想与BM算法非常相近。在模式串与主串匹配过程中，当遇到不可匹配的字符时，通过找到一些规律将模式串往后多滑动几位，跳过肯定不会匹配的情况。">
 <meta name="twitter:image" content="https://github.com/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20KMP/17ae3d55cf140285d1f34481e173aebe.jpg">
     
         <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
@@ -191,13 +191,56 @@
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             <h1 id="字符串匹配算法-KMP"><a href="#字符串匹配算法-KMP" class="headerlink" title="字符串匹配算法 KMP"></a>字符串匹配算法 KMP</h1><p>BM算法是工程中非常常用的一种高效字符串匹配算法，是最高效最常用的字符串匹配算法。在所有字符串匹配算法中，最知名的非KMP算法莫属。</p>
-<h1 id="KMP算法基本原理"><a href="#KMP算法基本原理" class="headerlink" title="KMP算法基本原理"></a>KMP算法基本原理</h1><p>KMP算法的核心思想与BM算法非常相近。在模式串与主串匹配过程中，当遇到不可匹配的字符时，通过找到一些规律将模式串往后多滑动几位，跳过肯定不会匹配的情况。<br><img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20KMP/17ae3d55cf140285d1f34481e173aebe.jpg" alt=""><br>当遇到坏字符的时候，就要把模式串往后滑动，在滑动的过程中，只要模式串和好前缀有上下重合，前面几个字符的比较，就相当于拿好前缀的后缀子串，跟模式串的前缀子串在比较。<br><img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20KMP/f4ef2c1e6ce5915e1c6460c2e26c9469.jpg" alt=""><br>KMP算法就是在试图寻找一种规律: <strong>在模式串和主串匹配的过程中，当遇到坏字符后，对于已经比对过的好前缀，找到一种规律，将模式串一次性滑动很多位。</strong><br><img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20KMP/da99c0349f8fac27e193af8d801dbb8f.jpg" alt=""></p>
-<p><img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20KMP/9e59c0973ffb965abdd3be5eafb492ad.jpg" alt=""><br>求好前缀的最长可匹配前缀和后缀自串不涉及主串，只需要通过模式串本身就能求解。KMP算法也可以提前构建一个数组，用来存储模式串中每个前缀（有可能是好前缀）的最长可匹配前缀自串的结尾字符下标。把这个数组定义为<strong>next数组</strong>，又叫<strong>失效函数</strong>。<br><img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20KMP/1661d37cb190cb83d713749ff9feaea8.jpg" alt=""></p>
+<h1 id="KMP算法基本原理"><a href="#KMP算法基本原理" class="headerlink" title="KMP算法基本原理"></a>KMP算法基本原理</h1><p>KMP算法的核心思想与BM算法非常相近。在模式串与主串匹配过程中，当遇到不可匹配的字符时，通过找到一些规律将模式串往后多滑动几位，跳过肯定不会匹配的情况。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20KMP/17ae3d55cf140285d1f34481e173aebe.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>当遇到坏字符的时候，就要把模式串往后滑动，在滑动的过程中，只要模式串和好前缀有上下重合，前面几个字符的比较，就相当于拿好前缀的后缀子串，跟模式串的前缀子串在比较。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20KMP/f4ef2c1e6ce5915e1c6460c2e26c9469.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>KMP算法就是在试图寻找一种规律: <strong>在模式串和主串匹配的过程中，当遇到坏字符后，对于已经比对过的好前缀，找到一种规律，将模式串一次性滑动很多位。</strong><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20KMP/da99c0349f8fac27e193af8d801dbb8f.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20KMP/9e59c0973ffb965abdd3be5eafb492ad.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>求好前缀的最长可匹配前缀和后缀自串不涉及主串，只需要通过模式串本身就能求解。KMP算法也可以提前构建一个数组，用来存储模式串中每个前缀（有可能是好前缀）的最长可匹配前缀自串的结尾字符下标。把这个数组定义为<strong>next数组</strong>，又叫<strong>失效函数</strong>。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20KMP/1661d37cb190cb83d713749ff9feaea8.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <h1 id="失效函数计算方法"><a href="#失效函数计算方法" class="headerlink" title="失效函数计算方法"></a>失效函数计算方法</h1><p>最复杂的部分就是next数组计算。</p>
-<p>最简单也最低效的是像👆一样依次遍历。<br><img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20KMP/1ee5bea573abd033a6aa35d15ef0baec.jpg" alt=""><br>如何更好的理解和掌握 KMP 算法? - 逍遥行的回答 - 知乎<br><a href="https://www.zhihu.com/question/21923021/answer/37475572" target="_blank" rel="noopener">https://www.zhihu.com/question/21923021/answer/37475572</a></p>
+<p>最简单也最低效的是像👆一样依次遍历。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20KMP/1ee5bea573abd033a6aa35d15ef0baec.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>如何更好的理解和掌握 KMP 算法? - 逍遥行的回答 - 知乎<br><a href="https://www.zhihu.com/question/21923021/answer/37475572" target="_blank" rel="noopener">https://www.zhihu.com/question/21923021/answer/37475572</a></p>
 <p>在计算next[i]时，前面的next[0],next[1],….,next[i-1]已经计算出来了，利用已经计算出来的next值，可以快速推导出next[i]的值。</p>
 <hr>
-<p>例子：<br>abababzabababa<br>列个表计算一下：<br><img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20KMP/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-28%20%E4%B8%8A%E5%8D%8810.07.22.png" alt=""><br>对子字符串 abababzababab 来说，前缀有 a, ab, aba, abab, ababa, ababab, abababz, …后缀有 b, ab, bab, abab, babab, ababab, zababab, …所以子字符串 abababzababab 前缀后缀最大匹配了 6 个（ababab），容易看出次大匹配了 4 个（abab），更仔细地观察可以发现，次大匹配的前缀后缀只可能在 ababab 中，所以<strong>次大匹配数就是 ababab 的最大匹配数</strong>。</p>
+<p>例子：<br>abababzabababa<br>列个表计算一下：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%20KMP/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-28%20%E4%B8%8A%E5%8D%8810.07.22.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>对子字符串 abababzababab 来说，前缀有 a, ab, aba, abab, ababa, ababab, abababz, …后缀有 b, ab, bab, abab, babab, ababab, zababab, …所以子字符串 abababzababab 前缀后缀最大匹配了 6 个（ababab），容易看出次大匹配了 4 个（abab），更仔细地观察可以发现，次大匹配的前缀后缀只可能在 ababab 中，所以<strong>次大匹配数就是 ababab 的最大匹配数</strong>。</p>
 <p>来计算 ? 的值：既然末尾字母不是 z，那么就不能直接 6+1=7 了，回退到次大匹配 abab，刚好 abab 之后的 a 与末尾的 a 匹配，所以 ? 处的最大匹配数为 5。</p>
 <hr>
 <h1 id="KMP算法复杂度分析"><a href="#KMP算法复杂度分析" class="headerlink" title="KMP算法复杂度分析"></a>KMP算法复杂度分析</h1><p>空间复杂度：<br>KMP算法只需要一个额外的next数组,数组的大小跟模式串相同。所以空间复杂度是O(m),m表示模式串的长度。</p>
@@ -339,9 +382,7 @@
             </span>
         </p>
     </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
+
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
     </script>
 </footer>

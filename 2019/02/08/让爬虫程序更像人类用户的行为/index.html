@@ -191,14 +191,33 @@
 <h1 id="黑科技"><a href="#黑科技" class="headerlink" title="黑科技"></a>黑科技</h1><p>一些简单的方法让爬虫更像人类访问用户。</p>
 <h2 id="构造合理的HTTP请求头"><a href="#构造合理的HTTP请求头" class="headerlink" title="构造合理的HTTP请求头"></a>构造合理的HTTP请求头</h2><h2 id="设置Cookie的学问"><a href="#设置Cookie的学问" class="headerlink" title="设置Cookie的学问"></a>设置Cookie的学问</h2><p>虽然 cookie 是一把双刃剑，但正确地处理 cookie 可以避免许多采集问题。网站会用 cookie 跟踪你的访问过程，如果发现了爬虫异常行为就会中断你的访问，比如特别快速地填写表单，或者浏览大量页面。虽然这些行为可以通过关闭并重新连接或者改变 IP 地址来伪装，但是如果 cookie 暴露了你的身份，再多努力也是白费。</p>
 <p>在采集一些网站时 cookie 是不可或缺的。要在一个网站上持续保持登录状态，需要在多个页面中保存一个 cookie。有些网站不要求在每次登录时都获得一个新 cookie，只要保存一个旧的“已登录”的 cookie 就可以访问。</p>
-<p> Cookie信息，也可以更具实际情况填写。不过requests已经封装好了很多操作，自动管理cookie，session保持连接。我们可以先访问某个目标网站，建立一个session连接之后，获取cookie。代码如下：<br><img src="/img/media/%E8%AE%A9%E7%88%AC%E8%99%AB%E7%A8%8B%E5%BA%8F%E6%9B%B4%E5%83%8F%E4%BA%BA%E7%B1%BB%E7%94%A8%E6%88%B7%E7%9A%84%E8%A1%8C%E4%B8%BA/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-08%20%E4%B8%8B%E5%8D%8812.54.51.png" alt=""><br>使用 requests.Session 会话对象让你能够跨请求保持某些参数，它也会在同一个 Session 实例发出的所有请求之间保持 cookie， 期间使用 urllib3 的 connection pooling 功能。</p>
+<p> Cookie信息，也可以更具实际情况填写。不过requests已经封装好了很多操作，自动管理cookie，session保持连接。我们可以先访问某个目标网站，建立一个session连接之后，获取cookie。代码如下：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AE%A9%E7%88%AC%E8%99%AB%E7%A8%8B%E5%BA%8F%E6%9B%B4%E5%83%8F%E4%BA%BA%E7%B1%BB%E7%94%A8%E6%88%B7%E7%9A%84%E8%A1%8C%E4%B8%BA/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-08%20%E4%B8%8B%E5%8D%8812.54.51.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>使用 requests.Session 会话对象让你能够跨请求保持某些参数，它也会在同一个 Session 实例发出的所有请求之间保持 cookie， 期间使用 urllib3 的 connection pooling 功能。</p>
 <p>因为 requests 模块不能执行 JavaScript，所以它不能处理很多新式的跟踪软件生成的 cookie，比如 Google Analytics，只有当客户端脚本执行后才设置 cookie（或者在用户浏览页面时基于网页事件产生 cookie，比如点击按钮）。要处理这些动作，需要用 Selenium 和 PhantomJS 包。</p>
 <p>PhantomJS 是一个“无头”（headless）浏览器。它会把网站加载到内存并执行页面上的 JavaScript，但不会向用户展示网页的图形界面。将 Selenium 和 PhantomJS 结合在一起，就可以运行一个非常强大的网络爬虫了，可以处理 cookie、JavaScript、headers，以及任何你需要做的事情。</p>
 <p>还可以调用 delete_cookie()、add_cookie() 和 delete_all_cookies() 方法来处理 cookie。另外，还可以保存 cookie 以备其他网络爬虫使用。</p>
 <p>通过Selenium和PhantomJS，我们可以很好的处理一些需要事件执行后才能获得的cookie。</p>
 <h2 id="正常的访问速度"><a href="#正常的访问速度" class="headerlink" title="正常的访问速度"></a>正常的访问速度</h2><p>有一些防护措施完备的网站可能会阻止你快速地提交表单，或者快速地与网站进行交互。即使没有这些安全措施，用一个比普通人快很多的速度从一个网站下载大量信息也可能让自己被网站封杀。</p>
-<p>因此，虽然多进程程序可能是一个快速加载页面的好办法——在一个进程中处理数据，另一个进程中加载页面——但是这对编写好的爬虫来说是恐怖的策略。还是应该尽量保证一次加载页面加载且数据请求最小化。如果条件允许，尽量为每个页面访问增加一点儿时间间隔，即使你要增加两行代码：<br><img src="/img/media/%E8%AE%A9%E7%88%AC%E8%99%AB%E7%A8%8B%E5%BA%8F%E6%9B%B4%E5%83%8F%E4%BA%BA%E7%B1%BB%E7%94%A8%E6%88%B7%E7%9A%84%E8%A1%8C%E4%B8%BA/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-08%20%E4%B8%8B%E5%8D%881.07.52.png" alt=""><br>合理控制速度是你不应该破坏的规则。过度消耗别人的服务器资源会让你置身于非法境地，更严重的是这么做可能会把一个小型网站拖垮甚至下线。拖垮网站是不道德的，是彻头彻尾的错误。所以请控制采集速度！</p>
-<h2 id="注意隐含输入字段"><a href="#注意隐含输入字段" class="headerlink" title="注意隐含输入字段"></a>注意隐含输入字段</h2><p><img src="/img/media/%E8%AE%A9%E7%88%AC%E8%99%AB%E7%A8%8B%E5%BA%8F%E6%9B%B4%E5%83%8F%E4%BA%BA%E7%B1%BB%E7%94%A8%E6%88%B7%E7%9A%84%E8%A1%8C%E4%B8%BA/20170528154851498.png" alt=""><br>用隐含字段阻止网络数据采集的方式主要有两种。</p>
+<p>因此，虽然多进程程序可能是一个快速加载页面的好办法——在一个进程中处理数据，另一个进程中加载页面——但是这对编写好的爬虫来说是恐怖的策略。还是应该尽量保证一次加载页面加载且数据请求最小化。如果条件允许，尽量为每个页面访问增加一点儿时间间隔，即使你要增加两行代码：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AE%A9%E7%88%AC%E8%99%AB%E7%A8%8B%E5%BA%8F%E6%9B%B4%E5%83%8F%E4%BA%BA%E7%B1%BB%E7%94%A8%E6%88%B7%E7%9A%84%E8%A1%8C%E4%B8%BA/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-08%20%E4%B8%8B%E5%8D%881.07.52.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>合理控制速度是你不应该破坏的规则。过度消耗别人的服务器资源会让你置身于非法境地，更严重的是这么做可能会把一个小型网站拖垮甚至下线。拖垮网站是不道德的，是彻头彻尾的错误。所以请控制采集速度！</p>
+<h2 id="注意隐含输入字段"><a href="#注意隐含输入字段" class="headerlink" title="注意隐含输入字段"></a>注意隐含输入字段</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AE%A9%E7%88%AC%E8%99%AB%E7%A8%8B%E5%BA%8F%E6%9B%B4%E5%83%8F%E4%BA%BA%E7%B1%BB%E7%94%A8%E6%88%B7%E7%9A%84%E8%A1%8C%E4%B8%BA/20170528154851498.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>用隐含字段阻止网络数据采集的方式主要有两种。</p>
 <p>第一种是表单页面上的一个字段可以用服务器生成的随机变量表示。如果提交时这个值不在表单处理页面上，服务器就有理由认为这个提交不是从原始表单页面上提交的，而是由一个网络机器人直接提交到表单处理页面的。绕开这个问题的最佳方法就是，首先采集表单所在页面上生成的随机变量，然后再提交到表单处理页面。</p>
 <p>第二种方式是“蜜罐”（honey pot）。如果表单里包含一个具有普通名称的隐含字段（设置蜜罐圈套），比如“用户名”（username）或“邮箱地址”（email address），设计不太好的网络机器人往往不管这个字段是不是对用户可见，直接填写这个字段并向服务器提交，这样就会中服务器的蜜罐圈套。服务器会把所有隐含字段的真实值（或者与表单提交页面的默认值不同的值）都忽略，而且填写隐含字段的访问用户也可能被网站封杀。</p>
 <p>总之，有时检查表单所在的页面十分必要，看看有没有遗漏或弄错一些服务器预先设定好的隐含字段（蜜罐圈套）。如果你看到一些隐含字段，通常带有较大的随机字符串变量，那么很可能网络服务器会在表单提交的时候检查它们。另外，还有其他一些检查，用来保证这些当前生成的表单变量只被使用一次或是最近生成的（这样可以避免变量被简单地存储到一个程序中反复使用）。</p>
@@ -210,7 +229,13 @@
 <li>电话号码字段 name=”phone” 是一个隐含的输入字段；</li>
 <li>邮箱地址字段 name=”email” 是将元素向右移动 50 000 像素（应该会超出电脑显示器的边界）并隐藏滚动条。</li>
 </ol>
-<p>因为 Selenium 可以获取访问页面的内容，所以它可以区分页面上的可见元素与隐含元素。通过 is_displayed() 可以判断元素在页面上是否可见。<br><img src="/img/media/%E8%AE%A9%E7%88%AC%E8%99%AB%E7%A8%8B%E5%BA%8F%E6%9B%B4%E5%83%8F%E4%BA%BA%E7%B1%BB%E7%94%A8%E6%88%B7%E7%9A%84%E8%A1%8C%E4%B8%BA/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-08%20%E4%B8%8B%E5%8D%881.41.18.png" alt=""></p>
+<p>因为 Selenium 可以获取访问页面的内容，所以它可以区分页面上的可见元素与隐含元素。通过 is_displayed() 可以判断元素在页面上是否可见。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AE%A9%E7%88%AC%E8%99%AB%E7%A8%8B%E5%BA%8F%E6%9B%B4%E5%83%8F%E4%BA%BA%E7%B1%BB%E7%94%A8%E6%88%B7%E7%9A%84%E8%A1%8C%E4%B8%BA/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-08%20%E4%B8%8B%E5%8D%881.41.18.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <h2 id="创建自己的代理IP池"><a href="#创建自己的代理IP池" class="headerlink" title="创建自己的代理IP池"></a>创建自己的代理IP池</h2><p>启用远程平台的人通常有两个目的：对更大计算能力和灵活性的需求，以及对可变 IP 地址的需求。</p>
 <p>有一些网站会设置访问阈值，也就是说，如果一个IP访问速度超过这个阈值，那么网站就会认为，这是一个爬虫程序，而不是用户行为。为了避免远程服务器封锁IP，或者想加快爬取速度，一个可行的方法就是使用代理IP，我们需要做的就是创建一个自己的代理IP池。</p>
 <p>思路：通过免费IP代理网站爬取IP，构建一个容量为100的代理IP池。从代理IP池中随机选取IP，在使用IP之前，检查IP是否可用。如果可用，使用该IP访问目标页面，如果不可用，舍弃该IP。当代理IP池中IP的数量小于20的时候，更新整个代理IP池，即重新从免费IP代理网站爬取IP，构建一个新的容量为100的代理IP池。</p>
@@ -362,9 +387,7 @@
             </span>
         </p>
     </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
+
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
     </script>
 </footer>

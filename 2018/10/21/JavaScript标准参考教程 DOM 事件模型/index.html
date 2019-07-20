@@ -21,13 +21,13 @@
     
     
     <meta name="keywords" content="JavaScript">
-    <meta name="description" content="事件的本质是程序各个组成部分之间的一种通信方式，也是异步编程的一种实现。DOM 支持大量的事件。 EventTarget接口DOM 的事件操作（监听和触发），都定义在EventTarget接口。所有节点对象都部署了这个接口，其他一些需要事件通信的浏览器内置对象（比如，XMLHttpRequest、AudioNode、AudioContext）也部署了这个接口。 该接口主要提供三个实例方法。  Ev">
+    <meta name="description" content="事件的本质是程序各个组成部分之间的一种通信方式，也是异步编程的一种实现。DOM 支持大量的事件。 EventTarget接口DOM 的事件操作（监听和触发），都定义在EventTarget接口。所有节点对象都部署了这个接口，其他一些需要事件通信的浏览器内置对象（比如，XMLHttpRequest、AudioNode、AudioContext）也部署了这个接口。 该接口主要提供三个实例方法。">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript标准参考教程 DOM 事件模型">
 <meta property="og:url" content="https://github.com/zdkswd/2018/10/21/JavaScript标准参考教程 DOM 事件模型/index.html">
 <meta property="og:site_name" content="ZDK&#39;s blog">
-<meta property="og:description" content="事件的本质是程序各个组成部分之间的一种通信方式，也是异步编程的一种实现。DOM 支持大量的事件。 EventTarget接口DOM 的事件操作（监听和触发），都定义在EventTarget接口。所有节点对象都部署了这个接口，其他一些需要事件通信的浏览器内置对象（比如，XMLHttpRequest、AudioNode、AudioContext）也部署了这个接口。 该接口主要提供三个实例方法。  Ev">
+<meta property="og:description" content="事件的本质是程序各个组成部分之间的一种通信方式，也是异步编程的一种实现。DOM 支持大量的事件。 EventTarget接口DOM 的事件操作（监听和触发），都定义在EventTarget接口。所有节点对象都部署了这个接口，其他一些需要事件通信的浏览器内置对象（比如，XMLHttpRequest、AudioNode、AudioContext）也部署了这个接口。 该接口主要提供三个实例方法。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://github.com/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%889.51.27.png">
 <meta property="og:image" content="https://github.com/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%889.52.13.png">
@@ -67,7 +67,7 @@
 <meta property="og:updated_time" content="2018-10-21T06:55:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript标准参考教程 DOM 事件模型">
-<meta name="twitter:description" content="事件的本质是程序各个组成部分之间的一种通信方式，也是异步编程的一种实现。DOM 支持大量的事件。 EventTarget接口DOM 的事件操作（监听和触发），都定义在EventTarget接口。所有节点对象都部署了这个接口，其他一些需要事件通信的浏览器内置对象（比如，XMLHttpRequest、AudioNode、AudioContext）也部署了这个接口。 该接口主要提供三个实例方法。  Ev">
+<meta name="twitter:description" content="事件的本质是程序各个组成部分之间的一种通信方式，也是异步编程的一种实现。DOM 支持大量的事件。 EventTarget接口DOM 的事件操作（监听和触发），都定义在EventTarget接口。所有节点对象都部署了这个接口，其他一些需要事件通信的浏览器内置对象（比如，XMLHttpRequest、AudioNode、AudioContext）也部署了这个接口。 该接口主要提供三个实例方法。">
 <meta name="twitter:image" content="https://github.com/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%889.51.27.png">
     
         <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
@@ -221,48 +221,248 @@
             <p>事件的本质是程序各个组成部分之间的一种通信方式，也是异步编程的一种实现。DOM 支持大量的事件。</p>
 <h1 id="EventTarget接口"><a href="#EventTarget接口" class="headerlink" title="EventTarget接口"></a>EventTarget接口</h1><p>DOM 的事件操作（监听和触发），都定义在<strong>EventTarget</strong>接口。所有节点对象都部署了这个接口，其他一些需要事件通信的浏览器内置对象（比如，<strong>XMLHttpRequest</strong>、<strong>AudioNode</strong>、<strong>AudioContext</strong>）也部署了这个接口。</p>
 <p>该接口主要提供三个实例方法。</p>
-<p><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%889.51.27.png" alt=""></p>
-<h2 id="EventTarget-addEventListener"><a href="#EventTarget-addEventListener" class="headerlink" title="EventTarget.addEventListener()"></a>EventTarget.addEventListener()</h2><p>EventTarget.addEventListener()用于在当前节点或对象上，定义一个特定事件的监听函数。一旦这个事件发生，就会执行监听函数。该方法没有返回值。<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%889.52.13.png" alt=""><br>该方法接受三个参数。<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%889.54.27.png" alt=""><br>例子：<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%889.56.50.png" alt=""><br>关于参数：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%889.51.27.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="EventTarget-addEventListener"><a href="#EventTarget-addEventListener" class="headerlink" title="EventTarget.addEventListener()"></a>EventTarget.addEventListener()</h2><p>EventTarget.addEventListener()用于在当前节点或对象上，定义一个特定事件的监听函数。一旦这个事件发生，就会执行监听函数。该方法没有返回值。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%889.52.13.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>该方法接受三个参数。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%889.54.27.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>例子：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%889.56.50.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>关于参数：</p>
 <ol>
-<li>第二个参数除了监听函数，还可以是一个具有handleEvent方法的对象。<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%889.58.28.png" alt=""></li>
-<li>第三个参数除了布尔值useCapture，还可以是一个属性配置对象。该对象有以下属性。<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.03.24.png" alt=""></li>
+<li>第二个参数除了监听函数，还可以是一个具有handleEvent方法的对象。<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%889.58.28.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></li>
+<li>第三个参数除了布尔值useCapture，还可以是一个属性配置对象。该对象有以下属性。<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.03.24.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+</li>
 </ol>
 <p>addEventListener方法可以为针对当前对象的同一个事件，添加多个不同的监听函数。这些函数按照添加顺序触发，即先添加先触发。如果为同一个事件多次添加同一个监听函数，该函数只会执行一次，多余的添加将自动被去除。</p>
-<p>如果希望向监听函数传递参数，可以用匿名函数包装一下监听函数。<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.06.26.png" alt=""><br>监听函数内部的this，指向当前事件所在的那个对象。</p>
-<h2 id="EventTarget-removeEventListener"><a href="#EventTarget-removeEventListener" class="headerlink" title="EventTarget.removeEventListener()"></a>EventTarget.removeEventListener()</h2><p>EventTarget.removeEventListener方法用来移除addEventListener方法添加的事件监听函数。该方法没有返回值。<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.08.15.png" alt=""><br>removeEventListener方法的参数，与addEventListener方法完全一致。它的第一个参数“事件类型”，大小写敏感。</p>
-<p>注意，removeEventListener方法移除的监听函数，必须是addEventListener方法添加的那个监听函数，而且必须在同一个元素节点，否则无效。<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.11.58.png" alt=""></p>
-<h2 id="EventTarget-dispatchEvent"><a href="#EventTarget-dispatchEvent" class="headerlink" title="EventTarget.dispatchEvent()"></a>EventTarget.dispatchEvent()</h2><p>EventTarget.dispatchEvent方法在当前节点上触发指定事件，从而触发监听函数的执行。该方法返回一个布尔值，只要有一个监听函数调用了Event.preventDefault()，则返回值为false，否则为true。<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.15.02.png" alt=""><br>dispatchEvent方法的参数是一个Event对象的实例。<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.28.58.png" alt=""><br>如果dispatchEvent方法的参数为空，或者不是一个有效的事件对象，将报错。<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.32.55.png" alt=""></p>
+<p>如果希望向监听函数传递参数，可以用匿名函数包装一下监听函数。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.06.26.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>监听函数内部的this，指向当前事件所在的那个对象。</p>
+<h2 id="EventTarget-removeEventListener"><a href="#EventTarget-removeEventListener" class="headerlink" title="EventTarget.removeEventListener()"></a>EventTarget.removeEventListener()</h2><p>EventTarget.removeEventListener方法用来移除addEventListener方法添加的事件监听函数。该方法没有返回值。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.08.15.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>removeEventListener方法的参数，与addEventListener方法完全一致。它的第一个参数“事件类型”，大小写敏感。</p>
+<p>注意，removeEventListener方法移除的监听函数，必须是addEventListener方法添加的那个监听函数，而且必须在同一个元素节点，否则无效。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.11.58.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h2 id="EventTarget-dispatchEvent"><a href="#EventTarget-dispatchEvent" class="headerlink" title="EventTarget.dispatchEvent()"></a>EventTarget.dispatchEvent()</h2><p>EventTarget.dispatchEvent方法在当前节点上触发指定事件，从而触发监听函数的执行。该方法返回一个布尔值，只要有一个监听函数调用了Event.preventDefault()，则返回值为false，否则为true。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.15.02.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>dispatchEvent方法的参数是一个Event对象的实例。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.28.58.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>如果dispatchEvent方法的参数为空，或者不是一个有效的事件对象，将报错。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.32.55.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <h1 id="监听函数"><a href="#监听函数" class="headerlink" title="监听函数"></a>监听函数</h1><p>浏览器的事件模型，就是通过监听函数（listener）对事件做出反应。事件发生后，浏览器监听到了这个事件，就会执行对应的监听函数。这是事件驱动编程模式（event-driven）的主要编程方式。</p>
 <p>JavaScript有三种方法，可以为事件绑定监听函数。</p>
-<h2 id="HTML的on-属性"><a href="#HTML的on-属性" class="headerlink" title="HTML的on-属性"></a>HTML的on-属性</h2><p>HTML 语言允许在元素的属性中，直接定义某些事件的监听代码。<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.34.40.png" alt=""><br>注意，这些属性的值是将会执行的代码，而不是一个函数。一旦指定的事件发生，on-属性的值是原样传入 JavaScript 引擎执行。因此如果要执行函数，不要忘记加上一对圆括号。</p>
-<p>使用这个方法指定的监听代码，只会在冒泡阶段触发。<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.38.02.png" alt=""><br>上面代码中，&lt; button&gt;是&lt; div&gt;的子元素。&lt; button&gt;的click事件，也会触发&lt; div&gt;的click事件。由于on-属性的监听代码，只在冒泡阶段触发，所以点击结果是先输出1，再输出2，即事件从子元素开始冒泡到父元素。</p>
-<p>直接设置on-属性，与通过元素节点的setAttribute方法设置on-属性，效果是一样的。<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.38.53.png" alt=""></p>
+<h2 id="HTML的on-属性"><a href="#HTML的on-属性" class="headerlink" title="HTML的on-属性"></a>HTML的on-属性</h2><p>HTML 语言允许在元素的属性中，直接定义某些事件的监听代码。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.34.40.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>注意，这些属性的值是将会执行的代码，而不是一个函数。一旦指定的事件发生，on-属性的值是原样传入 JavaScript 引擎执行。因此如果要执行函数，不要忘记加上一对圆括号。</p>
+<p>使用这个方法指定的监听代码，只会在冒泡阶段触发。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.38.02.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>上面代码中，&lt; button&gt;是&lt; div&gt;的子元素。&lt; button&gt;的click事件，也会触发&lt; div&gt;的click事件。由于on-属性的监听代码，只在冒泡阶段触发，所以点击结果是先输出1，再输出2，即事件从子元素开始冒泡到父元素。</p>
+<p>直接设置on-属性，与通过元素节点的setAttribute方法设置on-属性，效果是一样的。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.38.53.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <h2 id="元素节点的事件属性"><a href="#元素节点的事件属性" class="headerlink" title="元素节点的事件属性"></a>元素节点的事件属性</h2><p>元素节点对象的事件属性，同样可以指定监听函数。</p>
-<p><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.42.25.png" alt=""><br>使用这个方法指定的监听函数，也是只会在冒泡阶段触发。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.42.25.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>使用这个方法指定的监听函数，也是只会在冒泡阶段触发。</p>
 <p>注意，这种方法与 HTML 的on-属性的差异是，它的值是函数名（doSomething），而不像后者，必须给出完整的监听代码（doSomething()）。</p>
-<h2 id="EventTarget-addEventListener-1"><a href="#EventTarget-addEventListener-1" class="headerlink" title="EventTarget.addEventListener()"></a>EventTarget.addEventListener()</h2><p>所有 DOM 节点实例都有addEventListener方法，用来为该节点定义事件的监听函数。<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.43.49.png" alt=""></p>
+<h2 id="EventTarget-addEventListener-1"><a href="#EventTarget-addEventListener-1" class="headerlink" title="EventTarget.addEventListener()"></a>EventTarget.addEventListener()</h2><p>所有 DOM 节点实例都有addEventListener方法，用来为该节点定义事件的监听函数。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.43.49.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><ol>
 <li>第一种“HTML 的 on- 属性”，违反了 HTML 与 JavaScript 代码相分离的原则，将两者写在一起，不利于代码分工，因此不推荐使用。</li>
 <li>“元素节点的事件属性”的缺点在于，同一个事件只能定义一个监听函数，也就是说，如果定义两次onclick属性，后一次定义会覆盖前一次。因此，也不推荐使用。</li>
-<li>EventTarget.addEventListener是推荐的指定监听函数的方法。它有如下优点：<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.50.52.png" alt=""><h1 id="this的指向"><a href="#this的指向" class="headerlink" title="this的指向"></a>this的指向</h1>监听函数内部的this指向触发事件的那个元素节点。<h1 id="事件的传播"><a href="#事件的传播" class="headerlink" title="事件的传播"></a>事件的传播</h1>一个事件发生后，会在子元素和父元素之间传播（propagation）。这种传播分成三个阶段。<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.54.01.png" alt=""><br>这种三阶段的传播模型，使得同一个事件会在多个节点上触发。<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.58.42.png" alt=""><br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.59.12.png" alt=""><h1 id="事件的代理"><a href="#事件的代理" class="headerlink" title="事件的代理"></a>事件的代理</h1>由于事件会在冒泡阶段向上传播到父节点，因此可以把子节点的监听函数定义在父节点上，由父节点的监听函数统一处理多个子元素的事件。这种方法叫做事件的代理（delegation）。<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8811.00.55.png" alt=""><br>上面代码中，click事件的监听函数定义在&lt; ul&gt;节点，但是实际上，它处理的是子节点&lt; li&gt;的click事件。这样做的好处是，只要定义一个监听函数，就能处理多个子节点的事件，而不用在每个&lt; li&gt;节点上定义监听函数。而且以后再添加子节点，监听函数依然有效。</li>
+<li>EventTarget.addEventListener是推荐的指定监听函数的方法。它有如下优点：<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.50.52.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h1 id="this的指向"><a href="#this的指向" class="headerlink" title="this的指向"></a>this的指向</h1>监听函数内部的this指向触发事件的那个元素节点。<h1 id="事件的传播"><a href="#事件的传播" class="headerlink" title="事件的传播"></a>事件的传播</h1>一个事件发生后，会在子元素和父元素之间传播（propagation）。这种传播分成三个阶段。<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.54.01.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+这种三阶段的传播模型，使得同一个事件会在多个节点上触发。<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.58.42.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8810.59.12.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h1 id="事件的代理"><a href="#事件的代理" class="headerlink" title="事件的代理"></a>事件的代理</h1>由于事件会在冒泡阶段向上传播到父节点，因此可以把子节点的监听函数定义在父节点上，由父节点的监听函数统一处理多个子元素的事件。这种方法叫做事件的代理（delegation）。<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8A%E5%8D%8811.00.55.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+上面代码中，click事件的监听函数定义在&lt; ul&gt;节点，但是实际上，它处理的是子节点&lt; li&gt;的click事件。这样做的好处是，只要定义一个监听函数，就能处理多个子节点的事件，而不用在每个&lt; li&gt;节点上定义监听函数。而且以后再添加子节点，监听函数依然有效。</li>
 </ol>
 <p>如果希望事件到某个节点为止，不再传播，可以使用事件对象的stopPropagation方法。</p>
 <p>但是，stopPropagation方法只会阻止事件的传播，不会阻止该事件触发&lt; p&gt;节点的其他click事件的监听函数。也就是说，不是彻底取消click事件。</p>
-<p>如果想要彻底阻止这个事件的传播，不再触发后面所有click的监听函数，可以使用stopImmediatePropagation方法。<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8B%E5%8D%881.31.25.png" alt=""></p>
+<p>如果想要彻底阻止这个事件的传播，不再触发后面所有click的监听函数，可以使用stopImmediatePropagation方法。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8B%E5%8D%881.31.25.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <h1 id="Event对象概述"><a href="#Event对象概述" class="headerlink" title="Event对象概述"></a>Event对象概述</h1><p>事件发生以后，会产生一个事件对象，作为参数传给监听函数。浏览器原生提供一个Event对象，所有的事件都是这个对象的实例，或者说继承了Event.prototype对象。</p>
-<p>Event对象本身就是一个构造函数，可以用来生成新的实例。<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8B%E5%8D%881.35.54.png" alt=""><br>Event构造函数接受两个参数。第一个参数type是字符串，表示事件的名称；第二个参数options是一个对象，表示事件对象的配置。该对象主要有下面两个属性。<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8B%E5%8D%881.36.52.png" alt=""><br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8B%E5%8D%881.38.52.png" alt=""><br>上面代码新建一个look事件实例，然后使用dispatchEvent方法触发该事件。</p>
+<p>Event对象本身就是一个构造函数，可以用来生成新的实例。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8B%E5%8D%881.35.54.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>Event构造函数接受两个参数。第一个参数type是字符串，表示事件的名称；第二个参数options是一个对象，表示事件对象的配置。该对象主要有下面两个属性。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8B%E5%8D%881.36.52.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8B%E5%8D%881.38.52.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>上面代码新建一个look事件实例，然后使用dispatchEvent方法触发该事件。</p>
 <p>注意，如果不是显式指定bubbles属性为true，生成的事件就只能在“捕获阶段”触发监听函数。</p>
 <h1 id="Event对象的实例属性"><a href="#Event对象的实例属性" class="headerlink" title="Event对象的实例属性"></a>Event对象的实例属性</h1><h2 id="Event-bubbles，Event-eventPhase"><a href="#Event-bubbles，Event-eventPhase" class="headerlink" title="Event.bubbles，Event.eventPhase"></a>Event.bubbles，Event.eventPhase</h2><p>Event.bubbles属性返回一个布尔值，表示当前事件是否会冒泡。该属性为只读属性，一般用来了解 Event 实例是否可以冒泡。前面说过，除非显式声明，Event构造函数生成的事件，默认是不冒泡的。</p>
-<p>Event.eventPhase属性返回一个整数常量，表示事件目前所处的阶段。该属性只读。<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8B%E5%8D%881.51.04.png" alt=""><br>Event.eventPhase的返回值有四种可能。<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8B%E5%8D%881.51.21.png" alt=""></p>
+<p>Event.eventPhase属性返回一个整数常量，表示事件目前所处的阶段。该属性只读。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8B%E5%8D%881.51.04.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>Event.eventPhase的返回值有四种可能。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8B%E5%8D%881.51.21.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <h2 id="Event-cancelable，Event-cancelBubble，event-defaultPrevented"><a href="#Event-cancelable，Event-cancelBubble，event-defaultPrevented" class="headerlink" title="Event.cancelable，Event.cancelBubble，event.defaultPrevented"></a>Event.cancelable，Event.cancelBubble，event.defaultPrevented</h2><p>Event.cancelable属性返回一个布尔值，表示事件是否可以取消。该属性为只读属性，一般用来了解 Event 实例的特性。</p>
 <p>大多数浏览器的原生事件是可以取消的。比如，取消click事件，点击链接将无效。但是除非显式声明，Event构造函数生成的事件，默认是不可以取消的。</p>
-<p><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8B%E5%8D%881.54.01.png" alt=""><br>当Event.cancelable属性为true时，调用Event.preventDefault()就可以取消这个事件，阻止浏览器对该事件的默认行为。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8B%E5%8D%881.54.01.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>当Event.cancelable属性为true时，调用Event.preventDefault()就可以取消这个事件，阻止浏览器对该事件的默认行为。</p>
 <p>如果事件不能取消，调用Event.preventDefault()会没有任何效果。所以使用这个方法之前，最好用Event.cancelable属性判断一下是否可以取消。</p>
 <p>Event.defaultPrevented属性返回一个布尔值，表示该事件是否调用过Event.preventDefault方法。该属性只读。</p>
 <h2 id="Event-currentTarget，Event-target"><a href="#Event-currentTarget，Event-target" class="headerlink" title="Event.currentTarget，Event.target"></a>Event.currentTarget，Event.target</h2><p>Event.currentTarget属性返回事件当前所在的节点，即正在执行的监听函数所绑定的那个节点。</p>
-<p>Event.target属性返回原始触发事件的那个节点。<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8B%E5%8D%882.07.03.png" alt=""><br>也就是currentTarget—&gt;p节点。&lt; em&gt;子节点上面点击，则e.target指向&lt; em&gt;子节点，导致&lt; em&gt;子节点（即 World 部分）会不可见。如果点击 Hello 部分，则整个para都将不可见。</p>
-<h2 id="Event-type"><a href="#Event-type" class="headerlink" title="Event.type"></a>Event.type</h2><p>Event.type属性返回一个字符串，表示事件类型。事件的类型是在生成事件的时候。该属性只读。<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8B%E5%8D%882.09.09.png" alt=""></p>
-<h2 id="Event-timeStamp"><a href="#Event-timeStamp" class="headerlink" title="Event.timeStamp"></a>Event.timeStamp</h2><p>Event.timeStamp属性返回一个毫秒时间戳，表示事件发生的时间。它是相对于网页加载成功开始计算的。<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8B%E5%8D%882.10.05.png" alt=""><br>它的返回值有可能是整数，也有可能是小数（高精度时间戳），取决于浏览器的设置。</p>
+<p>Event.target属性返回原始触发事件的那个节点。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8B%E5%8D%882.07.03.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>也就是currentTarget—&gt;p节点。&lt; em&gt;子节点上面点击，则e.target指向&lt; em&gt;子节点，导致&lt; em&gt;子节点（即 World 部分）会不可见。如果点击 Hello 部分，则整个para都将不可见。</p>
+<h2 id="Event-type"><a href="#Event-type" class="headerlink" title="Event.type"></a>Event.type</h2><p>Event.type属性返回一个字符串，表示事件类型。事件的类型是在生成事件的时候。该属性只读。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8B%E5%8D%882.09.09.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h2 id="Event-timeStamp"><a href="#Event-timeStamp" class="headerlink" title="Event.timeStamp"></a>Event.timeStamp</h2><p>Event.timeStamp属性返回一个毫秒时间戳，表示事件发生的时间。它是相对于网页加载成功开始计算的。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8B%E5%8D%882.10.05.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>它的返回值有可能是整数，也有可能是小数（高精度时间戳），取决于浏览器的设置。</p>
 <h2 id="Event-isTrusted"><a href="#Event-isTrusted" class="headerlink" title="Event.isTrusted"></a>Event.isTrusted</h2><p>Event.isTrusted属性返回一个布尔值，表示该事件是否由真实的用户行为产生。比如，用户点击链接会产生一个click事件，该事件是用户产生的；Event构造函数生成的事件，则是脚本产生的。</p>
 <h2 id="Event-detail"><a href="#Event-detail" class="headerlink" title="Event.detail"></a>Event.detail</h2><p>Event.detail属性只有浏览器的 UI （用户界面）事件才具有。该属性返回一个数值，表示事件的某种信息。具体含义与事件类型相关。比如，对于click和dbclick事件，Event.detail是鼠标按下的次数（1表示单击，2表示双击，3表示三击）；对于鼠标滚轮事件，Event.detail是滚轮正向滚动的距离，负值就是负向滚动的距离，返回值总是3的倍数。</p>
 <h1 id="Event-对象的实例方法"><a href="#Event-对象的实例方法" class="headerlink" title="Event 对象的实例方法"></a>Event 对象的实例方法</h1><h2 id="Event-preventDefault"><a href="#Event-preventDefault" class="headerlink" title="Event.preventDefault()"></a>Event.preventDefault()</h2><p>Event.preventDefault方法取消浏览器对当前事件的默认行为。比如点击链接后，浏览器默认会跳转到另一个页面，使用这个方法以后，就不会跳转了；再比如，按一下空格键，页面向下滚动一段距离，使用这个方法以后也不会滚动了。该方法生效的前提是，事件对象的cancelable属性为true，如果为false，调用该方法没有任何效果。</p>
@@ -270,7 +470,25 @@
 <h2 id="Event-stopPropagation"><a href="#Event-stopPropagation" class="headerlink" title="Event.stopPropagation()"></a>Event.stopPropagation()</h2><p>stopPropagation方法阻止事件在 DOM 中继续传播，防止再触发定义在别的节点上的监听函数，但是不包括在当前节点上其他的事件监听函数。</p>
 <h2 id="Event-stopImmediatePropagation"><a href="#Event-stopImmediatePropagation" class="headerlink" title="Event.stopImmediatePropagation()"></a>Event.stopImmediatePropagation()</h2><p>Event.stopImmediatePropagation方法阻止同一个事件的其他监听函数被调用，不管监听函数定义在当前节点还是其他节点。也就是说，该方法阻止事件的传播，比Event.stopPropagation()更彻底。</p>
 <h2 id="Event-composedPath"><a href="#Event-composedPath" class="headerlink" title="Event.composedPath()"></a>Event.composedPath()</h2><p>Event.composedPath()返回一个数组，成员是事件的最底层节点和依次冒泡经过的所有上层节点。</p>
-<h1 id="CustomEvent-接口"><a href="#CustomEvent-接口" class="headerlink" title="CustomEvent 接口"></a>CustomEvent 接口</h1><p>CustomEvent 接口用于生成自定义的事件实例。那些浏览器预定义的事件，虽然可以手动生成，但是往往不能在事件上绑定数据。如果需要在触发事件的同时，传入指定的数据，就可以使用 CustomEvent 接口生成的自定义事件对象。浏览器原生提供CustomEvent()构造函数，用来生成 CustomEvent 事件实例。<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8B%E5%8D%882.32.39.png" alt=""><br>CustomEvent()构造函数接受两个参数。第一个参数是字符串，表示事件的名字，这是必须的。第二个参数是事件的配置对象，这个参数是可选的。CustomEvent的配置对象除了接受 Event 事件的配置属性，只有一个自己的属性。<br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8B%E5%8D%882.34.04.png" alt=""><br><img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8B%E5%8D%882.35.03.png" alt=""><br>上面代码也说明，CustomEvent 的事件实例，除了具有 Event 接口的实例属性，还具有detail属性。</p>
+<h1 id="CustomEvent-接口"><a href="#CustomEvent-接口" class="headerlink" title="CustomEvent 接口"></a>CustomEvent 接口</h1><p>CustomEvent 接口用于生成自定义的事件实例。那些浏览器预定义的事件，虽然可以手动生成，但是往往不能在事件上绑定数据。如果需要在触发事件的同时，传入指定的数据，就可以使用 CustomEvent 接口生成的自定义事件对象。浏览器原生提供CustomEvent()构造函数，用来生成 CustomEvent 事件实例。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8B%E5%8D%882.32.39.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>CustomEvent()构造函数接受两个参数。第一个参数是字符串，表示事件的名字，这是必须的。第二个参数是事件的配置对象，这个参数是可选的。CustomEvent的配置对象除了接受 Event 事件的配置属性，只有一个自己的属性。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8B%E5%8D%882.34.04.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/JavaScript%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B%20DOM%20%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-21%20%E4%B8%8B%E5%8D%882.35.03.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>上面代码也说明，CustomEvent 的事件实例，除了具有 Event 接口的实例属性，还具有detail属性。</p>
 
         </div>
 
@@ -407,9 +625,7 @@
             </span>
         </p>
     </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
+
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
     </script>
 </footer>

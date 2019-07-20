@@ -21,13 +21,13 @@
     
     
     <meta name="keywords" content="Python">
-    <meta name="description" content="requests库的使用（廖雪峰）要通过GET访问一个页面，只需要几行代码：对于带参数的URL，传入一个dict作为params参数：requests自动检测编码，可以使用encoding属性查看：无论响应是文本还是二进制内容，我们都可以用content属性获得bytes对象：requests的方便之处还在于，对于特定类型的响应，例如JSON，可以直接获取：需要传入HTTP Header时，我们传">
+    <meta name="description" content="requests库的使用（廖雪峰）要通过GET访问一个页面，只需要几行代码：                                                                                                          对于带参数的URL，传入一个dict作为params参数：">
 <meta name="keywords" content="Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python requests库">
 <meta property="og:url" content="https://github.com/zdkswd/2019/01/14/python requests库/index.html">
 <meta property="og:site_name" content="ZDK&#39;s blog">
-<meta property="og:description" content="requests库的使用（廖雪峰）要通过GET访问一个页面，只需要几行代码：对于带参数的URL，传入一个dict作为params参数：requests自动检测编码，可以使用encoding属性查看：无论响应是文本还是二进制内容，我们都可以用content属性获得bytes对象：requests的方便之处还在于，对于特定类型的响应，例如JSON，可以直接获取：需要传入HTTP Header时，我们传">
+<meta property="og:description" content="requests库的使用（廖雪峰）要通过GET访问一个页面，只需要几行代码：                                                                                                          对于带参数的URL，传入一个dict作为params参数：">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://github.com/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-25%20%E4%B8%8A%E5%8D%888.53.52.png">
 <meta property="og:image" content="https://github.com/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-25%20%E4%B8%8A%E5%8D%888.56.49.png">
@@ -52,7 +52,7 @@
 <meta property="og:updated_time" content="2019-01-14T04:20:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python requests库">
-<meta name="twitter:description" content="requests库的使用（廖雪峰）要通过GET访问一个页面，只需要几行代码：对于带参数的URL，传入一个dict作为params参数：requests自动检测编码，可以使用encoding属性查看：无论响应是文本还是二进制内容，我们都可以用content属性获得bytes对象：requests的方便之处还在于，对于特定类型的响应，例如JSON，可以直接获取：需要传入HTTP Header时，我们传">
+<meta name="twitter:description" content="requests库的使用（廖雪峰）要通过GET访问一个页面，只需要几行代码：                                                                                                          对于带参数的URL，传入一个dict作为params参数：">
 <meta name="twitter:image" content="https://github.com/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-25%20%E4%B8%8A%E5%8D%888.53.52.png">
     
         <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
@@ -203,13 +203,123 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="requests库的使用（廖雪峰）"><a href="#requests库的使用（廖雪峰）" class="headerlink" title="requests库的使用（廖雪峰）"></a>requests库的使用（廖雪峰）</h1><p>要通过GET访问一个页面，只需要几行代码：<br><img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-25%20%E4%B8%8A%E5%8D%888.53.52.png" alt=""><br>对于带参数的URL，传入一个dict作为params参数：<br><img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-25%20%E4%B8%8A%E5%8D%888.56.49.png" alt=""><br>requests自动检测编码，可以使用encoding属性查看：<br><img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-25%20%E4%B8%8A%E5%8D%889.03.40.png" alt=""><br>无论响应是文本还是二进制内容，我们都可以用content属性获得bytes对象：<br><img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-25%20%E4%B8%8A%E5%8D%889.04.45.png" alt=""><br>requests的方便之处还在于，对于特定类型的响应，例如JSON，可以直接获取：<br><img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-25%20%E4%B8%8A%E5%8D%889.05.46.png" alt=""><br>需要传入HTTP Header时，我们传入一个dict作为headers参数：<br><img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-25%20%E4%B8%8A%E5%8D%889.07.37.png" alt=""><br>要发送POST请求，只需要把get()方法变成post()，然后传入data参数作为POST请求的数据：<br><img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-25%20%E4%B8%8A%E5%8D%889.08.41.png" alt=""><br>requests默认使用application/x-www-form-urlencoded对POST数据编码。如果要传递JSON数据，可以直接传入json参数：<br><img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-25%20%E4%B8%8A%E5%8D%889.09.50.png" alt=""><br>类似的，上传文件需要更复杂的编码格式，但是requests把它简化成files参数：<br><img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-25%20%E4%B8%8A%E5%8D%889.10.56.png" alt=""><br>在读取文件时，注意务必使用’rb’即二进制模式读取，这样获取的bytes长度才是文件的长度。</p>
+            <h1 id="requests库的使用（廖雪峰）"><a href="#requests库的使用（廖雪峰）" class="headerlink" title="requests库的使用（廖雪峰）"></a>requests库的使用（廖雪峰）</h1><p>要通过GET访问一个页面，只需要几行代码：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-25%20%E4%B8%8A%E5%8D%888.53.52.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>对于带参数的URL，传入一个dict作为params参数：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-25%20%E4%B8%8A%E5%8D%888.56.49.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>requests自动检测编码，可以使用encoding属性查看：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-25%20%E4%B8%8A%E5%8D%889.03.40.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>无论响应是文本还是二进制内容，我们都可以用content属性获得bytes对象：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-25%20%E4%B8%8A%E5%8D%889.04.45.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>requests的方便之处还在于，对于特定类型的响应，例如JSON，可以直接获取：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-25%20%E4%B8%8A%E5%8D%889.05.46.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>需要传入HTTP Header时，我们传入一个dict作为headers参数：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-25%20%E4%B8%8A%E5%8D%889.07.37.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>要发送POST请求，只需要把get()方法变成post()，然后传入data参数作为POST请求的数据：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-25%20%E4%B8%8A%E5%8D%889.08.41.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>requests默认使用application/x-www-form-urlencoded对POST数据编码。如果要传递JSON数据，可以直接传入json参数：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-25%20%E4%B8%8A%E5%8D%889.09.50.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>类似的，上传文件需要更复杂的编码格式，但是requests把它简化成files参数：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-25%20%E4%B8%8A%E5%8D%889.10.56.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>在读取文件时，注意务必使用’rb’即二进制模式读取，这样获取的bytes长度才是文件的长度。</p>
 <p>把post()方法替换为put()，delete()等，就可以以PUT或DELETE方式请求资源。</p>
-<p>除了能轻松获取响应内容外，requests对获取HTTP响应的其他信息也非常简单。例如，获取响应头：<br><img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-25%20%E4%B8%8A%E5%8D%889.14.38.png" alt=""><br>requests对Cookie做了特殊处理，使得我们不必解析Cookie就可以轻松获取指定的Cookie：<br><img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-25%20%E4%B8%8A%E5%8D%889.15.11.png" alt=""><br>要在请求中传入Cookie，只需准备一个dict传入cookies参数：<br><img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-25%20%E4%B8%8A%E5%8D%889.15.41.png" alt=""><br>最后，要指定超时，传入以秒为单位的timeout参数：<br><img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-25%20%E4%B8%8A%E5%8D%889.16.22.png" alt=""></p>
+<p>除了能轻松获取响应内容外，requests对获取HTTP响应的其他信息也非常简单。例如，获取响应头：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-25%20%E4%B8%8A%E5%8D%889.14.38.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>requests对Cookie做了特殊处理，使得我们不必解析Cookie就可以轻松获取指定的Cookie：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-25%20%E4%B8%8A%E5%8D%889.15.11.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>要在请求中传入Cookie，只需准备一个dict传入cookies参数：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-25%20%E4%B8%8A%E5%8D%889.15.41.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>最后，要指定超时，传入以秒为单位的timeout参数：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-25%20%E4%B8%8A%E5%8D%889.16.22.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <h1 id="requests的使用（博客）"><a href="#requests的使用（博客）" class="headerlink" title="requests的使用（博客）"></a>requests的使用（博客）</h1><p><a href="https://blog.csdn.net/WuZuoDingFeng/article/details/76156777" target="_blank" rel="noopener">https://blog.csdn.net/WuZuoDingFeng/article/details/76156777</a></p>
-<h2 id="requests-get"><a href="#requests-get" class="headerlink" title="requests.get()"></a>requests.get()</h2><p><img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-14%20%E4%B8%8A%E5%8D%8810.16.33.png" alt=""><br>参数说明：<br><img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-14%20%E4%B8%8A%E5%8D%8810.18.45.png" alt=""></p>
-<h2 id="requests-post"><a href="#requests-post" class="headerlink" title="requests.post()"></a>requests.post()</h2><p><img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-14%20%E4%B8%8A%E5%8D%8810.19.24.png" alt=""><br>参数说明：<br><img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-14%20%E4%B8%8A%E5%8D%8810.19.44.png" alt=""></p>
-<h2 id="请求响应体说明"><a href="#请求响应体说明" class="headerlink" title="请求响应体说明"></a>请求响应体说明</h2><p><img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-14%20%E4%B8%8A%E5%8D%8810.28.09.png" alt=""></p>
+<h2 id="requests-get"><a href="#requests-get" class="headerlink" title="requests.get()"></a>requests.get()</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-14%20%E4%B8%8A%E5%8D%8810.16.33.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>参数说明：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-14%20%E4%B8%8A%E5%8D%8810.18.45.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h2 id="requests-post"><a href="#requests-post" class="headerlink" title="requests.post()"></a>requests.post()</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-14%20%E4%B8%8A%E5%8D%8810.19.24.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>参数说明：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-14%20%E4%B8%8A%E5%8D%8810.19.44.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h2 id="请求响应体说明"><a href="#请求响应体说明" class="headerlink" title="请求响应体说明"></a>请求响应体说明</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-14%20%E4%B8%8A%E5%8D%8810.28.09.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h2 id="requests-utils中的常用方法"><a href="#requests-utils中的常用方法" class="headerlink" title="requests.utils中的常用方法"></a>requests.utils中的常用方法</h2><ol>
 <li>requests.utils.get_encodings_from_content(r.content): 返回原始数据编码;</li>
 <li>requests.utils.dict_from_cookiejar(r.cookies): 将CookieJar转为字典;</li>
@@ -230,8 +340,20 @@
 <h2 id="上传文件"><a href="#上传文件" class="headerlink" title="上传文件"></a>上传文件</h2><blockquote>
 <p>url = ‘<a href="http://httpbin.org/post&#39;" target="_blank" rel="noopener">http://httpbin.org/post&#39;</a><br>files = {‘file’: open(‘report.xls’, ‘rb’)}<br> #  files = {‘file’: (‘report.xls’, open(‘report.xls’, ‘rb’), ‘application/vnd.ms-excel’, {‘Expires’: ‘0’})}   # 显示的设置文件名、文件类型、文件头<br>r = requests.post(url, files=files)<br>r.text  </p>
 </blockquote>
-<h2 id="流式上传"><a href="#流式上传" class="headerlink" title="流式上传"></a>流式上传</h2><p><img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-14%20%E4%B8%8A%E5%8D%8810.49.33.png" alt=""></p>
-<h2 id="文件下载"><a href="#文件下载" class="headerlink" title="文件下载"></a>文件下载</h2><p><img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-14%20%E4%B8%8A%E5%8D%8810.49.56.png" alt=""></p>
+<h2 id="流式上传"><a href="#流式上传" class="headerlink" title="流式上传"></a>流式上传</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-14%20%E4%B8%8A%E5%8D%8810.49.33.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="文件下载"><a href="#文件下载" class="headerlink" title="文件下载"></a>文件下载</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/python%20requests%E5%BA%93/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-14%20%E4%B8%8A%E5%8D%8810.49.56.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
 <li>get()或post()中的headers、cookies设置的值，将合并到Requests中去，所以传入 {} 也没关系；</li>
 <li>图片、pdf等打开方式应该为 ‘wb’，写入的内容应该是 r.content；</li>
@@ -375,9 +497,7 @@
             </span>
         </p>
     </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
+
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
     </script>
 </footer>

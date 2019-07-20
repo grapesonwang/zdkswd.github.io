@@ -206,7 +206,14 @@
 </blockquote>
 <p>这样声明最大的好处在于结构的灵活性：假如某一天我认为ArrayList的特性无法满足我的要求，我希望能够用LinkedList来代替它，那么只需要在对象创建的地方把new ArrayList()改为new LinkedList即可，其它代码一概不用改动。</p>
 <p>虚拟机会在执行程序时动态调用实际类的方法，它会通过一种名为动态绑定（又称延迟绑定）的机制自动实现，这个过程对程序员来说是透明的。</p>
-<h2 id="Java异常处理"><a href="#Java异常处理" class="headerlink" title="Java异常处理"></a>Java异常处理</h2><p><img src="/img/media/Android%E6%A2%B3%E7%90%86/u=2881300128,2318356091&amp;fm=173&amp;app=25&amp;f=JPEG.jpg" alt=""><br>Throwable 是所有异常类型的基类，Throwable 下一层分为两个分支，Error 和 Exception.</p>
+<h2 id="Java异常处理"><a href="#Java异常处理" class="headerlink" title="Java异常处理"></a>Java异常处理</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Android%E6%A2%B3%E7%90%86/u=2881300128,2318356091&fm=173&app=25&f=JPEG.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>Throwable 是所有异常类型的基类，Throwable 下一层分为两个分支，Error 和 Exception.</p>
 <p>Error 描述了 JAVA 程序运行时系统的内部错误，通常比较严重，除了通知用户和尽力使应用程序安全地终止之外，无能为力，应用程序不应该尝试去捕获这种异常。通常为一些虚拟机异常，如 StackOverflowError 等。</p>
 <p>Exception 类型下面又分为两个分支，一个分支派生自 RuntimeException，这种异常通常为程序错误导致的异常；另一个分支为非派生自 RuntimeException 的异常，这种异常通常是程序本身没有问题，由于像 I/O 错误等问题导致的异常，每个异常类用逗号隔开。</p>
 <p>受查异常<br>受查异常会在编译时被检测。如果一个方法中的代码会抛出受查异常，则该方法必须包含异常处理，即 try-catch 代码块，或在方法签名中用 throws 关键字声明该方法可能会抛出的受查异常，否则编译无法通过。</p>
@@ -220,38 +227,113 @@
 <h2 id="Java的IO"><a href="#Java的IO" class="headerlink" title="Java的IO"></a>Java的IO</h2><h3 id="字节流与字符流"><a href="#字节流与字符流" class="headerlink" title="字节流与字符流"></a>字节流与字符流</h3><p>首先明确“字节（Byte）”和“字符（Character）”的大小：<br>1 byte = 8 bit<br>1 char = 2 byte = 16 bit (Java默认UTF-16编码)</p>
 <p>总而言之，一切都是字节流，其实没有字符流这个东西。字符只是根据编码集对字节流翻译之后的产物。面向字节流的InputStream和OutputStream<br>面向字符的Reader和Writer，即为字节流继承于InputStream和OutputStream，字符流继承于InputStreamReader和OutputStreamWriter。</p>
 <h3 id="字节流转字符流"><a href="#字节流转字符流" class="headerlink" title="字节流转字符流"></a>字节流转字符流</h3><p>字节输入流转字符输入流通过InputStreamReader实现,该类的构造函数可以传入InputStream对象。字节输出流转字符输出流通过OutputStreamWriter实现,该类的构造函数可以传入OutputStream对象。</p>
-<h3 id="将java对象序列化到文件"><a href="#将java对象序列化到文件" class="headerlink" title="将java对象序列化到文件"></a>将java对象序列化到文件</h3><p>在java中能够被序列化的类必须先实现Serializable接口，该接口没有任何抽象方法只是起到一个标记作用。当试图对一个对象进行序列化的时候，如果该对象没有实现 Serializable 接口，将抛出NotSerializableException<br><img src="/img/media/Android%E6%A2%B3%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-23%20%E4%B8%8B%E5%8D%889.43.26.png" alt=""><br><img src="/img/media/Android%E6%A2%B3%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-23%20%E4%B8%8B%E5%8D%889.44.20.png" alt=""><br>s​e​r​i​a​l​V​e​r​s​i​o​n​U​I​D​:​ ​字​面​意​思​上​是​序​列​化​的​版​本​号​，凡是实现Serializable接口的类都有一个表示序列化版本标识符的静态变量</p>
+<h3 id="将java对象序列化到文件"><a href="#将java对象序列化到文件" class="headerlink" title="将java对象序列化到文件"></a>将java对象序列化到文件</h3><p>在java中能够被序列化的类必须先实现Serializable接口，该接口没有任何抽象方法只是起到一个标记作用。当试图对一个对象进行序列化的时候，如果该对象没有实现 Serializable 接口，将抛出NotSerializableException<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Android%E6%A2%B3%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-23%20%E4%B8%8B%E5%8D%889.43.26.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Android%E6%A2%B3%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-23%20%E4%B8%8B%E5%8D%889.44.20.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>s​e​r​i​a​l​V​e​r​s​i​o​n​U​I​D​:​ ​字​面​意​思​上​是​序​列​化​的​版​本​号​，凡是实现Serializable接口的类都有一个表示序列化版本标识符的静态变量</p>
 <p>显式地定义serialVersionUID有两种用途：<br>1、 在某些场合，希望类的不同版本对序列化兼容，因此需要确保类的不同版本具有相同的serialVersionUID；<br>2、 在某些场合，不希望类的不同版本对序列化兼容，因此需要确保类的不同版本具有不同的serialVersionUID。</p>
 <h2 id="Java容器"><a href="#Java容器" class="headerlink" title="Java容器"></a>Java容器</h2><p>容器Container，和Array的最大区别就是它们的长度都是自动变化的，根本无需你干预。<br>Container 从总体上来看分为两类，一类叫做集合Collection ，另一类则叫做映射Map。<br>区别很简单在Map中，对象必须是成对存放的，这个对就叫做key-value，而集合则不是。集合又分为集<strong>Set</strong>、序列<strong>List</strong>和队列<strong>Queue</strong>。向Map中添加元素的方法是put(K key, V value)，而向Collection中添加则是add(E e)。</p>
 <h3 id="基本结构"><a href="#基本结构" class="headerlink" title="基本结构"></a>基本结构</h3><p>集Set、序列List和队列Queue 之所以说他们属于Collection，是因为他们都实现了Collection这个interface。并且他们也不是“实现类”，而是interface，他们并不能直接使用。</p>
-<h3 id="对集合排序"><a href="#对集合排序" class="headerlink" title="对集合排序"></a>对集合排序</h3><p>凡是对集合的操作，应该保持一个原则就是能用JDK中的API就用JDK中的API，比如排序算法不应去用冒泡或者选择排序，而是首先想到用Collections集合工具类。<br><img src="/img/media/Android%E6%A2%B3%E7%90%86/2C0DE4ED-7B71-4EF6-8D65-EE2586A71797.png" alt=""><br>Collection常用的方法：<br><img src="/img/media/Android%E6%A2%B3%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-24%20%E4%B8%8A%E5%8D%889.15.39.png" alt=""></p>
+<h3 id="对集合排序"><a href="#对集合排序" class="headerlink" title="对集合排序"></a>对集合排序</h3><p>凡是对集合的操作，应该保持一个原则就是能用JDK中的API就用JDK中的API，比如排序算法不应去用冒泡或者选择排序，而是首先想到用Collections集合工具类。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Android%E6%A2%B3%E7%90%86/2C0DE4ED-7B71-4EF6-8D65-EE2586A71797.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>Collection常用的方法：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Android%E6%A2%B3%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-24%20%E4%B8%8A%E5%8D%889.15.39.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <h3 id="集合的实现类"><a href="#集合的实现类" class="headerlink" title="集合的实现类"></a>集合的实现类</h3><p>List：ArrayList(数组实现) LinkedList（链表实现）</p>
 <p>Set：HashSet TreeSet LinkedHashMap （三种与Map实现类相同）<br>Set的特点是元素不能重复，在元素添加过程中，最重要的一个步骤就是进行对比，将对象通过Hash后对比速度飞起。</p>
 <p>Queue：ArrayDeque(双端队列) PriorityQueue(保证最小的在顶上，并不是全部排序)</p>
 <h3 id="集合的安全性问题"><a href="#集合的安全性问题" class="headerlink" title="集合的安全性问题"></a>集合的安全性问题</h3><p>ArrayList,HashSet,HashMap不是没有加锁，显然都是线程不安全的。</p>
 <p>在集合中 Vector和 HashTable倒是线程安全的。你打开源码会发现其实就是把各自核心方法添加上了<strong>synchronized</strong>关键字</p>
-<h3 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h3><p><img src="/img/media/Android%E6%A2%B3%E7%90%86/v2-1448f5b62001bb691d1577ab574d3d13_hd.jpg" alt=""><br>单看Key，不就是Set吗，Set就是用Map实现的，可以说Set是Map的一种特殊应用。Map中也有一个叫做KeySet()的方法，直接返回一个Set。</p>
+<h3 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Android%E6%A2%B3%E7%90%86/v2-1448f5b62001bb691d1577ab574d3d13_hd.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>单看Key，不就是Set吗，Set就是用Map实现的，可以说Set是Map的一种特殊应用。Map中也有一个叫做KeySet()的方法，直接返回一个Set。</p>
 <h2 id="Java多线程"><a href="#Java多线程" class="headerlink" title="Java多线程"></a>Java多线程</h2><h3 id="创建的两种方式"><a href="#创建的两种方式" class="headerlink" title="创建的两种方式"></a>创建的两种方式</h3><p>java.lang.Thread类的实例就是一个线程但是它需要调用java.lang.Runnable接口来执行,由于线程类本身就是调用的Runnable接口所以你可以继承java.lang.Thread类或者直接实现Runnable接口来重写run()方法实现线程。</p>
 <h3 id="sleep和wait"><a href="#sleep和wait" class="headerlink" title="sleep和wait"></a>sleep和wait</h3><p>最大的不同是在等待时wait会释放锁,而sleep 一直持有锁。wait通常被用于线程间交互, sleep通常被用于暂停执行。</p>
 <h3 id="synchronized和volatile关键字"><a href="#synchronized和volatile关键字" class="headerlink" title="synchronized和volatile关键字"></a>synchronized和volatile关键字</h3><p>一旦一个共享变量(类的成员变量、类的静态成员变量)被<strong>volatile</strong>修饰之后,那么就具备了两层语义:<br>1 )保证了不同线程对这个变量进行操作时的可见性,即一个线程修改了某个变量的值,这新值对其他线程来说是立即可见的。<br>2 )禁止进行指令重排序。<br>volatile本质是在告诉jvm当前变量在寄存器(工作内存)中的值是不确定的,需要从主存中读取，精确地说就是，编译优化器在用到这个变量时必须每次都小心地重新读取这个变量的值，而不是使用保存在寄存器里的备份。</p>
 <p><strong>synchronized</strong>则是锁定当前变量,只有当前线程可以访问该变量,其他线程被阻塞住。</p>
 <p>两者的区别：<br>1.voltile仅能使用在变量级别;synchronized 则可以使用在变量、方法、和类级别的。<br>2.volatile仅能实现变量的修改可见性,并不能保证原子性;synchronized 则可以保证变量的修改可见性和原子性。<br>3.volatile不会造成线程的阻塞;synchronized 可能会造成线程的阻塞。<br>4.volatile标记的变量不会被编译器优化;synchronized 标记的变量可以被编译器优化。</p>
-<h3 id="一道线程安全的题"><a href="#一道线程安全的题" class="headerlink" title="一道线程安全的题"></a>一道线程安全的题</h3><p><img src="/img/media/Android%E6%A2%B3%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-24%20%E4%B8%8B%E5%8D%881.48.40.png" alt=""><br>上述代码执行后输出的结果不等于1000。</p>
+<h3 id="一道线程安全的题"><a href="#一道线程安全的题" class="headerlink" title="一道线程安全的题"></a>一道线程安全的题</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Android%E6%A2%B3%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-24%20%E4%B8%8B%E5%8D%881.48.40.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>上述代码执行后输出的结果不等于1000。</p>
 <p>在java的内存模型中每一个线程运行时都有一个线程栈,线程栈保存了线程运行时候变量值信息。当线程访问某一个对象时候值的时候,首先通过对象的引用找到对应在堆内存的变量的值,然后把堆内存变量的具体值load到线程本地内存中,建立-个变量副本 ,之后线程就不再和对象在堆内存变量值有任何关系,而是直接修改副本变量的值，在修改完之后的某一个时刻(线程退出之前) ,自动把线程变量副本的值回写到对象在堆中变量。这样在堆中的对象的值就产生变化了。</p>
-<p>也就是说上面主函数中开启了1000 个子线程,每个线程都有一个变量副本,每个线程修改变量只是临时修改了自己的副本,当线程结束时再将修改的值写入在主内存中, 这样就出现了线程安全问题。因此结果就不可能等于1000了。一般都会小于1000。<br><img src="/img/media/Android%E6%A2%B3%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-24%20%E4%B8%8B%E5%8D%881.50.04.png" alt=""></p>
+<p>也就是说上面主函数中开启了1000 个子线程,每个线程都有一个变量副本,每个线程修改变量只是临时修改了自己的副本,当线程结束时再将修改的值写入在主内存中, 这样就出现了线程安全问题。因此结果就不可能等于1000了。一般都会小于1000。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Android%E6%A2%B3%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-24%20%E4%B8%8B%E5%8D%881.50.04.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <h3 id="线程池与使用"><a href="#线程池与使用" class="headerlink" title="线程池与使用"></a>线程池与使用</h3><p>线程池就是事先将多个线程对象放到一个容器中,当使用的时候就不用new线程而是直接去池中拿线程即可,节省了开辟子线程的时间,提高的代码执行效率。</p>
 <h1 id="Java-SE高级"><a href="#Java-SE高级" class="headerlink" title="Java SE高级"></a>Java SE高级</h1><h2 id="Java反射"><a href="#Java反射" class="headerlink" title="Java反射"></a>Java反射</h2><p>Java中的反射首先是能够获取到Java中要反射类的字节码.获取字节码有三种方法，1.Class.forName(className) 2.类名.class 3.this.getClass(). 然后将字节码中的方法,变量,构造函数等映射成相应的Method. Filed, Constructor 等类,这些类提供了丰富的方法可以被我们所使用。</p>
-<h2 id="Java动态代理"><a href="#Java动态代理" class="headerlink" title="Java动态代理"></a>Java动态代理</h2><p>创建对象的过程<br><img src="/img/media/Android%E6%A2%B3%E7%90%86/v2-9cd31ab516bd967e1b8e68736931f8ba_hd.jpg" alt=""><br><img src="/img/media/Android%E6%A2%B3%E7%90%86/v2-eddc430b991c58039dfc79dd6f3139cc_hd.jpg" alt=""><br>创建一个实例，最关键的就是得到对应的Class对象。</p>
-<p>代理类和目标类理应实现同一组接口。之所以实现相同接口，是为了尽可能保证代理对象的内部结构和目标对象一致，这样我们对代理对象的操作最终都可以转移到目标对象身上，代理对象只需专注于增强代码的编写。<br><img src="/img/media/Android%E6%A2%B3%E7%90%86/v2-e302487f952bdf8e284afc0d8d6a770b_hd.jpg" alt=""><br>动态代理的使用场景：<br>(1)设计模式中有一个设计原则是开闭原则，是说对修改关闭对扩展开放，我们在工作中有时会接手很多前人的代码，里面代码逻辑让人摸不着头脑<br>，这时就很难去下手修改代码，那么这时我们就可以通过代理对类进行增强。</p>
+<h2 id="Java动态代理"><a href="#Java动态代理" class="headerlink" title="Java动态代理"></a>Java动态代理</h2><p>创建对象的过程<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Android%E6%A2%B3%E7%90%86/v2-9cd31ab516bd967e1b8e68736931f8ba_hd.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Android%E6%A2%B3%E7%90%86/v2-eddc430b991c58039dfc79dd6f3139cc_hd.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>创建一个实例，最关键的就是得到对应的Class对象。</p>
+<p>代理类和目标类理应实现同一组接口。之所以实现相同接口，是为了尽可能保证代理对象的内部结构和目标对象一致，这样我们对代理对象的操作最终都可以转移到目标对象身上，代理对象只需专注于增强代码的编写。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Android%E6%A2%B3%E7%90%86/v2-e302487f952bdf8e284afc0d8d6a770b_hd.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>动态代理的使用场景：<br>(1)设计模式中有一个设计原则是开闭原则，是说对修改关闭对扩展开放，我们在工作中有时会接手很多前人的代码，里面代码逻辑让人摸不着头脑<br>，这时就很难去下手修改代码，那么这时我们就可以通过代理对类进行增强。</p>
 <p>(2)我们在使用RPC框架的时候，框架本身并不能提前知道各个业务方要调用哪些接口的哪些方法 。那么这个时候，就可用通过动态代理的方式来建立一个中间人给客户端使用，也方便框架进行搭建逻辑，某种程度上也是客户端代码和框架松耦合的一种表现。</p>
 <p>(3)Spring的AOP机制就是采用动态代理的机制来实现切面编程。</p>
-<p><img src="/img/media/Android%E6%A2%B3%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-24%20%E4%B8%8B%E5%8D%882.52.19.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Android%E6%A2%B3%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-24%20%E4%B8%8B%E5%8D%882.52.19.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h1 id="Java中的设计模式"><a href="#Java中的设计模式" class="headerlink" title="Java中的设计模式"></a>Java中的设计模式</h1><p>设计模式供分为三大类：<br>1、创建型模式，共五种:<strong>工厂方法模式</strong>、<strong>抽象工厂模式</strong>、<strong>单例模式</strong>、<strong>建造者模式</strong>。原型模式。<br>2、结构型模式,共七种:<strong>适配器模式</strong>、装饰器模式、<strong>代理模式</strong>、外观模式、桥接模式、组合模式、享元模式。<br>3、行为型模式，共十一种:<strong>策略模式</strong>，模板方法模式、<strong>观察者模式</strong>，迭代子模式、责任链模式、命令模式、 备忘录模式、状态模式、访问者模式、中介者模式、解释器模式。</p>
 <h1 id="Android基础"><a href="#Android基础" class="headerlink" title="Android基础"></a>Android基础</h1><h2 id="如何避免ANR"><a href="#如何避免ANR" class="headerlink" title="如何避免ANR"></a>如何避免ANR</h2><p>ANR：Application Not Responding。不同组件发生ANR的时间不一样，主线程(Activity,Service)是5秒，BroadCastReceiver是10秒。</p>
 <p>解决方案：将所有耗时操作,比如访问网络, Socket通信,查询大量SQL语句,复杂逻辑计算等都放在子线程中去,然后通过handler.sendMessage. runonUITread. AsyncTask等方式更新UI,无论如何都要确保用户界面操作的流畅度。如果耗时操作需要让用户等待,那么可以在界面上显示进度条。</p>
 <h2 id="sim卡的EF文件"><a href="#sim卡的EF文件" class="headerlink" title="sim卡的EF文件"></a>sim卡的EF文件</h2><p>基本文件EF(Elementary File)是SIM卡文件系统的一部分。</p>
 <h2 id="Activity"><a href="#Activity" class="headerlink" title="Activity"></a>Activity</h2><h3 id="什么是Activity"><a href="#什么是Activity" class="headerlink" title="什么是Activity"></a>什么是Activity</h3><p>四大组件之一，一般一个用户交互界面对应一个activity<br>activity是Context的子类，同时实现了window.callback和keyevent.callback,可以处理与窗体用户交互事件。</p>
-<h3 id="activity生命周期"><a href="#activity生命周期" class="headerlink" title="activity生命周期"></a>activity生命周期</h3><p><img src="/img/media/Android%E6%A2%B3%E7%90%86/4aa93209cbaef5c2a9bbd2003d928641_hd.jpg" alt=""><br>一般情况下<br>按下<strong>home</strong>键:前台Activity依次回调onPause, onStop；<br>按下<strong>back</strong>键:前台Activity依次回调onPause, onStop, onDestroy；<br>按下<strong>电源键</strong>：前台Activity依次onPause, onStop；<br>对于<strong>进程管理器</strong>，采用的force-stop的方式，也是直接强杀进程，并且连广播都会隔断。</p>
+<h3 id="activity生命周期"><a href="#activity生命周期" class="headerlink" title="activity生命周期"></a>activity生命周期</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Android%E6%A2%B3%E7%90%86/4aa93209cbaef5c2a9bbd2003d928641_hd.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>一般情况下<br>按下<strong>home</strong>键:前台Activity依次回调onPause, onStop；<br>按下<strong>back</strong>键:前台Activity依次回调onPause, onStop, onDestroy；<br>按下<strong>电源键</strong>：前台Activity依次onPause, onStop；<br>对于<strong>进程管理器</strong>，采用的force-stop的方式，也是直接强杀进程，并且连广播都会隔断。</p>
 <p>横竖屏切换：在未做任何处理的情况，旋转后，Activity生命周期重新运行:onPause, onStop, onDestroy, onCreate, onStart, onRestoreInstanceState, onResume。<br> 常用Activity：FragmentActivity,ListActivity,TabActivity。</p>
 <h3 id="如何保存Activity的状态？"><a href="#如何保存Activity的状态？" class="headerlink" title="如何保存Activity的状态？"></a>如何保存Activity的状态？</h3><p>覆写onSaveInstanceState()方法，该方法接受一个Bundle类型的参数，开发者可以将状态数据存储到这个Bundle对象中，这样即使Activity被系统摧毁，开发者也可以利用这些数据将Activity恢复到被摧毁前的状态。</p>
 <h3 id="Activity跳转"><a href="#Activity跳转" class="headerlink" title="Activity跳转"></a>Activity跳转</h3><p>两个activityAB，A里面激活B时，A会调用onPause()方法，然后B调用onCreate(),onStart(),onResume()方法。B覆盖窗体，A会调用onStop()方法。如果B是个透明的，或者是对话框的样式，就不会调用A的onStop()方法。</p>
@@ -393,9 +475,7 @@
             </span>
         </p>
     </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
+
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
     </script>
 </footer>

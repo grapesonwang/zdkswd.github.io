@@ -21,13 +21,13 @@
     
     
     <meta name="keywords" content="Tomcat">
-    <meta name="description" content="Tomcat综述  Web容器 HTTP服务器（比如Apache、Nginx）向浏览器返回静态HTML，浏览器负责解析HTML，将结果呈现给用户。我们希望通过一些交互操作，来获取动态结果，需要一些扩展机制能够让HTTP服务器调用服务端程序。于是Sun公司推出了Servlet技术。可以把Servlet简单理解为运行在服务端的Java小程序，Servlet没有main方法，不能独立运行，所以必须把它部">
+    <meta name="description" content="Tomcat综述                                                                                                            Web容器 HTTP服务器（比如Apache、Nginx）向浏览器返回静态HTML，浏览器负责解析HTML，将结果呈现给用户。我们希望通过一些交互操作，来获取动态结果，">
 <meta name="keywords" content="Tomcat">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Tomcat综述">
 <meta property="og:url" content="https://github.com/zdkswd/2019/07/14/Tomcat综述/index.html">
 <meta property="og:site_name" content="ZDK&#39;s blog">
-<meta property="og:description" content="Tomcat综述  Web容器 HTTP服务器（比如Apache、Nginx）向浏览器返回静态HTML，浏览器负责解析HTML，将结果呈现给用户。我们希望通过一些交互操作，来获取动态结果，需要一些扩展机制能够让HTTP服务器调用服务端程序。于是Sun公司推出了Servlet技术。可以把Servlet简单理解为运行在服务端的Java小程序，Servlet没有main方法，不能独立运行，所以必须把它部">
+<meta property="og:description" content="Tomcat综述                                                                                                            Web容器 HTTP服务器（比如Apache、Nginx）向浏览器返回静态HTML，浏览器负责解析HTML，将结果呈现给用户。我们希望通过一些交互操作，来获取动态结果，">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://github.com/img/media/tomcat1/1.png">
 <meta property="og:image" content="https://github.com/img/media/tomcat1/2.png">
@@ -43,7 +43,7 @@
 <meta property="og:updated_time" content="2019-07-14T02:58:01.465Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tomcat综述">
-<meta name="twitter:description" content="Tomcat综述  Web容器 HTTP服务器（比如Apache、Nginx）向浏览器返回静态HTML，浏览器负责解析HTML，将结果呈现给用户。我们希望通过一些交互操作，来获取动态结果，需要一些扩展机制能够让HTTP服务器调用服务端程序。于是Sun公司推出了Servlet技术。可以把Servlet简单理解为运行在服务端的Java小程序，Servlet没有main方法，不能独立运行，所以必须把它部">
+<meta name="twitter:description" content="Tomcat综述                                                                                                            Web容器 HTTP服务器（比如Apache、Nginx）向浏览器返回静态HTML，浏览器负责解析HTML，将结果呈现给用户。我们希望通过一些交互操作，来获取动态结果，">
 <meta name="twitter:image" content="https://github.com/img/media/tomcat1/1.png">
     
         <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
@@ -194,14 +194,26 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="Tomcat综述"><a href="#Tomcat综述" class="headerlink" title="Tomcat综述"></a>Tomcat综述</h1><p><img src="/img/media/tomcat1/1.png" alt=""></p>
+            <h1 id="Tomcat综述"><a href="#Tomcat综述" class="headerlink" title="Tomcat综述"></a>Tomcat综述</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/tomcat1/1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <hr>
 <p><strong>Web容器</strong></p>
 <p>HTTP服务器（比如Apache、Nginx）向浏览器返回静态HTML，浏览器负责解析HTML，将结果呈现给用户。我们希望通过一些交互操作，来获取动态结果，需要一些扩展机制能够让HTTP服务器调用服务端程序。于是Sun公司推出了<strong>Servlet</strong>技术。可以把Servlet简单理解为运行在服务端的Java小程序，Servlet没有main方法，不能独立运行，所以必须把它部署到Servlet容器中，由容器来实例化并调用Servlet。</p>
 <p>Tomcat和Jetty就是一个Servlet容器。为了方便使用，它们也具有HTTP服务器的功能，因此<strong>Tomcat或者Jetty就是一个“HTTP服务器 + Servlet容器”，我们也叫它们Web容器。</strong>Tomcat和Jetty算是一个轻量级的应用服务器。</p>
 <p><strong>Tomcat是Spring Boot默认的嵌入式Servlet容器。</strong>最新版本Tomcat和Jetty都支持Servlet 4.0规范。</p>
 <h1 id="HTTP相关"><a href="#HTTP相关" class="headerlink" title="HTTP相关"></a>HTTP相关</h1><h2 id="HTTP本质"><a href="#HTTP本质" class="headerlink" title="HTTP本质"></a>HTTP本质</h2><p>HTTP协议是浏览器与服务器之间的数据传送协议。作为应用层协议，HTTP是基于TCP/IP协议来传递数据的（HTML文件、图片、查询结果等），HTTP协议不涉及数据包（Packet）传输，主要规定了客户端和服务器之间的通信格式。<strong>HTTP协议的本质就是一种浏览器与服务器之间约定好的通信格式</strong>。</p>
-<p><img src="/img/media/tomcat1/2.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/tomcat1/2.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>HTTP通信机制是在一次完整的HTTP通信过程中，Web浏览器与Web服务器之间将完成的步骤： </p>
 <ol>
 <li><strong>域名解析</strong></li>
@@ -213,29 +225,65 @@
 <li><strong>Web服务器向浏览器发送数据</strong> ，Web服务器向浏览器发送头信息后，它会发送一个空白行来表示头信息的发送到此为结束，接着，就以Content-Type应答头信息所描述的格式发送用户所请求的实际数据。</li>
 <li><strong>Web服务器关闭TCP连接</strong> ，一般情况下，一旦Web服务器向浏览器发送了请求数据，它就要关闭TCP连接，然后如果浏览器或者服务器在其头信息加入了这行代码：Connection:keep-alive ，TCP连接在发送后将仍然保持打开状态，于是，浏览器可以继续通过相同的连接发送请求。保持连接节省了为每个请求建立新连接所需的时间，还节约了网络带宽。</li>
 </ol>
-<h2 id="HTTP请求响应"><a href="#HTTP请求响应" class="headerlink" title="HTTP请求响应"></a>HTTP请求响应</h2><p><img src="/img/media/tomcat1/3.png" alt=""></p>
+<h2 id="HTTP请求响应"><a href="#HTTP请求响应" class="headerlink" title="HTTP请求响应"></a>HTTP请求响应</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/tomcat1/3.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>HTTP请求数据由三部分组成，分别是<strong>请求行、请求报头、请求正文</strong>。当这个HTTP请求数据到达Tomcat后，Tomcat会把HTTP请求数据字节流解析成一个Request对象，这个Request对象封装了HTTP所有的请求信息。接着Tomcat把这个Request对象交给Web应用去处理，处理完后得到一个Response对象，Tomcat会把这个Response对象转成HTTP格式的响应数据并发送给浏览器。</p>
-<p><img src="/img/media/tomcat1/4.png" alt="4"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/tomcat1/4.png" alt="4" title="">
+                </div>
+                <div class="image-caption">4</div>
+            </figure>
 <p>HTTP的响应也是由三部分组成，分别是<strong>状态行、响应报头、报文主体</strong>。</p>
 <h2 id="Cookie和Session"><a href="#Cookie和Session" class="headerlink" title="Cookie和Session"></a>Cookie和Session</h2><h3 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h3><p>Cookie是HTTP报文的一个请求头，Web应用可以将用户的标识信息或者其他一些信息（用户名等）存储在Cookie中。用户经过验证之后，每次HTTP请求报文中都包含Cookie，这样服务器读取这个Cookie请求头就知道用户是谁了。<strong>Cookie本质上就是一份存储在用户本地的文件，里面包含了每次请求中都需要传递的信息</strong>。</p>
 <h3 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h3><p>Cookie以明文的方式存储在本地，而Cookie中往往带有用户信息，这样就造成了非常大的安全隐患。而Session的出现解决了这个问题，<strong>Session可以理解为服务器端开辟的存储空间，里面保存了用户的状态</strong>，用户信息以Session的形式存储在服务端。当用户请求到来时，服务端可以把用户的请求和用户的Session对应起来。通过Cookie来将Session和请求对应起来。浏览器在Cookie中填充了一个Session ID之类的字段用来标识请求。</p>
 <h3 id="Session创建与存储"><a href="#Session创建与存储" class="headerlink" title="Session创建与存储"></a>Session创建与存储</h3><p>Java中，Web应用程序在调用HttpServletRequest的getSession方法时，由Web容器（比如Tomcat）创建的。</p>
 <p>Tomcat的Session管理器提供了多种持久化方案来存储Session，通常会采用高性能的存储方式，比如Redis，并且通过集群部署的方式，防止单点故障，从而提升高可用。同时，Session有过期时间，因此Tomcat会开启后台线程定期的轮询，如果Session过期了就将Session失效。</p>
 <h1 id="Servlet规范与容器"><a href="#Servlet规范与容器" class="headerlink" title="Servlet规范与容器"></a>Servlet规范与容器</h1><p>Servlet接口其实是<strong>Servlet容器跟具体业务类之间的接口</strong>。</p>
-<p><img src="/img/media/tomcat1/5.png" alt="5"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/tomcat1/5.png" alt="5" title="">
+                </div>
+                <div class="image-caption">5</div>
+            </figure>
 <p>HTTP服务器不直接调用业务类，而是把请求交给容器来处理，容器通过Servlet接口调用业务类。因此Servlet接口和Servlet容器的出现，达到了HTTP服务器与业务类解耦的目的。</p>
 <p>Servlet接口和Servlet容器这一整套规范叫作<strong>Servlet规范</strong>。Tomcat和Jetty都按照Servlet规范的要求实现了Servlet容器，同时它们也具有HTTP服务器的功能。作为Java程序员，如果要实现新的业务功能，只需要实现一个Servlet，并把它注册到Tomcat（Servlet容器）中，剩下的事情就由Tomcat处理了。</p>
 <h2 id="Servlet接口"><a href="#Servlet接口" class="headerlink" title="Servlet接口"></a>Servlet接口</h2><p>Servlet接口定义了下面五个方法：</p>
-<p><img src="/img/media/tomcat1/6.png" alt="6"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/tomcat1/6.png" alt="6" title="">
+                </div>
+                <div class="image-caption">6</div>
+            </figure>
 <p>其中最重要是的<strong>service</strong>方法，具体业务类在这个方法里实现处理逻辑。这个方法有两个参数：<strong>ServletRequest</strong>和<strong>ServletResponse</strong>。ServletRequest用来封装请求信息，ServletResponse用来封装响应信息，因此<strong>本质上这两个类是对通信协议的封装。</strong></p>
 <p>比如HTTP协议中的请求和响应就是对应了<strong>HttpServletRequest</strong>和<strong>HttpServletResponse</strong>这两个类。可以通过<strong>HttpServletRequest</strong>来获取所有请求相关的信息，包括请求路径、Cookie、HTTP头、请求参数等。此外，还可以通过HttpServletRequest来创建和获取Session。而HttpServletResponse是用来封装HTTP响应的。</p>
 <p>可以看到接口中还有两个跟生命周期有关的方法<strong>init</strong>和<strong>destroy</strong>，这是一个比较贴心的设计，Servlet容器在加载Servlet类的时候会调用init方法，在卸载的时候会调用destroy方法。可能会在init方法里初始化一些资源，并在destroy方法里释放这些资源，比如Spring MVC中的DispatcherServlet，就是在init方法里创建了自己的Spring容器。</p>
 <p><strong>ServletConfig</strong>的作用就是封装Servlet的初始化参数。可以在web.xml给Servlet配置参数，并在程序里通过<strong>getServletConfig</strong>方法拿到这些参数。</p>
 <p>有接口一般就有<strong>抽象类</strong>，抽象类用来实现接口和封装通用的逻辑，因此Servlet规范提供了GenericServlet抽象类，可以通过扩展它来实现Servlet。虽然Servlet规范并不在乎通信协议是什么，但是大多数的Servlet都是在HTTP环境中处理的，因此Servet规范还提供了HttpServlet来继承GenericServlet，并且加入了HTTP特性。这样通过继承HttpServlet类来实现自己的Servlet，只需要重写两个方法：<strong>doGet</strong>和<strong>doPost</strong>。</p>
 <h2 id="Servlet容器"><a href="#Servlet容器" class="headerlink" title="Servlet容器"></a>Servlet容器</h2><h3 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h3><p>当客户请求某个资源时，HTTP服务器会用一个ServletRequest对象把客户的请求信息封装起来，然后调用Servlet容器的service方法，Servlet容器拿到请求后，根据请求的URL和Servlet的映射关系，找到相应的Servlet，如果Servlet还没有被加载，就用反射机制创建这个Servlet，并调用Servlet的init方法来完成初始化，接着调用Servlet的service方法来处理请求，把ServletResponse对象返回给HTTP服务器，HTTP服务器会把响应发送给客户端。</p>
-<p><img src="/img/media/tomcat1/7.png" alt="7"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/tomcat1/7.png" alt="7" title="">
+                </div>
+                <div class="image-caption">7</div>
+            </figure>
 <h3 id="Web应用"><a href="#Web应用" class="headerlink" title="Web应用"></a>Web应用</h3><p>一般来说，以Web应用程序的方式来部署Servlet的。根据Servlet规范，Web应用程序有一定的目录结构，在这个目录下分别放置了Servlet的类文件、配置文件以及静态资源，<strong>Servlet容器通过读取配置文件</strong>，就能找到并加载Servlet。Web应用的目录结构大概是下面这样的：</p>
-<p><img src="/img/media/tomcat1/8.png" alt="8"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/tomcat1/8.png" alt="8" title="">
+                </div>
+                <div class="image-caption">8</div>
+            </figure>
 <p>Servlet规范里定义了<strong>ServletContext</strong>这个接口来对应一个Web应用。Web应用部署好后，Servlet容器在启动时会加载Web应用，并为每个Web应用创建唯一的ServletContext对象。</p>
 <p>一个Web应用可能有多个Servlet，这些Servlet可以通过全局的ServletContext来共享数据，这些数据包括Web应用的初始化参数、Web应用目录下的文件资源等。由于ServletContext持有所有Servlet实例，还可以通过它来实现Servlet请求的转发。</p>
 <h3 id="扩展机制"><a href="#扩展机制" class="headerlink" title="扩展机制"></a>扩展机制</h3><p>设计一个规范或者一个中间件，要充分考虑到可扩展性。Servlet规范提供了两种扩展机制：<strong>Filter</strong>和<strong>Listener</strong>。</p>
@@ -266,9 +314,27 @@
 <li><code>manager.***.log/host-manager.***.log</code></li>
 </ul>
 <p>存放Tomcat自带的manager项目的日志信息。</p>
-<h2 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h2><p><img src="/img/media/tomcat1/9.png" alt=""></p>
-<p><img src="/img/media/tomcat1/8.png" alt=""></p>
-<p><img src="https://zdkswd.github.io/img/media/Spring%20Boot%E5%AE%9E%E6%88%98%20%E5%85%A5%E9%97%A8/191992114-5b5c838544f7c_articlex.png" alt=""></p>
+<h2 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/tomcat1/9.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/tomcat1/8.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://zdkswd.github.io/img/media/Spring%20Boot%E5%AE%9E%E6%88%98%20%E5%85%A5%E9%97%A8/191992114-5b5c838544f7c_articlex.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 
         </div>
 
@@ -307,7 +373,14 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/07/20/Tomcat系统架构/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Tomcat系统架构</h4>
+      </a>
+    </div>
   
 
   
@@ -398,9 +471,7 @@
             </span>
         </p>
     </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
+
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
     </script>
 </footer>

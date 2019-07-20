@@ -21,13 +21,13 @@
     
     
     <meta name="keywords" content="机器学习">
-    <meta name="description" content="尺寸问题图中，输入层个数为1，深度为3，所以每个filter对应深度也要为。filter数量为2，对应输出层的深度为2，个数为1。 即输入层的深度与filter深度相等，输出层深度与filter个数相等。 卷积层的梯度传递 卷积层filter权重梯度的计算 Pooling层的训练 CNN的反向传播">
+    <meta name="description" content="尺寸问题                                                                                                           图中，输入层个数为1，深度为3，所以每个filter对应深度也要为。filter数量为2，对应输出层的深度为2，个数为1。 即输入层的深度与filter深度相等，输出层深度与fi">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CNN 个人总结">
 <meta property="og:url" content="https://github.com/zdkswd/2019/03/19/CNN 个人总结/index.html">
 <meta property="og:site_name" content="ZDK&#39;s blog">
-<meta property="og:description" content="尺寸问题图中，输入层个数为1，深度为3，所以每个filter对应深度也要为。filter数量为2，对应输出层的深度为2，个数为1。 即输入层的深度与filter深度相等，输出层深度与filter个数相等。 卷积层的梯度传递 卷积层filter权重梯度的计算 Pooling层的训练 CNN的反向传播">
+<meta property="og:description" content="尺寸问题                                                                                                           图中，输入层个数为1，深度为3，所以每个filter对应深度也要为。filter数量为2，对应输出层的深度为2，个数为1。 即输入层的深度与filter深度相等，输出层深度与fi">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://github.com/img/media/CNN%20%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/20180404150134375.png">
 <meta property="og:image" content="https://github.com/img/media/CNN%20%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/2256672-52295dad2641037f.png">
@@ -44,7 +44,7 @@
 <meta property="og:updated_time" content="2019-03-19T11:37:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CNN 个人总结">
-<meta name="twitter:description" content="尺寸问题图中，输入层个数为1，深度为3，所以每个filter对应深度也要为。filter数量为2，对应输出层的深度为2，个数为1。 即输入层的深度与filter深度相等，输出层深度与filter个数相等。 卷积层的梯度传递 卷积层filter权重梯度的计算 Pooling层的训练 CNN的反向传播">
+<meta name="twitter:description" content="尺寸问题                                                                                                           图中，输入层个数为1，深度为3，所以每个filter对应深度也要为。filter数量为2，对应输出层的深度为2，个数为1。 即输入层的深度与filter深度相等，输出层深度与fi">
 <meta name="twitter:image" content="https://github.com/img/media/CNN%20%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/20180404150134375.png">
     
         <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
@@ -195,12 +195,92 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="尺寸问题"><a href="#尺寸问题" class="headerlink" title="尺寸问题"></a>尺寸问题</h1><p><img src="/img/media/CNN%20%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/20180404150134375.png" alt=""><br>图中，输入层个数为1，深度为3，所以每个filter对应深度也要为。filter数量为2，对应输出层的深度为2，个数为1。</p>
+            <h1 id="尺寸问题"><a href="#尺寸问题" class="headerlink" title="尺寸问题"></a>尺寸问题</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/CNN%20%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/20180404150134375.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>图中，输入层个数为1，深度为3，所以每个filter对应深度也要为。filter数量为2，对应输出层的深度为2，个数为1。</p>
 <p>即输入层的深度与filter深度相等，输出层深度与filter个数相等。</p>
-<h1 id="卷积层的梯度传递"><a href="#卷积层的梯度传递" class="headerlink" title="卷积层的梯度传递"></a>卷积层的梯度传递</h1><p><img src="/img/media/CNN%20%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/2256672-52295dad2641037f.png" alt="图1"><br><img src="/img/media/CNN%20%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/2256672-2fb37b0a3ff0e1f9.png" alt="图2"><br><img src="/img/media/CNN%20%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/2256672-754f37eb7603e99f.png" alt="图3"><br><img src="/img/media/CNN%20%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/2256672-af2da9701a03dc3c.png" alt="图4"><br><img src="/img/media/CNN%20%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/WechatIMG601552981169_.pic_hd.jpg" alt=""></p>
-<h1 id="卷积层filter权重梯度的计算"><a href="#卷积层filter权重梯度的计算" class="headerlink" title="卷积层filter权重梯度的计算"></a>卷积层filter权重梯度的计算</h1><p><img src="/img/media/CNN%20%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/2256672-afe6d3a863b7cbcc.png" alt="图5"><br><img src="/img/media/CNN%20%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/WechatIMG571552981164_.pic.jpg" alt=""></p>
-<h1 id="Pooling层的训练"><a href="#Pooling层的训练" class="headerlink" title="Pooling层的训练"></a>Pooling层的训练</h1><p><img src="/img/media/CNN%20%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/2256672-af77e98c09fad84c.png" alt="图6"><br><img src="/img/media/CNN%20%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/2256672-c3a6772cb07b416a.png" alt="图7"><br><img src="/img/media/CNN%20%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/WechatIMG591552981167_.pic_hd.jpg" alt=""></p>
-<h1 id="CNN的反向传播"><a href="#CNN的反向传播" class="headerlink" title="CNN的反向传播"></a>CNN的反向传播</h1><p><img src="/img/media/CNN%20%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/WechatIMG581552981167_.pic.jpg" alt=""></p>
+<h1 id="卷积层的梯度传递"><a href="#卷积层的梯度传递" class="headerlink" title="卷积层的梯度传递"></a>卷积层的梯度传递</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/CNN%20%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/2256672-52295dad2641037f.png" alt="图1" title="">
+                </div>
+                <div class="image-caption">图1</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/CNN%20%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/2256672-2fb37b0a3ff0e1f9.png" alt="图2" title="">
+                </div>
+                <div class="image-caption">图2</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/CNN%20%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/2256672-754f37eb7603e99f.png" alt="图3" title="">
+                </div>
+                <div class="image-caption">图3</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/CNN%20%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/2256672-af2da9701a03dc3c.png" alt="图4" title="">
+                </div>
+                <div class="image-caption">图4</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/CNN%20%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/WechatIMG601552981169_.pic_hd.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h1 id="卷积层filter权重梯度的计算"><a href="#卷积层filter权重梯度的计算" class="headerlink" title="卷积层filter权重梯度的计算"></a>卷积层filter权重梯度的计算</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/CNN%20%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/2256672-afe6d3a863b7cbcc.png" alt="图5" title="">
+                </div>
+                <div class="image-caption">图5</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/CNN%20%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/WechatIMG571552981164_.pic.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h1 id="Pooling层的训练"><a href="#Pooling层的训练" class="headerlink" title="Pooling层的训练"></a>Pooling层的训练</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/CNN%20%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/2256672-af77e98c09fad84c.png" alt="图6" title="">
+                </div>
+                <div class="image-caption">图6</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/CNN%20%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/2256672-c3a6772cb07b416a.png" alt="图7" title="">
+                </div>
+                <div class="image-caption">图7</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/CNN%20%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/WechatIMG591552981167_.pic_hd.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h1 id="CNN的反向传播"><a href="#CNN的反向传播" class="headerlink" title="CNN的反向传播"></a>CNN的反向传播</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/CNN%20%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/WechatIMG581552981167_.pic.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 
         </div>
 
@@ -337,9 +417,7 @@
             </span>
         </p>
     </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
+
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
     </script>
 </footer>

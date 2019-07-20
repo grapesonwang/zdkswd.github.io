@@ -21,13 +21,13 @@
     
     
     <meta name="keywords" content="机器学习">
-    <meta name="description" content="TensorsTensors are similar to NumPy’s ndarrays, with the addition being that Tensors can also be used on a GPU to accelerate computing.Construct a 5x3 matrix, uninitialized:Construct a randomly initia">
+    <meta name="description" content="TensorsTensors are similar to NumPy’s ndarrays, with the addition being that Tensors can also be used on a GPU to accelerate computing.">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PyTorch get started">
 <meta property="og:url" content="https://github.com/zdkswd/2019/04/17/PyTorch get started/index.html">
 <meta property="og:site_name" content="ZDK&#39;s blog">
-<meta property="og:description" content="TensorsTensors are similar to NumPy’s ndarrays, with the addition being that Tensors can also be used on a GPU to accelerate computing.Construct a 5x3 matrix, uninitialized:Construct a randomly initia">
+<meta property="og:description" content="TensorsTensors are similar to NumPy’s ndarrays, with the addition being that Tensors can also be used on a GPU to accelerate computing.">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://github.com/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%886.04.33.png">
 <meta property="og:image" content="https://github.com/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%886.04.46.png">
@@ -63,7 +63,7 @@
 <meta property="og:updated_time" content="2019-04-17T12:05:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PyTorch get started">
-<meta name="twitter:description" content="TensorsTensors are similar to NumPy’s ndarrays, with the addition being that Tensors can also be used on a GPU to accelerate computing.Construct a 5x3 matrix, uninitialized:Construct a randomly initia">
+<meta name="twitter:description" content="TensorsTensors are similar to NumPy’s ndarrays, with the addition being that Tensors can also be used on a GPU to accelerate computing.">
 <meta name="twitter:image" content="https://github.com/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%886.04.33.png">
     
         <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
@@ -214,15 +214,209 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="Tensors"><a href="#Tensors" class="headerlink" title="Tensors"></a>Tensors</h1><p>Tensors are similar to NumPy’s ndarrays, with the addition being that Tensors can also be used on a GPU to accelerate computing.<br><img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%886.04.33.png" alt=""><br>Construct a 5x3 matrix, uninitialized:<br><img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%886.04.46.png" alt=""><br>Construct a randomly initialized matrix:<br><img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%886.05.13.png" alt=""><br>Construct a matrix filled zeros and of dtype long:<br><img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%886.05.25.png" alt=""><br>Construct a tensor directly from data:<br><img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%886.06.00.png" alt=""><br>or create a tensor based on an existing tensor. These methods will reuse properties of the input tensor, e.g. dtype, unless new values are provided by user<br><img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%886.07.08.png" alt=""><br>Get its size:<br><img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%886.15.15.png" alt=""><br><strong>Note:</strong><br><img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%886.32.30.png" alt=""></p>
-<h1 id="Operations"><a href="#Operations" class="headerlink" title="Operations"></a>Operations</h1><p>Addition: syntax 1<br><img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%886.33.06.png" alt=""><br>Addition: syntax 2<br><img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%886.33.26.png" alt=""><br>Addition: providing an output tensor as argument<br><img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%886.34.20.png" alt=""><br>Addition: in-place<br><img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%886.35.28.png" alt=""><br><strong>Note:</strong><br><img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%886.36.19.png" alt=""><br>You can use standard NumPy-like indexing<br><img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%886.36.52.png" alt=""><br>Resizing: If you want to resize/reshape tensor, you can use torch.view:<br><img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%886.39.51.png" alt=""><br>Out:<br><img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%886.40.04.png" alt=""></p>
-<p>If you have a one element tensor, use .item() to get the value as a Python number<br><img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%886.40.24.png" alt=""></p>
+            <h1 id="Tensors"><a href="#Tensors" class="headerlink" title="Tensors"></a>Tensors</h1><p>Tensors are similar to NumPy’s ndarrays, with the addition being that Tensors can also be used on a GPU to accelerate computing.<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%886.04.33.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>Construct a 5x3 matrix, uninitialized:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%886.04.46.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>Construct a randomly initialized matrix:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%886.05.13.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>Construct a matrix filled zeros and of dtype long:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%886.05.25.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>Construct a tensor directly from data:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%886.06.00.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>or create a tensor based on an existing tensor. These methods will reuse properties of the input tensor, e.g. dtype, unless new values are provided by user<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%886.07.08.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>Get its size:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%886.15.15.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><strong>Note:</strong><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%886.32.30.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h1 id="Operations"><a href="#Operations" class="headerlink" title="Operations"></a>Operations</h1><p>Addition: syntax 1<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%886.33.06.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>Addition: syntax 2<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%886.33.26.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>Addition: providing an output tensor as argument<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%886.34.20.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>Addition: in-place<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%886.35.28.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><strong>Note:</strong><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%886.36.19.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>You can use standard NumPy-like indexing<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%886.36.52.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>Resizing: If you want to resize/reshape tensor, you can use torch.view:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%886.39.51.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>Out:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%886.40.04.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>If you have a one element tensor, use .item() to get the value as a Python number<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%886.40.24.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <h1 id="Numpy-Bridge"><a href="#Numpy-Bridge" class="headerlink" title="Numpy Bridge"></a>Numpy Bridge</h1><p>The Torch Tensor and NumPy array will share their underlying memory locations, and changing one will change the other.</p>
-<h2 id="Converting-a-Torch-Tensor-to-a-NumPy-Array"><a href="#Converting-a-Torch-Tensor-to-a-NumPy-Array" class="headerlink" title="Converting a Torch Tensor to a NumPy Array"></a>Converting a Torch Tensor to a NumPy Array</h2><p><img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%886.42.30.png" alt=""><br><img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%886.42.42.png" alt=""><br><img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%886.42.37.png" alt=""><br><img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%886.43.09.png" alt=""><br><img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%886.43.18.png" alt=""><br>Out:<br><img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%886.43.41.png" alt=""></p>
-<h2 id="Converting-NumPy-Array-to-Torch-Tensor"><a href="#Converting-NumPy-Array-to-Torch-Tensor" class="headerlink" title="Converting NumPy Array to Torch Tensor"></a>Converting NumPy Array to Torch Tensor</h2><p><img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%886.44.25.png" alt=""><br>out:<br><img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%886.44.38.png" alt=""><br>All the Tensors on the CPU except a CharTensor support converting to NumPy and back.</p>
-<h1 id="CUDA-Tensors"><a href="#CUDA-Tensors" class="headerlink" title="CUDA Tensors"></a>CUDA Tensors</h1><p>Tensors can be moved onto any device using the .to method.<br><img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%887.43.19.png" alt=""><br>out:<br><img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%887.46.16.png" alt=""></p>
-<h1 id="examples"><a href="#examples" class="headerlink" title="examples"></a>examples</h1><p><img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%887.58.55.png" alt=""><br><img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%887.59.10.png" alt=""></p>
-<h1 id="PyTorch-Custom-nn-Modules"><a href="#PyTorch-Custom-nn-Modules" class="headerlink" title="PyTorch: Custom nn Modules"></a>PyTorch: Custom nn Modules</h1><p><img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%888.01.01.png" alt=""><br><img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%888.01.17.png" alt=""></p>
+<h2 id="Converting-a-Torch-Tensor-to-a-NumPy-Array"><a href="#Converting-a-Torch-Tensor-to-a-NumPy-Array" class="headerlink" title="Converting a Torch Tensor to a NumPy Array"></a>Converting a Torch Tensor to a NumPy Array</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%886.42.30.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%886.42.42.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%886.42.37.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%886.43.09.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%886.43.18.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>Out:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%886.43.41.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h2 id="Converting-NumPy-Array-to-Torch-Tensor"><a href="#Converting-NumPy-Array-to-Torch-Tensor" class="headerlink" title="Converting NumPy Array to Torch Tensor"></a>Converting NumPy Array to Torch Tensor</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%886.44.25.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>out:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%886.44.38.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>All the Tensors on the CPU except a CharTensor support converting to NumPy and back.</p>
+<h1 id="CUDA-Tensors"><a href="#CUDA-Tensors" class="headerlink" title="CUDA Tensors"></a>CUDA Tensors</h1><p>Tensors can be moved onto any device using the .to method.<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%887.43.19.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>out:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%887.46.16.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h1 id="examples"><a href="#examples" class="headerlink" title="examples"></a>examples</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%887.58.55.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%887.59.10.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h1 id="PyTorch-Custom-nn-Modules"><a href="#PyTorch-Custom-nn-Modules" class="headerlink" title="PyTorch: Custom nn Modules"></a>PyTorch: Custom nn Modules</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%888.01.01.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/PyTorch%20get%20started/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%888.01.17.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 
         </div>
 
@@ -359,9 +553,7 @@
             </span>
         </p>
     </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
+
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
     </script>
 </footer>

@@ -199,7 +199,14 @@
 <p>种极具毁灭性的舍人误差是<strong>下溢</strong>( underflow)。当接近零的数被四舍五入为零时发生下溢。</p>
 <p>另一个极具破坏力的数值错误形式是<strong>上溢</strong>( overfow)。当大量级的数被近似为+∞或-∞时发生上溢。进一步的运算通常会导致这些无限值变为非数字。</p>
 <p>必须对上溢和下溢进行数值稳定的一个例子是<strong>softmax函数</strong>。</p>
-<h2 id="病态条件"><a href="#病态条件" class="headerlink" title="病态条件"></a>病态条件</h2><p><img src="/img/media/15331735691500/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-02%20%E4%B8%8A%E5%8D%8811.29.37.png" alt=""><br>这是最大和最小特征值的模之比1 。当该数很大时，矩阵求逆对输入的误差特别敏感。 </p>
+<h2 id="病态条件"><a href="#病态条件" class="headerlink" title="病态条件"></a>病态条件</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15331735691500/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-02%20%E4%B8%8A%E5%8D%8811.29.37.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>这是最大和最小特征值的模之比1 。当该数很大时，矩阵求逆对输入的误差特别敏感。 </p>
 <p>这种敏感性是矩阵本身的固有特性，而不是矩阵求逆期间舍入误差的结果。 </p>
 <h2 id="基于梯度的优化方法"><a href="#基于梯度的优化方法" class="headerlink" title="基于梯度的优化方法"></a>基于梯度的优化方法</h2><p>大多数深度学习算法都涉及某种形式的优化。优化指的是改变 x 以最小化或最 大化某个函数 f(x) 的任务。我们通常以最小化 f(x) 指代大多数最优化问题。最大化可经由最小化算法最小化−f(x) 来实现。 </p>
 <p>我们把要最小化或最大化的函数称为 <strong>目标函数</strong>(objective function)或 <strong>准则</strong> (criterion)。当我们对其进行最小化时，我们也把它称为 <strong>代价函数</strong>(cost function)、 <strong>损失函数</strong>(loss function)或 <strong>误差函数</strong>(error function)。 </p>
@@ -208,15 +215,63 @@
 <p><strong>最速下降法</strong>(method of steepest descent) 或 <strong>梯度下降</strong>(gradient descent)。 </p>
 <p><img src="/img/media/15331735691500/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-02%20%E4%B8%8A%E5%8D%8811.39.22.png" alt=""></p>
 <p>其中 ε 为 学习率(learning rate)。</p>
-<h3 id="梯度之上-Jacobian-和-Hessian-矩阵"><a href="#梯度之上-Jacobian-和-Hessian-矩阵" class="headerlink" title="梯度之上:Jacobian 和 Hessian 矩阵"></a>梯度之上:Jacobian 和 Hessian 矩阵</h3><p>有时我们需要计算输入和输出都为向量的函数的所有偏导数。包含所有这样的偏导数的矩阵被称为 <strong>Jacobian</strong> 矩阵。 雅可比矩阵。<br><img src="/img/media/15331735691500/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-02%20%E4%B8%8B%E5%8D%884.13.38.png" alt=""></p>
-<p>当我们的函数具有多维输入时，二阶导数也有很多。我们可以将这些导数合并 成一个矩阵，称为 <strong>Hessian</strong> 矩阵。 黑塞矩阵。<br><img src="/img/media/15331735691500/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-02%20%E4%B8%8B%E5%8D%884.22.29.png" alt=""></p>
-<p><img src="/img/media/15331735691500/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-02%20%E4%B8%8B%E5%8D%884.27.35.png" alt=""></p>
-<p>Hessian 等价于梯度的 Jacobian 矩阵。<br><img src="/img/media/15331735691500/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-02%20%E4%B8%8B%E5%8D%884.30.33.png" alt=""><br><img src="/img/media/15331735691500/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-02%20%E4%B8%8B%E5%8D%884.35.05.png" alt=""></p>
+<h3 id="梯度之上-Jacobian-和-Hessian-矩阵"><a href="#梯度之上-Jacobian-和-Hessian-矩阵" class="headerlink" title="梯度之上:Jacobian 和 Hessian 矩阵"></a>梯度之上:Jacobian 和 Hessian 矩阵</h3><p>有时我们需要计算输入和输出都为向量的函数的所有偏导数。包含所有这样的偏导数的矩阵被称为 <strong>Jacobian</strong> 矩阵。 雅可比矩阵。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15331735691500/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-02%20%E4%B8%8B%E5%8D%884.13.38.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>当我们的函数具有多维输入时，二阶导数也有很多。我们可以将这些导数合并 成一个矩阵，称为 <strong>Hessian</strong> 矩阵。 黑塞矩阵。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15331735691500/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-02%20%E4%B8%8B%E5%8D%884.22.29.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15331735691500/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-02%20%E4%B8%8B%E5%8D%884.27.35.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>Hessian 等价于梯度的 Jacobian 矩阵。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15331735691500/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-02%20%E4%B8%8B%E5%8D%884.30.33.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15331735691500/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-02%20%E4%B8%8B%E5%8D%884.35.05.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <p>当 Hessian 的条件数很差时，梯度下降法也会表现得很差。 </p>
 <p>病态条件也导致很难选择合适的步长。步长必须足够小，以免冲过最小而向具有较强正曲率的方向上升。这通常意味着步长太小，以致于在其他较小曲率的方向上进展不明显。 </p>
-<p><img src="/img/media/15331735691500/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-02%20%E4%B8%8B%E5%8D%884.47.21.png" alt=""><br><img src="/img/media/15331735691500/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-02%20%E4%B8%8B%E5%8D%885.08.11.png" alt=""><br>牛顿法，<br><img src="/img/media/15331735691500/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-03%20%E4%B8%8A%E5%8D%889.06.36.png" alt=""></p>
+<p><img src="/img/media/15331735691500/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-02%20%E4%B8%8B%E5%8D%884.47.21.png" alt=""><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15331735691500/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-02%20%E4%B8%8B%E5%8D%885.08.11.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>牛顿法，<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15331735691500/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-03%20%E4%B8%8A%E5%8D%889.06.36.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <p>仅使用梯度信息的优化算法被称为<strong>一阶优化算法</strong>(first-order optimization al- gorithms)，如梯度下降。使用 Hessian 矩阵的优化算法被称为<strong>二阶最优化算法</strong>(second-order optimization algorithms)(Nocedal and Wright, 2006)，如牛顿法。 </p>
-<p>在深度学习的背景下，限制函数满足<strong>Lipschitz 连续</strong>(Lipschitz continuous)或 其导数Lipschitz连续可以获得一些保证。直觉上，利普希茨连续函数限制了函数改变的速度，符合利普希茨条件的函数的斜率，必小于一个称为利普希茨常数的实数（该常数依函数而定）。<br><img src="/img/media/15331735691500/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-03%20%E4%B8%8A%E5%8D%889.17.01.png" alt=""></p>
+<p>在深度学习的背景下，限制函数满足<strong>Lipschitz 连续</strong>(Lipschitz continuous)或 其导数Lipschitz连续可以获得一些保证。直觉上，利普希茨连续函数限制了函数改变的速度，符合利普希茨条件的函数的斜率，必小于一个称为利普希茨常数的实数（该常数依函数而定）。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15331735691500/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-03%20%E4%B8%8A%E5%8D%889.17.01.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <p>最成功的特定优化领域或许是 凸优化(Convex optimization)。凸优化通过更强 的限制提供更多的保证。凸优化算法只对凸函数适用，即 Hessian 处处半正定的函 数。因为这些函数没有鞍点而且其所有局部极小点必然是全局最小点，所以表现很 好。然而，深度学习中的大多数问题都难以表示成凸优化的形式。凸优化仅用作一 些深度学习算法的子程序。凸优化中的分析思路对证明深度学习算法的收敛性非常 有用，然而一般来说，深度学习背景下凸优化的重要性大大减少。 </p>
 <h2 id="约束优化"><a href="#约束优化" class="headerlink" title="约束优化"></a>约束优化</h2><p>在 x 的某些集合 S 中找 f(x) 的最大值或最小值。这被称 为 约束优化(constrained optimization)。在约束优化术语中，集合 S 内的点 x 被称为可行(feasible)点。 </p>
 <p>我们常常希望找到在某种意义上小的解。针对这种情况下的常见方法是强加一 个范数约束，如 ||x|| ≤ 1。 </p>
@@ -363,9 +418,7 @@
             </span>
         </p>
     </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
+
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
     </script>
 </footer>

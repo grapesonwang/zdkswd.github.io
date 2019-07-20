@@ -190,11 +190,42 @@
         <div class="post-content" id="post-content" itemprop="postContent">
             <h1 id="莫凡-sklearn"><a href="#莫凡-sklearn" class="headerlink" title="莫凡 sklearn"></a>莫凡 sklearn</h1><p>Sklearn 包含了很多种机器学习的方式:</p>
 <p>Classification 分类<br>Regression 回归<br>Clustering 非监督分类<br>Dimensionality reduction 数据降维<br>Model Selection 模型选择<br>Preprocessing 数据预处理<br>我们总能够从这些方法中挑选出一个适合于自己问题的, 然后解决自己的问题.</p>
-<p>看图选方法<br>由图中，可以看到算法有四类，分类，回归，聚类，降维。<img src="/img/media/%E8%8E%AB%E5%87%A1%20sklearn/2_1_1.png" alt=""></p>
-<h1 id="交叉验证"><a href="#交叉验证" class="headerlink" title="交叉验证"></a>交叉验证</h1><h2 id="Model基础验证法"><a href="#Model基础验证法" class="headerlink" title="Model基础验证法"></a>Model基础验证法</h2><p><img src="/img/media/%E8%8E%AB%E5%87%A1%20sklearn/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-22%20%E4%B8%8B%E5%8D%885.05.50.png" alt=""></p>
-<h2 id="Model交叉验证法"><a href="#Model交叉验证法" class="headerlink" title="Model交叉验证法"></a>Model交叉验证法</h2><p><img src="/img/media/%E8%8E%AB%E5%87%A1%20sklearn/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-22%20%E4%B8%8B%E5%8D%885.08.19.png" alt=""><br>其中scoring还可以取neg_mean_squared_error,则返回的就是平均方差的数组。</p>
-<p>sklearn.learning_curve 中的 learning curve 可以很直观的看出我们的 model 学习的进度, 对比发现有没有 overfitting 的问题. 然后我们可以对我们的 model 进行调整, 克服 overfitting 的问题.<br><img src="/img/media/%E8%8E%AB%E5%87%A1%20sklearn/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-22%20%E4%B8%8B%E5%8D%885.20.33.png" alt=""></p>
-<p><img src="/img/media/%E8%8E%AB%E5%87%A1%20sklearn/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-22%20%E4%B8%8B%E5%8D%885.20.44.png" alt=""></p>
+<p>看图选方法<br>由图中，可以看到算法有四类，分类，回归，聚类，降维。<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%8E%AB%E5%87%A1%20sklearn/2_1_1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h1 id="交叉验证"><a href="#交叉验证" class="headerlink" title="交叉验证"></a>交叉验证</h1><h2 id="Model基础验证法"><a href="#Model基础验证法" class="headerlink" title="Model基础验证法"></a>Model基础验证法</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%8E%AB%E5%87%A1%20sklearn/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-22%20%E4%B8%8B%E5%8D%885.05.50.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="Model交叉验证法"><a href="#Model交叉验证法" class="headerlink" title="Model交叉验证法"></a>Model交叉验证法</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%8E%AB%E5%87%A1%20sklearn/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-22%20%E4%B8%8B%E5%8D%885.08.19.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>其中scoring还可以取neg_mean_squared_error,则返回的就是平均方差的数组。</p>
+<p>sklearn.learning_curve 中的 learning curve 可以很直观的看出我们的 model 学习的进度, 对比发现有没有 overfitting 的问题. 然后我们可以对我们的 model 进行调整, 克服 overfitting 的问题.<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%8E%AB%E5%87%A1%20sklearn/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-22%20%E4%B8%8B%E5%8D%885.20.33.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%8E%AB%E5%87%A1%20sklearn/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-22%20%E4%B8%8B%E5%8D%885.20.44.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>连续三节的交叉验证(cross validation)让我们知道在机器学习中验证是有多么的重要, 这一次的 sklearn 中我们用到了sklearn.learning_curve当中的另外一种, 叫做validation_curve,用这一种曲线我们就能更加直观看出改变模型中的参数的时候有没有过拟合(overfitting)的问题了. 这也是可以让我们更好的选择参数的方法.</p>
 
         </div>
@@ -332,9 +363,7 @@
             </span>
         </p>
     </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
+
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
     </script>
 </footer>

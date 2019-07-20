@@ -203,30 +203,142 @@
         <div class="post-content" id="post-content" itemprop="postContent">
             <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>MyBatis可以使用XML或注解进行配置和映射，MyBatis通过将参数映射到配置的SQL形成最终执行的SQL语句，最后将执行SQL的结果映射成Java对象返回。与其他的ORM (对象关系映射)框架不同，MyBatis 并没有将Java对象与数据库表关联起来，而是将Java方法与SQL语句关联。</p>
 <p>在实际应用中，一个表一般会对应一个实体，用于INSERT、UPDATE、DELETE 和简单的SELECT操作，所以姑且称这个简单的对象为实体类。</p>
-<h1 id="XML方式的基本用法"><a href="#XML方式的基本用法" class="headerlink" title="XML方式的基本用法"></a>XML方式的基本用法</h1><h2 id="一个简单的权限控制需求"><a href="#一个简单的权限控制需求" class="headerlink" title="一个简单的权限控制需求"></a>一个简单的权限控制需求</h2><p><img src="/img/media/MyBatis%E5%9F%BA%E7%A1%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-24%20%E4%B8%8B%E5%8D%881.37.31.png" alt=""><br>为了方便对表进行直接操作，此处没有创建表之间的外键关系。对于表之间的关系，会通过业务逻辑来进行限制。</p>
+<h1 id="XML方式的基本用法"><a href="#XML方式的基本用法" class="headerlink" title="XML方式的基本用法"></a>XML方式的基本用法</h1><h2 id="一个简单的权限控制需求"><a href="#一个简单的权限控制需求" class="headerlink" title="一个简单的权限控制需求"></a>一个简单的权限控制需求</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/MyBatis%E5%9F%BA%E7%A1%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-24%20%E4%B8%8B%E5%8D%881.37.31.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>为了方便对表进行直接操作，此处没有创建表之间的外键关系。对于表之间的关系，会通过业务逻辑来进行限制。</p>
 <p>创建表和创建实体类。<br><strong>特别注意，由于Java中的基本类型会有默认值，会导致很多隐藏的问题。所以在实体类中不要使用基本类型，基本类型包括byte,int,short,long,float,double,char,boolean。</strong></p>
-<h2 id="使用XML方式"><a href="#使用XML方式" class="headerlink" title="使用XML方式"></a>使用XML方式</h2><p>创建数据表对应的XML文件，并创建对应的接口类。<br>将xml文件与对应的接口类产生联系。<br><img src="/img/media/MyBatis%E5%9F%BA%E7%A1%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-24%20%E4%B8%8B%E5%8D%881.55.30.png" alt=""><br>将创建的mybatis-config.xml配置文件中的mappers元素中配置所有的mapper。<br><img src="/img/media/MyBatis%E5%9F%BA%E7%A1%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-24%20%E4%B8%8B%E5%8D%881.56.59.png" alt=""><br>也可以进行更简单的配置。<br><img src="/img/media/MyBatis%E5%9F%BA%E7%A1%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-24%20%E4%B8%8B%E5%8D%881.58.21.png" alt=""><br>这种配置方式会先查找tk. mybatis.simple . mapper包下所有的接口,循环对接口进行如下操作：<br>1.判断接口对应的命名空间是否已经存在，如果存在就抛出异常，不存在就继续进行接下来的操作。<br>2.加载接口对应的XML映射文件，将接口全限定名转换为路径，例如，将接口tk .mybatis. simple . mapper . UserMapper转换为tk/ mybatis/ simple/ mapper/ UserMapper.xml, 以.xml为后缀搜索XML资源，如果找到就解析XML。<br>3.处理接口中的注解方法。</p>
-<h2 id="select用法"><a href="#select用法" class="headerlink" title="select用法"></a>select用法</h2><p>在接口中添加一个selectById方法。<br><img src="/img/media/MyBatis%E5%9F%BA%E7%A1%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-24%20%E4%B8%8B%E5%8D%882.52.06.png" alt=""><br>使用MyBatis时，只需要在XML中添加一个select元素，写一个SQL,做一些简单的配置，就可以将查询的结果直接映射到对象中。<br>在xml中添加代码：<br><img src="/img/media/MyBatis%E5%9F%BA%E7%A1%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-24%20%E4%B8%8B%E5%8D%882.17.50.png" alt=""><br>XML中的select标签的id属性值和定义的接口方法名是一样的。MyBatis就是通过这种方式将接口方法和XML中定义的SQL语句关联到一起的，如果接口方法没有和XML中的id属性值相对应，启动程序便会报错。</p>
+<h2 id="使用XML方式"><a href="#使用XML方式" class="headerlink" title="使用XML方式"></a>使用XML方式</h2><p>创建数据表对应的XML文件，并创建对应的接口类。<br>将xml文件与对应的接口类产生联系。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/MyBatis%E5%9F%BA%E7%A1%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-24%20%E4%B8%8B%E5%8D%881.55.30.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>将创建的mybatis-config.xml配置文件中的mappers元素中配置所有的mapper。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/MyBatis%E5%9F%BA%E7%A1%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-24%20%E4%B8%8B%E5%8D%881.56.59.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>也可以进行更简单的配置。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/MyBatis%E5%9F%BA%E7%A1%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-24%20%E4%B8%8B%E5%8D%881.58.21.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>这种配置方式会先查找tk. mybatis.simple . mapper包下所有的接口,循环对接口进行如下操作：<br>1.判断接口对应的命名空间是否已经存在，如果存在就抛出异常，不存在就继续进行接下来的操作。<br>2.加载接口对应的XML映射文件，将接口全限定名转换为路径，例如，将接口tk .mybatis. simple . mapper . UserMapper转换为tk/ mybatis/ simple/ mapper/ UserMapper.xml, 以.xml为后缀搜索XML资源，如果找到就解析XML。<br>3.处理接口中的注解方法。</p>
+<h2 id="select用法"><a href="#select用法" class="headerlink" title="select用法"></a>select用法</h2><p>在接口中添加一个selectById方法。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/MyBatis%E5%9F%BA%E7%A1%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-24%20%E4%B8%8B%E5%8D%882.52.06.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>使用MyBatis时，只需要在XML中添加一个select元素，写一个SQL,做一些简单的配置，就可以将查询的结果直接映射到对象中。<br>在xml中添加代码：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/MyBatis%E5%9F%BA%E7%A1%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-24%20%E4%B8%8B%E5%8D%882.17.50.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>XML中的select标签的id属性值和定义的接口方法名是一样的。MyBatis就是通过这种方式将接口方法和XML中定义的SQL语句关联到一起的，如果接口方法没有和XML中的id属性值相对应，启动程序便会报错。</p>
 <p>jdbcType:列对应的数据库类型。JDBC 类型仅仅需要对插入、更新、删除操作可能为空的列进行处理。这是JDBC jdbcType的需要，而不是MyBatis的需要。</p>
 <p><strong>自动映射</strong>，使用resultType来设置返回结果的类型，需要在SQL中为所有列名和属性名不一致的列设置别名，通过设置别名使最终的查询结果列和resultType指定对象的属性名保持一致。</p>
 <hr>
 <p><strong>名称映射规则</strong><br>property属性或别名要和对象中属性的名字相同，但是实际匹配时，MyBatis会先将两者都转换为大写形式， 然后再判断是否相同，即property=“userName” 和property=“username” 都可以匹配到对象的userName属性上。判断是否相同的时候要使用USERNAME,因此在设置property属性或别名的时候，不需要考虑大小写是否一致，但是为了便于阅读，要尽可能按照统一的规则来设置。</p>
 <hr>
-<p>MyBatis还提供了一个全局属性<strong>mapUnderscoreToCamelCase</strong>,通过配置这个属性为true可以自动将以下划线方式命名的数据库列映射到Java对象的驼峰式命名属性中。这个属性默认为false。需要在MyBatis配置文件中启用。<br><img src="/img/media/MyBatis%E5%9F%BA%E7%A1%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-24%20%E4%B8%8B%E5%8D%882.39.40.png" alt=""><br>考虑性能，通常都会指定查询列，很少使用星号代替所有列。</p>
-<p>多表查询中，方法写在任何一个对应的Mapper接口中都可以。<br><img src="/img/media/MyBatis%E5%9F%BA%E7%A1%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-24%20%E4%B8%8B%E5%8D%882.45.58.png" alt=""></p>
-<h2 id="insert用法"><a href="#insert用法" class="headerlink" title="insert用法"></a>insert用法</h2><p><img src="/img/media/MyBatis%E5%9F%BA%E7%A1%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-24%20%E4%B8%8B%E5%8D%885.59.33.png" alt=""><br><img src="/img/media/MyBatis%E5%9F%BA%E7%A1%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-24%20%E4%B8%8B%E5%8D%886.02.35.png" alt=""><br>返回的int值是指执行的SQL影响的行数。</p>
-<h3 id="使用JDBC方式返回主键自增的值"><a href="#使用JDBC方式返回主键自增的值" class="headerlink" title="使用JDBC方式返回主键自增的值"></a>使用JDBC方式返回主键自增的值</h3><p>在xml的标签中配置属性。<br><img src="/img/media/MyBatis%E5%9F%BA%E7%A1%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-24%20%E4%B8%8B%E5%8D%886.23.18.png" alt=""><br>useGeneratedKeys设置为true后, MyBatis会使用JDBC的getGeneratedKeys方法来取出由数据库内部生成的主键。获得主键值后将其赋值给keyProperty配置的id属性。SQL上下两部分的列中去掉了id列和对应的#{ id }属性。</p>
-<h3 id="使用selectKey返回主键的值"><a href="#使用selectKey返回主键的值" class="headerlink" title="使用selectKey返回主键的值"></a>使用selectKey返回主键的值</h3><p>该方式不仅适用于不提供主键自增功能的数据库，也适用于提供主键自增功能的数据库。<br><img src="/img/media/MyBatis%E5%9F%BA%E7%A1%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-24%20%E4%B8%8B%E5%8D%886.37.34.png" alt=""></p>
-<h2 id="多个接口参数的用法"><a href="#多个接口参数的用法" class="headerlink" title="多个接口参数的用法"></a>多个接口参数的用法</h2><p>当参数是一个基本类型的时候，它在XML文件中对应的SQL语句只会使用一个参数，例如delete方法。当参数是一个JavaBean类型的时候，它在XML文件中对应的SQL语句会有多个参数，例如insert、update 方法。但并不适合全部的情况，因为不能只为了两三个参数去创建新的JavaBean，参数较少时还可以采用Map类型作为参数或使用@Param注解。<br><img src="/img/media/MyBatis%E5%9F%BA%E7%A1%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-24%20%E4%B8%8B%E5%8D%886.48.44.png" alt=""><br>给参数配置@Param注解后，MyBatis 就会自动将参数封装成Map类型，@Param 注解值会作为Map中的key,因此在SQL部分就可以通过配置的注解值来使用参数。</p>
+<p>MyBatis还提供了一个全局属性<strong>mapUnderscoreToCamelCase</strong>,通过配置这个属性为true可以自动将以下划线方式命名的数据库列映射到Java对象的驼峰式命名属性中。这个属性默认为false。需要在MyBatis配置文件中启用。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/MyBatis%E5%9F%BA%E7%A1%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-24%20%E4%B8%8B%E5%8D%882.39.40.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>考虑性能，通常都会指定查询列，很少使用星号代替所有列。</p>
+<p>多表查询中，方法写在任何一个对应的Mapper接口中都可以。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/MyBatis%E5%9F%BA%E7%A1%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-24%20%E4%B8%8B%E5%8D%882.45.58.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h2 id="insert用法"><a href="#insert用法" class="headerlink" title="insert用法"></a>insert用法</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/MyBatis%E5%9F%BA%E7%A1%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-24%20%E4%B8%8B%E5%8D%885.59.33.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/MyBatis%E5%9F%BA%E7%A1%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-24%20%E4%B8%8B%E5%8D%886.02.35.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>返回的int值是指执行的SQL影响的行数。</p>
+<h3 id="使用JDBC方式返回主键自增的值"><a href="#使用JDBC方式返回主键自增的值" class="headerlink" title="使用JDBC方式返回主键自增的值"></a>使用JDBC方式返回主键自增的值</h3><p>在xml的标签中配置属性。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/MyBatis%E5%9F%BA%E7%A1%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-24%20%E4%B8%8B%E5%8D%886.23.18.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>useGeneratedKeys设置为true后, MyBatis会使用JDBC的getGeneratedKeys方法来取出由数据库内部生成的主键。获得主键值后将其赋值给keyProperty配置的id属性。SQL上下两部分的列中去掉了id列和对应的#{ id }属性。</p>
+<h3 id="使用selectKey返回主键的值"><a href="#使用selectKey返回主键的值" class="headerlink" title="使用selectKey返回主键的值"></a>使用selectKey返回主键的值</h3><p>该方式不仅适用于不提供主键自增功能的数据库，也适用于提供主键自增功能的数据库。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/MyBatis%E5%9F%BA%E7%A1%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-24%20%E4%B8%8B%E5%8D%886.37.34.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h2 id="多个接口参数的用法"><a href="#多个接口参数的用法" class="headerlink" title="多个接口参数的用法"></a>多个接口参数的用法</h2><p>当参数是一个基本类型的时候，它在XML文件中对应的SQL语句只会使用一个参数，例如delete方法。当参数是一个JavaBean类型的时候，它在XML文件中对应的SQL语句会有多个参数，例如insert、update 方法。但并不适合全部的情况，因为不能只为了两三个参数去创建新的JavaBean，参数较少时还可以采用Map类型作为参数或使用@Param注解。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/MyBatis%E5%9F%BA%E7%A1%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-24%20%E4%B8%8B%E5%8D%886.48.44.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>给参数配置@Param注解后，MyBatis 就会自动将参数封装成Map类型，@Param 注解值会作为Map中的key,因此在SQL部分就可以通过配置的注解值来使用参数。</p>
 <p>当只有一一个参数(基本类型或拥有TypeHandler配置的类型)的时候，在这种情况下(除集合和数组外)，MyBatis不关心这个参数叫什么名字就会直接把这个唯一的参数值拿来使用。</p>
 <h2 id="Mapper接口动态代理实现原理"><a href="#Mapper接口动态代理实现原理" class="headerlink" title="Mapper接口动态代理实现原理"></a>Mapper接口动态代理实现原理</h2><p>可以通过动态代理这个桥梁将对接口方法的调用转换为对其他方法的调用。</p>
 <h1 id="MyBatis注解"><a href="#MyBatis注解" class="headerlink" title="MyBatis注解"></a>MyBatis注解</h1><p>MyBatis注解方式就是将SQL语句直接写在接口上。这种方式的优点是，对于需求比较简单的系统，效率较高。缺点是，当SQL有变化时都需要重新编译代码，一”般情况下不建议使用注解方式。</p>
-<h2 id="Select注解"><a href="#Select注解" class="headerlink" title="@Select注解"></a>@Select注解</h2><p><img src="/img/media/MyBatis%E5%9F%BA%E7%A1%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-24%20%E4%B8%8B%E5%8D%887.04.53.png" alt=""></p>
-<h1 id="Spring集成MyBatis"><a href="#Spring集成MyBatis" class="headerlink" title="Spring集成MyBatis"></a>Spring集成MyBatis</h1><p><img src="/img/media/MyBatis%E5%9F%BA%E7%A1%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-24%20%E4%B8%8B%E5%8D%887.09.59.png" alt=""><br><img src="/img/media/MyBatis%E5%9F%BA%E7%A1%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-24%20%E4%B8%8B%E5%8D%887.14.23.png" alt=""></p>
+<h2 id="Select注解"><a href="#Select注解" class="headerlink" title="@Select注解"></a>@Select注解</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/MyBatis%E5%9F%BA%E7%A1%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-24%20%E4%B8%8B%E5%8D%887.04.53.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h1 id="Spring集成MyBatis"><a href="#Spring集成MyBatis" class="headerlink" title="Spring集成MyBatis"></a>Spring集成MyBatis</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/MyBatis%E5%9F%BA%E7%A1%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-24%20%E4%B8%8B%E5%8D%887.09.59.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/MyBatis%E5%9F%BA%E7%A1%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-24%20%E4%B8%8B%E5%8D%887.14.23.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <hr>
-<p><strong>配置SqlSessionFactoryBean</strong><br>在MyBatis. Spring中,SqlSessionFactoryBean是用于创建SqlSessionFactory的。<br><img src="/img/media/MyBatis%E5%9F%BA%E7%A1%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-24%20%E4%B8%8B%E5%8D%887.17.22.png" alt=""></p>
+<p><strong>配置SqlSessionFactoryBean</strong><br>在MyBatis. Spring中,SqlSessionFactoryBean是用于创建SqlSessionFactory的。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/MyBatis%E5%9F%BA%E7%A1%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-24%20%E4%B8%8B%E5%8D%887.17.22.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <hr>
-<p><strong>配置MapperScannerConfigurer</strong><br><img src="/img/media/MyBatis%E5%9F%BA%E7%A1%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-24%20%E4%B8%8B%E5%8D%887.19.04.png" alt=""></p>
+<p><strong>配置MapperScannerConfigurer</strong><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/MyBatis%E5%9F%BA%E7%A1%80/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-06-24%20%E4%B8%8B%E5%8D%887.19.04.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <hr>
 
         </div>
@@ -364,9 +476,7 @@
             </span>
         </p>
     </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
+
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
     </script>
 </footer>

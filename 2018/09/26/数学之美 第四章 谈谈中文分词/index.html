@@ -188,7 +188,13 @@
 <p>最容易想到的分词方法,也是最简单的办法,就是查字典。“查字典”的办法,其实就是把一个句子从左向右扫描一遍,遇到字典里有的词就标识出来,遇到复合词(比如“上海大学”)就找最长的词匹配,遇到不认识的字串就分割成单字词,于是简单的分词就完成了。</p>
 <p>这个最简单的方法可以解决七八成以上的分词问题,遇到稍微复杂一点的问题就无能为力了。这种方法的一个明显不足时当遇到有二义性的分割时无能为力，另外并非所有的最长匹配都是一定正确的。</p>
 <p>利用统计语言模型分词的方法,可以用几个数学公式简单概括如下:假定一个句子S可以有几种分词方法,为了简单起见,假定有以下三种:</p>
-<p><img src="/img/media/%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E%20%E7%AC%AC%E5%9B%9B%E7%AB%A0%20%E8%B0%88%E8%B0%88%E4%B8%AD%E6%96%87%E5%88%86%E8%AF%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-26%20%E4%B8%8B%E5%8D%885.52.18.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E%20%E7%AC%AC%E5%9B%9B%E7%AB%A0%20%E8%B0%88%E8%B0%88%E4%B8%AD%E6%96%87%E5%88%86%E8%AF%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-26%20%E4%B8%8B%E5%8D%885.52.18.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>其中,A1,A2…B1,B2…,C1,C2…等等都是汉语的词,那么最好的一种分词方法应该保证分完词后这个句子出现的概率最大。</p>
 <p>当然,这里面有一个实现的技巧。如果穷举所有可能的分词方法并计算出每种可能性下句子的概率,那么计算量是相当大的。因此,可以把它看成是一个动态规划( Dynamic Programming)的问题,并利用维特比( Viterbi)算法快速地找到最佳分词。(我们在后面的章节会介绍该算法。)</p>
 <p>一般来讲,根据不同应用,汉语分词的颗粒度大小应该不同。</p>
@@ -333,9 +339,7 @@
             </span>
         </p>
     </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
+
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
     </script>
 </footer>

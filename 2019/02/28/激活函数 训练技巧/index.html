@@ -205,12 +205,66 @@
         <div class="post-content" id="post-content" itemprop="postContent">
             <h1 id="百面-深度神经网络中的激活函数"><a href="#百面-深度神经网络中的激活函数" class="headerlink" title="百面 深度神经网络中的激活函数"></a>百面 深度神经网络中的激活函数</h1><p>线性模型是机器学习领域中最基本也是最重要的工具，以逻辑回归和线性回归为例，无论是通过闭解形式还是使用凸优化，它们都能高效且可靠地拟合数据。然而真实情况中，我们往往会遇到线性不可分的问题（如XOR异或函数），需要非线性变换对数据的分布进行重新映射。对于深度神经网络，我们在每一层线性变换后叠加一个非线性激活函数，以避免多层网络等效于单层线性函数，从而获得更强大的学习与拟合能力。</p>
 <h2 id="问题1"><a href="#问题1" class="headerlink" title="问题1"></a>问题1</h2><p>问：写出常用的激活函数及其导数。</p>
-<p>答：<br><strong>Sigmoid</strong>激活函数的形式为<br><img src="/img/media/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%20%E8%AE%AD%E7%BB%83%E6%8A%80%E5%B7%A7/WechatIMG121551316508_.pic_hd.jpg" alt=""><br>对应的导函数为<br><img src="/img/media/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%20%E8%AE%AD%E7%BB%83%E6%8A%80%E5%B7%A7/WechatIMG161551316509_.pic_hd.jpg" alt=""></p>
-<p><strong>Tanh</strong>激活函数的形式为<br><img src="/img/media/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%20%E8%AE%AD%E7%BB%83%E6%8A%80%E5%B7%A7/WechatIMG141551316509_.pic_hd.jpg" alt=""><br>对应的导函数为<br><img src="/img/media/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%20%E8%AE%AD%E7%BB%83%E6%8A%80%E5%B7%A7/WechatIMG131551316509_.pic_hd.jpg" alt=""></p>
-<p><strong>ReLU</strong>激活函数的形式为<br><img src="/img/media/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%20%E8%AE%AD%E7%BB%83%E6%8A%80%E5%B7%A7/WechatIMG111551316508_.pic_hd.jpg" alt=""><br>对应的导函数为<br><img src="/img/media/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%20%E8%AE%AD%E7%BB%83%E6%8A%80%E5%B7%A7/WechatIMG151551316509_.pic_hd.jpg" alt=""></p>
+<p>答：<br><strong>Sigmoid</strong>激活函数的形式为<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%20%E8%AE%AD%E7%BB%83%E6%8A%80%E5%B7%A7/WechatIMG121551316508_.pic_hd.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>对应的导函数为<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%20%E8%AE%AD%E7%BB%83%E6%8A%80%E5%B7%A7/WechatIMG161551316509_.pic_hd.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p><strong>Tanh</strong>激活函数的形式为<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%20%E8%AE%AD%E7%BB%83%E6%8A%80%E5%B7%A7/WechatIMG141551316509_.pic_hd.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>对应的导函数为<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%20%E8%AE%AD%E7%BB%83%E6%8A%80%E5%B7%A7/WechatIMG131551316509_.pic_hd.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p><strong>ReLU</strong>激活函数的形式为<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%20%E8%AE%AD%E7%BB%83%E6%8A%80%E5%B7%A7/WechatIMG111551316508_.pic_hd.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>对应的导函数为<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%20%E8%AE%AD%E7%BB%83%E6%8A%80%E5%B7%A7/WechatIMG151551316509_.pic_hd.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <h2 id="问题2"><a href="#问题2" class="headerlink" title="问题2"></a>问题2</h2><p>问：为什么Sigmoid和Tanh激活函数会导致梯度消失的现象？</p>
-<p>答：<strong>Sigmoid</strong>激活函数的曲线如下，它将输入z映射到区间（0，1），当z很大时，f（z）趋近于1；当z很小时，f（z）趋近于0。其导数在z很大或很小时都会趋近于0，造成梯度消失的现象。<br><img src="/img/media/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%20%E8%AE%AD%E7%BB%83%E6%8A%80%E5%B7%A7/191551317388_.pic_hd.jpg" alt=""></p>
-<p><strong>Tanh</strong>激活函数的曲线如下。当z很大时，f（z）趋近于1；当z很小时，f（z）趋近于-1.。其导数在z很大或很小时都会趋近于0，同样会出现“梯度消失”。实际上，<strong>Tanh</strong>激活函数相当于<strong>Sigmoid</strong>的平移：<br><img src="/img/media/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%20%E8%AE%AD%E7%BB%83%E6%8A%80%E5%B7%A7/171551317387_.pic_hd.jpg" alt=""><br><img src="/img/media/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%20%E8%AE%AD%E7%BB%83%E6%8A%80%E5%B7%A7/181551317388_.pic_hd.jpg" alt=""></p>
+<p>答：<strong>Sigmoid</strong>激活函数的曲线如下，它将输入z映射到区间（0，1），当z很大时，f（z）趋近于1；当z很小时，f（z）趋近于0。其导数在z很大或很小时都会趋近于0，造成梯度消失的现象。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%20%E8%AE%AD%E7%BB%83%E6%8A%80%E5%B7%A7/191551317388_.pic_hd.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p><strong>Tanh</strong>激活函数的曲线如下。当z很大时，f（z）趋近于1；当z很小时，f（z）趋近于-1.。其导数在z很大或很小时都会趋近于0，同样会出现“梯度消失”。实际上，<strong>Tanh</strong>激活函数相当于<strong>Sigmoid</strong>的平移：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%20%E8%AE%AD%E7%BB%83%E6%8A%80%E5%B7%A7/171551317387_.pic_hd.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%20%E8%AE%AD%E7%BB%83%E6%8A%80%E5%B7%A7/181551317388_.pic_hd.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <h2 id="问题3"><a href="#问题3" class="headerlink" title="问题3"></a>问题3</h2><p>问：ReLU系列的激活函数相对于Sigmoid和Tanh激活函数的优点是什么？它们有什么局限性以及如何改进？</p>
 <p>答：优点：</p>
 <ol>
@@ -220,22 +274,88 @@
 </ol>
 <p>关于稀疏性的解释：通过对大脑的研究发现，大脑在工作的时候只有大约5%的神经元是激活的，而采用sigmoid激活函数的人工神经网络，其激活率大约是50%。有论文声称人工神经网络在15%-30%的激活率时是比较理想的。因为relu函数在输入小于0时是完全不激活的，因此可以获得一个更低的激活率。</p>
 <p>局限性：<br>ReLU的局限性在于其训练过程中会导致神经元的死亡问题。这是由于函数f（z）=max（0，z）导致负梯度在经过该ReLU单元时被置为0，且在之后也不被任何数据激活，即流经该神经元的梯度永远为0，不对任何数据产生响应。在实际训练中，如果学习率设置较大，会导致超过一定比例的神经元不可逆死亡，进而参数梯度无法更新，整个训练过程失败。</p>
-<p>为解决这一问题，人们设计了ReLU的变种Leaky ReLU（LReLU），其形式表示为<br><img src="/img/media/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%20%E8%AE%AD%E7%BB%83%E6%8A%80%E5%B7%A7/201551318136_.pic_hd.jpg" alt=""><br>ReLU和LReLU的函数曲线对比如下图，一般a是一个很小的正常数，这样即实现了单侧抑制，又保留了部分负梯度信息以致不完全丢失，另一方面，a值的选择增加了问题难度，需要较强的人工先验或多次重复训练以确定合适的参数值。<br><img src="/img/media/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%20%E8%AE%AD%E7%BB%83%E6%8A%80%E5%B7%A7/211551318136_.pic_hd.jpg" alt=""><br>基于比，参数化的PReLU应运而生。它与LReLU的主要区别是将负轴部分斜率a作为网络中一个可学习的参数，进行反向传播训练，与其他含参数网络层联合优化。而另一个LReLU的变种增加了随机化机制，具体的，在训练过程中，斜率a作为一个满足某种分布的随机采样，测试时再固定下来。Random ReLU在一定程度上能起到正则化的作用。</p>
+<p>为解决这一问题，人们设计了ReLU的变种Leaky ReLU（LReLU），其形式表示为<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%20%E8%AE%AD%E7%BB%83%E6%8A%80%E5%B7%A7/201551318136_.pic_hd.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>ReLU和LReLU的函数曲线对比如下图，一般a是一个很小的正常数，这样即实现了单侧抑制，又保留了部分负梯度信息以致不完全丢失，另一方面，a值的选择增加了问题难度，需要较强的人工先验或多次重复训练以确定合适的参数值。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%20%E8%AE%AD%E7%BB%83%E6%8A%80%E5%B7%A7/211551318136_.pic_hd.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>基于比，参数化的PReLU应运而生。它与LReLU的主要区别是将负轴部分斜率a作为网络中一个可学习的参数，进行反向传播训练，与其他含参数网络层联合优化。而另一个LReLU的变种增加了随机化机制，具体的，在训练过程中，斜率a作为一个满足某种分布的随机采样，测试时再固定下来。Random ReLU在一定程度上能起到正则化的作用。</p>
 <h1 id="百面-神经网络训练技巧"><a href="#百面-神经网络训练技巧" class="headerlink" title="百面 神经网络训练技巧"></a>百面 神经网络训练技巧</h1><p>在大规模神经网络的训练过程中，我们经常会面临过拟合问题，即当参数数目过于庞大而相应的训练数据短缺时，模型在训练集上损失值很小，但在测试集上损失较大，泛化能力很差。解决过拟合的方法有很多，包括数据集增强，参数范数惩罚，正则化，模型集成等。其中Dropout是模型集成方法中最高效与常用的技巧。同时，深度神经网络的训练中涉及诸多手调参数，如学习率，权重衰减系数，Dropout比例等，这些参数的选择会显著影响模型最终的训练效果，批量归一化（Batch Normalization，BN）方法有效规避了这些复杂参数对网络训练产生的影响，在加速训练收敛的同时也提升了网络的泛化能力。</p>
 <h2 id="问题1-1"><a href="#问题1-1" class="headerlink" title="问题1"></a>问题1</h2><p>问：神经网络训练时是否可以将全部参数初始化为0？</p>
 <p>答：考虑全连接的深度神经网络，同一层中的任意神经元都是同构的，它们拥有相同的输入和输出，如果再将参数全部初始化为同样的值，那么无论是前向传播还是反向传播的取值都是完全相同的。学习过程将永远无法打破这种对称性，最终同一网络层中各个参数任然是相同的。</p>
-<p>因此，我们需要随机地初始化神经网络参数的值，以打破这种对称性。简单来说，我们可以初始化参数为取值范围<br><img src="/img/media/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%20%E8%AE%AD%E7%BB%83%E6%8A%80%E5%B7%A7/221551322121_.pic.jpg" alt=""><br>的均匀分布，其中d是一个神经元接受的输入维度。偏置可以被简单地设为0，并不会导致参数对称的问题。</p>
+<p>因此，我们需要随机地初始化神经网络参数的值，以打破这种对称性。简单来说，我们可以初始化参数为取值范围<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%20%E8%AE%AD%E7%BB%83%E6%8A%80%E5%B7%A7/221551322121_.pic.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>的均匀分布，其中d是一个神经元接受的输入维度。偏置可以被简单地设为0，并不会导致参数对称的问题。</p>
 <h2 id="问题2-1"><a href="#问题2-1" class="headerlink" title="问题2"></a>问题2</h2><p>问：为什么Dropout可以抑制过拟合？它的工作原理和实现？</p>
 <p>答：Dropout是指在深度网络的训练中，以一定的概率随机地“临时丢弃”一部分神经元节点，具体来讲，Dropout作用于每份小批量训练数据，由于其随机丢弃部分神经元的机制，相当于每次迭代都在训练不同结构的神经网络。类比于Bagging方法，Dropout可被认为是一种使用的大规模深度神经网络的模型集成算法。这是由于传统意义上的Bagging涉及多个模型的同时训练与测试评估，当网络与参数规模庞大时，这种集成方式需要消耗大量的运算时间与空间。Dropout在小批量级别上的操作，提供了一种轻量级的Bagging集成近似，能够实现指数级数量神经网络的训练与评测。</p>
-<p>Dropout的具体实现中，要求某个神经元节点激活值以一定的概率p被丢弃，即该神经元暂时停止工作，如下图所示<br><img src="/img/media/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%20%E8%AE%AD%E7%BB%83%E6%8A%80%E5%B7%A7/241551332898_.pic_hd.jpg" alt=""><br>因此，对于包含N个神经元节点的网络，在Dropout的作用下可看作为2^N 个模型的集成。这2^N 个模型可认为是原始网络的子网络，它们共享部分权值，并且具有相同的网络层数，而模型整体的参数数目不变，这就大大简化了运算。对于任意神经元，每次训练中都与一组随机挑选的不同神经元集合共同进行优化，这个过程会减弱全体神经元之间的联合适应性，减小过拟合风险，增强泛化能力。</p>
-<p>在神经网络中应用Dropout包括训练和预测两个阶段。在训练阶段中，每个神经节点需要增加一个概率系数，如下图所示。<br><img src="/img/media/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%20%E8%AE%AD%E7%BB%83%E6%8A%80%E5%B7%A7/251551333501_.pic_hd.jpg" alt=""><br>训练阶段又分为前向传播和反向传播两个步骤，原始网络对应的前向传播公式为：<br><img src="/img/media/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%20%E8%AE%AD%E7%BB%83%E6%8A%80%E5%B7%A7/231551332897_.pic_hd.jpg" alt=""><br>应用Dropout之后，前向传播公式变为：<br><img src="/img/media/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%20%E8%AE%AD%E7%BB%83%E6%8A%80%E5%B7%A7/271551334463_.pic_hd.jpg" alt=""><br><img src="/img/media/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%20%E8%AE%AD%E7%BB%83%E6%8A%80%E5%B7%A7/261551334462_.pic_hd.jpg" alt=""><br>上面的Bernoulli函数的作用是以概率系数p随机生成一个取值为0或1的向量，代表每个神经元是否需要被丢弃。如果取值为0，则该神经元将不会计算梯度或参与后面的误差传播。</p>
+<p>Dropout的具体实现中，要求某个神经元节点激活值以一定的概率p被丢弃，即该神经元暂时停止工作，如下图所示<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%20%E8%AE%AD%E7%BB%83%E6%8A%80%E5%B7%A7/241551332898_.pic_hd.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>因此，对于包含N个神经元节点的网络，在Dropout的作用下可看作为2^N 个模型的集成。这2^N 个模型可认为是原始网络的子网络，它们共享部分权值，并且具有相同的网络层数，而模型整体的参数数目不变，这就大大简化了运算。对于任意神经元，每次训练中都与一组随机挑选的不同神经元集合共同进行优化，这个过程会减弱全体神经元之间的联合适应性，减小过拟合风险，增强泛化能力。</p>
+<p>在神经网络中应用Dropout包括训练和预测两个阶段。在训练阶段中，每个神经节点需要增加一个概率系数，如下图所示。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%20%E8%AE%AD%E7%BB%83%E6%8A%80%E5%B7%A7/251551333501_.pic_hd.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>训练阶段又分为前向传播和反向传播两个步骤，原始网络对应的前向传播公式为：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%20%E8%AE%AD%E7%BB%83%E6%8A%80%E5%B7%A7/231551332897_.pic_hd.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>应用Dropout之后，前向传播公式变为：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%20%E8%AE%AD%E7%BB%83%E6%8A%80%E5%B7%A7/271551334463_.pic_hd.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%20%E8%AE%AD%E7%BB%83%E6%8A%80%E5%B7%A7/261551334462_.pic_hd.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>上面的Bernoulli函数的作用是以概率系数p随机生成一个取值为0或1的向量，代表每个神经元是否需要被丢弃。如果取值为0，则该神经元将不会计算梯度或参与后面的误差传播。</p>
 <p>测试阶段是前向传播过程。在前向传播的计算时，每个神经元的参数要预先乘以概率系数p，以恢复在训练该神经元只有p的概率被用于整个神经网络的前向传播计算。</p>
 <h2 id="问题3-1"><a href="#问题3-1" class="headerlink" title="问题3"></a>问题3</h2><p>问：批量归一化的基本动机与原理是什么？在卷积神经网络中如何使用？</p>
 <p>答：神经网络训练的本质是学习数据分布，如果训练数据与测试数据的分布不同将大大降低网络的泛化能力，因此我们需要在训练开始前对所有输入数据进行归一化处理。</p>
 <p>然而随着网络训练的进行，每个隐层的参数变化使得后一层的输入发生变化，从而每一批训练数据的分布也随之改变，致使网络在每次迭代中都需要拟合不同的数据分布，增大训练的复杂度以及过拟合的风险。</p>
-<p>批量归一化方法是针对每一批数据，在网络的每一层输入之前增加归一化处理（均值Wie0，标准差为1），将所有批数据强制在统一地数据分布下，即对该层的任意一个神经元（假设为第k维）采用如下公式：<br><img src="/img/media/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%20%E8%AE%AD%E7%BB%83%E6%8A%80%E5%B7%A7/281551335543_.pic.jpg" alt=""><br>x^k 是该层第k个神经元的原始输入数据，E是这一批输入数据在第k个神经元的均值，分母是这一批数据在第k个神经元的标准差。</p>
-<p>批量归一化可以看作在每一层输入和上一层输出之间加入了一个新的计算层，对数据的分布进行额外的约束，从而增强模型的泛化能力。但是批量归一化同时也降低了模型的拟合能力，归一化之后的输入分布被强制为0均值和1标准差。以Sigmoid激活函数为例，批量归一化之后数据整体处于函数的非饱和区域，只包含线性变换，破坏了之前学习到的特征分布。为了恢复原始数据分布，具体实现中引入了变换重构以及可学习参数γ和β：<br><img src="/img/media/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%20%E8%AE%AD%E7%BB%83%E6%8A%80%E5%B7%A7/291551336805_.pic.jpg" alt=""><br>其中γ和β分别是输入数据分布的方差和偏差。对于一般的网络，不采用批量归一化操作时，这两个参数高度依赖前面网络学习到的连接权重（对应复杂的非线性）。而在批量归一化操作中，γ和β变成了该层的学习参数，仅用两个参数就可以恢复最优的输入数据分布，与之前网络层的参数解耦，从而更有利于优化的过程，提高模型的泛化能力。</p>
-<p>完整的批量归一化网络层的前向传导过程公式如下：<br><img src="/img/media/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%20%E8%AE%AD%E7%BB%83%E6%8A%80%E5%B7%A7/301551338705_.pic.jpg" alt=""><br>批量归一化在卷积神经网络中应用时，需要注意卷积神经网络的参数共享机制。每一个卷积核的参数在不同位置的神经元当中是共享的，因此也应该被一起归一化。具体实现中，假设网络训练中每一批包含b个样本，由一个卷积核生成的特征图的宽高分别是w和h，则每个特征图所对应的全部神经元个数为b <em> w </em> h；利用这些神经元对应的所有输入数据，我们根据一组待学习的参数γ和β对每个输入数据进行批量归一化操作。如果有f个卷积核，就对应f个特征图和f组不同的β和γ参数。</p>
+<p>批量归一化方法是针对每一批数据，在网络的每一层输入之前增加归一化处理（均值Wie0，标准差为1），将所有批数据强制在统一地数据分布下，即对该层的任意一个神经元（假设为第k维）采用如下公式：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%20%E8%AE%AD%E7%BB%83%E6%8A%80%E5%B7%A7/281551335543_.pic.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>x^k 是该层第k个神经元的原始输入数据，E是这一批输入数据在第k个神经元的均值，分母是这一批数据在第k个神经元的标准差。</p>
+<p>批量归一化可以看作在每一层输入和上一层输出之间加入了一个新的计算层，对数据的分布进行额外的约束，从而增强模型的泛化能力。但是批量归一化同时也降低了模型的拟合能力，归一化之后的输入分布被强制为0均值和1标准差。以Sigmoid激活函数为例，批量归一化之后数据整体处于函数的非饱和区域，只包含线性变换，破坏了之前学习到的特征分布。为了恢复原始数据分布，具体实现中引入了变换重构以及可学习参数γ和β：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%20%E8%AE%AD%E7%BB%83%E6%8A%80%E5%B7%A7/291551336805_.pic.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>其中γ和β分别是输入数据分布的方差和偏差。对于一般的网络，不采用批量归一化操作时，这两个参数高度依赖前面网络学习到的连接权重（对应复杂的非线性）。而在批量归一化操作中，γ和β变成了该层的学习参数，仅用两个参数就可以恢复最优的输入数据分布，与之前网络层的参数解耦，从而更有利于优化的过程，提高模型的泛化能力。</p>
+<p>完整的批量归一化网络层的前向传导过程公式如下：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%20%E8%AE%AD%E7%BB%83%E6%8A%80%E5%B7%A7/301551338705_.pic.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>批量归一化在卷积神经网络中应用时，需要注意卷积神经网络的参数共享机制。每一个卷积核的参数在不同位置的神经元当中是共享的，因此也应该被一起归一化。具体实现中，假设网络训练中每一批包含b个样本，由一个卷积核生成的特征图的宽高分别是w和h，则每个特征图所对应的全部神经元个数为b <em> w </em> h；利用这些神经元对应的所有输入数据，我们根据一组待学习的参数γ和β对每个输入数据进行批量归一化操作。如果有f个卷积核，就对应f个特征图和f组不同的β和γ参数。</p>
 <p>批标准化的使用方法：<br>批标准化一般用在非线性映射（激活函数）之前，对y= Wx + b进行规范化，是结果(输出信号的各个维度)的均值都为0,方差为1,让每一层的输入有一个稳定的分布会有利于网络的训练。<br>在神经网络收敛过慢或者梯度爆炸时的那个无法训练的情况下都可以尝试。<br>批准标化指的是批数据, 把数据分成小批小批进行随机梯度下降. 而且在每批数据进行前向传递的时候, 对每一层都进行标化的处理。</p>
 <h1 id="美团-激活函数"><a href="#美团-激活函数" class="headerlink" title="美团 激活函数"></a>美团 激活函数</h1><p>在深度前馈神经网络中，有个关键的问题需要考虑：非线性变换有什么用，如何进行选择？</p>
 <p>理论上，包含非线性变换的深度前馈神经网络能拟合任何连续函数。非线性变换一方面可以解决线性感知机无法解决的问题（比如XOR问题），真正发挥深层网络的优势。</p>
@@ -378,9 +498,7 @@
             </span>
         </p>
     </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
+
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
     </script>
 </footer>

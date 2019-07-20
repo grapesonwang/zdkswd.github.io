@@ -200,7 +200,13 @@
 <li>直接指令下达：shell.sh文件必须具备可读与可执行（rx）的权限。无论如何到达shell.sh的目录，然后直接输入shell.sh就能执行。</li>
 <li>以bash程序来执行，通过bash shell.sh或sh shell.sh来执行。</li>
 </ol>
-<h4 id="撰写第一支script"><a href="#撰写第一支script" class="headerlink" title="撰写第一支script"></a>撰写第一支script</h4><p><img src="/img/media/Shell%20Scripts/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-30%20%E4%B8%8B%E5%8D%884.17.29.png" alt=""></p>
+<h4 id="撰写第一支script"><a href="#撰写第一支script" class="headerlink" title="撰写第一支script"></a>撰写第一支script</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Shell%20Scripts/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-30%20%E4%B8%8B%E5%8D%884.17.29.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <ol>
 <li>第一行# ! / bin / bash在宣告这个script使用的shell名称:因为我们使用的是bash，所以，必须要以“ # ! / bin / bash”来宣告这个文件内的语法使用bash的语法!那么当这个程序被执行时，他就能够载入bash的相关环境配置文件(一般来说就是non-login shell的~/.bashrc)，并且执行bash来使我们下面的指令能够执行!这很重要的! (在很多状况中，如果没有设置好这一行，那么该程序很可能会无法执行，因为系统可能无法判断该程序需要使用什么shell 来执行啊! )</li>
 <li>程序内容的说明: 整个script当中，除了第一行的“ # !”是用来宣告shell的之外，其他的 # 都是“注解”用途! 所以上面的程序当中，第二行以下就是用来说明整个程序的基本数据。一般来说，建议你一定要养成说明该script的:1.内容与功能;2.版本信息; 3.作者与联络方式;4.创建日期;5.历史纪录等等。这将有助于未来程序的改写与debug。</li>
@@ -352,9 +358,7 @@
             </span>
         </p>
     </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
+
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
     </script>
 </footer>

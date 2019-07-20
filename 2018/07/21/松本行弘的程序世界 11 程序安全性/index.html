@@ -213,11 +213,29 @@
 <h3 id="SQL注入"><a href="#SQL注入" class="headerlink" title="SQL注入"></a>SQL注入</h3><p>SQL注入是对外部的输入检查不充分时所产生的典型问题。<br>从外部的输入不能原封不动填到SQL语句中去，因为填入的文字可能含有对SQL语句有某种意义的文字。</p>
 <h3 id="Shell注入"><a href="#Shell注入" class="headerlink" title="Shell注入"></a>Shell注入</h3><p>Shell注入与SQL注入原理相同。<br>从外部的输入，如果不进行检查就不能传递给system等危险的函数。<br>为了从一定程度上检查出这类问题，Ruby和Perl中有“污染检查”功能。给外部输入的数据加上“污染记号”，禁止对字符串进行危险操作。</p>
 <h3 id="跨站点脚本攻击"><a href="#跨站点脚本攻击" class="headerlink" title="跨站点脚本攻击"></a>跨站点脚本攻击</h3><p>跨站点脚本攻击与SQL注入和Shell注入一样，也是因为将输入值原封不动地放在输出值内而引起的问题。<br>如用户输入中含有HTML标签。而且HTML可能夹杂JavaScript。</p>
-<h3 id="跨站点伪造请求"><a href="#跨站点伪造请求" class="headerlink" title="跨站点伪造请求"></a>跨站点伪造请求</h3><p>跨站点伪造请求（CSRF）是Web应用程序固有的攻击手段。<br>构成Web应用程序的每一页由两部分构成，一个来自网路浏览器的HTTP请求，一个是HTTP服务器的响应。<br><img src="/img/media/15320811324762/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-21%20%E4%B8%8B%E5%8D%887.11.22.png" alt="屏幕快照 2018-07-21 下午7.11.22"></p>
+<h3 id="跨站点伪造请求"><a href="#跨站点伪造请求" class="headerlink" title="跨站点伪造请求"></a>跨站点伪造请求</h3><p>跨站点伪造请求（CSRF）是Web应用程序固有的攻击手段。<br>构成Web应用程序的每一页由两部分构成，一个来自网路浏览器的HTTP请求，一个是HTTP服务器的响应。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15320811324762/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-21%20%E4%B8%8B%E5%8D%887.11.22.png" alt="屏幕快照 2018-07-21 下午7.11.22" title="">
+                </div>
+                <div class="image-caption">屏幕快照 2018-07-21 下午7.11.22</div>
+            </figure></p>
 <h3 id="社会工程"><a href="#社会工程" class="headerlink" title="社会工程"></a>社会工程</h3><h2 id="用异常进行错误处理"><a href="#用异常进行错误处理" class="headerlink" title="用异常进行错误处理"></a>用异常进行错误处理</h2><h3 id="异常的历史"><a href="#异常的历史" class="headerlink" title="异常的历史"></a>异常的历史</h3><h3 id="Java的受控异常"><a href="#Java的受控异常" class="headerlink" title="Java的受控异常"></a>Java的受控异常</h3><p>采用受控异常的，Java是第一个。</p>
 <h3 id="Icon的面向目标判断"><a href="#Icon的面向目标判断" class="headerlink" title="Icon的面向目标判断"></a>Icon的面向目标判断</h3><p>Ruby在设计之初，也曾认真考虑过采用像Icon式的真伪值判断，结果还是采用了nil和false以外的值全是真值的这种正统方式。</p>
-<h3 id="Ruby的异常"><a href="#Ruby的异常" class="headerlink" title="Ruby的异常"></a>Ruby的异常</h3><p><img src="/img/media/15320811324762/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-21%20%E4%B8%8B%E5%8D%887.30.12.png" alt="屏幕快照 2018-07-21 下午7.30.12"></p>
-<h3 id="异常发生"><a href="#异常发生" class="headerlink" title="异常发生"></a>异常发生</h3><p><img src="/img/media/15320811324762/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-21%20%E4%B8%8B%E5%8D%887.33.32.png" alt="屏幕快照 2018-07-21 下午7.33.32"></p>
+<h3 id="Ruby的异常"><a href="#Ruby的异常" class="headerlink" title="Ruby的异常"></a>Ruby的异常</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15320811324762/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-21%20%E4%B8%8B%E5%8D%887.30.12.png" alt="屏幕快照 2018-07-21 下午7.30.12" title="">
+                </div>
+                <div class="image-caption">屏幕快照 2018-07-21 下午7.30.12</div>
+            </figure>
+<h3 id="异常发生"><a href="#异常发生" class="headerlink" title="异常发生"></a>异常发生</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15320811324762/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-21%20%E4%B8%8B%E5%8D%887.33.32.png" alt="屏幕快照 2018-07-21 下午7.33.32" title="">
+                </div>
+                <div class="image-caption">屏幕快照 2018-07-21 下午7.33.32</div>
+            </figure>
 <h3 id="异常处理的设计方针"><a href="#异常处理的设计方针" class="headerlink" title="异常处理的设计方针"></a>异常处理的设计方针</h3><p>方法的执行应当“异常安全”，即执行时及时发生了异常也不会发生异常情况：</p>
 <ul>
 <li>因为发生了异常，留下了不完全的数据结构</li>
@@ -367,9 +385,7 @@
             </span>
         </p>
     </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
+
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
     </script>
 </footer>

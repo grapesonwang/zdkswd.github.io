@@ -202,13 +202,83 @@
 <li>对于5w到50w行的数据，就要取决于使用哪种操作。</li>
 </ol>
 <p>对于15MM行的数据，pandas要使用内存1506m，Numpy要使用内存686m，pandas的内存要求是Numpy的两倍多。</p>
-<h1 id="对列进行操作"><a href="#对列进行操作" class="headerlink" title="对列进行操作"></a>对列进行操作</h1><p>聚合操作mean，Numpy与pandas速度的比较。分界点在于10w行。<br><img src="/img/media/%E8%AF%91%20Numpy%20Vs%20Pandas%20%E8%A1%A8%E7%8E%B0%E6%AF%94%E8%BE%83/download.png" alt=""></p>
-<p>对于向量化操作符log，10w行以下Numpy更快，对于10w行以上两者差不多，但是pandas占用的内存要更大。<br><img src="/img/media/%E8%AF%91%20Numpy%20Vs%20Pandas%20%E8%A1%A8%E7%8E%B0%E6%AF%94%E8%BE%83/download%202.png" alt=""></p>
-<p>对于去重函数，pandas使用unique，numpy使用species。<br><img src="/img/media/%E8%AF%91%20Numpy%20Vs%20Pandas%20%E8%A1%A8%E7%8E%B0%E6%AF%94%E8%BE%83/download%203.png" alt=""></p>
-<h1 id="对于有过滤条件的操作"><a href="#对于有过滤条件的操作" class="headerlink" title="对于有过滤条件的操作"></a>对于有过滤条件的操作</h1><p><img src="/img/media/%E8%AF%91%20Numpy%20Vs%20Pandas%20%E8%A1%A8%E7%8E%B0%E6%AF%94%E8%BE%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-22%20%E4%B8%8A%E5%8D%8810.17.54.png" alt=""><br><img src="/img/media/%E8%AF%91%20Numpy%20Vs%20Pandas%20%E8%A1%A8%E7%8E%B0%E6%AF%94%E8%BE%83/download%204.png" alt=""></p>
-<p><img src="/img/media/%E8%AF%91%20Numpy%20Vs%20Pandas%20%E8%A1%A8%E7%8E%B0%E6%AF%94%E8%BE%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-22%20%E4%B8%8A%E5%8D%8810.20.34.png" alt=""><br><img src="/img/media/%E8%AF%91%20Numpy%20Vs%20Pandas%20%E8%A1%A8%E7%8E%B0%E6%AF%94%E8%BE%83/download%205.png" alt=""></p>
-<h1 id="对于列的向量化操作"><a href="#对于列的向量化操作" class="headerlink" title="对于列的向量化操作"></a>对于列的向量化操作</h1><p><img src="/img/media/%E8%AF%91%20Numpy%20Vs%20Pandas%20%E8%A1%A8%E7%8E%B0%E6%AF%94%E8%BE%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-22%20%E4%B8%8A%E5%8D%8810.23.26.png" alt=""><br><img src="/img/media/%E8%AF%91%20Numpy%20Vs%20Pandas%20%E8%A1%A8%E7%8E%B0%E6%AF%94%E8%BE%83/download%206.png" alt=""></p>
-<p><img src="/img/media/%E8%AF%91%20Numpy%20Vs%20Pandas%20%E8%A1%A8%E7%8E%B0%E6%AF%94%E8%BE%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-22%20%E4%B8%8A%E5%8D%8810.24.00.png" alt=""><br><img src="/img/media/%E8%AF%91%20Numpy%20Vs%20Pandas%20%E8%A1%A8%E7%8E%B0%E6%AF%94%E8%BE%83/download%207.png" alt=""></p>
+<h1 id="对列进行操作"><a href="#对列进行操作" class="headerlink" title="对列进行操作"></a>对列进行操作</h1><p>聚合操作mean，Numpy与pandas速度的比较。分界点在于10w行。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AF%91%20Numpy%20Vs%20Pandas%20%E8%A1%A8%E7%8E%B0%E6%AF%94%E8%BE%83/download.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>对于向量化操作符log，10w行以下Numpy更快，对于10w行以上两者差不多，但是pandas占用的内存要更大。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AF%91%20Numpy%20Vs%20Pandas%20%E8%A1%A8%E7%8E%B0%E6%AF%94%E8%BE%83/download%202.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>对于去重函数，pandas使用unique，numpy使用species。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AF%91%20Numpy%20Vs%20Pandas%20%E8%A1%A8%E7%8E%B0%E6%AF%94%E8%BE%83/download%203.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h1 id="对于有过滤条件的操作"><a href="#对于有过滤条件的操作" class="headerlink" title="对于有过滤条件的操作"></a>对于有过滤条件的操作</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AF%91%20Numpy%20Vs%20Pandas%20%E8%A1%A8%E7%8E%B0%E6%AF%94%E8%BE%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-22%20%E4%B8%8A%E5%8D%8810.17.54.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AF%91%20Numpy%20Vs%20Pandas%20%E8%A1%A8%E7%8E%B0%E6%AF%94%E8%BE%83/download%204.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AF%91%20Numpy%20Vs%20Pandas%20%E8%A1%A8%E7%8E%B0%E6%AF%94%E8%BE%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-22%20%E4%B8%8A%E5%8D%8810.20.34.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AF%91%20Numpy%20Vs%20Pandas%20%E8%A1%A8%E7%8E%B0%E6%AF%94%E8%BE%83/download%205.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h1 id="对于列的向量化操作"><a href="#对于列的向量化操作" class="headerlink" title="对于列的向量化操作"></a>对于列的向量化操作</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AF%91%20Numpy%20Vs%20Pandas%20%E8%A1%A8%E7%8E%B0%E6%AF%94%E8%BE%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-22%20%E4%B8%8A%E5%8D%8810.23.26.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AF%91%20Numpy%20Vs%20Pandas%20%E8%A1%A8%E7%8E%B0%E6%AF%94%E8%BE%83/download%206.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AF%91%20Numpy%20Vs%20Pandas%20%E8%A1%A8%E7%8E%B0%E6%AF%94%E8%BE%83/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-22%20%E4%B8%8A%E5%8D%8810.24.00.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AF%91%20Numpy%20Vs%20Pandas%20%E8%A1%A8%E7%8E%B0%E6%AF%94%E8%BE%83/download%207.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h1 id="留下一个疑问"><a href="#留下一个疑问" class="headerlink" title="留下一个疑问"></a>留下一个疑问</h1><p>pandas对于大量行的数据做了哪些优化，为什么性能得到了提升？</p>
 
         </div>
@@ -346,9 +416,7 @@
             </span>
         </p>
     </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
+
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
     </script>
 </footer>

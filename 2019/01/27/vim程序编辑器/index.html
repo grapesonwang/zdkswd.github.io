@@ -208,20 +208,100 @@
 <p>简单来说vi是老式的文本处理器，不过功能已经很齐全了，但是还是有可以进步的地方，vim则可以说是程序开发者的一项很好用的工具。</p>
 <h2 id="vi的使用"><a href="#vi的使用" class="headerlink" title="vi的使用"></a>vi的使用</h2><h3 id="一般指令模式（command-mode）"><a href="#一般指令模式（command-mode）" class="headerlink" title="一般指令模式（command mode）"></a>一般指令模式（command mode）</h3><p>以ⅵ打开一个文件就直接进入一般指令模式了(这是默认的模式，也简称为一般模式)。在这个模式中，可以使用“上下左右”按键来移动光标，可以使用“删除字符”或”删除整列”来处理文件内容,也可以使用“复制,粘贴”来处理你的文件数据。</p>
 <h3 id="编辑模式（insert-mode）"><a href="#编辑模式（insert-mode）" class="headerlink" title="编辑模式（insert mode）"></a>编辑模式（insert mode）</h3><p>在一般指令模式中可以进行删除丶复制丶贴上等等的动作’但是却无法编辑文件内容的!要等到你按下i,l,o,O,a,A,r,R等任何一个字母之后才会进入编辑模式。注意了!通常在Linux中按下这些按键时,在画面的左下方会出现” INSERT或REPLACE”的字样,此时才可以进行编辑。而如釆要回到一般指令模式时，则必须要按下”Esc”这个按键即可退岀编辑模式。</p>
-<h3 id="命令行命令模式（command-line-mode）"><a href="#命令行命令模式（command-line-mode）" class="headerlink" title="命令行命令模式（command-line mode）"></a>命令行命令模式（command-line mode）</h3><p>在一般模式中，输入：/?三个中的任何一个按钮，就可以将光标移动到最下面的那一列。在这个模式中可以提供你搜寻数据的动作，而读取、存盘、大量取代字符、离开vi、显示行号等等则是在此模式中达成的。<br><img src="/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-26%20%E4%B8%8A%E5%8D%8811.19.54.png" alt=""></p>
+<h3 id="命令行命令模式（command-line-mode）"><a href="#命令行命令模式（command-line-mode）" class="headerlink" title="命令行命令模式（command-line mode）"></a>命令行命令模式（command-line mode）</h3><p>在一般模式中，输入：/?三个中的任何一个按钮，就可以将光标移动到最下面的那一列。在这个模式中可以提供你搜寻数据的动作，而读取、存盘、大量取代字符、离开vi、显示行号等等则是在此模式中达成的。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-26%20%E4%B8%8A%E5%8D%8811.19.54.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <h3 id="简易执行范例"><a href="#简易执行范例" class="headerlink" title="简易执行范例"></a>简易执行范例</h3><h4 id="使用vi-filename进入一般指令模式"><a href="#使用vi-filename进入一般指令模式" class="headerlink" title="使用vi filename进入一般指令模式"></a>使用vi filename进入一般指令模式</h4><h4 id="按下i进入编辑模式，开始编辑文字"><a href="#按下i进入编辑模式，开始编辑文字" class="headerlink" title="按下i进入编辑模式，开始编辑文字"></a>按下i进入编辑模式，开始编辑文字</h4><h4 id="按下esc按钮回到一般指令模式"><a href="#按下esc按钮回到一般指令模式" class="headerlink" title="按下esc按钮回到一般指令模式"></a>按下esc按钮回到一般指令模式</h4><h4 id="进入命令行界面，文件存储并离开vi环境"><a href="#进入命令行界面，文件存储并离开vi环境" class="headerlink" title="进入命令行界面，文件存储并离开vi环境"></a>进入命令行界面，文件存储并离开vi环境</h4><p>存盘（write）并离开（quit）的指令很简单，输入<strong>：wq</strong>（冒号要输入）即可存盘离开。（注意，按下后该光标就会移动到最后面一列）。如果文件权限不对，可能无法写入，此时可以使用强制写入，使用<strong>：wq！</strong>（冒号要输入）多加一个惊叹号。</p>
 <h3 id="按键说明"><a href="#按键说明" class="headerlink" title="按键说明"></a>按键说明</h3><p>编辑模式与命令行界面之间并不能切换。</p>
-<h4 id="一般指令模式可用的按钮说明，光标移动，复制贴上，搜寻取代"><a href="#一般指令模式可用的按钮说明，光标移动，复制贴上，搜寻取代" class="headerlink" title="一般指令模式可用的按钮说明，光标移动，复制贴上，搜寻取代"></a>一般指令模式可用的按钮说明，光标移动，复制贴上，搜寻取代</h4><p><img src="/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-26%20%E4%B8%8A%E5%8D%8811.56.38.png" alt=""><br><img src="/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-26%20%E4%B8%8A%E5%8D%8811.57.59.png" alt=""><br><img src="/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-26%20%E4%B8%8A%E5%8D%8811.58.26.png" alt=""></p>
-<h4 id="一般指令模式切换到编辑模式的可用的按钮说明"><a href="#一般指令模式切换到编辑模式的可用的按钮说明" class="headerlink" title="一般指令模式切换到编辑模式的可用的按钮说明"></a>一般指令模式切换到编辑模式的可用的按钮说明</h4><p><img src="/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-26%20%E4%B8%8B%E5%8D%8812.02.51.png" alt=""></p>
-<h4 id="一般指令切换到命令行界面可用按钮说明"><a href="#一般指令切换到命令行界面可用按钮说明" class="headerlink" title="一般指令切换到命令行界面可用按钮说明"></a>一般指令切换到命令行界面可用按钮说明</h4><p><img src="/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-26%20%E4%B8%8B%E5%8D%8812.04.19.png" alt=""></p>
+<h4 id="一般指令模式可用的按钮说明，光标移动，复制贴上，搜寻取代"><a href="#一般指令模式可用的按钮说明，光标移动，复制贴上，搜寻取代" class="headerlink" title="一般指令模式可用的按钮说明，光标移动，复制贴上，搜寻取代"></a>一般指令模式可用的按钮说明，光标移动，复制贴上，搜寻取代</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-26%20%E4%B8%8A%E5%8D%8811.56.38.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-26%20%E4%B8%8A%E5%8D%8811.57.59.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-26%20%E4%B8%8A%E5%8D%8811.58.26.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="一般指令模式切换到编辑模式的可用的按钮说明"><a href="#一般指令模式切换到编辑模式的可用的按钮说明" class="headerlink" title="一般指令模式切换到编辑模式的可用的按钮说明"></a>一般指令模式切换到编辑模式的可用的按钮说明</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-26%20%E4%B8%8B%E5%8D%8812.02.51.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="一般指令切换到命令行界面可用按钮说明"><a href="#一般指令切换到命令行界面可用按钮说明" class="headerlink" title="一般指令切换到命令行界面可用按钮说明"></a>一般指令切换到命令行界面可用按钮说明</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-26%20%E4%B8%8B%E5%8D%8812.04.19.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h3 id="vim的暂存盘，救援恢复与打开时的警告讯息"><a href="#vim的暂存盘，救援恢复与打开时的警告讯息" class="headerlink" title="vim的暂存盘，救援恢复与打开时的警告讯息"></a>vim的暂存盘，救援恢复与打开时的警告讯息</h3><p>vim是通过暂存盘来进行救援恢复的。当使用vim编辑时，vim会在同一目录下再创建一个名为.filename.swap的文件。对文件做的动作会被记录到swp当中，如果系统由于某些原因断掉，编辑的文件还没有储存，swp就能发挥救援作用。</p>
 <h2 id="vim的额外功能"><a href="#vim的额外功能" class="headerlink" title="vim的额外功能"></a>vim的额外功能</h2><p>目前大部分的distribution都以vim取代vi了。vim还可以直接进行debug。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">debug和release的区别</span><br><span class="line">Debug：调试版本，包含调试信息，所以容量比Release大很多，并且不进行任何优化（优化会使调试复杂化，因为源代码和生成的指令间关系会更复杂），便于程序员调试。</span><br><span class="line">Release：发布版本，不对源代码进行调试，编译时对应用程序的速度进行优化，使得程序在代码大小和运行速度上都是最优的。</span><br></pre></td></tr></table></figure></p>
-<h3 id="区块选择（Visual-Block）"><a href="#区块选择（Visual-Block）" class="headerlink" title="区块选择（Visual Block）"></a>区块选择（Visual Block）</h3><p><img src="/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-27%20%E4%B8%8A%E5%8D%888.03.09.png" alt=""></p>
-<h3 id="多文件编辑"><a href="#多文件编辑" class="headerlink" title="多文件编辑"></a>多文件编辑</h3><p>可以使用vim后面同时接好几个文件同时打开。<br><img src="/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-27%20%E4%B8%8A%E5%8D%888.04.47.png" alt=""><br>利用多文件编辑的功能’可以让你很快速的就将需要的数据复制到正确的文件内。当然这个功能也可以利用窗口接口来达到，那就是多窗口功能。</p>
-<h3 id="多窗口功能"><a href="#多窗口功能" class="headerlink" title="多窗口功能"></a>多窗口功能</h3><p>vim也可以实现分区窗口的功能。在命令行界面输入<strong>:sp {filename}</strong>即可，filename可有可无，如果想要在新窗口启动另一个文件，就加入文件名，否则仅输入<strong>:sp</strong>，出现的是同一个文件在两个窗口间。<br><img src="/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-27%20%E4%B8%8A%E5%8D%888.25.48.png" alt=""></p>
-<h3 id="vim的补全功能"><a href="#vim的补全功能" class="headerlink" title="vim的补全功能"></a>vim的补全功能</h3><p>程序编辑器都可以进行语法检验以及根据输入来挑字进行补全。<br><img src="/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-27%20%E4%B8%8A%E5%8D%888.29.26.png" alt=""><br>先输入前者再输入后者。</p>
-<h3 id="vim环境设置与记录：-vimrc，-viminfo"><a href="#vim环境设置与记录：-vimrc，-viminfo" class="headerlink" title="vim环境设置与记录： ~/.vimrc，~/.viminfo"></a>vim环境设置与记录： ~/.vimrc，~/.viminfo</h3><p>以vim软件来搜寻一个文件内部的字串时，字串会被反白。再次vim编辑这个文件时，泛白的情况还是存在的。当重复编辑同一个文件第二次进入该文件时，光标还在上次离开的那一列上头。这是因为vim会主动的将做过的行为记录下来，记录的文件就是：~/.viminfo，该文件是自动生成的，不必自行创建，在vim里所做过的动作都可以在这个文件内部查询到。vim的环境参数有很多，如果想要知道目前的设置值，可以在一般指令模式时输入<strong>：set all</strong>来查阅。<br><img src="/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-27%20%E4%B8%8A%E5%8D%889.02.27.png" alt=""><br>每次使用vim都要重新设置一次各个参数值貌似不太合理，所以可以通过配置文件直接规定习惯的vim操作环境。整体的vim设置一般放在/ etc / vimrc 这个文件，不过不建议修改，可以修改 ~ / .vimrc这个文件（默认不存在，要手动创建）。<br><img src="/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-27%20%E4%B8%8A%E5%8D%889.06.13.png" alt=""></p>
-<h3 id="vim常用指令示意图"><a href="#vim常用指令示意图" class="headerlink" title="vim常用指令示意图"></a>vim常用指令示意图</h3><p><img src="/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-27%20%E4%B8%8A%E5%8D%889.07.15.png" alt=""></p>
+<h3 id="区块选择（Visual-Block）"><a href="#区块选择（Visual-Block）" class="headerlink" title="区块选择（Visual Block）"></a>区块选择（Visual Block）</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-27%20%E4%B8%8A%E5%8D%888.03.09.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="多文件编辑"><a href="#多文件编辑" class="headerlink" title="多文件编辑"></a>多文件编辑</h3><p>可以使用vim后面同时接好几个文件同时打开。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-27%20%E4%B8%8A%E5%8D%888.04.47.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>利用多文件编辑的功能’可以让你很快速的就将需要的数据复制到正确的文件内。当然这个功能也可以利用窗口接口来达到，那就是多窗口功能。</p>
+<h3 id="多窗口功能"><a href="#多窗口功能" class="headerlink" title="多窗口功能"></a>多窗口功能</h3><p>vim也可以实现分区窗口的功能。在命令行界面输入<strong>:sp {filename}</strong>即可，filename可有可无，如果想要在新窗口启动另一个文件，就加入文件名，否则仅输入<strong>:sp</strong>，出现的是同一个文件在两个窗口间。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-27%20%E4%B8%8A%E5%8D%888.25.48.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="vim的补全功能"><a href="#vim的补全功能" class="headerlink" title="vim的补全功能"></a>vim的补全功能</h3><p>程序编辑器都可以进行语法检验以及根据输入来挑字进行补全。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-27%20%E4%B8%8A%E5%8D%888.29.26.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>先输入前者再输入后者。</p>
+<h3 id="vim环境设置与记录：-vimrc，-viminfo"><a href="#vim环境设置与记录：-vimrc，-viminfo" class="headerlink" title="vim环境设置与记录： ~/.vimrc，~/.viminfo"></a>vim环境设置与记录： ~/.vimrc，~/.viminfo</h3><p>以vim软件来搜寻一个文件内部的字串时，字串会被反白。再次vim编辑这个文件时，泛白的情况还是存在的。当重复编辑同一个文件第二次进入该文件时，光标还在上次离开的那一列上头。这是因为vim会主动的将做过的行为记录下来，记录的文件就是：~/.viminfo，该文件是自动生成的，不必自行创建，在vim里所做过的动作都可以在这个文件内部查询到。vim的环境参数有很多，如果想要知道目前的设置值，可以在一般指令模式时输入<strong>：set all</strong>来查阅。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-27%20%E4%B8%8A%E5%8D%889.02.27.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>每次使用vim都要重新设置一次各个参数值貌似不太合理，所以可以通过配置文件直接规定习惯的vim操作环境。整体的vim设置一般放在/ etc / vimrc 这个文件，不过不建议修改，可以修改 ~ / .vimrc这个文件（默认不存在，要手动创建）。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-27%20%E4%B8%8A%E5%8D%889.06.13.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="vim常用指令示意图"><a href="#vim常用指令示意图" class="headerlink" title="vim常用指令示意图"></a>vim常用指令示意图</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/vim%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-27%20%E4%B8%8A%E5%8D%889.07.15.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h2 id="vim使用注意事项"><a href="#vim使用注意事项" class="headerlink" title="vim使用注意事项"></a>vim使用注意事项</h2><h3 id="中文编码问题"><a href="#中文编码问题" class="headerlink" title="中文编码问题"></a>中文编码问题</h3><h3 id="DOS与Linux的断行字符"><a href="#DOS与Linux的断行字符" class="headerlink" title="DOS与Linux的断行字符"></a>DOS与Linux的断行字符</h3><h3 id="语系编码转换"><a href="#语系编码转换" class="headerlink" title="语系编码转换"></a>语系编码转换</h3>
         </div>
 
@@ -358,9 +438,7 @@
             </span>
         </p>
     </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
+
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
     </script>
 </footer>

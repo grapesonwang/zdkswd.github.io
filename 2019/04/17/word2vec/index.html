@@ -198,10 +198,34 @@
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             <h1 id="word2vec"><a href="#word2vec" class="headerlink" title="word2vec"></a>word2vec</h1><p>谷歌2013年提出的word2vec是目前最常用的词嵌入模型之一。Word2ec实际是一种<strong>浅层的神经网络模型</strong>,它有两种网络结构,分别是CBOW( Continues Bag      of words)和 Skip-gram。</p>
-<h1 id="百面-Word2Vec"><a href="#百面-Word2Vec" class="headerlink" title="百面  Word2Vec"></a>百面  Word2Vec</h1><h2 id="问-Word2Vec是如何工作的？"><a href="#问-Word2Vec是如何工作的？" class="headerlink" title="问  Word2Vec是如何工作的？"></a>问  Word2Vec是如何工作的？</h2><p>答：CBOW的目标是根据上下文出现的词语来预测当前词的生成概率，如图1.3 (a) 所示;而Skip-gram是根据当前词来预测上下文中各词的生成概率，如图1.3 (b)所示。<br><img src="/img/media/word2vec/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-26%20%E4%B8%8B%E5%8D%884.54.01.png" alt=""><br>其中w(t)是当前所关注的词，w(t-2)、 w(t-1)、 w(t+1)、 w(t+2)是 上下文中出现的词。这里前后滑动窗口大小均设为2。</p>
+<h1 id="百面-Word2Vec"><a href="#百面-Word2Vec" class="headerlink" title="百面  Word2Vec"></a>百面  Word2Vec</h1><h2 id="问-Word2Vec是如何工作的？"><a href="#问-Word2Vec是如何工作的？" class="headerlink" title="问  Word2Vec是如何工作的？"></a>问  Word2Vec是如何工作的？</h2><p>答：CBOW的目标是根据上下文出现的词语来预测当前词的生成概率，如图1.3 (a) 所示;而Skip-gram是根据当前词来预测上下文中各词的生成概率，如图1.3 (b)所示。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/word2vec/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-26%20%E4%B8%8B%E5%8D%884.54.01.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>其中w(t)是当前所关注的词，w(t-2)、 w(t-1)、 w(t+1)、 w(t+2)是 上下文中出现的词。这里前后滑动窗口大小均设为2。</p>
 <p>CBOW和Skip-gram都可以表示成由输入层(Input)、映射层(Projection)和输出层(Output)组成的神经网络。</p>
 <p>输入层中的每个词由独热编码方式表示,即所有词均表示成一个N维向量,其中N为词汇表中单词的总数。在向量中,每个词都将与之对应的维度置为1,其余维度的值均设为0。</p>
-<p>在映射层(又称隐含层)中,K个隐含单元( Hidden units)的取值可以由N维输入向量以及连接输入和隐含单元之间的N乘K维权重矩阵计算得到。在CBOV中,还需要将各个输入词所计算出的隐含单元求和。补一个其他博客的图。<br><img src="/img/media/word2vec/20180113213325970.png" alt=""><br><img src="/img/media/word2vec/20180113212531373.png" alt=""><br>同理，输出层向量的值可以通过隐含层向量(K维)，以及连接隐含层和输出层之间的KxN维权重矩阵计算得到。输出层也是一个N维向量，每维与词汇表中的一个单词相对应。最后，对输出层向量应用Softmax激活函数，可以计算出每个单词的生成概率。Softmax激活函数的定义为：<br><img src="/img/media/word2vec/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-26%20%E4%B8%8B%E5%8D%886.21.23.png" alt=""><br>其中x代表N维的原始输出向量,xn为在原始输出向量中，与单词wn所对应维度的取值。</p>
+<p>在映射层(又称隐含层)中,K个隐含单元( Hidden units)的取值可以由N维输入向量以及连接输入和隐含单元之间的N乘K维权重矩阵计算得到。在CBOV中,还需要将各个输入词所计算出的隐含单元求和。补一个其他博客的图。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/word2vec/20180113213325970.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/word2vec/20180113212531373.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>同理，输出层向量的值可以通过隐含层向量(K维)，以及连接隐含层和输出层之间的KxN维权重矩阵计算得到。输出层也是一个N维向量，每维与词汇表中的一个单词相对应。最后，对输出层向量应用Softmax激活函数，可以计算出每个单词的生成概率。Softmax激活函数的定义为：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/word2vec/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-26%20%E4%B8%8B%E5%8D%886.21.23.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>其中x代表N维的原始输出向量,xn为在原始输出向量中，与单词wn所对应维度的取值。</p>
 <p>接下来的任务就是训练神经网络的权重,使得语料库中所有单词的整体生成概率最大化。从输入层到隐含层需要一个维度为NxK的权重矩阵，从隐含层到输出层又需要一个维度为KxN的权重矩阵，学习权重可以用反向传播算法实现，每次迭代时将权重沿梯度更优的方向进行一小步更新。但是由于Softmax激活函数中存在归一化项的缘故，推导出来的迭代公式需要对词汇表中的所有单词进行遍历，使得每次迭代过程非常缓慢，由此产生了Hierarchical Softmax和Negative Sampling两种改进方法。训练得到维度为NxK和KxN的两个权重矩阵之后，可以选择其中一个作为N个词的K维向量表示。</p>
 <h1 id="王喆-知乎"><a href="#王喆-知乎" class="headerlink" title="王喆 知乎"></a>王喆 知乎</h1><p><a href="https://zhuanlan.zhihu.com/p/53194407" target="_blank" rel="noopener">万物皆Embedding，从经典的word2vec到深度学习基本操作item2vec - 知乎</a><br><strong>万物皆Embedding，从经典的word2vec到深度学习基本操作item2vec</strong></p>
 <h2 id="什么是embedding？"><a href="#什么是embedding？" class="headerlink" title="什么是embedding？"></a>什么是embedding？</h2><p>简单来说，embedding就是用一个低维的向量表示一个物体，可以是一个词，或是一个商品，或是一个电影等等。这个<strong>embedding向量的性质是能使距离相近的向量对应的物体有相近的含义</strong>，比如 Embedding(复仇者联盟)和Embedding(钢铁侠)之间的距离就会很接近，但 Embedding(复仇者联盟)和Embedding(乱世佳人)的距离就会远一些。</p>
@@ -213,13 +237,37 @@
 <h1 id="McCormick-W2V"><a href="#McCormick-W2V" class="headerlink" title="McCormick W2V"></a>McCormick W2V</h1><p><a href="http://mccormickml.com/2016/04/19/word2vec-tutorial-the-skip-gram-model/" target="_blank" rel="noopener">http://mccormickml.com/2016/04/19/word2vec-tutorial-the-skip-gram-model/</a></p>
 <h2 id="The-Model"><a href="#The-Model" class="headerlink" title="The Model"></a>The Model</h2><p>Word2Vec uses a trick you may have seen elsewhere in machine learning. We’re going to train a simple neural network with a single hidden layer to perform a certain task, but then we’re not actually going to use that neural network for the task we trained it on! Instead, the goal is actually just to learn the weights of the <strong>hidden layer</strong>。</p>
 <p>We’ll train the neural network to do this by feeding it word pairs found in our training documents.The word highlighted in blue is the input word.</p>
-<p>this is skip-gram.<br><img src="/img/media/word2vec/training_data.png" alt=""></p>
-<h2 id="Model-Details"><a href="#Model-Details" class="headerlink" title="Model Details"></a>Model Details</h2><p>let’s say we have a vocabulary of 10,000 unique words.We’re going to represent an input word  as a one-hot vector. This vector will have 10,000 components.The output of the network is a single vector (also with 10,000 components) Here’s the architecture of our neural network.<br><img src="/img/media/word2vec/skip_gram_net_arch.png" alt=""><br>There is <strong>no activation function</strong> on the hidden layer neurons, but the output neurons use <strong>softmax</strong>.</p>
+<p>this is skip-gram.<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/word2vec/training_data.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h2 id="Model-Details"><a href="#Model-Details" class="headerlink" title="Model Details"></a>Model Details</h2><p>let’s say we have a vocabulary of 10,000 unique words.We’re going to represent an input word  as a one-hot vector. This vector will have 10,000 components.The output of the network is a single vector (also with 10,000 components) Here’s the architecture of our neural network.<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/word2vec/skip_gram_net_arch.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>There is <strong>no activation function</strong> on the hidden layer neurons, but the output neurons use <strong>softmax</strong>.</p>
 <p>When training this network on word pairs, the input is a one-hot vector representing the input word and the training output is also a one-hot vector representing the output word.But when you evaluate the trained network on an input word, the output vector will actually be a probability distribution (i.e., a bunch of floating point values, not a one-hot vector).</p>
 <h2 id="The-Hidden-Layer"><a href="#The-Hidden-Layer" class="headerlink" title="The Hidden Layer"></a>The Hidden Layer</h2><p>For our example, we’re going to say that we’re learning word vectors with 300 features. So the hidden layer is going to be represented by a weight matrix with 10,000 rows (one for every word in our vocabulary) and 300 columns (one for every hidden neuron).The number of features is a “hyper parameter” that you would just have to tune to your application .</p>
 <p>显然，每个单词对应一个300维的隐向量，也可以理解为300维的语义。</p>
-<p>that is why we use one-hot .<strong>右边矩阵中绿色的值即为左边矩阵中1对应的词的隐向量。</strong> 对应的，竖着的第一列即为隐藏层第一个神经元连接的上一层的神经元权重。<br><img src="/img/media/word2vec/matrix_mult_w_one_hot.png" alt=""></p>
-<p>just as this image.根据反向传播公式，当梯度传递到这一层时，只有非0的值才会对梯度进行更新。<br><img src="/img/media/word2vec/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-16%20%E4%B8%8B%E5%8D%889.42.26.png" alt=""><br>This means that the hidden layer of this model is really just operating as a <strong>lookup</strong> table. The output of the hidden layer is just the “word vector” for the input word.</p>
+<p>that is why we use one-hot .<strong>右边矩阵中绿色的值即为左边矩阵中1对应的词的隐向量。</strong> 对应的，竖着的第一列即为隐藏层第一个神经元连接的上一层的神经元权重。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/word2vec/matrix_mult_w_one_hot.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>just as this image.根据反向传播公式，当梯度传递到这一层时，只有非0的值才会对梯度进行更新。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/word2vec/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-16%20%E4%B8%8B%E5%8D%889.42.26.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>This means that the hidden layer of this model is really just operating as a <strong>lookup</strong> table. The output of the hidden layer is just the “word vector” for the input word.</p>
 <h2 id="Negative-Sampling"><a href="#Negative-Sampling" class="headerlink" title="Negative Sampling"></a>Negative Sampling</h2><p> The skip-gram neural network contains a huge number of weights… For our example with 300 features and a vocab of 10,000 words, that’s 3M weights in the hidden layer and output layer each! Training this on a large dataset would be prohibitive, And to make matters worse, you need a huge amount of training data in order to tune that many weights and avoid over-fitting. so the word2vec authors introduced a number of tweaks to make training feasible.The first one is Negative Sampling</p>
 <p>the innovations:</p>
 <ol>
@@ -227,7 +275,13 @@
 <li>Modifying the optimization objective with a technique they called “<strong>Negative Sampling</strong>”, which causes each training sample to update only a small percentage of the model’s weights.</li>
 </ol>
 <p>It’s worth noting that subsampling frequent words and applying Negative Sampling not only reduced the compute burden of the training process, but also improved the quality of their resulting word vectors as well.</p>
-<h2 id="Subsampling-Frequent-Words"><a href="#Subsampling-Frequent-Words" class="headerlink" title="Subsampling Frequent Words"></a>Subsampling Frequent Words</h2><p>The word highlighted in blue is the input word.<br><img src="/img/media/word2vec/training_data%202.png" alt=""><br>There are two “problems” with common words like “the”:</p>
+<h2 id="Subsampling-Frequent-Words"><a href="#Subsampling-Frequent-Words" class="headerlink" title="Subsampling Frequent Words"></a>Subsampling Frequent Words</h2><p>The word highlighted in blue is the input word.<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/word2vec/training_data%202.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>There are two “problems” with common words like “the”:</p>
 <ol>
 <li>When looking at word pairs, (“fox”, “the”) doesn’t tell us much about the meaning of “fox”. “the” appears in the context of pretty much every word.</li>
 <li>We will have many more samples of (“the”, …) than we need to learn a good vector for “the”.</li>
@@ -238,18 +292,49 @@
 <li>As we train on the remaining words, “the” will not appear in any of their context windows.</li>
 <li>We’ll have 10 fewer training samples where “the” is the input word.</li>
 </ol>
-<h3 id="Sample-rate"><a href="#Sample-rate" class="headerlink" title="Sample rate"></a>Sample rate</h3><p>wi is the word, z(wi) is the fraction of the total words in the corpus that are that word. For example, if the word “peanut” occurs 1,000 times in a 1 billion word corpus, then z(‘peanut’) = 1E-6.<br><img src="/img/media/word2vec/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8A%E5%8D%889.13.31.png" alt=""><br><img src="/img/media/word2vec/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8A%E5%8D%889.13.53.png" alt=""><br>1.P(wi)=1.0 (100% chance of being kept) when z(wi)&lt;=0.0026.<br>This means that only words which represent more than 0.26% of the total words will be subsampled.<br>2.P(wi)=0.5 (50% chance of being kept) when z(wi)=0.00746.<br>3.P(wi)=0.033 (3.3% chance of being kept) when z(wi)=1.0.<br>That is, if the corpus consisted entirely of word wi, which of course is ridiculous.</p>
+<h3 id="Sample-rate"><a href="#Sample-rate" class="headerlink" title="Sample rate"></a>Sample rate</h3><p>wi is the word, z(wi) is the fraction of the total words in the corpus that are that word. For example, if the word “peanut” occurs 1,000 times in a 1 billion word corpus, then z(‘peanut’) = 1E-6.<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/word2vec/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8A%E5%8D%889.13.31.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/word2vec/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8A%E5%8D%889.13.53.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>1.P(wi)=1.0 (100% chance of being kept) when z(wi)&lt;=0.0026.<br>This means that only words which represent more than 0.26% of the total words will be subsampled.<br>2.P(wi)=0.5 (50% chance of being kept) when z(wi)=0.00746.<br>3.P(wi)=0.033 (3.3% chance of being kept) when z(wi)=1.0.<br>That is, if the corpus consisted entirely of word wi, which of course is ridiculous.</p>
 <h2 id="Negative-Sampling-1"><a href="#Negative-Sampling-1" class="headerlink" title="Negative Sampling"></a>Negative Sampling</h2><p>Negative sampling addresses this by having each training sample only modify a small percentage of the weights, rather than all of them. Here’s how it works.</p>
 <p>When training the network on the word pair (“fox”, “quick”), recall that the “label” or “correct output” of the network is a one-hot vector. That is, for the output neuron corresponding to “quick” to output a 1, and for all of the other thousands of output neurons to output a 0.</p>
 <p>With negative sampling, we are instead going to randomly select just a small number of “negative” words (let’s say 5) to update the weights for. (In this context, a “negative” word is one for which we want the network to output a 0 for). We will also still update the weights for our “positive” word (which is the word “quick” in our current example).</p>
 <p>Recall that the output layer of our model has a weight matrix that’s 300 x 10,000. So we will just be updating the weights for our positive word (“quick”), plus the weights for 5 other words that we want to output 0. That’s a total of 6 output neurons, and 1,800 weight values total. That’s only 0.06% of the 3M weights in the output layer!</p>
 <p>In the hidden layer, only the weights for the input word are updated (this is true whether you’re using Negative Sampling or not).</p>
 <h3 id="Selecting-Negative-Samples"><a href="#Selecting-Negative-Samples" class="headerlink" title="Selecting Negative Samples"></a>Selecting Negative Samples</h3><p>The “negative samples” (that is, the 5 output words that we’ll train to output 0) are selected using a “unigram distribution”, where more frequent words are more likely to be selected as negative samples.</p>
-<p>For instance, suppose you had your entire training corpus as a list of words, and you chose your 5 negative samples by picking randomly from the list. In this case, the probability for picking the word “couch” would be equal to the number of times “couch” appears in the corpus, divided the total number of word occus in the corpus. This is expressed by the following equation:<br><img src="/img/media/word2vec/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8A%E5%8D%889.27.08.png" alt=""><br>The authors state in their paper that they tried a number of variations on this equation, and the one which performed best was to raise the word counts to the 3/4 power:<br><img src="/img/media/word2vec/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8A%E5%8D%889.27.29.png" alt=""></p>
+<p>For instance, suppose you had your entire training corpus as a list of words, and you chose your 5 negative samples by picking randomly from the list. In this case, the probability for picking the word “couch” would be equal to the number of times “couch” appears in the corpus, divided the total number of word occus in the corpus. This is expressed by the following equation:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/word2vec/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8A%E5%8D%889.27.08.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>The authors state in their paper that they tried a number of variations on this equation, and the one which performed best was to raise the word counts to the 3/4 power:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/word2vec/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8A%E5%8D%889.27.29.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <h2 id="Applying-word2vec-to-Recommenders-and-Advertising"><a href="#Applying-word2vec-to-Recommenders-and-Advertising" class="headerlink" title="Applying word2vec to Recommenders and Advertising"></a>Applying word2vec to Recommenders and Advertising</h2><p>The key principle behind word2vec is the notion that the meaning of a word can be inferred from it’s context–what words tend to be around it. To abstract that a bit, text is really just a sequence of words, and the meaning of a word can be extracted from what words tend to be just before and just after it in the sequence.</p>
 <p>What researchers and companies are finding is that the time series of online user activity offers the same opportunity for inferring meaning from context. That is, as a user browses around and interacts with different content, the abstract qualities of a piece of content can be inferred from what content the user interacts with before and after. This allows ML teams to apply word vector models to learn good vector representations for products, content, and ads.</p>
 <p>The word2vec approach has proven successful in extracting these hidden insights, and being able to compare, search, and categorize items on these abstract dimensions opens up a lot of opportunities for smarter, better recommendations. </p>
-<h2 id="Four-Production-Examples"><a href="#Four-Production-Examples" class="headerlink" title="Four Production Examples"></a>Four Production Examples</h2><h3 id="Music-Recommendations"><a href="#Music-Recommendations" class="headerlink" title="Music Recommendations"></a>Music Recommendations</h3><p><img src="/img/media/word2vec/Spotify_user_activity.png" alt=""><br>One use is to create a kind of “music taste” vector for a user by averaging together the vectors for songs that a user likes to listen to. This taste vector can then become the query for a similarity search to find songs which are similar to the user’s taste vector.<br>and Listing Recommendations at Airbnb,Product Recommendations in Yahoo Mail,Matching Ads to Search Queries</p>
+<h2 id="Four-Production-Examples"><a href="#Four-Production-Examples" class="headerlink" title="Four Production Examples"></a>Four Production Examples</h2><h3 id="Music-Recommendations"><a href="#Music-Recommendations" class="headerlink" title="Music Recommendations"></a>Music Recommendations</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/word2vec/Spotify_user_activity.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>One use is to create a kind of “music taste” vector for a user by averaging together the vectors for songs that a user likes to listen to. This taste vector can then become the query for a similarity search to find songs which are similar to the user’s taste vector.<br>and Listing Recommendations at Airbnb,Product Recommendations in Yahoo Mail,Matching Ads to Search Queries</p>
 <h1 id="几篇论文"><a href="#几篇论文" class="headerlink" title="几篇论文"></a>几篇论文</h1><p> <strong>Distributed Representations of Words and Phrases and their Compositionality</strong><br>Google的Tomas Mikolov提出word2vec的两篇文章之一，这篇文章更具有综述性质，列举了NNLM、RNNLM等诸多词向量模型，但最重要的还是提出了CBOW和Skip-gram两种word2vec的模型结构。虽然词向量的研究早已有之，但不得不说还是Google的word2vec的提出让词向量重归主流，拉开了整个embedding技术发展的序幕。</p>
 <p><strong>Efficient Estimation of Word Representations in Vector Space</strong><br>Tomas Mikolov的另一篇word2vec奠基性的文章。相比上一篇的综述，本文更详细的阐述了Skip-gram模型的细节，包括模型的具体形式和 Hierarchical Softmax和 Negative Sampling两种可行的训练方法。</p>
 <p> <strong>Word2vec Parameter Learning Explained</strong><br>虽然Mikolov的两篇代表作标志的word2vec的诞生，但其中忽略了大量技术细节，如果希望完全读懂word2vec的原理和实现方法，比如词向量具体如何抽取，具体的训练过程等，强烈建议大家阅读UMich Xin Rong博士的这篇针对word2vec的解释性文章。惋惜的是Xin Rong博士在完成这篇文章后的第二年就由于飞机事故逝世，在此也致敬并缅怀一下Xin Rong博士。</p>
@@ -389,9 +474,7 @@
             </span>
         </p>
     </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
+
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
     </script>
 </footer>

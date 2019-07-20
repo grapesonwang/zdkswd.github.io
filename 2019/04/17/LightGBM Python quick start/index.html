@@ -21,13 +21,13 @@
     
     
     <meta name="keywords" content="机器学习">
-    <meta name="description" content="LightGBM Python quick start Data InterfaceThe LightGBM Python module can load data from: 1.libsvm/ tsv / csv / txt format file2.NumPy 2D array(s), pandas DataFrame, H2O DataTable’s Frame, SciPy sparse">
+    <meta name="description" content="LightGBM Python quick start                                                                                                           Data InterfaceThe LightGBM Python module can load data from: 1.lib">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LightGBM Python quick start">
 <meta property="og:url" content="https://github.com/zdkswd/2019/04/17/LightGBM Python quick start/index.html">
 <meta property="og:site_name" content="ZDK&#39;s blog">
-<meta property="og:description" content="LightGBM Python quick start Data InterfaceThe LightGBM Python module can load data from: 1.libsvm/ tsv / csv / txt format file2.NumPy 2D array(s), pandas DataFrame, H2O DataTable’s Frame, SciPy sparse">
+<meta property="og:description" content="LightGBM Python quick start                                                                                                           Data InterfaceThe LightGBM Python module can load data from: 1.lib">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://github.com/img/media/LightGBM%20Python%20quick%20start/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%881.00.51.png">
 <meta property="og:image" content="https://github.com/img/media/LightGBM%20Python%20quick%20start/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%881.02.58.png">
@@ -52,7 +52,7 @@
 <meta property="og:updated_time" content="2019-04-17T06:00:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LightGBM Python quick start">
-<meta name="twitter:description" content="LightGBM Python quick start Data InterfaceThe LightGBM Python module can load data from: 1.libsvm/ tsv / csv / txt format file2.NumPy 2D array(s), pandas DataFrame, H2O DataTable’s Frame, SciPy sparse">
+<meta name="twitter:description" content="LightGBM Python quick start                                                                                                           Data InterfaceThe LightGBM Python module can load data from: 1.lib">
 <meta name="twitter:image" content="https://github.com/img/media/LightGBM%20Python%20quick%20start/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%881.00.51.png">
     
         <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
@@ -203,34 +203,154 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="LightGBM-Python-quick-start"><a href="#LightGBM-Python-quick-start" class="headerlink" title="LightGBM Python quick start"></a>LightGBM Python quick start</h1><p><img src="/img/media/LightGBM%20Python%20quick%20start/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%881.00.51.png" alt=""></p>
+            <h1 id="LightGBM-Python-quick-start"><a href="#LightGBM-Python-quick-start" class="headerlink" title="LightGBM Python quick start"></a>LightGBM Python quick start</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/LightGBM%20Python%20quick%20start/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%881.00.51.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h1 id="Data-Interface"><a href="#Data-Interface" class="headerlink" title="Data Interface"></a>Data Interface</h1><p>The LightGBM Python module can load data from:</p>
 <p>1.libsvm/ tsv / csv / txt format file<br>2.NumPy 2D array(s), pandas DataFrame, H2O DataTable’s Frame, SciPy sparse matrix<br>3.LightGBM binary file</p>
 <p>The data is stored in a <strong>Dataset</strong> object.</p>
-<p><strong>To load a libsvm text file or a LightGBM binary file into Dataset:</strong><br><img src="/img/media/LightGBM%20Python%20quick%20start/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%881.02.58.png" alt=""></p>
-<p><strong>To load a numpy array into Dataset:</strong><br><img src="/img/media/LightGBM%20Python%20quick%20start/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%881.02.47.png" alt=""></p>
-<p><strong>Saving Dataset into a LightGBM binary file will make loading faster:</strong><br><img src="/img/media/LightGBM%20Python%20quick%20start/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%881.03.46.png" alt=""></p>
-<p><strong>Create validation data:</strong><br><img src="/img/media/LightGBM%20Python%20quick%20start/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%881.05.34.png" alt=""><br>or<br><img src="/img/media/LightGBM%20Python%20quick%20start/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%881.06.14.png" alt=""><br>In LightGBM, the validation data should be aligned with training data.</p>
-<p><strong>Specific feature names and categorical features:</strong><br><img src="/img/media/LightGBM%20Python%20quick%20start/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%881.22.04.png" alt=""><br>LightGBM can use categorical features as input directly. It doesn’t need to convert to one-hot coding, and is much faster than one-hot coding (about 8x speed-up).</p>
+<p><strong>To load a libsvm text file or a LightGBM binary file into Dataset:</strong><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/LightGBM%20Python%20quick%20start/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%881.02.58.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p><strong>To load a numpy array into Dataset:</strong><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/LightGBM%20Python%20quick%20start/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%881.02.47.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p><strong>Saving Dataset into a LightGBM binary file will make loading faster:</strong><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/LightGBM%20Python%20quick%20start/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%881.03.46.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p><strong>Create validation data:</strong><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/LightGBM%20Python%20quick%20start/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%881.05.34.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>or<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/LightGBM%20Python%20quick%20start/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%881.06.14.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>In LightGBM, the validation data should be aligned with training data.</p>
+<p><strong>Specific feature names and categorical features:</strong><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/LightGBM%20Python%20quick%20start/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%881.22.04.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>LightGBM can use categorical features as input directly. It doesn’t need to convert to one-hot coding, and is much faster than one-hot coding (about 8x speed-up).</p>
 <p><strong>Note</strong>: You should convert your categorical features to <strong>int</strong> type before you construct <strong>Dataset</strong>.</p>
-<p><strong>Weights can be set when needed:</strong><br><img src="/img/media/LightGBM%20Python%20quick%20start/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%881.22.53.png" alt=""><br>or<br><img src="/img/media/LightGBM%20Python%20quick%20start/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%881.23.06.png" alt=""><br>And you can use <strong>Dataset.set_init_score()</strong> to set initial score, and <strong>Dataset.set_group()</strong> to set group/query data for ranking tasks.</p>
+<p><strong>Weights can be set when needed:</strong><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/LightGBM%20Python%20quick%20start/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%881.22.53.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>or<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/LightGBM%20Python%20quick%20start/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%881.23.06.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>And you can use <strong>Dataset.set_init_score()</strong> to set initial score, and <strong>Dataset.set_group()</strong> to set group/query data for ranking tasks.</p>
 <p><strong>Memory efficient usage:</strong><br>The <strong>Dataset</strong> object in LightGBM is very memory-efficient, it only needs to save discrete bins. However, Numpy / Array / Pandas object is memory expensive. If you are concerned about your memory consumption, you can save memory by:</p>
 <ol>
 <li>Set <strong>free_raw_data=True</strong> (default is <strong>True</strong>) when constructing the <strong>Dataset</strong></li>
 <li>Explicitly set <strong>raw_data=None</strong> after the <strong>Dataset</strong> has been constructed</li>
 <li>Call <strong>gc</strong></li>
 </ol>
-<h1 id="Setting-Parameters"><a href="#Setting-Parameters" class="headerlink" title="Setting Parameters"></a>Setting Parameters</h1><p>LightGBM can use either a list of pairs or a dictionary to set <strong>Parameters</strong>. For instance:<br><strong>Booster parameters</strong>:<br><img src="/img/media/LightGBM%20Python%20quick%20start/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%881.56.05.png" alt=""><br><img src="/img/media/LightGBM%20Python%20quick%20start/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%881.27.59.png" alt=""></p>
-<p><strong>You can also specify multiple eval metrics:</strong><br><img src="/img/media/LightGBM%20Python%20quick%20start/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%881.28.16.png" alt=""></p>
-<h1 id="Training"><a href="#Training" class="headerlink" title="Training"></a>Training</h1><p>Training a model requires a parameter list and data set:<br><img src="/img/media/LightGBM%20Python%20quick%20start/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%881.29.43.png" alt=""></p>
-<p>After training, the model can be saved:<br><img src="/img/media/LightGBM%20Python%20quick%20start/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%881.30.14.png" alt=""></p>
-<p>The trained model can also be dumped to JSON format:<br><img src="/img/media/LightGBM%20Python%20quick%20start/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%881.31.17.png" alt=""></p>
-<p>A saved model can be loaded:<br><img src="/img/media/LightGBM%20Python%20quick%20start/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%881.31.36.png" alt=""></p>
-<h1 id="CV"><a href="#CV" class="headerlink" title="CV"></a>CV</h1><p>Training with 5-fold CV:<br><img src="/img/media/LightGBM%20Python%20quick%20start/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%881.33.58.png" alt=""></p>
-<h1 id="Early-Stopping"><a href="#Early-Stopping" class="headerlink" title="Early Stopping"></a>Early Stopping</h1><p>If you have a validation set, you can use early stopping to find the optimal number of boosting rounds. Early stopping requires at least one set in <strong>valid_sets</strong>. If there is more than one, it will use all of them except the training data:<br><img src="/img/media/LightGBM%20Python%20quick%20start/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%881.35.00.png" alt=""><br>The model will train until the validation score stops improving. Validation score needs to improve at least every <strong>early_stopping_rounds</strong> to continue training.</p>
+<h1 id="Setting-Parameters"><a href="#Setting-Parameters" class="headerlink" title="Setting Parameters"></a>Setting Parameters</h1><p>LightGBM can use either a list of pairs or a dictionary to set <strong>Parameters</strong>. For instance:<br><strong>Booster parameters</strong>:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/LightGBM%20Python%20quick%20start/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%881.56.05.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/LightGBM%20Python%20quick%20start/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%881.27.59.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p><strong>You can also specify multiple eval metrics:</strong><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/LightGBM%20Python%20quick%20start/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%881.28.16.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h1 id="Training"><a href="#Training" class="headerlink" title="Training"></a>Training</h1><p>Training a model requires a parameter list and data set:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/LightGBM%20Python%20quick%20start/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%881.29.43.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>After training, the model can be saved:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/LightGBM%20Python%20quick%20start/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%881.30.14.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>The trained model can also be dumped to JSON format:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/LightGBM%20Python%20quick%20start/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%881.31.17.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>A saved model can be loaded:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/LightGBM%20Python%20quick%20start/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%881.31.36.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h1 id="CV"><a href="#CV" class="headerlink" title="CV"></a>CV</h1><p>Training with 5-fold CV:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/LightGBM%20Python%20quick%20start/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%881.33.58.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h1 id="Early-Stopping"><a href="#Early-Stopping" class="headerlink" title="Early Stopping"></a>Early Stopping</h1><p>If you have a validation set, you can use early stopping to find the optimal number of boosting rounds. Early stopping requires at least one set in <strong>valid_sets</strong>. If there is more than one, it will use all of them except the training data:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/LightGBM%20Python%20quick%20start/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%881.35.00.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>The model will train until the validation score stops improving. Validation score needs to improve at least every <strong>early_stopping_rounds</strong> to continue training.</p>
 <p>The index of iteration that has the best performance will be saved in the <strong>best_iteration</strong> field if early stopping logic is enabled by setting <strong>early_stopping_rounds</strong>. Note that <strong>train()</strong> will return a model from the best iteration.</p>
 <p>This works with both metrics to minimize (L2, log loss, etc.) and to maximize (NDCG, AUC, etc.). Note that if you specify more than one evaluation metric, all of them will be used for early stopping. However, you can change this behavior and make LightGBM check only the first metric for early stopping by creating <strong>early_stopping</strong> callback with <strong>first_metric_only=True</strong>.</p>
-<h1 id="Prediction"><a href="#Prediction" class="headerlink" title="Prediction"></a>Prediction</h1><p>A model that has been trained or loaded can perform predictions on datasets:<br><img src="/img/media/LightGBM%20Python%20quick%20start/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%881.51.55.png" alt=""><br>If early stopping is enabled during training, you can get predictions from the best iteration with <strong>bst.best_iteration</strong>:<br><img src="/img/media/LightGBM%20Python%20quick%20start/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%881.52.37.png" alt=""></p>
+<h1 id="Prediction"><a href="#Prediction" class="headerlink" title="Prediction"></a>Prediction</h1><p>A model that has been trained or loaded can perform predictions on datasets:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/LightGBM%20Python%20quick%20start/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%881.51.55.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>If early stopping is enabled during training, you can get predictions from the best iteration with <strong>bst.best_iteration</strong>:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/LightGBM%20Python%20quick%20start/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-17%20%E4%B8%8B%E5%8D%881.52.37.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 
         </div>
 
@@ -367,9 +487,7 @@
             </span>
         </p>
     </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
+
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
     </script>
 </footer>

@@ -21,13 +21,13 @@
     
     
     <meta name="keywords" content="机器学习,反向传播">
-    <meta name="description" content="百面 多层感知机的反向传播算法在网络训练中，前向传播最终产生一个标量损失函数，反向传播算法则将损失函数的信息沿网络层向后传播用以计算梯度，达到优化网络参数的目的。 问题1问：写出多层感知机的平方误差和交叉熵损失函数。 答：图片内容说明，图中有平方误差函数以及交叉熵损失函数在二分类和多分类的情况下的表达式。 问题2问：根据问题1中定义的损失函数，推导各层参数更新的梯度计算公式。   问题3问：平方误">
+    <meta name="description" content="百面 多层感知机的反向传播算法                                                                                                           在网络训练中，前向传播最终产生一个标量损失函数，反向传播算法则将损失函数的信息沿网络层向后传播用以计算梯度，达到优化网络参数的目的。 问题1问：写出多层感知">
 <meta name="keywords" content="机器学习,反向传播">
 <meta property="og:type" content="article">
 <meta property="og:title" content="百面机器学习 多层感知机的反向传播算法">
 <meta property="og:url" content="https://github.com/zdkswd/2019/02/28/百面 多层感知机的反向传播算法/index.html">
 <meta property="og:site_name" content="ZDK&#39;s blog">
-<meta property="og:description" content="百面 多层感知机的反向传播算法在网络训练中，前向传播最终产生一个标量损失函数，反向传播算法则将损失函数的信息沿网络层向后传播用以计算梯度，达到优化网络参数的目的。 问题1问：写出多层感知机的平方误差和交叉熵损失函数。 答：图片内容说明，图中有平方误差函数以及交叉熵损失函数在二分类和多分类的情况下的表达式。 问题2问：根据问题1中定义的损失函数，推导各层参数更新的梯度计算公式。   问题3问：平方误">
+<meta property="og:description" content="百面 多层感知机的反向传播算法                                                                                                           在网络训练中，前向传播最终产生一个标量损失函数，反向传播算法则将损失函数的信息沿网络层向后传播用以计算梯度，达到优化网络参数的目的。 问题1问：写出多层感知">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://github.com/img/media/%E7%99%BE%E9%9D%A2%20%E5%A4%9A%E5%B1%82%E6%84%9F%E7%9F%A5%E6%9C%BA%E7%9A%84%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-28%20%E4%B8%8B%E5%8D%884.35.49.png">
 <meta property="og:image" content="https://github.com/img/media/%E7%99%BE%E9%9D%A2%20%E5%A4%9A%E5%B1%82%E6%84%9F%E7%9F%A5%E6%9C%BA%E7%9A%84%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%E7%AE%97%E6%B3%95/321551343834_.pic_hd.jpg">
@@ -38,7 +38,7 @@
 <meta property="og:updated_time" content="2019-03-29T13:42:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="百面机器学习 多层感知机的反向传播算法">
-<meta name="twitter:description" content="百面 多层感知机的反向传播算法在网络训练中，前向传播最终产生一个标量损失函数，反向传播算法则将损失函数的信息沿网络层向后传播用以计算梯度，达到优化网络参数的目的。 问题1问：写出多层感知机的平方误差和交叉熵损失函数。 答：图片内容说明，图中有平方误差函数以及交叉熵损失函数在二分类和多分类的情况下的表达式。 问题2问：根据问题1中定义的损失函数，推导各层参数更新的梯度计算公式。   问题3问：平方误">
+<meta name="twitter:description" content="百面 多层感知机的反向传播算法                                                                                                           在网络训练中，前向传播最终产生一个标量损失函数，反向传播算法则将损失函数的信息沿网络层向后传播用以计算梯度，达到优化网络参数的目的。 问题1问：写出多层感知">
 <meta name="twitter:image" content="https://github.com/img/media/%E7%99%BE%E9%9D%A2%20%E5%A4%9A%E5%B1%82%E6%84%9F%E7%9F%A5%E6%9C%BA%E7%9A%84%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-28%20%E4%B8%8B%E5%8D%884.35.49.png">
     
         <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
@@ -189,17 +189,55 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="百面-多层感知机的反向传播算法"><a href="#百面-多层感知机的反向传播算法" class="headerlink" title="百面 多层感知机的反向传播算法"></a>百面 多层感知机的反向传播算法</h1><p><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E5%A4%9A%E5%B1%82%E6%84%9F%E7%9F%A5%E6%9C%BA%E7%9A%84%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-28%20%E4%B8%8B%E5%8D%884.35.49.png" alt=""><br>在网络训练中，前向传播最终产生一个标量损失函数，反向传播算法则将损失函数的信息沿网络层向后传播用以计算梯度，达到优化网络参数的目的。</p>
+            <h1 id="百面-多层感知机的反向传播算法"><a href="#百面-多层感知机的反向传播算法" class="headerlink" title="百面 多层感知机的反向传播算法"></a>百面 多层感知机的反向传播算法</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E5%A4%9A%E5%B1%82%E6%84%9F%E7%9F%A5%E6%9C%BA%E7%9A%84%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%E7%AE%97%E6%B3%95/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-28%20%E4%B8%8B%E5%8D%884.35.49.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>在网络训练中，前向传播最终产生一个标量损失函数，反向传播算法则将损失函数的信息沿网络层向后传播用以计算梯度，达到优化网络参数的目的。</p>
 <h2 id="问题1"><a href="#问题1" class="headerlink" title="问题1"></a>问题1</h2><p>问：写出多层感知机的平方误差和交叉熵损失函数。</p>
-<p>答：图片内容说明，图中有平方误差函数以及交叉熵损失函数在二分类和多分类的情况下的表达式。<br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E5%A4%9A%E5%B1%82%E6%84%9F%E7%9F%A5%E6%9C%BA%E7%9A%84%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%E7%AE%97%E6%B3%95/321551343834_.pic_hd.jpg" alt=""></p>
+<p>答：图片内容说明，图中有平方误差函数以及交叉熵损失函数在二分类和多分类的情况下的表达式。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E5%A4%9A%E5%B1%82%E6%84%9F%E7%9F%A5%E6%9C%BA%E7%9A%84%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%E7%AE%97%E6%B3%95/321551343834_.pic_hd.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <h2 id="问题2"><a href="#问题2" class="headerlink" title="问题2"></a>问题2</h2><p>问：根据问题1中定义的损失函数，推导各层参数更新的梯度计算公式。</p>
-<p><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E5%A4%9A%E5%B1%82%E6%84%9F%E7%9F%A5%E6%9C%BA%E7%9A%84%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%E7%AE%97%E6%B3%95/341551353140_.pic.jpg" alt=""><br><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E5%A4%9A%E5%B1%82%E6%84%9F%E7%9F%A5%E6%9C%BA%E7%9A%84%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%E7%AE%97%E6%B3%95/351551353141_.pic.jpg" alt=""></p>
-<p><img src="/img/media/%E7%99%BE%E9%9D%A2%20%E5%A4%9A%E5%B1%82%E6%84%9F%E7%9F%A5%E6%9C%BA%E7%9A%84%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%E7%AE%97%E6%B3%95/331551353138_.pic.jpg" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E5%A4%9A%E5%B1%82%E6%84%9F%E7%9F%A5%E6%9C%BA%E7%9A%84%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%E7%AE%97%E6%B3%95/341551353140_.pic.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E5%A4%9A%E5%B1%82%E6%84%9F%E7%9F%A5%E6%9C%BA%E7%9A%84%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%E7%AE%97%E6%B3%95/351551353141_.pic.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E7%99%BE%E9%9D%A2%20%E5%A4%9A%E5%B1%82%E6%84%9F%E7%9F%A5%E6%9C%BA%E7%9A%84%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%E7%AE%97%E6%B3%95/331551353138_.pic.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h2 id="问题3"><a href="#问题3" class="headerlink" title="问题3"></a>问题3</h2><p>问：平方误差损失函数和交叉熵损失函数分别适合什么场景？</p>
 <p>答：一般来说，平方损失函数更适合输出为连续，并且最后一层不含Sigmoid或Softmax激活函数的神经网络；交叉熵损失则更适合二分类或多分类的场景。</p>
 <p>平方损失函数不适合最后一层含有Sigmoid或Softmax激活函数的神经网路的原因是。由（9.23）得，右式最后一项是激活函数的导数，当激活函数为Sigmoid函数时，如果z的绝对值较大，函数的梯度会趋于饱和，即右式最后一项导数的绝对值非常小，导致等式的左边取值非常小，使得基于梯度的学习速度非常缓慢。</p>
 <p>当使用交叉熵损失时，激活函数为Softmax，由（9.27），导数是线性的，因此不会存在学习速度过慢的问题。</p>
-<h2 id="神经元"><a href="#神经元" class="headerlink" title="神经元"></a>神经元</h2><p><img src="/img/add/27.png" alt=""></p>
+<h2 id="神经元"><a href="#神经元" class="headerlink" title="神经元"></a>神经元</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/add/27.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 
         </div>
 
@@ -336,9 +374,7 @@
             </span>
         </p>
     </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
+
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
     </script>
 </footer>

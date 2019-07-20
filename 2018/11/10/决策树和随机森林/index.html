@@ -21,13 +21,13 @@
     
     
     <meta name="keywords" content="机器学习">
-    <meta name="description" content="机器学习升级版 决策树和随机森林基于样本和特征的双重随机性。之所以有那么多种的处理办法，是因为没有某一种是十分有效的。 CARTclassification and regression tree 统计学习方法 决策树决策树( decision tree)是一种基本的分类与回归方法。这里主要是用于分类的决策树.决策树模型呈树形结构,在分类问题中,表示基于特征对实例进行分类的过程。它可以认为是 if">
+    <meta name="description" content="机器学习升级版 决策树和随机森林">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="决策树和随机森林">
 <meta property="og:url" content="https://github.com/zdkswd/2018/11/10/决策树和随机森林/index.html">
 <meta property="og:site_name" content="ZDK&#39;s blog">
-<meta property="og:description" content="机器学习升级版 决策树和随机森林基于样本和特征的双重随机性。之所以有那么多种的处理办法，是因为没有某一种是十分有效的。 CARTclassification and regression tree 统计学习方法 决策树决策树( decision tree)是一种基本的分类与回归方法。这里主要是用于分类的决策树.决策树模型呈树形结构,在分类问题中,表示基于特征对实例进行分类的过程。它可以认为是 if">
+<meta property="og:description" content="机器学习升级版 决策树和随机森林">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://github.com/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%884.26.05.png">
 <meta property="og:image" content="https://github.com/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%884.29.38.png">
@@ -83,7 +83,7 @@
 <meta property="og:updated_time" content="2019-02-22T12:35:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="决策树和随机森林">
-<meta name="twitter:description" content="机器学习升级版 决策树和随机森林基于样本和特征的双重随机性。之所以有那么多种的处理办法，是因为没有某一种是十分有效的。 CARTclassification and regression tree 统计学习方法 决策树决策树( decision tree)是一种基本的分类与回归方法。这里主要是用于分类的决策树.决策树模型呈树形结构,在分类问题中,表示基于特征对实例进行分类的过程。它可以认为是 if">
+<meta name="twitter:description" content="机器学习升级版 决策树和随机森林">
 <meta name="twitter:image" content="https://github.com/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%884.26.05.png">
     
         <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
@@ -234,15 +234,145 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="机器学习升级版-决策树和随机森林"><a href="#机器学习升级版-决策树和随机森林" class="headerlink" title="机器学习升级版 决策树和随机森林"></a>机器学习升级版 决策树和随机森林</h1><p><img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%884.26.05.png" alt=""><br><img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%884.29.38.png" alt=""><br><img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%884.31.08.png" alt=""><br><img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%884.32.58.png" alt=""><br><img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%884.50.37.png" alt=""><br><img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%884.55.26.png" alt=""><br><img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%884.55.45.png" alt=""><br><img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%886.21.21.png" alt=""><br><img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%886.22.28.png" alt=""><br><img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%886.24.26.png" alt=""><br><img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%886.25.32.png" alt=""><br><img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%886.28.16.png" alt=""><br><img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%886.31.32.png" alt=""><br><img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%886.32.52.png" alt=""><br><img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%886.44.46.png" alt=""><br><img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%886.50.31.png" alt=""><br>基于样本和特征的双重随机性。<br><img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%886.59.37.png" alt=""><br>之所以有那么多种的处理办法，是因为没有某一种是十分有效的。</p>
+            <h1 id="机器学习升级版-决策树和随机森林"><a href="#机器学习升级版-决策树和随机森林" class="headerlink" title="机器学习升级版 决策树和随机森林"></a>机器学习升级版 决策树和随机森林</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%884.26.05.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%884.29.38.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%884.31.08.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%884.32.58.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%884.50.37.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%884.55.26.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%884.55.45.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%886.21.21.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%886.22.28.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%886.24.26.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%886.25.32.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%886.28.16.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%886.31.32.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%886.32.52.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%886.44.46.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%886.50.31.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>基于样本和特征的双重随机性。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%886.59.37.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>之所以有那么多种的处理办法，是因为没有某一种是十分有效的。</p>
 <p>CART<br>classification and regression tree</p>
 <h1 id="统计学习方法-决策树"><a href="#统计学习方法-决策树" class="headerlink" title="统计学习方法 决策树"></a>统计学习方法 决策树</h1><p>决策树( decision tree)是一种基本的分类与回归方法。这里主要是用于分类的决策树.决策树模型呈树形结构,在分类问题中,表示基于特征对实例进行分类的过程。它可以认为是 if-then规则的集合,也可以认为是定义在特征空间与类空间上的条件概率分布。</p>
 <p>其主要优点是模型具有可读性,分类速度快。学习时,利用训练数据根据损失函数最小化的原则建立决策树模型。预测时,对新的数据,利用决策树模型进行分类。</p>
 <p>决策树学习通常包括3个步骤:特征选择、决策树的生成和决策树的修剪。</p>
 <h2 id="决策树模型与学习"><a href="#决策树模型与学习" class="headerlink" title="决策树模型与学习"></a>决策树模型与学习</h2><h3 id="决策树模型"><a href="#决策树模型" class="headerlink" title="决策树模型"></a>决策树模型</h3><p>分类决策树模型是一种描述对实例进行分类的树形结构。决策树由结点(node)和有向边( directed edge)组成。<br>结点有两种类型:内部结点( internal node)和叶结点( leaf node)。内部结点表示一个特征或属性,叶结点表示一个类。</p>
-<p>用决策树分类,从根结点开始,对实例的某一特征进行测试,根据测试结果,将实例分配到其子结点;这时,每一个子结点对应着该特征的一个取值.如此递归地对实例进行测试并分配,直至达到叶结点.最后将实例分到叶结点的类中。<br><img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-02%20%E4%B8%8B%E5%8D%884.41.54.png" alt=""><br>圆代表内部节点，方框代表叶节点。</p>
+<p>用决策树分类,从根结点开始,对实例的某一特征进行测试,根据测试结果,将实例分配到其子结点;这时,每一个子结点对应着该特征的一个取值.如此递归地对实例进行测试并分配,直至达到叶结点.最后将实例分到叶结点的类中。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-02%20%E4%B8%8B%E5%8D%884.41.54.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>圆代表内部节点，方框代表叶节点。</p>
 <h3 id="决策树与if-then规则"><a href="#决策树与if-then规则" class="headerlink" title="决策树与if-then规则"></a>决策树与if-then规则</h3><p>可以将决策树看成一个 if-then规则的集合.将决策树转换成 if-then规则的过程是这样的:由决策树的根结点到叶结点的每一条路径构建一条规则;路径上内部结点的特征对应着规则的条件,而叶结点的类对应着规则的结论.决策树的路径或其对应的 if-then规则集合具有一个重要的性质:互斥并且完备.这就是说,每一个实例都被一条路径或一条规则所覆盖,而且只被一条路径或一条规则所覆盖.这里所谓覆盖是指实例的特征与路径上的特征一致或实例满足规则的条件。</p>
-<h3 id="决策树与条件概率分布"><a href="#决策树与条件概率分布" class="headerlink" title="决策树与条件概率分布"></a>决策树与条件概率分布</h3><p>决策树还表示给定特征条件下类的条件概率分布。假设X为表示特征的随机变量,Y为表示类的随机变量,那么这个条件概率分布可以表示为：<br><img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-02%20%E4%B8%8B%E5%8D%884.49.50.png" alt=""><br>X取值与给定划分下单元的集合，Y取值于类的集合。各叶节点上的条件概率往往偏向某一类，即属于某一类的概率较大。决策树分类时将该节点的实例强行分到条件概率大的那一类去。</p>
+<h3 id="决策树与条件概率分布"><a href="#决策树与条件概率分布" class="headerlink" title="决策树与条件概率分布"></a>决策树与条件概率分布</h3><p>决策树还表示给定特征条件下类的条件概率分布。假设X为表示特征的随机变量,Y为表示类的随机变量,那么这个条件概率分布可以表示为：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-02%20%E4%B8%8B%E5%8D%884.49.50.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>X取值与给定划分下单元的集合，Y取值于类的集合。各叶节点上的条件概率往往偏向某一类，即属于某一类的概率较大。决策树分类时将该节点的实例强行分到条件概率大的那一类去。</p>
 <h3 id="决策树学习"><a href="#决策树学习" class="headerlink" title="决策树学习"></a>决策树学习</h3><p>决策树学习本质上是从训练数据集中归纳出一组分类规则。与训练数据集不<br>相矛盾的决策树(即能对训练数据进行正确分类的决策树)可能有多个,也可能<br>一个也没有。我们需要的是一个与训练数据矛盾较小的决策树,同时具有很好的<br>泛化能力。</p>
 <p>决策树学习用损失函数表示这一目标,如下所述,决策树学习的损失函数通常是正则化的极大似然函数.决策树学习的策略是以损失函数为目标函数的最小化。</p>
 <p>当损失函数确定以后,学习问题就变为在损失函数意义下选择最优决策树的问题,因为从所有可能的决策树中选取最优决策树是NP完全问题,所以现实中决策树学习算法通常采用<strong>启发式方法</strong>,近似求解这一最优化问题.这样得到的决策树是次最优(sub- optimal)的。</p>
@@ -251,22 +381,85 @@
 <p>如果特征数量很多,也可以在决策树学习开始的时候,对特征进行选择,只留下对训练数据有足够分类能力的特征。</p>
 <p>决策树学习算法包含特征选择、决策树的生成与决策树的剪枝过程.由于决策树表示一个条件概率分布,所以深浅不同的决策树对应着不同复杂度的概率模型.决策树的生成对应于模型的局部选择,决策树的剪枝对应于模型的全局选择.决策树的生成只考虑局部最优,相对地,决策树的剪枝则考虑全局最优。</p>
 <h2 id="特征选择"><a href="#特征选择" class="headerlink" title="特征选择"></a>特征选择</h2><h3 id="特征选择问题"><a href="#特征选择问题" class="headerlink" title="特征选择问题"></a>特征选择问题</h3><p>特征选择在于选取对训练数据具有分类能力的特征.这样可以提高决策树学习的效率.如果利用一个特征进行分类的结果与随机分类的结果没有很大差别,则称这个特征是没有分类能力的,经验上扔掉这样的特征对决策树学习的精度影响不大,通常特征选择的准则是<strong>信息增益</strong>或<strong>信息增益比</strong>。</p>
-<h3 id="信息增益"><a href="#信息增益" class="headerlink" title="信息增益"></a>信息增益</h3><h4 id="信息增益的算法"><a href="#信息增益的算法" class="headerlink" title="信息增益的算法"></a>信息增益的算法</h4><p>输入训练集D和特征A：<br>输出：特征A对训练数据集D的信息增益g(D,A)。<br><img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%888.38.31.png" alt=""><br><img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%888.39.58.png" alt=""><br><img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%888.44.53.png" alt=""><br>A3，A4类似，最后比较各特征的信息增益值。由于特征A3的信息增益值最大，所以选择特征A3作为最优特征。</p>
-<h3 id="信息增益比"><a href="#信息增益比" class="headerlink" title="信息增益比"></a>信息增益比</h3><h4 id="信息增益比定义"><a href="#信息增益比定义" class="headerlink" title="信息增益比定义"></a>信息增益比定义</h4><p><img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%888.47.21.png" alt=""></p>
+<h3 id="信息增益"><a href="#信息增益" class="headerlink" title="信息增益"></a>信息增益</h3><h4 id="信息增益的算法"><a href="#信息增益的算法" class="headerlink" title="信息增益的算法"></a>信息增益的算法</h4><p>输入训练集D和特征A：<br>输出：特征A对训练数据集D的信息增益g(D,A)。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%888.38.31.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%888.39.58.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%888.44.53.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>A3，A4类似，最后比较各特征的信息增益值。由于特征A3的信息增益值最大，所以选择特征A3作为最优特征。</p>
+<h3 id="信息增益比"><a href="#信息增益比" class="headerlink" title="信息增益比"></a>信息增益比</h3><h4 id="信息增益比定义"><a href="#信息增益比定义" class="headerlink" title="信息增益比定义"></a>信息增益比定义</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%888.47.21.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h2 id="决策树的生成"><a href="#决策树的生成" class="headerlink" title="决策树的生成"></a>决策树的生成</h2><h3 id="ID3算法"><a href="#ID3算法" class="headerlink" title="ID3算法"></a>ID3算法</h3><p>ID3算法的<strong>核心</strong>是在决策树各个结点上应用<strong>信息增益</strong>准则选择特征,递归地构建决策树.具体方法是:从根结点( root node)开始,对结点计算所有可能的特征的信息增益,选择信息增益最大的特征作为结点的特征,由该特征的不同取值建立子结点;再对子结点递归地调用以上方法,构建决策树;直到所有特征的信息增益均很小或没有特征可以选择为止,最后得到一个决策树.ID3相当于用极大似然法进行概率模型的选择。</p>
-<h4 id="算法（ID3算法）"><a href="#算法（ID3算法）" class="headerlink" title="算法（ID3算法）"></a>算法（ID3算法）</h4><p><img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%888.51.51.png" alt=""><br><img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%888.52.00.png" alt=""><br><img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%888.54.11.png" alt=""><br>ID3算法只有树的生成，所以该算法生成的树容易产生过拟合。而且ID3还存在着不能直接处理连续型特征的问题。只有事先将连续型特征离散化，才能在ID3算法中使用，但这种转换过程会破坏连续型变量的内在特性。</p>
+<h4 id="算法（ID3算法）"><a href="#算法（ID3算法）" class="headerlink" title="算法（ID3算法）"></a>算法（ID3算法）</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%888.51.51.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%888.52.00.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%888.54.11.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>ID3算法只有树的生成，所以该算法生成的树容易产生过拟合。而且ID3还存在着不能直接处理连续型特征的问题。只有事先将连续型特征离散化，才能在ID3算法中使用，但这种转换过程会破坏连续型变量的内在特性。</p>
 <h3 id="C4-5的生成算法"><a href="#C4-5的生成算法" class="headerlink" title="C4.5的生成算法"></a>C4.5的生成算法</h3><p>C4.5算法与ID3算法相似，C4.5算法对ID3算法进行了改进。C4.5在生成的过程中，用<strong>信息增益比</strong>来选择特征。</p>
-<h4 id="算法（C4-5的生成算法）"><a href="#算法（C4-5的生成算法）" class="headerlink" title="算法（C4.5的生成算法）"></a>算法（C4.5的生成算法）</h4><p><img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%888.57.13.png" alt=""></p>
+<h4 id="算法（C4-5的生成算法）"><a href="#算法（C4-5的生成算法）" class="headerlink" title="算法（C4.5的生成算法）"></a>算法（C4.5的生成算法）</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%888.57.13.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h2 id="决策树的剪枝"><a href="#决策树的剪枝" class="headerlink" title="决策树的剪枝"></a>决策树的剪枝</h2><p>决策树生成算法递归地产生决策树,直到不能继续下去为止,这样产生的树往往对训练数据的分类很准确,但对未知的测试数据的分类却没有那么准确,即出现过拟合现象.过拟合的原因在于学习时过多地考虑如何提高对训练数据的正确分类,从而构建出过于复杂的决策树,解决这个问题的办法是考虑决策树的复杂度,对已生成的决策树进行简化。</p>
 <p>在决策树学习中将已生成的树进行简化的过程称为剪枝( pruning).具体地,剪枝从已生成的树上裁掉一些子树或叶结点,并将其根结点或父结点作为新的叶结点,从而简化分类树模型。</p>
-<p>决策树的剪枝往往通过极小化决策树整体的损失函数或代价函数来实现。设树T的叶节点个数为|T|，t是树T的叶节点，该<br><img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%889.18.35.png" alt=""><br>C（T）表示模型对训练数据的预测误差，即模型与训练数据的拟合程度，|T|表示模型复杂度，参数α≥0控制两者之间的影响。较大的α促使选择较简单的模型（树），较小的α促使选择较复杂的模型（树）。α=0意味着只考虑模型与训练数据的拟合程度，不考虑模型的复杂度。</p>
+<p>决策树的剪枝往往通过极小化决策树整体的损失函数或代价函数来实现。设树T的叶节点个数为|T|，t是树T的叶节点，该<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%889.18.35.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>C（T）表示模型对训练数据的预测误差，即模型与训练数据的拟合程度，|T|表示模型复杂度，参数α≥0控制两者之间的影响。较大的α促使选择较简单的模型（树），较小的α促使选择较复杂的模型（树）。α=0意味着只考虑模型与训练数据的拟合程度，不考虑模型的复杂度。</p>
 <p>剪枝,就是当α确定时,选择损失函数最小的模型,即损失函数最小的子树.当α值确定时,子树越大,往往与训练数据的拟合越好,但是模型的复杂度就越髙;相反,子树越小,模型的复杂度就越低,但是往往与训练数据的拟合不好,损失函数正好表示了对两者的平衡。</p>
 <h3 id="算法（树的剪枝算法）"><a href="#算法（树的剪枝算法）" class="headerlink" title="算法（树的剪枝算法）"></a>算法（树的剪枝算法）</h3><p>输入：生成算法产生的整个树T，参数α；<br>输出：修剪后的子树Tα。</p>
 <ol>
 <li>计算每个结点的经验熵。</li>
 <li>递归地从树的叶节点向上回缩。</li>
 </ol>
-<p><img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%889.30.27.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%889.30.27.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <ol start="3">
 <li>返回2，直至不能继续为止，得到损失函数最小的子树Tα。</li>
 </ol>
@@ -277,38 +470,175 @@
 <li>决策树剪枝，用<strong>验证数据集</strong>对已生成的树进行剪枝并选择最优子树，这时用<strong>损失函数最小</strong>作为剪枝的标准。</li>
 </ol>
 <h3 id="CART生成"><a href="#CART生成" class="headerlink" title="CART生成"></a>CART生成</h3><p>决策树的生成就是递归地构建二叉决策树的过程。对<strong>回归</strong>树用<strong>平方误差</strong>最小化准则，对<strong>分类</strong>树用<strong>基尼指数</strong>最小化准则，进行特征选择，生成二叉树。</p>
-<h4 id="回归树的生成"><a href="#回归树的生成" class="headerlink" title="回归树的生成"></a>回归树的生成</h4><p><img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-09%20%E4%B8%8B%E5%8D%889.10.36.png" alt=""><br>用人话解释：回归树的原理及Python实现 - 李小文的文章 - 知乎<br><a href="https://zhuanlan.zhihu.com/p/43939904" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/43939904</a><br>就是把连续的数据分为几个区间，问题的关键就是分割点的选取。</p>
-<h4 id="分类树的生成"><a href="#分类树的生成" class="headerlink" title="分类树的生成"></a>分类树的生成</h4><p>分类树用基尼指数选择最优特征，同时决定该特征的最优二值切分点。<br><img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-09%20%E4%B8%8B%E5%8D%889.16.44.png" alt=""><br>生成方法与ID3决策树类似。</p>
+<h4 id="回归树的生成"><a href="#回归树的生成" class="headerlink" title="回归树的生成"></a>回归树的生成</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-09%20%E4%B8%8B%E5%8D%889.10.36.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>用人话解释：回归树的原理及Python实现 - 李小文的文章 - 知乎<br><a href="https://zhuanlan.zhihu.com/p/43939904" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/43939904</a><br>就是把连续的数据分为几个区间，问题的关键就是分割点的选取。</p>
+<h4 id="分类树的生成"><a href="#分类树的生成" class="headerlink" title="分类树的生成"></a>分类树的生成</h4><p>分类树用基尼指数选择最优特征，同时决定该特征的最优二值切分点。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-09%20%E4%B8%8B%E5%8D%889.16.44.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>生成方法与ID3决策树类似。</p>
 <h3 id="CART剪枝"><a href="#CART剪枝" class="headerlink" title="CART剪枝"></a>CART剪枝</h3><p>CART剪枝算法从“完全生长”的决策树的底端剪去一些子树，使决策树变小(模型变简单)，从而能够对未知数据有更准确的预测。</p>
 <p> CART剪枝算法由两步组成:首先从生成算法产生的决策树To底端开始不断剪枝,直到To的根结点，形成一个子树序列{T1,…,Tn};然后通过交叉验证法在独立的验证数据集上对子树序列进行测试，从中选择最优子树。</p>
-<h4 id="剪枝，形成一个子树序列"><a href="#剪枝，形成一个子树序列" class="headerlink" title="剪枝，形成一个子树序列"></a>剪枝，形成一个子树序列</h4><p>在剪枝过程中，计算子树的损失函数:<br><img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-07%20%E4%B8%8B%E5%8D%885.24.46.png" alt=""><br>T为任意子树，C（T）为训练数据的预测误差（如基尼指数），|T|为子树的叶节点个数，α≥0为参数，Cα（T）为参数是α时的子树T的整体损失。参数α权衡训练数据的拟合程度与模型的复杂度。</p>
+<h4 id="剪枝，形成一个子树序列"><a href="#剪枝，形成一个子树序列" class="headerlink" title="剪枝，形成一个子树序列"></a>剪枝，形成一个子树序列</h4><p>在剪枝过程中，计算子树的损失函数:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-07%20%E4%B8%8B%E5%8D%885.24.46.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>T为任意子树，C（T）为训练数据的预测误差（如基尼指数），|T|为子树的叶节点个数，α≥0为参数，Cα（T）为参数是α时的子树T的整体损失。参数α权衡训练数据的拟合程度与模型的复杂度。</p>
 <p>对固定的α,一定存在使损失函数C(T)最小的子树，将其表示为Tα. Tα在损失函数Cα(T)最小的意义下是最优的.容易验证这样的最优子树是唯一的.当α大的时候，最优子树Tα偏小;当α小的时候，最优子树Tα偏大. 极端情况，当α=0时，整体树是最优的，当α趋近正无穷时，根结点组成的单结点树是最优的.</p>
-<p>从整体树T0开始剪枝，对T0的任意内部节点t，以t为单结点树的损失函数是<br><img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-07%20%E4%B8%8B%E5%8D%885.55.53.png" alt=""><br>以t为根结点的子树Tt的损失函数是<br><img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-07%20%E4%B8%8B%E5%8D%885.56.28.png" alt=""><br>当α=0及α充分小时，有不等式<br><img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-07%20%E4%B8%8B%E5%8D%886.02.05.png" alt=""><br>当α增大时，在某一α有<br><img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-07%20%E4%B8%8B%E5%8D%886.02.38.png" alt=""><br>当α再增大时，不等式反向。只要<br><img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-07%20%E4%B8%8B%E5%8D%886.03.34.png" alt=""><br>Tt与t有相同的损失函数值，而t的节点少，因此t比Tt更可取，对Tt进行剪枝。</p>
-<p>为此，对T0中每一内部结点t，计算<br><img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-07%20%E4%B8%8B%E5%8D%886.05.18.png" alt=""><br>它表示剪枝后整体损失函数减少的程度.在T0中剪去g(t)最小的Tt,将得到的子<br>树作为T1，同时将最小的g(t)设为α1. T1为区间[α1,α2)的最优子树.</p>
+<p>从整体树T0开始剪枝，对T0的任意内部节点t，以t为单结点树的损失函数是<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-07%20%E4%B8%8B%E5%8D%885.55.53.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>以t为根结点的子树Tt的损失函数是<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-07%20%E4%B8%8B%E5%8D%885.56.28.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>当α=0及α充分小时，有不等式<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-07%20%E4%B8%8B%E5%8D%886.02.05.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>当α增大时，在某一α有<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-07%20%E4%B8%8B%E5%8D%886.02.38.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>当α再增大时，不等式反向。只要<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-07%20%E4%B8%8B%E5%8D%886.03.34.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>Tt与t有相同的损失函数值，而t的节点少，因此t比Tt更可取，对Tt进行剪枝。</p>
+<p>为此，对T0中每一内部结点t，计算<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-07%20%E4%B8%8B%E5%8D%886.05.18.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>它表示剪枝后整体损失函数减少的程度.在T0中剪去g(t)最小的Tt,将得到的子<br>树作为T1，同时将最小的g(t)设为α1. T1为区间[α1,α2)的最优子树.</p>
 <p>如此剪枝下去，直到得到根节点。在这一过程中，不断增加α的值，产生新的区间。</p>
 <h4 id="在剪枝得到的子树序列T0-T1-…-Tn中通过交叉验证选取最优子树Tα"><a href="#在剪枝得到的子树序列T0-T1-…-Tn中通过交叉验证选取最优子树Tα" class="headerlink" title="在剪枝得到的子树序列T0,T1,…,Tn中通过交叉验证选取最优子树Tα"></a>在剪枝得到的子树序列T0,T1,…,Tn中通过交叉验证选取最优子树Tα</h4><p>具体地，利用独立的验证数据集，测试子树序列T0,T1,…,Tn中各棵子树的平方误差或基尼指数.平方误差或基尼指数最小的决策树被认为是最优的决策树.在子树序列中，每棵子树T1,T2,.,Tn都对应于一个参数α1,α2,…,αn,.所以，当最优子树Tk确定时，对应的ak也确定了，即得到最优决策树Tα。</p>
-<h3 id="CART剪枝算法"><a href="#CART剪枝算法" class="headerlink" title="CART剪枝算法"></a>CART剪枝算法</h3><p><img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-07%20%E4%B8%8B%E5%8D%886.11.57.png" alt=""></p>
+<h3 id="CART剪枝算法"><a href="#CART剪枝算法" class="headerlink" title="CART剪枝算法"></a>CART剪枝算法</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-07%20%E4%B8%8B%E5%8D%886.11.57.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h1 id="西瓜书-树剪枝"><a href="#西瓜书-树剪枝" class="headerlink" title="西瓜书 树剪枝"></a>西瓜书 树剪枝</h1><p>可以采用留出法，即预留一部分数据用作“验证集”以进行性能评估。</p>
-<h2 id="预剪枝"><a href="#预剪枝" class="headerlink" title="预剪枝"></a>预剪枝</h2><p><img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-09%20%E4%B8%8B%E5%8D%889.49.18.png" alt=""><br>预剪枝使得决策树的很多分支都没有“展开”，这不仅降低了过拟合的风险，还显著减少了决策树的训练时间开销和测试时间开销。但在另一方面，有些分支的当前划分虽不能提高泛化性能、甚至可能导致泛化性能暂时下降，但在其基础上进行的后续划分却有可能导致性能显著提高；预剪枝基于“贪心”本质禁止这些分支展开，给预剪枝决策树带来了欠拟合的风险。</p>
-<h2 id="后剪枝"><a href="#后剪枝" class="headerlink" title="后剪枝"></a>后剪枝</h2><p>后剪枝先从训练集生成一颗完整决策树。<br><img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-10%20%E4%B8%8A%E5%8D%8810.03.13.png" alt=""><br><img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-10%20%E4%B8%8A%E5%8D%8810.03.36.png" alt=""><br>对比可得，后剪枝决策树通常比预剪枝决策树保留了更多的分支。一般来说，后剪枝决策树的欠拟合风险很小，泛化性能往往优于预剪枝决策树。但后剪枝过程是在生成完全决策树之后进行的，并且要自底向上地对树中的所有非叶节点进行逐一考察，因此其训练时间开销比未剪枝决策树和预剪枝决策树都要大。</p>
-<h1 id="博客"><a href="#博客" class="headerlink" title="博客"></a>博客</h1><p>回归树：<br><img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/1%20dt%20divide.png" alt=""></p>
-<p>回归树与线性回归的对比：<br><img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/1%20dt%20sklearn.png" alt=""></p>
+<h2 id="预剪枝"><a href="#预剪枝" class="headerlink" title="预剪枝"></a>预剪枝</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-09%20%E4%B8%8B%E5%8D%889.49.18.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>预剪枝使得决策树的很多分支都没有“展开”，这不仅降低了过拟合的风险，还显著减少了决策树的训练时间开销和测试时间开销。但在另一方面，有些分支的当前划分虽不能提高泛化性能、甚至可能导致泛化性能暂时下降，但在其基础上进行的后续划分却有可能导致性能显著提高；预剪枝基于“贪心”本质禁止这些分支展开，给预剪枝决策树带来了欠拟合的风险。</p>
+<h2 id="后剪枝"><a href="#后剪枝" class="headerlink" title="后剪枝"></a>后剪枝</h2><p>后剪枝先从训练集生成一颗完整决策树。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-10%20%E4%B8%8A%E5%8D%8810.03.13.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-10%20%E4%B8%8A%E5%8D%8810.03.36.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>对比可得，后剪枝决策树通常比预剪枝决策树保留了更多的分支。一般来说，后剪枝决策树的欠拟合风险很小，泛化性能往往优于预剪枝决策树。但后剪枝过程是在生成完全决策树之后进行的，并且要自底向上地对树中的所有非叶节点进行逐一考察，因此其训练时间开销比未剪枝决策树和预剪枝决策树都要大。</p>
+<h1 id="博客"><a href="#博客" class="headerlink" title="博客"></a>博客</h1><p>回归树：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/1%20dt%20divide.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>回归树与线性回归的对比：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/1%20dt%20sklearn.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <h1 id="西瓜书-Bagging与随机森林"><a href="#西瓜书-Bagging与随机森林" class="headerlink" title="西瓜书 Bagging与随机森林"></a>西瓜书 Bagging与随机森林</h1><p>欲得到泛化性能强的集成,集成中的个体学习器应<strong>尽可能相互独立</strong>;虽然“独立”在现实任务中无法做到，但可以设法使基学习器尽可能具有较大的差异.给定一个训练数据集,一种可能的做法是对训练样本进行采样，产生出若干个不同的子集，再从每个数据子集中训练出一个基学习器.这样，由于训练数据不同,我们获得的基学习器可望具有比较大的差异.然而，为获得好的集成，我们同时还希望个体学习器不能太差.如果采样出的每个子集都<strong>完全不同</strong>，则每个基学习器只用到了<strong>一小部分训练数据</strong>，甚至不足以进行有效学习,这显然无法确保产生出比较好的基学习器.为解决这个问题，我们可考虑使用相互有交叠的采样子集.</p>
 <h2 id="Bagging"><a href="#Bagging" class="headerlink" title="Bagging"></a>Bagging</h2><p>Bagging是并行式集成学习最著名的代表，直接基于自助采样法（bootstrap sampling）。给定包含m个样本的数据集,我们先随机取出一个样本放入采样集中，再把该样本放回初始数据集，使得下次采样时该样本仍有可能被选中,这样,经过m次随机采样操作,我们得到含m个样本的采样集，初始训练集中有的样本在采样集里多次出现，有的则从未出现，由式(2.1)可知, 初始训练集中约有63.2%的样本出现在采样集中.</p>
-<p>我们可采样出T个含m个训练样本的采样集，然后基于每个采样集训练出一个基学习器，再将这些基学习器进行结合.这就是Bagging的基本流程.在对预测输出进行结合时，Bagging通常对分类任务使用简单投票法，对回归任务使用简单平均法.若分类预测时出现两个类收到同样票数的情形,则最简单的做法是随机选择一个,也可进一步考察学习器投票的置信度来确定最终胜者.<br><img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-10%20%E4%B8%8B%E5%8D%883.16.19.png" alt=""><br>自助采样过程还给Bagging带来了另一个优点:由于每个基学习器只使用了初始训练集中约63.2%的样本,剩下约36.8%的样本可用作验证集来对泛化性能进行“包外估计”。</p>
+<p>我们可采样出T个含m个训练样本的采样集，然后基于每个采样集训练出一个基学习器，再将这些基学习器进行结合.这就是Bagging的基本流程.在对预测输出进行结合时，Bagging通常对分类任务使用简单投票法，对回归任务使用简单平均法.若分类预测时出现两个类收到同样票数的情形,则最简单的做法是随机选择一个,也可进一步考察学习器投票的置信度来确定最终胜者.<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-10%20%E4%B8%8B%E5%8D%883.16.19.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>自助采样过程还给Bagging带来了另一个优点:由于每个基学习器只使用了初始训练集中约63.2%的样本,剩下约36.8%的样本可用作验证集来对泛化性能进行“包外估计”。</p>
 <p>包外样本还有许多其他用途.例如当基学习器是决策树时，可使用包外样本来辅助剪枝,或用于估计决策树中各结点的后验概率以辅助对零训练样本结点的处理;当基学习器是神经网络时，可使用包外样本来辅助早期停止以减小过拟合风险.</p>
 <p>从偏差方差分解的角度看，Bagging主要关注降低方差，因此它在不剪枝决策树、神经网络等易受样本扰动的学习器上效用更为明显。</p>
 <h2 id="随机森林"><a href="#随机森林" class="headerlink" title="随机森林"></a>随机森林</h2><p>随机森林(Random Forest,简称RF) 是Bagging的一个扩展变体. RF在以决策树为基学习器构建Bagging集成的基础上,进一步在决策树的训练过程中引入了随机属性选择.具体来说，传统决策树在选择划分属性时是在当前结点的属性集合(假定有d个属性)中选择一个最优属性;而在RF中，对基决策树的每个结点，先从该结点的属性集合中随机选择一个包含k个属性的子集，然后再从这个子集中选择一个最优属性用于划分。这里的参数k控制了随机性的引入程度。若k=d则基决策树的构建与传统决策树相同，一般，推荐k=log2d。</p>
 <p>随机森林简单、容易实现、计算开销小，令人惊奇的是，它在很多现实任务中展现出强大的性能,被誉为“代表集成学习技术水平的方法”.可以看出，随机森林对Bagging只做了小改动,但是与Bagging中基学习器的“多样性”仅通过样本扰动(通过对初始训练集采样)而来不同，随机森林中基学习器的多样性<strong>不仅来自样本扰动</strong>,还来自<strong>属性扰动</strong>，这就使得最终集成的泛化性能可通过个体学习器之间差异度的增加而进一步提升.</p>
-<p>随机森林的收敛性与Bagging相似，起始性能往往相对较差，特别是在集成中只包含一个基学习器时。这不难理解，因为通过引入属性扰动，随机森林中个体学习器的性能往往有所降低，但是随着个体学习器数目的增加，随机森林通常会收敛到更低的泛化误差值得一提的是,随机森林的训练效率常优于Bagging,因为在个体决策树的构建过程中, Bagging使用的是“确定型”决策树,在选择划分属性时要对结点的所有属性进行考察，而随机森林使用的“随机型”央策树则只需考察一个属性子集.<br><img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-10%20%E4%B8%8B%E5%8D%883.41.16.png" alt=""></p>
+<p>随机森林的收敛性与Bagging相似，起始性能往往相对较差，特别是在集成中只包含一个基学习器时。这不难理解，因为通过引入属性扰动，随机森林中个体学习器的性能往往有所降低，但是随着个体学习器数目的增加，随机森林通常会收敛到更低的泛化误差值得一提的是,随机森林的训练效率常优于Bagging,因为在个体决策树的构建过程中, Bagging使用的是“确定型”决策树,在选择划分属性时要对结点的所有属性进行考察，而随机森林使用的“随机型”央策树则只需考察一个属性子集.<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-10%20%E4%B8%8B%E5%8D%883.41.16.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <h2 id="结合策略"><a href="#结合策略" class="headerlink" title="结合策略"></a>结合策略</h2><h3 id="学习器结合的好处"><a href="#学习器结合的好处" class="headerlink" title="学习器结合的好处"></a>学习器结合的好处</h3><p>学习器结合会带来三个方面的好处：</p>
 <ol>
 <li>统计方面，可能有多个假设在训练集上达到同等性能，此时若使用单学习器可能会因为误选而导致泛化性能不佳，结合多个学习器则会减小这一风险。</li>
 <li>计算方面，学习算法往往会陷入局部极小,有的局部极小点所对应的泛化性能可能很糟糕，而通过多次运行之后进行结合，可降低陷入糟糕局部极小点的风险。</li>
-<li>表示方面，某些学习任务的真实假设可能不在当前学习算法所考虑的假设空间中，此时若使用单学习器则肯定无效,而通过结合多个学习器，由于相应的假设空间有所扩大，有可能学得更好的近似。<h3 id="平均法"><a href="#平均法" class="headerlink" title="平均法"></a>平均法</h3>对于数值型输出，最常见的就是平均法。<h4 id="简单平均法"><a href="#简单平均法" class="headerlink" title="简单平均法"></a>简单平均法</h4><img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-10%20%E4%B8%8B%E5%8D%884.35.03.png" alt=""><h4 id="加权平均法"><a href="#加权平均法" class="headerlink" title="加权平均法"></a>加权平均法</h4><img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-10%20%E4%B8%8B%E5%8D%884.35.13.png" alt=""><br><img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-10%20%E4%B8%8B%E5%8D%884.35.29.png" alt=""><br>加权平均法的权重一般是从训练数据中学习而得，现实任务中的训练样本通常不充分或存在噪声，这将使得学出的权重不完全可靠.尤其是对规模比较大的集成来说，要学习的权重比较多,较容易导致过拟合.因此,实验和应用均显示出，加权平均法未必一定优于简单平均法.一般而言,在个体学习器性能相差较大时宜使用加权平均法，而在个体学习器性能相近时宜使用简单平均法.<h3 id="投票法"><a href="#投票法" class="headerlink" title="投票法"></a>投票法</h3><h4 id="绝对多数投票法"><a href="#绝对多数投票法" class="headerlink" title="绝对多数投票法"></a>绝对多数投票法</h4>即若某标记得票过半数，则预测为该标记，否则拒绝预测。<h4 id="相对多数投票法"><a href="#相对多数投票法" class="headerlink" title="相对多数投票法"></a>相对多数投票法</h4>即预测为得票最多的标记，若同时又多个标记获最高票，则从中随机选取一个。<h4 id="加权投票法"><a href="#加权投票法" class="headerlink" title="加权投票法"></a>加权投票法</h4>与加权平均法类似。</li>
+<li>表示方面，某些学习任务的真实假设可能不在当前学习算法所考虑的假设空间中，此时若使用单学习器则肯定无效,而通过结合多个学习器，由于相应的假设空间有所扩大，有可能学得更好的近似。<h3 id="平均法"><a href="#平均法" class="headerlink" title="平均法"></a>平均法</h3>对于数值型输出，最常见的就是平均法。<h4 id="简单平均法"><a href="#简单平均法" class="headerlink" title="简单平均法"></a>简单平均法</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-10%20%E4%B8%8B%E5%8D%884.35.03.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="加权平均法"><a href="#加权平均法" class="headerlink" title="加权平均法"></a>加权平均法</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-10%20%E4%B8%8B%E5%8D%884.35.13.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-10%20%E4%B8%8B%E5%8D%884.35.29.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+加权平均法的权重一般是从训练数据中学习而得，现实任务中的训练样本通常不充分或存在噪声，这将使得学出的权重不完全可靠.尤其是对规模比较大的集成来说，要学习的权重比较多,较容易导致过拟合.因此,实验和应用均显示出，加权平均法未必一定优于简单平均法.一般而言,在个体学习器性能相差较大时宜使用加权平均法，而在个体学习器性能相近时宜使用简单平均法.<h3 id="投票法"><a href="#投票法" class="headerlink" title="投票法"></a>投票法</h3><h4 id="绝对多数投票法"><a href="#绝对多数投票法" class="headerlink" title="绝对多数投票法"></a>绝对多数投票法</h4>即若某标记得票过半数，则预测为该标记，否则拒绝预测。<h4 id="相对多数投票法"><a href="#相对多数投票法" class="headerlink" title="相对多数投票法"></a>相对多数投票法</h4>即预测为得票最多的标记，若同时又多个标记获最高票，则从中随机选取一个。<h4 id="加权投票法"><a href="#加权投票法" class="headerlink" title="加权投票法"></a>加权投票法</h4>与加权平均法类似。</li>
 </ol>
 <p>标准的绝对多数投票法提供了“拒绝预测”选项,这在可靠性要求较高的学习任务中是一个很好的机制.但若学习任务要求必须提供预测结果，则绝对多数投票法将退化为相对多数投票法.因此,在不允许拒绝预测的任务中,绝对多数、相对多数投票法统称为“多数投票法”。</p>
-<p>硬投票：输出预测的类标记，软投票，输出一个概率估计。<br><img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-10%20%E4%B8%8B%E5%8D%884.54.09.png" alt=""><br><img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-10%20%E4%B8%8B%E5%8D%884.55.31.png" alt=""></p>
+<p>硬投票：输出预测的类标记，软投票，输出一个概率估计。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-10%20%E4%B8%8B%E5%8D%884.54.09.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-10%20%E4%B8%8B%E5%8D%884.55.31.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <h1 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h1><h2 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h2><p>算法实现。<br>背景：贷款放贷与否<br><a href="https://github.com/zdkswd/MLcode/blob/master/%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0/%E5%86%B3%E7%AD%96%E6%A0%91.py">https://github.com/zdkswd/MLcode/blob/master/%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0/%E5%86%B3%E7%AD%96%E6%A0%91.py</a></p>
 <h2 id="scikit-learn决策树"><a href="#scikit-learn决策树" class="headerlink" title="scikit-learn决策树"></a>scikit-learn决策树</h2><p>使用scikit-learn实现。<br>背景：配隐形眼镜<br><a href="https://github.com/zdkswd/MLcode/tree/master/scikit-learn-code/scikit-learn%E5%86%B3%E7%AD%96%E6%A0%91">https://github.com/zdkswd/MLcode/tree/master/scikit-learn-code/scikit-learn%E5%86%B3%E7%AD%96%E6%A0%91</a></p>
 <h2 id="回归树"><a href="#回归树" class="headerlink" title="回归树"></a>回归树</h2><p>关键词：<strong>CART，预剪枝，后剪枝</strong></p>
@@ -465,9 +795,7 @@
             </span>
         </p>
     </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
+
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
     </script>
 </footer>

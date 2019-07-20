@@ -234,54 +234,358 @@
             <h2 id="为什么要使用概率"><a href="#为什么要使用概率" class="headerlink" title="为什么要使用概率"></a>为什么要使用概率</h2><p>在医生诊断病人的例子中,我们用概率来表示一种信任度( degree of belief),其中1表示非常肯定病人患有流感,而0表示非常肯定病人没有流感。前面那种概率,直接与事件发生的频率相联系,被称为<strong>频率派概率</strong>( frequentist probability);而后者,涉及到确定性水平,被称为<strong>贝叶斯概率</strong>( Bayesian probability)。</p>
 <h2 id="随机变量"><a href="#随机变量" class="headerlink" title="随机变量"></a>随机变量</h2><p><strong>随机变量</strong>( random variable)是可以随机地取不同值的变量。</p>
 <p>随机变量可以是离散的或者连续的。离散随机变量拥有有限或者可数无限多的状态。注意这些状态不一定非要是整数;它们也可能只是一些被命名的状态而没有数值。连续随机变量伴随着实数值。</p>
-<h2 id="概率分布"><a href="#概率分布" class="headerlink" title="概率分布"></a>概率分布</h2><h3 id="离散型变量和概率质量函数"><a href="#离散型变量和概率质量函数" class="headerlink" title="离散型变量和概率质量函数"></a>离散型变量和概率质量函数</h3><p><img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-31%20%E4%B8%8B%E5%8D%887.20.44.png" alt=""><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">也有翻译成概率分布律的</span><br></pre></td></tr></table></figure></p>
-<p><img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-31%20%E4%B8%8B%E5%8D%887.22.04.png" alt=""><br><img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-31%20%E4%B8%8B%E5%8D%887.23.56.png" alt=""></p>
-<h3 id="连续型变量和概率密度函数"><a href="#连续型变量和概率密度函数" class="headerlink" title="连续型变量和概率密度函数"></a>连续型变量和概率密度函数</h3><p><img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8A%E5%8D%8810.55.15.png" alt=""><br><img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8A%E5%8D%8810.56.02.png" alt=""></p>
-<h2 id="边缘概率"><a href="#边缘概率" class="headerlink" title="边缘概率"></a>边缘概率</h2><p><img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8A%E5%8D%8810.58.04.png" alt=""></p>
-<h2 id="条件概率"><a href="#条件概率" class="headerlink" title="条件概率"></a>条件概率</h2><p><img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8A%E5%8D%8811.00.13.png" alt=""><br><img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8A%E5%8D%8811.00.34.png" alt=""></p>
-<h2 id="条件概率的链式法则"><a href="#条件概率的链式法则" class="headerlink" title="条件概率的链式法则"></a>条件概率的链式法则</h2><p><img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8A%E5%8D%8811.02.10.png" alt=""></p>
-<h2 id="独立性和条件独立性"><a href="#独立性和条件独立性" class="headerlink" title="独立性和条件独立性"></a>独立性和条件独立性</h2><p><img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8A%E5%8D%8811.05.44.png" alt=""></p>
-<p>如果关于x和y的条件概率分布对于z的每一个值都可以写成乘积的形式那么这两个随机变量x和y在给定随机变量z时是条件独立的。<br><img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8A%E5%8D%8811.07.28.png" alt=""></p>
-<h2 id="期望、方差和协方差"><a href="#期望、方差和协方差" class="headerlink" title="期望、方差和协方差"></a>期望、方差和协方差</h2><p><img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8A%E5%8D%8811.10.12.png" alt=""></p>
-<p><img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8A%E5%8D%8811.13.30.png" alt=""></p>
-<p><img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8A%E5%8D%8811.18.09.png" alt=""></p>
+<h2 id="概率分布"><a href="#概率分布" class="headerlink" title="概率分布"></a>概率分布</h2><h3 id="离散型变量和概率质量函数"><a href="#离散型变量和概率质量函数" class="headerlink" title="离散型变量和概率质量函数"></a>离散型变量和概率质量函数</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-31%20%E4%B8%8B%E5%8D%887.20.44.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">也有翻译成概率分布律的</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-31%20%E4%B8%8B%E5%8D%887.22.04.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-31%20%E4%B8%8B%E5%8D%887.23.56.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="连续型变量和概率密度函数"><a href="#连续型变量和概率密度函数" class="headerlink" title="连续型变量和概率密度函数"></a>连续型变量和概率密度函数</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8A%E5%8D%8810.55.15.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8A%E5%8D%8810.56.02.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="边缘概率"><a href="#边缘概率" class="headerlink" title="边缘概率"></a>边缘概率</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8A%E5%8D%8810.58.04.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="条件概率"><a href="#条件概率" class="headerlink" title="条件概率"></a>条件概率</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8A%E5%8D%8811.00.13.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8A%E5%8D%8811.00.34.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="条件概率的链式法则"><a href="#条件概率的链式法则" class="headerlink" title="条件概率的链式法则"></a>条件概率的链式法则</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8A%E5%8D%8811.02.10.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="独立性和条件独立性"><a href="#独立性和条件独立性" class="headerlink" title="独立性和条件独立性"></a>独立性和条件独立性</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8A%E5%8D%8811.05.44.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>如果关于x和y的条件概率分布对于z的每一个值都可以写成乘积的形式那么这两个随机变量x和y在给定随机变量z时是条件独立的。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8A%E5%8D%8811.07.28.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h2 id="期望、方差和协方差"><a href="#期望、方差和协方差" class="headerlink" title="期望、方差和协方差"></a>期望、方差和协方差</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8A%E5%8D%8811.10.12.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8A%E5%8D%8811.13.30.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8A%E5%8D%8811.18.09.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>协方差的绝对值如果很大则意味着变量值变化很大并且它们同时距离各自的均值很远。如果协方差是正的,那么两个变量都倾向于同时取得相对较大的值。如果协方差是负的,那么其中一个变量倾向于取得相对较大的值的同时,另一个变量倾向于取得相对较小的值,反之亦然。其他的衡量指标如<strong>相关系数</strong>( correlation)将每个变量的贡献归一化,为了只衡量变量的相关性而不受各个变量尺度大小的影响。</p>
 <p>协方差和相关性是有联系的,但实际上是不同的概念。它们是有联系的,因为两个变量如果相互独立那么它们的协方差为零,如果两个变量的协方差不为零那么它们一定是相关的。然而,独立性又是和协方差完全不同的性质。两个变量如果协方差为零,它们之间一定没有线性关系。独立性比零协方差的要求更强,因为独立性还排除了非线性的关系。两个变量相互依赖但具有零协方差是可能的。</p>
-<h2 id="常用概率分布"><a href="#常用概率分布" class="headerlink" title="常用概率分布"></a>常用概率分布</h2><h3 id="Bernoulli分布（01分布）"><a href="#Bernoulli分布（01分布）" class="headerlink" title="Bernoulli分布（01分布）"></a>Bernoulli分布（01分布）</h3><p><img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8A%E5%8D%8811.26.22.png" alt=""></p>
+<h2 id="常用概率分布"><a href="#常用概率分布" class="headerlink" title="常用概率分布"></a>常用概率分布</h2><h3 id="Bernoulli分布（01分布）"><a href="#Bernoulli分布（01分布）" class="headerlink" title="Bernoulli分布（01分布）"></a>Bernoulli分布（01分布）</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8A%E5%8D%8811.26.22.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h3 id="Multinoulli分布"><a href="#Multinoulli分布" class="headerlink" title="Multinoulli分布"></a>Multinoulli分布</h3><p>就是多项分布。</p>
-<h3 id="高斯分布"><a href="#高斯分布" class="headerlink" title="高斯分布"></a>高斯分布</h3><p>即为正态分布。<br><img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%882.46.28.png" alt=""><br><img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%882.46.28.png" alt=""></p>
-<h3 id="指数分布和-Laplace分布"><a href="#指数分布和-Laplace分布" class="headerlink" title="指数分布和 Laplace分布"></a>指数分布和 Laplace分布</h3><h4 id="指数分布"><a href="#指数分布" class="headerlink" title="指数分布"></a>指数分布</h4><p><img src="/img/media/15330351447482/15331064341410.jpg" alt=""><br><img src="/img/media/15330351447482/15331064440953.jpg" alt=""><br><img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%882.54.12.png" alt=""><br><img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%882.54.19.png" alt=""></p>
-<h4 id="拉普拉斯分布"><a href="#拉普拉斯分布" class="headerlink" title="拉普拉斯分布"></a>拉普拉斯分布</h4><p><img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%882.56.23.png" alt=""></p>
-<p><img src="/img/media/15330351447482/15331065959408.jpg" alt=""></p>
+<h3 id="高斯分布"><a href="#高斯分布" class="headerlink" title="高斯分布"></a>高斯分布</h3><p>即为正态分布。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%882.46.28.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%882.46.28.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="指数分布和-Laplace分布"><a href="#指数分布和-Laplace分布" class="headerlink" title="指数分布和 Laplace分布"></a>指数分布和 Laplace分布</h3><h4 id="指数分布"><a href="#指数分布" class="headerlink" title="指数分布"></a>指数分布</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15330351447482/15331064341410.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15330351447482/15331064440953.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%882.54.12.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%882.54.19.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="拉普拉斯分布"><a href="#拉普拉斯分布" class="headerlink" title="拉普拉斯分布"></a>拉普拉斯分布</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%882.56.23.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15330351447482/15331065959408.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h3 id="Dirac分布和经验分布"><a href="#Dirac分布和经验分布" class="headerlink" title="Dirac分布和经验分布"></a>Dirac分布和经验分布</h3><h4 id="Dirac分布"><a href="#Dirac分布" class="headerlink" title="Dirac分布"></a>Dirac分布</h4><p>狄拉克δ函数是一个广义函数，在物理学中常用其表示质点、点电荷等理想模型的密度分布，该函数在除了零以外的点取值都等于零，而其在整个定义域上的积分等于1。</p>
 <p>狄拉克δ函数在概念上，它是这么一个“函数”：在除了零以外的点函数值都等于零，而其在整个定义域上的积分等于1。</p>
-<p><img src="/img/media/15330351447482/15331067947005.jpg" alt=""></p>
-<h4 id="经验分布"><a href="#经验分布" class="headerlink" title="经验分布"></a>经验分布</h4><p><img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%883.08.44.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15330351447482/15331067947005.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="经验分布"><a href="#经验分布" class="headerlink" title="经验分布"></a>经验分布</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%883.08.44.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h3 id="分布的混合"><a href="#分布的混合" class="headerlink" title="分布的混合"></a>分布的混合</h3><p>通过组合一些简单的概率分布来定义新的概率分布也是很常见的。一种通用的组合方法是构造<strong>混合分布</strong>( mixture distribution)。混合分布由一些组件( component)<br>分布构成。</p>
 <p>混合模型是组合简单概率分布来生成更丰富的分布的一种简单策略。</p>
 <p>混合模型使我们能够一瞥以后会用到的一个非常重要的概念—<strong>潜变量</strong>。</p>
-<p><img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%883.15.42.png" alt=""></p>
-<h2 id="常用函数的有用性质"><a href="#常用函数的有用性质" class="headerlink" title="常用函数的有用性质"></a>常用函数的有用性质</h2><h3 id="logistic-sigmoid函数"><a href="#logistic-sigmoid函数" class="headerlink" title="logistic sigmoid函数"></a>logistic sigmoid函数</h3><p><img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%883.18.00.png" alt=""><br><img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%883.18.26.png" alt=""></p>
-<h3 id="softplus函数"><a href="#softplus函数" class="headerlink" title="softplus函数"></a>softplus函数</h3><p><img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%883.52.18.png" alt=""></p>
-<p><img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%883.52.25.png" alt=""><br><img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%883.52.41.png" alt=""><br><img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%883.53.58.png" alt=""><br><img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%883.54.26.png" alt=""></p>
-<h2 id="贝叶斯规则"><a href="#贝叶斯规则" class="headerlink" title="贝叶斯规则"></a>贝叶斯规则</h2><p><img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%883.55.51.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%883.15.42.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="常用函数的有用性质"><a href="#常用函数的有用性质" class="headerlink" title="常用函数的有用性质"></a>常用函数的有用性质</h2><h3 id="logistic-sigmoid函数"><a href="#logistic-sigmoid函数" class="headerlink" title="logistic sigmoid函数"></a>logistic sigmoid函数</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%883.18.00.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%883.18.26.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="softplus函数"><a href="#softplus函数" class="headerlink" title="softplus函数"></a>softplus函数</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%883.52.18.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%883.52.25.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%883.52.41.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%883.53.58.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%883.54.26.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="贝叶斯规则"><a href="#贝叶斯规则" class="headerlink" title="贝叶斯规则"></a>贝叶斯规则</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%883.55.51.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h2 id="连续型变量的技术细节"><a href="#连续型变量的技术细节" class="headerlink" title="连续型变量的技术细节"></a>连续型变量的技术细节</h2><p>连续型随机变量和概率密度函数的深入理解需要用到数学分支<strong>测度论</strong>(Ineasure heory)的相关内容来扩展概率论。</p>
-<p><img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%884.01.22.png" alt=""><br><img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%884.02.54.png" alt=""><br><img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%884.04.34.png" alt=""><br><img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%884.04.40.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%884.01.22.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%884.02.54.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%884.04.34.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%884.04.40.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h2 id="信息论"><a href="#信息论" class="headerlink" title="信息论"></a>信息论</h2><p>信息论是应用数学的一个分支,主要研究的是对一个信号包含信息的多少进行量化。在机器学习中,我们也可以把信息论应用于连续型变量。</p>
 <p>信息论的基本想法是一个不太可能的事件居然发生了,要比一个非常可能的事件发生,能提供更多的信息。</p>
-<p><img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%884.16.52.png" alt=""></p>
-<p><img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%884.19.04.png" alt=""></p>
-<p><img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%884.22.17.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%884.16.52.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%884.19.04.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%884.22.17.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>也记作H(P)。换言之,一个分布的香农熵是指遵循这个分布的事件所产生的期望信息总量。当x是连续的,香农熵被称为<strong>微分熵</strong>( differential entropy)。</p>
-<p><img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%884.33.20.png" alt=""><br><img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%884.49.58.png" alt=""><br>又称为<strong>相对熵</strong>，是用来度量使用基于Q的编码来编码来自P的样本平均所需的额外的比特个数。典型情况下，P表示数据的真实分布，Q表示数据的理论分布，模型分布，或P的近似分布。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%884.33.20.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%884.49.58.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>又称为<strong>相对熵</strong>，是用来度量使用基于Q的编码来编码来自P的样本平均所需的额外的比特个数。典型情况下，P表示数据的真实分布，Q表示数据的理论分布，模型分布，或P的近似分布。</p>
 <p>是描述两个概率分布P和Q差异的一种方法。它是非对称的，这意味着D(P||Q) ≠ D(Q||P)。特别的，在信息论中，D(P||Q)表示当用概率分布Q来拟合真实分布P时，产生的信息损耗，其中P表示真实分布，Q表示P的拟合分布。</p>
-<p>有人将KL散度称为KL距离，但事实上，KL散度并不满足距离的概念，因为：(1)KL散度不是对称的；(2)KL散度不满足三角不等式。<br><img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%884.55.01.png" alt=""></p>
-<p><img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%884.59.01.png" alt=""></p>
+<p>有人将KL散度称为KL距离，但事实上，KL散度并不满足距离的概念，因为：(1)KL散度不是对称的；(2)KL散度不满足三角不等式。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%884.55.01.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%884.59.01.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h2 id="结构化概率模型"><a href="#结构化概率模型" class="headerlink" title="结构化概率模型"></a>结构化概率模型</h2><p>机器学习的算法经常会涉及到在非常多的随机变量上的概率分布。通常，这些概率分布涉及到的直接相互作用都是介于非常少的变量之间的。使用单个函数来描述整个联合概率分布是非常低效的 (无论是计算上还是统计上)。 </p>
-<p>我们可以把概率分布分解成许多因子的乘积形式，而不是使用单一的函数来表 示概率分布。例如，假设我们有三个随机变量 a, b 和 c，并且a影响b的取值，b影响c的取值，但是 a 和 c 在给定 b 时是条件独立的。我们可以把全部三个变量的概 率分布重新表示为两个变量的概率分布的连乘形式:<br><img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%885.09.47.png" alt=""></p>
+<p>我们可以把概率分布分解成许多因子的乘积形式，而不是使用单一的函数来表 示概率分布。例如，假设我们有三个随机变量 a, b 和 c，并且a影响b的取值，b影响c的取值，但是 a 和 c 在给定 b 时是条件独立的。我们可以把全部三个变量的概 率分布重新表示为两个变量的概率分布的连乘形式:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%885.09.47.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <p>这种分解可以极大地减少用来描述一个分布的参数数量。每个因子使用的参数 数目是它的变量数目的指数倍。 </p>
 <p>我们可以用图来描述这种分解。把它称为<strong>结构化概率模型</strong>(structured probabilistic model)或者<strong>图模型</strong>(graphical model)。 </p>
-<p>有两种主要的结构化概率模型:有向的和无向的。两种图模型都使用图 G，其中 图的每个节点对应着一个随机变量，连接两个随机变量的边意味着概率分布可以表 示成这两个随机变量之间的直接作用。<br><img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%885.13.21.png" alt=""><br><img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%885.18.07.png" alt=""></p>
+<p>有两种主要的结构化概率模型:有向的和无向的。两种图模型都使用图 G，其中 图的每个节点对应着一个随机变量，连接两个随机变量的边意味着概率分布可以表 示成这两个随机变量之间的直接作用。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%885.13.21.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15330351447482/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-01%20%E4%B8%8B%E5%8D%885.18.07.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 
         </div>
 
@@ -418,9 +722,7 @@
             </span>
         </p>
     </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
+
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
     </script>
 </footer>

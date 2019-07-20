@@ -221,19 +221,43 @@
 <p>JavaScript 语言使用构造函数（constructor）作为对象的模板。所谓”构造函数”，就是专门用来生成实例对象的函数。它就是对象的模板，描述实例对象的基本结构。一个构造函数，可以生成多个实例对象，这些实例对象都有相同的结构。</p>
 <p>构造函数就是一个普通的函数，但是有自己的特征和用法。</p>
 <p>为了与普通函数区别，构造函数名字的第一个字母通常大写。</p>
-<p>构造函数的特点有两个。<br><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8B%E5%8D%883.13.40.png" alt=""></p>
+<p>构造函数的特点有两个。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8B%E5%8D%883.13.40.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <h2 id="new-命令"><a href="#new-命令" class="headerlink" title="new 命令"></a>new 命令</h2><h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><p>new命令的作用，就是执行构造函数，返回一个实例对象。</p>
-<p><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8B%E5%8D%883.14.31.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8B%E5%8D%883.14.31.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>使用new命令时，根据需要，构造函数也可以接受参数。</p>
 <p>new命令本身就可以执行构造函数，所以后面的构造函数可以带括号，也可以不带括号。下面两行代码是等价的，但是为了表示这里是函数调用，推荐使用括号。</p>
 <p>如果忘了使用new命令，构造函数就变成了普通函数，并不会生成实例对象。this这时代表全局对象，将造成一些意想不到的结果。</p>
 <p>因此，应该非常小心，避免不使用new命令、直接调用构造函数。</p>
 <p>为了保证构造函数必须与new命令一起使用，一个解决办法是，构造函数内部使用严格模式，即第一行加上use strict。这样的话，一旦忘了使用new命令，直接调用构造函数就会报错。</p>
-<p><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8B%E5%8D%883.18.40.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8B%E5%8D%883.18.40.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>另一个解决办法，构造函数内部判断是否使用new命令，如果发现没有使用，则直接返回一个实例对象。</p>
 <p>不管加不加new命令，都会得到同样的结果。</p>
 <h3 id="new-命令的原理"><a href="#new-命令的原理" class="headerlink" title="new 命令的原理"></a>new 命令的原理</h3><p>使用new命令时，它后面的函数依次执行下面的步骤。</p>
-<p><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8B%E5%8D%883.19.55.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8B%E5%8D%883.19.55.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>也就是说，构造函数内部，this指的是一个新生成的空对象，所有针对this的操作，都会发生在这个空对象上。构造函数之所以叫“构造函数”，就是说这个函数的目的，就是操作一个空对象（即this对象），将其“构造”为需要的样子。</p>
 <p>如果构造函数内部有return语句，而且return后面跟着一个对象，new命令会返回return语句指定的对象；否则，就会不管return语句，返回this对象。这一点需要特别引起<strong>注意</strong>。</p>
 <p>另一方面，如果对普通函数（内部没有this关键字的函数）使用new命令，则会返回一个空对象。</p>
@@ -249,15 +273,45 @@
 <h3 id="构造函数-1"><a href="#构造函数-1" class="headerlink" title="构造函数"></a>构造函数</h3><p>构造函数中的this，指的是实例对象。</p>
 <h3 id="对象的方法"><a href="#对象的方法" class="headerlink" title="对象的方法"></a>对象的方法</h3><p>如果对象的方法里面包含this，this的指向就是方法运行时所在的对象。该方法赋值给另一个对象，就会改变this的指向。</p>
 <p>如果this所在的方法不在对象的第一层，这时this只是指向当前一层的对象，而不会继承更上面的层。</p>
-<p><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8B%E5%8D%884.20.35.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8B%E5%8D%884.20.35.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>上面代码中，a.b.m方法在a对象的第二层，该方法内部的this不是指向a，而是指向a.b。</p>
-<h2 id="使用注意点"><a href="#使用注意点" class="headerlink" title="使用注意点"></a>使用注意点</h2><h3 id="避免多层-this"><a href="#避免多层-this" class="headerlink" title="避免多层 this"></a>避免多层 this</h3><p>由于this的指向是不确定的，所以切勿在函数中包含多层的this。内层的this直接指向顶层对象<br><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8B%E5%8D%884.10.26.png" alt=""></p>
-<p>因为实际执行的是下面的代码。<br><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8B%E5%8D%884.34.06.png" alt=""></p>
+<h2 id="使用注意点"><a href="#使用注意点" class="headerlink" title="使用注意点"></a>使用注意点</h2><h3 id="避免多层-this"><a href="#避免多层-this" class="headerlink" title="避免多层 this"></a>避免多层 this</h3><p>由于this的指向是不确定的，所以切勿在函数中包含多层的this。内层的this直接指向顶层对象<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8B%E5%8D%884.10.26.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>因为实际执行的是下面的代码。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8B%E5%8D%884.34.06.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <p>使用一个变量固定this的值，然后内层函数调用这个变量，是非常常见的做法，请务必掌握。</p>
-<p><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8B%E5%8D%884.09.52.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8B%E5%8D%884.09.52.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>JavaScript 提供了严格模式，也可以硬性避免这种问题。严格模式下，如果函数内部的this指向顶层对象，就会报错。</p>
 <h3 id="避免数组处理方法中的-this"><a href="#避免数组处理方法中的-this" class="headerlink" title="避免数组处理方法中的 this"></a>避免数组处理方法中的 this</h3><p>数组的map和foreach方法，允许提供一个函数作为参数。这个函数内部不应该使用this。</p>
-<p><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8B%E5%8D%884.37.33.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8B%E5%8D%884.37.33.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>foreach方法的回调函数中的this，其实是指向window对象，因此取不到o.v的值。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">最主要的问题就是函数表达式的出现，此时变成了全局环境。</span><br></pre></td></tr></table></figure>
 <p>解决这个问题的一种方法，就是前面提到的，使用中间变量固定this。</p>
@@ -265,17 +319,41 @@
 <h3 id="避免回调函数中的-this"><a href="#避免回调函数中的-this" class="headerlink" title="避免回调函数中的 this"></a>避免回调函数中的 this</h3><p>回调函数中的this往往会改变指向，最好避免使用。</p>
 <h2 id="绑定this的方法"><a href="#绑定this的方法" class="headerlink" title="绑定this的方法"></a>绑定this的方法</h2><p>this的动态切换，固然为 JavaScript 创造了巨大的灵活性，但也使得编程变得困难和模糊。有时，需要把this固定下来，避免出现意想不到的情况。JavaScript 提供了call、apply、bind这三个方法，来切换/固定this的指向。</p>
 <h3 id="Function-prototype-call"><a href="#Function-prototype-call" class="headerlink" title="Function.prototype.call()"></a>Function.prototype.call()</h3><p>函数实例的call方法，可以指定函数内部this的指向（即函数执行时所在的作用域），然后在所指定的作用域中，调用该函数。</p>
-<p><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8B%E5%8D%885.23.10.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8B%E5%8D%885.23.10.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>call方法的参数，应该是一个对象。如果参数为空、null和undefined，则默认传入全局对象。</p>
-<p><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8B%E5%8D%885.24.09.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8B%E5%8D%885.24.09.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>如果call方法的参数是一个原始值，那么这个原始值会自动转成对应的包装对象，然后传入call方法。</p>
 <p>call方法还可以接受多个参数。</p>
 <p>call的第一个参数就是this所要指向的那个对象，后面的参数则是函数调用时所需的参数。</p>
 <p><strong>call方法的一个应用是调用对象的原生方法。</strong></p>
-<p>继承的方法，如果这个方法一旦被覆盖，就不会得到正确结果。call方法可以解决这个问题，它将方法的原始定义放到obj对象上执行，这样无论obj上有没有同名方法，都不会影响结果。<br><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8B%E5%8D%885.29.26.png" alt=""></p>
+<p>继承的方法，如果这个方法一旦被覆盖，就不会得到正确结果。call方法可以解决这个问题，它将方法的原始定义放到obj对象上执行，这样无论obj上有没有同名方法，都不会影响结果。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8B%E5%8D%885.29.26.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <h3 id="Function-prototype-apply"><a href="#Function-prototype-apply" class="headerlink" title="Function.prototype.apply()"></a>Function.prototype.apply()</h3><p>apply方法的作用与call方法类似，也是改变this指向，然后再调用该函数。唯一的区别就是，它接收一个数组作为函数执行时的参数，使用格式如下。</p>
 <p>apply方法的第一个参数也是this所要指向的那个对象，如果设为null或undefined，则等同于指定全局对象。第二个参数则是一个数组，该数组的所有成员依次作为参数，传入原函数。原函数的参数，在call方法中必须一个个添加，但是在apply方法中，必须以数组形式添加。</p>
-<p><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8B%E5%8D%885.31.18.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8B%E5%8D%885.31.18.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>利用这一点，可以做一些有趣的应用。</p>
 <h4 id="找出数组最大元素"><a href="#找出数组最大元素" class="headerlink" title="找出数组最大元素"></a>找出数组最大元素</h4><p>JavaScript 不提供找出数组最大元素的函数。结合使用apply方法和Math.max方法，就可以返回数组的最大元素。</p>
 <h4 id="将数组的空元素变为undefined"><a href="#将数组的空元素变为undefined" class="headerlink" title="将数组的空元素变为undefined"></a>将数组的空元素变为undefined</h4><p>通过apply方法，利用Array构造函数将数组的空元素变成undefined。</p>
@@ -290,7 +368,13 @@
 <h4 id="结合call方法使用"><a href="#结合call方法使用" class="headerlink" title="结合call方法使用"></a>结合call方法使用</h4><h1 id="prototype-对象"><a href="#prototype-对象" class="headerlink" title="prototype 对象"></a>prototype 对象</h1><p>面向对象编程很重要的一个方面，就是对象的继承。A 对象通过继承 B 对象，就能直接拥有 B 对象的所有属性和方法。这对于代码的复用是非常有用的。</p>
 <p>大部分面向对象的编程语言，都是通过“类”（class）来实现对象的继承。JavaScript 语言的继承则是通过“原型对象”（prototype）。</p>
 <h2 id="原型对象概述"><a href="#原型对象概述" class="headerlink" title="原型对象概述"></a>原型对象概述</h2><h3 id="构造函数的缺点"><a href="#构造函数的缺点" class="headerlink" title="构造函数的缺点"></a>构造函数的缺点</h3><p>通过构造函数为实例对象定义属性，虽然很方便，但是有一个缺点。同一个构造函数的多个实例之间，无法共享属性，从而造成对系统资源的浪费。</p>
-<p><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%8812.28.17.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%8812.28.17.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>每新建一个实例，就会新建一个meow方法。这既没有必要，又浪费系统资源，因为所有meow方法都是同样的行为，完全应该共享。</p>
 <p>这个问题的解决方法，就是 JavaScript 的原型对象（prototype）。</p>
 <h3 id="prototype-属性的作用"><a href="#prototype-属性的作用" class="headerlink" title="prototype 属性的作用"></a>prototype 属性的作用</h3><p>JavaScript 继承机制的设计思想就是，原型对象的所有属性和方法，都能被实例对象共享。也就是说，如果属性和方法定义在原型上，那么所有实例对象就能共享，不仅节省了内存，还体现了实例对象之间的联系。</p>
@@ -308,10 +392,22 @@
 <h3 id="constructor-属性"><a href="#constructor-属性" class="headerlink" title="constructor 属性"></a>constructor 属性</h3><p>prototype对象有一个constructor属性，默认指向prototype对象所在的构造函数。</p>
 <p>由于constructor属性定义在prototype对象上面，意味着可以被所有实例对象继承。</p>
 <p>constructor属性的作用是，可以得知某个实例对象，到底是哪一个构造函数产生的。</p>
-<p>constructor属性表示原型对象与构造函数之间的关联关系，如果修改了原型对象，一般会同时修改constructor属性，防止引用的时候出错。<br><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%881.12.24.png" alt=""></p>
+<p>constructor属性表示原型对象与构造函数之间的关联关系，如果修改了原型对象，一般会同时修改constructor属性，防止引用的时候出错。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%881.12.24.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <p>构造函数Person的原型对象改掉了，但是没有修改constructor属性，导致这个属性不再指向Person。由于Person的新原型是一个普通对象，而普通对象的contructor属性指向Object构造函数，导致Person.prototype.constructor变成了Object。</p>
 <p>修改原型对象时，一般要同时修改constructor属性的指向。</p>
-<p><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%881.12.56.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%881.12.56.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>要么将constructor属性重新指向原来的构造函数，要么只在原型对象上添加方法。</p>
 <p>如果不能确定constructor属性是什么函数，还有一个办法：通过name属性，从实例得到构造函数的名称。</p>
 <h2 id="instanceof-运算符"><a href="#instanceof-运算符" class="headerlink" title="instanceof 运算符"></a>instanceof 运算符</h2><p>instanceof运算符返回一个布尔值，表示对象是否为某个构造函数的实例。</p>
@@ -320,27 +416,69 @@
 <p>instanceof运算符的一个用处，是判断值的类型。</p>
 <p><strong>注意</strong>，instanceof运算符只能用于对象，不适用原始类型的值。</p>
 <p>对于undefined和null，instanceOf运算符总是返回false。</p>
-<p>利用instanceof运算符，还可以巧妙地解决，调用构造函数时，忘了加new命令的问题。<br><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%882.49.58.png" alt=""></p>
+<p>利用instanceof运算符，还可以巧妙地解决，调用构造函数时，忘了加new命令的问题。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%882.49.58.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <h1 id="Object-对象的相关方法"><a href="#Object-对象的相关方法" class="headerlink" title="Object 对象的相关方法"></a>Object 对象的相关方法</h1><h2 id="Object-getPrototypeOf"><a href="#Object-getPrototypeOf" class="headerlink" title="Object.getPrototypeOf()"></a>Object.getPrototypeOf()</h2><p>Object.getPrototypeOf方法返回参数对象的原型。这是获取原型对象的标准方法。</p>
-<p><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%883.59.25.png" alt=""></p>
-<p><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%883.07.29.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%883.59.25.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%883.07.29.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h2 id="Object-setPrototypeOf"><a href="#Object-setPrototypeOf" class="headerlink" title="Object.setPrototypeOf()"></a>Object.setPrototypeOf()</h2><p>Object.setPrototypeOf方法为参数对象设置原型，返回该参数对象。它接受两个参数，第一个是现有对象，第二个是原型对象。</p>
 <p>new命令可以使用Object.setPrototypeOf方法模拟。</p>
-<p><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%883.15.53.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%883.15.53.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>new命令新建实例对象，其实可以分成两步。第一步，将一个空对象的原型设为构造函数的prototype属性（上例是F.prototype）；第二步，将构造函数内部的this绑定这个空对象，然后执行构造函数，使得定义在this上面的方法和属性（上例是this.foo），都转移到这个空对象上。</p>
 <h2 id="Object-create"><a href="#Object-create" class="headerlink" title="Object.create()"></a>Object.create()</h2><p>JavaScript 提供了Object.create方法，该方法接受一个对象作为参数，然后以它为原型，返回一个实例对象。该实例完全继承原型对象的属性。</p>
-<p>下面三种方式生成的新对象是等价的。<br><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%883.29.43.png" alt=""></p>
+<p>下面三种方式生成的新对象是等价的。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%883.29.43.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <p>如果想要生成一个不继承任何属性（比如没有toString和valueOf方法）的对象，可以将Object.create的参数设为null。</p>
 <p>使用Object.create方法的时候，必须提供对象原型，即参数不能为空，或者不是对象，否则会报错。</p>
 <p>Object.create方法生成的新对象，动态继承了原型。在原型上添加或修改任何方法，会立刻反映在新对象之上。</p>
 <p>除了对象的原型，Object.create方法还可以接受第二个参数。该参数是一个属性描述对象，它所描述的对象属性，会添加到实例对象，作为该对象自身的属性。</p>
-<p><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%883.31.20.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%883.31.20.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>Object.create方法生成的对象，继承了它的原型对象的构造函数。</p>
 <h2 id="Object-prototype-isPrototypeOf"><a href="#Object-prototype-isPrototypeOf" class="headerlink" title="Object.prototype.isPrototypeOf()"></a>Object.prototype.isPrototypeOf()</h2><p>实例对象的isPrototypeOf方法，用来判断该对象是否为参数对象的原型。</p>
 <p>只要实例对象处在参数对象的原型链上，isPrototypeOf方法都返回true。</p>
 <h2 id="Object-prototype-proto"><a href="#Object-prototype-proto" class="headerlink" title="Object.prototype.proto"></a>Object.prototype.<strong>proto</strong></h2><p>实例对象的<strong>proto</strong>属性（前后各两个下划线），返回该对象的原型。该属性可读写。</p>
 <p>根据语言标准，<strong>proto</strong>属性只有浏览器才需要部署，其他环境可以没有这个属性。它前后的两根下划线，表明它本质是一个内部属性，不应该对使用者暴露。因此，应该尽量少用这个属性，而是用Object.getPrototypeof()和Object.setPrototypeOf()，进行原型对象的读写操作。</p>
-<h2 id="获取原型对象方法的比较"><a href="#获取原型对象方法的比较" class="headerlink" title="获取原型对象方法的比较"></a>获取原型对象方法的比较</h2><p>获取实例对象obj的原型对象，有三种方法。<br><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%883.48.14.png" alt=""></p>
+<h2 id="获取原型对象方法的比较"><a href="#获取原型对象方法的比较" class="headerlink" title="获取原型对象方法的比较"></a>获取原型对象方法的比较</h2><p>获取实例对象obj的原型对象，有三种方法。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%883.48.14.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <p>前两种都不是很可靠。<strong>proto</strong>属性只有浏览器才需要部署，其他环境可以不部署。而obj.constructor.prototype在手动改变原型对象时，可能会失效。</p>
 <p>推荐使用第三种Object.getPrototypeOf方法，获取原型对象。</p>
 <h2 id="Object-getOwnPropertyNames"><a href="#Object-getOwnPropertyNames" class="headerlink" title="Object.getOwnPropertyNames()"></a>Object.getOwnPropertyNames()</h2><p>Object.getOwnPropertyNames方法返回一个数组，成员是参数对象本身的所有属性的键名，不包含继承的属性键名。</p>
@@ -350,20 +488,56 @@
 <h2 id="in-运算符和-for…in-循环"><a href="#in-运算符和-for…in-循环" class="headerlink" title="in 运算符和 for…in 循环"></a>in 运算符和 for…in 循环</h2><p>in运算符返回一个布尔值，表示一个对象是否具有某个属性。它不区分该属性是对象自身的属性，还是继承的属性。</p>
 <p>in运算符常用于检查一个属性是否存在。</p>
 <p>获得对象的所有可遍历属性（不管是自身的还是继承的），可以使用for…in循环。</p>
-<h2 id="对象的拷贝"><a href="#对象的拷贝" class="headerlink" title="对象的拷贝"></a>对象的拷贝</h2><p>如果要拷贝一个对象，需要做到下面两件事情。<br><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%884.08.26.png" alt=""></p>
+<h2 id="对象的拷贝"><a href="#对象的拷贝" class="headerlink" title="对象的拷贝"></a>对象的拷贝</h2><p>如果要拷贝一个对象，需要做到下面两件事情。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%884.08.26.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <h1 id="面向对象编程的模式"><a href="#面向对象编程的模式" class="headerlink" title="面向对象编程的模式"></a>面向对象编程的模式</h1><h2 id="构造函数的继承"><a href="#构造函数的继承" class="headerlink" title="构造函数的继承"></a>构造函数的继承</h2><p>让一个构造函数继承另一个构造函数，是非常常见的需求。</p>
 <p>这可以分成两步实现。第一步是在子类的构造函数中，调用父类的构造函数。</p>
-<p><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%8810.39.06.png" alt=""></p>
-<p>第二步，是让子类的原型指向父类的原型，这样子类就可以继承父类原型。<br><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%8810.41.10.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%8810.39.06.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>第二步，是让子类的原型指向父类的原型，这样子类就可以继承父类原型。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%8810.41.10.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <p>上面代码中，Sub.prototype是子类的原型，要将它赋值为Object.create(Super.prototype)，而不是直接等于Super.prototype。否则后面两行对Sub.prototype的操作，会连父类的原型Super.prototype一起修改掉。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> JavaScript 中对象的赋值是默认引用赋值的，如果你想要复制赋值，则必须要重新分配对象</span><br></pre></td></tr></table></figure>
-<p>另外一种写法是Sub.prototype等于一个父类实例。<br><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%8810.50.17.png" alt=""></p>
+<p>另外一种写法是Sub.prototype等于一个父类实例。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%8810.50.17.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <p>上面这种写法也有继承的效果，但是子类会具有父类实例的方法。有时，这可能不是我们需要的，所以不推荐使用这种写法。</p>
 <p>有时只需要单个方法的继承，这时可以采用下面的写法。</p>
-<p><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%8810.51.22.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%8810.51.22.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>上面代码中，子类B的print方法先调用父类A的print方法，再部署自己的代码。这就等于继承了父类A的print方法。</p>
 <h2 id="多重继承"><a href="#多重继承" class="headerlink" title="多重继承"></a>多重继承</h2><p>JavaScript 不提供多重继承功能，即不允许一个对象同时继承多个对象。但是，可以通过变通方法，实现这个功能。</p>
-<p><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%8810.52.52.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%8810.52.52.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>这种模式又称为 Mixin（混入）。</p>
 <h2 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h2><p>JavaScript不是一种模块化编程语言，ES5不支持”类”（class），更遑论”模块”（module）了。ES6正式支持”类”和”模块”，但还没有成为主流。</p>
 <h3 id="基本的实现方法"><a href="#基本的实现方法" class="headerlink" title="基本的实现方法"></a>基本的实现方法</h3><p>模块是实现特定功能的一组属性和方法的封装。</p>
@@ -375,15 +549,39 @@
 <h3 id="封装私有变量：构造函数的写法"><a href="#封装私有变量：构造函数的写法" class="headerlink" title="封装私有变量：构造函数的写法"></a>封装私有变量：构造函数的写法</h3><p>我们可以利用构造函数，封装私有变量。</p>
 <p>这种方法将私有变量封装在构造函数中，违反了构造函数与实例对象相分离的原则。并且，非常耗费内存。</p>
 <h3 id="封装私有变量：立即执行函数的写法"><a href="#封装私有变量：立即执行函数的写法" class="headerlink" title="封装私有变量：立即执行函数的写法"></a>封装私有变量：立即执行函数的写法</h3><p>使用“立即执行函数”（Immediately-Invoked Function Expression，IIFE），将相关的属性和方法封装在一个函数作用域里面，可以达到不暴露私有成员的目的。</p>
-<p><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%8811.03.04.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%8811.03.04.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>上面的module1就是JavaScript模块的基本写法。下面，再对这种写法进行加工。</p>
 <h3 id="模块的放大模式"><a href="#模块的放大模式" class="headerlink" title="模块的放大模式"></a>模块的放大模式</h3><p>如果一个模块很大，必须分成几个部分，或者一个模块需要继承另一个模块，这时就有必要采用“放大模式”（augmentation）。</p>
-<p><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%8811.28.28.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%8811.28.28.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>上面的代码为module1模块添加了一个新方法m3()，然后返回新的module1模块。</p>
-<p>在浏览器环境中，模块的各个部分通常都是从网上获取的，有时无法知道哪个部分会先加载。如果采用上面的写法，第一个执行的部分有可能加载一个不存在空对象，这时就要采用”宽放大模式”（Loose augmentation）。<br><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%8811.29.00.png" alt=""></p>
+<p>在浏览器环境中，模块的各个部分通常都是从网上获取的，有时无法知道哪个部分会先加载。如果采用上面的写法，第一个执行的部分有可能加载一个不存在空对象，这时就要采用”宽放大模式”（Loose augmentation）。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%8811.29.00.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <p>与”放大模式”相比，“宽放大模式”就是“立即执行函数”的参数可以是空对象。</p>
 <h3 id="输入全局变量"><a href="#输入全局变量" class="headerlink" title="输入全局变量"></a>输入全局变量</h3><p>独立性是模块的重要特点，模块内部最好不与程序的其他部分直接交互。<br>为了在模块内部调用全局变量，必须显式地将其他变量输入模块。</p>
-<p><img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%8811.30.07.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15344898704884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-19%20%E4%B8%8B%E5%8D%8811.30.07.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>上面的module1模块需要使用jQuery库和YUI库，就把这两个库（其实是两个模块）当作参数输入module1。这样做除了保证模块的独立性，还使得模块之间的依赖关系变得明显。</p>
 
         </div>
@@ -521,9 +719,7 @@
             </span>
         </p>
     </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
+
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
     </script>
 </footer>

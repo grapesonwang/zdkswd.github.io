@@ -197,8 +197,20 @@
 <h3 id="面向对象的编程方法"><a href="#面向对象的编程方法" class="headerlink" title="面向对象的编程方法"></a>面向对象的编程方法</h3><p>smalltalk为面向对象编程语言之母。</p>
 <h3 id="面向对象的难点"><a href="#面向对象的难点" class="headerlink" title="面向对象的难点"></a>面向对象的难点</h3><p>面向对象编程语言中最重要的技术是“多态性”。</p>
 <h3 id="多态性"><a href="#多态性" class="headerlink" title="多态性"></a>多态性</h3><p>多态就是可以把不同种类的东西当做相同的东西处理。<br>操作对象是三个箱子，分别是盖着盖子的箱子、加了锁的箱子、系着彩带的箱子。在编程中，“打开箱子”的命令，称之为消息；打开不同箱子的具体操作，称之为方法。</p>
-<h3 id="具体的程序"><a href="#具体的程序" class="headerlink" title="具体的程序"></a>具体的程序</h3><p>调用box_open这个方法，根据参数（箱子的种类）的不同做相应的处理。<br><img src="/img/media/15306617644212/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-04%20%E4%B8%8A%E5%8D%888.11.02.png" alt="屏幕快照 2018-07-04 上午8.11.02"></p>
-<p>但是如果增加种类代码就要重写，修改的地方越来越多，追加箱子的种类就会变得非常困难。<br>修改程序，实现真正的多态。“.”可以理解为“给前面的式子的值发送一个open消息”。<br><img src="/img/media/15306617644212/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-04%20%E4%B8%8A%E5%8D%888.14.46.png" alt="屏幕快照 2018-07-04 上午8.14.46"></p>
+<h3 id="具体的程序"><a href="#具体的程序" class="headerlink" title="具体的程序"></a>具体的程序</h3><p>调用box_open这个方法，根据参数（箱子的种类）的不同做相应的处理。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15306617644212/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-04%20%E4%B8%8A%E5%8D%888.11.02.png" alt="屏幕快照 2018-07-04 上午8.11.02" title="">
+                </div>
+                <div class="image-caption">屏幕快照 2018-07-04 上午8.11.02</div>
+            </figure></p>
+<p>但是如果增加种类代码就要重写，修改的地方越来越多，追加箱子的种类就会变得非常困难。<br>修改程序，实现真正的多态。“.”可以理解为“给前面的式子的值发送一个open消息”。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15306617644212/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-04%20%E4%B8%8A%E5%8D%888.14.46.png" alt="屏幕快照 2018-07-04 上午8.14.46" title="">
+                </div>
+                <div class="image-caption">屏幕快照 2018-07-04 上午8.14.46</div>
+            </figure></p>
 <h3 id="多态性的优点"><a href="#多态性的优点" class="headerlink" title="多态性的优点"></a>多态性的优点</h3><p>首先，各种数据可以统一地处理。关注要处理什么，而不是怎么处理。<br>其次，根据对象选择方法，程序内部不会冲突。减轻程序员的负担。<br>再次，新数据简单的追加可以实现，不需要改动以前程序，具备了扩展性。</p>
 <h2 id="数据抽象和继承"><a href="#数据抽象和继承" class="headerlink" title="数据抽象和继承"></a>数据抽象和继承</h2><p>面向对象编程的三原则：<strong>多态性</strong>，<strong>数据抽象</strong>，<strong>继承</strong>。别称：多态性：动态绑定，数据抽象：信息隐藏或封装。</p>
 <h3 id="面向对象的历史"><a href="#面向对象的历史" class="headerlink" title="面向对象的历史"></a>面向对象的历史</h3><h4 id="simula的“发明”"><a href="#simula的“发明”" class="headerlink" title="simula的“发明”"></a>simula的“发明”</h4><p>面向对象编程思想起源于瑞典20世纪60年代后期发展起来的模拟编程语言Simula。以前，表示模拟对象的数据和实际的模拟方法是互相独立的，需要分别管理。</p>
@@ -250,7 +262,13 @@
 <li>不能单独生成实例</li>
 <li>不能继承普通类</li>
 </ol>
-<h3 id="积极支持Mix-in的Ruby"><a href="#积极支持Mix-in的Ruby" class="headerlink" title="积极支持Mix-in的Ruby"></a>积极支持Mix-in的Ruby</h3><p><img src="/img/media/15306617644212/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-04%20%E4%B8%8B%E5%8D%885.39.58.png" alt="屏幕快照 2018-07-04 下午5.39.58"></p>
+<h3 id="积极支持Mix-in的Ruby"><a href="#积极支持Mix-in的Ruby" class="headerlink" title="积极支持Mix-in的Ruby"></a>积极支持Mix-in的Ruby</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15306617644212/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-04%20%E4%B8%8B%E5%8D%885.39.58.png" alt="屏幕快照 2018-07-04 下午5.39.58" title="">
+                </div>
+                <div class="image-caption">屏幕快照 2018-07-04 下午5.39.58</div>
+            </figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">我理解的接口的作用：接口是一种协议，满足同一接口实际上是告诉计算机你们是满足了同一样协议，你们是有关系的，java以这种方式间接实现了多态。当然可以实现多个接口，抽象为不同的“种类”，这样就相当于某种意义上的”多继承“。</span><br><span class="line"></span><br><span class="line">InterA a;</span><br><span class="line">　　a= new B();</span><br><span class="line">　　a.fun();</span><br><span class="line">　　a = new C();</span><br><span class="line">　　a.fun();</span><br><span class="line">　　bc都实现a的接口</span><br></pre></td></tr></table></figure>
 <h2 id="两个误解"><a href="#两个误解" class="headerlink" title="两个误解"></a>两个误解</h2><ol>
 <li>对象是对现实世界中具体物体的反应，继承是对物体分类的反应。（误）</li>
@@ -265,15 +283,34 @@
 <h3 id="驯服多重继承的方法"><a href="#驯服多重继承的方法" class="headerlink" title="驯服多重继承的方法"></a>驯服多重继承的方法</h3><p>多重继承可能引发的问题：</p>
 <ol>
 <li>类关系复杂化</li>
-<li>继承功能名字重复<br>最初的问题是因为类关系从简单的树结构变成了复杂的网状结构。<br><img src="/img/media/15306617644212/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-05%20%E4%B8%8A%E5%8D%889.18.30.png" alt="屏幕快照 2018-07-05 上午9.18.30"></li>
+<li>继承功能名字重复<br>最初的问题是因为类关系从简单的树结构变成了复杂的网状结构。<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15306617644212/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-05%20%E4%B8%8A%E5%8D%889.18.30.png" alt="屏幕快照 2018-07-05 上午9.18.30" title="">
+                </div>
+                <div class="image-caption">屏幕快照 2018-07-05 上午9.18.30</div>
+            </figure>
+</li>
 </ol>
 <p>父类的优先级并不明确，多重继承设计的一个有效的技巧是Mix-in。用Mix-in做多继承设计时，从第2个父类开始的类要满足以下条件。</p>
 <ol>
 <li>不能单独生成实例的抽象类。</li>
 <li>不能继承Mix-in以外的类。</li>
 </ol>
-<p><strong>抽象类和接口的对比</strong><br><img src="/img/media/15306617644212/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-05%20%E4%B8%8A%E5%8D%8810.41.50.png" alt="屏幕快照 2018-07-05 上午10.41.50"></p>
-<p>mix-in的例子<br><img src="/img/media/15306617644212/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-05%20%E4%B8%8A%E5%8D%8810.44.57.png" alt="屏幕快照 2018-07-05 上午10.44.57"></p>
+<p><strong>抽象类和接口的对比</strong><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15306617644212/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-05%20%E4%B8%8A%E5%8D%8810.41.50.png" alt="屏幕快照 2018-07-05 上午10.41.50" title="">
+                </div>
+                <div class="image-caption">屏幕快照 2018-07-05 上午10.41.50</div>
+            </figure></p>
+<p>mix-in的例子<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15306617644212/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-05%20%E4%B8%8A%E5%8D%8810.44.57.png" alt="屏幕快照 2018-07-05 上午10.44.57" title="">
+                </div>
+                <div class="image-caption">屏幕快照 2018-07-05 上午10.44.57</div>
+            </figure></p>
 <p><strong>通过对功能的分离，多重继承就可以由单一继承加上Mix-in类来实现。</strong>利用Mix-in就可以同时享有单一继承的单纯性和多重继承的共有性。</p>
 <p>对于名字重复问题（如函数名），多重继承编程语言都有自己的应对方法，大致分为以下3种：</p>
 <ol>
@@ -311,7 +348,13 @@
 <h2 id="元编程"><a href="#元编程" class="headerlink" title="元编程"></a>元编程</h2><p>元编程是对程序进行编程的意思。</p>
 <h3 id="元编程-1"><a href="#元编程-1" class="headerlink" title="元编程"></a>元编程</h3><p>利用元编程可以动态生成类的方法，而且重要的是你可以自己编写生成过程，不支持元编程的编程语言实现这样的功能是很麻烦的，要么需要扩展语言的语法，要么用宏定义等预处理方法来实现。</p>
 <h3 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h3><p>元编程的反射（reflection）,在编程语言中它是指在程序执行时取出程序的信息或者改变程序的信息。<br>Ruby彻底实现了对程序的动态操作。</p>
-<p><img src="/img/media/15306617644212/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-05%20%E4%B8%8B%E5%8D%887.10.21.png" alt="屏幕快照 2018-07-05 下午7.10.21"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15306617644212/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-05%20%E4%B8%8B%E5%8D%887.10.21.png" alt="屏幕快照 2018-07-05 下午7.10.21" title="">
+                </div>
+                <div class="image-caption">屏幕快照 2018-07-05 下午7.10.21</div>
+            </figure>
 <h3 id="元编程的例子"><a href="#元编程的例子" class="headerlink" title="元编程的例子"></a>元编程的例子</h3><p>Ruby使用Delegator这个库实现了委托功能，调用对象d的方法时可以转变为调用a的方法。我们还可以给这个对象增加特意方法来改变它的部分行为，这就大大扩展了它的应用范围。</p>
 <h3 id="使用反射功能"><a href="#使用反射功能" class="headerlink" title="使用反射功能"></a>使用反射功能</h3><h3 id="分布式Ruby的实现"><a href="#分布式Ruby的实现" class="headerlink" title="分布式Ruby的实现"></a>分布式Ruby的实现</h3><p>Delegator将被调用的方法直接委派到其他对象，这一功能在很多领域都有应用。如dRuby。<br>dRuby是通过网络来调用方法的库。dRuby可以生成服务器上存在的远程对象（Proxy），Proxy的方法调用可以通过网络执行。<br>调用的方法在服务器上的远程对象中执行，执行结果可以通过网络返回。这和java的RMI(Remote Method Invocation)功能比较相似。但是，利用Ruby的元编程功能，不用明确定义接口，也可以通过网络调用任一对象的方法。<br>C++和Java的远程调用是用IDL（Interface Definition Language）等语言来定义接口的，自动生成的存根（stub）必须编译和连接。和这些相比，Ruby的元编程更简单。</p>
 <h3 id="数据库的应用"><a href="#数据库的应用" class="headerlink" title="数据库的应用"></a>数据库的应用</h3><p>在数据库领域，元编程也很有用。<br>web应用程序框架Ruby on Rails(也称为Rails或RoR)中也应用了元编程。具体地说是在与数据库关联的类库（ActiveRecord）中，利用元编程简单的把数据记录定义为对象。<br>由于元编程功能让我们可以获取类名，在执行时增加方法。元编程的功能使得Rails被称赞为生产效率高的Web应用程序框架。</p>
@@ -457,9 +500,7 @@
             </span>
         </p>
     </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
+
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
     </script>
 </footer>

@@ -21,20 +21,20 @@
     
     
     <meta name="keywords" content="计算机科学,c/c++">
-    <meta name="description" content="静态库动态库静态库和动态库是两种共享程序代码的方式，它们的区别是：静态库在程序的链接阶段被复制到了程序中，和程序运行的时候没有关系；动态库在链接阶段没有被复制到程序中，而是程序在运行时由系统动态加载到内存中供程序调用。使用动态库的优点是系统只需载入一次动态库，不同的程序可以得到内存中相同的动态库的副本，因此节省了很多内存。这种链接方式的好处是：方便程序移植，因为可执行程序与库函数再无关系，放在如何">
+    <meta name="description" content="静态库动态库静态库和动态库是两种共享程序代码的方式，它们的区别是：静态库在程序的链接阶段被复制到了程序中，和程序运行的时候没有关系；动态库在链接阶段没有被复制到程序中，而是程序在运行时由系统动态加载到内存中供程序调用。使用动态库的优点是系统只需载入一次动态库，不同的程序可以得到内存中相同的动态库的副本，因此节省了很多内存。">
 <meta name="keywords" content="计算机科学,c&#x2F;c++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="lib dll .h .hpp 预编译">
 <meta property="og:url" content="https://github.com/zdkswd/2018/05/17/lib,dll,.h,.hpp,预编译/index.html">
 <meta property="og:site_name" content="ZDK&#39;s blog">
-<meta property="og:description" content="静态库动态库静态库和动态库是两种共享程序代码的方式，它们的区别是：静态库在程序的链接阶段被复制到了程序中，和程序运行的时候没有关系；动态库在链接阶段没有被复制到程序中，而是程序在运行时由系统动态加载到内存中供程序调用。使用动态库的优点是系统只需载入一次动态库，不同的程序可以得到内存中相同的动态库的副本，因此节省了很多内存。这种链接方式的好处是：方便程序移植，因为可执行程序与库函数再无关系，放在如何">
+<meta property="og:description" content="静态库动态库静态库和动态库是两种共享程序代码的方式，它们的区别是：静态库在程序的链接阶段被复制到了程序中，和程序运行的时候没有关系；动态库在链接阶段没有被复制到程序中，而是程序在运行时由系统动态加载到内存中供程序调用。使用动态库的优点是系统只需载入一次动态库，不同的程序可以得到内存中相同的动态库的副本，因此节省了很多内存。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://github.com/img/media/15265538206394/15265538778964.jpg">
 <meta property="og:image" content="https://github.com/img/media/15265538206394/15265538810589.jpg">
 <meta property="og:updated_time" content="2018-05-17T13:48:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="lib dll .h .hpp 预编译">
-<meta name="twitter:description" content="静态库动态库静态库和动态库是两种共享程序代码的方式，它们的区别是：静态库在程序的链接阶段被复制到了程序中，和程序运行的时候没有关系；动态库在链接阶段没有被复制到程序中，而是程序在运行时由系统动态加载到内存中供程序调用。使用动态库的优点是系统只需载入一次动态库，不同的程序可以得到内存中相同的动态库的副本，因此节省了很多内存。这种链接方式的好处是：方便程序移植，因为可执行程序与库函数再无关系，放在如何">
+<meta name="twitter:description" content="静态库动态库静态库和动态库是两种共享程序代码的方式，它们的区别是：静态库在程序的链接阶段被复制到了程序中，和程序运行的时候没有关系；动态库在链接阶段没有被复制到程序中，而是程序在运行时由系统动态加载到内存中供程序调用。使用动态库的优点是系统只需载入一次动态库，不同的程序可以得到内存中相同的动态库的副本，因此节省了很多内存。">
 <meta name="twitter:image" content="https://github.com/img/media/15265538206394/15265538778964.jpg">
     
         <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
@@ -185,7 +185,19 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h2 id="静态库动态库"><a href="#静态库动态库" class="headerlink" title="静态库动态库"></a>静态库动态库</h2><p>静态库和动态库是两种共享程序代码的方式，它们的区别是：静态库在程序的链接阶段被复制到了程序中，和程序运行的时候没有关系；动态库在链接阶段没有被复制到程序中，而是程序在运行时由系统动态加载到内存中供程序调用。使用动态库的优点是系统只需载入一次动态库，不同的程序可以得到内存中相同的动态库的副本，因此节省了很多内存。<img src="/img/media/15265538206394/15265538778964.jpg" alt=""><br>这种链接方式的好处是：方便程序移植，因为可执行程序与库函数再无关系，放在如何环境当中都可以执行。<br><img src="/img/media/15265538206394/15265538810589.jpg" alt=""><br>是动态链接有一个缺点就是可移植性太差，如果两台电脑运行环境不同，动态库存放的位置不一样，很可能导致程序运行失败。</p>
+            <h2 id="静态库动态库"><a href="#静态库动态库" class="headerlink" title="静态库动态库"></a>静态库动态库</h2><p>静态库和动态库是两种共享程序代码的方式，它们的区别是：静态库在程序的链接阶段被复制到了程序中，和程序运行的时候没有关系；动态库在链接阶段没有被复制到程序中，而是程序在运行时由系统动态加载到内存中供程序调用。使用动态库的优点是系统只需载入一次动态库，不同的程序可以得到内存中相同的动态库的副本，因此节省了很多内存。<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15265538206394/15265538778964.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>这种链接方式的好处是：方便程序移植，因为可执行程序与库函数再无关系，放在如何环境当中都可以执行。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15265538206394/15265538810589.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>是动态链接有一个缺点就是可移植性太差，如果两台电脑运行环境不同，动态库存放的位置不一样，很可能导致程序运行失败。</p>
 <h2 id="头文件"><a href="#头文件" class="headerlink" title="头文件"></a>头文件</h2><p>编译时，编译器通过头文件.h找到对应的函数库，预编译时将整个.h文件插入目标文件头部，项目中需要有其对应的.c文件进行编译生成中间文件进行连接。<br>.hpp，本质就是将.cpp的实现代码混入.h头文件当中，定义与实现都包含在同一文件，则该类的调用者只需要include该.hpp文件即可，无需再将cpp加入到project中进行编译。而实现代码将直接编译到调用者的obj文件中，不再生成单独的obj，采用hpp将大幅度减少调用project中的cpp文件数与编译次数</p>
 <p>一个头文件被别的源文件重复包含是经常发生的，如何避免某个头文件被重复包含呢？利用条件编译轻松解决。在头文件的开始加入：</p>
 <blockquote>
@@ -346,9 +358,7 @@
             </span>
         </p>
     </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
+
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
     </script>
 </footer>

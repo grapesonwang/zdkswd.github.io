@@ -21,13 +21,13 @@
     
     
     <meta name="keywords" content="机器学习">
-    <meta name="description" content="机器学习：问题背景学习问题分以下几类： 有监督学习分类回归无监督学习聚类，密度估计等 加载示例数据集有几个标准数据集，鸢尾花和手写字用于分类，以及波士顿房价数据集用于回归。鸢尾花与手写字数据集的导入。数据集就是一个字典对象，包含了所有的数据以及一些关于数据的元数据。数据存储在.data成员中，它是一个n个样本，n个特征的数组。在监督学习的问题中，因变量存在.target成员中。 数据数组的形状数据">
+    <meta name="description" content="机器学习：问题背景学习问题分以下几类： 有监督学习分类回归无监督学习聚类，密度估计等 加载示例数据集有几个标准数据集，鸢尾花和手写字用于分类，以及波士顿房价数据集用于回归。鸢尾花与手写字数据集的导入。">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="scikit-learn介绍">
 <meta property="og:url" content="https://github.com/zdkswd/2018/11/08/scikit-learn介绍/index.html">
 <meta property="og:site_name" content="ZDK&#39;s blog">
-<meta property="og:description" content="机器学习：问题背景学习问题分以下几类： 有监督学习分类回归无监督学习聚类，密度估计等 加载示例数据集有几个标准数据集，鸢尾花和手写字用于分类，以及波士顿房价数据集用于回归。鸢尾花与手写字数据集的导入。数据集就是一个字典对象，包含了所有的数据以及一些关于数据的元数据。数据存储在.data成员中，它是一个n个样本，n个特征的数组。在监督学习的问题中，因变量存在.target成员中。 数据数组的形状数据">
+<meta property="og:description" content="机器学习：问题背景学习问题分以下几类： 有监督学习分类回归无监督学习聚类，密度估计等 加载示例数据集有几个标准数据集，鸢尾花和手写字用于分类，以及波士顿房价数据集用于回归。鸢尾花与手写字数据集的导入。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://github.com/img/media/scikit-learn%E4%BB%8B%E7%BB%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-08%20%E4%B8%8A%E5%8D%8810.30.43.png">
 <meta property="og:image" content="https://github.com/img/media/scikit-learn%E4%BB%8B%E7%BB%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-08%20%E4%B8%8A%E5%8D%8810.37.10.png">
@@ -43,7 +43,7 @@
 <meta property="og:updated_time" content="2018-11-12T09:30:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="scikit-learn介绍">
-<meta name="twitter:description" content="机器学习：问题背景学习问题分以下几类： 有监督学习分类回归无监督学习聚类，密度估计等 加载示例数据集有几个标准数据集，鸢尾花和手写字用于分类，以及波士顿房价数据集用于回归。鸢尾花与手写字数据集的导入。数据集就是一个字典对象，包含了所有的数据以及一些关于数据的元数据。数据存储在.data成员中，它是一个n个样本，n个特征的数组。在监督学习的问题中，因变量存在.target成员中。 数据数组的形状数据">
+<meta name="twitter:description" content="机器学习：问题背景学习问题分以下几类： 有监督学习分类回归无监督学习聚类，密度估计等 加载示例数据集有几个标准数据集，鸢尾花和手写字用于分类，以及波士顿房价数据集用于回归。鸢尾花与手写字数据集的导入。">
 <meta name="twitter:image" content="https://github.com/img/media/scikit-learn%E4%BB%8B%E7%BB%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-08%20%E4%B8%8A%E5%8D%8810.30.43.png">
     
         <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
@@ -196,15 +196,81 @@
         <div class="post-content" id="post-content" itemprop="postContent">
             <h1 id="机器学习：问题背景"><a href="#机器学习：问题背景" class="headerlink" title="机器学习：问题背景"></a>机器学习：问题背景</h1><p>学习问题分以下几类：</p>
 <h2 id="有监督学习"><a href="#有监督学习" class="headerlink" title="有监督学习"></a>有监督学习</h2><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><h3 id="回归"><a href="#回归" class="headerlink" title="回归"></a>回归</h3><h2 id="无监督学习"><a href="#无监督学习" class="headerlink" title="无监督学习"></a>无监督学习</h2><p>聚类，密度估计等</p>
-<h1 id="加载示例数据集"><a href="#加载示例数据集" class="headerlink" title="加载示例数据集"></a>加载示例数据集</h1><p>有几个标准数据集，鸢尾花和手写字用于分类，以及波士顿房价数据集用于回归。<br>鸢尾花与手写字数据集的导入。<br><img src="/img/media/scikit-learn%E4%BB%8B%E7%BB%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-08%20%E4%B8%8A%E5%8D%8810.30.43.png" alt=""><br>数据集就是一个字典对象，包含了所有的数据以及一些关于数据的元数据。数据存储在.data成员中，它是一个n个样本，n个特征的数组。在监督学习的问题中，因变量存在.target成员中。<br><img src="/img/media/scikit-learn%E4%BB%8B%E7%BB%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-08%20%E4%B8%8A%E5%8D%8810.37.10.png" alt=""><br><img src="/img/media/scikit-learn%E4%BB%8B%E7%BB%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-08%20%E4%B8%8A%E5%8D%8810.41.19.png" alt=""></p>
-<h2 id="数据数组的形状"><a href="#数据数组的形状" class="headerlink" title="数据数组的形状"></a>数据数组的形状</h2><p>数据总是二维数组，（n_sample,n_features）的形状，即使原始数据可能有着不同的形状。在手写字识别中，每个原始例子是（8  *  8）。<br><img src="/img/media/scikit-learn%E4%BB%8B%E7%BB%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-08%20%E4%B8%8A%E5%8D%8810.48.28.png" alt=""><br>但是在data中变成了（1  * 64）。</p>
+<h1 id="加载示例数据集"><a href="#加载示例数据集" class="headerlink" title="加载示例数据集"></a>加载示例数据集</h1><p>有几个标准数据集，鸢尾花和手写字用于分类，以及波士顿房价数据集用于回归。<br>鸢尾花与手写字数据集的导入。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/scikit-learn%E4%BB%8B%E7%BB%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-08%20%E4%B8%8A%E5%8D%8810.30.43.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>数据集就是一个字典对象，包含了所有的数据以及一些关于数据的元数据。数据存储在.data成员中，它是一个n个样本，n个特征的数组。在监督学习的问题中，因变量存在.target成员中。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/scikit-learn%E4%BB%8B%E7%BB%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-08%20%E4%B8%8A%E5%8D%8810.37.10.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/scikit-learn%E4%BB%8B%E7%BB%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-08%20%E4%B8%8A%E5%8D%8810.41.19.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h2 id="数据数组的形状"><a href="#数据数组的形状" class="headerlink" title="数据数组的形状"></a>数据数组的形状</h2><p>数据总是二维数组，（n_sample,n_features）的形状，即使原始数据可能有着不同的形状。在手写字识别中，每个原始例子是（8  *  8）。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/scikit-learn%E4%BB%8B%E7%BB%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-08%20%E4%B8%8A%E5%8D%8810.48.28.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>但是在data中变成了（1  * 64）。</p>
 <h1 id="学习以及预测"><a href="#学习以及预测" class="headerlink" title="学习以及预测"></a>学习以及预测</h1><p>在scikit-learn中，分类器是一个实现了方法fit(x,y)和predict(T)的Python对象。</p>
-<p>先把分类器当做是一个黑盒。<br><img src="/img/media/scikit-learn%E4%BB%8B%E7%BB%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-08%20%E4%B8%8A%E5%8D%8810.57.41.png" alt=""><br>选择模型的参数<br>在这个例子中我们是人工选择的参数，为了寻找这些参数的更好的值，我们能使用例如网格搜索和交叉验证的工具。</p>
-<p>分类器实例拟合模型是通过传递训练集给fit方法。对于训练集，我们使用除了最后一张图片的所有图片，最后一张图片用来做预测。<br><img src="/img/media/scikit-learn%E4%BB%8B%E7%BB%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-08%20%E4%B8%8B%E5%8D%881.48.35.png" alt=""><br>来预测：<br><img src="/img/media/scikit-learn%E4%BB%8B%E7%BB%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-08%20%E4%B8%8B%E5%8D%881.49.15.png" alt=""></p>
-<h1 id="模型持久化"><a href="#模型持久化" class="headerlink" title="模型持久化"></a>模型持久化</h1><p>使用pickle。<br><img src="/img/media/scikit-learn%E4%BB%8B%E7%BB%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-08%20%E4%B8%8B%E5%8D%881.50.45.png" alt=""></p>
-<p>使用joblib，joblib在大数据方面更加高效，但是遗憾的是它只能把数据持久化到硬盘而不是字符串（搬到字符串意味着数据在内存中）。<br><img src="/img/media/scikit-learn%E4%BB%8B%E7%BB%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-08%20%E4%B8%8B%E5%8D%881.57.57.png" alt=""></p>
-<p>之后可以重新加载模型（也可以在其他的Python进程中）<br><img src="/img/media/scikit-learn%E4%BB%8B%E7%BB%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-08%20%E4%B8%8B%E5%8D%881.59.34.png" alt=""><br><strong>注意</strong>：joblib.dump和joblib.load也接收像文件一样的对象而不是文件名。</p>
-<h1 id="惯例"><a href="#惯例" class="headerlink" title="惯例"></a>惯例</h1><h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><p>除非特别指明，输入将被转换为float64:<br><img src="/img/media/scikit-learn%E4%BB%8B%E7%BB%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-08%20%E4%B8%8B%E5%8D%882.09.50.png" alt=""><br>x是float32型，可以通过fit_transform(x)转换为float64。</p>
+<p>先把分类器当做是一个黑盒。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/scikit-learn%E4%BB%8B%E7%BB%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-08%20%E4%B8%8A%E5%8D%8810.57.41.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>选择模型的参数<br>在这个例子中我们是人工选择的参数，为了寻找这些参数的更好的值，我们能使用例如网格搜索和交叉验证的工具。</p>
+<p>分类器实例拟合模型是通过传递训练集给fit方法。对于训练集，我们使用除了最后一张图片的所有图片，最后一张图片用来做预测。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/scikit-learn%E4%BB%8B%E7%BB%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-08%20%E4%B8%8B%E5%8D%881.48.35.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>来预测：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/scikit-learn%E4%BB%8B%E7%BB%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-08%20%E4%B8%8B%E5%8D%881.49.15.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h1 id="模型持久化"><a href="#模型持久化" class="headerlink" title="模型持久化"></a>模型持久化</h1><p>使用pickle。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/scikit-learn%E4%BB%8B%E7%BB%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-08%20%E4%B8%8B%E5%8D%881.50.45.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>使用joblib，joblib在大数据方面更加高效，但是遗憾的是它只能把数据持久化到硬盘而不是字符串（搬到字符串意味着数据在内存中）。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/scikit-learn%E4%BB%8B%E7%BB%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-08%20%E4%B8%8B%E5%8D%881.57.57.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>之后可以重新加载模型（也可以在其他的Python进程中）<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/scikit-learn%E4%BB%8B%E7%BB%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-08%20%E4%B8%8B%E5%8D%881.59.34.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><strong>注意</strong>：joblib.dump和joblib.load也接收像文件一样的对象而不是文件名。</p>
+<h1 id="惯例"><a href="#惯例" class="headerlink" title="惯例"></a>惯例</h1><h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><p>除非特别指明，输入将被转换为float64:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/scikit-learn%E4%BB%8B%E7%BB%8D/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-08%20%E4%B8%8B%E5%8D%882.09.50.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>x是float32型，可以通过fit_transform(x)转换为float64。</p>
 <p>回归的目标类型转化为float64，分类的目标类型保留下来。</p>
 <h2 id="改装和更新参数"><a href="#改装和更新参数" class="headerlink" title="改装和更新参数"></a>改装和更新参数</h2><p>超参数在通过set_params()方法创建后能够更新。调用fit()函数超过一次将会重写之前fit()所学的内容。</p>
 <h2 id="多类别vs多标签拟合"><a href="#多类别vs多标签拟合" class="headerlink" title="多类别vs多标签拟合"></a>多类别vs多标签拟合</h2><p>当使用多类别分类器，所执行的学习和预测任务取决于适合于目标数据的格式。</p>
@@ -344,9 +410,7 @@
             </span>
         </p>
     </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
+
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
     </script>
 </footer>

@@ -198,10 +198,22 @@
 <p>这时，计算机读取该设备的第一个扇区，也就是读取最前面的512个字节。如果这512个字节的最后两个字节是0x55和0xAA，表明这个设备可以用于启动；如果不是，表明设备不能用于启动，控制权于是被转交给”启动顺序”中的下一个设备。</p>
 <p>这最前面的512个字节，就叫做”主引导记录”（Master boot record，缩写为MBR）。</p>
 <h3 id="主引导记录的结构"><a href="#主引导记录的结构" class="headerlink" title="主引导记录的结构"></a>主引导记录的结构</h3><p>“主引导记录”只有512个字节，放不了太多东西。它的主要作用是，告诉计算机到硬盘的哪一个位置去找操作系统。</p>
-<p>主引导记录由三个部分组成：<br><img src="/img/media/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%98%AF%E6%80%8E%E4%B9%88%E5%90%AF%E5%8A%A8%E7%9A%84/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-26%20%E4%B8%8B%E5%8D%887.48.52.png" alt=""><br>其中，第二部分”分区表”的作用，是将硬盘分成若干个区。</p>
+<p>主引导记录由三个部分组成：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%98%AF%E6%80%8E%E4%B9%88%E5%90%AF%E5%8A%A8%E7%9A%84/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-26%20%E4%B8%8B%E5%8D%887.48.52.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>其中，第二部分”分区表”的作用，是将硬盘分成若干个区。</p>
 <h3 id="分区表"><a href="#分区表" class="headerlink" title="分区表"></a>分区表</h3><p>硬盘分区有很多好处。考虑到每个区可以安装不同的操作系统，”主引导记录”因此必须知道将控制权转交给哪个区。</p>
 <p>分区表的长度只有64个字节，里面又分成四项，每项16个字节。所以，一个硬盘最多只能分四个一级分区，又叫做”主分区”。</p>
-<p>每个主分区的16个字节，由6个部分组成：<br><img src="/img/media/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%98%AF%E6%80%8E%E4%B9%88%E5%90%AF%E5%8A%A8%E7%9A%84/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-26%20%E4%B8%8B%E5%8D%888.00.12.png" alt=""><br>最后的四个字节（”主分区的扇区总数”），决定了这个主分区的长度。也就是说，一个主分区的扇区总数最多不超过2的32次方。</p>
+<p>每个主分区的16个字节，由6个部分组成：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%98%AF%E6%80%8E%E4%B9%88%E5%90%AF%E5%8A%A8%E7%9A%84/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-26%20%E4%B8%8B%E5%8D%888.00.12.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>最后的四个字节（”主分区的扇区总数”），决定了这个主分区的长度。也就是说，一个主分区的扇区总数最多不超过2的32次方。</p>
 <p>如果每个扇区为512个字节，就意味着单个分区最大不超过2TB。再考虑到扇区的逻辑地址也是32位，所以单个硬盘可利用的空间最大也不超过2TB。如果想使用更大的硬盘，只有2个方法：一是提高每个扇区的字节数，二是增加扇区总数。</p>
 <h2 id="第三阶段：硬盘启动"><a href="#第三阶段：硬盘启动" class="headerlink" title="第三阶段：硬盘启动"></a>第三阶段：硬盘启动</h2><p>这时，计算机的控制权就要转交给硬盘的某个分区了，这里又分成三种情况。</p>
 <h3 id="情况A：卷引导记录"><a href="#情况A：卷引导记录" class="headerlink" title="情况A：卷引导记录"></a>情况A：卷引导记录</h3><p>四个主分区里面，只有一个是激活的。计算机会读取激活分区的第一个扇区，叫做”卷引导记录”（Volume boot record，缩写为VBR）。</p>
@@ -217,7 +229,13 @@
 <p>以Linux系统为例，先载入_boot目录下面的kernel。内核加载成功后，第一个运行的程序是_sbin_init。它根据配置文件（Debian系统是_etc/initab）产生init进程。这是Linux启动后的第一个进程，pid进程编号为1，其他进程都是它的后代。</p>
 <p>然后，init线程加载系统的各个模块，比如窗口程序和网络程序，直至执行_bin_login程序，跳出登录界面，等待用户输入用户名和密码。</p>
 <p>至此，全部启动过程完成。</p>
-<h1 id="冯诺依曼体系图"><a href="#冯诺依曼体系图" class="headerlink" title="冯诺依曼体系图"></a>冯诺依曼体系图</h1><p><img src="/img/media/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%98%AF%E6%80%8E%E4%B9%88%E5%90%AF%E5%8A%A8%E7%9A%84/a8773912b31bb051973f1da5367adab44aede020.png" alt=""></p>
+<h1 id="冯诺依曼体系图"><a href="#冯诺依曼体系图" class="headerlink" title="冯诺依曼体系图"></a>冯诺依曼体系图</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%98%AF%E6%80%8E%E4%B9%88%E5%90%AF%E5%8A%A8%E7%9A%84/a8773912b31bb051973f1da5367adab44aede020.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 
         </div>
 
@@ -354,9 +372,7 @@
             </span>
         </p>
     </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
+
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
     </script>
 </footer>

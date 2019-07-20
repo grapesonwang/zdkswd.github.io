@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Tomcat系统架构 | ZDK&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Tomcat">
+    <meta name="description" content="Tomcat系统架构Tomcat总体架构Tomcat实现2个核心功能：1处理Socket连接，负责网络字节流与Request和Response对象的转化。2加载和管理Servlet，以及具体处理Request请求。 Tomcat设计了两个核心组件连接器（Connector）和容器（Container）来分别做这两件事情。连接器负责对外交流，容器负责内部处理。  Tomcat支持的I/O模型有：">
+<meta name="keywords" content="Tomcat">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tomcat系统架构">
+<meta property="og:url" content="https://github.com/zdkswd/2019/07/20/Tomcat系统架构/index.html">
+<meta property="og:site_name" content="ZDK&#39;s blog">
+<meta property="og:description" content="Tomcat系统架构Tomcat总体架构Tomcat实现2个核心功能：1处理Socket连接，负责网络字节流与Request和Response对象的转化。2加载和管理Servlet，以及具体处理Request请求。 Tomcat设计了两个核心组件连接器（Connector）和容器（Container）来分别做这两件事情。连接器负责对外交流，容器负责内部处理。  Tomcat支持的I/O模型有：">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/img/media/tomcat2/1.png">
+<meta property="og:image" content="https://github.com/img/media/tomcat2/2.png">
+<meta property="og:image" content="https://github.com/img/media/tomcat2/3.png">
+<meta property="og:image" content="https://github.com/img/media/tomcat2/4.png">
+<meta property="og:image" content="https://github.com/img/media/tomcat2/5.png">
+<meta property="og:image" content="https://github.com/img/media/tomcat2/6.png">
+<meta property="og:image" content="https://github.com/img/media/tomcat2/1563542122799.png">
+<meta property="og:image" content="https://github.com/img/media/tomcat2/1563599695053.png">
+<meta property="og:image" content="https://github.com/img/media/tomcat2/1563592075245.png">
+<meta property="og:image" content="https://github.com/img/media/tomcat2/1563600147853.png">
+<meta property="og:updated_time" content="2019-07-20T05:44:47.617Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Tomcat系统架构">
+<meta name="twitter:description" content="Tomcat系统架构Tomcat总体架构Tomcat实现2个核心功能：1处理Socket连接，负责网络字节流与Request和Response对象的转化。2加载和管理Servlet，以及具体处理Request请求。 Tomcat设计了两个核心组件连接器（Connector）和容器（Container）来分别做这两件事情。连接器负责对外交流，容器负责内部处理。  Tomcat支持的I/O模型有：">
+<meta name="twitter:image" content="https://github.com/img/media/tomcat2/1.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/tmg.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ZDK</h5>
+          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/zdkswd" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Tomcat系统架构</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Tomcat系统架构</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-07-20T05:29:32.000Z" itemprop="datePublished" class="page-time">
+  2019-07-20
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Tomcat系统架构"><span class="post-toc-number">1.</span> <span class="post-toc-text">Tomcat系统架构</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Tomcat总体架构"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Tomcat总体架构</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#连接器"><span class="post-toc-number">2.</span> <span class="post-toc-text">连接器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ProtocolHandler组件"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">ProtocolHandler组件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#EndPoint"><span class="post-toc-number">2.1.1.</span> <span class="post-toc-text">EndPoint</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Processor"><span class="post-toc-number">2.1.2.</span> <span class="post-toc-text">Processor</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Adapter组件"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">Adapter组件</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#容器"><span class="post-toc-number">3.</span> <span class="post-toc-text">容器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#请求定位Servlet的过程"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">请求定位Servlet的过程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Pipeline-Valve"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">Pipeline-Valve</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Tomcat系统架构"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Tomcat系统架构</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-07-20 13:29:32" datetime="2019-07-20T05:29:32.000Z"  itemprop="datePublished">2019-07-20</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="Tomcat系统架构"><a href="#Tomcat系统架构" class="headerlink" title="Tomcat系统架构"></a>Tomcat系统架构</h1><h2 id="Tomcat总体架构"><a href="#Tomcat总体架构" class="headerlink" title="Tomcat总体架构"></a>Tomcat总体架构</h2><p>Tomcat实现2个核心功能：1处理Socket连接，负责网络字节流与Request和Response对象的转化。2加载和管理Servlet，以及具体处理Request请求。</p>
+<p><strong>Tomcat设计了两个核心组件连接器（Connector）和容器（Container）来分别做这两件事情。连接器负责对外交流，容器负责内部处理。</strong></p>
+<hr>
+<p>Tomcat支持的I/O模型有：</p>
+<ol>
+<li>NIO：非阻塞I/O，采用Java NIO类库实现。</li>
+<li>NIO2：异步I/O，采用JDK 7最新的NIO2类库实现。</li>
+<li>APR：采用Apache可移植运行库实现，是C/C++编写的本地库。</li>
+</ol>
+<p>Tomcat支持的应用层协议有：</p>
+<ol>
+<li>HTTP/1.1：这是大部分Web应用采用的访问协议。</li>
+<li>AJP：用于和Web服务器集成（如Apache）。</li>
+<li>HTTP/2：HTTP 2.0大幅度的提升了Web性能。</li>
+</ol>
+<p>Tomcat为了实现支持多种I/O模型和应用层协议，一个容器可能对接多个连接器，单独的连接器或者容器都不能对外提供服务，需要把它们组装起来才能工作，组装后这个整体叫作Service组件。Service本身没有做什么重要的事情，只是在连接器和容器外面多包了一层，把它们组装在一起。通过在Tomcat中配置多个Service，可以实现通过不同的端口号来访问同一台机器上部署的不同应用。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/tomcat2/1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>最顶层是<strong>Server</strong>，指的是一个Tomcat实例。一个Server中有一个或多个Service，一个Service中有多个连接器和一个容器。连接器与容器之间通过标准的ServletRequest和ServletResponse通信。</p>
+<h1 id="连接器"><a href="#连接器" class="headerlink" title="连接器"></a>连接器</h1><p>连接器对Servlet容器屏蔽了协议及I/O模型等的区别，无论是HTTP还是AJP，在容器中获取到的都是一个标准的ServletRequest对象。</p>
+<p>连接器功能需求：</p>
+<ol>
+<li>监听网络端口。</li>
+<li>接受网络连接请求。</li>
+<li>读取请求网络字节流。</li>
+<li>根据具体应用层协议（HTTP/AJP）解析字节流，生成统一的Tomcat Request对象。</li>
+<li>将Tomcat Request对象转成标准的ServletRequest。</li>
+<li>调用Servlet容器，得到ServletResponse。</li>
+<li>将ServletResponse转成Tomcat Response对象。</li>
+<li>将Tomcat Response转成网络字节流。</li>
+<li>将响应字节流写回给浏览器。</li>
+</ol>
+<p>连接器需要完成<strong>高内聚</strong>（相关度比较高的功能要尽可能集中，不要分散）的功能：</p>
+<ol>
+<li>网络通信。</li>
+<li>应用层协议解析。</li>
+<li>Tomcat Request/Response与ServletRequest/ServletResponse的转化。</li>
+</ol>
+<p>Tomcat的设计者设计了3个组件来实现这3个功能，分别是<strong>EndPoint</strong>、<strong>Processor</strong>和<strong>Adaptor</strong>。</p>
+<p>EndPoint负责提供字节流给Processor，Processor负责提供Tomcat Request对象给Adaptor，Adaptor负责提供ServletRequest对象给容器。</p>
+<p>I/O模型和应用层协议可以自由组合，比如NIO + HTTP或者NIO2 + AJP。Tomcat的设计者将网络通信和应用层协议解析放在一起考虑，设计了一个叫<strong>ProtocolHandler</strong>的接口来封装这两种变化点。各种协议和通信模型的组合有相应的具体实现类。比如：Http11NioProtocol和AjpNioProtocol。</p>
+<p>系统也存在一些相对稳定的部分，Tomcat设计了一系列抽象基类来<strong>封装这些稳定的部分</strong>，抽象基类AbstractProtocol实现了ProtocolHandler接口。每一种应用层协议有自己的抽象基类，比如AbstractAjpProtocol和AbstractHttp11Protocol，具体协议的实现类扩展了协议层抽象基类。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/tomcat2/2.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/tomcat2/3.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="ProtocolHandler组件"><a href="#ProtocolHandler组件" class="headerlink" title="ProtocolHandler组件"></a>ProtocolHandler组件</h2><h3 id="EndPoint"><a href="#EndPoint" class="headerlink" title="EndPoint"></a>EndPoint</h3><p>EndPoint是通信端点，即通信监听的接口，是具体的Socket接收和发送处理器，是对传输层的抽象，<strong>因此EndPoint是用来实现TCP/IP协议的。</strong></p>
+<p><strong>EndPoint是一个接口</strong>，它的抽象实现类AbstractEndpoint里面定义了两个内部类：<strong>Acceptor</strong>和<strong>SocketProcessor</strong>。</p>
+<p>Acceptor用于监听Socket连接请求。SocketProcessor用于处理接收到的Socket请求，它实现Runnable接口，在Run方法里调用协议处理组件Processor进行处理。为了提高处理能力，SocketProcessor被提交到线程池来执行。而这个线程池叫作<strong>执行器（Executor)</strong>。</p>
+<h3 id="Processor"><a href="#Processor" class="headerlink" title="Processor"></a>Processor</h3><p><strong>Processor用来实现HTTP协议</strong>，Processor接收来自EndPoint的Socket，读取字节流解析成Tomcat Request和Response对象，并通过Adapter将其提交到容器处理，Processor是对应用层协议的抽象。</p>
+<p><strong>Processor是一个接口</strong>，定义了请求的处理等方法。它的抽象实现类AbstractProcessor对一些协议共有的属性进行封装，没有对方法进行实现。具体的实现有AJPProcessor、HTTP11Processor等，这些具体实现类实现了特定协议的解析方法和请求处理方式。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/tomcat2/4.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>EndPoint接收到Socket连接后，生成一个SocketProcessor任务提交到线程池去处理，SocketProcessor的Run方法会调用Processor组件去解析应用层协议，Processor通过解析生成Request对象后，会调用Adapter的Service方法。</p>
+<h2 id="Adapter组件"><a href="#Adapter组件" class="headerlink" title="Adapter组件"></a>Adapter组件</h2><p>由于协议不同，客户端发过来的请求信息也不尽相同，Tomcat定义了自己的Request类来“存放”这些请求信息。ProtocolHandler接口负责解析请求并生成<strong>Tomcat Request类</strong>。但是这个Request对象不是标准的ServletRequest，也就意味着，不能用Tomcat Request作为参数来调用容器。</p>
+<p>Tomcat引入CoyoteAdapter，这是<strong>适配器模式</strong>的经典运用，连接器调用CoyoteAdapter的Sevice方法，传入的是Tomcat Request对象，CoyoteAdapter负责将Tomcat Request转成ServletRequest，再调用容器的Service方法。</p>
+<p>如果连接器直接创建ServletRequest和ServletResponse对象的话，就和Servlet协议耦合了，设计者认为连接器尽量保持独立性，它不一定要跟Servlet容器工作的。对象转化的性能消耗比较少，Tomcat对HTTP请求体采取了延迟解析的策略，TomcatRequest对象转化成ServletRequest的时候，请求体的内容都还没读取，直到容器处理这个请求的时候才读取的。</p>
+<h1 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/tomcat2/5.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>Tomcat设计了四种容器，分别是Engine、Host、Context和Wrapper。容器是父子关系，Tomcat通过一种分层架构使得Servlet容器具有很好的灵活性。</p>
+<p><strong>Context</strong>表示一个<strong>Web应用程序</strong>；<strong>Wrapper</strong>表示一个<strong>Servlet</strong>，一个Web应用程序中可能会有多个Servlet；</p>
+<p><strong>Host</strong>代表的是一个虚拟主机，或者说一个站点，可以给Tomcat配置多个虚拟主机地址，而一个虚拟主机下可以部署多个Web应用程序；</p>
+<p><strong>Engine</strong>表示引擎，用来管理多个虚拟站点，一个Service最多只能有一个Engine。</p>
+<p>Tomcat的server.xml配置文件：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/tomcat2/6.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>Tomcat通过组合模式来管理这些容器，所有容器组件都实现了Container接口，组合模式可以使得用户对单容器对象和组合容器对象的使用具有一致性。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/tomcat2/1563542122799.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="请求定位Servlet的过程"><a href="#请求定位Servlet的过程" class="headerlink" title="请求定位Servlet的过程"></a>请求定位Servlet的过程</h2><p>Tomcat通过<strong>Mapper组件</strong>来确定请求是由哪个Wrapper容器中的Servlet来处理的。Mapper组件的功能就是将用户请求的URL定位到一个Servlet，工作原理是：Mapper组件里保存了Web应用的配置信息，即容器组件与访问路径的映射关系，如Host容器里配置的域名、Context容器里的Web应用路径，以及Wrapper容器里Servlet映射的路径，这些配置信息就是一个<strong>多层次的Map</strong>。当一个请求到来时，Mapper组件通过解析请求URL里的域名和路径，再到自己保存的Map里去查找，就能定位到一个Servlet。<strong>一个请求URL最后只会定位到一个Wrapper容器，也就是一个Servlet。</strong></p>
+<p>用户访问一个URL，<a href="http://uer.shoping.com:8080/order/buy。经过一下几步定位到一个Servlet。" target="_blank" rel="noopener">http://uer.shoping.com:8080/order/buy。经过一下几步定位到一个Servlet。</a></p>
+<ol>
+<li><strong>根据协议和端口号选定Service和Engine</strong>，Tomcat每个连接器都监听不同的端口，如Tomcat默认HTTP连接器监听8080端口，AJP连接器监听8009端口。URL访问的是8080端口，该请求会被<strong>HTTP连接器</strong>接收，连接器确定Service组件也就确定，Engine也就确定。</li>
+<li><strong>根据域名选定Host。</strong>Service和Engine确定后，Mapper组件通过URL中的域名去查找相应的Host容器，URL访问的域名是user.shopping.com，Mapper会找到Host2这个容器。</li>
+<li><strong>根据URL路径找到Context组件。</strong>Host确定以后，Mapper根据URL的路径来匹配相应的Web应用的路径，访问/order，找到Context4这个Context容器。</li>
+<li><strong>根据URL路径找到Wrapper(Servlet)</strong>。Context确定后，Mapper再根据<strong>web.xml</strong>中配置的Servlet映射路径来找到具体的Wrapper和Servlet。</li>
+</ol>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/tomcat2/1563599695053.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="Pipeline-Valve"><a href="#Pipeline-Valve" class="headerlink" title="Pipeline-Valve"></a>Pipeline-Valve</h2><p>并不是只有Servlet才会去处理请求，这个查找路径上的父子容器都会对请求做一些处理。连接器中的Adapter会调用容器的Service方法来执行Servlet，最先拿到请求的是Engine容器，Engine容器对请求做一些处理后，会把请求传给自己子容器Host继续处理，依次类推，最后这个请求会传给Wrapper容器，Wrapper会调用最终的Servlet来处理。该过程使用<strong>Pipeline-Valve</strong>管道。<strong>Pipeline-Valve</strong>是责任链模式，责任链模式是指在一个请求处理的过程中有很多处理者依次对请求进行处理，每个处理者负责做自己相应的处理，处理完之后将再调用下一个处理者继续处理。</p>
+<p><strong>Valve</strong>是一个<strong>处理点</strong>，<strong>invoke方法</strong>就是来处理请求的。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/tomcat2/1563592075245.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p><strong>Pipeline</strong>中维护了<strong>Valve链表</strong>，Valve可以插入到Pipeline中，Pipeline中没有invoke方法，因为整个调用链的触发时Valve来完成的，Valve完成自己的处理后，调用getNext.invoke()来触发下一个Valve调用。</p>
+<p>不同容器的Pipeline是通过getBasic方法来调用BasicValve，其位于Valve链表的末端是Pipeline中必不可少的一个Valve，负责调用下层容器的Pipeline里的第一个Valve。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/tomcat2/1563600147853.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>Wrapper容器的最后一个Valve会创建一个Filter链，并调用doFilter（）方法，最终会调到Servlet的service方法。</p>
+<p>Valve和Filter的区别：</p>
+<ol>
+<li>Valve是Tomcat的私有机制，与Tomcat的基础架构API是紧耦合的。ServletAPI是公有的标准，所有的Web容器包括Jetty都支持Filter机制。</li>
+<li>Valve工作在Web容器级别，拦截所有应用的请求；而Servlet Filter工作在应用级别，只能拦截某个Web应用的所有请求。如果想做整个Web容器的拦截器，必须通过Valve来实现。</li>
+</ol>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-07-20T05:44:47.617Z" itemprop="dateUpdated">2019-07-20 13:44:47</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/zdkswd">
+            <img src="/img/tmg.jpg" alt="ZDK">
+            ZDK
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tomcat/">Tomcat</a></li></ul>
+
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/07/14/Tomcat综述/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Tomcat综述</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz",
+            appKey: "gkBx5soQkBREmER84PWbNJeM",
+            avatar: "mm",
+            placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ZDK &copy; 2017 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'zdk'blog';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

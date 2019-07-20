@@ -218,32 +218,134 @@
 </ol>
 <h3 id="关于群组：有效与初始群组，groups，newgrp"><a href="#关于群组：有效与初始群组，groups，newgrp" class="headerlink" title="关于群组：有效与初始群组，groups，newgrp"></a>关于群组：有效与初始群组，groups，newgrp</h3><p>/ etc / group文件结构<br>这个文件就是在记录GID与群组名称的对应。</p>
 <h4 id="有效群组（effective-group）与初始群组（initial-group）"><a href="#有效群组（effective-group）与初始群组（initial-group）" class="headerlink" title="有效群组（effective group）与初始群组（initial group）"></a>有效群组（effective group）与初始群组（initial group）</h4><p>每个使用者在他的passwd第四栏有所谓的GID，就是所谓的初始群组（initial group），也就是当使用者一登陆系统，立刻就拥有这个群组的相关权限。</p>
-<h4 id="groups有效与支持群组的观察"><a href="#groups有效与支持群组的观察" class="headerlink" title="groups有效与支持群组的观察"></a>groups有效与支持群组的观察</h4><p>知道所有的支持群组：<br><img src="/img/media/%E9%B8%9F%E5%93%A5%20Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-03%20%E4%B8%8B%E5%8D%889.42.28.png" alt=""><br>在这个输出的讯息中，可知道 dmtsai 这个用户同时属于 dmtsai, wheel 及 users 这三个群组，而且，第一个输出的群组即为有效群组 (effective group) 。 通常有效群组的作用在新建文件，确定新建文件所在的群组。</p>
-<h4 id="newgrp：有效群组的切换"><a href="#newgrp：有效群组的切换" class="headerlink" title="newgrp：有效群组的切换"></a>newgrp：有效群组的切换</h4><p>newgrp 是有限制的，那就是你想要 切换的群组必须是你已经有支持的群组。举例来说， dmtsai 可以在 dmtsai / wheel / users 这三 个群组间切换有效群组，但是 dmtsai 无法切换有效群组成为 sshd 。<br><img src="/img/media/%E9%B8%9F%E5%93%A5%20Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-03%20%E4%B8%8B%E5%8D%889.48.30.png" alt=""><br><img src="/img/media/%E9%B8%9F%E5%93%A5%20Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-03%20%E4%B8%8B%E5%8D%889.51.32.png" alt=""></p>
+<h4 id="groups有效与支持群组的观察"><a href="#groups有效与支持群组的观察" class="headerlink" title="groups有效与支持群组的观察"></a>groups有效与支持群组的观察</h4><p>知道所有的支持群组：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5%20Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-03%20%E4%B8%8B%E5%8D%889.42.28.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>在这个输出的讯息中，可知道 dmtsai 这个用户同时属于 dmtsai, wheel 及 users 这三个群组，而且，第一个输出的群组即为有效群组 (effective group) 。 通常有效群组的作用在新建文件，确定新建文件所在的群组。</p>
+<h4 id="newgrp：有效群组的切换"><a href="#newgrp：有效群组的切换" class="headerlink" title="newgrp：有效群组的切换"></a>newgrp：有效群组的切换</h4><p>newgrp 是有限制的，那就是你想要 切换的群组必须是你已经有支持的群组。举例来说， dmtsai 可以在 dmtsai / wheel / users 这三 个群组间切换有效群组，但是 dmtsai 无法切换有效群组成为 sshd 。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5%20Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-03%20%E4%B8%8B%E5%8D%889.48.30.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5%20Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-03%20%E4%B8%8B%E5%8D%889.51.32.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <p>加入一个群组有两个方式，一是通过系统管理员 (root) 利用 <strong>usermod</strong> 帮你加入，如果 root 太忙了而且你的系统有设置群组管理员，那么还可以通过群组管理员以 <strong>gpasswd</strong> 加入他所管理的群组中 。</p>
 <p>/ etc / gshadow<br>以系统管理员的角度来说，这个 gshadow 最大的功能就是创建群组管理员。root 可能平时太忙碌，所以当有使 用者想要加入某些群组时， root 或许会没有空管理。此时如果能够创建群组管理员的话，那 么该群组管理员就能够将那个帐号加入自己管理的群组中! 可以免去 root 的忙碌啦!不过， 由于目前有类似 sudo 之类的工具， 所以这个群组管理员的功能已经很少使用了。 </p>
-<h2 id="账号管理"><a href="#账号管理" class="headerlink" title="账号管理"></a>账号管理</h2><h3 id="新增与移除使用者：useradd，相关配置文件，passwd，usermod，userdel"><a href="#新增与移除使用者：useradd，相关配置文件，passwd，usermod，userdel" class="headerlink" title="新增与移除使用者：useradd，相关配置文件，passwd，usermod，userdel"></a>新增与移除使用者：useradd，相关配置文件，passwd，usermod，userdel</h3><p>创建一个可用的账号需要账号与密码两个数据，账号可以用useradd来新建使用者，密码则使用passwd。<br><img src="/img/media/%E9%B8%9F%E5%93%A5%20Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-04%20%E4%B8%8B%E5%8D%885.29.15.png" alt=""><br>系统会进行的操作：</p>
+<h2 id="账号管理"><a href="#账号管理" class="headerlink" title="账号管理"></a>账号管理</h2><h3 id="新增与移除使用者：useradd，相关配置文件，passwd，usermod，userdel"><a href="#新增与移除使用者：useradd，相关配置文件，passwd，usermod，userdel" class="headerlink" title="新增与移除使用者：useradd，相关配置文件，passwd，usermod，userdel"></a>新增与移除使用者：useradd，相关配置文件，passwd，usermod，userdel</h3><p>创建一个可用的账号需要账号与密码两个数据，账号可以用useradd来新建使用者，密码则使用passwd。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5%20Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-04%20%E4%B8%8B%E5%8D%885.29.15.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>系统会进行的操作：</p>
 <ol>
 <li>在 / etc / passwd 里面创建一行与帐号相关的数据，包括创建 UID / GID / 主文件夹等 。</li>
 <li>在 / etc / shadow 里面将此帐号的密码相关参数填入，但是尚未有密码。</li>
 <li>在 / etc / group 里面加入一个与帐号名称一模一样的群组名称。</li>
 <li>在 / home 下面创建一个与帐号同名的目录作为使用者主文件夹，且权限为 700。</li>
 </ol>
-<p>由于在 / etc / shadow内仅会有密码参数而不会有加密过的密码数据，因此我们在创建使用者帐 号时， 还需要使用“ passwd 帐号 ”来给 密码才算是完成了使用者创建的流程。<br><img src="/img/media/%E9%B8%9F%E5%93%A5%20Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-04%20%E4%B8%8B%E5%8D%885.53.15.png" alt=""><br>以上是root来设置用户的权限。用户还可以自己来更改自己的密码。<br><img src="/img/media/%E9%B8%9F%E5%93%A5%20Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-04%20%E4%B8%8B%E5%8D%885.55.22.png" alt=""></p>
-<p>使用chage来进行更详细的密码参数显示功能。<br><img src="/img/media/%E9%B8%9F%E5%93%A5%20Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-04%20%E4%B8%8B%E5%8D%886.38.25.png" alt=""></p>
-<p>usermod<br>在使用useradd后，可以利用usermod来对某些地方进行细部修改。<br><img src="/img/media/%E9%B8%9F%E5%93%A5%20Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-04%20%E4%B8%8B%E5%8D%886.51.35.png" alt=""></p>
-<p>userdel<br><img src="/img/media/%E9%B8%9F%E5%93%A5%20Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-04%20%E4%B8%8B%E5%8D%886.52.09.png" alt=""><br>删除使用者的相关数据。</p>
+<p>由于在 / etc / shadow内仅会有密码参数而不会有加密过的密码数据，因此我们在创建使用者帐 号时， 还需要使用“ passwd 帐号 ”来给 密码才算是完成了使用者创建的流程。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5%20Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-04%20%E4%B8%8B%E5%8D%885.53.15.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>以上是root来设置用户的权限。用户还可以自己来更改自己的密码。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5%20Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-04%20%E4%B8%8B%E5%8D%885.55.22.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>使用chage来进行更详细的密码参数显示功能。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5%20Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-04%20%E4%B8%8B%E5%8D%886.38.25.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>usermod<br>在使用useradd后，可以利用usermod来对某些地方进行细部修改。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5%20Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-04%20%E4%B8%8B%E5%8D%886.51.35.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>userdel<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5%20Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-04%20%E4%B8%8B%E5%8D%886.52.09.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>删除使用者的相关数据。</p>
 <h3 id="使用者功能"><a href="#使用者功能" class="headerlink" title="使用者功能"></a>使用者功能</h3><p>一般身份使用者使用的指令。</p>
-<h4 id="id"><a href="#id" class="headerlink" title="id"></a>id</h4><p>id 这个指令则可以查询某人或自己的相关 UID / GID 等等的信息 。<br><img src="/img/media/%E9%B8%9F%E5%93%A5%20Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-04%20%E4%B8%8B%E5%8D%886.58.32.png" alt=""></p>
-<h4 id="chsh"><a href="#chsh" class="headerlink" title="chsh"></a>chsh</h4><p>就是change shell的简写。<br><img src="/img/media/%E9%B8%9F%E5%93%A5%20Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-04%20%E4%B8%8B%E5%8D%887.01.08.png" alt=""></p>
-<h3 id="新增与移除群组"><a href="#新增与移除群组" class="headerlink" title="新增与移除群组"></a>新增与移除群组</h3><h4 id="groupadd"><a href="#groupadd" class="headerlink" title="groupadd"></a>groupadd</h4><p><img src="/img/media/%E9%B8%9F%E5%93%A5%20Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-04%20%E4%B8%8B%E5%8D%887.03.41.png" alt=""></p>
-<h4 id="groupmod"><a href="#groupmod" class="headerlink" title="groupmod"></a>groupmod</h4><p>跟 usermod 类似的，这个指令仅是在进行 group 相关参数的修改而已。<br><img src="/img/media/%E9%B8%9F%E5%93%A5%20Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-04%20%E4%B8%8B%E5%8D%887.04.17.png" alt=""></p>
-<h4 id="groupdel"><a href="#groupdel" class="headerlink" title="groupdel"></a>groupdel</h4><p><img src="/img/media/%E9%B8%9F%E5%93%A5%20Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-04%20%E4%B8%8B%E5%8D%887.05.01.png" alt=""></p>
-<h4 id="gpasswd群组管理员功能"><a href="#gpasswd群组管理员功能" class="headerlink" title="gpasswd群组管理员功能"></a>gpasswd群组管理员功能</h4><p><img src="/img/media/%E9%B8%9F%E5%93%A5%20Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-04%20%E4%B8%8B%E5%8D%887.06.18.png" alt=""></p>
+<h4 id="id"><a href="#id" class="headerlink" title="id"></a>id</h4><p>id 这个指令则可以查询某人或自己的相关 UID / GID 等等的信息 。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5%20Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-04%20%E4%B8%8B%E5%8D%886.58.32.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h4 id="chsh"><a href="#chsh" class="headerlink" title="chsh"></a>chsh</h4><p>就是change shell的简写。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5%20Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-04%20%E4%B8%8B%E5%8D%887.01.08.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="新增与移除群组"><a href="#新增与移除群组" class="headerlink" title="新增与移除群组"></a>新增与移除群组</h3><h4 id="groupadd"><a href="#groupadd" class="headerlink" title="groupadd"></a>groupadd</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5%20Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-04%20%E4%B8%8B%E5%8D%887.03.41.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="groupmod"><a href="#groupmod" class="headerlink" title="groupmod"></a>groupmod</h4><p>跟 usermod 类似的，这个指令仅是在进行 group 相关参数的修改而已。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5%20Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-04%20%E4%B8%8B%E5%8D%887.04.17.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h4 id="groupdel"><a href="#groupdel" class="headerlink" title="groupdel"></a>groupdel</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5%20Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-04%20%E4%B8%8B%E5%8D%887.05.01.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="gpasswd群组管理员功能"><a href="#gpasswd群组管理员功能" class="headerlink" title="gpasswd群组管理员功能"></a>gpasswd群组管理员功能</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5%20Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-04%20%E4%B8%8B%E5%8D%887.06.18.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h2 id="主机的细部权限规划：ACL的使用"><a href="#主机的细部权限规划：ACL的使用" class="headerlink" title="主机的细部权限规划：ACL的使用"></a>主机的细部权限规划：ACL的使用</h2><h3 id="什么是ACL与如何支持启动ACL"><a href="#什么是ACL与如何支持启动ACL" class="headerlink" title="什么是ACL与如何支持启动ACL"></a>什么是ACL与如何支持启动ACL</h3><p>ACL即Access Control List，传统的 Linux 权限只能针对一个用户、一个群组及非此群组的其他人设置权限而已，无法针对单一用户或个人来设计权限。而 ACL 就是为了要改变这个问题 。</p>
-<h3 id="ACL的设置技巧：getfacl，setfacl"><a href="#ACL的设置技巧：getfacl，setfacl" class="headerlink" title="ACL的设置技巧：getfacl，setfacl"></a>ACL的设置技巧：getfacl，setfacl</h3><h2 id="使用者身份切换"><a href="#使用者身份切换" class="headerlink" title="使用者身份切换"></a>使用者身份切换</h2><h3 id="su"><a href="#su" class="headerlink" title="su"></a>su</h3><p>su 是最简单的身份切换指令了，可以进行任何身份的切换。<br><img src="/img/media/%E9%B8%9F%E5%93%A5%20Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-04%20%E4%B8%8B%E5%8D%887.19.05.png" alt=""></p>
+<h3 id="ACL的设置技巧：getfacl，setfacl"><a href="#ACL的设置技巧：getfacl，setfacl" class="headerlink" title="ACL的设置技巧：getfacl，setfacl"></a>ACL的设置技巧：getfacl，setfacl</h3><h2 id="使用者身份切换"><a href="#使用者身份切换" class="headerlink" title="使用者身份切换"></a>使用者身份切换</h2><h3 id="su"><a href="#su" class="headerlink" title="su"></a>su</h3><p>su 是最简单的身份切换指令了，可以进行任何身份的切换。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5%20Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-04%20%E4%B8%8B%E5%8D%887.19.05.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <h3 id="sudo"><a href="#sudo" class="headerlink" title="sudo"></a>sudo</h3><p>su 需要了解新切换的使用者密码 (常常是需要 root 的密码)， sudo 的执行则仅需要 自己的密码即可! 甚至可以设置不需要密码即可执行 sudo 。由于 sudo可以让你以其他用 户的身份执行指令 (通常是使用 root 的身份来执行指令)，因此并非所有人都能够执行 sudo ， 而是仅有规范到 _etc_sudoers 内的用户才能够执行 sudo 这个指令。</p>
-<p>一般用户能够具有 sudo 的使用权，就是管理员事先审核通过后，才开放sudo 的使用权的!因此，除非是信任用户，否则一般用户默认是不能操作 sudo的。<br><img src="/img/media/%E9%B8%9F%E5%93%A5%20Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-04%20%E4%B8%8B%E5%8D%887.21.49.png" alt=""></p>
+<p>一般用户能够具有 sudo 的使用权，就是管理员事先审核通过后，才开放sudo 的使用权的!因此，除非是信任用户，否则一般用户默认是不能操作 sudo的。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5%20Linux%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-04%20%E4%B8%8B%E5%8D%887.21.49.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 
         </div>
 
@@ -380,9 +482,7 @@
             </span>
         </p>
     </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
+
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
     </script>
 </footer>

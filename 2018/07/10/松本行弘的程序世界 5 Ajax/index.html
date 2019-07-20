@@ -188,14 +188,27 @@
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             <h1 id="松本行弘的程序世界-5-Ajax"><a href="#松本行弘的程序世界-5-Ajax" class="headerlink" title="松本行弘的程序世界 5 Ajax"></a>松本行弘的程序世界 5 Ajax</h1><h2 id="Ajax和JavaScript（前篇）"><a href="#Ajax和JavaScript（前篇）" class="headerlink" title="Ajax和JavaScript（前篇）"></a>Ajax和JavaScript（前篇）</h2><p>Ajax（Asynchronous JavaScript and XML）,含义是异步JavaScript及XML。<br>Ajax不算是一个新技术，只是既有技术的组合。</p>
-<h3 id="通信及异步页面更新"><a href="#通信及异步页面更新" class="headerlink" title="通信及异步页面更新"></a>通信及异步页面更新</h3><p>Ajax的最大特点是进行异步操作，异步意味着Web浏览器的通信和页面更新是互相独立的。<br>以前的Web应用程序，每按下一个按钮就开始显示下一个页面，在页面完整呈现之前，用户只能等待，无法进行其他操作，使用Ajax技术的页面是在后台和HTTP服务器进行通信，设计优良的Web应用程序，在客户和服务器通信的过程中也可以让用户进行操作，而不需要等待。Ajax的最大优点是改善了应用程序的操控性。<br><img src="/img/media/15311832913375/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-10%20%E4%B8%8A%E5%8D%888.52.52.png" alt="屏幕快照 2018-07-10 上午8.52.52"><br>Ajax技术中，对于用户进行的操作，基本是由JavaScript在Web浏览器中进行响应。尽在数据必须从服务器获取的情况下，才在后台进行异步通信。在通信过程中，用户也可以继续对Web浏览器进行操作。和服务器通信得到的结果由DHTML对当前的页面进行部分更新而现实出来。</p>
+<h3 id="通信及异步页面更新"><a href="#通信及异步页面更新" class="headerlink" title="通信及异步页面更新"></a>通信及异步页面更新</h3><p>Ajax的最大特点是进行异步操作，异步意味着Web浏览器的通信和页面更新是互相独立的。<br>以前的Web应用程序，每按下一个按钮就开始显示下一个页面，在页面完整呈现之前，用户只能等待，无法进行其他操作，使用Ajax技术的页面是在后台和HTTP服务器进行通信，设计优良的Web应用程序，在客户和服务器通信的过程中也可以让用户进行操作，而不需要等待。Ajax的最大优点是改善了应用程序的操控性。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15311832913375/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-10%20%E4%B8%8A%E5%8D%888.52.52.png" alt="屏幕快照 2018-07-10 上午8.52.52" title="">
+                </div>
+                <div class="image-caption">屏幕快照 2018-07-10 上午8.52.52</div>
+            </figure><br>Ajax技术中，对于用户进行的操作，基本是由JavaScript在Web浏览器中进行响应。尽在数据必须从服务器获取的情况下，才在后台进行异步通信。在通信过程中，用户也可以继续对Web浏览器进行操作。和服务器通信得到的结果由DHTML对当前的页面进行部分更新而现实出来。</p>
 <h3 id="技术要素之一：JavaScript"><a href="#技术要素之一：JavaScript" class="headerlink" title="技术要素之一：JavaScript"></a>技术要素之一：JavaScript</h3><p>支撑Ajax的三个主要技术：JavaScript、XML及DHTML。<br>JavaScript是几乎所有Web浏览器处理系统都支撑的一种编程语言。因此，它被称为世界上最普及的编程语言。<br>JavaScript可以简单的嵌入到表示网页的HTML中去，利用JavaScript可以做出<strong>完全不用和服务器进行通信</strong>的网页。</p>
 <h3 id="技术要素之二：XML"><a href="#技术要素之二：XML" class="headerlink" title="技术要素之二：XML"></a>技术要素之二：XML</h3><p>XML（eXtensible Markup Language）,和SGML、HTML类似，使用标签（tag）对数据进行标识说明的一种语言。<br>XML已经成为了数据表示、配置各种文件及其他多种场合下广泛使用的一种格式。<br>Ajax的名字中部分包括了XML，是因为当初大部分使用Ajax技术的应用程序都使用了XML数据，以及用JavaScript进行异步通信的对象的名字是XMLHTTPRequest。当然不用XML的XMLHTTPRequest的通信也是存在的，使用Ajax技术的Web应用进行通信的数据格式也是多种多样的，比如有普通文本格式以及YAML，JSON。</p>
 <h3 id="XML以外的数据表示形式"><a href="#XML以外的数据表示形式" class="headerlink" title="XML以外的数据表示形式"></a>XML以外的数据表示形式</h3><p>YAML（YAML Ain’t Markup Language）看出它不是标记语言。YAML只是表示数据的语言，目的仅仅是表示数据。特点有：</p>
 <ol>
 <li>记述简洁</li>
 <li>容易理解</li>
-<li>专注于表示数据，不用费心考虑给标签起名字。<br><img src="/img/media/15311832913375/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-10%20%E4%B8%8A%E5%8D%889.30.23.png" alt="屏幕快照 2018-07-10 上午9.30.23"></li>
+<li>专注于表示数据，不用费心考虑给标签起名字。<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15311832913375/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-10%20%E4%B8%8A%E5%8D%889.30.23.png" alt="屏幕快照 2018-07-10 上午9.30.23" title="">
+                </div>
+                <div class="image-caption">屏幕快照 2018-07-10 上午9.30.23</div>
+            </figure>
+</li>
 </ol>
 <p>和YMAL相提并论的是JSON（JavaScript Object Notation）意思是JavaScript对象表示法。是直接把JavaScript表示对象的程序拿来记述数据。JSON是合法的JavaScript程序，作为JavaScript实现可以生成对象。<br>JSON可以表现下面6种数据类型：数值（整数及浮点小数）、字符串、布尔值（真、假）、数组、对象（键和值的表）和null。<br>YAML通过扩展可以表示各种形式的数据。相比较，JSON就简单太多了，但也够用了。</p>
 <h3 id="技术要素之三：DHTML"><a href="#技术要素之三：DHTML" class="headerlink" title="技术要素之三：DHTML"></a>技术要素之三：DHTML</h3><p>DHTML，动态HTML，顾名思义，可以动态地对HTML进行引用、修改和更新。更具体的说，是利用装载在网页中的JavaScript，使用DOM（文档对象模型）对网页数据进行操作。使用DOM可以进行下述处理：</p>
@@ -219,7 +232,13 @@
 <li>实现了动画和拖拽等单独使用HTML格式无法表现的用户界面<br>构成DHTML基础的JavaScript是一个速度不怎么快的语言。某种技术在开发出来之后经过相当长一段时间才得到普及，此类例子并不少见。<h3 id="巧妙使用DHTML"><a href="#巧妙使用DHTML" class="headerlink" title="巧妙使用DHTML"></a>巧妙使用DHTML</h3>DHTML被称为Ajax的本质技术。顾名思义，可以动态访问、更新HTML。具体就是利用嵌入网页的JavaScript，使用DOM操作页面数据。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DOM是操作HTML和XML的规范。特点是把HTML和XML作为树结构进行处理。</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>HTML被读取后，生成树结构。<br><img src="/img/media/15311832913375/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-10%20%E4%B8%8B%E5%8D%884.39.14.png" alt="屏幕快照 2018-07-10 下午4.39.14"><br>使用JavaScript对树结构进行操作就是DHTML的本质。因此JavaScript提供的W3C DOM API有如下功能：</p>
+<p>HTML被读取后，生成树结构。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15311832913375/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-10%20%E4%B8%8B%E5%8D%884.39.14.png" alt="屏幕快照 2018-07-10 下午4.39.14" title="">
+                </div>
+                <div class="image-caption">屏幕快照 2018-07-10 下午4.39.14</div>
+            </figure><br>使用JavaScript对树结构进行操作就是DHTML的本质。因此JavaScript提供的W3C DOM API有如下功能：</p>
 <ol>
 <li>获取documnent节点</li>
 <li>获取和更新标签数据（包括文字、类型以及属性等）</li>
@@ -233,7 +252,14 @@
 <h3 id="设定事件处理程序"><a href="#设定事件处理程序" class="headerlink" title="设定事件处理程序"></a>设定事件处理程序</h3><p>两种办法：</p>
 <ol>
 <li>指定标签属性。如设置为a标签的onclick属性值来指定事件处理程序。</li>
-<li>把方法设为JavaScript对象的属性。如<br><img src="/img/media/15311832913375/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-10%20%E4%B8%8B%E5%8D%884.49.48.png" alt="屏幕快照 2018-07-10 下午4.49.48"></li>
+<li>把方法设为JavaScript对象的属性。如<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15311832913375/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-10%20%E4%B8%8B%E5%8D%884.49.48.png" alt="屏幕快照 2018-07-10 下午4.49.48" title="">
+                </div>
+                <div class="image-caption">屏幕快照 2018-07-10 下午4.49.48</div>
+            </figure>
+</li>
 </ol>
 <h3 id="追加标签节点"><a href="#追加标签节点" class="headerlink" title="追加标签节点"></a>追加标签节点</h3><p>用appendChild方法可以为节点对象追加节点，消除节点用removeChild方法。</p>
 <h3 id="本地HTML应用"><a href="#本地HTML应用" class="headerlink" title="本地HTML应用"></a>本地HTML应用</h3><h3 id="和服务器间的通信"><a href="#和服务器间的通信" class="headerlink" title="和服务器间的通信"></a>和服务器间的通信</h3><p>使用DHTML之后，对于较简单的应用，在客户端就能够实现。但是，客户端无法保存数据，所以保存和获取数据时需要和服务器进行通信。<br>Ajax是利用XMLHTTPRequest对象来进行异步通信，不需要网页跳转，在后台就可以进行通信。</p>
@@ -377,9 +403,7 @@
             </span>
         </p>
     </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
+
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
     </script>
 </footer>

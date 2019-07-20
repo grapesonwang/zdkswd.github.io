@@ -21,13 +21,13 @@
     
     
     <meta name="keywords" content="机器学习">
-    <meta name="description" content="FM FFM深入浅出Factorization Machines系列深入浅出Factorization Machines系列 | Kubi Code’Blog FMFactorization Machine(FM)由Steffen Rendle在2010年提出，旨在解决系数数据下的特征组合的问题，目前该系列模型在搜索推荐领域被广泛使用。 一个例子问题就是需要对电影进行评分(y项)，而x都是特征,其">
+    <meta name="description" content="FM FFM深入浅出Factorization Machines系列深入浅出Factorization Machines系列 | Kubi Code’Blog FMFactorization Machine(FM)由Steffen Rendle在2010年提出，旨在解决系数数据下的特征组合的问题，目前该系列模型在搜索推荐领域被广泛使用。 一个例子">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="FM FFM">
 <meta property="og:url" content="https://github.com/zdkswd/2019/02/26/FM FFM/index.html">
 <meta property="og:site_name" content="ZDK&#39;s blog">
-<meta property="og:description" content="FM FFM深入浅出Factorization Machines系列深入浅出Factorization Machines系列 | Kubi Code’Blog FMFactorization Machine(FM)由Steffen Rendle在2010年提出，旨在解决系数数据下的特征组合的问题，目前该系列模型在搜索推荐领域被广泛使用。 一个例子问题就是需要对电影进行评分(y项)，而x都是特征,其">
+<meta property="og:description" content="FM FFM深入浅出Factorization Machines系列深入浅出Factorization Machines系列 | Kubi Code’Blog FMFactorization Machine(FM)由Steffen Rendle在2010年提出，旨在解决系数数据下的特征组合的问题，目前该系列模型在搜索推荐领域被广泛使用。 一个例子">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://github.com/img/media/FM%20FFM/fm_case.png">
 <meta property="og:image" content="https://github.com/img/media/FM%20FFM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-26%20%E4%B8%8A%E5%8D%889.45.36.png">
@@ -54,7 +54,7 @@
 <meta property="og:updated_time" content="2019-02-26T10:28:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="FM FFM">
-<meta name="twitter:description" content="FM FFM深入浅出Factorization Machines系列深入浅出Factorization Machines系列 | Kubi Code’Blog FMFactorization Machine(FM)由Steffen Rendle在2010年提出，旨在解决系数数据下的特征组合的问题，目前该系列模型在搜索推荐领域被广泛使用。 一个例子问题就是需要对电影进行评分(y项)，而x都是特征,其">
+<meta name="twitter:description" content="FM FFM深入浅出Factorization Machines系列深入浅出Factorization Machines系列 | Kubi Code’Blog FMFactorization Machine(FM)由Steffen Rendle在2010年提出，旨在解决系数数据下的特征组合的问题，目前该系列模型在搜索推荐领域被广泛使用。 一个例子">
 <meta name="twitter:image" content="https://github.com/img/media/FM%20FFM/fm_case.png">
     
         <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
@@ -207,7 +207,14 @@
         <div class="post-content" id="post-content" itemprop="postContent">
             <h1 id="FM-FFM"><a href="#FM-FFM" class="headerlink" title="FM FFM"></a>FM FFM</h1><h1 id="深入浅出Factorization-Machines系列"><a href="#深入浅出Factorization-Machines系列" class="headerlink" title="深入浅出Factorization Machines系列"></a>深入浅出Factorization Machines系列</h1><p><a href="http://kubicode.me/2018/02/23/Deep%20Learning/Deep-in-out-Factorization-Machines-Series/" target="_blank" rel="noopener">深入浅出Factorization Machines系列 | Kubi Code’Blog</a></p>
 <h1 id="FM"><a href="#FM" class="headerlink" title="FM"></a>FM</h1><p>Factorization Machine(FM)由Steffen Rendle在2010年提出，旨在解决系数数据下的特征组合的问题，目前该系列模型在搜索推荐领域被广泛使用。</p>
-<h2 id="一个例子"><a href="#一个例子" class="headerlink" title="一个例子"></a>一个例子</h2><p><img src="/img/media/FM%20FFM/fm_case.png" alt=""><br>问题就是需要对电影进行评分(y项)，而x都是特征,其中:</p>
+<h2 id="一个例子"><a href="#一个例子" class="headerlink" title="一个例子"></a>一个例子</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/FM%20FFM/fm_case.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>问题就是需要对电影进行评分(y项)，而x都是特征,其中:</p>
 <ol>
 <li>第一部分蓝色的为当前评分的用户</li>
 <li>第二部分红色的为被评分的电影</li>
@@ -215,13 +222,73 @@
 <li>第四部分绿色的为该用户当前评分的月数</li>
 <li>第五部分棕色为该用户最新一次评分的电影</li>
 </ol>
-<p>这是一个经典的回归问题，最简单粗暴的方法就先上一个线性回归，其中对于绿色特征处理成binary，这样计算公式就是为<br><img src="/img/media/FM%20FFM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-26%20%E4%B8%8A%E5%8D%889.45.36.png" alt=""><br>这样可能会过于简单粗暴，按照算法（特征）工程师的套路会对某些特征进行组合，这样为了方便，咱们就给他来一个全组合:<br><img src="/img/media/FM%20FFM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-26%20%E4%B8%8A%E5%8D%889.53.57.png" alt=""><br>看似问题解决了，但是这样会存在这么几个问题:</p>
+<p>这是一个经典的回归问题，最简单粗暴的方法就先上一个线性回归，其中对于绿色特征处理成binary，这样计算公式就是为<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/FM%20FFM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-26%20%E4%B8%8A%E5%8D%889.45.36.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>这样可能会过于简单粗暴，按照算法（特征）工程师的套路会对某些特征进行组合，这样为了方便，咱们就给他来一个全组合:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/FM%20FFM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-26%20%E4%B8%8A%E5%8D%889.53.57.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>看似问题解决了，但是这样会存在这么几个问题:</p>
 <ol>
 <li>参数空间过大,这里为O(n2)，在处理互联网数据时，特征量级别可能是亿级别的。</li>
 <li>需要人工经验，这里一般会选择某些特征来组合，此时人工/专家经验就会很重要。</li>
 <li>样本量稀疏，实际上那这种方式拿到的特征会是很稀疏的，对于在训练样本中未出现过的组合该模型无能为力。</li>
 </ol>
-<h2 id="FM解法"><a href="#FM解法" class="headerlink" title="FM解法"></a>FM解法</h2><p>定理：对于一个正定矩阵W，始终存在一个矩阵使得<br><img src="/img/media/FM%20FFM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-26%20%E4%B8%8A%E5%8D%8810.00.38.png" alt=""><br>成立（需要V的维数k足够大）<br>但是在巨大稀疏矩阵的情况下，当k并不是很大时也可以很接近W，因此可以用<br><img src="/img/media/FM%20FFM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-26%20%E4%B8%8A%E5%8D%8810.01.54.png" alt=""><br>其中这里v为长度k的一个向量,⟨vi,vj⟩表示两个向量的点积，在FM中也称为<strong>隐向量</strong>,这样就有了FM的式子:<br><img src="/img/media/FM%20FFM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-26%20%E4%B8%8A%E5%8D%8810.02.27.png" alt=""><br>其中&lt;&gt;表示两个向量的点积<br><img src="/img/media/FM%20FFM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-26%20%E4%B8%8A%E5%8D%8810.05.42.png" alt=""><br>直观上看，FM的复杂度是 O(kn2)。但是，通过下列等式，FM的二次项可以化简，其复杂度可以优化到 O(kn)。由此可见，FM可以在线性时间对新样本作出预测。<br><img src="/img/media/FM%20FFM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-26%20%E4%B8%8A%E5%8D%8810.08.06.png" alt=""><br>以下是详细证明过程。<br><img src="/img/media/FM%20FFM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-26%20%E4%B8%8A%E5%8D%8810.09.13.png" alt=""><br>之后采用随机梯度下降SGD（Stochastic Gradient Descent）训练模型参数。那么，模型各个参数的梯度如下:<br><img src="/img/media/FM%20FFM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-26%20%E4%B8%8A%E5%8D%8810.11.53.png" alt=""><br><img src="/img/media/FM%20FFM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-26%20%E4%B8%8A%E5%8D%8810.19.33.png" alt=""></p>
+<h2 id="FM解法"><a href="#FM解法" class="headerlink" title="FM解法"></a>FM解法</h2><p>定理：对于一个正定矩阵W，始终存在一个矩阵使得<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/FM%20FFM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-26%20%E4%B8%8A%E5%8D%8810.00.38.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>成立（需要V的维数k足够大）<br>但是在巨大稀疏矩阵的情况下，当k并不是很大时也可以很接近W，因此可以用<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/FM%20FFM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-26%20%E4%B8%8A%E5%8D%8810.01.54.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>其中这里v为长度k的一个向量,⟨vi,vj⟩表示两个向量的点积，在FM中也称为<strong>隐向量</strong>,这样就有了FM的式子:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/FM%20FFM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-26%20%E4%B8%8A%E5%8D%8810.02.27.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>其中&lt;&gt;表示两个向量的点积<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/FM%20FFM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-26%20%E4%B8%8A%E5%8D%8810.05.42.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>直观上看，FM的复杂度是 O(kn2)。但是，通过下列等式，FM的二次项可以化简，其复杂度可以优化到 O(kn)。由此可见，FM可以在线性时间对新样本作出预测。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/FM%20FFM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-26%20%E4%B8%8A%E5%8D%8810.08.06.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>以下是详细证明过程。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/FM%20FFM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-26%20%E4%B8%8A%E5%8D%8810.09.13.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>之后采用随机梯度下降SGD（Stochastic Gradient Descent）训练模型参数。那么，模型各个参数的梯度如下:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/FM%20FFM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-26%20%E4%B8%8A%E5%8D%8810.11.53.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/FM%20FFM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-26%20%E4%B8%8A%E5%8D%8810.19.33.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <h2 id="FM总结"><a href="#FM总结" class="headerlink" title="FM总结"></a>FM总结</h2><p>首先是为什么使用向量的点积可以解决以上问题呢？</p>
 <ol>
 <li>参数的数量大幅度缩减，从n×(n−1)/2降低到nk</li>
@@ -236,12 +303,78 @@
 </ol>
 <h1 id="FFM"><a href="#FFM" class="headerlink" title="FFM"></a>FFM</h1><p>Field-aware Factorization Machine(FFM) 场感知分解机。</p>
 <p>场感知说白了可以理解为分类。通过引入field的概念，FFM把相同性质的特征归于同一个field。比如， “MovieClass = romantic”、“MovieClass = action”这2个特征值都是代表电影分类的，可以放到同一个field中。简单来说，同一个类别的特征经过One-Hot编码生成的数值特征都可以放到同一个field。</p>
-<p>在FFM中，每一维特征 xi，针对其它特征的每一种field fj，都会学习一个隐向量<br><img src="/img/media/FM%20FFM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-26%20%E4%B8%8B%E5%8D%881.23.02.png" alt=""><br>因此，隐向量不仅与特征相关，也与field相关。也就是说，“MovieClass”这个特征与“UserRate”特征和“PlayTimes”特征进行关联的时候使用不同的隐向量，也是FFM中“field-aware”的由来。<br>通过修改FM的公式，我们可以得出：<br><img src="/img/media/FM%20FFM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-26%20%E4%B8%8B%E5%8D%881.26.49.png" alt=""><br><img src="/img/media/FM%20FFM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-26%20%E4%B8%8B%E5%8D%881.28.19.png" alt=""></p>
+<p>在FFM中，每一维特征 xi，针对其它特征的每一种field fj，都会学习一个隐向量<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/FM%20FFM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-26%20%E4%B8%8B%E5%8D%881.23.02.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>因此，隐向量不仅与特征相关，也与field相关。也就是说，“MovieClass”这个特征与“UserRate”特征和“PlayTimes”特征进行关联的时候使用不同的隐向量，也是FFM中“field-aware”的由来。<br>通过修改FM的公式，我们可以得出：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/FM%20FFM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-26%20%E4%B8%8B%E5%8D%881.26.49.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/FM%20FFM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-26%20%E4%B8%8B%E5%8D%881.28.19.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><p>FFM其实是在FM的基础上做了一些更加细致化的工作:作者Yuchin认为相同性质的特征归于同一field，而当前特征在不同field上的表现应该是不同的.</p>
-<p>比如在广告领域中性别对于广告商(Advertiser)和投放地(Publisher)的作用就是不一样的，比如:<br><img src="/img/media/FM%20FFM/ffm_case.png" alt=""><br>这里的特征被分为了三类，有投放地(Publisher)，广告商(Advertiser)和性别(Gender),如果使用<strong>FM</strong>来预估这个点击率则是:<br><img src="/img/media/FM%20FFM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-26%20%E4%B8%8B%E5%8D%881.46.37.png" alt=""><br>这里可以看出FM中隐向量对于不同类别的特征进行组合时都是使用同一个向量，而基于Field-aware的FFM就是对这点进行修改，认为当前向量对于每一个类别都有一个不同的隐向量，比如性别和投放地进行组合的时候使用的隐向量为vMale,G,这样推广开来之后这个问题中FFM的二阶项就可以表述为:<br><img src="/img/media/FM%20FFM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-26%20%E4%B8%8B%E5%8D%881.47.35.png" alt=""><br>这样,FFM使用通用化的学习公式表达了之后为:<br><img src="/img/media/FM%20FFM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-26%20%E4%B8%8B%E5%8D%881.48.53.png" alt=""><br>因为FFM的参数空间为nfk,其计算复杂度为O(nk),但是FFM都是在特定的field的中来学习训练隐向量的，所以一般来说:<br><img src="/img/media/FM%20FFM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-26%20%E4%B8%8B%E5%8D%881.49.50.png" alt=""><br>FFM的改进看上去还是有挺有道理的，但是其实最终实验做出来和FM的效果不相上下。<br><img src="/img/media/FM%20FFM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-26%20%E4%B8%8B%E5%8D%881.50.29.png" alt=""></p>
+<p>比如在广告领域中性别对于广告商(Advertiser)和投放地(Publisher)的作用就是不一样的，比如:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/FM%20FFM/ffm_case.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>这里的特征被分为了三类，有投放地(Publisher)，广告商(Advertiser)和性别(Gender),如果使用<strong>FM</strong>来预估这个点击率则是:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/FM%20FFM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-26%20%E4%B8%8B%E5%8D%881.46.37.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>这里可以看出FM中隐向量对于不同类别的特征进行组合时都是使用同一个向量，而基于Field-aware的FFM就是对这点进行修改，认为当前向量对于每一个类别都有一个不同的隐向量，比如性别和投放地进行组合的时候使用的隐向量为vMale,G,这样推广开来之后这个问题中FFM的二阶项就可以表述为:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/FM%20FFM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-26%20%E4%B8%8B%E5%8D%881.47.35.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>这样,FFM使用通用化的学习公式表达了之后为:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/FM%20FFM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-26%20%E4%B8%8B%E5%8D%881.48.53.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>因为FFM的参数空间为nfk,其计算复杂度为O(nk),但是FFM都是在特定的field的中来学习训练隐向量的，所以一般来说:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/FM%20FFM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-26%20%E4%B8%8B%E5%8D%881.49.50.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>FFM的改进看上去还是有挺有道理的，但是其实最终实验做出来和FM的效果不相上下。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/FM%20FFM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-26%20%E4%B8%8B%E5%8D%881.50.29.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <h1 id="美团机器学习实践"><a href="#美团机器学习实践" class="headerlink" title="美团机器学习实践"></a>美团机器学习实践</h1><p>逻辑回归无法学习到特征间的组合关系，而特征组合关系在推荐和CTR预估中却是比较常见的。在进行点击率预估时，特征通常来自于用户，广告和上下文环境，如果没有对这些特征进行组合，模型就无法学习到所有有用的信息。例如，同一个用户在不同时间或者地点感兴趣的广告是不同的，同一件商品在不同地区的受欢迎程度也是不同的。但是人工对特征组合需要做大量的特征工程工作，对特征做暴力组合模型又太复杂，参数太多。模型训练迭代无论是内存开销还是时间开销都让人很难接受，迭代效果往往也比较差。所以可以用因子分解机和场感知因子分解机来进行自动做特征组合，并且算法效率比较高。 </p>
 <p>利用模型来做特征组合，很容易想到使用支持向量机的核函数来实现特征之间的交叉。但是多项式核函数的问题就是二次参数过多。设特征维数为n，则二次项的参数数目为n(n+1) / 2，特别是某些广告ID，用户ID类特征，其特征维数可能达到几百万维，这导致只有极少数的二阶组合模式才能找到，所以这些特征组合后得到的特征矩阵就是十分稀疏。而在训练样本不足的时候，特征矩阵的稀疏性很容易导致相关参数准确性较低，导致模型效果不好。而我们可以通过对二次项参数施加某种限制来减少参数的自由度。</p>
-<p>因子分解机施加的限制就是要求二次项参数矩阵是低秩的，能够分解为低秩矩阵的乘积。所有二次项参数矩阵W就可以分解为<br><img src="/img/media/FM%20FFM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-26%20%E4%B8%8A%E5%8D%8810.00.38%202.png" alt=""><br><strong>V</strong>的第j列便是第j维特征向量。<br>因子分解机的模型方程：<br><img src="/img/media/FM%20FFM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-26%20%E4%B8%8B%E5%8D%881.26.49%202.png" alt=""><br>在多项式模型中，Whi和Wij是相互独立的，但参数因子化使得XhXi和XiXj的系数分别为&lt;Vh,Vi&gt;和&lt;Vi,Vj&gt;，它们有了共同项Vi。也就是说<strong>所有包含Xj的非零组合特征的样本都可以用来学习隐向量Vi</strong>，这在<strong>很大程度上避免了数据稀疏性造成的影响</strong>。</p>
+<p>因子分解机施加的限制就是要求二次项参数矩阵是低秩的，能够分解为低秩矩阵的乘积。所有二次项参数矩阵W就可以分解为<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/FM%20FFM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-26%20%E4%B8%8A%E5%8D%8810.00.38%202.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><strong>V</strong>的第j列便是第j维特征向量。<br>因子分解机的模型方程：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/FM%20FFM/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-26%20%E4%B8%8B%E5%8D%881.26.49%202.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>在多项式模型中，Whi和Wij是相互独立的，但参数因子化使得XhXi和XiXj的系数分别为&lt;Vh,Vi&gt;和&lt;Vi,Vj&gt;，它们有了共同项Vi。也就是说<strong>所有包含Xj的非零组合特征的样本都可以用来学习隐向量Vi</strong>，这在<strong>很大程度上避免了数据稀疏性造成的影响</strong>。</p>
 <p>FM可以看做是FFM的特殊情况，是把所有特征都归属到一个场时的场感知因子分解机模型。</p>
 <h2 id="FFM的应用"><a href="#FFM的应用" class="headerlink" title="FFM的应用"></a>FFM的应用</h2><p>FFM可以自动做特征组合和处理高维稀疏特征，因而它在处理大量离散特征的问题上往往有比较好的效果。使用场感知因子分解机时要注意对连续特征做归一化或离散化。</p>
 <p>FM，FFM与其他模型的对比关系。</p>
@@ -385,9 +518,7 @@
             </span>
         </p>
     </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
+
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
     </script>
 </footer>

@@ -21,20 +21,20 @@
     
     
     <meta name="keywords" content="Android">
-    <meta name="description" content="MVC和MVP示意图 MVP和MVC的区别 Activity职责不同，Activity在MVP中是View层，在MVC中是Controller层，这是MVC和MVP很主要的一个区别，可以说Android从MVC转向MVP开发也主要是优化Activity的代码，避免Activity的代码臃肿庞大。 View层不同，MVC的View层指的是XML布局文件或者是用Java自定义的View，MVP的Vie">
+    <meta name="description" content="MVC和MVP示意图">
 <meta name="keywords" content="Android">
 <meta property="og:type" content="article">
 <meta property="og:title" content="安卓开发的MVC和MVP模式">
 <meta property="og:url" content="https://github.com/zdkswd/2019/01/08/安卓开发的MVC和MVP模式/index.html">
 <meta property="og:site_name" content="ZDK&#39;s blog">
-<meta property="og:description" content="MVC和MVP示意图 MVP和MVC的区别 Activity职责不同，Activity在MVP中是View层，在MVC中是Controller层，这是MVC和MVP很主要的一个区别，可以说Android从MVC转向MVP开发也主要是优化Activity的代码，避免Activity的代码臃肿庞大。 View层不同，MVC的View层指的是XML布局文件或者是用Java自定义的View，MVP的Vie">
+<meta property="og:description" content="MVC和MVP示意图">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://github.com/img/media/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91%E7%9A%84MVC%E5%92%8CMVP%E6%A8%A1%E5%BC%8F/20170813105245063.png">
 <meta property="og:image" content="https://github.com/img/media/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91%E7%9A%84MVC%E5%92%8CMVP%E6%A8%A1%E5%BC%8F/20170813013123472.png">
 <meta property="og:updated_time" content="2019-01-08T12:04:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="安卓开发的MVC和MVP模式">
-<meta name="twitter:description" content="MVC和MVP示意图 MVP和MVC的区别 Activity职责不同，Activity在MVP中是View层，在MVC中是Controller层，这是MVC和MVP很主要的一个区别，可以说Android从MVC转向MVP开发也主要是优化Activity的代码，避免Activity的代码臃肿庞大。 View层不同，MVC的View层指的是XML布局文件或者是用Java自定义的View，MVP的Vie">
+<meta name="twitter:description" content="MVC和MVP示意图">
 <meta name="twitter:image" content="https://github.com/img/media/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91%E7%9A%84MVC%E5%92%8CMVP%E6%A8%A1%E5%BC%8F/20170813105245063.png">
     
         <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
@@ -185,7 +185,20 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="MVC和MVP示意图"><a href="#MVC和MVP示意图" class="headerlink" title="MVC和MVP示意图"></a>MVC和MVP示意图</h1><p><img src="/img/media/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91%E7%9A%84MVC%E5%92%8CMVP%E6%A8%A1%E5%BC%8F/20170813105245063.png" alt=""><br><img src="/img/media/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91%E7%9A%84MVC%E5%92%8CMVP%E6%A8%A1%E5%BC%8F/20170813013123472.png" alt=""></p>
+            <h1 id="MVC和MVP示意图"><a href="#MVC和MVP示意图" class="headerlink" title="MVC和MVP示意图"></a>MVC和MVP示意图</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91%E7%9A%84MVC%E5%92%8CMVP%E6%A8%A1%E5%BC%8F/20170813105245063.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91%E7%9A%84MVC%E5%92%8CMVP%E6%A8%A1%E5%BC%8F/20170813013123472.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h1 id="MVP和MVC的区别"><a href="#MVP和MVC的区别" class="headerlink" title="MVP和MVC的区别"></a>MVP和MVC的区别</h1><ol>
 <li><strong>Activity职责不同</strong>，Activity在MVP中是View层，在MVC中是Controller层，这是MVC和MVP很主要的一个区别，可以说Android从MVC转向MVP开发也主要是优化Activity的代码，避免Activity的代码臃肿庞大。</li>
 <li><strong>View层不同</strong>，MVC的View层指的是XML布局文件或者是用Java自定义的View，MVP的View层是Activity或者Fragment。使用传统的MVC，其中的View，对应的是各种Layout布局文件，但是这些布局文件中并不像Web端那样强大，能做的事情非常有限。MVP的View层Activity在实际项目中，随着逻辑的复杂度越来越大，Activity臃肿的缺点仍然体现出来了，因为Activity中还是充满了大量与View层无关的代码，比如各种事件的处理派发，就如MVC中的那样View层和Controller代码耦合在一起无法自拔。</li>
@@ -331,9 +344,7 @@
             </span>
         </p>
     </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
+
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
     </script>
 </footer>

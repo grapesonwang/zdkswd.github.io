@@ -216,30 +216,214 @@
 <p>如果已经发现了“弱学习算法”，将它提升(boost) 为“强学习算法”.大家知道，发现弱学习算法通常要比发现强学习算法容易得多.那么如何具体实施提升，便成为开发提升方法时所要解决的问题.关于提升方法的研究很多，有很多算法被提出.最具代表性的是AdaBoost算法。</p>
 <p>对于分类问题而言，给定一个训练样本集，求比较粗糙的分类规则(弱分类器)要比求精确的分类规则(强分类器)容易得多.提升方法就是从弱学习算法出发， 反复学习，得到一系列弱分类器(又称为基本分类器)，然后组合这些弱分类器，构成一个强分类器.大多数的提升方法都是改变训练数据的概率分布(训练数据的权值分布)，针对不同的训练数据分布调用弱学习算法学习一系列弱分类器.</p>
 <p>对提升方法来说，有两个问题需要回答:一是在每一轮如何改变训练数据的权值或概率分布;二是如何将弱分类器组合成一个强分类器.关于第1个问题，AdaBoost的做法是，<strong>提高</strong>那些被前一轮弱分类器<strong>错误分类样本的权值</strong>，而<strong>降低</strong>那些被<strong>正确分类样本的权值</strong>.这样一来，那些没有得到正确分类的数据，由于其权值的加大而受到后一轮的弱分类器的更大关注.于是，分类问题被一系列的弱分类器“分而治之”.至于第2个问题，即弱分类器的组合，AdaBoost 采取加权多数表决的方法.具体地，<strong>加大</strong>分类<strong>误差率小</strong>的弱分类器的<strong>权值</strong>，使其在表决中起较大的作用，<strong>减小</strong>分类<strong>误差率大</strong>的弱分类器的<strong>权值</strong>，使其在表决中起较小的作用.</p>
-<h3 id="AdaBoost算法"><a href="#AdaBoost算法" class="headerlink" title="AdaBoost算法"></a>AdaBoost算法</h3><p>给定一个二类分类的训练数据集。<br><img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%884.52.10.png" alt=""></p>
-<h4 id="算法（AdaBoost）"><a href="#算法（AdaBoost）" class="headerlink" title="算法（AdaBoost）"></a>算法（AdaBoost）</h4><p><img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%884.53.06.png" alt=""><br><img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%884.55.56.png" alt=""></p>
-<h3 id="AdaBoost的例子"><a href="#AdaBoost的例子" class="headerlink" title="AdaBoost的例子"></a>AdaBoost的例子</h3><p><img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%885.08.02.png" alt=""><br><img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%885.09.59.png" alt=""><br><img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%885.10.33.png" alt=""><br><img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%885.11.06.png" alt=""></p>
+<h3 id="AdaBoost算法"><a href="#AdaBoost算法" class="headerlink" title="AdaBoost算法"></a>AdaBoost算法</h3><p>给定一个二类分类的训练数据集。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%884.52.10.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h4 id="算法（AdaBoost）"><a href="#算法（AdaBoost）" class="headerlink" title="算法（AdaBoost）"></a>算法（AdaBoost）</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%884.53.06.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%884.55.56.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="AdaBoost的例子"><a href="#AdaBoost的例子" class="headerlink" title="AdaBoost的例子"></a>AdaBoost的例子</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%885.08.02.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%885.09.59.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%885.10.33.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%885.11.06.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h2 id="AdaBoost算法的训练误差分析"><a href="#AdaBoost算法的训练误差分析" class="headerlink" title="AdaBoost算法的训练误差分析"></a>AdaBoost算法的训练误差分析</h2><p>AdaBoost最基本的性质是它能在学习过程中不断减少训练误差，即在训练数据集上的分类误差率。</p>
-<h3 id="定理（AdaBoost的训练误差界）"><a href="#定理（AdaBoost的训练误差界）" class="headerlink" title="定理（AdaBoost的训练误差界）"></a>定理（AdaBoost的训练误差界）</h3><p>AdaBoost算法最终分类器的训练误差界为：<br><img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%885.21.34.png" alt=""><br>这一定理说明，可以在每一轮选取适当的Gm使得Zm最小，从而使训练误差下降最快。对二类分类问题，有如下结果：</p>
-<h3 id="定理（二类分类问题AdaBoost的训练误差界）"><a href="#定理（二类分类问题AdaBoost的训练误差界）" class="headerlink" title="定理（二类分类问题AdaBoost的训练误差界）"></a>定理（二类分类问题AdaBoost的训练误差界）</h3><p><img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%885.24.03.png" alt=""></p>
-<h3 id="推论"><a href="#推论" class="headerlink" title="推论"></a>推论</h3><p><img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%885.24.50.png" alt=""><br>这表明在此条件下AdaBoost的训练误差是以指数速率下降的。这一性质当然很有吸引力。</p>
+<h3 id="定理（AdaBoost的训练误差界）"><a href="#定理（AdaBoost的训练误差界）" class="headerlink" title="定理（AdaBoost的训练误差界）"></a>定理（AdaBoost的训练误差界）</h3><p>AdaBoost算法最终分类器的训练误差界为：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%885.21.34.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>这一定理说明，可以在每一轮选取适当的Gm使得Zm最小，从而使训练误差下降最快。对二类分类问题，有如下结果：</p>
+<h3 id="定理（二类分类问题AdaBoost的训练误差界）"><a href="#定理（二类分类问题AdaBoost的训练误差界）" class="headerlink" title="定理（二类分类问题AdaBoost的训练误差界）"></a>定理（二类分类问题AdaBoost的训练误差界）</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%885.24.03.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="推论"><a href="#推论" class="headerlink" title="推论"></a>推论</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%885.24.50.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>这表明在此条件下AdaBoost的训练误差是以指数速率下降的。这一性质当然很有吸引力。</p>
 <p>AdaBoost算法不需要知道下界y.与早期的提升方法不同，AdaBoost具有适应性，即它能适应弱分类器各自的训练误差率。</p>
 <h2 id="AdaBoost算法的解释"><a href="#AdaBoost算法的解释" class="headerlink" title="AdaBoost算法的解释"></a>AdaBoost算法的解释</h2><p>AdaBoost算法还有另一个解释，即可以认为AdaBoost算法是模型为加法模型、损失函数为指数函数、学习算法为前向分布算法时的二类分类学习方法。</p>
-<h3 id="前向分布算法"><a href="#前向分布算法" class="headerlink" title="前向分布算法"></a>前向分布算法</h3><p>考虑加法模型<br><img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%886.01.16.png" alt=""><br>其中b（x;ym）为基函数，ym为基函数的参数，Bm为基函数的系数。</p>
-<p>在给定训练数据及损失函数L（y，f（x））的条件下，学习加法模型f(x)成为损失函数极小化问题。<br><img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%886.06.13.png" alt=""><br>通常这是一个复杂得优化问题。前向分步算法求解这一优化问题的想法是，因为学习的是加法模型，如果能够从前向后，每一步只学习一个基函数及其系数，逐步逼近目标函数式，就可以简化优化的复杂度。具体的，每步只需优化损失函数：<br><img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%886.09.49.png" alt=""></p>
-<h4 id="前向分步算法"><a href="#前向分步算法" class="headerlink" title="前向分步算法"></a>前向分步算法</h4><p><img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%886.12.17.png" alt=""><br><img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%886.14.37.png" alt=""></p>
+<h3 id="前向分布算法"><a href="#前向分布算法" class="headerlink" title="前向分布算法"></a>前向分布算法</h3><p>考虑加法模型<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%886.01.16.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>其中b（x;ym）为基函数，ym为基函数的参数，Bm为基函数的系数。</p>
+<p>在给定训练数据及损失函数L（y，f（x））的条件下，学习加法模型f(x)成为损失函数极小化问题。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%886.06.13.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>通常这是一个复杂得优化问题。前向分步算法求解这一优化问题的想法是，因为学习的是加法模型，如果能够从前向后，每一步只学习一个基函数及其系数，逐步逼近目标函数式，就可以简化优化的复杂度。具体的，每步只需优化损失函数：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%886.09.49.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h4 id="前向分步算法"><a href="#前向分步算法" class="headerlink" title="前向分步算法"></a>前向分步算法</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%886.12.17.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%886.14.37.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h3 id="前向分步算法与AdaBoost"><a href="#前向分步算法与AdaBoost" class="headerlink" title="前向分步算法与AdaBoost"></a>前向分步算法与AdaBoost</h3><h4 id="定理"><a href="#定理" class="headerlink" title="定理"></a>定理</h4><p>AdaBoost算法是前向分步算法加法算法的特例。这时模型是由基本分类器组成的加法模型，损失函数是指数函数。</p>
 <h2 id="提升树"><a href="#提升树" class="headerlink" title="提升树"></a>提升树</h2><p>提升树是以分类树或回归树为基本分类器的提升方法.提升树被认为是统计学习中性能最好的方法之一。</p>
-<h3 id="提升树模型"><a href="#提升树模型" class="headerlink" title="提升树模型"></a>提升树模型</h3><p>提升方法实际采用加法模型（即基函数的线性组合）与前向分步算法。以决策树为基函数的提升方法称为提升树（boosting tree）。对分类问题决策树是二叉分类树，对回归问题决策树是二叉回归树。基本分类器x&lt;v,或x&gt;v，可以看做是由一个根结点直接连接两个叶节点的简单决策树，即所谓的决策树桩。提升树模型可以表示为决策树的加法模型：<br><img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%8810.00.10.png" alt=""><br><img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%8810.00.39.png" alt=""></p>
-<h3 id="提升树算法"><a href="#提升树算法" class="headerlink" title="提升树算法"></a>提升树算法</h3><p>提升树算法采用前向分步算法.首先确定初始提升树f0(x)=0,第m步的模型是<br><img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-13%20%E4%B8%8A%E5%8D%8810.12.04.png" alt=""><br>其中，fm-1(x)为当前模型，通过最小化损失函数确定下一棵决策树的参数θm。<br><img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-13%20%E4%B8%8A%E5%8D%8810.13.28.png" alt=""><br>由于树的线性组合可以很好地拟合训练数据，即使数据中的输入与输出之间的关系很复杂也是如此，所以提升树是一个高功能的学习算法.</p>
+<h3 id="提升树模型"><a href="#提升树模型" class="headerlink" title="提升树模型"></a>提升树模型</h3><p>提升方法实际采用加法模型（即基函数的线性组合）与前向分步算法。以决策树为基函数的提升方法称为提升树（boosting tree）。对分类问题决策树是二叉分类树，对回归问题决策树是二叉回归树。基本分类器x&lt;v,或x&gt;v，可以看做是由一个根结点直接连接两个叶节点的简单决策树，即所谓的决策树桩。提升树模型可以表示为决策树的加法模型：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%8810.00.10.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-12%20%E4%B8%8B%E5%8D%8810.00.39.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="提升树算法"><a href="#提升树算法" class="headerlink" title="提升树算法"></a>提升树算法</h3><p>提升树算法采用前向分步算法.首先确定初始提升树f0(x)=0,第m步的模型是<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-13%20%E4%B8%8A%E5%8D%8810.12.04.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>其中，fm-1(x)为当前模型，通过最小化损失函数确定下一棵决策树的参数θm。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-13%20%E4%B8%8A%E5%8D%8810.13.28.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>由于树的线性组合可以很好地拟合训练数据，即使数据中的输入与输出之间的关系很复杂也是如此，所以提升树是一个高功能的学习算法.</p>
 <p>针对不同问题的提升树学习算法，其主要区别在于使用的<strong>损失函数不同</strong>.包括用<strong>平方误差损失函数</strong>的<strong>回归</strong>问题，用<strong>指数损失</strong>函数的<strong>分类</strong>问题，以及用<strong>一般损失函数</strong>的<strong>一般决策问题</strong>.</p>
 <h4 id="基函数是分类树（二叉分类树）"><a href="#基函数是分类树（二叉分类树）" class="headerlink" title="基函数是分类树（二叉分类树）"></a>基函数是分类树（二叉分类树）</h4><p>对于基函数是分类树时，我们使用指数损失函数，此时正是AdaBoost算法的特殊情况，即将AdaBoost算法中的基分类器使用分类树即可。</p>
-<h4 id="回归问题的提升树算法（基函数是回归树）"><a href="#回归问题的提升树算法（基函数是回归树）" class="headerlink" title="回归问题的提升树算法（基函数是回归树）"></a>回归问题的提升树算法（基函数是回归树）</h4><p><img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-13%20%E4%B8%8A%E5%8D%8810.18.48.png" alt=""><br><img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-13%20%E4%B8%8A%E5%8D%8810.19.01.png" alt=""></p>
-<h4 id="例"><a href="#例" class="headerlink" title="例"></a>例</h4><p><img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-13%20%E4%B8%8A%E5%8D%8810.22.26.png" alt=""><br><img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-13%20%E4%B8%8A%E5%8D%8810.22.47.png" alt=""><br><img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-13%20%E4%B8%8A%E5%8D%8810.24.01.png" alt=""></p>
-<h3 id="梯度提升"><a href="#梯度提升" class="headerlink" title="梯度提升"></a>梯度提升</h3><p>提升树利用加法模型与前向分步算法实现学习的优化过程.当损失函数是平方损失和指数损失函数时，每一步优化是很简单的.但对一一般损失函数而言，往往每一步优化并不那么容易.针对这一问题，Freidman 提出了梯度提升(gradient<br>boosting)算法，这是利用最速下降法的近似方法，其关键是利用损失函数负梯度在当前模型的值<br><img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-13%20%E4%B8%8A%E5%8D%8810.27.46.png" alt=""><br>作为回归问题提升树算法中的<strong>残差的近似值</strong>，拟合一个<strong>回归树</strong>。</p>
-<h4 id="梯度提升算法"><a href="#梯度提升算法" class="headerlink" title="梯度提升算法"></a>梯度提升算法</h4><p><img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-13%20%E4%B8%8A%E5%8D%8810.31.09.png" alt=""><br><img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-13%20%E4%B8%8A%E5%8D%8810.31.20.png" alt=""></p>
+<h4 id="回归问题的提升树算法（基函数是回归树）"><a href="#回归问题的提升树算法（基函数是回归树）" class="headerlink" title="回归问题的提升树算法（基函数是回归树）"></a>回归问题的提升树算法（基函数是回归树）</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-13%20%E4%B8%8A%E5%8D%8810.18.48.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-13%20%E4%B8%8A%E5%8D%8810.19.01.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="例"><a href="#例" class="headerlink" title="例"></a>例</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-13%20%E4%B8%8A%E5%8D%8810.22.26.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-13%20%E4%B8%8A%E5%8D%8810.22.47.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-13%20%E4%B8%8A%E5%8D%8810.24.01.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="梯度提升"><a href="#梯度提升" class="headerlink" title="梯度提升"></a>梯度提升</h3><p>提升树利用加法模型与前向分步算法实现学习的优化过程.当损失函数是平方损失和指数损失函数时，每一步优化是很简单的.但对一一般损失函数而言，往往每一步优化并不那么容易.针对这一问题，Freidman 提出了梯度提升(gradient<br>boosting)算法，这是利用最速下降法的近似方法，其关键是利用损失函数负梯度在当前模型的值<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-13%20%E4%B8%8A%E5%8D%8810.27.46.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>作为回归问题提升树算法中的<strong>残差的近似值</strong>，拟合一个<strong>回归树</strong>。</p>
+<h4 id="梯度提升算法"><a href="#梯度提升算法" class="headerlink" title="梯度提升算法"></a>梯度提升算法</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-13%20%E4%B8%8A%E5%8D%8810.31.09.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-13%20%E4%B8%8A%E5%8D%8810.31.20.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h1 id="博客"><a href="#博客" class="headerlink" title="博客"></a>博客</h1><p>Bagging + 决策树 = 随机森林<br>AdaBoost + 决策树 = 提升树<br>Gradient Boosting + 决策树 = GBDT</p>
-<h1 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h1><h2 id="AdaBoost单层决策树"><a href="#AdaBoost单层决策树" class="headerlink" title="AdaBoost单层决策树"></a>AdaBoost单层决策树</h2><p>分类问题。<br><img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/mL_10_12.png" alt=""><br>可以看到，如果想要试着从某个坐标轴上选择一个值（即选择一条与坐标轴平行的直线）来将所有的蓝色圆点和橘色圆点分开，这显然是不可能的。这就是单层决策树难以处理的一个著名问题。通过使用多颗单层决策树，我们可以构建出一个能够对该数据集完全正确分类的分类器。<br><img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/mL_10_13.png" alt=""><br>蓝横线上边的是一个类别，蓝横线下边是一个类别。显然，此时有一个蓝点分类错误，计算此时的分类误差，误差为1/5 = 0.2。这个横线与坐标轴的y轴的交点，就是我们设置的阈值，通过不断改变阈值的大小，找到使单层决策树的分类误差最小的阈值。同理，竖线也是如此，找到最佳分类的阈值，就找到了最佳单层决策树。</p>
+<h1 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h1><h2 id="AdaBoost单层决策树"><a href="#AdaBoost单层决策树" class="headerlink" title="AdaBoost单层决策树"></a>AdaBoost单层决策树</h2><p>分类问题。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/mL_10_12.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>可以看到，如果想要试着从某个坐标轴上选择一个值（即选择一条与坐标轴平行的直线）来将所有的蓝色圆点和橘色圆点分开，这显然是不可能的。这就是单层决策树难以处理的一个著名问题。通过使用多颗单层决策树，我们可以构建出一个能够对该数据集完全正确分类的分类器。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E6%8F%90%E5%8D%87%20boosting/mL_10_13.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>蓝横线上边的是一个类别，蓝横线下边是一个类别。显然，此时有一个蓝点分类错误，计算此时的分类误差，误差为1/5 = 0.2。这个横线与坐标轴的y轴的交点，就是我们设置的阈值，通过不断改变阈值的大小，找到使单层决策树的分类误差最小的阈值。同理，竖线也是如此，找到最佳分类的阈值，就找到了最佳单层决策树。</p>
 <p>通过遍历，改变不同的阈值，计算最终的分类误差，找到分类误差最小的分类方式，即为我们要找的最佳单层决策树。这里lt表示less than，表示分类方式，对于小于阈值的样本点赋值为-1，gt表示greater than，也是表示分类方式，对于大于阈值的样本点赋值为-1。经过遍历，我们找到，训练好的最佳单层决策树的最小分类误差为0.2，就是对于该数据集，无论用什么样的单层决策树，分类误差最小就是0.2。这就是我们训练好的弱分类器。接下来，使用AdaBoost算法提升分类器性能，将分类误差缩短到0。此时使用AdaBoost提升分类器性能。<br><a href="https://github.com/zdkswd/MLcode/blob/master/%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0/AdaBoost%E5%8D%95%E5%B1%82%E5%86%B3%E7%AD%96%E6%A0%91.py">MLcode/AdaBoost单层决策树.py at master · zdkswd/MLcode · GitHub</a></p>
 <p>通过改变样本的权值，会改变分类误差率，以选择分类误差率最小的弱选择器。</p>
 <h2 id="scikit-learn-AdaBoost"><a href="#scikit-learn-AdaBoost" class="headerlink" title="scikit-learn AdaBoost"></a>scikit-learn AdaBoost</h2><p>sklearn.ensemble.AdaBoostClassifier共有五个参数，参数说明。</p>
@@ -386,9 +570,7 @@
             </span>
         </p>
     </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
+
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
     </script>
 </footer>

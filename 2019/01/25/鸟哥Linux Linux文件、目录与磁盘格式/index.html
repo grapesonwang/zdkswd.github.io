@@ -261,23 +261,103 @@
 <h3 id="其他人的概念"><a href="#其他人的概念" class="headerlink" title="其他人的概念"></a>其他人的概念</h3><p>就是不属于群组的其他人喽。</p>
 <h3 id="root"><a href="#root" class="headerlink" title="root"></a>root</h3><p>想访问谁就访问谁。</p>
 <h3 id="Linux使用者身份与群组记录的文件"><a href="#Linux使用者身份与群组记录的文件" class="headerlink" title="Linux使用者身份与群组记录的文件"></a>Linux使用者身份与群组记录的文件</h3><p>在我们Linux系统当中，默认的情况下，所有的系统上的帐号与一般身份使用者，还有那个root的相关信息，都是记录在\/ etc\/ passwd这个文件内的。至于个人的密码则是记录在\/ etc \/ shadow这个文件下。此外，Linux所有的群组名称都纪录在\/ etc \/ group内!这三个文件可以说是Linux系统里面帐号、密码、群组信息的集中地。</p>
-<h2 id="Linux文件权限概念"><a href="#Linux文件权限概念" class="headerlink" title="Linux文件权限概念"></a>Linux文件权限概念</h2><h3 id="Linux文件属性"><a href="#Linux文件属性" class="headerlink" title="Linux文件属性"></a>Linux文件属性</h3><p>先登录系统，使用su - 切换身份成为root，下达ls -al。 ls是list的意思，重点在显示文件的文件名与相关属性。选项“-al”则表示列出所有的文件详细的权限与属性（包含隐藏文件，就是第一个字符为“.”的文件）。不建议直接使用root登录系统，建议使用su - 来切换身份，离开su - 则使用exit回到登录时的身份即可。运行结果如下：<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-20%20%E4%B8%8B%E5%8D%889.26.41.png" alt=""><br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-20%20%E4%B8%8B%E5%8D%889.27.31.png" alt=""></p>
-<h4 id="档案类型"><a href="#档案类型" class="headerlink" title="档案类型"></a>档案类型</h4><p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-20%20%E4%B8%8B%E5%8D%889.28.11.png" alt=""></p>
+<h2 id="Linux文件权限概念"><a href="#Linux文件权限概念" class="headerlink" title="Linux文件权限概念"></a>Linux文件权限概念</h2><h3 id="Linux文件属性"><a href="#Linux文件属性" class="headerlink" title="Linux文件属性"></a>Linux文件属性</h3><p>先登录系统，使用su - 切换身份成为root，下达ls -al。 ls是list的意思，重点在显示文件的文件名与相关属性。选项“-al”则表示列出所有的文件详细的权限与属性（包含隐藏文件，就是第一个字符为“.”的文件）。不建议直接使用root登录系统，建议使用su - 来切换身份，离开su - 则使用exit回到登录时的身份即可。运行结果如下：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-20%20%E4%B8%8B%E5%8D%889.26.41.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-20%20%E4%B8%8B%E5%8D%889.27.31.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h4 id="档案类型"><a href="#档案类型" class="headerlink" title="档案类型"></a>档案类型</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-20%20%E4%B8%8B%E5%8D%889.28.11.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h4 id="i-node"><a href="#i-node" class="headerlink" title="i-node"></a>i-node</h4><p>每个文件都会将他的权限与属性记录到文件系统的i-node中，我们使用的目录树是使用文件名来记录，因此每个文件名就会链接到一个i-node，这个属性记录的，就是有多少不同的文件名连接到同一个i-node号码。</p>
 <h4 id="容量大小"><a href="#容量大小" class="headerlink" title="容量大小"></a>容量大小</h4><p>默认单位为Bytes。</p>
-<h3 id="如何改变文件属性与权限"><a href="#如何改变文件属性与权限" class="headerlink" title="如何改变文件属性与权限"></a>如何改变文件属性与权限</h3><h4 id="改变所属群组，chgrp"><a href="#改变所属群组，chgrp" class="headerlink" title="改变所属群组，chgrp"></a>改变所属群组，chgrp</h4><p>要被改变的群组名称必须要在\/ etc \/group文件中存在才行，否则就会显示错误。<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8A%E5%8D%8810.30.02.png" alt=""></p>
-<h4 id="改变文件拥有者，chown"><a href="#改变文件拥有者，chown" class="headerlink" title="改变文件拥有者，chown"></a>改变文件拥有者，chown</h4><p>使用者必须是已经存在系统中的账号，也就是在\/ etc \/ passwd这个文件中有记录的使用者名称才能改变。chown还可以顺便直接修改群组的名称，如果要连目录下的所有次目录或文件同时更改文件拥有者的话，直接加上-R选项即可。<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8A%E5%8D%8810.29.07.png" alt=""><br>由于复制行为（cp）会复制执行者的属性和权限，把自己的文件复制给使用者，那他仍然无法修改。所以就有必要将这个文件的拥有者与群组修改一下。</p>
-<h4 id="改变权限，chmod"><a href="#改变权限，chmod" class="headerlink" title="改变权限，chmod"></a>改变权限，chmod</h4><p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8A%E5%8D%8810.37.45.png" alt=""><br>等我们设置权限变更时，该文件的权限数字就是770啦，变更权限的指令chmod的语法：<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8A%E5%8D%8810.38.59.png" alt=""></p>
-<p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8A%E5%8D%8810.39.35.png" alt=""><br>也可以使用符号类型改变文件权限。<br>user（u）具有可读、可写、可执行的权限。<br>group与others（g/o）具有可读与执行的权限。<br>a代表上面三个身份<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8A%E5%8D%8810.50.24.png" alt=""><br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8A%E5%8D%8810.48.52.png" alt=""></p>
-<p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8A%E5%8D%8810.52.24.png" alt=""></p>
-<p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8A%E5%8D%8810.52.42.png" alt=""></p>
+<h3 id="如何改变文件属性与权限"><a href="#如何改变文件属性与权限" class="headerlink" title="如何改变文件属性与权限"></a>如何改变文件属性与权限</h3><h4 id="改变所属群组，chgrp"><a href="#改变所属群组，chgrp" class="headerlink" title="改变所属群组，chgrp"></a>改变所属群组，chgrp</h4><p>要被改变的群组名称必须要在\/ etc \/group文件中存在才行，否则就会显示错误。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8A%E5%8D%8810.30.02.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h4 id="改变文件拥有者，chown"><a href="#改变文件拥有者，chown" class="headerlink" title="改变文件拥有者，chown"></a>改变文件拥有者，chown</h4><p>使用者必须是已经存在系统中的账号，也就是在\/ etc \/ passwd这个文件中有记录的使用者名称才能改变。chown还可以顺便直接修改群组的名称，如果要连目录下的所有次目录或文件同时更改文件拥有者的话，直接加上-R选项即可。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8A%E5%8D%8810.29.07.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>由于复制行为（cp）会复制执行者的属性和权限，把自己的文件复制给使用者，那他仍然无法修改。所以就有必要将这个文件的拥有者与群组修改一下。</p>
+<h4 id="改变权限，chmod"><a href="#改变权限，chmod" class="headerlink" title="改变权限，chmod"></a>改变权限，chmod</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8A%E5%8D%8810.37.45.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>等我们设置权限变更时，该文件的权限数字就是770啦，变更权限的指令chmod的语法：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8A%E5%8D%8810.38.59.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8A%E5%8D%8810.39.35.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>也可以使用符号类型改变文件权限。<br>user（u）具有可读、可写、可执行的权限。<br>group与others（g/o）具有可读与执行的权限。<br>a代表上面三个身份<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8A%E5%8D%8810.50.24.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8A%E5%8D%8810.48.52.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8A%E5%8D%8810.52.24.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8A%E5%8D%8810.52.42.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h3 id="目录与文件之权限意义"><a href="#目录与文件之权限意义" class="headerlink" title="目录与文件之权限意义"></a>目录与文件之权限意义</h3><p>文件是实际含有数据的地方，包括一般文本文件、数据库内容档、二进制可执行文件(binary program)等等。因此，权限对于文件来说，他的意义是这样的:</p>
 <ol>
 <li>r(read):可读取此一文件的实际内容，如读取文本文件的文字内容。</li>
 <li>w(write):可以编辑、新增或者是修改该文件的内容（但不含删除该文件);</li>
 <li>x(eXecute):该文件具有可以被系统执行的权限。</li>
 </ol>
-<p>可执行x，在Windows下是借由扩展名来判断的，例如.exe,.bat,.com等等，但是在Linux下，我们的文件是否能被执行，则是由是否具有x这个权限来决定的，跟文件名没有绝对的关系。对一个文件具有w权限时，可以具有写入、编辑、新增、修改文件的内容的权限，但并不具备删除该文件本身的权限。<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8B%E5%8D%881.38.47.png" alt=""></p>
+<p>可执行x，在Windows下是借由扩展名来判断的，例如.exe,.bat,.com等等，但是在Linux下，我们的文件是否能被执行，则是由是否具有x这个权限来决定的，跟文件名没有绝对的关系。对一个文件具有w权限时，可以具有写入、编辑、新增、修改文件的内容的权限，但并不具备删除该文件本身的权限。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8B%E5%8D%881.38.47.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <h3 id="Linux文件种类与扩展名"><a href="#Linux文件种类与扩展名" class="headerlink" title="Linux文件种类与扩展名"></a>Linux文件种类与扩展名</h3><h4 id="正规文件（regular-file）"><a href="#正规文件（regular-file）" class="headerlink" title="正规文件（regular file）"></a>正规文件（regular file）</h4><p>第一个字符为【-】。又大略分为：</p>
 <ol>
 <li>纯文本文件（ASCII）</li>
@@ -289,16 +369,125 @@
 <li>数据输送档(FIFO,pipe):FIFO也是一种特殊的文件类型，主要目的在解决多个程序同时存取一个文件所造成的错误问题。FIFO是first-in-first-out的缩写。第一个属性为[p]。</li>
 </ol>
 <p>Linux链接文件就可以简单的视为文件或目录的快捷方式。x只是代表这个文件具有可以执行的权限，并不一定能执行成功，还得看文件的内容。Linux系统的文件名只是了解该文件可能的用途而已，真正的执行与否仍需权限的规范才行。</p>
-<p>Linux文件长度的限制。单一文件或目录最大容许文件名为255Bytes，以一个ASCII英文占用一个Bytes来说，则可达255个字符长度，若是以每个中文字2Bytes来说，最大文件名就是在128个中文字符。Linux文件是相当长的文件名，我们希望Linux文件名称可以一看就知道该文件在干嘛，所以文件名通常是很长很长。文件名最好可以避免一些特殊字符。<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8B%E5%8D%882.41.17.png" alt=""></p>
+<p>Linux文件长度的限制。单一文件或目录最大容许文件名为255Bytes，以一个ASCII英文占用一个Bytes来说，则可达255个字符长度，若是以每个中文字2Bytes来说，最大文件名就是在128个中文字符。Linux文件是相当长的文件名，我们希望Linux文件名称可以一看就知道该文件在干嘛，所以文件名通常是很长很长。文件名最好可以避免一些特殊字符。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8B%E5%8D%882.41.17.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <h2 id="Linux目录配置"><a href="#Linux目录配置" class="headerlink" title="Linux目录配置"></a>Linux目录配置</h2><h3 id="Linux目录配置的依据—FHS"><a href="#Linux目录配置的依据—FHS" class="headerlink" title="Linux目录配置的依据—FHS"></a>Linux目录配置的依据—FHS</h3><p>Linux目录配置的标准Filesystem Hierachy Standard(FHS)。</p>
-<p>根据FHS[2]的标准文件指出，他们的主要目的是希望让使用者可以了解到已安装软件通常放置于那个目录下，所以他们希望独立的软件开发商、操作系统制作者 、以及想要维护 系统的使用者，都能够遵循FHS的标准。也就是说，FHS的重点在于规范每个特定的目录下应该要放置什么样子的数据而已。这样做好处非常多，因为Linux操作系统就能够在既有的面貌下(目录架构不变)发展出开发者想要的独特风格。<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8B%E5%8D%882.54.44.png" alt=""><br>上表右移。</p>
+<p>根据FHS[2]的标准文件指出，他们的主要目的是希望让使用者可以了解到已安装软件通常放置于那个目录下，所以他们希望独立的软件开发商、操作系统制作者 、以及想要维护 系统的使用者，都能够遵循FHS的标准。也就是说，FHS的重点在于规范每个特定的目录下应该要放置什么样子的数据而已。这样做好处非常多，因为Linux操作系统就能够在既有的面貌下(目录架构不变)发展出开发者想要的独特风格。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8B%E5%8D%882.54.44.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>上表右移。</p>
 <p>FHS针对目录树架构仅定义了三层目录。</p>
 <ol>
 <li>\/ (root,根目录)：与开机系统有关。</li>
 <li>\/ usr (unix software resource):与软件安装/ 执行有关。</li>
-<li>/var(variable):与系统运行过程有关。<h4 id="根目录（-）的意义与内容"><a href="#根目录（-）的意义与内容" class="headerlink" title="根目录（/）的意义与内容"></a>根目录（/）的意义与内容</h4>根目录是整个系统最重要的一个目录，因为不但所有的目录都是由根目录衍生出来的，同时根目录也与开机/ 还原 / 系统修复等动作有关。由于系统开机时需要特定的开机软件、核心文件、开机所需程序、函数库等等文件数据，若系统出现错误时，根目录也必须要包含有能够修复文件系统的程序才行。因为根目录是这么的重要，所以在FHS的要求方面，他希望根目录不要放在非常大的分区内，因为越大的分区你会放入越多的数据，如此一来根目录所在分区就可能会有较多发生错误的机会。因此FHS标准建议:根目录所在分区应该越小越好，且应用程序所安装的软件最好不要与根目录放在同一个分区内，保持根目录越小越好。如此不但性能较佳，根目录所在的文件系统也较不容易发生问题。<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8B%E5%8D%886.26.00.png" alt=""><br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8B%E5%8D%886.26.56.png" alt=""><h4 id="usr的意义与内容"><a href="#usr的意义与内容" class="headerlink" title="usr的意义与内容"></a>usr的意义与内容</h4><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8B%E5%8D%882.58.13.png" alt=""><br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8B%E5%8D%886.41.58.png" alt=""><h4 id="var的意义与内容"><a href="#var的意义与内容" class="headerlink" title="var的意义与内容"></a>var的意义与内容</h4>如果_usr是安装时会占用较大硬盘容量的目录，那么_var就是在系统运行后才会渐渐占用硬盘容量的目录。因为Ivar目录主要针对常态性变动的文件，包括高速缓存 (cache)、登录文件(log file)以及某些软件运行所产生的文件，包括程序文件(lock file, run file)，或者例如MySQL数据库的文件等等。常见的次目录有:<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8B%E5%8D%886.44.29.png" alt=""><h3 id="目录树"><a href="#目录树" class="headerlink" title="目录树"></a>目录树</h3><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8B%E5%8D%887.00.14.png" alt=""><h3 id="绝对路径与相对路径"><a href="#绝对路径与相对路径" class="headerlink" title="绝对路径与相对路径"></a>绝对路径与相对路径</h3><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8B%E5%8D%887.01.15.png" alt=""><br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8B%E5%8D%887.01.31.png" alt=""><h1 id="Linux文件与目录管理"><a href="#Linux文件与目录管理" class="headerlink" title="Linux文件与目录管理"></a>Linux文件与目录管理</h1><h2 id="目录与路径"><a href="#目录与路径" class="headerlink" title="目录与路径"></a>目录与路径</h2><h3 id="目录的相关操作"><a href="#目录的相关操作" class="headerlink" title="目录的相关操作"></a>目录的相关操作</h3><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8B%E5%8D%887.20.53.png" alt=""><h4 id="cd（change-directory-变换目录）"><a href="#cd（change-directory-变换目录）" class="headerlink" title="cd（change directory,变换目录）"></a>cd（change directory,变换目录）</h4><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8B%E5%8D%887.22.13.png" alt=""><h4 id="pwd（显示目前所在的目录）"><a href="#pwd（显示目前所在的目录）" class="headerlink" title="pwd（显示目前所在的目录）"></a>pwd（显示目前所在的目录）</h4><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8B%E5%8D%887.33.11.png" alt=""><br><strong>pwd是Print Working Directory的缩写，也就是显示目前所在目录的指令。</strong><h4 id="mkdir-创建新目录"><a href="#mkdir-创建新目录" class="headerlink" title="mkdir(创建新目录)"></a>mkdir(创建新目录)</h4><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8B%E5%8D%887.36.46.png" alt=""><h4 id="rmdir（删除“空”的目录）"><a href="#rmdir（删除“空”的目录）" class="headerlink" title="rmdir（删除“空”的目录）"></a>rmdir（删除“空”的目录）</h4><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8B%E5%8D%887.48.27.png" alt=""><br>如果想要删除旧有的目录时，就使用rmdir，例如将刚刚创建的test杀掉，使用“rmdir test”即可。<strong>目录需要一层一层的删除才行，而且被删除的目录里面必定不能存在其他的目录或文件!这也是所谓的空的目录(empty directory)的意思</strong>。如果要将所有目录下的东西都杀掉，这个时候就必须使用“rm -r test”。不过，还是使用rmdir比较不危险，你也可以尝试以-p的选项加入，来删除上层的目录。<h3 id="关于可执行文件路径的变量：-PATH"><a href="#关于可执行文件路径的变量：-PATH" class="headerlink" title="关于可执行文件路径的变量：$PATH"></a>关于可执行文件路径的变量：$PATH</h3>当我们在执行一个指令的时候，如”Is”，系统会依照PATH的设置去每个PATH定义的目录下搜寻文件名为Is的可可执行文件，如果在PATH定义的目 录中含有多个文件名为ls的可可执行文件，那么先搜寻到的同名指令先被执行。</li>
+<li>/var(variable):与系统运行过程有关。<h4 id="根目录（-）的意义与内容"><a href="#根目录（-）的意义与内容" class="headerlink" title="根目录（/）的意义与内容"></a>根目录（/）的意义与内容</h4>根目录是整个系统最重要的一个目录，因为不但所有的目录都是由根目录衍生出来的，同时根目录也与开机/ 还原 / 系统修复等动作有关。由于系统开机时需要特定的开机软件、核心文件、开机所需程序、函数库等等文件数据，若系统出现错误时，根目录也必须要包含有能够修复文件系统的程序才行。因为根目录是这么的重要，所以在FHS的要求方面，他希望根目录不要放在非常大的分区内，因为越大的分区你会放入越多的数据，如此一来根目录所在分区就可能会有较多发生错误的机会。因此FHS标准建议:根目录所在分区应该越小越好，且应用程序所安装的软件最好不要与根目录放在同一个分区内，保持根目录越小越好。如此不但性能较佳，根目录所在的文件系统也较不容易发生问题。<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8B%E5%8D%886.26.00.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8B%E5%8D%886.26.56.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="usr的意义与内容"><a href="#usr的意义与内容" class="headerlink" title="usr的意义与内容"></a>usr的意义与内容</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8B%E5%8D%882.58.13.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8B%E5%8D%886.41.58.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="var的意义与内容"><a href="#var的意义与内容" class="headerlink" title="var的意义与内容"></a>var的意义与内容</h4>如果_usr是安装时会占用较大硬盘容量的目录，那么_var就是在系统运行后才会渐渐占用硬盘容量的目录。因为Ivar目录主要针对常态性变动的文件，包括高速缓存 (cache)、登录文件(log file)以及某些软件运行所产生的文件，包括程序文件(lock file, run file)，或者例如MySQL数据库的文件等等。常见的次目录有:<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8B%E5%8D%886.44.29.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="目录树"><a href="#目录树" class="headerlink" title="目录树"></a>目录树</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8B%E5%8D%887.00.14.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="绝对路径与相对路径"><a href="#绝对路径与相对路径" class="headerlink" title="绝对路径与相对路径"></a>绝对路径与相对路径</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8B%E5%8D%887.01.15.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8B%E5%8D%887.01.31.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h1 id="Linux文件与目录管理"><a href="#Linux文件与目录管理" class="headerlink" title="Linux文件与目录管理"></a>Linux文件与目录管理</h1><h2 id="目录与路径"><a href="#目录与路径" class="headerlink" title="目录与路径"></a>目录与路径</h2><h3 id="目录的相关操作"><a href="#目录的相关操作" class="headerlink" title="目录的相关操作"></a>目录的相关操作</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8B%E5%8D%887.20.53.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="cd（change-directory-变换目录）"><a href="#cd（change-directory-变换目录）" class="headerlink" title="cd（change directory,变换目录）"></a>cd（change directory,变换目录）</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8B%E5%8D%887.22.13.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="pwd（显示目前所在的目录）"><a href="#pwd（显示目前所在的目录）" class="headerlink" title="pwd（显示目前所在的目录）"></a>pwd（显示目前所在的目录）</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8B%E5%8D%887.33.11.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<strong>pwd是Print Working Directory的缩写，也就是显示目前所在目录的指令。</strong><h4 id="mkdir-创建新目录"><a href="#mkdir-创建新目录" class="headerlink" title="mkdir(创建新目录)"></a>mkdir(创建新目录)</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8B%E5%8D%887.36.46.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="rmdir（删除“空”的目录）"><a href="#rmdir（删除“空”的目录）" class="headerlink" title="rmdir（删除“空”的目录）"></a>rmdir（删除“空”的目录）</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8B%E5%8D%887.48.27.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+如果想要删除旧有的目录时，就使用rmdir，例如将刚刚创建的test杀掉，使用“rmdir test”即可。<strong>目录需要一层一层的删除才行，而且被删除的目录里面必定不能存在其他的目录或文件!这也是所谓的空的目录(empty directory)的意思</strong>。如果要将所有目录下的东西都杀掉，这个时候就必须使用“rm -r test”。不过，还是使用rmdir比较不危险，你也可以尝试以-p的选项加入，来删除上层的目录。<h3 id="关于可执行文件路径的变量：-PATH"><a href="#关于可执行文件路径的变量：-PATH" class="headerlink" title="关于可执行文件路径的变量：$PATH"></a>关于可执行文件路径的变量：$PATH</h3>当我们在执行一个指令的时候，如”Is”，系统会依照PATH的设置去每个PATH定义的目录下搜寻文件名为Is的可可执行文件，如果在PATH定义的目 录中含有多个文件名为ls的可可执行文件，那么先搜寻到的同名指令先被执行。</li>
 </ol>
-<p>echo有显示、印出的意思，而PATH前面的$表示后面接的是变量。<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8B%E5%8D%887.58.18.png" alt=""><br>PATH(一定是大写)这个变量的内容是由一堆目录所组成的，每个目录中由冒号来隔开，每个目录是有顺序之分的。</p>
+<p>echo有显示、印出的意思，而PATH前面的$表示后面接的是变量。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-21%20%E4%B8%8B%E5%8D%887.58.18.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>PATH(一定是大写)这个变量的内容是由一堆目录所组成的，每个目录中由冒号来隔开，每个目录是有顺序之分的。</p>
 <ol>
 <li>不同身份使用者默认的PATH不同，默认能够随意执行的指令也不同（如root与dmtsai）；</li>
 <li>PATH是可以修改的；</li>
@@ -306,18 +495,76 @@
 <li>指令应该放置到正确的目录下执行才会比较方便；</li>
 <li>本目录（.）最好不要放到PATH中。</li>
 </ol>
-<h2 id="文件与目录管理"><a href="#文件与目录管理" class="headerlink" title="文件与目录管理"></a>文件与目录管理</h2><h3 id="文件与目录的检视-ls"><a href="#文件与目录的检视-ls" class="headerlink" title="文件与目录的检视 ls"></a>文件与目录的检视 ls</h3><p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8A%E5%8D%888.34.14.png" alt=""></p>
-<p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8A%E5%8D%888.54.28.png" alt=""></p>
-<h3 id="复制，删除与移动：cp-rm-mv"><a href="#复制，删除与移动：cp-rm-mv" class="headerlink" title="复制，删除与移动：cp,rm,mv"></a>复制，删除与移动：cp,rm,mv</h3><h4 id="cp（复制文件或目录）"><a href="#cp（复制文件或目录）" class="headerlink" title="cp（复制文件或目录）"></a>cp（复制文件或目录）</h4><p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8A%E5%8D%888.58.15.png" alt=""><br>复制（cp）这个指令是非常重要的，不同身份者执行这个指令会有不同的结果产生，尤其是-a-p选项对于不同身份差别非常大。<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8A%E5%8D%889.05.17.png" alt=""><br>在默认中，cp的来源文件与目的文件的权限是不同的，目的文件的拥有者通常会是指令操作者本身。由于这个特性，我们在进行备份时，某些需要特别注意的特殊权限文件，例如密码档以及配置文件就不能直接以cp复制，而必须加-a<br>或者是-p等等可以完整复制文件权限的选项才行。如果想要复制文件给其他的使用者，也必须要注意到文件的权限（包含读写执行以及文件拥有者等等）否则其他人还是无法针对你给予的文件进行修订动作。<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8A%E5%8D%889.22.35.png" alt=""><br>-l -s都会创建所谓的链接文件（link file）,但是这两种链接文件却有不一样的情况， -s是符号链接， -l是实体链接。<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8A%E5%8D%889.28.18.png" alt=""><br>在复制时，需要清楚的了解到</p>
+<h2 id="文件与目录管理"><a href="#文件与目录管理" class="headerlink" title="文件与目录管理"></a>文件与目录管理</h2><h3 id="文件与目录的检视-ls"><a href="#文件与目录的检视-ls" class="headerlink" title="文件与目录的检视 ls"></a>文件与目录的检视 ls</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8A%E5%8D%888.34.14.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8A%E5%8D%888.54.28.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="复制，删除与移动：cp-rm-mv"><a href="#复制，删除与移动：cp-rm-mv" class="headerlink" title="复制，删除与移动：cp,rm,mv"></a>复制，删除与移动：cp,rm,mv</h3><h4 id="cp（复制文件或目录）"><a href="#cp（复制文件或目录）" class="headerlink" title="cp（复制文件或目录）"></a>cp（复制文件或目录）</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8A%E5%8D%888.58.15.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>复制（cp）这个指令是非常重要的，不同身份者执行这个指令会有不同的结果产生，尤其是-a-p选项对于不同身份差别非常大。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8A%E5%8D%889.05.17.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>在默认中，cp的来源文件与目的文件的权限是不同的，目的文件的拥有者通常会是指令操作者本身。由于这个特性，我们在进行备份时，某些需要特别注意的特殊权限文件，例如密码档以及配置文件就不能直接以cp复制，而必须加-a<br>或者是-p等等可以完整复制文件权限的选项才行。如果想要复制文件给其他的使用者，也必须要注意到文件的权限（包含读写执行以及文件拥有者等等）否则其他人还是无法针对你给予的文件进行修订动作。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8A%E5%8D%889.22.35.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>-l -s都会创建所谓的链接文件（link file）,但是这两种链接文件却有不一样的情况， -s是符号链接， -l是实体链接。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8A%E5%8D%889.28.18.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>在复制时，需要清楚的了解到</p>
 <ol>
 <li>是否完整的保留来源文件信息</li>
 <li>来源文件是否为链接文件</li>
 <li>来源文件是否为特殊文件，例如FIFO，socket</li>
 <li>来源文件是否为目录</li>
 </ol>
-<h4 id="rm（移除文件或目录）"><a href="#rm（移除文件或目录）" class="headerlink" title="rm（移除文件或目录）"></a>rm（移除文件或目录）</h4><p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8A%E5%8D%889.41.37.png" alt=""><br>这是移除的指令(remove) ， 要注意的是，通常在Linux系统下，为了怕文件被root误杀，所以很多distributions都已经默认加入i这个选项了!而如果要连目录下的东西都一起杀掉的话，例如子目录里面还有子目录时，那就要使用一这个选项了!不过，使用”rm-r”这个指令之前，请千万注意了，因为该目录或文件“肯定”会被root杀掉!因为系统不会再次询问你是否要砍掉呦!所以那是个超级严重的指令下达呦!得特别注意!不过，如果你确定该目录不要了，那么使用rm-r来循环杀掉是不错的方式!</p>
-<h4 id="mv（移动文件与目录，或更名）"><a href="#mv（移动文件与目录，或更名）" class="headerlink" title="mv（移动文件与目录，或更名）"></a>mv（移动文件与目录，或更名）</h4><p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8A%E5%8D%889.47.30.png" alt=""><br>这是搬运（move）的意思，当要移动文件或目录时这个指令就很重要了，还有一个用途就是更改文件名，这是Linux才有的指令，还有个rename指令可以用来更改大量文件的文件名。</p>
-<h3 id="取得路径的文件名称与目录名称"><a href="#取得路径的文件名称与目录名称" class="headerlink" title="取得路径的文件名称与目录名称"></a>取得路径的文件名称与目录名称</h3><p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8A%E5%8D%8810.01.24.png" alt=""><br>basename与dirname的用途。</p>
+<h4 id="rm（移除文件或目录）"><a href="#rm（移除文件或目录）" class="headerlink" title="rm（移除文件或目录）"></a>rm（移除文件或目录）</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8A%E5%8D%889.41.37.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>这是移除的指令(remove) ， 要注意的是，通常在Linux系统下，为了怕文件被root误杀，所以很多distributions都已经默认加入i这个选项了!而如果要连目录下的东西都一起杀掉的话，例如子目录里面还有子目录时，那就要使用一这个选项了!不过，使用”rm-r”这个指令之前，请千万注意了，因为该目录或文件“肯定”会被root杀掉!因为系统不会再次询问你是否要砍掉呦!所以那是个超级严重的指令下达呦!得特别注意!不过，如果你确定该目录不要了，那么使用rm-r来循环杀掉是不错的方式!</p>
+<h4 id="mv（移动文件与目录，或更名）"><a href="#mv（移动文件与目录，或更名）" class="headerlink" title="mv（移动文件与目录，或更名）"></a>mv（移动文件与目录，或更名）</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8A%E5%8D%889.47.30.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>这是搬运（move）的意思，当要移动文件或目录时这个指令就很重要了，还有一个用途就是更改文件名，这是Linux才有的指令，还有个rename指令可以用来更改大量文件的文件名。</p>
+<h3 id="取得路径的文件名称与目录名称"><a href="#取得路径的文件名称与目录名称" class="headerlink" title="取得路径的文件名称与目录名称"></a>取得路径的文件名称与目录名称</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8A%E5%8D%8810.01.24.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>basename与dirname的用途。</p>
 <h2 id="文件内容查阅"><a href="#文件内容查阅" class="headerlink" title="文件内容查阅"></a>文件内容查阅</h2><ol>
 <li>cat由第一行开始显示文件内容</li>
 <li>tac从最后一行开始显示，可以看出tac是cat的倒着写</li>
@@ -328,19 +575,69 @@
 <li>tail只看尾巴几行</li>
 <li>od以二进制的方式读取文件内容</li>
 </ol>
-<h3 id="直接检视文件内容"><a href="#直接检视文件内容" class="headerlink" title="直接检视文件内容"></a>直接检视文件内容</h3><h4 id="cat（concatenate）"><a href="#cat（concatenate）" class="headerlink" title="cat（concatenate）"></a>cat（concatenate）</h4><p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8A%E5%8D%8810.09.20.png" alt=""></p>
-<h3 id="数据选择"><a href="#数据选择" class="headerlink" title="数据选择"></a>数据选择</h3><h4 id="head（取出前面几行）"><a href="#head（取出前面几行）" class="headerlink" title="head（取出前面几行）"></a>head（取出前面几行）</h4><p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8A%E5%8D%8810.23.48.png" alt=""></p>
-<h4 id="tail（取出后面几行）"><a href="#tail（取出后面几行）" class="headerlink" title="tail（取出后面几行）"></a>tail（取出后面几行）</h4><p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8A%E5%8D%8810.25.37.png" alt=""></p>
-<h3 id="非纯文本文件od"><a href="#非纯文本文件od" class="headerlink" title="非纯文本文件od"></a>非纯文本文件od</h3><p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8A%E5%8D%8810.28.25.png" alt=""></p>
+<h3 id="直接检视文件内容"><a href="#直接检视文件内容" class="headerlink" title="直接检视文件内容"></a>直接检视文件内容</h3><h4 id="cat（concatenate）"><a href="#cat（concatenate）" class="headerlink" title="cat（concatenate）"></a>cat（concatenate）</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8A%E5%8D%8810.09.20.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="数据选择"><a href="#数据选择" class="headerlink" title="数据选择"></a>数据选择</h3><h4 id="head（取出前面几行）"><a href="#head（取出前面几行）" class="headerlink" title="head（取出前面几行）"></a>head（取出前面几行）</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8A%E5%8D%8810.23.48.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="tail（取出后面几行）"><a href="#tail（取出后面几行）" class="headerlink" title="tail（取出后面几行）"></a>tail（取出后面几行）</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8A%E5%8D%8810.25.37.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="非纯文本文件od"><a href="#非纯文本文件od" class="headerlink" title="非纯文本文件od"></a>非纯文本文件od</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8A%E5%8D%8810.28.25.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h3 id="修改文件时间或创建新文件：touch"><a href="#修改文件时间或创建新文件：touch" class="headerlink" title="修改文件时间或创建新文件：touch"></a>修改文件时间或创建新文件：touch</h3><ol>
 <li>modification time(mtime):当该文件的内容数据变更时，就会更新这个时间，内容数据指的是文件的内容，而不是文件的属性或权限。</li>
 <li>status time（ctime）：当该文件的状态改变时就会更新这个时间，比如权限与属性被改变了，就会更新这个时间。</li>
 <li>access time（atime）：当该文件的内容被取用时就会更新这个读取时间。如使用cat去读取，就会更新该文件的atime。</li>
 </ol>
-<p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8A%E5%8D%8810.50.43.png" alt=""></p>
-<h2 id="文件与目录的默认权限与隐藏权限"><a href="#文件与目录的默认权限与隐藏权限" class="headerlink" title="文件与目录的默认权限与隐藏权限"></a>文件与目录的默认权限与隐藏权限</h2><h3 id="文件默认权限：umask"><a href="#文件默认权限：umask" class="headerlink" title="文件默认权限：umask"></a>文件默认权限：umask</h3><p>umask就是指定目前使用者在创建文件或目录时候的权限默认值。<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8A%E5%8D%8811.53.49.png" alt=""></p>
-<h3 id="文件隐藏属性"><a href="#文件隐藏属性" class="headerlink" title="文件隐藏属性"></a>文件隐藏属性</h3><h4 id="chattr（设置文件隐藏属性）"><a href="#chattr（设置文件隐藏属性）" class="headerlink" title="chattr（设置文件隐藏属性）"></a>chattr（设置文件隐藏属性）</h4><p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8A%E5%8D%8811.59.07.png" alt=""><br>这些指令是很重要的，尤其是在系统数据安全上面。</p>
-<h4 id="lsattr（显示文件隐藏属性）"><a href="#lsattr（显示文件隐藏属性）" class="headerlink" title="lsattr（显示文件隐藏属性）"></a>lsattr（显示文件隐藏属性）</h4><p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8B%E5%8D%8812.00.36.png" alt=""><br>使用chattr设置后，可以使用lsattr来查阅隐藏的属性。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8A%E5%8D%8810.50.43.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="文件与目录的默认权限与隐藏权限"><a href="#文件与目录的默认权限与隐藏权限" class="headerlink" title="文件与目录的默认权限与隐藏权限"></a>文件与目录的默认权限与隐藏权限</h2><h3 id="文件默认权限：umask"><a href="#文件默认权限：umask" class="headerlink" title="文件默认权限：umask"></a>文件默认权限：umask</h3><p>umask就是指定目前使用者在创建文件或目录时候的权限默认值。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8A%E5%8D%8811.53.49.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="文件隐藏属性"><a href="#文件隐藏属性" class="headerlink" title="文件隐藏属性"></a>文件隐藏属性</h3><h4 id="chattr（设置文件隐藏属性）"><a href="#chattr（设置文件隐藏属性）" class="headerlink" title="chattr（设置文件隐藏属性）"></a>chattr（设置文件隐藏属性）</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8A%E5%8D%8811.59.07.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>这些指令是很重要的，尤其是在系统数据安全上面。</p>
+<h4 id="lsattr（显示文件隐藏属性）"><a href="#lsattr（显示文件隐藏属性）" class="headerlink" title="lsattr（显示文件隐藏属性）"></a>lsattr（显示文件隐藏属性）</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8B%E5%8D%8812.00.36.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>使用chattr设置后，可以使用lsattr来查阅隐藏的属性。</p>
 <h3 id="文件特殊权限：SUID，SGID，SBIT"><a href="#文件特殊权限：SUID，SGID，SBIT" class="headerlink" title="文件特殊权限：SUID，SGID，SBIT"></a>文件特殊权限：SUID，SGID，SBIT</h3><h4 id="Set-UID"><a href="#Set-UID" class="headerlink" title="Set UID"></a>Set UID</h4><p>当s这个标志出现在文件拥有者的x权限上时，如- rwsr - xr - x就称为Set UID，简称为SUID。SUID的限制与功能：</p>
 <ol>
 <li>SUID权限仅对二进制程序有效</li>
@@ -348,7 +645,14 @@
 <li>本权限仅在执行该程序的过程中有效</li>
 <li>执行者将具有该程序拥有者的权限。</li>
 </ol>
-<p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8B%E5%8D%8810.35.08.png" alt=""><br>SUID仅可以用在binary program上，不能用在shell script上，这是因为shell script知识将很多binary可执行文件加进来执行而已。所以SUID的权限部分，还是得看shell script调用进来的程序设置，SUID对于目录也是无效的。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8B%E5%8D%8810.35.08.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>SUID仅可以用在binary program上，不能用在shell script上，这是因为shell script知识将很多binary可执行文件加进来执行而已。所以SUID的权限部分，还是得看shell script调用进来的程序设置，SUID对于目录也是无效的。</p>
 <h4 id="Set-GID"><a href="#Set-GID" class="headerlink" title="Set GID"></a>Set GID</h4><p>与SUID不同的是，SGID可以针对文件或目录来设置。对于文件，SGID有如下的功能：</p>
 <ol>
 <li>SGID对二进制程序有用</li>
@@ -360,13 +664,60 @@
 <li>当使用者对于此目录具有w,x权限，亦即具有写入的权限时。</li>
 <li>当使用者在该目录下创建文件或目录时，仅有自己与root才有权力删除该文件。</li>
 </ol>
-<h3 id="观察文件类型：file"><a href="#观察文件类型：file" class="headerlink" title="观察文件类型：file"></a>观察文件类型：file</h3><p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8B%E5%8D%8810.46.35.png" alt=""></p>
-<h2 id="指令与文件的搜寻"><a href="#指令与文件的搜寻" class="headerlink" title="指令与文件的搜寻"></a>指令与文件的搜寻</h2><h3 id="指令文件名的搜寻"><a href="#指令文件名的搜寻" class="headerlink" title="指令文件名的搜寻"></a>指令文件名的搜寻</h3><h4 id="which（寻找可执行文件）"><a href="#which（寻找可执行文件）" class="headerlink" title="which（寻找可执行文件）"></a>which（寻找可执行文件）</h4><p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8B%E5%8D%8810.53.58.png" alt=""><br>这个指令是根据”PAT}这个环境变量所规范的路径’去搜寻“可执行文件”的文件名。</p>
-<h3 id="文件文件名的搜寻"><a href="#文件文件名的搜寻" class="headerlink" title="文件文件名的搜寻"></a>文件文件名的搜寻</h3><h4 id="whereis（由一些特定的目录中寻找文件文件名）"><a href="#whereis（由一些特定的目录中寻找文件文件名）" class="headerlink" title="whereis（由一些特定的目录中寻找文件文件名）"></a>whereis（由一些特定的目录中寻找文件文件名）</h4><p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-24%20%E4%B8%8A%E5%8D%8810.15.15.png" alt=""><br>find是很强大的搜寻指令，但时间花费很大，因为find是直接搜寻硬盘。whereis只招几个特定的目录，并没有全系统去查询。whereis主要针对的是/ bin / sbin下面的可执行文件，以及/ usr / share / man下面的man page文件跟几个比较特定的目录来处理。</p>
-<h4 id="locate、updatedb"><a href="#locate、updatedb" class="headerlink" title="locate、updatedb"></a>locate、updatedb</h4><p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-24%20%E4%B8%8A%E5%8D%8810.19.35.png" alt=""><br>使用locate 来寻找数据的时候特别的快，这是因为locate寻找的数据是由“已创建的数据库/ var / lib / mlocate /  “里面的数据所搜寻到的，所以不用直接在去硬盘当中存取数据，当然是很快速的。但是有限制条件，他是由数据库来搜寻的，而数据库每天执行一次，若在数据库更新之前搜寻文件则搜寻不到。</p>
+<h3 id="观察文件类型：file"><a href="#观察文件类型：file" class="headerlink" title="观察文件类型：file"></a>观察文件类型：file</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8B%E5%8D%8810.46.35.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="指令与文件的搜寻"><a href="#指令与文件的搜寻" class="headerlink" title="指令与文件的搜寻"></a>指令与文件的搜寻</h2><h3 id="指令文件名的搜寻"><a href="#指令文件名的搜寻" class="headerlink" title="指令文件名的搜寻"></a>指令文件名的搜寻</h3><h4 id="which（寻找可执行文件）"><a href="#which（寻找可执行文件）" class="headerlink" title="which（寻找可执行文件）"></a>which（寻找可执行文件）</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-23%20%E4%B8%8B%E5%8D%8810.53.58.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>这个指令是根据”PAT}这个环境变量所规范的路径’去搜寻“可执行文件”的文件名。</p>
+<h3 id="文件文件名的搜寻"><a href="#文件文件名的搜寻" class="headerlink" title="文件文件名的搜寻"></a>文件文件名的搜寻</h3><h4 id="whereis（由一些特定的目录中寻找文件文件名）"><a href="#whereis（由一些特定的目录中寻找文件文件名）" class="headerlink" title="whereis（由一些特定的目录中寻找文件文件名）"></a>whereis（由一些特定的目录中寻找文件文件名）</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-24%20%E4%B8%8A%E5%8D%8810.15.15.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>find是很强大的搜寻指令，但时间花费很大，因为find是直接搜寻硬盘。whereis只招几个特定的目录，并没有全系统去查询。whereis主要针对的是/ bin / sbin下面的可执行文件，以及/ usr / share / man下面的man page文件跟几个比较特定的目录来处理。</p>
+<h4 id="locate、updatedb"><a href="#locate、updatedb" class="headerlink" title="locate、updatedb"></a>locate、updatedb</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-24%20%E4%B8%8A%E5%8D%8810.19.35.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>使用locate 来寻找数据的时候特别的快，这是因为locate寻找的数据是由“已创建的数据库/ var / lib / mlocate /  “里面的数据所搜寻到的，所以不用直接在去硬盘当中存取数据，当然是很快速的。但是有限制条件，他是由数据库来搜寻的，而数据库每天执行一次，若在数据库更新之前搜寻文件则搜寻不到。</p>
 <h4 id="updatedb"><a href="#updatedb" class="headerlink" title="updatedb"></a>updatedb</h4><p>根据 / etc / updatedb.conf的设置去搜寻系统硬盘内的文件名，并更新/ rar / lib / mlocate内的数据库文件。</p>
 <h4 id="locate"><a href="#locate" class="headerlink" title="locate"></a>locate</h4><p>依据 / var / lib / mlocate内的数据库记载,找出使用者输入的关键字文件名。</p>
-<h4 id="find"><a href="#find" class="headerlink" title="find"></a>find</h4><p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-24%20%E4%B8%8A%E5%8D%8810.31.44.png" alt=""><br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-24%20%E4%B8%8A%E5%8D%8810.33.44.png" alt=""><br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-24%20%E4%B8%8A%E5%8D%8810.35.09.png" alt=""></p>
+<h4 id="find"><a href="#find" class="headerlink" title="find"></a>find</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-24%20%E4%B8%8A%E5%8D%8810.31.44.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-24%20%E4%B8%8A%E5%8D%8810.33.44.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-24%20%E4%B8%8A%E5%8D%8810.35.09.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h1 id="Linux磁盘与文件系统管理"><a href="#Linux磁盘与文件系统管理" class="headerlink" title="Linux磁盘与文件系统管理"></a>Linux磁盘与文件系统管理</h1><h2 id="认识Linux文件系统"><a href="#认识Linux文件系统" class="headerlink" title="认识Linux文件系统"></a>认识Linux文件系统</h2><h3 id="磁盘组成与分区"><a href="#磁盘组成与分区" class="headerlink" title="磁盘组成与分区"></a>磁盘组成与分区</h3><h3 id="文件系统特性"><a href="#文件系统特性" class="headerlink" title="文件系统特性"></a>文件系统特性</h3><p>每种操作系统能够使用的文件系统并不相同。举例来说，windows 98以前的微软操作系统主要利用的文件系统是FAT (或FAT16) ， windows 2000以后的版本有所谓的NTFS文件系统，至于Linux的正统文件系统则为Ext2 (Linux second extended file system, ext2fs)这一个。此外，在默认的情况下,windows 操作系统是不会认识Linux的Ext2的。</p>
 <p>文件系统是如何运行与操作系统的文件数据有关。较新的操作系统的文件数据<br>除了文件实际内容外，通常含有非常多的属性，例如Linux操作系统的文件权限(rwx)与文件属性(拥有者、群组、时间参数等)。文件系统通常会将这两部份的数据分别存放在不同的区块，权限与属性放置到inode中，至于实际数据则放置到data block区块中。另外，还有一个超级区块 (superblock)会记录整个文件系统的整体信息 ，包括inode与block的总量、使用量、剩余量等。</p>
 <p>每个inode与block都有编号，至于这三个数据的意义可以简略说明如下:</p>
@@ -375,10 +726,34 @@
 <li>inode:记录文件的属性，一个文件占用一个inode，同时记录此文件的数据所在的block号码;</li>
 <li>block :实际记录文件的内容，若文件太大时，会占用多个block。</li>
 </ol>
-<p>由于每个 inode与 block都有编号而每个文件都会占用一个 inode, inode内有文件数据置的 block号码。因此我们可以知道的是,如果能够找到文件的 inode的话那么自然会知道这个文件所放置数据的 block号码,当然也就能够读出该文件的实际数据了。这是个比较有效率的作法，因此我们的磁盘就能够在短时间内读取出全部的数据,读写的性能比较好。文件系统先格式化出inode与block的区块。inode中记录了4个区块的位置，此乃索引式文件系统。<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-24%20%E4%B8%8A%E5%8D%8811.40.31.png" alt=""><br>还有一种文件系统比如FAT格式，就是我们惯用的U盘，这种格式是没有inode存在的所以是顺序读取的。<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-24%20%E4%B8%8A%E5%8D%8811.42.57.png" alt=""></p>
+<p>由于每个 inode与 block都有编号而每个文件都会占用一个 inode, inode内有文件数据置的 block号码。因此我们可以知道的是,如果能够找到文件的 inode的话那么自然会知道这个文件所放置数据的 block号码,当然也就能够读出该文件的实际数据了。这是个比较有效率的作法，因此我们的磁盘就能够在短时间内读取出全部的数据,读写的性能比较好。文件系统先格式化出inode与block的区块。inode中记录了4个区块的位置，此乃索引式文件系统。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-24%20%E4%B8%8A%E5%8D%8811.40.31.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>还有一种文件系统比如FAT格式，就是我们惯用的U盘，这种格式是没有inode存在的所以是顺序读取的。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-24%20%E4%B8%8A%E5%8D%8811.42.57.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <h3 id="Linux的EXT2文件系统（inode）"><a href="#Linux的EXT2文件系统（inode）" class="headerlink" title="Linux的EXT2文件系统（inode）"></a>Linux的EXT2文件系统（inode）</h3><p>inode的内容在记录文件的权展与相关属性,至于bock区块则是在记录文件的实际内容。而且文件系统一开始就将 inode与 block规划好了,除非重新格式化<br>(或者利用 resize2is等指令变更文件系统大小),否则 inode与 block固定后就不再变动但是如果仔细考虑一下,如果我的文件系统高达数百GB时,那么将所有的 inode与 block通通放置在一起将是很不智的决定,因为 inode与 block的数量太庞大,不容易管理。</p>
-<p>为此Ext2文件系统在格式化的时候基本上是区分为多个区块群组，每个区块群组都有独立的inode，block，superblock系统。<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-24%20%E4%B8%8A%E5%8D%8811.56.50.png" alt=""><br>在整体的规划当中，文件系统最前面有一个开机扇区 ( boot sector)，这个开机扇区可以安装开机管理程序，这是个非常重要的设计，因为如此一来我们就能够将不同的开机管理程序安装到个别的文件系统最前端，而不用覆盖整颗磁盘唯一的MBR，这样也才能够制作出多重开机的环境啊。</p>
-<h4 id="data-block-数据区块"><a href="#data-block-数据区块" class="headerlink" title="data block(数据区块)"></a>data block(数据区块)</h4><p>由于block大小的差异，会导致该文件系统能够支持的最大磁盘容量与最大但以文件大小并不相同。<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-24%20%E4%B8%8B%E5%8D%8812.00.50.png" alt=""><br>block基本限制如下：</p>
+<p>为此Ext2文件系统在格式化的时候基本上是区分为多个区块群组，每个区块群组都有独立的inode，block，superblock系统。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-24%20%E4%B8%8A%E5%8D%8811.56.50.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>在整体的规划当中，文件系统最前面有一个开机扇区 ( boot sector)，这个开机扇区可以安装开机管理程序，这是个非常重要的设计，因为如此一来我们就能够将不同的开机管理程序安装到个别的文件系统最前端，而不用覆盖整颗磁盘唯一的MBR，这样也才能够制作出多重开机的环境啊。</p>
+<h4 id="data-block-数据区块"><a href="#data-block-数据区块" class="headerlink" title="data block(数据区块)"></a>data block(数据区块)</h4><p>由于block大小的差异，会导致该文件系统能够支持的最大磁盘容量与最大但以文件大小并不相同。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-24%20%E4%B8%8B%E5%8D%8812.00.50.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>block基本限制如下：</p>
 <ol>
 <li>原则上，block的大小与数量在格式化完就不能再改变了（除非重新格式化）</li>
 <li>每个block内最多只能够放置一个文件的数据;</li>
@@ -417,7 +792,13 @@
 <h4 id="Filesystem-Description-文件系统描述说明"><a href="#Filesystem-Description-文件系统描述说明" class="headerlink" title="Filesystem Description(文件系统描述说明)"></a>Filesystem Description(文件系统描述说明)</h4><p>这个区段可以描述每个block group的开始与结束的block号码，以及说明每个区段(superblock, bitmap, inodemap, data block) 分别介于哪一个block号码之间。</p>
 <h4 id="block-bitmap（区块对照表）"><a href="#block-bitmap（区块对照表）" class="headerlink" title="block bitmap（区块对照表）"></a>block bitmap（区块对照表）</h4><p>记录使用与未使用block的号码。</p>
 <h4 id="inode-bitmap（inode对照表）"><a href="#inode-bitmap（inode对照表）" class="headerlink" title="inode bitmap（inode对照表）"></a>inode bitmap（inode对照表）</h4><p>inode bitmap则是记录使用与未使用的inode号码。</p>
-<h4 id="dumpe2fs"><a href="#dumpe2fs" class="headerlink" title="dumpe2fs"></a>dumpe2fs</h4><h3 id="与目录树的关系"><a href="#与目录树的关系" class="headerlink" title="与目录树的关系"></a>与目录树的关系</h3><h4 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h4><p>在Linux下的文件系统创建一个目录，文件系统会分配一个inode与至少一块block给该目录。其中inode与至少一块block给该目录。其中inode记录该目录的相关权限与属性，并可记录分配到的那块block号码。而block则是记录在这个目录下的文件名与该文件名占用的inode号码数据。也就是说目录所占用的block内容在记录如下的信息。<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-24%20%E4%B8%8B%E5%8D%886.32.35.png" alt=""><br>在目录下面的文件数如果太多而导致一个block无法容纳的下所有的文件名与inode对照表，Linux会给予该目录多一个block来继续记录相关的数据。</p>
+<h4 id="dumpe2fs"><a href="#dumpe2fs" class="headerlink" title="dumpe2fs"></a>dumpe2fs</h4><h3 id="与目录树的关系"><a href="#与目录树的关系" class="headerlink" title="与目录树的关系"></a>与目录树的关系</h3><h4 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h4><p>在Linux下的文件系统创建一个目录，文件系统会分配一个inode与至少一块block给该目录。其中inode与至少一块block给该目录。其中inode记录该目录的相关权限与属性，并可记录分配到的那块block号码。而block则是记录在这个目录下的文件名与该文件名占用的inode号码数据。也就是说目录所占用的block内容在记录如下的信息。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-24%20%E4%B8%8B%E5%8D%886.32.35.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>在目录下面的文件数如果太多而导致一个block无法容纳的下所有的文件名与inode对照表，Linux会给予该目录多一个block来继续记录相关的数据。</p>
 <h4 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h4><h4 id="目录树读取"><a href="#目录树读取" class="headerlink" title="目录树读取"></a>目录树读取</h4><p>inode本身并不记录文件名，文件名的记录是在目录的block当中。当我们要读取某个文件时，就务必会经过目录的inode与block然后才能找到那个待读取文件的inode号码，最终才会督导正确的文件的block内的数据。</p>
 <p>由于目录树是由根目录开始读起，因此系统通过挂载的信息可以找到挂载点的inode号码，挂载点实际上就是linux中的磁盘文件系统的入口目录。此时就能够得到根目录的inode内容，并依据该inode读取根目录的block内的文件名数据，再一层一层的往下读到正确的文件名。比如读取/ etc / passwd这个文件时的过程。</p>
 <ol>
@@ -456,9 +837,21 @@
 </ol>
 <h3 id="挂载点的意义（mount-point）"><a href="#挂载点的意义（mount-point）" class="headerlink" title="挂载点的意义（mount point）"></a>挂载点的意义（mount point）</h3><p>将文件系统与目录树结合的动作我们称为<strong>挂载</strong>。重点是挂载点一定是目录，该目录为进入该文件系统的入口，因此并不是有任何文件系统都能使用的，必须挂载到目录树的某个目录后，才能够使用该文件系统。</p>
 <h3 id="其他Linux支持的文件系统与VFS"><a href="#其他Linux支持的文件系统与VFS" class="headerlink" title="其他Linux支持的文件系统与VFS"></a>其他Linux支持的文件系统与VFS</h3><p>Linux的标准文件系统是ext2，且还有增加了日志功能的ext3/ext4，事实上，Linux还有支持很多文件系统格式的，尤其是最近这几年推出了好几种速度很快的日志式文件系统，包括SGI的XFS文件系统， 可以适用更小型文件的Reiserfs 文件系统，以及Windows的FAT文件系统等等，都能够被Linux所支持。</p>
-<h4 id="Linux-VFS（Virtual-Filesystem-Switch）"><a href="#Linux-VFS（Virtual-Filesystem-Switch）" class="headerlink" title="Linux VFS（Virtual Filesystem Switch）"></a>Linux VFS（Virtual Filesystem Switch）</h4><p>Linux的系统都是通过一个名为Virtual Filesystem Switch 的核心功能去读取filesystem的。也就是说， 整个Linux 认识的filesystem 其实都是VFS在进行<br>管理，我们使用者并不需要知道每个partition上头的filesystem是什么。VFS会主动的帮我们做好读取的动作。<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-25%20%E4%B8%8A%E5%8D%889.46.49.png" alt=""></p>
+<h4 id="Linux-VFS（Virtual-Filesystem-Switch）"><a href="#Linux-VFS（Virtual-Filesystem-Switch）" class="headerlink" title="Linux VFS（Virtual Filesystem Switch）"></a>Linux VFS（Virtual Filesystem Switch）</h4><p>Linux的系统都是通过一个名为Virtual Filesystem Switch 的核心功能去读取filesystem的。也就是说， 整个Linux 认识的filesystem 其实都是VFS在进行<br>管理，我们使用者并不需要知道每个partition上头的filesystem是什么。VFS会主动的帮我们做好读取的动作。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-25%20%E4%B8%8A%E5%8D%889.46.49.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <h3 id="XFS文件系统简介"><a href="#XFS文件系统简介" class="headerlink" title="XFS文件系统简介"></a>XFS文件系统简介</h3><p>EXT家族当前较伤脑筋的地方：支持度最广，但格式化超慢。基本上xfs就是一个日志式文件系统。xfs文件系统在数据的分布上主要规划为三个部分，一个是数据区，一个文件系统活动登录区，以及一个实时运行区。</p>
-<h2 id="文件系统的简单操作"><a href="#文件系统的简单操作" class="headerlink" title="文件系统的简单操作"></a>文件系统的简单操作</h2><h3 id="磁盘与目录的容量"><a href="#磁盘与目录的容量" class="headerlink" title="磁盘与目录的容量"></a>磁盘与目录的容量</h3><h4 id="df-列出文件系统的整体磁盘使用量"><a href="#df-列出文件系统的整体磁盘使用量" class="headerlink" title="df:列出文件系统的整体磁盘使用量"></a>df:列出文件系统的整体磁盘使用量</h4><p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-25%20%E4%B8%8A%E5%8D%8810.30.33.png" alt=""></p>
+<h2 id="文件系统的简单操作"><a href="#文件系统的简单操作" class="headerlink" title="文件系统的简单操作"></a>文件系统的简单操作</h2><h3 id="磁盘与目录的容量"><a href="#磁盘与目录的容量" class="headerlink" title="磁盘与目录的容量"></a>磁盘与目录的容量</h3><h4 id="df-列出文件系统的整体磁盘使用量"><a href="#df-列出文件系统的整体磁盘使用量" class="headerlink" title="df:列出文件系统的整体磁盘使用量"></a>df:列出文件系统的整体磁盘使用量</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-25%20%E4%B8%8A%E5%8D%8810.30.33.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <ol>
 <li>Filesystem：代表该文件系统是在哪个partition，所以列出设备名称。</li>
 <li>1k-blocks :说明下面的数字单位是1KB，可利用-h或-m来改变容量。</li>
@@ -468,13 +861,46 @@
 <li>Mounted on：就是磁盘挂载的目录所在（挂载点）。</li>
 </ol>
 <p>由于df主要读取的数据几乎都是针对一整个文件系统，因此读取的范围主要是在Superblock内的信息，所以这个指令显示结果的速度非常的快速。</p>
-<h4 id="du"><a href="#du" class="headerlink" title="du"></a>du</h4><p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-25%20%E4%B8%8B%E5%8D%881.45.19.png" alt=""><br>与df不一样的是，du这个指令其实会到文件系统去搜寻所有的文件数据，所以上述指令运行会执行一小段时间。</p>
-<h3 id="实体链接与符号链接：ln"><a href="#实体链接与符号链接：ln" class="headerlink" title="实体链接与符号链接：ln"></a>实体链接与符号链接：ln</h3><h4 id="Hard-Link（实体链接，硬式链接或实际链接）"><a href="#Hard-Link（实体链接，硬式链接或实际链接）" class="headerlink" title="Hard Link（实体链接，硬式链接或实际链接）"></a>Hard Link（实体链接，硬式链接或实际链接）</h4><p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-25%20%E4%B8%8B%E5%8D%882.02.57.png" alt=""><br>hard link只是在某个目录下新增一笔文件名链接到某inode号码的关联记录而已。<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-25%20%E4%B8%8B%E5%8D%881.55.55.png" alt=""><br>hard link的限制：</p>
+<h4 id="du"><a href="#du" class="headerlink" title="du"></a>du</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-25%20%E4%B8%8B%E5%8D%881.45.19.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>与df不一样的是，du这个指令其实会到文件系统去搜寻所有的文件数据，所以上述指令运行会执行一小段时间。</p>
+<h3 id="实体链接与符号链接：ln"><a href="#实体链接与符号链接：ln" class="headerlink" title="实体链接与符号链接：ln"></a>实体链接与符号链接：ln</h3><h4 id="Hard-Link（实体链接，硬式链接或实际链接）"><a href="#Hard-Link（实体链接，硬式链接或实际链接）" class="headerlink" title="Hard Link（实体链接，硬式链接或实际链接）"></a>Hard Link（实体链接，硬式链接或实际链接）</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-25%20%E4%B8%8B%E5%8D%882.02.57.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>hard link只是在某个目录下新增一笔文件名链接到某inode号码的关联记录而已。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-25%20%E4%B8%8B%E5%8D%881.55.55.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>hard link的限制：</p>
 <ol>
 <li>不能跨Filesystem。</li>
 <li>不能link目录。链接到目录时，链接的数据需要连同被链接目录下面的所有数据都创建链接。</li>
 </ol>
-<h4 id="Sysbolic-Link（符号链接，亦是捷径）"><a href="#Sysbolic-Link（符号链接，亦是捷径）" class="headerlink" title="Sysbolic Link（符号链接，亦是捷径）"></a>Sysbolic Link（符号链接，亦是捷径）</h4><p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-25%20%E4%B8%8B%E5%8D%882.03.16.png" alt=""><br>Sysbolic link就是在创建一个独立的文件，而这个文件会让数据的读取指向他link的那个文件的文件名。<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-25%20%E4%B8%8B%E5%8D%882.04.20.png" alt=""><br>hard link比较安全。但hard link的限制太多了，包括无法做目录的link，用途上还是比较受限的，反而是Symbolic Link的使用较广。</p>
+<h4 id="Sysbolic-Link（符号链接，亦是捷径）"><a href="#Sysbolic-Link（符号链接，亦是捷径）" class="headerlink" title="Sysbolic Link（符号链接，亦是捷径）"></a>Sysbolic Link（符号链接，亦是捷径）</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-25%20%E4%B8%8B%E5%8D%882.03.16.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>Sysbolic link就是在创建一个独立的文件，而这个文件会让数据的读取指向他link的那个文件的文件名。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-25%20%E4%B8%8B%E5%8D%882.04.20.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>hard link比较安全。但hard link的限制太多了，包括无法做目录的link，用途上还是比较受限的，反而是Symbolic Link的使用较广。</p>
 <p>删除动作，如删除/ etc / crontab文件，删除动作只是将 / etc目录下关于crontab的关连数据拿掉而已，crontab所在的inode与block其实都没有被变动。</p>
 <h2 id="磁盘的分区，格式化，检验与挂载"><a href="#磁盘的分区，格式化，检验与挂载" class="headerlink" title="磁盘的分区，格式化，检验与挂载"></a>磁盘的分区，格式化，检验与挂载</h2><p>若是想在系统中新增一个磁盘，需要：</p>
 <ol>
@@ -483,9 +909,27 @@
 <li>若想要仔细一点，则可对刚刚创建好的filesystem进行检验。</li>
 <li>在Linux系统上，需要创建挂载点 (亦即是目录) ，并将他挂载上来。</li>
 </ol>
-<h3 id="观察磁盘分区状态"><a href="#观察磁盘分区状态" class="headerlink" title="观察磁盘分区状态"></a>观察磁盘分区状态</h3><h4 id="lsblk列出系统上所有磁盘列表"><a href="#lsblk列出系统上所有磁盘列表" class="headerlink" title="lsblk列出系统上所有磁盘列表"></a>lsblk列出系统上所有磁盘列表</h4><p>Isblk可以看成” list block device”的缩写， 就是列出所有储存设备的意思。<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-25%20%E4%B8%8B%E5%8D%882.23.27.png" alt=""></p>
-<h4 id="blikid列出设备的UUID等参数"><a href="#blikid列出设备的UUID等参数" class="headerlink" title="blikid列出设备的UUID等参数"></a>blikid列出设备的UUID等参数</h4><p>UUID是全域单一识别码（universally unique identifier），Linux会将系统内所有设备都给予一个独一无二的识别码。这个识别码就可以拿来作为挂载或是使用这个设备、文件系统之用了。<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-25%20%E4%B8%8B%E5%8D%882.24.29.png" alt=""></p>
-<h4 id="parted列出磁盘的分区表类型与分区信息"><a href="#parted列出磁盘的分区表类型与分区信息" class="headerlink" title="parted列出磁盘的分区表类型与分区信息"></a>parted列出磁盘的分区表类型与分区信息</h4><p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-25%20%E4%B8%8B%E5%8D%882.28.04.png" alt=""></p>
+<h3 id="观察磁盘分区状态"><a href="#观察磁盘分区状态" class="headerlink" title="观察磁盘分区状态"></a>观察磁盘分区状态</h3><h4 id="lsblk列出系统上所有磁盘列表"><a href="#lsblk列出系统上所有磁盘列表" class="headerlink" title="lsblk列出系统上所有磁盘列表"></a>lsblk列出系统上所有磁盘列表</h4><p>Isblk可以看成” list block device”的缩写， 就是列出所有储存设备的意思。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-25%20%E4%B8%8B%E5%8D%882.23.27.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h4 id="blikid列出设备的UUID等参数"><a href="#blikid列出设备的UUID等参数" class="headerlink" title="blikid列出设备的UUID等参数"></a>blikid列出设备的UUID等参数</h4><p>UUID是全域单一识别码（universally unique identifier），Linux会将系统内所有设备都给予一个独一无二的识别码。这个识别码就可以拿来作为挂载或是使用这个设备、文件系统之用了。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-25%20%E4%B8%8B%E5%8D%882.24.29.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h4 id="parted列出磁盘的分区表类型与分区信息"><a href="#parted列出磁盘的分区表类型与分区信息" class="headerlink" title="parted列出磁盘的分区表类型与分区信息"></a>parted列出磁盘的分区表类型与分区信息</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-25%20%E4%B8%8B%E5%8D%882.28.04.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h3 id="磁盘分区：gdisk-fdisk"><a href="#磁盘分区：gdisk-fdisk" class="headerlink" title="磁盘分区：gdisk/ fdisk"></a>磁盘分区：gdisk/ fdisk</h3><h4 id="用gdisk新增分区"><a href="#用gdisk新增分区" class="headerlink" title="用gdisk新增分区"></a>用gdisk新增分区</h4><h4 id="partprobe更新Linux核心的分区表信息"><a href="#partprobe更新Linux核心的分区表信息" class="headerlink" title="partprobe更新Linux核心的分区表信息"></a>partprobe更新Linux核心的分区表信息</h4><h4 id="用gdisk删除一个分区"><a href="#用gdisk删除一个分区" class="headerlink" title="用gdisk删除一个分区"></a>用gdisk删除一个分区</h4><h4 id="fdisk"><a href="#fdisk" class="headerlink" title="fdisk"></a>fdisk</h4><h3 id="文件系统检验"><a href="#文件系统检验" class="headerlink" title="文件系统检验"></a>文件系统检验</h3><h3 id="文件系统挂载与卸载"><a href="#文件系统挂载与卸载" class="headerlink" title="文件系统挂载与卸载"></a>文件系统挂载与卸载</h3><h3 id="磁盘、文件系统参数修订"><a href="#磁盘、文件系统参数修订" class="headerlink" title="磁盘、文件系统参数修订"></a>磁盘、文件系统参数修订</h3><h4 id="mknod"><a href="#mknod" class="headerlink" title="mknod"></a>mknod</h4><h4 id="xfs-admin修改XFS文件系统的UUID与Label-name"><a href="#xfs-admin修改XFS文件系统的UUID与Label-name" class="headerlink" title="xfs-admin修改XFS文件系统的UUID与Label name"></a>xfs-admin修改XFS文件系统的UUID与Label name</h4><h2 id="设置开机挂载"><a href="#设置开机挂载" class="headerlink" title="设置开机挂载"></a>设置开机挂载</h2><h3 id="开机挂载-etc-fstab及-etc-mtab"><a href="#开机挂载-etc-fstab及-etc-mtab" class="headerlink" title="开机挂载/etc/fstab及/etc/mtab"></a>开机挂载/etc/fstab及/etc/mtab</h3><h3 id="特殊设备loop挂载"><a href="#特殊设备loop挂载" class="headerlink" title="特殊设备loop挂载"></a>特殊设备loop挂载</h3><h2 id="内存交换空间（swap）之创建"><a href="#内存交换空间（swap）之创建" class="headerlink" title="内存交换空间（swap）之创建"></a>内存交换空间（swap）之创建</h2><p>如果硬件的配备资源足够的话’那么swap应该不会被我们的系统所使用到swaρ会被利用到的时刻通常就是实体内存不足的情况。目前在个人使用上内存已经足够大，不用设置swap也不会有太大的问题，但是服务器就不一定了，由于不知道何时会有大量来自网络的请求，因此最好还是能够预留一些swap来缓冲一下系统的内存用量。有备无患。</p>
 <h3 id="使用实体分区创建swap"><a href="#使用实体分区创建swap" class="headerlink" title="使用实体分区创建swap"></a>使用实体分区创建swap</h3><ol>
 <li>分区:先使用gdik在你的磁盘中分区出一个分区给系统作为swap。由于Linux的gdisk默认会将分区的ID设置为 Linux的文件系统，所以你可能还得要设置一下system ID就是了。</li>
@@ -493,10 +937,28 @@
 <li>使用:最后将该swap设备启动,方法为:” swapon设备文件名”。</li>
 <li>观察:最终通过free与 swapon-s这个指令来观察一下内存的用量。</li>
 </ol>
-<h3 id="使用文件创建swap"><a href="#使用文件创建swap" class="headerlink" title="使用文件创建swap"></a>使用文件创建swap</h3><h1 id="文件与文件系统的压缩，打包与备份"><a href="#文件与文件系统的压缩，打包与备份" class="headerlink" title="文件与文件系统的压缩，打包与备份"></a>文件与文件系统的压缩，打包与备份</h1><h2 id="压缩文件的用途与技术"><a href="#压缩文件的用途与技术" class="headerlink" title="压缩文件的用途与技术"></a>压缩文件的用途与技术</h2><h2 id="Linux系统常见的压缩指令"><a href="#Linux系统常见的压缩指令" class="headerlink" title="Linux系统常见的压缩指令"></a>Linux系统常见的压缩指令</h2><p>虽然Linux文件的属性基本上是与文件名没有绝对关系的，为了帮助人类，适当的扩展名还是必要的。<br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-25%20%E4%B8%8B%E5%8D%883.51.34.png" alt=""><br><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-25%20%E4%B8%8B%E5%8D%884.20.34.png" alt=""></p>
+<h3 id="使用文件创建swap"><a href="#使用文件创建swap" class="headerlink" title="使用文件创建swap"></a>使用文件创建swap</h3><h1 id="文件与文件系统的压缩，打包与备份"><a href="#文件与文件系统的压缩，打包与备份" class="headerlink" title="文件与文件系统的压缩，打包与备份"></a>文件与文件系统的压缩，打包与备份</h1><h2 id="压缩文件的用途与技术"><a href="#压缩文件的用途与技术" class="headerlink" title="压缩文件的用途与技术"></a>压缩文件的用途与技术</h2><h2 id="Linux系统常见的压缩指令"><a href="#Linux系统常见的压缩指令" class="headerlink" title="Linux系统常见的压缩指令"></a>Linux系统常见的压缩指令</h2><p>虽然Linux文件的属性基本上是与文件名没有绝对关系的，为了帮助人类，适当的扩展名还是必要的。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-25%20%E4%B8%8B%E5%8D%883.51.34.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-25%20%E4%B8%8B%E5%8D%884.20.34.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <h3 id="bzip2，bzcat-bzmore-bzless-bzgrep"><a href="#bzip2，bzcat-bzmore-bzless-bzgrep" class="headerlink" title="bzip2，bzcat,bzmore,bzless,bzgrep"></a>bzip2，bzcat,bzmore,bzless,bzgrep</h3><p>gzip是为了取代 compress并提供更好的压缩比而成立的,那么bzip2则是为了取代gzip并提供更佳的压缩比而来的。</p>
 <h3 id="xz-xzcat-xzmore-xzless-xzgrep"><a href="#xz-xzcat-xzmore-xzless-xzgrep" class="headerlink" title="xz,xzcat,xzmore,xzless,xzgrep"></a>xz,xzcat,xzmore,xzless,xzgrep</h3><p>xz的压缩比好很多，但是xz最大的问题就是时间花太久了。运算时间要比gzip久很多。</p>
-<h2 id="打包指令：tar"><a href="#打包指令：tar" class="headerlink" title="打包指令：tar"></a>打包指令：tar</h2><h3 id="tar"><a href="#tar" class="headerlink" title="tar"></a>tar</h3><p><img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-25%20%E4%B8%8B%E5%8D%884.24.30.png" alt=""></p>
+<h2 id="打包指令：tar"><a href="#打包指令：tar" class="headerlink" title="打包指令：tar"></a>打包指令：tar</h2><h3 id="tar"><a href="#tar" class="headerlink" title="tar"></a>tar</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E9%B8%9F%E5%93%A5Linux%20Linux%E6%96%87%E4%BB%B6%E3%80%81%E7%9B%AE%E5%BD%95%E4%B8%8E%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-25%20%E4%B8%8B%E5%8D%884.24.30.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 
         </div>
 
@@ -633,9 +1095,7 @@
             </span>
         </p>
     </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
+
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
     </script>
 </footer>

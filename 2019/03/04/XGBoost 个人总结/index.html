@@ -202,9 +202,27 @@
 <p>文章的组织结构：boosting树的正则化（防止过拟合）、树的split方法（decision Tree 使用Gini划分）、系统设计、实验。</p>
 <p>除了正则项外，文中还提到了两种防止过拟合的技术，Shrinkage 和 Subsampling<br>Subsampling 就按照随机森林去理解。<br>Shrinkage仍然以残差作为学习目标，但对于残差学习出来的结果，只累加一小部分（step*残差）逐步逼近目标，step一般都比较小，如0.01~0.001（注意该step非gradient的step），导致各个树的残差是渐变的而不是陡变的。直觉上这也很好理解，不像直接用残差一步修复误差，而是只修复一点点，其实就是把大步切成了很多小步。本质上，Shrinkage为每棵树设置了一个weight，累加时要乘以这个weight。Shrinkage能减少过拟合发生也是经验证明的，目前还没有看到从理论的证明。</p>
 <p>陈天奇XGBoost ppt（内容非常详细）链接:<a href="https://pan.baidu.com/s/10NWfRM9qimswGxPsF9VlDw" target="_blank" rel="noopener">https://pan.baidu.com/s/10NWfRM9qimswGxPsF9VlDw</a>  密码:v3y6</p>
-<p><img src="/img/add/24.png" alt=""></p>
-<p><img src="/img/add/25.png" alt=""></p>
-<p><img src="/img/add/26.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/add/24.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/add/25.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/add/26.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 
         </div>
 
@@ -341,9 +359,7 @@
             </span>
         </p>
     </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
+
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
     </script>
 </footer>

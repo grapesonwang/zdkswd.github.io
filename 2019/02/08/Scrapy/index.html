@@ -21,13 +21,13 @@
     
     
     <meta name="keywords" content="Python,爬虫">
-    <meta name="description" content="Scrapy安装 pip install scrapy    创建项目首先创建一个新的Scrapy项目。  scrapy startproject tutorial    创建的tutorial 目录：这些文件是：scrapy.cfg: 项目的配置文件tutorial/ : 该项目的python模块。之后您将在此加入代码。tutorial/ items.py: 项目中的item文件.tutoria">
+    <meta name="description" content="Scrapy安装 pip install scrapy    创建项目首先创建一个新的Scrapy项目。  scrapy startproject tutorial    创建的tutorial 目录：">
 <meta name="keywords" content="Python,爬虫">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Scrapy">
 <meta property="og:url" content="https://github.com/zdkswd/2019/02/08/Scrapy/index.html">
 <meta property="og:site_name" content="ZDK&#39;s blog">
-<meta property="og:description" content="Scrapy安装 pip install scrapy    创建项目首先创建一个新的Scrapy项目。  scrapy startproject tutorial    创建的tutorial 目录：这些文件是：scrapy.cfg: 项目的配置文件tutorial/ : 该项目的python模块。之后您将在此加入代码。tutorial/ items.py: 项目中的item文件.tutoria">
+<meta property="og:description" content="Scrapy安装 pip install scrapy    创建项目首先创建一个新的Scrapy项目。  scrapy startproject tutorial    创建的tutorial 目录：">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://github.com/img/media/Scrapy/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-08%20%E4%B8%8B%E5%8D%885.31.25.png">
 <meta property="og:image" content="https://github.com/img/media/Scrapy/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-08%20%E4%B8%8B%E5%8D%885.43.48.png">
@@ -45,7 +45,7 @@
 <meta property="og:updated_time" content="2019-02-08T12:51:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Scrapy">
-<meta name="twitter:description" content="Scrapy安装 pip install scrapy    创建项目首先创建一个新的Scrapy项目。  scrapy startproject tutorial    创建的tutorial 目录：这些文件是：scrapy.cfg: 项目的配置文件tutorial/ : 该项目的python模块。之后您将在此加入代码。tutorial/ items.py: 项目中的item文件.tutoria">
+<meta name="twitter:description" content="Scrapy安装 pip install scrapy    创建项目首先创建一个新的Scrapy项目。  scrapy startproject tutorial    创建的tutorial 目录：">
 <meta name="twitter:image" content="https://github.com/img/media/Scrapy/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-08%20%E4%B8%8B%E5%8D%885.31.25.png">
     
         <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
@@ -203,14 +203,26 @@
 <blockquote>
 <p>scrapy startproject tutorial  </p>
 </blockquote>
-<p>创建的tutorial 目录：<br><img src="/img/media/Scrapy/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-08%20%E4%B8%8B%E5%8D%885.31.25.png" alt=""><br>这些文件是：<br>scrapy.cfg: 项目的配置文件<br>tutorial/ : 该项目的python模块。之后您将在此加入代码。<br>tutorial/ items.py: 项目中的item文件.<br>tutorial/ pipelines.py: 项目中的pipelines文件.<br>tutorial/ settings.py: 项目的设置文件.<br>tutorial/ spiders /: 放置spider代码的目录.</p>
+<p>创建的tutorial 目录：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Scrapy/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-08%20%E4%B8%8B%E5%8D%885.31.25.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>这些文件是：<br>scrapy.cfg: 项目的配置文件<br>tutorial/ : 该项目的python模块。之后您将在此加入代码。<br>tutorial/ items.py: 项目中的item文件.<br>tutorial/ pipelines.py: 项目中的pipelines文件.<br>tutorial/ settings.py: 项目的设置文件.<br>tutorial/ spiders /: 放置spider代码的目录.</p>
 <h1 id="简单流程"><a href="#简单流程" class="headerlink" title="简单流程"></a>简单流程</h1><ol>
 <li>创建一个Scrapy项目；</li>
 <li>定义提取的Item；</li>
 <li>编写爬取网站的 spider 并提取 Item；</li>
 <li>编写 Item Pipeline 来存储提取到的Item(即数据)。<h1 id="定义Item"><a href="#定义Item" class="headerlink" title="定义Item"></a>定义Item</h1>Item 是保存爬取到的数据的容器；其使用方法和python字典类似， 并且提供了额外保护机制来避免拼写错误导致的未定义字段错误。</li>
 </ol>
-<p>可以通过创建一个 scrapy.Item 类， 并且定义类型为 scrapy.Field 的类属性来定义一个Item。<br><img src="/img/media/Scrapy/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-08%20%E4%B8%8B%E5%8D%885.43.48.png" alt=""><br>通过定义item， 可以很方便的使用Scrapy的其他方法。而这些方法需要知道item的定义。</p>
+<p>可以通过创建一个 scrapy.Item 类， 并且定义类型为 scrapy.Field 的类属性来定义一个Item。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Scrapy/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-08%20%E4%B8%8B%E5%8D%885.43.48.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>通过定义item， 可以很方便的使用Scrapy的其他方法。而这些方法需要知道item的定义。</p>
 <h1 id="编写第一个爬虫-Spider"><a href="#编写第一个爬虫-Spider" class="headerlink" title="编写第一个爬虫(Spider)"></a>编写第一个爬虫(Spider)</h1><p>Spider是用户编写用于从单个网站(或者一些网站)爬取数据的类。</p>
 <p>其包含了一个用于下载的初始URL，如何跟进网页中的链接以及如何分析页面中的内容， 提取生成 item 的方法。</p>
 <p>为了创建一个Spider，您必须继承 scrapy.Spider 类， 且定义以下三个属性:</p>
@@ -219,7 +231,13 @@
 <li>start_urls: 包含了Spider在启动时进行爬取的url列表。 因此，第一个被获取到的页面将是其中之一。 后续的URL则从初始的URL获取到的数据中提取。</li>
 <li>parse() 是spider的一个方法。 被调用时，每个初始URL完成下载后生成的 Response 对象将会作为唯一的参数传递给该函数。 该方法负责解析返回的数据(response data)，提取数据(生成item)以及生成需要进一步处理的URL的 Request 对象。</li>
 </ol>
-<p>以下为我们的第一个Spider代码，保存在 tutorial/spiders 目录下的 dmoz_spider.py 文件中:<br><img src="/img/media/Scrapy/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-08%20%E4%B8%8B%E5%8D%885.50.34.png" alt=""></p>
+<p>以下为我们的第一个Spider代码，保存在 tutorial/spiders 目录下的 dmoz_spider.py 文件中:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Scrapy/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-08%20%E4%B8%8B%E5%8D%885.50.34.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <h2 id="爬取"><a href="#爬取" class="headerlink" title="爬取"></a>爬取</h2><p>进入项目的根目录，执行下列命令启动spider</p>
 <blockquote>
 <p>scrapy crawl dmoz  </p>
@@ -230,17 +248,77 @@
 <p>这里给出XPath表达式的例子及对应的含义:<br>/ html/ head/ title: 选择HTML文档中 <head> 标签内的 <title> 元素<br>/ html/ head/ title/ text(): 选择上面提到的 <title> 元素的文字<br>/ / td: 选择所有的 <td> 元素<br>/ / div[@class=”mine”]: 选择所有具有 class=”mine” 属性的 div 元素</td></title></title></head></p>
 <p>为了配合XPath，Scrapy除了提供了 Selector 之外，还提供了方法来避免每次从response中提取数据时生成selector的麻烦。</p>
 <p>Selector有四个基本的方法：<br>xpath(): 传入xpath表达式，返回该表达式所对应的所有节点的selector list列表 。<br>css(): 传入CSS表达式，返回该表达式所对应的所有节点的selector list列表.<br>extract(): 序列化该节点为unicode字符串并返回list。<br>re(): 根据传入的正则表达式对数据进行提取，返回unicode字符串list列表。</p>
-<p>进入项目的根目录，启动shell：<br><img src="/img/media/Scrapy/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-08%20%E4%B8%8B%E5%8D%886.42.54.png" alt=""></p>
-<p>shell的类似输出：<br><img src="/img/media/Scrapy/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-08%20%E4%B8%8B%E5%8D%886.44.12.png" alt=""><br>当shell载入后，您将得到一个包含response数据的本地 response 变量。输入 response.body 将输出response的包体， 输出 response.headers 可以看到response的包头。</p>
+<p>进入项目的根目录，启动shell：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Scrapy/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-08%20%E4%B8%8B%E5%8D%886.42.54.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>shell的类似输出：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Scrapy/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-08%20%E4%B8%8B%E5%8D%886.44.12.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>当shell载入后，您将得到一个包含response数据的本地 response 变量。输入 response.body 将输出response的包体， 输出 response.headers 可以看到response的包头。</p>
 <p>更为重要的是，当输入 response.selector 时， 您将获取到一个可以用于查询返回数据的selector(选择器)， 以及映射到 response.selector.xpath() 、 response.selector.css() 的 快捷方法(shortcut): response.xpath() 和 response.css() 。</p>
-<p>同时，shell根据response提前初始化了变量 sel 。该selector根据response的类型自动选择最合适的分析规则(XML vs HTML)。<br><img src="/img/media/Scrapy/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-08%20%E4%B8%8B%E5%8D%886.45.17.png" alt=""></p>
-<h2 id="提取数据"><a href="#提取数据" class="headerlink" title="提取数据"></a>提取数据</h2><p>在我们的spider中加入这段代码:<br><img src="/img/media/Scrapy/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-08%20%E4%B8%8B%E5%8D%886.47.13.png" alt=""></p>
-<h2 id="使用Item"><a href="#使用Item" class="headerlink" title="使用Item"></a>使用Item</h2><p>Item 对象是自定义的python字典。 您可以使用标准的字典语法来获取到其每个字段的值。(字段即是我们之前用Field赋值的属性):<br><img src="/img/media/Scrapy/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-08%20%E4%B8%8B%E5%8D%886.56.31.png" alt=""><br>一般来说，Spider将会将爬取到的数据以 Item 对象返回。所以为了将爬取的数据返回，我们最终的代码将是:<br><img src="/img/media/Scrapy/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-08%20%E4%B8%8B%E5%8D%886.56.49.png" alt=""><br>现在对dmoz.org进行爬取将会产生 DmozItem 对象:<br><img src="/img/media/Scrapy/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-08%20%E4%B8%8B%E5%8D%886.59.34.png" alt=""></p>
-<h1 id="保存爬取到的数据"><a href="#保存爬取到的数据" class="headerlink" title="保存爬取到的数据"></a>保存爬取到的数据</h1><p>最简单存储爬取的数据是使用<br><img src="/img/media/Scrapy/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-08%20%E4%B8%8B%E5%8D%887.26.04.png" alt=""><br>该命令将采用 JSON 格式对爬取的数据进行序列化，生成 items.json 文件。</p>
+<p>同时，shell根据response提前初始化了变量 sel 。该selector根据response的类型自动选择最合适的分析规则(XML vs HTML)。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Scrapy/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-08%20%E4%B8%8B%E5%8D%886.45.17.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h2 id="提取数据"><a href="#提取数据" class="headerlink" title="提取数据"></a>提取数据</h2><p>在我们的spider中加入这段代码:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Scrapy/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-08%20%E4%B8%8B%E5%8D%886.47.13.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h2 id="使用Item"><a href="#使用Item" class="headerlink" title="使用Item"></a>使用Item</h2><p>Item 对象是自定义的python字典。 您可以使用标准的字典语法来获取到其每个字段的值。(字段即是我们之前用Field赋值的属性):<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Scrapy/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-08%20%E4%B8%8B%E5%8D%886.56.31.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>一般来说，Spider将会将爬取到的数据以 Item 对象返回。所以为了将爬取的数据返回，我们最终的代码将是:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Scrapy/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-08%20%E4%B8%8B%E5%8D%886.56.49.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>现在对dmoz.org进行爬取将会产生 DmozItem 对象:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Scrapy/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-08%20%E4%B8%8B%E5%8D%886.59.34.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h1 id="保存爬取到的数据"><a href="#保存爬取到的数据" class="headerlink" title="保存爬取到的数据"></a>保存爬取到的数据</h1><p>最简单存储爬取的数据是使用<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Scrapy/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-02-08%20%E4%B8%8B%E5%8D%887.26.04.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>该命令将采用 JSON 格式对爬取的数据进行序列化，生成 items.json 文件。</p>
 <p>小规模的项目中，这种存储方式已经足够。 如果需要对爬取到的item做更多更为复杂的操作，您可以编写 Item Pipeline 。 </p>
 <h1 id="一个例子"><a href="#一个例子" class="headerlink" title="一个例子"></a>一个例子</h1><p><a href="https://github.com/Jack-Cherish/python-spider/tree/master/cartoon">https://github.com/Jack-Cherish/python-spider/tree/master/cartoon</a></p>
-<h1 id="scrapy进行分布式爬虫"><a href="#scrapy进行分布式爬虫" class="headerlink" title="scrapy进行分布式爬虫"></a>scrapy进行分布式爬虫</h1><h2 id="分布式爬虫原理"><a href="#分布式爬虫原理" class="headerlink" title="分布式爬虫原理"></a>分布式爬虫原理</h2><p>scrapy的单机架构：<br><img src="/img/media/Scrapy/4155986-5fa2c59efa050ac4.png" alt=""><br>可以看到，scrapy单机模式，通过一个scrapy引擎通过一个调度器，将Requests队列中的request请求发给下载器，进行页面的爬取。多台主机协作的关键是共享一个爬取队列。</p>
-<p>分布式爬虫的关键是共享一个requests队列，维护该队列的主机称为master，而从机则负责数据的抓取，数据处理和数据存储，所以分布式爬虫架构如下图所示：<br><img src="/img/media/Scrapy/4155986-52592bfa491e1573.png" alt=""><br>选用Redis队列进行存储，Redis是一种高效的非关系型数据库，以key-value的形式存储，结构灵活，它是内存中的数据结构存储系统，处理速度快，性能好，同时，提供了队列，集合等多种存储结构，方便队列维护。</p>
+<h1 id="scrapy进行分布式爬虫"><a href="#scrapy进行分布式爬虫" class="headerlink" title="scrapy进行分布式爬虫"></a>scrapy进行分布式爬虫</h1><h2 id="分布式爬虫原理"><a href="#分布式爬虫原理" class="headerlink" title="分布式爬虫原理"></a>分布式爬虫原理</h2><p>scrapy的单机架构：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Scrapy/4155986-5fa2c59efa050ac4.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>可以看到，scrapy单机模式，通过一个scrapy引擎通过一个调度器，将Requests队列中的request请求发给下载器，进行页面的爬取。多台主机协作的关键是共享一个爬取队列。</p>
+<p>分布式爬虫的关键是共享一个requests队列，维护该队列的主机称为master，而从机则负责数据的抓取，数据处理和数据存储，所以分布式爬虫架构如下图所示：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Scrapy/4155986-52592bfa491e1573.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>选用Redis队列进行存储，Redis是一种高效的非关系型数据库，以key-value的形式存储，结构灵活，它是内存中的数据结构存储系统，处理速度快，性能好，同时，提供了队列，集合等多种存储结构，方便队列维护。</p>
 <p>另外一个问题，如何去重？这个的意思就是如何避免多台主机访问的request都不同，即让Reques队列中的请求都是不同的，那么就需要用到Redis提供的队列结构。Redis提供集合数据结构，在Redis集合中存储每个Request的指纹，在向Request队列中加入Request时首先验证指纹是否存在。如果存在，则不加入，如果不存在，则加入。</p>
 <h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><p>目前已经有专门的python库实现了分布式架构。Scrapy-Redis库改写了Scrapy的调度器，队列等组件，可以方便的实现Scrapy分布式架构。</p>
 <p>Scrapy-Redis链接：<a href="https://github.com/rolando/scrapy-redis">https://github.com/rolando/scrapy-redis</a></p>
@@ -381,9 +459,7 @@
             </span>
         </p>
     </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
+
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
     </script>
 </footer>

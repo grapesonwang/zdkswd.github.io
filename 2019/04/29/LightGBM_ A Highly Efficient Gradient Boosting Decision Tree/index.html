@@ -200,7 +200,13 @@
 <h2 id="Algorithm-Description"><a href="#Algorithm-Description" class="headerlink" title="Algorithm Description"></a>Algorithm Description</h2><p>In AdaBoost, the sample weight serves as a good indicator for the importance of data instances. gradient for each data instance in GBDT provides us with useful information for data sampling. That is, if an instance is associated with a small gradient, the training error for this instance is small and it is already well-trained. </p>
 <p>A straightforward idea is to discard those data instances with small gradients. However, the data distribution will be changed by doing so, which will hurt the accuracy of the learned model. To avoid this problem, they propose a new method called Gradient-based One-Side Sampling (GOSS). </p>
 <p>GOSS keeps all the instances with large gradients(large <strong>residual errors</strong>) and performs random sampling on the instances with small gradients. </p>
-<p>GOSS firstly sorts the data instances according to the absolute value of their gradients and selects the (top a) × 100% instances. Then it randomly samples b × 100% instances from the rest of the data. After that, GOSS amplifies the sampled data with small gradients by a constant<br>(1−a / b) when calculating the information gain.<br><img src="/img/media/LightGBM:%20A%20Highly%20Efficient%20Gradient%20Boosting%20Decision%20Tree/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-29%20%E4%B8%8B%E5%8D%8812.25.17.png" alt=""></p>
+<p>GOSS firstly sorts the data instances according to the absolute value of their gradients and selects the (top a) × 100% instances. Then it randomly samples b × 100% instances from the rest of the data. After that, GOSS amplifies the sampled data with small gradients by a constant<br>(1−a / b) when calculating the information gain.<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/LightGBM:%20A%20Highly%20Efficient%20Gradient%20Boosting%20Decision%20Tree/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-04-29%20%E4%B8%8B%E5%8D%8812.25.17.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <h1 id="Exclusive-Feature-Bundling-EFB"><a href="#Exclusive-Feature-Bundling-EFB" class="headerlink" title="Exclusive Feature Bundling(EFB)"></a>Exclusive Feature Bundling(EFB)</h1><p>in a sparse feature space, many features are (almost) exclusive, i.e., they rarely take nonzero values simultaneously. Examples include the one-hot features.They can safely bundle such exclusive features.</p>
 <p>To this end, They design an efficient algorithm by reducing the optimal bundling problem to a graph coloring problem (by taking features as vertices and adding edges for every two features if they are not mutually exclusive), and solving it by a greedy algorithm with a constant approximation ratio. </p>
 <p>There are two issues to be addressed. The <strong>first</strong> one is to determine which features should be bundled together. The <strong>second</strong> is how to construct the bundle. </p>
@@ -340,9 +346,7 @@
             </span>
         </p>
     </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
+
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
     </script>
 </footer>

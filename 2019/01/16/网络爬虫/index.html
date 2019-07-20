@@ -192,7 +192,13 @@
 <li>urllib库是python内置的，无需我们额外安装，只要安装了Python就可以使用这个库。</li>
 <li>requests库是第三方库，需要我们自己安装。</li>
 </ol>
-<p>requests库的基础方法如下：<br><img src="/img/media/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8B%E5%8D%888.59.57.png" alt=""><br>requests.get()方法，它用于向服务器发起GET请求。requests.get()方法就是从服务器得到、抓住数据，也就是获取数据。</p>
+<p>requests库的基础方法如下：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-18%20%E4%B8%8B%E5%8D%888.59.57.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>requests.get()方法，它用于向服务器发起GET请求。requests.get()方法就是从服务器得到、抓住数据，也就是获取数据。</p>
 <h1 id="小说下载"><a href="#小说下载" class="headerlink" title="小说下载"></a>小说下载</h1><p>代码<a href="https://github.com/zdkswd/papapachong/tree/master/%E7%88%AC%E5%8F%96%E5%B0%8F%E8%AF%B4">papapachong/爬取小说 at master · zdkswd/papapachong · GitHub</a></p>
 <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>小说网站-笔趣看：</p>
 <p>URL：http:<a href="http://www.biqukan.com/" target="_blank" rel="noopener">www.biqukan.com/</a><br>笔趣看是一个盗版小说网站，这里有很多起点中文网的小说，该网站小说的更新速度稍滞后于起点中文网正版小说的更新速度。并且该网站只支持在线浏览，不支持小说打包下载。因此，本次实战就是从该网站爬取并保存一本名为《一念永恒》的小说，该小说是耳根正在连载中的一部玄幻小说。PS：本实例仅为交流学习，支持耳根大大，请上起点中文网订阅。</p>
@@ -217,9 +223,27 @@
 </ol>
 <p>照此方法得不到<img>标签，而是\&lt;script>标签，因为这个网站的所有图片都是动态加载的！网站有静态网站和动态网站之分，上一个实战爬取的网站是静态网站，而这个网站是动态网站，动态加载有一部分的目的就是为了反爬虫。</p>
 <p>动态网站使用动态加载常用的手段就是通过调用JavaScript来实现的。一个动态加载的网站可能使用很多JavaScript脚本，我们只要找到负责动态加载图片的JavaScript脚本。强大的抓包工具，它会帮助分析。这个强大的抓包工具就是Fiddler。但是Fiddler只在Windows上才能发挥完全的作用，所以我用的是一个跨平台的抓包工具Charles。</p>
-<p>经过抓包发现，在如下数据包中。<br><img src="/img/media/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-23%20%E4%B8%8B%E5%8D%889.04.27.png" alt=""></p>
-<p>有json数据包<br><img src="/img/media/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-23%20%E4%B8%8B%E5%8D%889.08.54.png" alt=""></p>
-<p>id和下载图片有以下的关系<br><img src="/img/media/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-23%20%E4%B8%8B%E5%8D%889.04.02.png" alt=""></p>
+<p>经过抓包发现，在如下数据包中。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-23%20%E4%B8%8B%E5%8D%889.04.27.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>有json数据包<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-23%20%E4%B8%8B%E5%8D%889.08.54.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>id和下载图片有以下的关系<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-12-23%20%E4%B8%8B%E5%8D%889.04.02.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <p>所以可以</p>
 <ol>
 <li>获取整个json数据</li>
@@ -377,9 +401,7 @@
             </span>
         </p>
     </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
+
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
     </script>
 </footer>

@@ -21,13 +21,13 @@
     
     
     <meta name="keywords" content="Python">
-    <meta name="description" content="面向对象编程类和实例在Python中，定义类是通过class关键字。 通常，如果没有合适的继承类，就使用object类，这是所有类最终都会继承的类。 创建实例是通过类名+()实现的。 可以自由地给一个实例变量绑定属性，比如，给实例bart绑定一个name属性。 由于类可以起到模板的作用，因此，可以在创建实例的时候，把一些我们认为必须绑定的属性强制填写进去。通过定义一个特殊的__init__方法，在">
+    <meta name="description" content="面向对象编程类和实例在Python中，定义类是通过class关键字。                                                                                                           通常，如果没有合适的继承类，就使用object类，这是所有类最终都会继承的类。 创建实例是通过类名+()实现的。">
 <meta name="keywords" content="Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python廖雪峰 面向对象 异常处理 调试测试">
 <meta property="og:url" content="https://github.com/zdkswd/2018/09/02/Python廖雪峰 面向对象 异常处理/index.html">
 <meta property="og:site_name" content="ZDK&#39;s blog">
-<meta property="og:description" content="面向对象编程类和实例在Python中，定义类是通过class关键字。 通常，如果没有合适的继承类，就使用object类，这是所有类最终都会继承的类。 创建实例是通过类名+()实现的。 可以自由地给一个实例变量绑定属性，比如，给实例bart绑定一个name属性。 由于类可以起到模板的作用，因此，可以在创建实例的时候，把一些我们认为必须绑定的属性强制填写进去。通过定义一个特殊的__init__方法，在">
+<meta property="og:description" content="面向对象编程类和实例在Python中，定义类是通过class关键字。                                                                                                           通常，如果没有合适的继承类，就使用object类，这是所有类最终都会继承的类。 创建实例是通过类名+()实现的。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://github.com/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%883.05.01.png">
 <meta property="og:image" content="https://github.com/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%883.05.39.png">
@@ -79,7 +79,7 @@
 <meta property="og:updated_time" content="2019-03-20T12:13:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python廖雪峰 面向对象 异常处理 调试测试">
-<meta name="twitter:description" content="面向对象编程类和实例在Python中，定义类是通过class关键字。 通常，如果没有合适的继承类，就使用object类，这是所有类最终都会继承的类。 创建实例是通过类名+()实现的。 可以自由地给一个实例变量绑定属性，比如，给实例bart绑定一个name属性。 由于类可以起到模板的作用，因此，可以在创建实例的时候，把一些我们认为必须绑定的属性强制填写进去。通过定义一个特殊的__init__方法，在">
+<meta name="twitter:description" content="面向对象编程类和实例在Python中，定义类是通过class关键字。                                                                                                           通常，如果没有合适的继承类，就使用object类，这是所有类最终都会继承的类。 创建实例是通过类名+()实现的。">
 <meta name="twitter:image" content="https://github.com/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%883.05.01.png">
     
         <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
@@ -230,15 +230,45 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="面向对象编程"><a href="#面向对象编程" class="headerlink" title="面向对象编程"></a>面向对象编程</h1><h2 id="类和实例"><a href="#类和实例" class="headerlink" title="类和实例"></a>类和实例</h2><p>在Python中，定义类是通过class关键字。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%883.05.01.png" alt=""></p>
+            <h1 id="面向对象编程"><a href="#面向对象编程" class="headerlink" title="面向对象编程"></a>面向对象编程</h1><h2 id="类和实例"><a href="#类和实例" class="headerlink" title="类和实例"></a>类和实例</h2><p>在Python中，定义类是通过class关键字。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%883.05.01.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <p>通常，如果没有合适的继承类，就使用object类，这是所有类最终都会继承的类。</p>
-<p>创建实例是通过类名+()实现的。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%883.05.39.png" alt=""></p>
-<p>可以自由地给一个实例变量绑定属性，比如，给实例bart绑定一个name属性。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%883.06.53.png" alt=""></p>
-<p>由于类可以起到模板的作用，因此，可以在创建实例的时候，把一些我们认为必须绑定的属性强制填写进去。通过定义一个特殊的__init__方法，在创建实例的时候，就把name，score等属性绑上去。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%883.31.33.png" alt=""></p>
+<p>创建实例是通过类名+()实现的。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%883.05.39.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>可以自由地给一个实例变量绑定属性，比如，给实例bart绑定一个name属性。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%883.06.53.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>由于类可以起到模板的作用，因此，可以在创建实例的时候，把一些我们认为必须绑定的属性强制填写进去。通过定义一个特殊的__init__方法，在创建实例的时候，就把name，score等属性绑上去。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%883.31.33.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <p>注意到__init__方法的第一个参数永远是self，表示创建的实例本身。</p>
 <p>有了__init__方法，在创建实例的时候，就不能传入空的参数了，必须传入与__init__方法匹配的参数，但self不需要传，Python解释器自己会把实例变量传进去。</p>
 <p>和普通的函数相比，在类中定义的函数只有一点不同，就是第一个参数永远是实例变量self，并且，调用时，不用传递该参数。除此之外，类的方法和普通函数没有什么区别，所以，你仍然可以用默认参数、可变参数、关键字参数和命名关键字参数。</p>
-<h3 id="数据封装"><a href="#数据封装" class="headerlink" title="数据封装"></a>数据封装</h3><p>我们从外部看Student类，就只需要知道，创建实例需要给出name和score，而如何打印，都是在Student类的内部定义的，这些数据和逻辑被“封装”起来了，调用很容易，但却不用知道内部实现的细节。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%883.49.56.png" alt=""></p>
+<h3 id="数据封装"><a href="#数据封装" class="headerlink" title="数据封装"></a>数据封装</h3><p>我们从外部看Student类，就只需要知道，创建实例需要给出name和score，而如何打印，都是在Student类的内部定义的，这些数据和逻辑被“封装”起来了，调用很容易，但却不用知道内部实现的细节。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%883.49.56.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <p>定义一个方法，除了第一个参数是self外，其他和普通函数一样。要调用一个方法，只需要在实例变量上直接调用，除了self不用传递，其他参数正常传入。</p>
 <p>封装的另一个好处是可以给Student类增加新的方法。</p>
 <h2 id="访问限制"><a href="#访问限制" class="headerlink" title="访问限制"></a>访问限制</h2><p>在Class内部，可以有属性和方法，而外部代码可以通过直接调用实例变量的方法来操作数据，这样，就隐藏了内部的复杂逻辑。</p>
@@ -248,7 +278,13 @@
 <p>需要注意的是，在Python中，变量名类似__xxx__的，也就是以双下划线开头，并且以双下划线结尾的，是特殊变量，特殊变量是可以直接访问的，不是private变量，所以，不能用__name__、__score__这样的变量名。</p>
 <p>有些时候，你会看到以一个下划线开头的实例变量名，比如_name，这样的实例变量外部是可以访问的，但是，按照约定俗成的规定，当你看到这样的变量时，意思就是，“虽然我可以被访问，但是，请把我视为私有变量，不要随意访问”。</p>
 <p>双下划线开头的实例变量是不是一定不能从外部访问呢？其实也不是。不能直接访问__name是因为Python解释器对外把__name变量改成了_Student__name，所以，仍然可以通过_Student__name来访问__name变量。</p>
-<p>总的来说就是，Python本身没有任何机制阻止你干坏事，一切全靠自觉。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%883.55.00.png" alt=""></p>
+<p>总的来说就是，Python本身没有任何机制阻止你干坏事，一切全靠自觉。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%883.55.00.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <p>对私有数据操作用getter以及setter啦。</p>
 <h2 id="继承和多态"><a href="#继承和多态" class="headerlink" title="继承和多态"></a>继承和多态</h2><p>继承有什么好处？最大的好处是子类获得了父类的全部功能。</p>
 <p>当子类和父类都存在相同的run()方法时，我们说，子类的run()覆盖了父类的run()，在代码运行的时候，总是会调用子类的run()。这样，我们就获得了继承的另一个好处：<strong>多态</strong>。</p>
@@ -260,80 +296,254 @@
 <p>Python的“file-like object“就是一种鸭子类型。对真正的文件对象，它有一个read()方法，返回其内容。但是，许多对象，只要有read()方法，都被视为“file-like object“。许多函数接收的参数就是“file-like object“，你不一定要传入真正的文件对象，完全可以传入任何实现了read()方法的对象。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">维基百科</span><br><span class="line">在程序设计中，鸭子类型（英语：duck typing）是动态类型的一种风格。在这种风格中，一个对象有效的语义，不是由继承自特定的类或实现特定的接口，而是由当前方法和属性的集合决定。</span><br></pre></td></tr></table></figure>
 <h2 id="获取对象信息"><a href="#获取对象信息" class="headerlink" title="获取对象信息"></a>获取对象信息</h2><h3 id="使用type"><a href="#使用type" class="headerlink" title="使用type()"></a>使用type()</h3><p>判断对象类型，使用type()函数。<br>基本类型都可以用type()判断，如果一个变量指向函数或者类，也可以用type()判断。返回对应的Class类型。</p>
-<p><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%884.18.38.png" alt=""></p>
-<p>判断一个对象是否是函数怎么办？可以使用types模块中定义的常量。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%884.18.15.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%884.18.38.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>判断一个对象是否是函数怎么办？可以使用types模块中定义的常量。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%884.18.15.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <h3 id="使用isinstance"><a href="#使用isinstance" class="headerlink" title="使用isinstance()"></a>使用isinstance()</h3><p>对于class的继承关系来说，使用type()就很不方便。我们要判断class的类型，可以使用isinstance()函数。</p>
 <p>isinstance()判断的是一个对象是否是该类型本身，或者位于该类型的父继承链上。</p>
 <p>总是优先使用isinstance()判断类型，可以将指定类型及其子类“一网打尽”。</p>
 <h3 id="使用dir"><a href="#使用dir" class="headerlink" title="使用dir()"></a>使用dir()</h3><p>如果要获得一个对象的所有属性和方法，可以使用dir()函数，它返回一个包含字符串的list。</p>
-<p><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%884.28.52.png" alt=""></p>
-<p>类似__xxx__的属性和方法在Python中都是有特殊用途的，比如__len__方法返回长度。在Python中，如果你调用len()函数试图获取一个对象的长度，实际上，在len()函数内部，它自动去调用该对象的__len__()方法。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%884.27.56.png" alt=""></p>
-<p><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%884.28.14.png" alt=""></p>
-<p>仅仅把属性和方法列出来是不够的，配合getattr()、setattr()以及hasattr()，我们可以直接操作一个对象的状态。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%884.30.11.png" alt=""><br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%884.30.39.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%884.28.52.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>类似__xxx__的属性和方法在Python中都是有特殊用途的，比如__len__方法返回长度。在Python中，如果你调用len()函数试图获取一个对象的长度，实际上，在len()函数内部，它自动去调用该对象的__len__()方法。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%884.27.56.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%884.28.14.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>仅仅把属性和方法列出来是不够的，配合getattr()、setattr()以及hasattr()，我们可以直接操作一个对象的状态。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%884.30.11.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%884.30.39.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <h2 id="实例属性和类属性"><a href="#实例属性和类属性" class="headerlink" title="实例属性和类属性"></a>实例属性和类属性</h2><p>由于Python是动态语言，根据类创建的实例可以任意绑定属性。</p>
 <p>给实例绑定属性的方法是通过实例变量，或者通过self变量。</p>
-<p>可以直接在class中定义属性，这种属性是类属性，归Student类所有。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%884.32.54.png" alt=""></p>
+<p>可以直接在class中定义属性，这种属性是类属性，归Student类所有。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%884.32.54.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <p>当我们定义了一个类属性后，这个属性虽然归类所有，但类的所有实例都可以访问到。</p>
 <h1 id="面向对象高级编程"><a href="#面向对象高级编程" class="headerlink" title="面向对象高级编程"></a>面向对象高级编程</h1><h2 id="使用-slots"><a href="#使用-slots" class="headerlink" title="使用__slots__"></a>使用__slots__</h2><p>正常情况下，当我们定义了一个class，创建了一个class的实例后，我们可以给该实例绑定任何属性和方法，这就是动态语言的灵活性。</p>
-<p>为了给所有实例都绑定方法，可以给class绑定方法。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%889.01.31.png" alt=""></p>
+<p>为了给所有实例都绑定方法，可以给class绑定方法。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%889.01.31.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <p>动态绑定允许我们在程序运行的过程中动态给class加上功能，这在静态语言中很难实现。</p>
-<p>Python允许在定义class的时候，定义一个特殊的__slots__变量，来限制该class实例能添加的属性。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%889.02.32.png" alt=""><br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%889.03.25.png" alt=""></p>
+<p>Python允许在定义class的时候，定义一个特殊的__slots__变量，来限制该class实例能添加的属性。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%889.02.32.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%889.03.25.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <p>使用__slots__要注意，__slots__定义的属性仅对当前类实例起作用，对继承的子类是不起作用的。</p>
 <h2 id="使用-property"><a href="#使用-property" class="headerlink" title="使用@property"></a>使用@property</h2><p>在绑定属性时，如果我们直接把属性暴露出去，虽然写起来很简单，但是，没办法检查参数，导致可以把成绩随便改。</p>
 <p>这显然不合逻辑。为了限制score的范围，可以通过一个set_score()方法来设置成绩，再通过一个get_score()来获取成绩，这样，在set_score()方法里，就可以检查参数。</p>
 <p>调用方法又略显复杂，没有直接用属性这么直接简单。</p>
-<p>对于类的方法，装饰器一样起作用。Python内置的@property装饰器就是负责把一个方法（图中为getter方法）变成属性调用的。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%889.13.15.png" alt=""></p>
-<p>@property的实现比较复杂，我们先考察如何使用。把一个getter方法变成属性，只需要加上@property就可以了，此时，@property本身又创建了另一个装饰器@score.setter，负责把一个setter方法变成属性赋值，于是，我们就拥有一个可控的属性操作。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%889.13.56.png" alt=""></p>
+<p>对于类的方法，装饰器一样起作用。Python内置的@property装饰器就是负责把一个方法（图中为getter方法）变成属性调用的。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%889.13.15.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>@property的实现比较复杂，我们先考察如何使用。把一个getter方法变成属性，只需要加上@property就可以了，此时，@property本身又创建了另一个装饰器@score.setter，负责把一个setter方法变成属性赋值，于是，我们就拥有一个可控的属性操作。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%889.13.56.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <p>还可以定义只读属性，只定义getter方法，不定义setter方法就是一个只读属性。</p>
-<h2 id="多重继承"><a href="#多重继承" class="headerlink" title="多重继承"></a>多重继承</h2><p><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%889.23.53.png" alt=""></p>
+<h2 id="多重继承"><a href="#多重继承" class="headerlink" title="多重继承"></a>多重继承</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%889.23.53.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h3 id="MixIn"><a href="#MixIn" class="headerlink" title="MixIn"></a>MixIn</h3><p><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%889.30.44.png" alt=""></p>
 <p>MixIn的目的就是给一个类增加多个功能，这样，在设计类的时候，我们优先考虑通过多重继承来组合多个MixIn的功能，而不是设计多层次的复杂的继承关系。</p>
-<p>为了更好地看出继承关系，我们把Runnable和Flyable改为RunnableMixIn和FlyableMixIn。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%889.27.45.png" alt=""></p>
+<p>为了更好地看出继承关系，我们把Runnable和Flyable改为RunnableMixIn和FlyableMixIn。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%889.27.45.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <p>这样一来，<strong>我们不需要复杂而庞大的继承链，只要选择组合不同的类的功能，就可以快速构造出所需的子类。</strong></p>
 <p>由于Python允许使用多重继承，因此，MixIn就是一种常见的设计。</p>
 <p>只允许单一继承的语言（如Java）不能使用MixIn的设计。</p>
-<h2 id="定制类"><a href="#定制类" class="headerlink" title="定制类"></a>定制类</h2><h3 id="str"><a href="#str" class="headerlink" title="__str__"></a>__str__</h3><p>定义好__str__()方法，返回一个好看的字符串就可以了。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%889.34.25.png" alt=""></p>
+<h2 id="定制类"><a href="#定制类" class="headerlink" title="定制类"></a>定制类</h2><h3 id="str"><a href="#str" class="headerlink" title="__str__"></a>__str__</h3><p>定义好__str__()方法，返回一个好看的字符串就可以了。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%889.34.25.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <p>这是因为直接显示变量调用的不是__str__()，而是__repr__()，两者的区别是__str__()返回用户看到的字符串，而__repr__()返回程序开发者看到的字符串，也就是说，__repr__()是为调试服务的。</p>
-<p>解决办法是再定义一个__repr__()。但是通常__str__()和__repr__()代码都是一样的，所以，有个偷懒的写法。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%889.39.31.png" alt=""></p>
-<h3 id="iter"><a href="#iter" class="headerlink" title="__iter__"></a>__iter__</h3><p> 如果一个类想被用于for … in循环，类似list或tuple那样，就必须实现一个__iter__()方法，该方法返回一个迭代对象，然后，Python的for循环就会不断调用该迭代对象的__next__()方法拿到循环的下一个值，直到遇到StopIteration错误时退出循环。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%889.45.53.png" alt=""></p>
-<h3 id="getitem"><a href="#getitem" class="headerlink" title="__getitem__"></a>__getitem__</h3><p>要表现得像list那样按照下标取出元素，需要实现__getitem__()方法。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%889.48.36.png" alt=""></p>
+<p>解决办法是再定义一个__repr__()。但是通常__str__()和__repr__()代码都是一样的，所以，有个偷懒的写法。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%889.39.31.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="iter"><a href="#iter" class="headerlink" title="__iter__"></a>__iter__</h3><p> 如果一个类想被用于for … in循环，类似list或tuple那样，就必须实现一个__iter__()方法，该方法返回一个迭代对象，然后，Python的for循环就会不断调用该迭代对象的__next__()方法拿到循环的下一个值，直到遇到StopIteration错误时退出循环。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%889.45.53.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="getitem"><a href="#getitem" class="headerlink" title="__getitem__"></a>__getitem__</h3><p>要表现得像list那样按照下标取出元素，需要实现__getitem__()方法。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%889.48.36.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <p>但是如果想要正确实现一个__getitem__()还是要有很多工作要做的。</p>
 <p>此外，如果把对象看成dict，__getitem__()的参数也可能是一个可以作key的object，例如str。</p>
 <p>与之对应的是__setitem、__()方法，把对象视作list或dict来对集合赋值。最后，还有一个__delitem__()方法，用于删除某个元素。</p>
 <p>总之，通过上面的方法，我们自己定义的类表现得和Python自带的list、tuple、dict没什么区别，这完全归功于动态语言的“鸭子类型”，不需要强制继承某个接口。</p>
 <h3 id="getattr"><a href="#getattr" class="headerlink" title="__getattr__"></a>__getattr__</h3><p>正常情况下，当我们调用类的方法或属性时，如果不存在，就会报错。</p>
-<p>要避免这个错误，Python还有另一个机制，那就是写一个__getattr__()方法，动态返回一个属性。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%889.55.54.png" alt=""></p>
+<p>要避免这个错误，Python还有另一个机制，那就是写一个__getattr__()方法，动态返回一个属性。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%889.55.54.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <p>当调用不存在的属性时，比如score，Python解释器会试图调用__getattr__(self, ‘score’)来尝试获得属性，这样，我们就有机会返回score的值。</p>
 <p>返回函数也是完全可以的。</p>
 <p>注意，只有在没有找到属性的情况下，才调用__getattr__，已有的属性，比如name，不会在__getattr__中查找。</p>
 <p>此外，注意到任意调用如s.abc都会返回None，这是因为我们定义的__getattr__默认返回就是None。要让class只响应特定的几个属性，我们就要按照约定，抛出AttributeError的错误。          </p>
 <h3 id="call"><a href="#call" class="headerlink" title="__call__"></a>__call__</h3><p>一个对象实例可以有自己的属性和方法，当我们调用实例方法时，我们用instance.method()来调用。</p>
-<p>任何类，只需要定义一个__call__()方法，就可以直接对实例进行调用。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%8810.26.54.png" alt=""></p>
-<p><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%8810.27.07.png" alt=""></p>
+<p>任何类，只需要定义一个__call__()方法，就可以直接对实例进行调用。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%8810.26.54.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%8810.27.07.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>__call__()还可以定义参数。对实例进行直接调用就好比对一个函数进行调用一样，所以你完全可以把对象看成函数，把函数看成对象，因为这两者之间本来就没啥根本的区别。</p>
 <p>如果你把对象看成函数，那么函数本身其实也可以在运行期动态创建出来，因为类的实例都是运行期创建出来的，这么一来，我们就模糊了对象和函数的界限。</p>
 <p>更多的时候，我们需要判断一个对象是否能被调用，能被调用的对象就是一个Callable对象，比如函数和我们上面定义的带有__call__()的类实例。</p>
-<p><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%8810.35.06.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-31%20%E4%B8%8B%E5%8D%8810.35.06.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>通过callable()函数，我们就可以判断一个对象是否是“可调用”对象。</p>
-<h2 id="使用枚举类"><a href="#使用枚举类" class="headerlink" title="使用枚举类"></a>使用枚举类</h2><p>Python提供了Enum类。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-01%20%E4%B8%8A%E5%8D%8811.31.06.png" alt=""></p>
-<p><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-01%20%E4%B8%8A%E5%8D%8811.33.05.png" alt=""></p>
+<h2 id="使用枚举类"><a href="#使用枚举类" class="headerlink" title="使用枚举类"></a>使用枚举类</h2><p>Python提供了Enum类。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-01%20%E4%B8%8A%E5%8D%8811.31.06.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-01%20%E4%B8%8A%E5%8D%8811.33.05.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h2 id="使用元类"><a href="#使用元类" class="headerlink" title="使用元类"></a>使用元类</h2><h3 id="type"><a href="#type" class="headerlink" title="type()"></a>type()</h3><p>动态语言和静态语言最大的不同，就是函数和类的定义，不是编译时定义的，而是运行时动态创建的。</p>
 <p>我们说class的定义是运行时动态创建的，而创建class的方法就是使用type()函数。</p>
 <p>type()函数既可以返回一个对象的类型，又可以创建出新的类型。</p>
-<p>要创建一个class对象，type()函数依次传入3个参数。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-01%20%E4%B8%8A%E5%8D%8811.37.45.png" alt=""></p>
+<p>要创建一个class对象，type()函数依次传入3个参数。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-01%20%E4%B8%8A%E5%8D%8811.37.45.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <p>通过type()函数创建的类和直接写class是完全一样的，因为Python解释器遇到class定义时，仅仅是扫描一下class定义的语法，然后调用type()函数创建出class。</p>
 <p>正常情况下，我们都用class Xxx…来定义类，但是，type()函数也允许我们动态创建出类来，也就是说，动态语言本身支持运行期动态创建类，这和静态语言有非常大的不同，要在静态语言运行期创建类，必须构造源代码字符串再调用编译器，或者借助一些工具生成字节码实现，本质上都是动态编译，会非常复杂。</p>
 <h3 id="metaclass"><a href="#metaclass" class="headerlink" title="metaclass"></a>metaclass</h3><p>除了使用type()动态创建类以外，要控制类的创建行为，还可以使用metaclass。</p>
 <p>metaclass，直译为元类，简单的解释就是，当我们定义了类以后，就可以根据这个类创建出实例，所以：先定义类，然后创建实例。</p>
 <p>先定义metaclass，就可以创建类，最后创建实例。metaclass允许你创建类或者修改类，可以把类看成是metaclass创建出来的“实例”。</p>
-<p>按照默认习惯，metaclass的类名总是以Metaclass结尾，以便清楚地表示这是一个metaclass。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-01%20%E4%B8%8A%E5%8D%8811.43.13.png" alt=""></p>
+<p>按照默认习惯，metaclass的类名总是以Metaclass结尾，以便清楚地表示这是一个metaclass。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-01%20%E4%B8%8A%E5%8D%8811.43.13.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <p>metaclass是Python面向对象里最难理解，也是最难使用的魔术代码。</p>
 <p>编写ORM会用到。</p>
-<h1 id="错误、调试和测试"><a href="#错误、调试和测试" class="headerlink" title="错误、调试和测试"></a>错误、调试和测试</h1><h2 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h2><h3 id="try"><a href="#try" class="headerlink" title="try"></a>try</h3><p><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-01%20%E4%B8%8B%E5%8D%881.40.16.png" alt=""></p>
+<h1 id="错误、调试和测试"><a href="#错误、调试和测试" class="headerlink" title="错误、调试和测试"></a>错误、调试和测试</h1><h2 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h2><h3 id="try"><a href="#try" class="headerlink" title="try"></a>try</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-01%20%E4%B8%8B%E5%8D%881.40.16.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>当我们认为某些代码可能会出错时，就可以用try来运行这段代码，如果执行出错，则后续代码不会继续执行，而是直接跳转至错误处理代码，即except语句块，执行完except后，如果有finally语句块，则执行finally语句块，至此，执行完毕。</p>
 <p>可以有多个except来捕获不同类型的错误。</p>
 <p>可以在except语句块后面加一个else，当没有错误发生时，会自动执行else语句。</p>
-<p><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-01%20%E4%B8%8B%E5%8D%881.41.50.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-01%20%E4%B8%8B%E5%8D%881.41.50.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>Python的错误其实也是class，所有的错误类型都继承自BaseException，所以在使用except时需要注意的是，它不但捕获该类型的错误，还把其子类也“一网打尽”。</p>
 <h3 id="调用栈"><a href="#调用栈" class="headerlink" title="调用栈"></a>调用栈</h3><p>如果错误没有被捕获，它就会一直往上抛，最后被Python解释器捕获，打印一个错误信息，然后程序退出。</p>
 <p>出错的时候，一定要分析错误的调用栈信息，才能定位错误的位置。</p>
@@ -341,36 +551,102 @@
 <p>同样是出错，但程序打印完错误信息后会继续执行，并正常退出。</p>
 <p>通过配置，logging还可以把错误记录到日志文件里，方便事后排查。</p>
 <h3 id="抛出错误"><a href="#抛出错误" class="headerlink" title="抛出错误"></a>抛出错误</h3><p>因为错误是class，捕获一个错误就是捕获到该class的一个实例。因此，错误并不是凭空产生的，而是有意创建并抛出的。Python的内置函数会抛出很多类型的错误，我们自己编写的函数也可以抛出错误。</p>
-<p>如果要抛出错误，首先根据需要，可以定义一个错误的class，选择好继承关系，然后，用raise语句抛出一个错误的实例。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-01%20%E4%B8%8B%E5%8D%882.47.07.png" alt=""></p>
+<p>如果要抛出错误，首先根据需要，可以定义一个错误的class，选择好继承关系，然后，用raise语句抛出一个错误的实例。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-01%20%E4%B8%8B%E5%8D%882.47.07.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <p>只有在必要的时候才定义我们自己的错误类型。如果可以选择Python已有的内置的错误类型（比如ValueError，TypeError），尽量使用Python内置的错误类型。</p>
 <p>raise语句如果不带参数，就会把当前错误原样抛出。</p>
 <p>捕获错误目的只是记录一下，便于后续追踪。但是，由于当前函数不知道应该怎么处理该错误，所以，最恰当的方式是继续往上抛，让顶层调用者去处理。</p>
 <h2 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h2><p>第一种方法简单直接粗暴有效，就是用print()把可能有问题的变量打印出来看看</p>
 <p>用print()最大的坏处是将来还得删掉它，想想程序里到处都是print()，运行结果也会包含很多垃圾信息。所以，我们又有第二种方法。</p>
-<h3 id="断言"><a href="#断言" class="headerlink" title="断言"></a>断言</h3><p>凡是用print()来辅助查看的地方，都可以用断言（assert）来替代。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-01%20%E4%B8%8B%E5%8D%882.53.57.png" alt=""></p>
+<h3 id="断言"><a href="#断言" class="headerlink" title="断言"></a>断言</h3><p>凡是用print()来辅助查看的地方，都可以用断言（assert）来替代。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-01%20%E4%B8%8B%E5%8D%882.53.57.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <p>assert的意思是，表达式n != 0应该是True，否则，根据程序运行的逻辑，后面的代码肯定会出错。</p>
-<p>如果断言失败，assert语句本身就会抛出AssertionError。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-01%20%E4%B8%8B%E5%8D%882.55.12.png" alt=""></p>
-<p>程序中如果到处充斥着assert，和print()相比也好不到哪去。不过，启动Python解释器时可以用-O参数来关闭assert。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-01%20%E4%B8%8B%E5%8D%882.55.35.png" alt=""></p>
+<p>如果断言失败，assert语句本身就会抛出AssertionError。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-01%20%E4%B8%8B%E5%8D%882.55.12.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>程序中如果到处充斥着assert，和print()相比也好不到哪去。不过，启动Python解释器时可以用-O参数来关闭assert。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-01%20%E4%B8%8B%E5%8D%882.55.35.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <p>关闭后，你可以把所有的assert语句当成pass来看。</p>
 <h3 id="logging"><a href="#logging" class="headerlink" title="logging"></a>logging</h3><p>把print()替换为logging是第3种方式，和assert比，logging不会抛出错误，而且可以输出到文件。</p>
 <p>这就是logging的好处，它允许你指定记录信息的级别，有debug，info，warning，error等几个级别，当我们指定level=INFO时，logging.debug就不起作用了。同理，指定level=WARNING后，debug和info就不起作用了。这样一来，你可以放心地输出不同级别的信息，也不用删除，最后统一控制输出哪个级别的信息。</p>
 <p>logging的另一个好处是通过简单的配置，一条语句可以同时输出到不同的地方，比如console和文件。</p>
 <h3 id="pdb"><a href="#pdb" class="headerlink" title="pdb"></a>pdb</h3><p>第4种方式是启动Python的调试器pdb，让程序以单步方式运行，可以随时查看运行状态。</p>
-<p>以参数-m pdb启动后，pdb定位到下一步要执行的代码-&gt; s = ‘0’。输入命令l来查看代码。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-01%20%E4%B8%8B%E5%8D%882.57.37.png" alt=""></p>
+<p>以参数-m pdb启动后，pdb定位到下一步要执行的代码-&gt; s = ‘0’。输入命令l来查看代码。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-01%20%E4%B8%8B%E5%8D%882.57.37.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <p>输入命令n可以单步执行代码。</p>
 <p>任何时候都可以输入命令p 变量名来查看变量。</p>
 <p>这种通过pdb在命令行调试的方法理论上是万能的，但实在是太麻烦了，如果有一千行代码，要运行到第999行得敲多少命令啊。还好，我们还有另一种调试方法。</p>
-<h3 id="pdb-set-trace"><a href="#pdb-set-trace" class="headerlink" title="pdb.set_trace()"></a>pdb.set_trace()</h3><p>这个方法也是用pdb，但是不需要单步执行，我们只需要import pdb，然后，在可能出错的地方放一个pdb.set_trace()，就可以设置一个断点。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-01%20%E4%B8%8B%E5%8D%882.58.57.png" alt=""></p>
-<p>运行代码，程序会自动在pdb.set_trace()暂停并进入pdb调试环境，可以用命令p查看变量，或者用命令c继续运行。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-01%20%E4%B8%8B%E5%8D%882.59.53.png" alt=""></p>
+<h3 id="pdb-set-trace"><a href="#pdb-set-trace" class="headerlink" title="pdb.set_trace()"></a>pdb.set_trace()</h3><p>这个方法也是用pdb，但是不需要单步执行，我们只需要import pdb，然后，在可能出错的地方放一个pdb.set_trace()，就可以设置一个断点。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-01%20%E4%B8%8B%E5%8D%882.58.57.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>运行代码，程序会自动在pdb.set_trace()暂停并进入pdb调试环境，可以用命令p查看变量，或者用命令c继续运行。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-01%20%E4%B8%8B%E5%8D%882.59.53.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <h3 id="IDE"><a href="#IDE" class="headerlink" title="IDE"></a>IDE</h3><p>如果要比较爽地设置断点、单步执行，就需要一个支持调试功能的IDE。目前比较好的Python IDE有，Visual Studio Code，需要安装Python插件。PyCharm。</p>
 <h2 id="单元测试"><a href="#单元测试" class="headerlink" title="单元测试"></a>单元测试</h2><p>单元测试是用来对一个模块、一个函数或者一个类来进行正确性检验的测试工作。</p>
 <p>这种以测试为驱动的开发模式最大的好处就是确保一个程序模块的行为符合我们设计的测试用例。在将来修改的时候，可以极大程度地保证该模块行为仍然是正确的</p>
 <p>为了编写单元测试，我们需要引入Python自带的unittest模块。</p>
 <p>编写单元测试时，我们需要编写一个测试类，从unittest.TestCase继承。</p>
-<p><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-02%20%E4%B8%8A%E5%8D%889.54.03.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-02%20%E4%B8%8A%E5%8D%889.54.03.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>以test开头的方法就是测试方法，不以test开头的方法不被认为是测试方法，测试的时候不会被执行。</p>
-<p>对每一类测试都需要编写一个test_xxx()方法。由于unittest.TestCase提供了很多内置的条件判断，我们只需要调用这些方法就可以断言输出是否是我们所期望的。最常用的断言就是assertEqual()。<br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-02%20%E4%B8%8A%E5%8D%889.50.35.png" alt=""><br><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-02%20%E4%B8%8A%E5%8D%889.53.05.png" alt=""></p>
-<h3 id="运行单元测试"><a href="#运行单元测试" class="headerlink" title="运行单元测试"></a>运行单元测试</h3><p><img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-02%20%E4%B8%8A%E5%8D%889.56.19.png" alt=""></p>
+<p>对每一类测试都需要编写一个test_xxx()方法。由于unittest.TestCase提供了很多内置的条件判断，我们只需要调用这些方法就可以断言输出是否是我们所期望的。最常用的断言就是assertEqual()。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-02%20%E4%B8%8A%E5%8D%889.50.35.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-02%20%E4%B8%8A%E5%8D%889.53.05.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="运行单元测试"><a href="#运行单元测试" class="headerlink" title="运行单元测试"></a>运行单元测试</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/15356990280423/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-02%20%E4%B8%8A%E5%8D%889.56.19.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h2 id="文档测试"><a href="#文档测试" class="headerlink" title="文档测试"></a>文档测试</h2><p>如果你经常阅读Python的官方文档，可以看到很多文档都有示例代码。</p>
 <p>可以把这些示例代码在Python的交互式环境下输入并执行，结果与文档中的示例代码显示的一致。</p>
 <p>Python内置的“文档测试”（doctest）模块可以直接提取注释中的代码并执行测试。</p>
@@ -510,9 +786,7 @@
             </span>
         </p>
     </div>
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-      </span>
+
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
     </script>
 </footer>
