@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Trie树 | ZDK&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="算法">
+    <meta name="description" content="Trie树 实现搜索引擎的搜索关键词提示功能  什么是Trie树Trie树也叫字典树，是一种专门处理字符串匹配的数据结构，用来解决在一组字符串集合中快速查找某个字符串的问题。 例如有6个字符串，分别是how,hi,her,hello,so,see。想要在里面多次查找某个字符串是否存在。如果每次查找都是依次匹配，效率就比较低。可以对6个字符串进行预处理组织成Trie树结构，之后每次查找都是在Trie">
+<meta name="keywords" content="算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Trie树">
+<meta property="og:url" content="https://github.com/zdkswd/2019/07/21/Trie树/index.html">
+<meta property="og:site_name" content="ZDK&#39;s blog">
+<meta property="og:description" content="Trie树 实现搜索引擎的搜索关键词提示功能  什么是Trie树Trie树也叫字典树，是一种专门处理字符串匹配的数据结构，用来解决在一组字符串集合中快速查找某个字符串的问题。 例如有6个字符串，分别是how,hi,her,hello,so,see。想要在里面多次查找某个字符串是否存在。如果每次查找都是依次匹配，效率就比较低。可以对6个字符串进行预处理组织成Trie树结构，之后每次查找都是在Trie">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/img/media/Trie/1563680626182.png">
+<meta property="og:image" content="https://github.com/img/media/Trie/1563681424275.png">
+<meta property="og:image" content="https://github.com/img/media/Trie/1563681913971.png">
+<meta property="og:image" content="https://github.com/img/media/Trie/1563689623849.png">
+<meta property="og:updated_time" content="2019-07-21T06:46:22.549Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Trie树">
+<meta name="twitter:description" content="Trie树 实现搜索引擎的搜索关键词提示功能  什么是Trie树Trie树也叫字典树，是一种专门处理字符串匹配的数据结构，用来解决在一组字符串集合中快速查找某个字符串的问题。 例如有6个字符串，分别是how,hi,her,hello,so,see。想要在里面多次查找某个字符串是否存在。如果每次查找都是依次匹配，效率就比较低。可以对6个字符串进行预处理组织成Trie树结构，之后每次查找都是在Trie">
+<meta name="twitter:image" content="https://github.com/img/media/Trie/1563680626182.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="ZDK&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/tmg.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">ZDK</h5>
+          <a href="mailto:2822464407@qq.com" title="2822464407@qq.com" class="mail">2822464407@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/zdkswd" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Trie树</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Trie树</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-07-21T06:45:47.000Z" itemprop="datePublished" class="page-time">
+  2019-07-21
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Trie树"><span class="post-toc-number">1.</span> <span class="post-toc-text">Trie树</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#什么是Trie树"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">什么是Trie树</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实现Trie树"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">实现Trie树</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Trie树与散列表、红黑树的比较"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">Trie树与散列表、红黑树的比较</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Trie树"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Trie树</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-07-21 14:45:47" datetime="2019-07-21T06:45:47.000Z"  itemprop="datePublished">2019-07-21</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/知识总结/">知识总结</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="Trie树"><a href="#Trie树" class="headerlink" title="Trie树"></a>Trie树</h1><blockquote>
+<p>实现搜索引擎的搜索关键词提示功能</p>
+</blockquote>
+<h2 id="什么是Trie树"><a href="#什么是Trie树" class="headerlink" title="什么是Trie树"></a>什么是Trie树</h2><p>Trie树也叫<strong>字典树</strong>，是一种专门处理字符串匹配的数据结构，用来解决在一组字符串集合中快速查找某个字符串的问题。</p>
+<p>例如有6个字符串，分别是how,hi,her,hello,so,see。想要在里面多次查找某个字符串是否存在。如果每次查找都是依次匹配，效率就比较低。可以对6个字符串进行预处理组织成Trie树结构，之后每次查找都是在Trie树中进行匹配查找。<strong>Trie树的本质就是利用字符串之间的公共前缀，将重复的前缀合并在一起。</strong></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Trie/1563680626182.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>根节点不包含任何信息，每个节点表示一个字符串中的字符，从根节点到红色节点的一条路径表示一个字符串（注意：红色节点并不都是叶子节点）。</p>
+<p>字符串的构造过程如下，Trie树构造的每一步，都相当于往Trie树中插入一个字符串。当所有字符串都插入完成后，Trie树就构造好了。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Trie/1563681424275.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>在进行查找时就是从根节点开始，但是不一定一路到叶子节点。可能提前终止。</p>
+<h2 id="实现Trie树"><a href="#实现Trie树" class="headerlink" title="实现Trie树"></a>实现Trie树</h2><p>Trie树主要有<strong>两个操作</strong>，<strong>一个是将字符串集合构造成Trie树</strong>。这个就是将字符串插入到Trie树的过程。<strong>另一个是在Trie树中查询一个字符串</strong>。</p>
+<hr>
+<p>存储一个Trie树</p>
+<p>一种经典的存储方式是借助散列表的思想，通过下标与字符–映射的数组来存储子节点的指针。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Trie/1563681913971.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<hr>
+<p>在Trie树中查找某个字符串的<strong>时间复杂分析</strong>：</p>
+<p>在一组字符串中频繁查询某些字符串，用Trie树会非常高效，构建Trie树的过程需要扫描所有的字符串，时间复杂度是O(n)。一旦构建成功之后，后续的查询操作会非常高效。</p>
+<p>构建好Trie树后，在其中查找字符串的时间复杂度是O(k)，k表示要查找的字符串的长度。</p>
+<hr>
+<p>Trie树<strong>内存分析</strong>：</p>
+<p>在Trie树实现时，用到数组来存储一个节点的子节点指针，如果字符串中包含从a到z这26个字符，则每个节点都要存储一个长度为26的数组，即便一个节点只有很少的子节点，远少于26个，也要维护一个长度为26的数组。如果字符串中不仅包含小写字母，还包含大写字母、数字、中文，那需要的存储空间就更加多了。即Trie树不旦不能节省内存，还有可能会浪费更多的内存。</p>
+<h2 id="Trie树与散列表、红黑树的比较"><a href="#Trie树与散列表、红黑树的比较" class="headerlink" title="Trie树与散列表、红黑树的比较"></a>Trie树与散列表、红黑树的比较</h2><ol>
+<li>字符串中包含的字符集不能太大。我们前面讲到，如果字符集太大，那存储空间可能就会浪费很多。即便可以优化，但也要付出牺牲查询、插入效率的代价。</li>
+<li>要求字符串的前缀重合比较多，不然空间消耗会变大很多。</li>
+<li>如果要用Trie树解决问题，那就要自己从零开始实现一个Trie树，还要保证没有bug，这个在工程上是将简单问题复杂化，除非必须，一般不建议这样做。</li>
+<li>通过指针串起来的数据块是不连续的，而Trie树中用到了指针，所以，对缓存并不友好，性能上会打个折扣。</li>
+</ol>
+<p>在工程中，更倾向于使用散列表或者红黑树，因为这两种数据结构都不需要自己去实现，Trie树更适合于查找前缀匹配的字符串，比如搜索引擎的提示框。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/media/Trie/1563689623849.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>以及输入法的自动补全功能、IDE代码自动补全等。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-07-21T06:46:22.549Z" itemprop="dateUpdated">2019-07-21 14:46:22</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/zdkswd">
+            <img src="/img/tmg.jpg" alt="ZDK">
+            ZDK
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/07/20/Tomcat系统架构/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Tomcat系统架构</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "QiU7UFIdgTTauFTk89N47mQS-gzGzoHsz",
+            appKey: "gkBx5soQkBREmER84PWbNJeM",
+            avatar: "mm",
+            placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>ZDK &copy; 2017 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'zdk'blog';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
